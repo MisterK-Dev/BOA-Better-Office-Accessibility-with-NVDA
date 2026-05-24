@@ -1,4 +1,4 @@
-# BOA: Blind Office Accessibility
+# BOA: Better Office Accessibility
 
 BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
 
