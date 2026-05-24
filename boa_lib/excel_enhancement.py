@@ -15,10 +15,16 @@ _is_renaming_sheet = False
 _last_selection_count = 1
 
 def check_unselect(obj):
+    """
+    Called whenever Excel selection or focus changes.
+    Its primary purpose is to detect when a user has a multi-cell selection (e.g., A1 through D1)
+    and suddenly presses an arrow key, causing the selection to drop down to a single cell.
+    Standard NVDA does not announce "unselected" in Excel, leaving the user unaware they lost their range.
+    """
     global _last_selection_count
     try:
         className = getattr(obj, "windowClassName", "")
-        # Filter purely to Excel's grid/cell classes to avoid unnecessary COM calls
+        # Filter purely to Excel's grid/cell classes to avoid unnecessary and expensive COM calls on other UI elements.
         if className not in ("EXCEL7", "NetUIHWND", "XLDESK"):
             return
             
@@ -26,18 +32,20 @@ def check_unselect(obj):
         import comtypes.automation
         import ctypes
         
-        # Fast hook to active Excel instance
+        # Attempt to hook into the active Excel instance via standard COM.
         excel = None
         try:
             excel = comtypes.client.GetActiveObject("Excel.Application")
         except Exception:
-            # Fallback to UIA hook if GetActiveObject fails
+            # Fallback: If GetActiveObject fails (common due to Windows security boundaries or multiple instances),
+            # we manually crawl the window tree to find the raw EXCEL7 grid handle.
             hwnd7 = ctypes.windll.user32.FindWindowW("XLMAIN", None)
             if hwnd7:
                 xldesk = ctypes.windll.user32.FindWindowExW(hwnd7, 0, "XLDESK", None)
                 if xldesk:
                     hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
             if hwnd7:
+                # Use AccessibleObjectFromWindow to force a back-door COM connection directly from the HWND.
                 oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
                 ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
                 res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
@@ -48,6 +56,7 @@ def check_unselect(obj):
             sel = excel.Selection
             if getattr(sel, 'Cells', None):
                 count = sel.Cells.Count
+                # If we previously had >1 cells selected, and now we only have 1, the user dropped the selection.
                 if count == 1 and _last_selection_count > 1:
                     import speech
                     speech.speakMessage("unselected")
@@ -70,6 +79,9 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
             wx.CallAfter(self._show_rename_dialog, initial_name, self.windowHandle)
 
     def _show_rename_dialog(self, initial_name, hwnd):
+        """
+        Creates the custom WX dialog to capture the new sheet name from the user.
+        """
         gui.mainFrame.prePopup()
         dlg = wx.TextEntryDialog(gui.mainFrame, "Enter new sheet name:", "Rename Sheet", initial_name)
         dlg.Raise()
@@ -79,17 +91,26 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
         gui.mainFrame.postPopup()
         
         def bg_task():
+            """
+            Background thread that securely injects the typed sheet name back into Excel's native edit field.
+            Using a background thread prevents blocking NVDA's main core loop.
+            """
             global _is_renaming_sheet
             try:
                 time.sleep(0.1)
+                # Force Excel back to the foreground so it can receive keystrokes.
                 winUser.setForegroundWindow(hwnd)
                 time.sleep(0.2)
                 
                 clean_name = new_name.strip() if new_name else ""
                 if not clean_name:
+                    # If the user cancelled or typed nothing, send Escape to abort Excel's native rename mode.
                     core.callLater(10, lambda: keyboardHandler.KeyboardInputGesture.fromName("escape").send())
                     return
                     
+                # SECURITY CHECK: Verify the foreground process ID matches Excel.
+                # This prevents the addon from accidentally pasting the sheet name into a password field
+                # if the user aggressively Alt-Tabbed to their browser during the delay.
                 import ctypes
                 fg_hwnd = winUser.getForegroundWindow()
                 fg_pid = ctypes.c_ulong()
@@ -102,6 +123,7 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                     log.warning("BOA: Foreground window mismatch! Aborting keystroke injection to prevent pasting into wrong app.")
                     return
                 
+                # Safely back up the user's existing clipboard contents.
                 import api
                 old_clip = ""
                 try:
@@ -110,6 +132,8 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                     pass
                 
                 try:
+                    # Inject the string via the clipboard and simulate Ctrl+V.
+                    # This is vastly more reliable and instantaneous than simulating individual keystrokes.
                     api.copyToClip(clean_name)
                     time.sleep(0.2)
                     
@@ -120,6 +144,7 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                         import speech
                         core.callLater(10, lambda: speech.speakMessage(f"Renaming to {clean_name}"))
                 finally:
+                    # Restore the user's original clipboard content once finished.
                     time.sleep(0.5)
                     if old_clip:
                         api.copyToClip(old_clip)
@@ -127,13 +152,20 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                 time.sleep(1.5)
                 _is_renaming_sheet = False
 
+        # Launch the background thread immediately after the dialog closes.
         threading.Thread(target=bg_task).start()
 
     def _get_name(self):
         return "Rename sheet"
 
     def _fetch_sheet_name(self):
+        """
+        Since the native edit field does not correctly expose its initial text to NVDA,
+        we must manually hunt down the selected sheet tab in the Excel UI tree
+        to find out what the sheet's current name is before renaming it.
+        """
         try:
+            # Step 1: Traverse up the object tree to find the main Excel window (XLMAIN).
             p = getattr(self, 'parent', None)
             xlmain_hwnd = None
             while p:
@@ -146,7 +178,7 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                 xlmain_uia = UIAHandler.handler.clientObject.ElementFromHandle(xlmain_hwnd)
                 if xlmain_uia:
                     log.info("BOA: XLMAIN UIA found! Searching for TabItems...")
-                    # Find all TabItem elements
+                    # Step 2: Search the UI Automation tree for TabItems (standard sheet tabs).
                     condition = UIAHandler.handler.clientObject.CreatePropertyCondition(
                         UIAHandler.UIA_ControlTypePropertyId, 
                         UIAHandler.UIA_TabItemControlTypeId
@@ -157,7 +189,7 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                         for i in range(tabs.length):
                             tab = tabs.GetElement(i)
                             try:
-                                # 30079 is UIA_SelectionItemIsSelectedPropertyId
+                                # Property 30079 is UIA_SelectionItemIsSelectedPropertyId
                                 is_sel = tab.GetCurrentPropertyValue(30079)
                                 name = tab.CurrentName
                                 log.info(f"BOA: TabItem {i}: name='{name}', selected={is_sel}")
@@ -166,8 +198,8 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                             except Exception as e:
                                 log.info(f"BOA: Error checking selection for tab {i}: {e}")
                     else:
+                        # Step 3: Fallback for newer Excel 365 builds where sheet tabs are rendered as ListItems!
                         log.info("BOA: No TabItems found. Searching for ListItem controls instead...")
-                        # In newer Excel builds, sheet tabs are sometimes ListItems inside a List!
                         condition2 = UIAHandler.handler.clientObject.CreatePropertyCondition(
                             UIAHandler.UIA_ControlTypePropertyId, 
                             UIAHandler.UIA_ListItemControlTypeId
@@ -207,6 +239,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
         core.callLater(50, self._check_multi_selection)
 
     def _check_multi_selection(self):
+        """
+        Manually checks the Excel COM model to announce the currently selected cell range.
+        This fixes the silence that happens when a user types a range (e.g. A1:D5) into the "Go To" dialog and presses Enter.
+        """
         import comtypes.client
         import comtypes.automation
         import ctypes
@@ -226,9 +262,9 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 excel = win.Application
                 sel = excel.Selection
                 
-                # Verify it is a Range (has Cells property) and has > 1 cell selected
+                # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
                 if getattr(sel, 'Cells', None) and sel.Cells.Count > 1:
-                    address = sel.Address(False, False) # e.g. "A1:D1"
+                    address = sel.Address(False, False) # Returns string like "A1:D1"
                     spoken_address = address.replace(":", " through ")
                     speech.speakMessage(f"{spoken_address} selected")
         except Exception:
@@ -344,6 +380,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
         
         if planned_moves:
             def bg_task():
+                """
+                Background thread for executing the bulk sheet arrangements via COM.
+                We execute this in the background to prevent the Excel COM calls from freezing NVDA.
+                """
                 import time
                 import winUser
                 import comtypes.client
@@ -352,7 +392,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 import speech
                 import logHandler
                 
-                # MUST INITIALIZE COM FOR BACKGROUND THREAD
+                # CRITICAL: Any background thread interacting with Office COM MUST call CoInitialize
+                # before making API calls, otherwise comtypes will crash or disconnect randomly.
                 ctypes.windll.ole32.CoInitialize(None)
                 try:
                     time.sleep(0.1)
@@ -366,7 +407,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         excel = comtypes.client.dynamic.Dispatch(ptr).Application
                         wb = excel.ActiveWorkbook
                         
-                        # Calculate final desired order
+                        # Step 1: Calculate the final desired mathematical order of the sheets.
                         unmoved = [s for s in sheet_names if s not in planned_moves]
                         moved = [(s, planned_moves[s]) for s in planned_moves]
                         moved.sort(key=lambda x: x[1])
@@ -376,10 +417,13 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             insert_idx = min(pos - 1, len(final_list))
                             final_list.insert(insert_idx, s)
                             
-                        # Apply final order to Excel
-                        # We reconstruct the array backwards:
+                        # Step 2: Apply the final computed order to Excel.
+                        # Because Excel's COM Move() command only supports 'Before' and 'After', 
+                        # moving elements iteratively from left to right causes index shifting bugs.
+                        # We reconstruct the array safely by moving from Right to Left!
                         total_sheets = wb.Sheets.Count
                         if total_sheets > 1:
+                            # Secure the absolute last sheet first
                             last_sheet_name = final_list[-1]
                             sheet = wb.Sheets(last_sheet_name)
                             if sheet.Index < total_sheets:
@@ -387,11 +431,13 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                     sheet.Move(wb.Sheets(total_sheets))
                                 wb.Sheets(total_sheets).Move(sheet)
                                 
+                            # Working backwards, move every other sheet directly BEFORE the one to its right.
                             for i in range(len(final_list) - 2, -1, -1):
                                 sheet_name = final_list[i]
                                 sheet_after_name = final_list[i + 1]
                                 
-                                # Re-fetch by name to avoid COM disconnects
+                                # We must re-fetch the sheet objects by name on every iteration 
+                                # to avoid stale COM references caused by the previous move operations.
                                 sheet = wb.Sheets(sheet_name)
                                 sheet_after = wb.Sheets(sheet_after_name)
                                 
@@ -404,12 +450,18 @@ class ExcelGridMover(NVDAObjects.window.Window):
                     speech.speakMessage(f"Error during bulk move: {e}")
                     logHandler.log.error(f"BOA bulk bg error: {e}")
                 finally:
+                    # CRITICAL: Always uninitialize the COM apartment when the thread finishes to prevent memory leaks.
                     ctypes.windll.ole32.CoUninitialize()
                     
             import threading
             threading.Thread(target=bg_task).start()
 
     def script_openBulkSheetOrganizer(self, gesture):
+        """
+        NVDA script triggered by the user (NVDA+Alt+C).
+        It connects to Excel, grabs a list of all current sheet names, 
+        and then opens the custom Bulk Sheet Organizer WX dialog.
+        """
         import comtypes.client
         import comtypes.automation
         import ctypes
@@ -446,8 +498,11 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 speech.speakMessage("No active workbook.")
                 return
                 
+            # Extract the names of every sheet currently in the workbook to populate the dialog.
             total_sheets = wb.Sheets.Count
             sheet_names = [wb.Sheets(i).Name for i in range(1, total_sheets + 1)]
+            
+            # Use wx.CallAfter to safely push the dialog creation onto NVDA's main GUI thread.
             wx.CallAfter(self._show_bulk_dialog, sheet_names, hwnd7)
         except Exception as e:
             speech.speakMessage("Error opening organizer")
@@ -469,44 +524,56 @@ class ExcelGridMover(NVDAObjects.window.Window):
     }
 
 class ExcelBulkSheetOrganizerDialog(wx.Dialog):
+    """
+    A custom wxPython Dialog that provides a fully accessible interface for bulk moving sheets.
+    wxPython is the GUI framework used by NVDA.
+    """
     def __init__(self, parent, sheet_names):
         super().__init__(parent, title="Bulk Sheet Organizer")
         self.sheet_names = sheet_names
-        self.planned_moves = {} # Dict: sheet_name -> target_pos
+        # Dictionary to track the user's requested moves before they press OK.
+        # Format: {"Sheet1": 3, "Sheet2": 1}
+        self.planned_moves = {} 
         
+        # main_sizer is the master layout container. 
+        # BoxSizers automatically stack elements vertically or horizontally, making the dialog accessible and scalable.
         main_sizer = wx.BoxSizer(wx.VERTICAL)
         
-        # Combo 1: Sheet Name
+        # --- Combo 1: Sheet Name Selection ---
         row1 = wx.BoxSizer(wx.HORIZONTAL)
         row1.Add(wx.StaticText(self, label="Sheet Name:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
         self.cb_sheet = wx.ComboBox(self, choices=self.sheet_names, style=wx.CB_READONLY)
         if self.sheet_names:
             self.cb_sheet.SetSelection(0)
+        # Bind the combobox change event to our custom handler so we can update the Target Position box dynamically.
         self.cb_sheet.Bind(wx.EVT_COMBOBOX, self.on_sheet_change)
         row1.Add(self.cb_sheet, 1, wx.ALL, 5)
         
-        # Combo 2: Position
+        # --- Combo 2: Target Position Selection ---
         row2 = wx.BoxSizer(wx.HORIZONTAL)
         row2.Add(wx.StaticText(self, label="Target Position:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
         positions = [str(i) for i in range(1, len(self.sheet_names) + 1)]
         self.cb_pos = wx.ComboBox(self, choices=positions, style=wx.CB_READONLY)
         if positions:
             self.cb_pos.SetSelection(0)
+        # When a position is selected, it immediately saves the move to `self.planned_moves`
         self.cb_pos.Bind(wx.EVT_COMBOBOX, self.on_pos_change)
         row2.Add(self.cb_pos, 1, wx.ALL, 5)
         
         main_sizer.Add(row1, 0, wx.EXPAND)
         main_sizer.Add(row2, 0, wx.EXPAND)
         
-        # List of scheduled moves
+        # --- List of Scheduled Moves ---
         main_sizer.Add(wx.StaticText(self, label="Scheduled Moves (Press Del to remove):"), 0, wx.LEFT|wx.TOP, 5)
+        # LC_REPORT style creates a standard data table which is highly accessible to NVDA.
         self.list_moves = wx.ListCtrl(self, size=(-1, 150), style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.list_moves.InsertColumn(0, "Sheet", width=150)
         self.list_moves.InsertColumn(1, "Target Position", width=100)
+        # Bind the Delete key so users can easily remove mistakes.
         self.list_moves.Bind(wx.EVT_LIST_KEY_DOWN, self.on_list_key_down)
         main_sizer.Add(self.list_moves, 1, wx.ALL|wx.EXPAND, 5)
         
-        # OK / Cancel
+        # --- OK / Cancel Buttons ---
         btn_sizer = wx.BoxSizer(wx.HORIZONTAL)
         btn_ok = wx.Button(self, wx.ID_OK, label="&OK")
         btn_cancel = wx.Button(self, wx.ID_CANCEL, label="&Cancel")
@@ -516,10 +583,15 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         
         self.SetSizerAndFit(main_sizer)
         
-        # Force focus to first combo box
+        # Force NVDA focus to the first combo box when the dialog opens so the user can start typing immediately.
         self.cb_sheet.SetFocus()
 
     def on_sheet_change(self, event):
+        """
+        Triggered when the user changes the Sheet Name combobox.
+        It updates the Target Position combobox to either show the already-scheduled move, 
+        or the current position of the sheet.
+        """
         sheet = self.cb_sheet.GetValue()
         if sheet in self.planned_moves:
             self.cb_pos.SetSelection(self.planned_moves[sheet] - 1)
@@ -528,6 +600,10 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
                 self.cb_pos.SetSelection(self.sheet_names.index(sheet))
 
     def on_pos_change(self, event):
+        """
+        Triggered when the user selects a new Target Position.
+        It registers the move and updates the data table visually.
+        """
         sheet = self.cb_sheet.GetValue()
         pos_str = self.cb_pos.GetValue()
         if sheet and pos_str:
@@ -538,6 +614,9 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
             speech.speakMessage(f"Scheduled: {sheet} to position {pos}")
 
     def on_list_key_down(self, event):
+        """
+        Listens for the Delete key being pressed while focused on the Scheduled Moves list.
+        """
         if event.GetKeyCode() == wx.WXK_DELETE:
             self.on_remove()
         event.Skip()
