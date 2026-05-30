@@ -3,3 +3,5 @@ BOA_Future_Enhancements.txt
 __pycache__/
 .sconsign.dblite
 addon/manifest.ini
+addon/doc/en/readme.md
+addon/doc/en/readme.html
