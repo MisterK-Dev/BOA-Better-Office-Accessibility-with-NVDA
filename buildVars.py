@@ -11,17 +11,22 @@ addon_info = {
     "addon_summary": "BOA: Better Office Accessibility",
     # Add-on description
     "addon_description": """A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users.
+
+New in v1.1.0:
+- Settings GUI (NVDA -> Preferences -> Settings -> BOA Office Enhancements): Safely toggle any enhancement on or off dynamically.
+- SafeRichEdit: Prevents silent NVDA crashes in Office 2024 when focusing RichEdit controls.
+
 Excel Features:
 - Bulk Sheet Organizer (NVDA+Alt+C): Instantly reorder multiple sheets at once using a fully accessible dialog.
 - Quick Sheet Mover: Move the active sheet instantly via NVDA+Shift+Arrows (Left/Right) or Home/End.
 - Accessible Sheet Renaming: Bypasses the inaccessible Excel rename edit field with a reliable dialog.
 - Smart Selection Tracking: Accurately announces multi-cell range selections and deselections.
+
 PowerPoint Features:
 - Accessible Color Pickers: Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
-- Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.
-just some features for now, ready to update based on suggestions and feedbacks.""",
+- Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.""",
     # version
-    "addon_version": "1.1.0-dev18",
+    "addon_version": "1.1.0",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support

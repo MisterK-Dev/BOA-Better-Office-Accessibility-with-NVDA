@@ -1,3 +1,13 @@
+"""
+BOA Configuration Manager
+
+This module handles loading, saving, and verifying user preferences for the BOA Addon.
+WHY THIS EXISTS (Architecture intent): 
+We explicitly bypass NVDA's built-in config module (nvda.ini) for our feature toggles. 
+Modifying nvda.ini directly from an addon carries a high risk of config corruption during NVDA upgrades 
+or unexpected crashes. By using our own isolated JSON file (boa_settings.json) stored safely inside 
+the globalConfig directory, we ensure 100% safety and modularity without risking the user's core NVDA settings.
+"""
 import json
 import os
 import globalVars

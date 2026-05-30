@@ -120,72 +120,70 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
         dlg.Destroy()
         gui.mainFrame.postPopup()
         
-        def bg_task():
-            """
-            Background thread that securely injects the typed sheet name back into Excel's native edit field.
-            Using a background thread prevents blocking NVDA's main core loop.
-            """
-            global _is_renaming_sheet
-            try:
-                import time
-                time.sleep(0.1)
-                # Force Excel back to the foreground so it can receive keystrokes.
-                winUser.setForegroundWindow(hwnd)
-                time.sleep(0.2)
-                
-                clean_name = new_name.strip() if new_name else ""
-                if not clean_name:
-                    # If the user cancelled or typed nothing, send Escape to abort Excel's native rename mode.
-                    core.callLater(10, lambda: keyboardHandler.KeyboardInputGesture.fromName("escape").send())
-                    return
-                    
-                # SECURITY CHECK: Verify the foreground process ID matches Excel.
-                # This prevents the addon from accidentally pasting the sheet name into a password field
-                # if the user aggressively Alt-Tabbed to their browser during the delay.
-                import ctypes
-                fg_hwnd = winUser.getForegroundWindow()
-                fg_pid = ctypes.c_ulong()
-                ctypes.windll.user32.GetWindowThreadProcessId(fg_hwnd, ctypes.byref(fg_pid))
-                
-                target_pid = ctypes.c_ulong()
-                ctypes.windll.user32.GetWindowThreadProcessId(hwnd, ctypes.byref(target_pid))
-                
-                if fg_pid.value != target_pid.value:
-                    log.warning("BOA: Foreground window mismatch! Aborting keystroke injection to prevent pasting into wrong app.")
-                    return
-                
-                # Safely back up the user's existing clipboard contents.
+        def _restore_clip_and_reset(old_clip):
+            if old_clip:
                 import api
-                old_clip = ""
                 try:
-                    old_clip = api.getClipData()
+                    api.copyToClip(old_clip)
                 except Exception:
                     pass
-                
-                try:
-                    # Inject the string via the clipboard and simulate Ctrl+V.
-                    # This is vastly more reliable and instantaneous than simulating individual keystrokes.
-                    api.copyToClip(clean_name)
-                    time.sleep(0.2)
-                    
-                    if winUser.getForegroundWindow() == fg_hwnd:
-                        core.callLater(10, lambda: keyboardHandler.KeyboardInputGesture.fromName("control+v").send())
-                        time.sleep(0.2)
-                        core.callLater(10, lambda: keyboardHandler.KeyboardInputGesture.fromName("enter").send())
-                        import speech
-                        core.callLater(10, lambda: speech.speakMessage(f"Renaming to {clean_name}"))
-                finally:
-                    # Restore the user's original clipboard content once finished.
-                    time.sleep(0.5)
-                    if old_clip:
-                        api.copyToClip(old_clip)
-            finally:
-                import time
-                time.sleep(1.5)
-                _is_renaming_sheet = False
+            global _is_renaming_sheet
+            _is_renaming_sheet = False
 
-        # Launch the background thread immediately after the dialog closes.
-        threading.Thread(target=bg_task).start()
+        def _do_enter(clean_name, old_clip):
+            keyboardHandler.KeyboardInputGesture.fromName("enter").send()
+            import speech
+            speech.speakMessage(f"Renaming to {clean_name}")
+            core.callLater(1500, lambda: _restore_clip_and_reset(old_clip))
+
+        def _do_inject(old_clip, clean_name, fg_hwnd):
+            if winUser.getForegroundWindow() == fg_hwnd:
+                keyboardHandler.KeyboardInputGesture.fromName("control+v").send()
+                core.callLater(200, lambda: _do_enter(clean_name, old_clip))
+            else:
+                _restore_clip_and_reset(old_clip)
+
+        def _do_clipboard(clean_name, fg_hwnd):
+            import api
+            old_clip = ""
+            try:
+                old_clip = api.getClipData()
+            except Exception:
+                pass
+            try:
+                api.copyToClip(clean_name)
+                core.callLater(200, lambda: _do_inject(old_clip, clean_name, fg_hwnd))
+            except Exception:
+                _restore_clip_and_reset(old_clip)
+
+        def _check_security():
+            import ctypes
+            fg_hwnd = winUser.getForegroundWindow()
+            fg_pid = ctypes.c_ulong()
+            ctypes.windll.user32.GetWindowThreadProcessId(fg_hwnd, ctypes.byref(fg_pid))
+            
+            target_pid = ctypes.c_ulong()
+            ctypes.windll.user32.GetWindowThreadProcessId(hwnd, ctypes.byref(target_pid))
+            
+            if fg_pid.value != target_pid.value:
+                log.warning("BOA: Foreground window mismatch! Aborting keystroke injection to prevent pasting into wrong app.")
+                global _is_renaming_sheet
+                _is_renaming_sheet = False
+                return
+            
+            clean_name = new_name.strip() if new_name else ""
+            if not clean_name:
+                keyboardHandler.KeyboardInputGesture.fromName("escape").send()
+                _is_renaming_sheet = False
+                return
+                
+            _do_clipboard(clean_name, fg_hwnd)
+
+        def _set_foreground():
+            winUser.setForegroundWindow(hwnd)
+            core.callLater(200, _check_security)
+            
+        core.callLater(100, _set_foreground)
 
     def _get_name(self):
         return "Rename sheet"
@@ -265,6 +263,14 @@ class SafeRichEdit(NVDAObjects.window.edit.Edit):
         return None
 
 class ExcelGridMover(NVDAObjects.window.Window):
+    """
+    Excel Grid Keystroke Interceptor and Event Monitor.
+    WHY THIS EXISTS (Architecture intent):
+    Native NVDA UIA relies on Excel exposing accurate bounds and states. However, Excel often
+    hides rows/columns physically but still exposes them in UIA, causing NVDA to jump silently.
+    This class intercepts arrow keys and structural changes to manually calculate and announce
+    boundaries, hidden skips, and sheet movements, bypassing the unreliable UIA layer entirely.
+    """
     def _check_boundary_bump(self, direction):
         """
         Synchronously checks if the user pressed an arrow key but focus will not move because they
@@ -854,35 +860,21 @@ class ExcelGridMover(NVDAObjects.window.Window):
         gui.mainFrame.postPopup()
         
         if planned_moves:
-            def bg_task():
-                """
-                Background thread for executing the bulk sheet arrangements via COM.
-                We execute this in the background to prevent the Excel COM calls from freezing NVDA.
-                """
-                import time
-                import winUser
+            def _do_com_moves():
                 import comtypes.client
                 import comtypes.automation
                 import ctypes
                 import speech
                 import logHandler
                 
-                # CRITICAL: Any background thread interacting with Office COM MUST call CoInitialize
-                # before making API calls, otherwise comtypes will crash or disconnect randomly.
-                ctypes.windll.ole32.CoInitialize(None)
-                try:
-                    time.sleep(0.1)
-                    winUser.setForegroundWindow(hwnd)
-                    time.sleep(0.2)
-                    
-                    oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
-                    ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-                    res = oleacc.AccessibleObjectFromWindow(hwnd, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-                    if res == 0 and ptr:
+                oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
+                ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                res = oleacc.AccessibleObjectFromWindow(hwnd, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+                if res == 0 and ptr:
+                    try:
                         excel = comtypes.client.dynamic.Dispatch(ptr).Application
                         wb = excel.ActiveWorkbook
                         
-                        # Step 1: Calculate the final desired mathematical order of the sheets.
                         unmoved = [s for s in sheet_names if s not in planned_moves]
                         moved = [(s, planned_moves[s]) for s in planned_moves]
                         moved.sort(key=lambda x: x[1])
@@ -892,10 +884,6 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             insert_idx = min(pos - 1, len(final_list))
                             final_list.insert(insert_idx, s)
                             
-                        # Step 2: Apply the final computed order to Excel.
-                        # Because Excel's COM Move() command only supports 'Before' and 'After', 
-                        # moving elements iteratively from left to right causes index shifting bugs.
-                        # We reconstruct the array safely by moving from Right to Left!
                         total_sheets = wb.Sheets.Count
                         if total_sheets > 1:
                             # Secure the absolute last sheet first
@@ -920,16 +908,18 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                     sheet.Move(sheet_after)
                                     
                         speech.speakMessage("Bulk arrangement complete")
-                except Exception as e:
-                    import speech
-                    speech.speakMessage(f"Error during bulk move: {e}")
-                    logHandler.log.error(f"BOA bulk bg error: {e}")
-                finally:
-                    # CRITICAL: Always uninitialize the COM apartment when the thread finishes to prevent memory leaks.
-                    ctypes.windll.ole32.CoUninitialize()
-                    
-            import threading
-            threading.Thread(target=bg_task).start()
+                    except Exception as e:
+                        speech.speakMessage(f"Error during bulk move: {e}")
+                        logHandler.log.error(f"BOA bulk bg error: {e}")
+                        
+            def _apply_moves():
+                import winUser
+                winUser.setForegroundWindow(hwnd)
+                import core
+                core.callLater(200, _do_com_moves)
+                
+            import core
+            core.callLater(100, _apply_moves)
 
     @script(
         description="Opens the BOA Bulk Sheet Organizer dialog.",

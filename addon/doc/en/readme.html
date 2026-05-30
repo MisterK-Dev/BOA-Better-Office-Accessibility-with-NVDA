@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.1.0-dev15</title>
+<title>BOA: Better Office Accessibility 1.1.0-dev19</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
@@ -34,6 +34,14 @@
 <h3>2. Standard Color Grid Support</h3>
 <p>Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
 * <strong>How it works:</strong> When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.</p>
+<h2>⚙️ Settings &amp; Configuration</h2>
+<p>As of v1.1.0, BOA includes a fully accessible native NVDA Settings Panel. 
+You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</strong>.</p>
+<p><strong>Features of the Configuration Manager:</strong>
+- All features are enabled by default, but can be individually toggled off.
+- The settings are grouped securely by application (Excel, PowerPoint, Word).
+- Settings are saved securely to a standalone JSON file (<code>boa_settings.json</code>), ensuring your core NVDA configuration is never corrupted.
+- If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality!</p>
 <h2>Security</h2>
 <p>BOA is built with strict security boundaries. Background COM manipulations are executed within safely initialized sandboxes, and clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.</p>
 <h2>Requirements</h2>

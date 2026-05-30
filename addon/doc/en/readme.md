@@ -35,6 +35,17 @@ Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialo
 Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
 * **How it works:** When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.
 
+## ⚙️ Settings & Configuration
+
+As of v1.1.0, BOA includes a fully accessible native NVDA Settings Panel. 
+You can find it by navigating to **NVDA Menu -> Preferences -> Settings -> BOA Office Enhancements**.
+
+**Features of the Configuration Manager:**
+- All features are enabled by default, but can be individually toggled off.
+- The settings are grouped securely by application (Excel, PowerPoint, Word).
+- Settings are saved securely to a standalone JSON file (`boa_settings.json`), ensuring your core NVDA configuration is never corrupted.
+- If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality!
+
 ## Security
 BOA is built with strict security boundaries. Background COM manipulations are executed within safely initialized sandboxes, and clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.
 

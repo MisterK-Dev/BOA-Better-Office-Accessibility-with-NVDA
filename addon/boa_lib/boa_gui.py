@@ -1,3 +1,12 @@
+"""
+BOA Settings GUI Module
+
+This module integrates BOA configuration into the native NVDA settings dialog.
+WHY THIS EXISTS (Architecture intent):
+We want a seamless user experience where BOA settings are located alongside standard NVDA preferences.
+By inheriting from gui.settingsDialogs.SettingsPanel, we natively inject our panel into the NVDA
+Preferences menu, avoiding clunky standalone WX dialogs that break NVDA UI consistency.
+"""
 import wx
 import gui
 from gui.settingsDialogs import SettingsPanel
@@ -5,6 +14,13 @@ import boa_config
 from logHandler import log
 
 class BOASettingsPanel(SettingsPanel):
+    """
+    The WX GUI Panel for BOA settings.
+    WHY THIS EXISTS: Provides the visual layer for boa_config.json. It renders checkboxes grouped
+    by application (Word, Excel, PowerPoint) to allow users to selectively disable specific hooks.
+    This granular control is critical for preventing lock-ins if a future Microsoft Office update
+    natively fixes a bug and our hook becomes obsolete.
+    """
     # Title for the NVDA settings dialog list and the panel title
     title = "BOA Office Enhancements"
     
