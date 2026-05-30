@@ -5,3 +5,4 @@ __pycache__/
 addon/manifest.ini
 test_excel.py
 test_hidden.py
+conversation_history.html
