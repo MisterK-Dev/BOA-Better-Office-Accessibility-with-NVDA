@@ -25,6 +25,8 @@ _last_visible_sheet_count = None
 # Track last focused cell coordinates to detect jumps over hidden rows/cols
 _last_focused_row = None
 _last_focused_col = None
+_last_focused_sheet = None
+_last_focused_wb = None
 
 def check_unselect(obj):
     """
@@ -323,10 +325,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
     def _check_hidden_skip(self, excel):
         """
         Detects if the user's focus jumped over completely hidden rows or columns.
-        Uses COM bulk checking to avoid iterating over thousands of cells.
-        Announces mixed scenarios (e.g. Ctrl+DownArrow) as well.
+        Uses COM bulk checking and SpecialCells to avoid false positives.
+        Announces mixed scenarios (e.g. Ctrl+DownArrow) accurately.
         """
-        global _last_focused_row, _last_focused_col
+        global _last_focused_row, _last_focused_col, _last_focused_sheet, _last_focused_wb
         import ui
         
         try:
@@ -334,26 +336,68 @@ class ExcelGridMover(NVDAObjects.window.Window):
             current_row = active_cell.Row
             current_col = active_cell.Column
             
+            try:
+                current_sheet = excel.ActiveSheet.Name
+                current_wb = excel.ActiveWorkbook.Name
+            except Exception:
+                current_sheet = None
+                current_wb = None
+
+            # Reset tracker if sheet/workbook changed to avoid ghost skips
+            if current_sheet != _last_focused_sheet or current_wb != _last_focused_wb:
+                _last_focused_row = None
+                _last_focused_col = None
+                _last_focused_sheet = current_sheet
+                _last_focused_wb = current_wb
+            
             if _last_focused_row is not None and _last_focused_col is not None:
-                # Check for row jumps
-                if current_col == _last_focused_col and abs(current_row - _last_focused_row) > 1:
+                # ---------------- ROW JUMPS ----------------
+                if current_col == _last_focused_col and current_row != _last_focused_row:
                     min_r = min(_last_focused_row, current_row)
                     max_r = max(_last_focused_row, current_row)
                     
-                    gap_range = f"{min_r + 1}:{max_r - 1}"
-                    hidden_state = excel.Rows(gap_range).Hidden
-                    
-                    if hidden_state == True:
-                        if max_r - min_r == 2:
-                            ui.message(f"Skipped hidden row {min_r + 1}")
-                        else:
-                            ui.message(f"Skipped hidden rows {min_r + 1} through {max_r - 1}")
-                    elif hidden_state is None:
-                        # COM returns None when the range contains a mix of True and False (mixed visibility)
-                        ui.message("Skipped some hidden rows")
+                    if max_r - min_r > 1:
+                        gap_range = excel.Range(excel.Cells(min_r + 1, 1), excel.Cells(max_r - 1, 1)).EntireRow
+                        hidden_val = gap_range.Hidden
                         
-                # Check for column jumps
-                if current_row == _last_focused_row and abs(current_col - _last_focused_col) > 1:
+                        if hidden_val == True or hidden_val == -1:
+                            if max_r - min_r == 2:
+                                ui.message(f"Row {min_r + 1} hidden")
+                            else:
+                                ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
+                        elif hidden_val is None:
+                            # COM returns None (Mixed). Validate it's actually mixed and not a COM glitch.
+                            has_hidden = False
+                            if max_r - min_r < 100:
+                                for r in range(min_r + 1, max_r):
+                                    if excel.Rows(r).Hidden in (True, -1):
+                                        has_hidden = True
+                                        break
+                            else:
+                                try:
+                                    visible_cells = gap_range.SpecialCells(12)
+                                    visible_count = sum(area.Rows.Count for area in visible_cells.Areas)
+                                    if visible_count < (max_r - min_r - 1):
+                                        has_hidden = True
+                                except Exception:
+                                    has_hidden = True
+                                    
+                            if has_hidden:
+                                ui.message("Some hidden rows")
+
+                    # Row Boundary Check (Navigating UP into Row 1)
+                    if current_row < _last_focused_row and current_row > 1:
+                        if excel.Rows(current_row - 1).Hidden in (True, -1):
+                            top = current_row - 1
+                            while top > 1 and excel.Rows(top - 1).Hidden in (True, -1):
+                                top -= 1
+                            if top == current_row - 1:
+                                ui.message(f"Row {top} hidden")
+                            else:
+                                ui.message(f"Rows {top} through {current_row - 1} hidden")
+
+                # ---------------- COLUMN JUMPS ----------------
+                if current_row == _last_focused_row and current_col != _last_focused_col:
                     min_c = min(_last_focused_col, current_col)
                     max_c = max(_last_focused_col, current_col)
                     
@@ -363,19 +407,49 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             n, remainder = divmod(n - 1, 26)
                             s = chr(65 + remainder) + s
                         return s
-                    
-                    start_letter = col_num_to_letter(min_c + 1)
-                    end_letter = col_num_to_letter(max_c - 1)
-                    gap_range = f"{start_letter}:{end_letter}"
-                    hidden_state = excel.Columns(gap_range).Hidden
-                    
-                    if hidden_state == True:
-                        if max_c - min_c == 2:
-                            ui.message(f"Skipped hidden column {start_letter}")
-                        else:
-                            ui.message(f"Skipped hidden columns {start_letter} through {end_letter}")
-                    elif hidden_state is None:
-                        ui.message("Skipped some hidden columns")
+                        
+                    if max_c - min_c > 1:
+                        gap_range = excel.Range(excel.Cells(1, min_c + 1), excel.Cells(1, max_c - 1)).EntireColumn
+                        hidden_val = gap_range.Hidden
+                        
+                        start_letter = col_num_to_letter(min_c + 1)
+                        if hidden_val == True or hidden_val == -1:
+                            if max_c - min_c == 2:
+                                ui.message(f"Column {start_letter} hidden")
+                            else:
+                                end_letter = col_num_to_letter(max_c - 1)
+                                ui.message(f"Columns {start_letter} through {end_letter} hidden")
+                        elif hidden_val is None:
+                            has_hidden = False
+                            if max_c - min_c < 100:
+                                for c in range(min_c + 1, max_c):
+                                    if excel.Columns(c).Hidden in (True, -1):
+                                        has_hidden = True
+                                        break
+                            else:
+                                try:
+                                    visible_cells = gap_range.SpecialCells(12)
+                                    visible_count = sum(area.Columns.Count for area in visible_cells.Areas)
+                                    if visible_count < (max_c - min_c - 1):
+                                        has_hidden = True
+                                except Exception:
+                                    has_hidden = True
+                            
+                            if has_hidden:
+                                ui.message("Some hidden columns")
+
+                    # Column Boundary Check (Navigating LEFT into Col A)
+                    if current_col < _last_focused_col and current_col > 1:
+                        if excel.Columns(current_col - 1).Hidden in (True, -1):
+                            left = current_col - 1
+                            while left > 1 and excel.Columns(left - 1).Hidden in (True, -1):
+                                left -= 1
+                            start_letter = col_num_to_letter(left)
+                            if left == current_col - 1:
+                                ui.message(f"Column {start_letter} hidden")
+                            else:
+                                end_letter = col_num_to_letter(current_col - 1)
+                                ui.message(f"Columns {start_letter} through {end_letter} hidden")
                         
             _last_focused_row = current_row
             _last_focused_col = current_col
@@ -390,7 +464,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
         was interacting with the Ribbon or right-click menus, and announce it upon returning
         focus to the grid. Uses ui.message for safe output routing.
         """
-        global _last_freeze_panes_state, _last_visible_sheet_count
+        global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb
         import ui
         
         try:
@@ -403,27 +477,42 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 else:
                     ui.message("Panes unfrozen")
             _last_freeze_panes_state = current_freeze
-        except Exception:
-            pass
             
-        try:
-            # Check Sheet Visibility (Count of visible sheets)
-            # Since checking every sheet's visibility is slow, checking the total count of visible sheets
-            # is a quick heuristic to determine if a sheet was just hidden or unhidden.
-            wb = excel.ActiveWorkbook
-            if wb:
-                visible_count = 0
-                for i in range(1, wb.Sheets.Count + 1):
-                    # -1 is xlSheetVisible in Excel COM
-                    if wb.Sheets(i).Visible == -1:
-                        visible_count += 1
+            # Check sheet counts and hidden sheets
+            try:
+                current_visible = 0
+                total_sheets = excel.ActiveWorkbook.Sheets.Count
                 
-                if _last_visible_sheet_count is not None:
-                    if visible_count < _last_visible_sheet_count:
+                # Check for skipped hidden sheets if navigated via Ctrl+PageDown
+                if _last_focused_sheet is not None and _last_focused_wb == excel.ActiveWorkbook.Name:
+                    current_idx = excel.ActiveSheet.Index
+                    try:
+                        last_idx = excel.ActiveWorkbook.Sheets(_last_focused_sheet).Index
+                        if abs(current_idx - last_idx) > 1:
+                            min_s = min(last_idx, current_idx)
+                            max_s = max(last_idx, current_idx)
+                            for i in range(min_s + 1, max_s):
+                                sheet = excel.ActiveWorkbook.Sheets(i)
+                                if sheet.Visible != -1:  # -1 is xlSheetVisible
+                                    ui.message(f"{sheet.Name} hidden")
+                    except Exception:
+                        pass
+
+                for i in range(1, total_sheets + 1):
+                    sheet = excel.ActiveWorkbook.Sheets(i)
+                    # Visible property returns -1 for visible, 0 for hidden, 2 for very hidden
+                    if sheet.Visible == -1:
+                        current_visible += 1
+                
+                if _last_visible_sheet_count is not None and current_visible != _last_visible_sheet_count:
+                    if current_visible < _last_visible_sheet_count:
                         ui.message("Sheet hidden")
-                    elif visible_count > _last_visible_sheet_count:
+                    else:
                         ui.message("Sheet unhidden")
-                _last_visible_sheet_count = visible_count
+                _last_visible_sheet_count = current_visible
+            except Exception:
+                pass
+                
         except Exception:
             pass
 
