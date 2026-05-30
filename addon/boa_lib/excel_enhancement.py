@@ -659,10 +659,20 @@ class ExcelGridMover(NVDAObjects.window.Window):
         """
         self._execute_and_verify_visibility_change(gesture, "column", False)
 
-    def _execute_and_verify_visibility_change(self, gesture, element_type, is_hiding):
+    @script(
+        description="Unhides the currently selected column natively via COM (Fallback for when Windows blocks Ctrl+Shift+0).",
+        category="Better Office Accessibility"
+    )
+    def script_unhideColumnFallback(self, gesture):
         """
-        Passes the native keystroke to Excel, waits briefly for Excel to process it,
-        and then checks the COM model to verify if the row/column was actually hidden/unhidden.
+        Forces the column to unhide using Excel COM.
+        """
+        self._execute_and_verify_visibility_change(gesture, "column", False, force_com=True)
+
+    def _execute_and_verify_visibility_change(self, gesture, element_type, is_hiding, force_com=False):
+        """
+        Fetches the initial visibility state, passes the native keystroke to Excel (or uses COM if forced),
+        waits briefly, and then checks if the COM model state actually changed.
         Uses core.callLater to safely delay without blocking NVDA's single-threaded core.
         """
         import comtypes.client
@@ -680,13 +690,18 @@ class ExcelGridMover(NVDAObjects.window.Window):
                     excel = comtypes.client.dynamic.Dispatch(ptr).Application
                     if element_type == "row":
                         initial_state = excel.Selection.EntireRow.Hidden
+                        if force_com:
+                            excel.Selection.EntireRow.Hidden = is_hiding
                     elif element_type == "column":
                         initial_state = excel.Selection.EntireColumn.Hidden
+                        if force_com:
+                            excel.Selection.EntireColumn.Hidden = is_hiding
         except Exception:
             pass
 
-        # Send the original gesture through to Excel natively
-        gesture.send()
+        if not force_com:
+            # Send the original gesture through to Excel natively
+            gesture.send()
         
         import core
         # 200ms delay gives Excel enough time to process the keystroke and update its COM model
@@ -770,7 +785,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
         "kb:control+shift+9": "unhideRow",
         "kb:control+0": "hideColumn",
         "kb:control+shift+0": "unhideColumn",
-        "kb:NVDA+control+shift+0": "unhideColumn",
+        "kb:NVDA+control+shift+0": "unhideColumnFallback",
     }
 
 class ExcelBulkSheetOrganizerDialog(wx.Dialog):
