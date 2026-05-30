@@ -719,17 +719,38 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 sel = excel.Selection
                 
                 is_hidden = None
+                address_str = ""
                 if element_type == "row":
                     is_hidden = sel.EntireRow.Hidden
+                    start_row = sel.Row
+                    end_row = sel.Row + sel.Rows.Count - 1
+                    if start_row == end_row:
+                        address_str = f"Row {start_row}"
+                    else:
+                        address_str = f"Rows {start_row} through {end_row}"
                 elif element_type == "column":
                     is_hidden = sel.EntireColumn.Hidden
+                    start_col = sel.Column
+                    end_col = sel.Column + sel.Columns.Count - 1
+                    
+                    def col_num_to_letter(n):
+                        s = ""
+                        while n > 0:
+                            n, remainder = divmod(n - 1, 26)
+                            s = chr(65 + remainder) + s
+                        return s
+                        
+                    start_letter = col_num_to_letter(start_col)
+                    if start_col == end_col:
+                        address_str = f"Column {start_letter}"
+                    else:
+                        end_letter = col_num_to_letter(end_col)
+                        address_str = f"Columns {start_letter} through {end_letter}"
                     
                 # Only announce if the state successfully changed to avoid false positives
                 if is_hidden is not None and is_hidden != initial_state:
-                    if is_hidden:
-                        ui.message(f"{element_type.capitalize()} hidden")
-                    else:
-                        ui.message(f"{element_type.capitalize()} unhidden")
+                    state_str = "hidden" if is_hidden else "unhidden"
+                    ui.message(f"{address_str} {state_str}")
         except Exception as e:
             logHandler.log.debugWarning(f"BOA: Failed to verify {element_type} visibility change. {e}")
 
@@ -749,6 +770,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
         "kb:control+shift+9": "unhideRow",
         "kb:control+0": "hideColumn",
         "kb:control+shift+0": "unhideColumn",
+        "kb:NVDA+control+shift+0": "unhideColumn",
     }
 
 class ExcelBulkSheetOrganizerDialog(wx.Dialog):
