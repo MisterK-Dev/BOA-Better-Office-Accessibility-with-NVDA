@@ -665,17 +665,37 @@ class ExcelGridMover(NVDAObjects.window.Window):
         and then checks the COM model to verify if the row/column was actually hidden/unhidden.
         Uses core.callLater to safely delay without blocking NVDA's single-threaded core.
         """
+        import comtypes.client
+        import comtypes.automation
+        import ctypes
+        
+        initial_state = None
+        try:
+            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
+            if hwnd7:
+                oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+                ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+                if res == 0 and ptr:
+                    excel = comtypes.client.dynamic.Dispatch(ptr).Application
+                    if element_type == "row":
+                        initial_state = excel.Selection.EntireRow.Hidden
+                    elif element_type == "column":
+                        initial_state = excel.Selection.EntireColumn.Hidden
+        except Exception:
+            pass
+
         # Send the original gesture through to Excel natively
         gesture.send()
         
         import core
         # 200ms delay gives Excel enough time to process the keystroke and update its COM model
-        core.callLater(200, self._verify_visibility_change_callback, element_type, is_hiding)
+        core.callLater(200, self._verify_visibility_change_callback, element_type, is_hiding, initial_state)
         
-    def _verify_visibility_change_callback(self, element_type, is_hiding):
+    def _verify_visibility_change_callback(self, element_type, is_hiding, initial_state):
         """
         Callback executed by core.callLater to verify the visibility state.
-        Announces the change via ui.message if successful.
+        Announces the change via ui.message if successful and state actually changed.
         """
         import comtypes.client
         import comtypes.automation
@@ -698,20 +718,18 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 excel = win.Application
                 sel = excel.Selection
                 
+                is_hidden = None
                 if element_type == "row":
-                    # Check if the entire row of the selection is hidden
                     is_hidden = sel.EntireRow.Hidden
-                    if is_hiding and is_hidden:
-                        ui.message("Row hidden")
-                    elif not is_hiding and not is_hidden:
-                        ui.message("Row unhidden")
                 elif element_type == "column":
-                    # Check if the entire column of the selection is hidden
                     is_hidden = sel.EntireColumn.Hidden
-                    if is_hiding and is_hidden:
-                        ui.message("Column hidden")
-                    elif not is_hiding and not is_hidden:
-                        ui.message("Column unhidden")
+                    
+                # Only announce if the state successfully changed to avoid false positives
+                if is_hidden is not None and is_hidden != initial_state:
+                    if is_hidden:
+                        ui.message(f"{element_type.capitalize()} hidden")
+                    else:
+                        ui.message(f"{element_type.capitalize()} unhidden")
         except Exception as e:
             logHandler.log.debugWarning(f"BOA: Failed to verify {element_type} visibility change. {e}")
 
