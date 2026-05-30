@@ -249,6 +249,73 @@ class SafeRichEdit(NVDAObjects.window.edit.Edit):
         return None
 
 class ExcelGridMover(NVDAObjects.window.Window):
+    def _check_boundary_bump(self, direction):
+        """
+        Detects if the user pressed an arrow key but focus did not move because they
+        are stuck against an absolute hidden boundary (e.g. Row 1 is hidden).
+        """
+        try:
+            import comtypes.client
+            import ctypes
+            import comtypes.automation
+            
+            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
+            if not hwnd7:
+                return
+                
+            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+            res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+            
+            if res == 0 and ptr:
+                excel = comtypes.client.dynamic.Dispatch(ptr).Application
+                active_cell = excel.ActiveCell
+                r = active_cell.Row
+                c = active_cell.Column
+                import ui
+                
+                if direction == "up" and r > 1:
+                    # Check if ALL rows above are hidden (meaning we are stuck against the ceiling)
+                    if excel.Range(excel.Cells(1, 1), excel.Cells(r - 1, 1)).EntireRow.Hidden in (True, -1):
+                        if r - 1 == 1:
+                            ui.message("Row 1 hidden")
+                        else:
+                            ui.message(f"Rows 1 through {r - 1} hidden")
+                            
+                elif direction == "left" and c > 1:
+                    if excel.Range(excel.Cells(1, 1), excel.Cells(1, c - 1)).EntireColumn.Hidden in (True, -1):
+                        def col_num_to_letter(n):
+                            s = ""
+                            while n > 0:
+                                n, remainder = divmod(n - 1, 26)
+                                s = chr(65 + remainder) + s
+                            return s
+                            
+                        if c - 1 == 1:
+                            ui.message("Column A hidden")
+                        else:
+                            ui.message(f"Columns A through {col_num_to_letter(c - 1)} hidden")
+        except Exception:
+            pass
+
+    @script(
+        description="Checks top boundary bump.",
+        category="Better Office Accessibility"
+    )
+    def script_moveUp(self, gesture):
+        self._check_boundary_bump("up")
+        # Let NVDA's native Excel appModule process the keystroke natively
+        raise NotImplementedError
+
+    @script(
+        description="Checks left boundary bump.",
+        category="Better Office Accessibility"
+    )
+    def script_moveLeft(self, gesture):
+        self._check_boundary_bump("left")
+        # Let NVDA's native Excel appModule process the keystroke natively
+        raise NotImplementedError
+
     def event_gainFocus(self):
         super(ExcelGridMover, self).event_gainFocus()
         import core
@@ -515,6 +582,11 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 
         except Exception:
             pass
+
+    __gestures = {
+        "kb:upArrow": "moveUp",
+        "kb:leftArrow": "moveLeft"
+    }
 
     def _move_sheet(self, direction):
         import comtypes.client
