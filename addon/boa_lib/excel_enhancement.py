@@ -22,6 +22,10 @@ _last_announced_address = None
 _last_freeze_panes_state = None
 _last_visible_sheet_count = None
 
+# Track last focused cell coordinates to detect jumps over hidden rows/cols
+_last_focused_row = None
+_last_focused_col = None
+
 def check_unselect(obj):
     """
     Called whenever Excel selection or focus changes.
@@ -105,6 +109,7 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
             """
             global _is_renaming_sheet
             try:
+                import time
                 time.sleep(0.1)
                 # Force Excel back to the foreground so it can receive keystrokes.
                 winUser.setForegroundWindow(hwnd)
@@ -157,6 +162,7 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
                     if old_clip:
                         api.copyToClip(old_clip)
             finally:
+                import time
                 time.sleep(1.5)
                 _is_renaming_sheet = False
 
@@ -276,7 +282,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
             if not hwnd7:
                 return
 
-            oleacc = ctypes.windll.oleacc
+            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
             OBJID_NATIVEOM = -16
             ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
             res = oleacc.AccessibleObjectFromWindow(hwnd7, OBJID_NATIVEOM, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
@@ -286,29 +292,93 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 excel = win.Application
                 sel = excel.Selection
 
-                # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
-                if getattr(sel, 'Cells', None) and sel.Cells.Count > 1:
-                    address = sel.Address(False, False)  # Returns string like "A1:D1"
-
-                    # Check for broader structural changes (like Freeze Panes) while we have the COM object
+                if getattr(sel, 'Cells', None):
+                    # ALWAYS check structural changes and hidden row skips on focus change
                     self._check_structural_changes(excel)
+                    self._check_hidden_skip(excel)
+                    
+                    # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
+                    if sel.Cells.Count > 1:
+                        address = sel.Address(False, False)  # Returns string like "A1:D1"
 
-                    # GUARD: Only announce if this is a NEW address BOA hasn't spoken yet.
-                    # This is the core fix for the double-announcement problem.
-                    # When the user selects a range via Shift+Arrow, NVDA fires its own UIA
-                    # event_selectionChange and speaks natively. Then event_gainFocus fires here
-                    # and would speak again. By comparing against our last announced address,
-                    # we skip the duplicate and stay silent.
-                    if address == _last_announced_address:
-                        return
+                        # GUARD: Only announce if this is a NEW address BOA hasn't spoken yet.
+                        # This is the core fix for the double-announcement problem.
+                        # When the user selects a range via Shift+Arrow, NVDA fires its own UIA
+                        # event_selectionChange and speaks natively. Then event_gainFocus fires here
+                        # and would speak again. By comparing against our last announced address,
+                        # we skip the duplicate and stay silent.
+                        if address == _last_announced_address:
+                            return
 
-                    _last_announced_address = address
-                    spoken_address = address.replace(":", " through ")
-                    speech.speakMessage(f"{spoken_address} selected")
-                else:
-                    # Selection collapsed to single cell — reset tracker so
-                    # the next multi-cell jump is announced cleanly.
-                    _last_announced_address = None
+                        _last_announced_address = address
+                        spoken_address = address.replace(":", " through ")
+                        speech.speakMessage(f"{spoken_address} selected")
+                    else:
+                        # Selection collapsed to single cell — reset tracker so
+                        # the next multi-cell jump is announced cleanly.
+                        _last_announced_address = None
+        except Exception:
+            pass
+
+    def _check_hidden_skip(self, excel):
+        """
+        Detects if the user's focus jumped over completely hidden rows or columns.
+        Uses COM bulk checking to avoid iterating over thousands of cells.
+        Announces mixed scenarios (e.g. Ctrl+DownArrow) as well.
+        """
+        global _last_focused_row, _last_focused_col
+        import ui
+        
+        try:
+            active_cell = excel.ActiveCell
+            current_row = active_cell.Row
+            current_col = active_cell.Column
+            
+            if _last_focused_row is not None and _last_focused_col is not None:
+                # Check for row jumps
+                if current_col == _last_focused_col and abs(current_row - _last_focused_row) > 1:
+                    min_r = min(_last_focused_row, current_row)
+                    max_r = max(_last_focused_row, current_row)
+                    
+                    gap_range = f"{min_r + 1}:{max_r - 1}"
+                    hidden_state = excel.Rows(gap_range).Hidden
+                    
+                    if hidden_state == True:
+                        if max_r - min_r == 2:
+                            ui.message(f"Skipped hidden row {min_r + 1}")
+                        else:
+                            ui.message(f"Skipped hidden rows {min_r + 1} through {max_r - 1}")
+                    elif hidden_state is None:
+                        # COM returns None when the range contains a mix of True and False (mixed visibility)
+                        ui.message("Skipped some hidden rows")
+                        
+                # Check for column jumps
+                if current_row == _last_focused_row and abs(current_col - _last_focused_col) > 1:
+                    min_c = min(_last_focused_col, current_col)
+                    max_c = max(_last_focused_col, current_col)
+                    
+                    def col_num_to_letter(n):
+                        s = ""
+                        while n > 0:
+                            n, remainder = divmod(n - 1, 26)
+                            s = chr(65 + remainder) + s
+                        return s
+                    
+                    start_letter = col_num_to_letter(min_c + 1)
+                    end_letter = col_num_to_letter(max_c - 1)
+                    gap_range = f"{start_letter}:{end_letter}"
+                    hidden_state = excel.Columns(gap_range).Hidden
+                    
+                    if hidden_state == True:
+                        if max_c - min_c == 2:
+                            ui.message(f"Skipped hidden column {start_letter}")
+                        else:
+                            ui.message(f"Skipped hidden columns {start_letter} through {end_letter}")
+                    elif hidden_state is None:
+                        ui.message("Skipped some hidden columns")
+                        
+            _last_focused_row = current_row
+            _last_focused_col = current_col
         except Exception:
             pass
 

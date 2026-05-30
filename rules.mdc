@@ -24,7 +24,7 @@ Before presenting any finalized code block or script file in chat, you must run 
 ## 5. Automated Docstring & Detailed Commenting Rules
 - **Intent-Driven Docstrings**: Every single function, class, or method written must include an explicit, detailed docstring explaining the exact architectural *why* behind the logic. 
 - **Granular Code Comments**: Do not write bare code. Every logical step, complex condition, or NVDA API interaction must be accompanied by detailed line comments so the developer can instantly understand the system flow during a future project re-entry.
-
+also readme.md should be properly documented mentained after successful features addition. note: dev versions also ok to mentain in readme md file but final stable version if user asks, then dev versions related documentation should be removed and final updated features compare to previous stable version should be documented in a properly structured manner.
 ## 6. Strict Deployment & Git Controls
 - **No Automatic Git Pushes**: Never run git push commands to GitHub or any remote repository. 
 - **Local Commits Only**: You may only stage or commit files to the local git repository layer (`git add`, `git commit`). Remote uploads are strictly forbidden until explicitly requested by the user.
