@@ -4,34 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.1.0-dev19</title>
+<title>BOA: Better Office Accessibility 1.1.0</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
 <p>BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.</p>
 <h2>Excel Features</h2>
-<h3>1. Bulk Sheet Organizer</h3>
+<h3>Bulk Sheet Organizer</h3>
 <p>Instantly reorder and arrange multiple sheets at once using a fully accessible dialog table.
 * <strong>Shortcut:</strong> <code>NVDA + Alt + C</code>
 * <strong>How it works:</strong> Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press <code>Del</code> to remove a mistake). Click <code>OK</code> and your workbook is rearranged instantly.</p>
-<h3>2. Quick Sheet Mover</h3>
+<h3>Quick Sheet Mover</h3>
 <p>Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard.
 * <strong>Shortcuts:</strong>
   * Move Left: <code>NVDA + Shift + Left Arrow</code> (or PageUp)
   * Move Right: <code>NVDA + Shift + Right Arrow</code> (or PageDown)
   * Move to Start: <code>NVDA + Shift + Home</code>
   * Move to End: <code>NVDA + Shift + End</code></p>
-<h3>3. Accessible Sheet Renaming</h3>
+<h3>Accessible Sheet Renaming</h3>
 <p>Bypasses the notoriously inaccessible Excel "Rename Sheet" edit field.
 * <strong>How it works:</strong> When you trigger the native Excel sheet rename command (e.g., via the ribbon or context menu), BOA intercepts it and opens a reliable, 100% accessible standard text dialog. Type your new name, press Enter, and BOA handles the renaming safely in the background.</p>
-<h3>4. Smart Selection Tracking</h3>
+<h3>Smart Selection Tracking</h3>
 <p>Accurately announces multi-cell range selections and deselections.
 * <strong>How it works:</strong> Fixes the silence when selecting ranges via the <code>F5</code> Go To dialog or when unexpectedly deselecting a range.</p>
 <h2>PowerPoint Features</h2>
-<h3>1. Accessible Color Pickers</h3>
+<h3>Accessible Color Pickers</h3>
 <p>Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
 * <strong>How it works:</strong> Seamlessly binds to the Red, Green, Blue, and Hex text boxes in the PowerPoint color picker, properly labeling them for NVDA object navigation and focus.</p>
-<h3>2. Standard Color Grid Support</h3>
+<h3>Standard Color Grid Support</h3>
 <p>Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
 * <strong>How it works:</strong> When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.</p>
 <h2>⚙️ Settings &amp; Configuration</h2>
@@ -57,15 +57,18 @@ You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Setti
 </ol>
 <h2>Changelog</h2>
 <hr />
-<h3>Version 1.1.0-dev3 — 2026-05-26</h3>
-<p><strong>Development build for testing.</strong></p>
+<h3>Version 1.1.0 — 2026-05-30</h3>
+<p><strong>Final release.</strong></p>
 <h4>New Features</h4>
 <ul>
-<li><strong>Customizable Hotkeys</strong> — All BOA hotkeys (e.g., Bulk Sheet Organizer, Move Sheet Left/Right) are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category, allowing users to safely rebind them to their preference.</li>
+<li><strong>Settings GUI</strong> — Added a native BOA Office Enhancements panel inside NVDA -&gt; Preferences -&gt; Settings to easily toggle features on or off.</li>
+<li><strong>SafeRichEdit Hook</strong> — Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.</li>
+<li><strong>Customizable Hotkeys</strong> — All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.</li>
 </ul>
 <h4>Bug Fixes</h4>
 <ul>
-<li><strong>Excel: Selection Double-Announcement</strong> — Fixed an issue where BOA would redundantly announce multi-cell selections that NVDA natively handles (e.g., via Shift+Arrow keys). BOA now detects manual key holds and only announces when a selection jump occurs programmatically (e.g., via the Go To box or Name Box).</li>
+<li><strong>Thread Safety</strong> — Removed all blocking delays (<code>time.sleep</code>) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.</li>
+<li><strong>Excel: Selection Double-Announcement</strong> — Fixed an issue where BOA redundantly announced multi-cell selections that NVDA natively handles (e.g., via Shift+Arrow keys).</li>
 </ul>
 <hr />
 <h3>Version 1.0.0 — 2026-05-24</h3>
