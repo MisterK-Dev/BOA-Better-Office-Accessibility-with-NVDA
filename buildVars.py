@@ -21,7 +21,7 @@ PowerPoint Features:
 - Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.
 just some features for now, ready to update based on suggestions and feedbacks.""",
     # version
-    "addon_version": "1.1.0-dev10",
+    "addon_version": "1.1.0-dev11",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support

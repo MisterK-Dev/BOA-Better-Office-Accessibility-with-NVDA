@@ -295,6 +295,27 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             ui.message("Column A hidden")
                         else:
                             ui.message(f"Columns A through {col_num_to_letter(c - 1)} hidden")
+                            
+                elif direction == "down" and r < 1048576:
+                    if excel.Range(excel.Cells(r + 1, 1), excel.Cells(1048576, 1)).EntireRow.Hidden in (True, -1):
+                        if r + 1 == 1048576:
+                            ui.message("Row 1048576 hidden")
+                        else:
+                            ui.message(f"Rows {r + 1} through 1048576 hidden")
+                            
+                elif direction == "right" and c < 16384:
+                    if excel.Range(excel.Cells(1, c + 1), excel.Cells(1, 16384)).EntireColumn.Hidden in (True, -1):
+                        def col_num_to_letter(n):
+                            s = ""
+                            while n > 0:
+                                n, remainder = divmod(n - 1, 26)
+                                s = chr(65 + remainder) + s
+                            return s
+                            
+                        if c + 1 == 16384:
+                            ui.message("Column XFD hidden")
+                        else:
+                            ui.message(f"Columns {col_num_to_letter(c + 1)} through XFD hidden")
         except Exception:
             pass
 
@@ -313,6 +334,24 @@ class ExcelGridMover(NVDAObjects.window.Window):
     )
     def script_moveLeft(self, gesture):
         self._check_boundary_bump("left")
+        # Let NVDA's native Excel appModule process the keystroke natively
+        raise NotImplementedError
+
+    @script(
+        description="Checks bottom boundary bump.",
+        category="Better Office Accessibility"
+    )
+    def script_moveDown(self, gesture):
+        self._check_boundary_bump("down")
+        # Let NVDA's native Excel appModule process the keystroke natively
+        raise NotImplementedError
+
+    @script(
+        description="Checks right boundary bump.",
+        category="Better Office Accessibility"
+    )
+    def script_moveRight(self, gesture):
+        self._check_boundary_bump("right")
         # Let NVDA's native Excel appModule process the keystroke natively
         raise NotImplementedError
 
@@ -585,7 +624,9 @@ class ExcelGridMover(NVDAObjects.window.Window):
 
     __gestures = {
         "kb:upArrow": "moveUp",
-        "kb:leftArrow": "moveLeft"
+        "kb:leftArrow": "moveLeft",
+        "kb:downArrow": "moveDown",
+        "kb:rightArrow": "moveRight"
     }
 
     def _move_sheet(self, direction):
