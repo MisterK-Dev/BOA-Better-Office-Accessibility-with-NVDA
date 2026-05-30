@@ -25,6 +25,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     over standard Microsoft Office UI elements to override their default, often inaccessible behavior.
     """
     
+    def __init__(self, *args, **kwargs):
+        super(GlobalPlugin, self).__init__(*args, **kwargs)
+        import boa_gui
+        import gui.settingsDialogs
+        try:
+            gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(boa_gui.BOASettingsPanel)
+            log.info("BOA SettingsPanel registered.")
+        except Exception as e:
+            log.error(f"BOA: Failed to register settings panel: {e}")
+
+    def terminate(self):
+        super(GlobalPlugin, self).terminate()
+        import boa_gui
+        import gui.settingsDialogs
+        try:
+            if boa_gui.BOASettingsPanel in gui.settingsDialogs.NVDASettingsDialog.categoryClasses:
+                gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(boa_gui.BOASettingsPanel)
+                log.info("BOA SettingsPanel unregistered.")
+        except Exception as e:
+            log.error(f"BOA: Failed to unregister settings panel: {e}")
+    
     def event_gainFocus(self, obj, nextHandler):
         """
         Triggered every time a new object gains focus in the operating system.
@@ -33,9 +54,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         try:
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
-                import excel_enhancement
-                # Call our custom selection tracking logic before allowing NVDA to handle the focus event.
-                excel_enhancement.check_unselect(obj)
+                import boa_config
+                if boa_config.get_feature_state("excel", "unselect_tracking"):
+                    import excel_enhancement
+                    # Call our custom selection tracking logic before allowing NVDA to handle the focus event.
+                    excel_enhancement.check_unselect(obj)
         except Exception:
             pass
         nextHandler()
@@ -47,9 +70,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         try:
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
-                import excel_enhancement
-                # Notify the user if a multi-cell selection was unexpectedly deselected.
-                excel_enhancement.check_unselect(obj)
+                import boa_config
+                if boa_config.get_feature_state("excel", "unselect_tracking"):
+                    import excel_enhancement
+                    # Notify the user if a multi-cell selection was unexpectedly deselected.
+                    excel_enhancement.check_unselect(obj)
         except Exception:
             pass
         nextHandler()
@@ -80,19 +105,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         # -----------------------------------------------------
         # Excel Overrides
         # -----------------------------------------------------
+        import boa_config
         if appName == "excel":
             # The main Excel spreadsheet grid classes.
-            if className in ("EXCEL7", "XLDESK", "NetUIHWND"):
+            if className in ("EXCEL7", "XLDESK", "NetUIHWND") and boa_config.get_feature_state("excel", "grid_mover"):
                 log.info("BOA: injecting ExcelGridMover!")
                 # Insert our custom Grid Mover at the top of the class hierarchy so it intercepts keystrokes first.
                 clsList.insert(0, ExcelGridMover)
                 
             # The 'EXCEL=' class specifically represents the native "Rename Sheet" edit box.
-            if className == "EXCEL=":
+            if className == "EXCEL=" and boa_config.get_feature_state("excel", "sheet_rename"):
                 log.info("BOA: injecting ExcelSheetRenameEdit!")
                 clsList.insert(0, ExcelSheetRenameEdit)
             # Standard RichEdit controls in Office sometimes crash when ITextDocument is accessed.
-            elif className in ("RichEdit20W", "RichEdit50W"):
+            elif className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("excel", "safe_rich_edit"):
                 log.info("BOA: injecting SafeRichEdit for Excel!")
                 clsList.insert(0, SafeRichEdit)
 
@@ -101,7 +127,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         # -----------------------------------------------------
         elif appName == "powerpnt":
             # 'bosa_sdm_Mso96' is a legacy Office dialog class, used here for the 'Standard' color hexagon.
-            if className == "bosa_sdm_Mso96":
+            if className == "bosa_sdm_Mso96" and boa_config.get_feature_state("powerpoint", "standard_color_grid"):
                 import controlTypes
                 if getattr(obj, "role", None) == controlTypes.Role.TAB:
                     log.info("BOA: injecting PowerPointStandardColorGrid for TAB in PPT!")
@@ -110,18 +136,18 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             # RichEdit20W and RichEdit50W are used extensively in PowerPoint dialogs.
             if className == "RichEdit20W":
                 # windowControlID 1637 uniquely identifies the Hex input field in the Color picker.
-                if getattr(obj, 'windowControlID', None) == 1637:
+                if getattr(obj, 'windowControlID', None) == 1637 and boa_config.get_feature_state("powerpoint", "hex_edit"):
                     log.info("BOA: injecting PowerPointHexEdit!")
                     clsList.insert(0, PowerPointHexEdit)
-                else:
+                elif boa_config.get_feature_state("powerpoint", "safe_rich_edit"):
                     log.info("BOA: injecting SafeRichEdit for PPT!")
                     clsList.insert(0, SafeRichEdit)
-            elif className == "RichEdit50W":
+            elif className == "RichEdit50W" and boa_config.get_feature_state("powerpoint", "safe_rich_edit"):
                 log.info("BOA: injecting SafeRichEdit for PPT!")
                 clsList.insert(0, SafeRichEdit)
             
             # The standard 'Edit' class is used for the RGB input fields.
-            if className == "Edit":
+            if className == "Edit" and boa_config.get_feature_state("powerpoint", "rgb_edit"):
                 parent = getattr(obj, 'parent', None)
                 parent_class = getattr(parent, 'windowClassName', '') if parent else ""
                 
@@ -129,3 +155,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 # to avoid injecting this into random Edit fields throughout PowerPoint.
                 if parent_class == "#32770":
                     clsList.insert(0, PowerPointRGBEdit)
+
+        # -----------------------------------------------------
+        # Word Overrides
+        # -----------------------------------------------------
+        elif appName == "winword":
+            if className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("word", "safe_rich_edit"):
+                log.info("BOA: injecting SafeRichEdit for Word!")
+                clsList.insert(0, SafeRichEdit)
