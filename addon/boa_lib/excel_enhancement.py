@@ -14,6 +14,14 @@ import core
 _is_renaming_sheet = False
 _last_selection_count = 1
 
+# Tracks the last multi-cell address BOA announced aloud.
+# This prevents BOA from re-announcing the same range that NVDA already spoke natively.
+_last_announced_address = None
+
+# Track states for structural Excel changes that lack native COM/UIA events
+_last_freeze_panes_state = None
+_last_visible_sheet_count = None
+
 def check_unselect(obj):
     """
     Called whenever Excel selection or focus changes.
@@ -241,8 +249,24 @@ class ExcelGridMover(NVDAObjects.window.Window):
     def _check_multi_selection(self):
         """
         Manually checks the Excel COM model to announce the currently selected cell range.
-        This fixes the silence that happens when a user types a range (e.g. A1:D5) into the "Go To" dialog and presses Enter.
+        This fires after focus lands on the Excel grid (e.g., after closing the Go To dialog,
+        pressing F5, or using the Name Box to jump to a range).
+
+        DOUBLE-ANNOUNCEMENT PREVENTION:
+        NVDA natively handles manual selection expansions (e.g., Shift+Arrow, Ctrl+Space).
+        If the user is physically holding Shift or Control when this check fires, it means
+        they are manually extending the selection via keyboard. We abort and let NVDA natively
+        announce it. We only speak if no modifiers are held (which implies a programmatic jump
+        like hitting Enter in the Go To box).
         """
+        global _last_announced_address
+        import winUser
+        
+        # GUARD 1: If Shift or Control is held down, the user is manually selecting.
+        # NVDA will natively announce this. Do not double-announce.
+        if (winUser.getKeyState(winUser.VK_SHIFT) & 32768) or (winUser.getKeyState(winUser.VK_CONTROL) & 32768):
+            return
+
         import comtypes.client
         import comtypes.automation
         import ctypes
@@ -251,22 +275,85 @@ class ExcelGridMover(NVDAObjects.window.Window):
             hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
             if not hwnd7:
                 return
-                
+
             oleacc = ctypes.windll.oleacc
             OBJID_NATIVEOM = -16
             ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
             res = oleacc.AccessibleObjectFromWindow(hwnd7, OBJID_NATIVEOM, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-            
+
             if res == 0 and ptr:
                 win = comtypes.client.dynamic.Dispatch(ptr)
                 excel = win.Application
                 sel = excel.Selection
-                
+
                 # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
                 if getattr(sel, 'Cells', None) and sel.Cells.Count > 1:
-                    address = sel.Address(False, False) # Returns string like "A1:D1"
+                    address = sel.Address(False, False)  # Returns string like "A1:D1"
+
+                    # Check for broader structural changes (like Freeze Panes) while we have the COM object
+                    self._check_structural_changes(excel)
+
+                    # GUARD: Only announce if this is a NEW address BOA hasn't spoken yet.
+                    # This is the core fix for the double-announcement problem.
+                    # When the user selects a range via Shift+Arrow, NVDA fires its own UIA
+                    # event_selectionChange and speaks natively. Then event_gainFocus fires here
+                    # and would speak again. By comparing against our last announced address,
+                    # we skip the duplicate and stay silent.
+                    if address == _last_announced_address:
+                        return
+
+                    _last_announced_address = address
                     spoken_address = address.replace(":", " through ")
                     speech.speakMessage(f"{spoken_address} selected")
+                else:
+                    # Selection collapsed to single cell — reset tracker so
+                    # the next multi-cell jump is announced cleanly.
+                    _last_announced_address = None
+        except Exception:
+            pass
+
+    def _check_structural_changes(self, excel):
+        """
+        Monitors for changes in Excel's structural layout that do not natively fire events,
+        such as toggling Freeze Panes or Hiding/Unhiding a worksheet.
+        By caching the previous state, we can detect if a change occurred while the user
+        was interacting with the Ribbon or right-click menus, and announce it upon returning
+        focus to the grid. Uses ui.message for safe output routing.
+        """
+        global _last_freeze_panes_state, _last_visible_sheet_count
+        import ui
+        
+        try:
+            # Check Freeze Panes
+            # ActiveWindow.FreezePanes returns a boolean indicating if panes are frozen.
+            current_freeze = excel.ActiveWindow.FreezePanes
+            if _last_freeze_panes_state is not None and current_freeze != _last_freeze_panes_state:
+                if current_freeze:
+                    ui.message("Panes frozen")
+                else:
+                    ui.message("Panes unfrozen")
+            _last_freeze_panes_state = current_freeze
+        except Exception:
+            pass
+            
+        try:
+            # Check Sheet Visibility (Count of visible sheets)
+            # Since checking every sheet's visibility is slow, checking the total count of visible sheets
+            # is a quick heuristic to determine if a sheet was just hidden or unhidden.
+            wb = excel.ActiveWorkbook
+            if wb:
+                visible_count = 0
+                for i in range(1, wb.Sheets.Count + 1):
+                    # -1 is xlSheetVisible in Excel COM
+                    if wb.Sheets(i).Visible == -1:
+                        visible_count += 1
+                
+                if _last_visible_sheet_count is not None:
+                    if visible_count < _last_visible_sheet_count:
+                        ui.message("Sheet hidden")
+                    elif visible_count > _last_visible_sheet_count:
+                        ui.message("Sheet unhidden")
+                _last_visible_sheet_count = visible_count
         except Exception:
             pass
 
@@ -356,15 +443,33 @@ class ExcelGridMover(NVDAObjects.window.Window):
             import logHandler
             logHandler.log.error(f"ExcelGridMover error: {e}")
 
+    from scriptHandler import script
+
+    @script(
+        description="Moves the active Excel sheet to the left.",
+        category="Better Office Accessibility"
+    )
     def script_moveSheetLeft(self, gesture):
         self._move_sheet("left")
 
+    @script(
+        description="Moves the active Excel sheet to the right.",
+        category="Better Office Accessibility"
+    )
     def script_moveSheetRight(self, gesture):
         self._move_sheet("right")
 
+    @script(
+        description="Moves the active Excel sheet to the very beginning of the workbook.",
+        category="Better Office Accessibility"
+    )
     def script_moveSheetStart(self, gesture):
         self._move_sheet("start")
 
+    @script(
+        description="Moves the active Excel sheet to the very end of the workbook.",
+        category="Better Office Accessibility"
+    )
     def script_moveSheetEnd(self, gesture):
         self._move_sheet("end")
         
@@ -456,6 +561,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
             import threading
             threading.Thread(target=bg_task).start()
 
+    @script(
+        description="Opens the BOA Bulk Sheet Organizer dialog.",
+        category="Better Office Accessibility"
+    )
     def script_openBulkSheetOrganizer(self, gesture):
         """
         NVDA script triggered by the user (NVDA+Alt+C).
@@ -509,6 +618,103 @@ class ExcelGridMover(NVDAObjects.window.Window):
             import logHandler
             logHandler.log.error(f"ExcelGridMover bulk error: {e}")
 
+    @script(
+        description="Hides the currently selected row.",
+        category="Better Office Accessibility"
+    )
+    def script_hideRow(self, gesture):
+        """
+        Intercepts Ctrl+9 to hide the selected row and announces the change.
+        Passes the keystroke to Excel natively first.
+        """
+        self._execute_and_verify_visibility_change(gesture, "row", True)
+
+    @script(
+        description="Unhides the currently selected row.",
+        category="Better Office Accessibility"
+    )
+    def script_unhideRow(self, gesture):
+        """
+        Intercepts Ctrl+Shift+9 to unhide the selected row and announces the change.
+        """
+        self._execute_and_verify_visibility_change(gesture, "row", False)
+
+    @script(
+        description="Hides the currently selected column.",
+        category="Better Office Accessibility"
+    )
+    def script_hideColumn(self, gesture):
+        """
+        Intercepts Ctrl+0 to hide the selected column and announces the change.
+        """
+        self._execute_and_verify_visibility_change(gesture, "column", True)
+
+    @script(
+        description="Unhides the currently selected column.",
+        category="Better Office Accessibility"
+    )
+    def script_unhideColumn(self, gesture):
+        """
+        Intercepts Ctrl+Shift+0 to unhide the selected column and announces the change.
+        """
+        self._execute_and_verify_visibility_change(gesture, "column", False)
+
+    def _execute_and_verify_visibility_change(self, gesture, element_type, is_hiding):
+        """
+        Passes the native keystroke to Excel, waits briefly for Excel to process it,
+        and then checks the COM model to verify if the row/column was actually hidden/unhidden.
+        Uses core.callLater to safely delay without blocking NVDA's single-threaded core.
+        """
+        # Send the original gesture through to Excel natively
+        gesture.send()
+        
+        import core
+        # 200ms delay gives Excel enough time to process the keystroke and update its COM model
+        core.callLater(200, self._verify_visibility_change_callback, element_type, is_hiding)
+        
+    def _verify_visibility_change_callback(self, element_type, is_hiding):
+        """
+        Callback executed by core.callLater to verify the visibility state.
+        Announces the change via ui.message if successful.
+        """
+        import comtypes.client
+        import comtypes.automation
+        import ctypes
+        import ui
+        import logHandler
+        
+        try:
+            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
+            if not hwnd7:
+                return
+
+            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+            OBJID_NATIVEOM = -16
+            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+            res = oleacc.AccessibleObjectFromWindow(hwnd7, OBJID_NATIVEOM, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+
+            if res == 0 and ptr:
+                win = comtypes.client.dynamic.Dispatch(ptr)
+                excel = win.Application
+                sel = excel.Selection
+                
+                if element_type == "row":
+                    # Check if the entire row of the selection is hidden
+                    is_hidden = sel.EntireRow.Hidden
+                    if is_hiding and is_hidden:
+                        ui.message("Row hidden")
+                    elif not is_hiding and not is_hidden:
+                        ui.message("Row unhidden")
+                elif element_type == "column":
+                    # Check if the entire column of the selection is hidden
+                    is_hidden = sel.EntireColumn.Hidden
+                    if is_hiding and is_hidden:
+                        ui.message("Column hidden")
+                    elif not is_hiding and not is_hidden:
+                        ui.message("Column unhidden")
+        except Exception as e:
+            logHandler.log.debugWarning(f"BOA: Failed to verify {element_type} visibility change. {e}")
+
     __gestures = {
         "kb:NVDA+shift+leftArrow": "moveSheetLeft",
         "kb:NVDA+shift+rightArrow": "moveSheetRight",
@@ -521,6 +727,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
         "kb:NVDA+alt+leftArrow": "moveSheetLeft",
         "kb:NVDA+alt+rightArrow": "moveSheetRight",
         "kb:NVDA+alt+c": "openBulkSheetOrganizer",
+        "kb:control+9": "hideRow",
+        "kb:control+shift+9": "unhideRow",
+        "kb:control+0": "hideColumn",
+        "kb:control+shift+0": "unhideColumn",
     }
 
 class ExcelBulkSheetOrganizerDialog(wx.Dialog):

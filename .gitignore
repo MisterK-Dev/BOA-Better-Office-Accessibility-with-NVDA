@@ -1,0 +1,5 @@
+BOA_Future_Enhancements.txt
+*.nvda-addon
+__pycache__/
+.sconsign.dblite
+addon/manifest.ini

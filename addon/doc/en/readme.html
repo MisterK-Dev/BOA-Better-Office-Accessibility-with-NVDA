@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>BOA: Better Office Accessibility 1.1.0-dev3</title>
+</head>
+<body>
+<h1>BOA: Better Office Accessibility</h1>
+<p>BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.</p>
+<h2>Excel Features</h2>
+<h3>1. Bulk Sheet Organizer</h3>
+<p>Instantly reorder and arrange multiple sheets at once using a fully accessible dialog table.
+* <strong>Shortcut:</strong> <code>NVDA + Alt + C</code>
+* <strong>How it works:</strong> Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press <code>Del</code> to remove a mistake). Click <code>OK</code> and your workbook is rearranged instantly.</p>
+<h3>2. Quick Sheet Mover</h3>
+<p>Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard.
+* <strong>Shortcuts:</strong>
+  * Move Left: <code>NVDA + Shift + Left Arrow</code> (or PageUp)
+  * Move Right: <code>NVDA + Shift + Right Arrow</code> (or PageDown)
+  * Move to Start: <code>NVDA + Shift + Home</code>
+  * Move to End: <code>NVDA + Shift + End</code></p>
+<h3>3. Accessible Sheet Renaming</h3>
+<p>Bypasses the notoriously inaccessible Excel "Rename Sheet" edit field.
+* <strong>How it works:</strong> When you trigger the native Excel sheet rename command (e.g., via the ribbon or context menu), BOA intercepts it and opens a reliable, 100% accessible standard text dialog. Type your new name, press Enter, and BOA handles the renaming safely in the background.</p>
+<h3>4. Smart Selection Tracking</h3>
+<p>Accurately announces multi-cell range selections and deselections.
+* <strong>How it works:</strong> Fixes the silence when selecting ranges via the <code>F5</code> Go To dialog or when unexpectedly deselecting a range.</p>
+<h2>PowerPoint Features</h2>
+<h3>1. Accessible Color Pickers</h3>
+<p>Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
+* <strong>How it works:</strong> Seamlessly binds to the Red, Green, Blue, and Hex text boxes in the PowerPoint color picker, properly labeling them for NVDA object navigation and focus.</p>
+<h3>2. Standard Color Grid Support</h3>
+<p>Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
+* <strong>How it works:</strong> When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.</p>
+<h2>Security</h2>
+<p>BOA is built with strict security boundaries. Background COM manipulations are executed within safely initialized sandboxes, and clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.</p>
+<h2>Requirements</h2>
+<ul>
+<li>NVDA 2026.1.0 or later.</li>
+<li>Microsoft Excel &amp; PowerPoint.</li>
+</ul>
+<h2>Installation</h2>
+<ol>
+<li>Download the latest <code>.nvda-addon</code> release file.</li>
+<li>Open the file or use NVDA's Add-on Store -&gt; Install from external file.</li>
+<li>Restart NVDA.</li>
+</ol>
+<h2>Changelog</h2>
+<hr />
+<h3>Version 1.1.0-dev3 — 2026-05-26</h3>
+<p><strong>Development build for testing.</strong></p>
+<h4>New Features</h4>
+<ul>
+<li><strong>Customizable Hotkeys</strong> — All BOA hotkeys (e.g., Bulk Sheet Organizer, Move Sheet Left/Right) are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category, allowing users to safely rebind them to their preference.</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li><strong>Excel: Selection Double-Announcement</strong> — Fixed an issue where BOA would redundantly announce multi-cell selections that NVDA natively handles (e.g., via Shift+Arrow keys). BOA now detects manual key holds and only announces when a selection jump occurs programmatically (e.g., via the Go To box or Name Box).</li>
+</ul>
+<hr />
+<h3>Version 1.0.0 — 2026-05-24</h3>
+<p><strong>Initial public release.</strong></p>
+<h4>New Features</h4>
+<ul>
+<li><strong>Excel: Bulk Sheet Organizer</strong> (<code>NVDA+Alt+C</code>) — Instantly reorder multiple sheets at once using a fully accessible dialog.</li>
+<li><strong>Excel: Quick Sheet Mover</strong> (<code>NVDA+Shift+Arrows</code>) — Move the active sheet left, right, to start, or to end via keyboard.</li>
+<li><strong>Excel: Accessible Sheet Renaming</strong> — Intercepts the inaccessible native rename field and replaces it with a reliable accessible dialog.</li>
+<li><strong>Excel: Smart Selection Tracking</strong> — Accurately announces multi-cell range selections and deselections.</li>
+<li><strong>PowerPoint: Accessible Color Pickers</strong> — Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.</li>
+<li><strong>PowerPoint: Standard Color Grid Support</strong> — Intercepts arrow key navigation to read hidden Hex codes from the inaccessible color hexagon grid.</li>
+</ul>
+</body>
+</html>

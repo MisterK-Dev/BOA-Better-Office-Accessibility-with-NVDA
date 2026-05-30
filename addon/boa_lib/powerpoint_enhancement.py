@@ -96,21 +96,39 @@ class PowerPointStandardColorGrid(NVDAObjects.window.Window):
     # and then schedule a slight delay (50ms) to read the new hidden hex color,
     # giving the PowerPoint UI enough time to internally update the hidden edit boxes.
 
+    from scriptHandler import script
+
+    @script(
+        description="Reads the hidden hex color while navigating UP in the PowerPoint Standard color grid.",
+        category="Better Office Accessibility"
+    )
     def script_arrowUp(self, gesture):
         gesture.send()
         import core
         core.callLater(50, self._read_hidden_hex_color)
 
+    @script(
+        description="Reads the hidden hex color while navigating DOWN in the PowerPoint Standard color grid.",
+        category="Better Office Accessibility"
+    )
     def script_arrowDown(self, gesture):
         gesture.send()
         import core
         core.callLater(50, self._read_hidden_hex_color)
 
+    @script(
+        description="Reads the hidden hex color while navigating LEFT in the PowerPoint Standard color grid.",
+        category="Better Office Accessibility"
+    )
     def script_arrowLeft(self, gesture):
         gesture.send()
         import core
         core.callLater(50, self._read_hidden_hex_color)
 
+    @script(
+        description="Reads the hidden hex color while navigating RIGHT in the PowerPoint Standard color grid.",
+        category="Better Office Accessibility"
+    )
     def script_arrowRight(self, gesture):
         gesture.send()
         import core
