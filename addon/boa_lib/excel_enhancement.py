@@ -90,8 +90,8 @@ def _do_check_unselect():
                 count = sel.Cells.Count
                 # If we previously had >1 cells selected, and now we only have 1, the user dropped the selection.
                 if count == 1 and _last_selection_count > 1:
-                    import speech
-                    speech.speakMessage("unselected")
+                    import ui
+                    ui.message("unselected")
                 _last_selection_count = count
     except Exception:
         pass
@@ -134,8 +134,8 @@ class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
 
         def _do_enter(clean_name, old_clip):
             keyboardHandler.KeyboardInputGesture.fromName("enter").send()
-            import speech
-            speech.speakMessage(f"Renaming to {clean_name}")
+            import ui
+            ui.message(f"Renaming to {clean_name}")
             core.callLater(1500, lambda: _restore_clip_and_reset(old_clip))
 
         def _do_inject(old_clip, clean_name, fg_hwnd):
@@ -301,7 +301,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
         import comtypes.client
         import comtypes.automation
         import ctypes
-        import speech
+        import ui
         try:
             hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
             if not hwnd7:
@@ -339,7 +339,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
 
                         _last_announced_address = address
                         spoken_address = address.replace(":", " through ")
-                        speech.speakMessage(f"{spoken_address} selected")
+                        ui.message(f"{spoken_address} selected")
                     else:
                         # Selection collapsed to single cell — reset tracker
                         _last_announced_address = None
@@ -609,7 +609,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
         import comtypes.client
         import comtypes.automation
         import ctypes
-        import speech
+        import ui
         try:
             # Safely get the Excel object bypassing GetActiveObject to prevent MK_E_UNAVAILABLE errors
             hwnd7 = None
@@ -623,7 +623,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
             
             if not hwnd7:
-                speech.speakMessage("Could not find Excel grid.")
+                ui.message("Could not find Excel grid.")
                 return
                 
             oleacc = ctypes.windll.oleacc
@@ -637,7 +637,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
             )
             
             if res != 0 or not ptr:
-                speech.speakMessage("Failed to hook Excel.")
+                ui.message("Failed to hook Excel.")
                 return
                 
             win = comtypes.client.dynamic.Dispatch(ptr)
@@ -649,28 +649,28 @@ class ExcelGridMover(NVDAObjects.window.Window):
             total_sheets = wb.Sheets.Count
             
             if total_sheets <= 1:
-                speech.speakMessage("Only one sheet in workbook")
+                ui.message("Only one sheet in workbook")
                 return
                 
             if direction == "left":
                 if current_index == 1:
-                    speech.speakMessage("Already at beginning")
+                    ui.message("Already at beginning")
                     return
                 sheet.Move(wb.Sheets(current_index - 1))
             elif direction == "right":
                 if current_index == total_sheets:
-                    speech.speakMessage("Already at end")
+                    ui.message("Already at end")
                     return
                 # To move right, we just move the right neighbor before us!
                 wb.Sheets(current_index + 1).Move(sheet)
             elif direction == "start":
                 if current_index == 1:
-                    speech.speakMessage("Already at beginning")
+                    ui.message("Already at beginning")
                     return
                 sheet.Move(wb.Sheets(1))
             elif direction == "end":
                 if current_index == total_sheets:
-                    speech.speakMessage("Already at end")
+                    ui.message("Already at end")
                     return
                 # Two-step COM trick to move to the very end without the broken 'After' parameter:
                 # 1. Move our sheet BEFORE the very last sheet (if we aren't already just before it)
@@ -685,9 +685,9 @@ class ExcelGridMover(NVDAObjects.window.Window):
             
             new_index = excel.ActiveSheet.Index
             sheet_name = excel.ActiveSheet.Name
-            speech.speakMessage(f"Moved {sheet_name} to position {new_index} of {total_sheets}")
+            ui.message(f"Moved {sheet_name} to position {new_index} of {total_sheets}")
         except Exception as e:
-            speech.speakMessage("Failed to move sheet")
+            ui.message("Failed to move sheet")
             import logHandler
             logHandler.log.error(f"ExcelGridMover error: {e}")
 
@@ -736,7 +736,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 import comtypes.client
                 import comtypes.automation
                 import ctypes
-                import speech
+                import ui
                 import logHandler
                 
                 oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
@@ -779,9 +779,9 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                 if sheet.Index != sheet_after.Index - 1:
                                     sheet.Move(sheet_after)
                                     
-                        speech.speakMessage("Bulk arrangement complete")
+                        ui.message("Bulk arrangement complete")
                     except Exception as e:
-                        speech.speakMessage(f"Error during bulk move: {e}")
+                        ui.message(f"Error during bulk move: {e}")
                         logHandler.log.error(f"BOA bulk bg error: {e}")
                         
             def _apply_moves():
@@ -806,7 +806,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
         import comtypes.client
         import comtypes.automation
         import ctypes
-        import speech
+        import ui
         import wx
         
         try:
@@ -821,7 +821,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
             
             if not hwnd7:
-                speech.speakMessage("Could not find Excel grid.")
+                ui.message("Could not find Excel grid.")
                 return
                 
             oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
@@ -829,14 +829,14 @@ class ExcelGridMover(NVDAObjects.window.Window):
             res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
             
             if res != 0 or not ptr:
-                speech.speakMessage("Failed to hook Excel.")
+                ui.message("Failed to hook Excel.")
                 return
                 
             win = comtypes.client.dynamic.Dispatch(ptr)
             excel = win.Application
             wb = excel.ActiveWorkbook
             if not wb:
-                speech.speakMessage("No active workbook.")
+                ui.message("No active workbook.")
                 return
                 
             # Extract the names of every sheet currently in the workbook to populate the dialog.
@@ -846,7 +846,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
             # Use wx.CallAfter to safely push the dialog creation onto NVDA's main GUI thread.
             wx.CallAfter(self._show_bulk_dialog, sheet_names, hwnd7)
         except Exception as e:
-            speech.speakMessage("Error opening organizer")
+            ui.message("Error opening organizer")
             import logHandler
             logHandler.log.error(f"ExcelGridMover bulk error: {e}")
 
@@ -1107,8 +1107,8 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
             pos = int(pos_str)
             self.planned_moves[sheet] = pos
             self._refresh_list()
-            import speech
-            speech.speakMessage(f"Scheduled: {sheet} to position {pos}")
+            import ui
+            ui.message(f"Scheduled: {sheet} to position {pos}")
 
     def on_list_key_down(self, event):
         """
@@ -1125,8 +1125,8 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
             if sheet in self.planned_moves:
                 del self.planned_moves[sheet]
             self._refresh_list()
-            import speech
-            speech.speakMessage("Move removed")
+            import ui
+            ui.message("Move removed")
             # Update combo box to original position
             self.on_sheet_change(None)
             

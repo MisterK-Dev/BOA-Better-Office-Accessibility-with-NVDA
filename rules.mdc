@@ -29,3 +29,4 @@ also readme.md should be properly documented mentained after successful features
 - **No Automatic Git Pushes**: Never run git push commands to GitHub or any remote repository. 
 - **Local Commits Only**: You may only stage or commit files to the local git repository layer (`git add`, `git commit`). Remote uploads are strictly forbidden until explicitly requested by the user.
 - **Explicit Permission**: A feature must be explicitly greenlit by the user before it is marked as finalized or merged into the local main branch.
+## 7. code should be secure, free from vulnerabilities.

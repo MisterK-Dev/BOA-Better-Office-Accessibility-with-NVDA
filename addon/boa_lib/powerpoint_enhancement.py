@@ -54,7 +54,7 @@ class PowerPointStandardColorGrid(NVDAObjects.window.Window):
     def _read_hidden_hex_color(self):
         import ctypes
         import winUser
-        import speech
+        import ui
         
         hwnd = self.windowHandle
         children = []
@@ -89,7 +89,7 @@ class PowerPointStandardColorGrid(NVDAObjects.window.Window):
                         break
                         
         if hex_val:
-            speech.speakMessage(f"Color {hex_val}")
+            ui.message(f"Color {hex_val}")
 
     # The following scripts intercept standard navigation keys.
     # They first pass the original key press to PowerPoint (gesture.send()),
