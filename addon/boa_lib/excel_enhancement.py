@@ -406,11 +406,17 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         # By checking 'is not False', we instantly catch both fully hidden and mixed 
                         # ranges without using slow and error-prone SpecialCells iterations.
                         if hidden_val is not False:
-                            if hidden_val in (True, -1):
-                                if max_r - min_r == 2:
+                            if excel.Rows(min_r + 1).Hidden in (True, -1):
+                                end_hidden = min_r + 1
+                                while end_hidden < max_r - 1 and end_hidden - min_r < 500 and excel.Rows(end_hidden + 1).Hidden in (True, -1):
+                                    end_hidden += 1
+                                    
+                                if end_hidden == min_r + 1:
                                     ui.message(f"Row {min_r + 1} hidden")
-                                else:
+                                elif end_hidden - min_r >= 500:
                                     ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
+                                else:
+                                    ui.message(f"Rows {min_r + 1} through {end_hidden} hidden")
                             else:
                                 ui.message("Crossed hidden rows")
                                 
@@ -429,14 +435,19 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         hidden_val = gap_range.Hidden
                         
                         start_letter = col_num_to_letter(min_c + 1)
-                        # Architecture intent: Similar to rows, we check if the column hidden value
-                        # is not False to reliably detect mixed or fully hidden columns during bulk navigation.
                         if hidden_val is not False:
-                            if hidden_val in (True, -1):
-                                if max_c - min_c == 2:
+                            if excel.Columns(min_c + 1).Hidden in (True, -1):
+                                end_hidden = min_c + 1
+                                while end_hidden < max_c - 1 and end_hidden - min_c < 500 and excel.Columns(end_hidden + 1).Hidden in (True, -1):
+                                    end_hidden += 1
+                                    
+                                if end_hidden == min_c + 1:
                                     ui.message(f"Column {start_letter} hidden")
-                                else:
+                                elif end_hidden - min_c >= 500:
                                     end_letter = col_num_to_letter(max_c - 1)
+                                    ui.message(f"Columns {start_letter} through {end_letter} hidden")
+                                else:
+                                    end_letter = col_num_to_letter(end_hidden)
                                     ui.message(f"Columns {start_letter} through {end_letter} hidden")
                             else:
                                 ui.message("Crossed hidden columns")
