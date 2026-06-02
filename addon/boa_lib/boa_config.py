@@ -23,7 +23,8 @@ DEFAULT_CONFIG = {
         "grid_mover": True,
         "sheet_rename": True,
         "safe_rich_edit": True,
-        "unselect_tracking": True
+        "unselect_tracking": True,
+        "hidden_row_skip": True
     },
     "powerpoint": {
         "standard_color_grid": True,

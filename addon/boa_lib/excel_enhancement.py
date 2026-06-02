@@ -81,8 +81,10 @@ def _do_check_unselect():
             if getattr(sel, 'Cells', None):
                 try:
                     # ALWAYS check structural changes and hidden row skips on focus/selection change
-                    ExcelGridMover._check_structural_changes(None, excel)
-                    ExcelGridMover._check_hidden_skip(None, excel)
+                    import boa_config
+                    if boa_config.get_feature_state("excel", "hidden_row_skip"):
+                        ExcelGridMover.check_structural_changes(excel)
+                        ExcelGridMover.check_hidden_skip(excel)
                 except Exception:
                     pass
                 count = sel.Cells.Count
@@ -271,87 +273,7 @@ class ExcelGridMover(NVDAObjects.window.Window):
     This class intercepts arrow keys and structural changes to manually calculate and announce
     boundaries, hidden skips, and sheet movements, bypassing the unreliable UIA layer entirely.
     """
-    def _check_boundary_bump(self, direction):
-        """
-        Synchronously checks if the user pressed an arrow key but focus will not move because they
-        are mathematically stuck against an absolute hidden boundary (e.g. Row 1 is hidden).
-        """
-        try:
-            import comtypes.client
-            import ctypes
-            import comtypes.automation
-            
-            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
-            if not hwnd7:
-                return
-                
-            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
-            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-            res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-            
-            if res == 0 and ptr:
-                excel = comtypes.client.dynamic.Dispatch(ptr).Application
-                active_cell = excel.ActiveCell
-                r = active_cell.Row
-                c = active_cell.Column
-                import ui
-                
-                if direction == "up" and r > 1:
-                    # Check if ALL rows above are hidden (meaning we are stuck against the ceiling)
-                    gap_range = excel.Range(excel.Cells(1, 1), excel.Cells(r - 1, 1)).EntireRow
-                    try:
-                        gap_range.SpecialCells(12)
-                    except Exception:
-                        if r - 1 == 1:
-                            ui.message("Row 1 hidden")
-                        else:
-                            ui.message(f"Rows 1 through {r - 1} hidden")
-                            
-                elif direction == "left" and c > 1:
-                    gap_range = excel.Range(excel.Cells(1, 1), excel.Cells(1, c - 1)).EntireColumn
-                    try:
-                        gap_range.SpecialCells(12)
-                    except Exception:
-                        def col_num_to_letter(n):
-                            s = ""
-                            while n > 0:
-                                n, remainder = divmod(n - 1, 26)
-                                s = chr(65 + remainder) + s
-                            return s
-                            
-                        if c - 1 == 1:
-                            ui.message("Column A hidden")
-                        else:
-                            ui.message(f"Columns A through {col_num_to_letter(c - 1)} hidden")
-                            
-                elif direction == "down" and r < 1048576:
-                    gap_range = excel.Range(excel.Cells(r + 1, 1), excel.Cells(1048576, 1)).EntireRow
-                    try:
-                        gap_range.SpecialCells(12)
-                    except Exception:
-                        if r + 1 == 1048576:
-                            ui.message("Row 1048576 hidden")
-                        else:
-                            ui.message(f"Rows {r + 1} through 1048576 hidden")
-                            
-                elif direction == "right" and c < 16384:
-                    gap_range = excel.Range(excel.Cells(1, c + 1), excel.Cells(1, 16384)).EntireColumn
-                    try:
-                        gap_range.SpecialCells(12)
-                    except Exception:
-                        def col_num_to_letter(n):
-                            s = ""
-                            while n > 0:
-                                n, remainder = divmod(n - 1, 26)
-                                s = chr(65 + remainder) + s
-                            return s
-                            
-                        if c + 1 == 16384:
-                            ui.message("Column XFD hidden")
-                        else:
-                            ui.message(f"Columns {col_num_to_letter(c + 1)} through XFD hidden")
-        except Exception:
-            pass
+
 
 
 
@@ -397,8 +319,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
 
                 if getattr(sel, 'Cells', None):
                     # ALWAYS check structural changes and hidden row skips on focus change
-                    self._check_structural_changes(excel)
-                    self._check_hidden_skip(excel)
+                    import boa_config
+                    if boa_config.get_feature_state("excel", "hidden_row_skip"):
+                        ExcelGridMover.check_structural_changes(excel)
+                        ExcelGridMover.check_hidden_skip(excel)
                     
                     # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
                     if sel.Cells.Count > 1:
@@ -422,7 +346,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
         except Exception:
             pass
 
-    def _check_hidden_skip(self, excel):
+    @staticmethod
+    def check_hidden_skip(excel):
         """
         Detects if the user's focus jumped over completely hidden rows or columns.
         Uses COM bulk checking and SpecialCells to avoid false positives and loops.
@@ -476,49 +401,23 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         gap_range = excel.Range(excel.Cells(min_r + 1, 1), excel.Cells(max_r - 1, 1)).EntireRow
                         hidden_val = gap_range.Hidden
                         
-                        if hidden_val == True or hidden_val == -1:
-                            if max_r - min_r == 2:
-                                ui.message(f"Row {min_r + 1} hidden")
+                        # Architecture intent: COM Range.Hidden returns True if all rows are hidden, 
+                        # False if all are visible, and None/Null if it's a mix.
+                        # By checking 'is not False', we instantly catch both fully hidden and mixed 
+                        # ranges without using slow and error-prone SpecialCells iterations.
+                        if hidden_val is not False:
+                            if hidden_val in (True, -1):
+                                if max_r - min_r == 2:
+                                    ui.message(f"Row {min_r + 1} hidden")
+                                else:
+                                    ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
                             else:
-                                ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
+                                ui.message("Crossed hidden rows")
+                                
                             if current_row > _last_focused_row:
                                 skip_announced_top = True
                             else:
                                 skip_announced_bottom = True
-                        elif hidden_val is None:
-                            try:
-                                ur = excel.ActiveSheet.UsedRange
-                                ub = ur.Row + ur.Rows.Count - 1
-                                visible_cells = gap_range.SpecialCells(12)
-                                ac = visible_cells.Areas.Count
-                                if ac == 1:
-                                    a1 = visible_cells.Areas.Item(1)
-                                    if a1.Row == min_r + 1:
-                                        h_start = a1.Row + a1.Rows.Count
-                                        h_end = min(max_r - 1, ub)
-                                        if h_start == h_end: ui.message(f"Row {h_start} hidden")
-                                        elif h_end > h_start: ui.message(f"Rows {h_start} through {h_end} hidden")
-                                    elif a1.Row + a1.Rows.Count - 1 == max_r - 1:
-                                        h_start = min_r + 1
-                                        h_end = a1.Row - 1
-                                        if h_start == h_end: ui.message(f"Row {h_start} hidden")
-                                        elif h_end > h_start: ui.message(f"Rows {h_start} through {h_end} hidden")
-                                    else:
-                                        ui.message("Some hidden rows")
-                                elif ac == 2:
-                                    a1 = visible_cells.Areas.Item(1)
-                                    a2 = visible_cells.Areas.Item(2)
-                                    if a1.Row == min_r + 1 and (a2.Row + a2.Rows.Count - 1) == max_r - 1:
-                                        h_start = a1.Row + a1.Rows.Count
-                                        h_end = a2.Row - 1
-                                        if h_start == h_end: ui.message(f"Row {h_start} hidden")
-                                        elif h_end > h_start: ui.message(f"Rows {h_start} through {h_end} hidden")
-                                    else:
-                                        ui.message("Some hidden rows")
-                                else:
-                                    ui.message("Some hidden rows")
-                            except Exception:
-                                ui.message("Some hidden rows")
 
                 # ---------------- COLUMN JUMPS ----------------
                 if row_changed == False and col_changed:
@@ -530,50 +429,22 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         hidden_val = gap_range.Hidden
                         
                         start_letter = col_num_to_letter(min_c + 1)
-                        if hidden_val == True or hidden_val == -1:
-                            if max_c - min_c == 2:
-                                ui.message(f"Column {start_letter} hidden")
+                        # Architecture intent: Similar to rows, we check if the column hidden value
+                        # is not False to reliably detect mixed or fully hidden columns during bulk navigation.
+                        if hidden_val is not False:
+                            if hidden_val in (True, -1):
+                                if max_c - min_c == 2:
+                                    ui.message(f"Column {start_letter} hidden")
+                                else:
+                                    end_letter = col_num_to_letter(max_c - 1)
+                                    ui.message(f"Columns {start_letter} through {end_letter} hidden")
                             else:
-                                end_letter = col_num_to_letter(max_c - 1)
-                                ui.message(f"Columns {start_letter} through {end_letter} hidden")
+                                ui.message("Crossed hidden columns")
+                                
                             if current_col > _last_focused_col:
                                 skip_announced_left = True
                             else:
                                 skip_announced_right = True
-                        elif hidden_val is None:
-                            try:
-                                ur = excel.ActiveSheet.UsedRange
-                                ub = ur.Column + ur.Columns.Count - 1
-                                visible_cells = gap_range.SpecialCells(12)
-                                ac = visible_cells.Areas.Count
-                                if ac == 1:
-                                    a1 = visible_cells.Areas.Item(1)
-                                    if a1.Column == min_c + 1:
-                                        h_start = a1.Column + a1.Columns.Count
-                                        h_end = min(max_c - 1, ub)
-                                        if h_start == h_end: ui.message(f"Column {col_num_to_letter(h_start)} hidden")
-                                        elif h_end > h_start: ui.message(f"Columns {col_num_to_letter(h_start)} through {col_num_to_letter(h_end)} hidden")
-                                    elif a1.Column + a1.Columns.Count - 1 == max_c - 1:
-                                        h_start = min_c + 1
-                                        h_end = a1.Column - 1
-                                        if h_start == h_end: ui.message(f"Column {col_num_to_letter(h_start)} hidden")
-                                        elif h_end > h_start: ui.message(f"Columns {col_num_to_letter(h_start)} through {col_num_to_letter(h_end)} hidden")
-                                    else:
-                                        ui.message("Some hidden columns")
-                                elif ac == 2:
-                                    a1 = visible_cells.Areas.Item(1)
-                                    a2 = visible_cells.Areas.Item(2)
-                                    if a1.Column == min_c + 1 and (a2.Column + a2.Columns.Count - 1) == max_c - 1:
-                                        h_start = a1.Column + a1.Columns.Count
-                                        h_end = a2.Column - 1
-                                        if h_start == h_end: ui.message(f"Column {col_num_to_letter(h_start)} hidden")
-                                        elif h_end > h_start: ui.message(f"Columns {col_num_to_letter(h_start)} through {col_num_to_letter(h_end)} hidden")
-                                    else:
-                                        ui.message("Some hidden columns")
-                                else:
-                                    ui.message("Some hidden columns")
-                            except Exception:
-                                ui.message("Some hidden columns")
 
                 # ---------------- PROACTIVE BOUNDARY DETECTION ----------------
                 # Check top boundary
@@ -671,7 +542,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
                 logHandler.log.debug(f"BOA: Failed to check hidden skip: {e}")
             except Exception:
                 pass
-    def _check_structural_changes(self, excel):
+    @staticmethod
+    def check_structural_changes(excel):
         """
         Monitors for changes in Excel's structural layout that do not natively fire events,
         such as toggling Freeze Panes or Hiding/Unhiding a worksheet.

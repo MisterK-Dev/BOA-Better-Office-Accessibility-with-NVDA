@@ -69,6 +69,7 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 - **Settings GUI** — Added a native BOA Office Enhancements panel inside NVDA -> Preferences -> Settings to easily toggle features on or off.
 - **SafeRichEdit Hook** — Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.
 - **Customizable Hotkeys** — All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.
+- **Excel: Hidden Row/Column Skip Detection** — Proactively announces when navigating past hidden rows or columns, ensuring you never miss filtered data. Can be toggled in settings.
 
 #### Bug Fixes
 - **Thread Safety** — Removed all blocking delays (`time.sleep`) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.

@@ -55,7 +55,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
                 import boa_config
-                if boa_config.get_feature_state("excel", "unselect_tracking"):
+                if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
                     import excel_enhancement
                     # Call our custom selection tracking logic before allowing NVDA to handle the focus event.
                     excel_enhancement.check_unselect(obj)
@@ -71,7 +71,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
                 import boa_config
-                if boa_config.get_feature_state("excel", "unselect_tracking"):
+                if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
                     import excel_enhancement
                     # Notify the user if a multi-cell selection was unexpectedly deselected.
                     excel_enhancement.check_unselect(obj)

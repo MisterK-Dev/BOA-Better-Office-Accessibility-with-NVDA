@@ -1,12 +1,12 @@
 # Antigravity Global Project Rules: NVDA Addon Core
 
 ## 1. Context Retention & Memory Anchor
-- **Never Forget Past Context**: You must actively review previous feature discussions, structural choices, and design patterns before implementing new code blocks.
+- **Never Forget Past Context**: You must actively review previous feature discussions, structural choices, and design patterns, previous code base, files etc before implementing new code blocks.
 - **Learn From Mistakes**: Maintain an active internal log of past architectural bugs, clashing keystrokes, and dynamic type errors encountered in this project. Cross-reference them to ensure you do not repeat the same mistakes.
 - **Continuous Evolution**: Treat all new feature requests as increments of the existing architecture. Do not suggest rewrites or radical refactors unless explicitly asked.
 
 ## 2. NVDA Safety & Performance Constraints
-- **Zero Harm to Core Behavior**: New features must never degrade or slow down standard NVDA operations, native speech queues, or global focus tracking.
+- **Zero Harm to Core Behavior**: New features must never degrade or slow down standard NVDA operations, native speech queues, existing features of the addon, or global focus tracking.
 - **Single-Threaded Safety**: NVDA is single-threaded. Never use standard Python blocking loops (`time.sleep`). All delays or async checks must use `tonictimer.wxTimer` or `queueHandler.queueFunction`.
 - **Output Routing**: Route all user-facing speech and braille notifications cleanly through `ui.message`. Never use raw `print()` statements for core announcements.
 - **Modular Isolation**: Keep feature code out of `globalPlugin.py`. Put new logic into independent local modules and use clean wrapper imports.
