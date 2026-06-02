@@ -45,25 +45,26 @@ class BOASettingsPanel(SettingsPanel):
 
         # Excel Group
         excel_features = {
-            "grid_mover": "ExcelGridMover (Arrow Keystroke Interceptor)",
-            "sheet_rename": "ExcelSheetRenameEdit (Sheet Renaming Fix)",
-            "safe_rich_edit": "SafeRichEdit (Excel RichEdit Override)",
-            "unselect_tracking": "Unselect Tracking (Selection Loss Notification)"
+            "grid_mover": "Enable Bulk Sheet Organizer and Quick Sheet Mover shortcuts",
+            "sheet_rename": "Use accessible Sheet Rename dialog instead of native edit field",
+            "safe_rich_edit": "Prevent NVDA crashes in Excel text fields",
+            "unselect_tracking": "Announce when a multi-cell selection is unexpectedly lost",
+            "hidden_row_skip": "Proactively announce when navigating past hidden rows or columns"
         }
         create_group("excel", "Excel Enhancements", excel_features)
         
         # PowerPoint Group
         ppt_features = {
-            "standard_color_grid": "PowerPointStandardColorGrid (Standard Colors TAB Fix)",
-            "hex_edit": "PowerPointHexEdit (Hex Color Edit Override)",
-            "rgb_edit": "PowerPointRGBEdit (RGB Dialog Override)",
-            "safe_rich_edit": "SafeRichEdit (PowerPoint RichEdit Override)"
+            "standard_color_grid": "Read hidden Hex codes when navigating the Standard Color hexagon grid",
+            "hex_edit": "Ensure the Hex Color edit field is properly labeled",
+            "rgb_edit": "Ensure the RGB Color edit fields are properly labeled",
+            "safe_rich_edit": "Prevent NVDA crashes in PowerPoint text fields"
         }
         create_group("powerpoint", "PowerPoint Enhancements", ppt_features)
         
         # Word Group
         word_features = {
-            "safe_rich_edit": "SafeRichEdit (Word RichEdit Override)"
+            "safe_rich_edit": "Prevent NVDA crashes in Word text fields"
         }
         create_group("word", "Word Enhancements", word_features)
 
