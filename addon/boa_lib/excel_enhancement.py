@@ -413,6 +413,9 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                     fragmented = True
                                 last_hidden = r
                                 
+                                if fragmented and hidden_count > 2:
+                                    break
+                                
                         if hidden_count > 0:
                             if not fragmented:
                                 if hidden_count == 1:
@@ -422,7 +425,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                 else:
                                     ui.message(f"Rows {first_hidden} through {last_hidden} hidden")
                             else:
-                                ui.message(f"Crossed {hidden_count} hidden rows")
+                                if hidden_count > 2:
+                                    ui.message("Crossed more than 2 hidden rows")
+                                else:
+                                    ui.message(f"Crossed {hidden_count} hidden rows")
                                 
                             if current_row > _last_focused_row:
                                 skip_announced_top = True
@@ -450,6 +456,9 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                     fragmented = True
                                 last_hidden = c
                                 
+                                if fragmented and hidden_count > 2:
+                                    break
+                                
                         if hidden_count > 0:
                             if not fragmented:
                                 if hidden_count == 1:
@@ -459,7 +468,10 @@ class ExcelGridMover(NVDAObjects.window.Window):
                                 else:
                                     ui.message(f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
                             else:
-                                ui.message(f"Crossed {hidden_count} hidden columns")
+                                if hidden_count > 2:
+                                    ui.message("Crossed more than 2 hidden columns")
+                                else:
+                                    ui.message(f"Crossed {hidden_count} hidden columns")
                                 
                             if current_col > _last_focused_col:
                                 skip_announced_left = True
