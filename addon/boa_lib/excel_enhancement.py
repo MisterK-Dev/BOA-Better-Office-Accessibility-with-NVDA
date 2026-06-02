@@ -398,27 +398,31 @@ class ExcelGridMover(NVDAObjects.window.Window):
                     max_r = max(_last_focused_row, current_row)
                     
                     if max_r - min_r > 1:
-                        gap_range = excel.Range(excel.Cells(min_r + 1, 1), excel.Cells(max_r - 1, 1)).EntireRow
-                        hidden_val = gap_range.Hidden
+                        hidden_count = 0
+                        fragmented = False
+                        last_hidden = None
+                        first_hidden = None
+                        scan_limit = min(max_r - 1, min_r + 500)
                         
-                        # Architecture intent: COM Range.Hidden returns True if all rows are hidden, 
-                        # False if all are visible, and None/Null if it's a mix.
-                        # By checking 'is not False', we instantly catch both fully hidden and mixed 
-                        # ranges without using slow and error-prone SpecialCells iterations.
-                        if hidden_val is not False:
-                            if excel.Rows(min_r + 1).Hidden in (True, -1):
-                                end_hidden = min_r + 1
-                                while end_hidden < max_r - 1 and end_hidden - min_r < 500 and excel.Rows(end_hidden + 1).Hidden in (True, -1):
-                                    end_hidden += 1
-                                    
-                                if end_hidden == min_r + 1:
-                                    ui.message(f"Row {min_r + 1} hidden")
-                                elif end_hidden - min_r >= 500:
+                        for r in range(min_r + 1, scan_limit + 1):
+                            if excel.Rows(r).Hidden in (True, -1):
+                                hidden_count += 1
+                                if first_hidden is None:
+                                    first_hidden = r
+                                if last_hidden is not None and last_hidden != r - 1:
+                                    fragmented = True
+                                last_hidden = r
+                                
+                        if hidden_count > 0:
+                            if not fragmented:
+                                if hidden_count == 1:
+                                    ui.message(f"Row {first_hidden} hidden")
+                                elif hidden_count >= 500:
                                     ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
                                 else:
-                                    ui.message(f"Rows {min_r + 1} through {end_hidden} hidden")
+                                    ui.message(f"Rows {first_hidden} through {last_hidden} hidden")
                             else:
-                                ui.message("Crossed hidden rows")
+                                ui.message(f"Crossed {hidden_count} hidden rows")
                                 
                             if current_row > _last_focused_row:
                                 skip_announced_top = True
@@ -431,26 +435,31 @@ class ExcelGridMover(NVDAObjects.window.Window):
                     max_c = max(_last_focused_col, current_col)
                         
                     if max_c - min_c > 1:
-                        gap_range = excel.Range(excel.Cells(1, min_c + 1), excel.Cells(1, max_c - 1)).EntireColumn
-                        hidden_val = gap_range.Hidden
+                        hidden_count = 0
+                        fragmented = False
+                        last_hidden = None
+                        first_hidden = None
+                        scan_limit = min(max_c - 1, min_c + 500)
                         
-                        start_letter = col_num_to_letter(min_c + 1)
-                        if hidden_val is not False:
-                            if excel.Columns(min_c + 1).Hidden in (True, -1):
-                                end_hidden = min_c + 1
-                                while end_hidden < max_c - 1 and end_hidden - min_c < 500 and excel.Columns(end_hidden + 1).Hidden in (True, -1):
-                                    end_hidden += 1
-                                    
-                                if end_hidden == min_c + 1:
-                                    ui.message(f"Column {start_letter} hidden")
-                                elif end_hidden - min_c >= 500:
-                                    end_letter = col_num_to_letter(max_c - 1)
-                                    ui.message(f"Columns {start_letter} through {end_letter} hidden")
+                        for c in range(min_c + 1, scan_limit + 1):
+                            if excel.Columns(c).Hidden in (True, -1):
+                                hidden_count += 1
+                                if first_hidden is None:
+                                    first_hidden = c
+                                if last_hidden is not None and last_hidden != c - 1:
+                                    fragmented = True
+                                last_hidden = c
+                                
+                        if hidden_count > 0:
+                            if not fragmented:
+                                if hidden_count == 1:
+                                    ui.message(f"Column {col_num_to_letter(first_hidden)} hidden")
+                                elif hidden_count >= 500:
+                                    ui.message(f"Columns {col_num_to_letter(min_c + 1)} through {col_num_to_letter(max_c - 1)} hidden")
                                 else:
-                                    end_letter = col_num_to_letter(end_hidden)
-                                    ui.message(f"Columns {start_letter} through {end_letter} hidden")
+                                    ui.message(f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
                             else:
-                                ui.message("Crossed hidden columns")
+                                ui.message(f"Crossed {hidden_count} hidden columns")
                                 
                             if current_col > _last_focused_col:
                                 skip_announced_left = True
