@@ -459,13 +459,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             except Exception:
                                 hidden_start = 1
                                 
-                            if hidden_start == current_row - 1:
-                                ui.message(f"Row {hidden_start} hidden")
-                            else:
-                                if hidden_start == 1:
-                                    ui.message(f"Top boundary. Rows 1 to {current_row - 1} hidden")
-                                else:
-                                    ui.message(f"Rows {hidden_start} to {current_row - 1} hidden")
+                            if hidden_start == 1:
+                                ui.message(f"Top boundary. Rows 1 to {current_row - 1} hidden")
                     except Exception:
                         pass
                 
@@ -481,13 +476,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             except Exception:
                                 hidden_end = 1048576
                             
-                            if hidden_end == current_row + 1:
-                                ui.message(f"Row {hidden_end} hidden")
-                            else:
-                                if hidden_end == 1048576:
-                                    ui.message(f"Bottom boundary. Rows {current_row + 1} to 1048576 hidden")
-                                else:
-                                    ui.message(f"Rows {current_row + 1} to {hidden_end} hidden")
+                            if hidden_end == 1048576:
+                                ui.message(f"Bottom boundary. Rows {current_row + 1} to 1048576 hidden")
                     except Exception:
                         pass
                         
@@ -503,13 +493,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             except Exception:
                                 hidden_start = 1
                             
-                            if hidden_start == current_col - 1:
-                                ui.message(f"Column {col_num_to_letter(hidden_start)} hidden")
-                            else:
-                                if hidden_start == 1:
-                                    ui.message(f"Left boundary. Columns A to {col_num_to_letter(current_col - 1)} hidden")
-                                else:
-                                    ui.message(f"Columns {col_num_to_letter(hidden_start)} to {col_num_to_letter(current_col - 1)} hidden")
+                            if hidden_start == 1:
+                                ui.message(f"Left boundary. Columns A to {col_num_to_letter(current_col - 1)} hidden")
                     except Exception:
                         pass
 
@@ -525,13 +510,8 @@ class ExcelGridMover(NVDAObjects.window.Window):
                             except Exception:
                                 hidden_end = 16384
                                 
-                            if hidden_end == current_col + 1:
-                                ui.message(f"Column {col_num_to_letter(hidden_end)} hidden")
-                            else:
-                                if hidden_end == 16384:
-                                    ui.message(f"Right boundary. Columns {col_num_to_letter(current_col + 1)} to XFD hidden")
-                                else:
-                                    ui.message(f"Columns {col_num_to_letter(current_col + 1)} to {col_num_to_letter(hidden_end)} hidden")
+                            if hidden_end == 16384:
+                                ui.message(f"Right boundary. Columns {col_num_to_letter(current_col + 1)} to XFD hidden")
                     except Exception:
                         pass
 
