@@ -29,6 +29,10 @@ Move the active sheet left, right, to the very beginning, or to the very end ins
 - When renaming a sheet, NVDA natively struggles to read the characters you are typing.
 - BOA injects a custom `ExcelSheetRenameEdit` class that uses the `SafeRichEdit` engine, meaning you can precisely read by character, word, or line while renaming.
 
+#### 5. Hidden Row/Column Tracker
+- Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.
+- **Crossed Fragmented Cells:** If you jump across a heavily fragmented or hidden section of the grid (e.g. moving from Row 3 to Row 10 because Rows 4-9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure.
+
 ---
 
 ### PowerPoint Features
@@ -86,8 +90,8 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ---
 
-### Version 1.2.0-dev26 — 2026-06-03
-**Development build.**
+### Version 1.2.0 — 2026-06-03
+**Final release.**
 
 #### New Features
 - **App-Launch Caching** — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.
