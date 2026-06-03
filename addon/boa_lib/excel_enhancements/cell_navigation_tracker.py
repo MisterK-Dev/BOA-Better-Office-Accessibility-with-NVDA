@@ -161,16 +161,10 @@ class CellNavigationTracker(object):
                     
                     # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
                     if sel.Cells.Count > 1:
-                        # GUARD 1: Check the exact last keystroke. If the user used Shift, Control, or Arrows,
-                        # they are manually extending the selection. NVDA will natively announce this. 
-                        # Do not double-announce multi-cell selections.
-                        import api
-                        last_gesture = api.getLastInputGesture()
-                        if last_gesture:
-                            gesture_name = last_gesture.displayName.lower() if hasattr(last_gesture, 'displayName') else ""
-                            if "shift" in gesture_name or "control" in gesture_name or "arrow" in gesture_name:
-                                return
-                            
+                        # GUARD 1: If Shift or Control is held down, the user is manually selecting.
+                        # NVDA will natively announce this. Do not double-announce multi-cell selections.
+                        if (winUser.getKeyState(winUser.VK_SHIFT) & 32768) or (winUser.getKeyState(winUser.VK_CONTROL) & 32768):
+                            return
                             
                         address = sel.Address(False, False)  # Returns string like "A1:D1"
 
