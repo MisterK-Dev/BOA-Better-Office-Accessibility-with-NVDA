@@ -84,8 +84,8 @@ def _do_check_unselect():
                     # ALWAYS check structural changes and hidden row skips on focus/selection change
                     from boa_lib import boa_config
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
-                        ExcelGridMover.check_structural_changes(excel)
-                        ExcelGridMover.check_hidden_skip(excel)
+                        CellNavigationTracker.check_structural_changes(excel)
+                        CellNavigationTracker.check_hidden_skip(excel)
                 except Exception:
                     pass
                 count = sel.Cells.Count
@@ -112,7 +112,7 @@ class CellNavigationTracker(NVDAObjects.window.excel.ExcelCell):
 
 
     def event_gainFocus(self):
-        super(ExcelGridMover, self).event_gainFocus()
+        super(CellNavigationTracker, self).event_gainFocus()
         import core
         core.callLater(50, self._check_multi_selection)
 
@@ -154,8 +154,8 @@ class CellNavigationTracker(NVDAObjects.window.excel.ExcelCell):
                     # ALWAYS check structural changes and hidden row skips on focus change
                     from boa_lib import boa_config
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
-                        ExcelGridMover.check_structural_changes(excel)
-                        ExcelGridMover.check_hidden_skip(excel)
+                        CellNavigationTracker.check_structural_changes(excel)
+                        CellNavigationTracker.check_hidden_skip(excel)
                     
                     # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
                     if sel.Cells.Count > 1:
@@ -653,17 +653,6 @@ class CellNavigationTracker(NVDAObjects.window.excel.ExcelCell):
             logHandler.log.debugWarning(f"BOA: Failed to verify {element_type} visibility change. {e}")
 
     __gestures = {
-        "kb:NVDA+shift+leftArrow": "moveSheetLeft",
-        "kb:NVDA+shift+rightArrow": "moveSheetRight",
-        "kb:NVDA+shift+left": "moveSheetLeft",
-        "kb:NVDA+shift+right": "moveSheetRight",
-        "kb:NVDA+shift+pageUp": "moveSheetLeft",
-        "kb:NVDA+shift+pageDown": "moveSheetRight",
-        "kb:NVDA+shift+home": "moveSheetStart",
-        "kb:NVDA+shift+end": "moveSheetEnd",
-        "kb:NVDA+alt+leftArrow": "moveSheetLeft",
-        "kb:NVDA+alt+rightArrow": "moveSheetRight",
-        "kb:NVDA+alt+c": "openBulkSheetOrganizer",
         "kb:control+9": "hideRow",
         "kb:control+shift+9": "unhideRow",
         "kb:control+0": "hideColumn",

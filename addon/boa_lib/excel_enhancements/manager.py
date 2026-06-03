@@ -49,16 +49,9 @@ def handle_prefix_command(command_key, obj):
     if command_key == 'x':
         if boa_config.get_feature_state("excel", "grid_mover"):
             import tones
-            tones.beep(600, 50) # Success beep
-            # To open the dialog, we just instantiate it if we have the active obj
-            import wx
-            from .bulk_sheet_organizer import ExcelBulkSheetOrganizerDialog
-            import gui
-            gui.mainFrame.prePopup()
-            d = ExcelBulkSheetOrganizerDialog(gui.mainFrame, obj)
-            d.Show()
-            d.Raise()
-            gui.mainFrame.postPopup()
+            tones.beep(600, 50)
+            from .bulk_sheet_organizer import BulkSheetOrganizer
+            BulkSheetOrganizer.launch_dialog(obj)
             return True
             
     # Add future commands here (e.g. 'r' for rename)

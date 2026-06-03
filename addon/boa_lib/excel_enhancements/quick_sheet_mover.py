@@ -133,3 +133,16 @@ class QuickSheetMover(NVDAObjects.window.excel.ExcelCell):
     )
     def script_moveSheetEnd(self, gesture):
         self._move_sheet("end")
+
+    __gestures = {
+        "kb:NVDA+shift+leftArrow": "moveSheetLeft",
+        "kb:NVDA+shift+rightArrow": "moveSheetRight",
+        "kb:NVDA+shift+left": "moveSheetLeft",
+        "kb:NVDA+shift+right": "moveSheetRight",
+        "kb:NVDA+shift+pageUp": "moveSheetLeft",
+        "kb:NVDA+shift+pageDown": "moveSheetRight",
+        "kb:NVDA+shift+home": "moveSheetStart",
+        "kb:NVDA+shift+end": "moveSheetEnd",
+        "kb:NVDA+alt+leftArrow": "moveSheetLeft",
+        "kb:NVDA+alt+rightArrow": "moveSheetRight",
+    }

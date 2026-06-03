@@ -16,8 +16,8 @@ from scriptHandler import script
 import queueHandler
 
 class BulkSheetOrganizer(NVDAObjects.window.excel.ExcelCell):
-        
-    def _show_bulk_dialog(self, sheet_names, hwnd):
+    @staticmethod
+    def _show_bulk_dialog(sheet_names, hwnd):
         import gui
         gui.mainFrame.prePopup()
         dlg = ExcelBulkSheetOrganizerDialog(gui.mainFrame, sheet_names)
@@ -89,14 +89,10 @@ class BulkSheetOrganizer(NVDAObjects.window.excel.ExcelCell):
             import core
             core.callLater(100, _apply_moves)
 
-    @script(
-        description="Opens the BOA Bulk Sheet Organizer dialog.",
-        category="Better Office Accessibility"
-    )
-    def script_openBulkSheetOrganizer(self, gesture):
+    @staticmethod
+    def launch_dialog(obj):
         """
-        NVDA script triggered by the user (NVDA+Alt+C).
-        It connects to Excel, grabs a list of all current sheet names, 
+        Connects to Excel, grabs a list of all current sheet names, 
         and then opens the custom Bulk Sheet Organizer WX dialog.
         """
         import comtypes.client
@@ -107,8 +103,8 @@ class BulkSheetOrganizer(NVDAObjects.window.excel.ExcelCell):
         
         try:
             hwnd7 = None
-            if getattr(self, "windowClassName", "") == "EXCEL7":
-                hwnd7 = self.windowHandle
+            if getattr(obj, "windowClassName", "") == "EXCEL7":
+                hwnd7 = obj.windowHandle
             else:
                 hwnd = ctypes.windll.user32.FindWindowW("XLMAIN", None)
                 if hwnd:
@@ -140,7 +136,7 @@ class BulkSheetOrganizer(NVDAObjects.window.excel.ExcelCell):
             sheet_names = [wb.Sheets(i).Name for i in range(1, total_sheets + 1)]
             
             # Use wx.CallAfter to safely push the dialog creation onto NVDA's main GUI thread.
-            wx.CallAfter(self._show_bulk_dialog, sheet_names, hwnd7)
+            wx.CallAfter(BulkSheetOrganizer._show_bulk_dialog, sheet_names, hwnd7)
         except Exception as e:
             ui.message("Error opening organizer")
             import logHandler
