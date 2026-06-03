@@ -1,1 +1,1 @@
-# Word Enhancements Module
+True

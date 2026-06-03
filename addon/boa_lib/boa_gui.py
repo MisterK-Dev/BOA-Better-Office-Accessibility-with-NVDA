@@ -45,7 +45,7 @@ class BOASettingsPanel(SettingsPanel):
 
         # Excel Group
         excel_features = {
-            "grid_mover": "Enable Bulk Sheet Organizer and Quick Sheet Mover shortcuts",
+            "grid_mover": "Enable Bulk Sheet Organizer and Quick Sheet Mover",
             "sheet_rename": "Use accessible Sheet Rename dialog instead of native edit field",
             "safe_rich_edit": "Prevent NVDA crashes in Excel text fields",
             "unselect_tracking": "Announce when a multi-cell selection is unexpectedly lost",

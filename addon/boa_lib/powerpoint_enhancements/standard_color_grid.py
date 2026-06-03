@@ -3,7 +3,6 @@ import wx
 import winUser
 import ui
 import queueHandler
-import NVDAObjects.window
 from scriptHandler import script
 from logHandler import log
 

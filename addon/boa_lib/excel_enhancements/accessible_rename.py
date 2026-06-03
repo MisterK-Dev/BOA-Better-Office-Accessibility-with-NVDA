@@ -1,4 +1,3 @@
-import NVDAObjects.UIA
 from logHandler import log
 import UIAHandler
 import wx
@@ -76,6 +75,7 @@ class ExcelSheetRenameEdit(object):
                 _restore_clip_and_reset(old_clip)
 
         def _check_security():
+            global _is_renaming_sheet
             import ctypes
             fg_hwnd = winUser.getForegroundWindow()
             fg_pid = ctypes.c_ulong()
@@ -86,14 +86,12 @@ class ExcelSheetRenameEdit(object):
             
             if fg_pid.value != target_pid.value:
                 log.warning("BOA: Foreground window mismatch! Aborting keystroke injection to prevent pasting into wrong app.")
-                global _is_renaming_sheet
                 _is_renaming_sheet = False
                 return
             
             clean_name = new_name.strip() if new_name else ""
             if not clean_name:
                 keyboardHandler.KeyboardInputGesture.fromName("escape").send()
-                global _is_renaming_sheet
                 _is_renaming_sheet = False
                 return
                 

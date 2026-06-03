@@ -1,5 +1,5 @@
 import globalPluginHandler
-import NVDAObjects.UIA
+
 from logHandler import log
 import os
 import sys
@@ -93,7 +93,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         # --- STRICT UIA VERIFICATION ---
         # Never inject a UIA-specific class into an object that doesn't natively support UI Automation.
         # This prevents catastrophic crashes within NVDA's C++ core.
-        is_uia = hasattr(obj, 'UIAElement') or (NVDAObjects.UIA.UIA in clsList)
+        is_uia = hasattr(obj, 'UIAElement') or any(c.__name__ == 'UIA' for c in clsList)
         if not is_uia:
             pass
 

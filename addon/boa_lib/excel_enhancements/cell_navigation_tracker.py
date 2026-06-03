@@ -1,8 +1,5 @@
 import controlTypes
-import NVDAObjects.UIA
 from logHandler import log
-import NVDAObjects.IAccessible
-import NVDAObjects.window.edit
 import UIAHandler
 import wx
 import gui
