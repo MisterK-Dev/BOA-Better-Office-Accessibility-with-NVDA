@@ -11,6 +11,8 @@ import core
 from scriptHandler import script
 import queueHandler
 
+_is_renaming_sheet = False
+
 class ExcelSheetRenameEdit(object):
     """
     Override for the Excel 'Rename sheet' edit box.
@@ -91,6 +93,7 @@ class ExcelSheetRenameEdit(object):
             clean_name = new_name.strip() if new_name else ""
             if not clean_name:
                 keyboardHandler.KeyboardInputGesture.fromName("escape").send()
+                global _is_renaming_sheet
                 _is_renaming_sheet = False
                 return
                 

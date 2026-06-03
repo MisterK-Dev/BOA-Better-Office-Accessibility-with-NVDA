@@ -90,8 +90,9 @@ def _do_check_unselect():
                 count = sel.Cells.Count
                 # If we previously had >1 cells selected, and now we only have 1, the user dropped the selection.
                 if count == 1 and _last_selection_count > 1:
-                    import ui
-                    ui.message("unselected")
+                    if boa_config.get_feature_state("excel", "unselect_tracking"):
+                        import ui
+                        ui.message("unselected")
                 _last_selection_count = count
     except Exception:
         pass
@@ -170,8 +171,10 @@ class CellNavigationTracker(object):
                             return
 
                         _last_announced_address = address
-                        spoken_address = address.replace(":", " through ")
-                        ui.message(f"{spoken_address} selected")
+                        
+                        if boa_config.get_feature_state("excel", "unselect_tracking"):
+                            spoken_address = address.replace(":", " through ")
+                            ui.message(f"{spoken_address} selected")
                     else:
                         # Selection collapsed to single cell — reset tracker
                         _last_announced_address = None
@@ -581,10 +584,14 @@ class CellNavigationTracker(object):
         except Exception:
             pass
 
+        from boa_lib import boa_config
         if not force_com:
             # Send the original gesture through to Excel natively
             gesture.send()
         
+        if not boa_config.get_feature_state("excel", "hidden_row_skip"):
+            return
+            
         import core
         # 200ms delay gives Excel enough time to process the keystroke and update its COM model
         core.callLater(200, self._verify_visibility_change_callback, element_type, is_hiding, initial_state)
