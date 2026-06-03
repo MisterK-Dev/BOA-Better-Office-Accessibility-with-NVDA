@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.2.0-dev1</title>
+<title>BOA: Better Office Accessibility 1.2.0-dev14</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
@@ -16,24 +16,52 @@
 * <strong>How it works:</strong> Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press <code>Del</code> to remove a mistake). Click <code>OK</code> and your workbook is rearranged instantly.</p>
 <h3>Quick Sheet Mover</h3>
 <p>Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard.
-* <strong>Shortcuts:</strong>
-  * Move Left: <code>NVDA + Shift + Left Arrow</code> (or PageUp)
-  * Move Right: <code>NVDA + Shift + Right Arrow</code> (or PageDown)
-  * Move to Start: <code>NVDA + Shift + Home</code>
-  * Move to End: <code>NVDA + Shift + End</code></p>
-<h3>Accessible Sheet Renaming</h3>
-<p>Bypasses the notoriously inaccessible Excel "Rename Sheet" edit field.
-* <strong>How it works:</strong> When you trigger the native Excel sheet rename command (e.g., via the ribbon or context menu), BOA intercepts it and opens a reliable, 100% accessible standard text dialog. Type your new name, press Enter, and BOA handles the renaming safely in the background.</p>
-<h3>Smart Selection Tracking</h3>
-<p>Accurately announces multi-cell range selections and deselections.
-* <strong>How it works:</strong> Fixes the silence when selecting ranges via the <code>F5</code> Go To dialog or when unexpectedly deselecting a range.</p>
-<h2>PowerPoint Features</h2>
-<h3>Accessible Color Pickers</h3>
-<p>Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
-* <strong>How it works:</strong> Seamlessly binds to the Red, Green, Blue, and Hex text boxes in the PowerPoint color picker, properly labeling them for NVDA object navigation and focus.</p>
-<h3>Standard Color Grid Support</h3>
-<p>Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
-* <strong>How it works:</strong> When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.</p>
+* <strong>Shortcuts:</strong></p>
+<h4>1. Better Focus Loss Prevention</h4>
+<ul>
+<li>Excel's native UI automation frequently loses focus when unselecting cells. BOA automatically restores and reads the correct cell focus to prevent NVDA from going silent.</li>
+</ul>
+<h4>2. The Bulk Sheet Organizer</h4>
+<ul>
+<li>Easily sort, delete, and rename sheets in massive Excel workbooks via an accessible dialog box.</li>
+<li>Press <code>NVDA+E</code> followed by <code>X</code> to instantly open the Grid Mover Dialog. </li>
+<li>You can rapidly delete multiple sheets with the <code>Del</code> key and move them around using standard arrow keys.</li>
+</ul>
+<h4>3. Quick Sheet Movers</h4>
+<ul>
+<li>Swiftly swap sheet positions without opening a menu. </li>
+<li>Press <code>NVDA+Shift+LeftArrow</code> to move the current sheet to the left.</li>
+<li>Press <code>NVDA+Shift+RightArrow</code> to move the current sheet to the right.</li>
+</ul>
+<h4>4. Accessible Sheet Renaming</h4>
+<ul>
+<li>When renaming a sheet, NVDA natively struggles to read the characters you are typing.</li>
+<li>BOA injects a custom <code>ExcelSheetRenameEdit</code> class that uses the <code>SafeRichEdit</code> engine, meaning you can precisely read by character, word, or line while renaming.</li>
+</ul>
+<hr />
+<h3>PowerPoint Features</h3>
+<h4>1. Accessible Color Pickers</h4>
+<ul>
+<li>Unlocks the Custom Color dialog in PowerPoint.</li>
+<li>Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding <code>PowerPointRGBEdit</code>).</li>
+<li>Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.</li>
+</ul>
+<h4>2. Standard Color Grid Support</h4>
+<ul>
+<li>Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.</li>
+<li>BOA tracks your arrow keys (<code>Up, Down, Left, Right</code>) across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g. "Color #FF0000").</li>
+</ul>
+<hr />
+<h2>The <code>NVDA+E</code> Command Prefix</h2>
+<p>To prevent keystroke conflicts with other NVDA plugins, BOA uses a <strong>Command Prefix Mode</strong>:
+1. Press <code>NVDA+E</code> to enter Command Mode. You will hear a high-pitched beep.
+2. Press a secondary key to trigger a feature.
+   - Example: <code>NVDA+E</code> then <code>X</code> = Open the Excel Bulk Sheet Organizer.
+   - Example: <code>NVDA+E</code> then <code>Escape</code> = Cancel command mode.</p>
+<p>If you press an invalid key, you will hear an error beep.</p>
+<h2>Customization</h2>
+<p>BOA features are fully modular and can be enabled or disabled at any time. 
+Go to <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; Better Office Accessibility</code> to toggle individual features on or off without restarting NVDA.</p>
 <h2>⚙️ Settings &amp; Configuration</h2>
 <p>As of v1.1.0, BOA includes a fully accessible native NVDA Settings Panel. 
 You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</strong>.</p>

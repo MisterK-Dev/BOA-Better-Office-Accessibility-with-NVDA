@@ -1,12 +1,7 @@
 import NVDAObjects.UIA
 import controlTypes
-import NVDAObjects.UIA
-from logHandler import log
-import NVDAObjects.IAccessible
-import controlTypes
 import UIAHandler
-
-from excel_enhancement import SafeRichEdit
+from logHandler import log
 
 # --- Swappable PowerPoint UIA Automation IDs ---
 # These IDs correspond to the UIAAutomationId property of the edit fields in the Custom Color dialog.
@@ -22,6 +17,10 @@ class PowerPointRGBEdit(NVDAObjects.UIA.UIA):
     we identify them by their UIAAutomationId and explicitly provide "Red", "Green", or "Blue" to NVDA.
     """
     def _get_name(self):
+        """
+        Overrides the native name resolution for RGB edits.
+        Checks the UIAAutomationId and returns 'Red', 'Green', or 'Blue' respectively.
+        """
         # UIA uses UIAAutomationId, not windowControlID, so we fetch it safely.
         auto_id = getattr(self, 'UIAAutomationId', '')
         if auto_id == PPT_RED_ID:

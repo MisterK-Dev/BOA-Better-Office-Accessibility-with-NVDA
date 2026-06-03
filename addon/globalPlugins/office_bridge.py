@@ -8,15 +8,14 @@ import sys
 # This ensures that NVDA can import our custom external logic files (excel_enhancement, powerpoint_enhancement)
 # without cluttering the globalPlugins directory.
 addon_dir = os.path.dirname(os.path.dirname(__file__))
-lib_dir = os.path.join(addon_dir, "boa_lib")
-if lib_dir not in sys.path:
-    sys.path.insert(0, lib_dir)
+if addon_dir not in sys.path:
+    sys.path.insert(0, addon_dir)
 
-import boa_config
-from excel_enhancements import manager as excel_manager
-from safe_rich_edit import SafeRichEdit
-import powerpoint_enhancement
-from powerpoint_enhancements import manager as ppt_manager
+from boa_lib import boa_config
+from boa_lib.excel_enhancements import manager as excel_manager
+from boa_lib.safe_rich_edit import SafeRichEdit
+from boa_lib.powerpoint_enhancements import manager as ppt_manager
+from boa_lib.word_enhancements import manager as word_manager
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     """
@@ -27,7 +26,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     
     def __init__(self, *args, **kwargs):
         super(GlobalPlugin, self).__init__(*args, **kwargs)
-        import boa_gui
+        from boa_lib import boa_gui
         import gui.settingsDialogs
         try:
             gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(boa_gui.BOASettingsPanel)
@@ -37,7 +36,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
     def terminate(self):
         super(GlobalPlugin, self).terminate()
-        import boa_gui
+        from boa_lib import boa_gui
         import gui.settingsDialogs
         try:
             if boa_gui.BOASettingsPanel in gui.settingsDialogs.NVDASettingsDialog.categoryClasses:
@@ -55,7 +54,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
                 if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
-                    from excel_enhancements.cell_navigation_tracker import check_unselect
+                    from boa_lib.excel_enhancements.cell_navigation_tracker import check_unselect
                     check_unselect(obj)
         except Exception:
             pass
@@ -69,7 +68,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
                 if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
-                    from excel_enhancements.cell_navigation_tracker import check_unselect
+                    from boa_lib.excel_enhancements.cell_navigation_tracker import check_unselect
                     check_unselect(obj)
         except Exception:
             pass
@@ -135,9 +134,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                     ppt_manager.inject_ppt_rgb_edit(clsList)
 
         elif appName == "winword":
-            if className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("word", "safe_rich_edit"):
-                log.info("BOA: injecting SafeRichEdit for Word!")
-                clsList.insert(0, SafeRichEdit)
+            if className in ("RichEdit20W", "RichEdit50W"):
+                word_manager.inject_word_safe_rich_edit(clsList)
 
     def script_triggerCommandPrefix(self, gesture):
         import tones
@@ -172,6 +170,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             handled = excel_manager.handle_prefix_command(key, obj)
         elif appName == "powerpnt":
             handled = ppt_manager.handle_prefix_command(key, obj)
+        elif appName == "winword":
+            handled = word_manager.handle_prefix_command(key, obj)
             
         if not handled:
             tones.beep(150, 50) # Error beep

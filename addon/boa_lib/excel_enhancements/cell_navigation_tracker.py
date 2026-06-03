@@ -82,7 +82,7 @@ def _do_check_unselect():
             if getattr(sel, 'Cells', None):
                 try:
                     # ALWAYS check structural changes and hidden row skips on focus/selection change
-                    import boa_config
+                    from boa_lib import boa_config
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
                         ExcelGridMover.check_structural_changes(excel)
                         ExcelGridMover.check_hidden_skip(excel)
@@ -152,7 +152,7 @@ class CellNavigationTracker(NVDAObjects.window.excel.ExcelCell):
 
                 if getattr(sel, 'Cells', None):
                     # ALWAYS check structural changes and hidden row skips on focus change
-                    import boa_config
+                    from boa_lib import boa_config
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
                         ExcelGridMover.check_structural_changes(excel)
                         ExcelGridMover.check_hidden_skip(excel)

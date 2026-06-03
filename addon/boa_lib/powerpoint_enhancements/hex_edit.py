@@ -1,19 +1,9 @@
-from safe_rich_edit import SafeRichEdit
-import controlTypes
 import NVDAObjects.UIA
-from logHandler import log
 import NVDAObjects.IAccessible
 import controlTypes
 import UIAHandler
-
-from excel_enhancement import SafeRichEdit
-
-# --- Swappable PowerPoint UIA Automation IDs ---
-# These IDs correspond to the UIAAutomationId property of the edit fields in the Custom Color dialog.
-# If NVDA Object Navigator shows different UIAAutomationIds for newer Office versions, update these variables.
-PPT_RED_ID = "101"
-PPT_GREEN_ID = "102"
-PPT_BLUE_ID = "103"
+from logHandler import log
+from boa_lib.safe_rich_edit import SafeRichEdit
 
 class PowerPointHexEdit(SafeRichEdit):
     """
@@ -22,6 +12,11 @@ class PowerPointHexEdit(SafeRichEdit):
     We identify it using its fixed windowControlID (1637) and explicitly return "Hex Color".
     """
     def _get_name(self):
+        """
+        Overrides the native name resolution.
+        Checks if the control ID matches the known Hex input field (1637).
+        If it matches, returns the hardcoded string "Hex Color", otherwise falls back to native behavior.
+        """
         # 1637 is the standard Win32 control ID for the Hex field in the Office color picker.
         if hasattr(self, 'windowControlID') and self.windowControlID == 1637:
             return "Hex Color"

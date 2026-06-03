@@ -10,7 +10,7 @@ Preferences menu, avoiding clunky standalone WX dialogs that break NVDA UI consi
 import wx
 import gui
 from gui.settingsDialogs import SettingsPanel
-import boa_config
+from boa_lib import boa_config
 from logHandler import log
 
 class BOASettingsPanel(SettingsPanel):

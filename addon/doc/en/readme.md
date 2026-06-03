@@ -12,28 +12,52 @@ Instantly reorder and arrange multiple sheets at once using a fully accessible d
 ### Quick Sheet Mover
 Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard.
 * **Shortcuts:**
-  * Move Left: `NVDA + Shift + Left Arrow` (or PageUp)
-  * Move Right: `NVDA + Shift + Right Arrow` (or PageDown)
-  * Move to Start: `NVDA + Shift + Home`
-  * Move to End: `NVDA + Shift + End`
+#### 1. Better Focus Loss Prevention
+- Excel's native UI automation frequently loses focus when unselecting cells. BOA automatically restores and reads the correct cell focus to prevent NVDA from going silent.
 
-### Accessible Sheet Renaming
-Bypasses the notoriously inaccessible Excel "Rename Sheet" edit field.
-* **How it works:** When you trigger the native Excel sheet rename command (e.g., via the ribbon or context menu), BOA intercepts it and opens a reliable, 100% accessible standard text dialog. Type your new name, press Enter, and BOA handles the renaming safely in the background.
+#### 2. The Bulk Sheet Organizer
+- Easily sort, delete, and rename sheets in massive Excel workbooks via an accessible dialog box.
+- Press `NVDA+E` followed by `X` to instantly open the Grid Mover Dialog. 
+- You can rapidly delete multiple sheets with the `Del` key and move them around using standard arrow keys.
 
-### Smart Selection Tracking
-Accurately announces multi-cell range selections and deselections.
-* **How it works:** Fixes the silence when selecting ranges via the `F5` Go To dialog or when unexpectedly deselecting a range.
+#### 3. Quick Sheet Movers
+- Swiftly swap sheet positions without opening a menu. 
+- Press `NVDA+Shift+LeftArrow` to move the current sheet to the left.
+- Press `NVDA+Shift+RightArrow` to move the current sheet to the right.
 
-## PowerPoint Features
+#### 4. Accessible Sheet Renaming
+- When renaming a sheet, NVDA natively struggles to read the characters you are typing.
+- BOA injects a custom `ExcelSheetRenameEdit` class that uses the `SafeRichEdit` engine, meaning you can precisely read by character, word, or line while renaming.
 
-### Accessible Color Pickers
-Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
-* **How it works:** Seamlessly binds to the Red, Green, Blue, and Hex text boxes in the PowerPoint color picker, properly labeling them for NVDA object navigation and focus.
+---
 
-### Standard Color Grid Support
-Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
-* **How it works:** When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.
+### PowerPoint Features
+
+#### 1. Accessible Color Pickers
+- Unlocks the Custom Color dialog in PowerPoint.
+- Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding `PowerPointRGBEdit`).
+- Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.
+
+#### 2. Standard Color Grid Support
+- Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.
+- BOA tracks your arrow keys (`Up, Down, Left, Right`) across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g. "Color #FF0000").
+
+---
+
+## The `NVDA+E` Command Prefix
+
+To prevent keystroke conflicts with other NVDA plugins, BOA uses a **Command Prefix Mode**:
+1. Press `NVDA+E` to enter Command Mode. You will hear a high-pitched beep.
+2. Press a secondary key to trigger a feature.
+   - Example: `NVDA+E` then `X` = Open the Excel Bulk Sheet Organizer.
+   - Example: `NVDA+E` then `Escape` = Cancel command mode.
+
+If you press an invalid key, you will hear an error beep.
+
+## Customization
+
+BOA features are fully modular and can be enabled or disabled at any time. 
+Go to `NVDA Menu -> Preferences -> Settings -> Better Office Accessibility` to toggle individual features on or off without restarting NVDA.
 
 ## ⚙️ Settings & Configuration
 
