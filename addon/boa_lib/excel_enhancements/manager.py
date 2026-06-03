@@ -22,7 +22,7 @@ def inject_excel_grid_classes(clsList):
     Each feature is completely isolated in its own file and can be toggled independently.
     """
     # Bulk Sheet Organizer (GUI dialog)
-    if boa_config.get_feature_state("excel", "grid_mover"): # Currently sharing the same toggle
+    if boa_config.get_feature_state("excel", "grid_mover"):
         clsList.insert(0, BulkSheetOrganizer)
         
     # Quick Sheet Movers (NVDA+Shift+Arrows)
@@ -30,7 +30,7 @@ def inject_excel_grid_classes(clsList):
         clsList.insert(0, QuickSheetMover)
         
     # Cell Navigation Tracker (Gap/Boundary detection)
-    if boa_config.get_feature_state("excel", "grid_mover"):
+    if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
         clsList.insert(0, CellNavigationTracker)
 
 def inject_excel_rename_class(clsList):

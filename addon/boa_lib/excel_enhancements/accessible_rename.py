@@ -1,7 +1,5 @@
 import NVDAObjects.UIA
 from logHandler import log
-import NVDAObjects.IAccessible
-import NVDAObjects.window.edit
 import UIAHandler
 import wx
 import gui
@@ -13,7 +11,7 @@ import core
 from scriptHandler import script
 import queueHandler
 
-class ExcelSheetRenameEdit(NVDAObjects.IAccessible.IAccessible):
+class ExcelSheetRenameEdit(object):
     """
     Override for the Excel 'Rename sheet' edit box.
     Instead of trying to force Excel's broken edit box to speak,

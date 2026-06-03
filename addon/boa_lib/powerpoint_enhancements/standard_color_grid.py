@@ -7,7 +7,7 @@ import NVDAObjects.window
 from scriptHandler import script
 from logHandler import log
 
-class PowerPointStandardColorGrid(NVDAObjects.window.Window):
+class PowerPointStandardColorGrid(object):
     """
     Intercepts arrow keys when the user is navigating the 'Standard' color hexagon grid in PowerPoint.
     Since the hexagon itself is visually drawn and completely inaccessible via standard APIs, 

@@ -10,7 +10,7 @@ PPT_RED_ID = "101"
 PPT_GREEN_ID = "102"
 PPT_BLUE_ID = "103"
 
-class PowerPointRGBEdit(NVDAObjects.UIA.UIA):
+class PowerPointRGBEdit(object):
     """
     STRICT UIA Override for PowerPoint Custom Colors RGB edit boxes.
     The RGB text boxes use UI Automation. Since their accessible names are often missing or confusing,

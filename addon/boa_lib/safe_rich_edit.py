@@ -13,7 +13,7 @@ import core
 from scriptHandler import script
 import queueHandler
 
-class SafeRichEdit(NVDAObjects.window.edit.Edit):
+class SafeRichEdit(object):
     """
     Override for Office RichEdit20W/RichEdit50W controls that crash 
     due to ITextDocument failing with OSError. 
