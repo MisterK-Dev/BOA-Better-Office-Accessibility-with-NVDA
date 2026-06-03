@@ -1,3 +1,5 @@
+from safe_rich_edit import SafeRichEdit
+import controlTypes
 import NVDAObjects.UIA
 from logHandler import log
 import NVDAObjects.IAccessible

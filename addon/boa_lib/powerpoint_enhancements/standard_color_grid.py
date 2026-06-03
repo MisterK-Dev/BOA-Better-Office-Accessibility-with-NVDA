@@ -1,3 +1,5 @@
+import NVDAObjects.window
+import controlTypes
 import NVDAObjects.UIA
 from logHandler import log
 import NVDAObjects.IAccessible
