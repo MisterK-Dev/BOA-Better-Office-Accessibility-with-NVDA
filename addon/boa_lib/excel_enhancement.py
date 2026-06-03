@@ -404,48 +404,46 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         last_hidden = None
                         
                         sheet = excel.ActiveSheet
-                        gap_range = sheet.Range(sheet.Cells(min_r + 1, current_col), sheet.Cells(max_r - 1, current_col))
-                        intersect_range = excel.Intersect(gap_range, sheet.UsedRange)
                         
-                        if intersect_range is not None:
-                            if intersect_range.Cells.Count == 1:
-                                if excel.Rows(intersect_range.Row).Hidden in (True, -1):
-                                    first_hidden = intersect_range.Row
-                                    last_hidden = intersect_range.Row
-                                    hidden_count = 1
-                            else:
-                                try:
-                                    visible_range = intersect_range.SpecialCells(12)
-                                    areas_count = visible_range.Areas.Count
+                        if max_r - min_r == 2:
+                            if excel.Rows(min_r + 1).Hidden in (True, -1):
+                                first_hidden = min_r + 1
+                                last_hidden = min_r + 1
+                                hidden_count = 1
+                        else:
+                            gap_range = sheet.Range(sheet.Cells(min_r + 1, current_col), sheet.Cells(max_r - 1, current_col))
+                            try:
+                                visible_range = gap_range.SpecialCells(12)
+                                areas_count = visible_range.Areas.Count
+                                
+                                if areas_count == 1:
+                                    vis_start = visible_range.Row
+                                    vis_end = visible_range.Row + visible_range.Rows.Count - 1
+                                    int_start = gap_range.Row
+                                    int_end = gap_range.Row + gap_range.Rows.Count - 1
                                     
-                                    if areas_count == 1:
-                                        vis_start = visible_range.Row
-                                        vis_end = visible_range.Row + visible_range.Rows.Count - 1
-                                        int_start = intersect_range.Row
-                                        int_end = intersect_range.Row + intersect_range.Rows.Count - 1
-                                        
-                                        if vis_start > int_start:
-                                            first_hidden = int_start
-                                            last_hidden = vis_start - 1
-                                            hidden_count = last_hidden - first_hidden + 1
-                                        elif vis_end < int_end:
-                                            first_hidden = vis_end + 1
-                                            last_hidden = int_end
-                                            hidden_count = last_hidden - first_hidden + 1
-                                    elif areas_count == 2:
-                                        area1 = visible_range.Areas.Item(1)
-                                        area2 = visible_range.Areas.Item(2)
-                                        first_hidden = area1.Row + area1.Rows.Count
-                                        last_hidden = area2.Row - 1
+                                    if vis_start > int_start:
+                                        first_hidden = int_start
+                                        last_hidden = vis_start - 1
                                         hidden_count = last_hidden - first_hidden + 1
-                                    else:
-                                        fragmented = True
-                                        hidden_count = 3  # Triggers plural
-                                except Exception:
-                                    # "No cells were found" -> Entire intersection is hidden
-                                    first_hidden = intersect_range.Row
-                                    last_hidden = intersect_range.Row + intersect_range.Rows.Count - 1
+                                    elif vis_end < int_end:
+                                        first_hidden = vis_end + 1
+                                        last_hidden = int_end
+                                        hidden_count = last_hidden - first_hidden + 1
+                                elif areas_count == 2:
+                                    area1 = visible_range.Areas.Item(1)
+                                    area2 = visible_range.Areas.Item(2)
+                                    first_hidden = area1.Row + area1.Rows.Count
+                                    last_hidden = area2.Row - 1
                                     hidden_count = last_hidden - first_hidden + 1
+                                else:
+                                    fragmented = True
+                                    hidden_count = 3  # Triggers plural
+                            except Exception:
+                                # "No cells were found" -> Entire gap is hidden
+                                first_hidden = gap_range.Row
+                                last_hidden = gap_range.Row + gap_range.Rows.Count - 1
+                                hidden_count = last_hidden - first_hidden + 1
                                 
                         if hidden_count > 0:
                             if not fragmented:
@@ -476,14 +474,14 @@ class ExcelGridMover(NVDAObjects.window.Window):
                         last_hidden = None
                         
                         sheet = excel.ActiveSheet
-                        gap_range = sheet.Range(sheet.Cells(current_row, min_c + 1), sheet.Cells(current_row, max_c - 1))
                         
-                        if gap_range.Cells.Count == 1:
-                            if excel.Columns(gap_range.Column).Hidden in (True, -1):
-                                first_hidden = gap_range.Column
-                                last_hidden = gap_range.Column
+                        if max_c - min_c == 2:
+                            if excel.Columns(min_c + 1).Hidden in (True, -1):
+                                first_hidden = min_c + 1
+                                last_hidden = min_c + 1
                                 hidden_count = 1
                         else:
+                            gap_range = sheet.Range(sheet.Cells(current_row, min_c + 1), sheet.Cells(current_row, max_c - 1))
                             try:
                                 visible_range = gap_range.SpecialCells(12)
                                 areas_count = visible_range.Areas.Count
