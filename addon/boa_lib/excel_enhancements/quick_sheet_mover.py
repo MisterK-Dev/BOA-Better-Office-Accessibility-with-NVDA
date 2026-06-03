@@ -1,4 +1,3 @@
-import NVDAObjects.window.excel
 import controlTypes
 import NVDAObjects.UIA
 from logHandler import log
@@ -15,7 +14,7 @@ import core
 from scriptHandler import script
 import queueHandler
 
-class QuickSheetMover(NVDAObjects.window.excel.ExcelCell):
+class QuickSheetMover(object):
     # Gestures merged to the bottom __gestures block
 
     def _move_sheet(self, direction):

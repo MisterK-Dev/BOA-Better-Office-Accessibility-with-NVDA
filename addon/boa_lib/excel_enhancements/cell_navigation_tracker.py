@@ -1,4 +1,3 @@
-import NVDAObjects.window.excel
 import controlTypes
 import NVDAObjects.UIA
 from logHandler import log
@@ -97,7 +96,7 @@ def _do_check_unselect():
     except Exception:
         pass
 
-class CellNavigationTracker(NVDAObjects.window.excel.ExcelCell):
+class CellNavigationTracker(object):
     """
     Excel Grid Keystroke Interceptor and Event Monitor.
     WHY THIS EXISTS (Architecture intent):

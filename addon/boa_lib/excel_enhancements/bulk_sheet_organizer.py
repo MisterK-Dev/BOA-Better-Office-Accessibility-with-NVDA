@@ -1,4 +1,3 @@
-import NVDAObjects.window.excel
 import controlTypes
 import NVDAObjects.UIA
 from logHandler import log
@@ -15,7 +14,7 @@ import core
 from scriptHandler import script
 import queueHandler
 
-class BulkSheetOrganizer(NVDAObjects.window.excel.ExcelCell):
+class BulkSheetOrganizer(object):
     @staticmethod
     def _show_bulk_dialog(sheet_names, hwnd):
         import gui
