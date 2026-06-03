@@ -369,74 +369,7 @@ class CellNavigationTracker(object):
                             else:
                                 skip_announced_right = True
 
-                # ---------------- PROACTIVE BOUNDARY DETECTION ----------------
-                # Check top boundary
-                if row_changed and current_row > 1 and not skip_announced_top:
-                    try:
-                        if excel.Rows(current_row - 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(1, current_col), excel.Cells(current_row - 1, current_col))
-                            try:
-                                visible_cells = gap_range.SpecialCells(12)
-                                last_area = visible_cells.Areas.Item(visible_cells.Areas.Count)
-                                hidden_start = last_area.Row + last_area.Rows.Count
-                            except Exception:
-                                hidden_start = 1
-                                
-                            if hidden_start == 1:
-                                ui.message(f"Top boundary. Rows 1 to {current_row - 1} hidden")
-                    except Exception:
-                        pass
-                
-                # Check bottom boundary
-                if row_changed and current_row < 1048576 and not skip_announced_bottom:
-                    try:
-                        if excel.Rows(current_row + 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(current_row + 1, current_col), excel.Cells(1048576, current_col))
-                            try:
-                                visible_cells = gap_range.SpecialCells(12)
-                                first_area = visible_cells.Areas.Item(1)
-                                hidden_end = first_area.Row - 1
-                            except Exception:
-                                hidden_end = 1048576
-                            
-                            if hidden_end == 1048576:
-                                ui.message(f"Bottom boundary. Rows {current_row + 1} to 1048576 hidden")
-                    except Exception:
-                        pass
-                        
-                # Check left boundary
-                if col_changed and current_col > 1 and not skip_announced_left:
-                    try:
-                        if excel.Columns(current_col - 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(current_row, 1), excel.Cells(current_row, current_col - 1))
-                            try:
-                                visible_cells = gap_range.SpecialCells(12)
-                                last_area = visible_cells.Areas.Item(visible_cells.Areas.Count)
-                                hidden_start = last_area.Column + last_area.Columns.Count
-                            except Exception:
-                                hidden_start = 1
-                            
-                            if hidden_start == 1:
-                                ui.message(f"Left boundary. Columns A to {col_num_to_letter(current_col - 1)} hidden")
-                    except Exception:
-                        pass
-
                 # Check right boundary
-                if col_changed and current_col < 16384 and not skip_announced_right:
-                    try:
-                        if excel.Columns(current_col + 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(current_row, current_col + 1), excel.Cells(current_row, 16384))
-                            try:
-                                visible_cells = gap_range.SpecialCells(12)
-                                first_area = visible_cells.Areas.Item(1)
-                                hidden_end = first_area.Column - 1
-                            except Exception:
-                                hidden_end = 16384
-                                
-                            if hidden_end == 16384:
-                                ui.message(f"Right boundary. Columns {col_num_to_letter(current_col + 1)} to XFD hidden")
-                    except Exception:
-                        pass
 
             _last_focused_row = current_row
             _last_focused_col = current_col
