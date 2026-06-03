@@ -20,7 +20,6 @@ class ExcelSheetRenameEdit(object):
     we intercept it and show a real, 100% accessible wx.Dialog.
     """
     def event_gainFocus(self):
-        super().event_gainFocus()
         global _is_renaming_sheet
         if not _is_renaming_sheet:
             _is_renaming_sheet = True
