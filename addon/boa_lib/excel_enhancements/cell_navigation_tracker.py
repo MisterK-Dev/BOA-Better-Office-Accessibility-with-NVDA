@@ -29,6 +29,7 @@ _last_focused_row = None
 _last_focused_col = None
 _last_focused_sheet = None
 _last_focused_wb = None
+_last_structural_wb = None
 def check_unselect(obj):
     """
     Called whenever Excel selection or focus changes.
@@ -372,7 +373,7 @@ class CellNavigationTracker(object):
                 if row_changed and current_row > 1 and not skip_announced_top:
                     try:
                         if excel.Rows(current_row - 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(1, 1), excel.Cells(current_row - 1, 1)).EntireRow
+                            gap_range = excel.Range(excel.Cells(1, current_col), excel.Cells(current_row - 1, current_col))
                             try:
                                 visible_cells = gap_range.SpecialCells(12)
                                 last_area = visible_cells.Areas.Item(visible_cells.Areas.Count)
@@ -389,7 +390,7 @@ class CellNavigationTracker(object):
                 if row_changed and current_row < 1048576 and not skip_announced_bottom:
                     try:
                         if excel.Rows(current_row + 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(current_row + 1, 1), excel.Cells(1048576, 1)).EntireRow
+                            gap_range = excel.Range(excel.Cells(current_row + 1, current_col), excel.Cells(1048576, current_col))
                             try:
                                 visible_cells = gap_range.SpecialCells(12)
                                 first_area = visible_cells.Areas.Item(1)
@@ -406,7 +407,7 @@ class CellNavigationTracker(object):
                 if col_changed and current_col > 1 and not skip_announced_left:
                     try:
                         if excel.Columns(current_col - 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(1, 1), excel.Cells(1, current_col - 1)).EntireColumn
+                            gap_range = excel.Range(excel.Cells(current_row, 1), excel.Cells(current_row, current_col - 1))
                             try:
                                 visible_cells = gap_range.SpecialCells(12)
                                 last_area = visible_cells.Areas.Item(visible_cells.Areas.Count)
@@ -423,7 +424,7 @@ class CellNavigationTracker(object):
                 if col_changed and current_col < 16384 and not skip_announced_right:
                     try:
                         if excel.Columns(current_col + 1).Hidden in (True, -1):
-                            gap_range = excel.Range(excel.Cells(1, current_col + 1), excel.Cells(1, 16384)).EntireColumn
+                            gap_range = excel.Range(excel.Cells(current_row, current_col + 1), excel.Cells(current_row, 16384))
                             try:
                                 visible_cells = gap_range.SpecialCells(12)
                                 first_area = visible_cells.Areas.Item(1)
@@ -452,10 +453,18 @@ class CellNavigationTracker(object):
         was interacting with the Ribbon or right-click menus, and announce it upon returning
         focus to the grid. Uses ui.message for safe output routing.
         """
-        global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb
+        global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb, _last_structural_wb
         import ui
         
         try:
+            current_wb_name = excel.ActiveWorkbook.Name
+            
+            # Reset trackers if the user switched to a different workbook
+            if _last_structural_wb != current_wb_name:
+                _last_visible_sheet_count = None
+                _last_freeze_panes_state = None
+                _last_structural_wb = current_wb_name
+                
             # Check Freeze Panes
             # ActiveWindow.FreezePanes returns a boolean indicating if panes are frozen.
             current_freeze = excel.ActiveWindow.FreezePanes
