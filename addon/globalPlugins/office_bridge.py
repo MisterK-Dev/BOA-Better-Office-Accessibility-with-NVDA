@@ -12,11 +12,11 @@ lib_dir = os.path.join(addon_dir, "boa_lib")
 if lib_dir not in sys.path:
     sys.path.insert(0, lib_dir)
 
-# Import all specific enhancement classes from our custom library directory.
-import excel_enhancement
-from excel_enhancement import ExcelSheetRenameEdit, ExcelGridMover, SafeRichEdit
+import boa_config
+from excel_enhancements import manager as excel_manager
+from safe_rich_edit import SafeRichEdit
 import powerpoint_enhancement
-from powerpoint_enhancement import PowerPointHexEdit, PowerPointRGBEdit, PowerPointStandardColorGrid
+from powerpoint_enhancements import manager as ppt_manager
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     """
@@ -54,11 +54,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         try:
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
-                import boa_config
                 if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
-                    import excel_enhancement
-                    # Call our custom selection tracking logic before allowing NVDA to handle the focus event.
-                    excel_enhancement.check_unselect(obj)
+                    from excel_enhancements.cell_navigation_tracker import check_unselect
+                    check_unselect(obj)
         except Exception:
             pass
         nextHandler()
@@ -70,11 +68,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         try:
             appModule = getattr(obj, 'appModule', None)
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
-                import boa_config
                 if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
-                    import excel_enhancement
-                    # Notify the user if a multi-cell selection was unexpectedly deselected.
-                    excel_enhancement.check_unselect(obj)
+                    from excel_enhancements.cell_navigation_tracker import check_unselect
+                    check_unselect(obj)
         except Exception:
             pass
         nextHandler()
@@ -105,61 +101,89 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         # -----------------------------------------------------
         # Excel Overrides
         # -----------------------------------------------------
-        import boa_config
         if appName == "excel":
-            # The main Excel spreadsheet grid classes.
-            if className in ("EXCEL7", "XLDESK", "NetUIHWND") and boa_config.get_feature_state("excel", "grid_mover"):
-                log.info("BOA: injecting ExcelGridMover!")
-                # Insert our custom Grid Mover at the top of the class hierarchy so it intercepts keystrokes first.
-                clsList.insert(0, ExcelGridMover)
+            if className in ("EXCEL7", "XLDESK", "NetUIHWND"):
+                excel_manager.inject_excel_grid_classes(clsList)
                 
-            # The 'EXCEL=' class specifically represents the native "Rename Sheet" edit box.
-            if className == "EXCEL=" and boa_config.get_feature_state("excel", "sheet_rename"):
-                log.info("BOA: injecting ExcelSheetRenameEdit!")
-                clsList.insert(0, ExcelSheetRenameEdit)
-            # Standard RichEdit controls in Office sometimes crash when ITextDocument is accessed.
+            if className == "EXCEL=":
+                excel_manager.inject_excel_rename_class(clsList)
+                
             elif className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("excel", "safe_rich_edit"):
-                log.info("BOA: injecting SafeRichEdit for Excel!")
                 clsList.insert(0, SafeRichEdit)
 
         # -----------------------------------------------------
         # PowerPoint Overrides
         # -----------------------------------------------------
         elif appName == "powerpnt":
-            # 'bosa_sdm_Mso96' is a legacy Office dialog class, used here for the 'Standard' color hexagon.
-            if className == "bosa_sdm_Mso96" and boa_config.get_feature_state("powerpoint", "standard_color_grid"):
+            if className == "bosa_sdm_Mso96":
                 import controlTypes
                 if getattr(obj, "role", None) == controlTypes.Role.TAB:
-                    log.info("BOA: injecting PowerPointStandardColorGrid for TAB in PPT!")
-                    clsList.insert(0, PowerPointStandardColorGrid)
+                    ppt_manager.inject_ppt_color_grid(clsList)
 
-            # RichEdit20W and RichEdit50W are used extensively in PowerPoint dialogs.
             if className == "RichEdit20W":
-                # windowControlID 1637 uniquely identifies the Hex input field in the Color picker.
-                if getattr(obj, 'windowControlID', None) == 1637 and boa_config.get_feature_state("powerpoint", "hex_edit"):
-                    log.info("BOA: injecting PowerPointHexEdit!")
-                    clsList.insert(0, PowerPointHexEdit)
+                if getattr(obj, 'windowControlID', None) == 1637:
+                    ppt_manager.inject_ppt_hex_edit(clsList)
                 elif boa_config.get_feature_state("powerpoint", "safe_rich_edit"):
-                    log.info("BOA: injecting SafeRichEdit for PPT!")
                     clsList.insert(0, SafeRichEdit)
             elif className == "RichEdit50W" and boa_config.get_feature_state("powerpoint", "safe_rich_edit"):
-                log.info("BOA: injecting SafeRichEdit for PPT!")
                 clsList.insert(0, SafeRichEdit)
             
-            # The standard 'Edit' class is used for the RGB input fields.
-            if className == "Edit" and boa_config.get_feature_state("powerpoint", "rgb_edit"):
+            if className == "Edit":
                 parent = getattr(obj, 'parent', None)
                 parent_class = getattr(parent, 'windowClassName', '') if parent else ""
-                
-                # Verify that the parent dialog is the standard Windows '#32770' dialog box 
-                # to avoid injecting this into random Edit fields throughout PowerPoint.
                 if parent_class == "#32770":
-                    clsList.insert(0, PowerPointRGBEdit)
+                    ppt_manager.inject_ppt_rgb_edit(clsList)
 
-        # -----------------------------------------------------
-        # Word Overrides
-        # -----------------------------------------------------
         elif appName == "winword":
             if className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("word", "safe_rich_edit"):
                 log.info("BOA: injecting SafeRichEdit for Word!")
                 clsList.insert(0, SafeRichEdit)
+
+    def script_triggerCommandPrefix(self, gesture):
+        import tones
+        tones.beep(800, 50)
+        
+        # Bind interceptor keys dynamically
+        self.bindGesture("kb:escape", "cancelCommandPrefix")
+        # Bind the entire alphabet and numbers to intercept valid commands
+        for char in "abcdefghijklmnopqrstuvwxyz0123456789":
+            self.bindGesture(f"kb:{char}", "handleCommandKey")
+            
+    script_triggerCommandPrefix.__doc__ = "Triggers the BOA command prefix mode."
+
+    def script_cancelCommandPrefix(self, gesture):
+        import tones
+        tones.beep(300, 50)
+        self._clear_command_bindings()
+        
+    def script_handleCommandKey(self, gesture):
+        import tones
+        key = gesture.displayName.lower()
+        self._clear_command_bindings()
+        
+        # Get active object and app
+        import api
+        obj = api.getFocusObject()
+        appModule = getattr(obj, 'appModule', None)
+        appName = getattr(appModule, 'appName', '').lower() if appModule else ""
+        
+        handled = False
+        if appName == "excel":
+            handled = excel_manager.handle_prefix_command(key, obj)
+        elif appName == "powerpnt":
+            handled = ppt_manager.handle_prefix_command(key, obj)
+            
+        if not handled:
+            tones.beep(150, 50) # Error beep
+            
+    def _clear_command_bindings(self):
+        try:
+            self.removeGestureBinding("kb:escape")
+            for char in "abcdefghijklmnopqrstuvwxyz0123456789":
+                self.removeGestureBinding(f"kb:{char}")
+        except Exception:
+            pass
+
+    __gestures = {
+        "kb:NVDA+e": "triggerCommandPrefix"
+    }

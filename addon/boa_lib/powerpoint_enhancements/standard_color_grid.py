@@ -13,37 +13,6 @@ PPT_RED_ID = "101"
 PPT_GREEN_ID = "102"
 PPT_BLUE_ID = "103"
 
-class PowerPointHexEdit(SafeRichEdit):
-    """
-    Specific override for the PowerPoint Color Hex Edit box.
-    By default, this edit box does not expose an accessible name.
-    We identify it using its fixed windowControlID (1637) and explicitly return "Hex Color".
-    """
-    def _get_name(self):
-        # 1637 is the standard Win32 control ID for the Hex field in the Office color picker.
-        if hasattr(self, 'windowControlID') and self.windowControlID == 1637:
-            return "Hex Color"
-        return super(PowerPointHexEdit, self).name
-
-class PowerPointRGBEdit(NVDAObjects.UIA.UIA):
-    """
-    STRICT UIA Override for PowerPoint Custom Colors RGB edit boxes.
-    The RGB text boxes use UI Automation. Since their accessible names are often missing or confusing,
-    we identify them by their UIAAutomationId and explicitly provide "Red", "Green", or "Blue" to NVDA.
-    """
-    def _get_name(self):
-        # UIA uses UIAAutomationId, not windowControlID, so we fetch it safely.
-        auto_id = getattr(self, 'UIAAutomationId', '')
-        if auto_id == PPT_RED_ID:
-            return "Red"
-        elif auto_id == PPT_GREEN_ID:
-            return "Green"
-        elif auto_id == PPT_BLUE_ID:
-            return "Blue"
-        
-        # Fallback to the default name if it doesn't match our specific IDs.
-        return super(PowerPointRGBEdit, self).name
-
 class PowerPointStandardColorGrid(NVDAObjects.window.Window):
     """
     Intercepts arrow keys when the user is navigating the 'Standard' color hexagon grid in PowerPoint.
