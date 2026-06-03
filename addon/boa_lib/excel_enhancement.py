@@ -11,7 +11,7 @@ import winUser
 import keyboardHandler
 import core
 from scriptHandler import script
-
+import queueHandler
 _is_renaming_sheet = False
 _last_selection_count = 1
 
@@ -400,35 +400,58 @@ class ExcelGridMover(NVDAObjects.window.Window):
                     if max_r - min_r > 1:
                         hidden_count = 0
                         fragmented = False
-                        last_hidden = None
                         first_hidden = None
-                        scan_limit = min(max_r - 1, min_r + 500)
+                        last_hidden = None
                         
-                        for r in range(min_r + 1, scan_limit + 1):
-                            if excel.Rows(r).Hidden in (True, -1):
-                                hidden_count += 1
-                                if first_hidden is None:
-                                    first_hidden = r
-                                if last_hidden is not None and last_hidden != r - 1:
-                                    fragmented = True
-                                last_hidden = r
+                        sheet = excel.ActiveSheet
+                        gap_range = sheet.Range(sheet.Cells(min_r + 1, current_col), sheet.Cells(max_r - 1, current_col))
+                        intersect_range = excel.Intersect(gap_range, sheet.UsedRange)
+                        
+                        if intersect_range is not None:
+                            try:
+                                visible_range = intersect_range.SpecialCells(12)
+                                areas_count = visible_range.Areas.Count
                                 
-                                if fragmented and hidden_count > 2:
-                                    break
+                                if areas_count == 1:
+                                    vis_start = visible_range.Row
+                                    vis_end = visible_range.Row + visible_range.Rows.Count - 1
+                                    int_start = intersect_range.Row
+                                    int_end = intersect_range.Row + intersect_range.Rows.Count - 1
+                                    
+                                    if vis_start > int_start:
+                                        first_hidden = int_start
+                                        last_hidden = vis_start - 1
+                                        hidden_count = last_hidden - first_hidden + 1
+                                    elif vis_end < int_end:
+                                        first_hidden = vis_end + 1
+                                        last_hidden = int_end
+                                        hidden_count = last_hidden - first_hidden + 1
+                                elif areas_count == 2:
+                                    area1 = visible_range.Areas.Item(1)
+                                    area2 = visible_range.Areas.Item(2)
+                                    first_hidden = area1.Row + area1.Rows.Count
+                                    last_hidden = area2.Row - 1
+                                    hidden_count = last_hidden - first_hidden + 1
+                                else:
+                                    fragmented = True
+                                    hidden_count = 3  # Triggers plural
+                            except Exception:
+                                # "No cells were found" -> Entire intersection is hidden
+                                first_hidden = intersect_range.Row
+                                last_hidden = intersect_range.Row + intersect_range.Rows.Count - 1
+                                hidden_count = last_hidden - first_hidden + 1
                                 
                         if hidden_count > 0:
                             if not fragmented:
                                 if hidden_count == 1:
-                                    ui.message(f"Row {first_hidden} hidden")
-                                elif hidden_count >= 500:
-                                    ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
+                                    queueHandler.queueFunction(queueHandler.eventQueue, ui.message, f"Row {first_hidden} hidden")
                                 else:
-                                    ui.message(f"Rows {first_hidden} through {last_hidden} hidden")
+                                    if first_hidden == min_r + 1 and last_hidden == max_r - 1 and (max_r - min_r - 1) >= 500:
+                                        queueHandler.queueFunction(queueHandler.eventQueue, ui.message, f"Rows {min_r + 1} through {max_r - 1} hidden")
+                                    else:
+                                        queueHandler.queueFunction(queueHandler.eventQueue, ui.message, f"Rows {first_hidden} through {last_hidden} hidden")
                             else:
-                                if hidden_count > 2:
-                                    ui.message("Crossed more than 2 hidden rows")
-                                else:
-                                    ui.message(f"Crossed {hidden_count} hidden rows")
+                                queueHandler.queueFunction(queueHandler.eventQueue, ui.message, "Crossed heavily fragmented hidden rows")
                                 
                             if current_row > _last_focused_row:
                                 skip_announced_top = True
@@ -443,35 +466,56 @@ class ExcelGridMover(NVDAObjects.window.Window):
                     if max_c - min_c > 1:
                         hidden_count = 0
                         fragmented = False
-                        last_hidden = None
                         first_hidden = None
-                        scan_limit = min(max_c - 1, min_c + 500)
+                        last_hidden = None
                         
-                        for c in range(min_c + 1, scan_limit + 1):
-                            if excel.Columns(c).Hidden in (True, -1):
-                                hidden_count += 1
-                                if first_hidden is None:
-                                    first_hidden = c
-                                if last_hidden is not None and last_hidden != c - 1:
-                                    fragmented = True
-                                last_hidden = c
+                        sheet = excel.ActiveSheet
+                        gap_range = sheet.Range(sheet.Cells(current_row, min_c + 1), sheet.Cells(current_row, max_c - 1))
+                        
+                        try:
+                            visible_range = gap_range.SpecialCells(12)
+                            areas_count = visible_range.Areas.Count
+                            
+                            if areas_count == 1:
+                                vis_start = visible_range.Column
+                                vis_end = visible_range.Column + visible_range.Columns.Count - 1
+                                int_start = gap_range.Column
+                                int_end = gap_range.Column + gap_range.Columns.Count - 1
                                 
-                                if fragmented and hidden_count > 2:
-                                    break
+                                if vis_start > int_start:
+                                    first_hidden = int_start
+                                    last_hidden = vis_start - 1
+                                    hidden_count = last_hidden - first_hidden + 1
+                                elif vis_end < int_end:
+                                    first_hidden = vis_end + 1
+                                    last_hidden = int_end
+                                    hidden_count = last_hidden - first_hidden + 1
+                            elif areas_count == 2:
+                                area1 = visible_range.Areas.Item(1)
+                                area2 = visible_range.Areas.Item(2)
+                                first_hidden = area1.Column + area1.Columns.Count
+                                last_hidden = area2.Column - 1
+                                hidden_count = last_hidden - first_hidden + 1
+                            else:
+                                fragmented = True
+                                hidden_count = 3  # Triggers plural
+                        except Exception:
+                            # "No cells were found" -> Entire intersection is hidden
+                            first_hidden = gap_range.Column
+                            last_hidden = gap_range.Column + gap_range.Columns.Count - 1
+                            hidden_count = last_hidden - first_hidden + 1
                                 
                         if hidden_count > 0:
                             if not fragmented:
                                 if hidden_count == 1:
-                                    ui.message(f"Column {col_num_to_letter(first_hidden)} hidden")
-                                elif hidden_count >= 500:
-                                    ui.message(f"Columns {col_num_to_letter(min_c + 1)} through {col_num_to_letter(max_c - 1)} hidden")
+                                    queueHandler.queueFunction(queueHandler.eventQueue, ui.message, f"Column {col_num_to_letter(first_hidden)} hidden")
                                 else:
-                                    ui.message(f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
+                                    if first_hidden == min_c + 1 and last_hidden == max_c - 1 and (max_c - min_c - 1) >= 500:
+                                        queueHandler.queueFunction(queueHandler.eventQueue, ui.message, f"Columns {col_num_to_letter(min_c + 1)} through {col_num_to_letter(max_c - 1)} hidden")
+                                    else:
+                                        queueHandler.queueFunction(queueHandler.eventQueue, ui.message, f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
                             else:
-                                if hidden_count > 2:
-                                    ui.message("Crossed more than 2 hidden columns")
-                                else:
-                                    ui.message(f"Crossed {hidden_count} hidden columns")
+                                queueHandler.queueFunction(queueHandler.eventQueue, ui.message, "Crossed heavily fragmented hidden columns")
                                 
                             if current_col > _last_focused_col:
                                 skip_announced_left = True
