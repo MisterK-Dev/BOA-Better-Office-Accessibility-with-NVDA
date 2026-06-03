@@ -30,6 +30,7 @@ _last_focused_col = None
 _last_focused_sheet = None
 _last_focused_wb = None
 _last_structural_wb = None
+_last_excel_hwnd = None
 def check_unselect(obj):
     """
     Called whenever Excel selection or focus changes.
@@ -160,10 +161,16 @@ class CellNavigationTracker(object):
                     
                     # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
                     if sel.Cells.Count > 1:
-                        # GUARD 1: If Shift or Control is held down, the user is manually selecting.
-                        # NVDA will natively announce this. Do not double-announce multi-cell selections.
-                        if (winUser.getKeyState(winUser.VK_SHIFT) & 32768) or (winUser.getKeyState(winUser.VK_CONTROL) & 32768):
-                            return
+                        # GUARD 1: Check the exact last keystroke. If the user used Shift, Control, or Arrows,
+                        # they are manually extending the selection. NVDA will natively announce this. 
+                        # Do not double-announce multi-cell selections.
+                        import api
+                        last_gesture = api.getLastInputGesture()
+                        if last_gesture:
+                            gesture_name = last_gesture.displayName.lower() if hasattr(last_gesture, 'displayName') else ""
+                            if "shift" in gesture_name or "control" in gesture_name or "arrow" in gesture_name:
+                                return
+                            
                             
                         address = sel.Address(False, False)  # Returns string like "A1:D1"
 
@@ -453,11 +460,20 @@ class CellNavigationTracker(object):
         was interacting with the Ribbon or right-click menus, and announce it upon returning
         focus to the grid. Uses ui.message for safe output routing.
         """
-        global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb, _last_structural_wb
+        global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb, _last_structural_wb, _last_excel_hwnd
         import ui
         
         try:
             current_wb_name = excel.ActiveWorkbook.Name
+            current_hwnd = excel.Application.Hwnd
+            
+            # Reset trackers if the user closed and reopened Excel (new Process Window Handle)
+            if _last_excel_hwnd != current_hwnd:
+                _last_structural_wb = None
+                _last_focused_wb = None
+                _last_visible_sheet_count = None
+                _last_freeze_panes_state = None
+                _last_excel_hwnd = current_hwnd
             
             # Reset trackers if the user switched to a different workbook
             if _last_structural_wb != current_wb_name:
