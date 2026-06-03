@@ -40,7 +40,12 @@ DEFAULT_CONFIG = {
 _current_config = None
 
 def load_config():
-    """Load configuration from disk, filling in missing defaults."""
+    """
+    Load configuration from disk, filling in missing defaults.
+    Architectural Why: By doing a deep copy of defaults and then selectively overriding
+    with saved values, we ensure that if a user upgrades the BOA add-on and new features
+    are added, those new features are seamlessly enabled without crashing due to missing JSON keys.
+    """
     global _current_config
     _current_config = {}
     
@@ -50,19 +55,26 @@ def load_config():
         
     if os.path.exists(CONFIG_FILE):
         try:
+            # Open the JSON file in read mode with explicit UTF-8 encoding to prevent locale issues
             with open(CONFIG_FILE, "r", encoding="utf-8") as f:
                 saved_config = json.load(f)
-                # Update defaults with saved values
+                # Iterate through our predefined defaults to safely overlay saved user settings
                 for app in _current_config:
+                    # Only proceed if the application category exists and is properly formatted as a dict
                     if app in saved_config and isinstance(saved_config[app], dict):
                         for feature in _current_config[app]:
+                            # If the user had a saved preference for this feature, apply it and enforce boolean type
                             if feature in saved_config[app]:
                                 _current_config[app][feature] = bool(saved_config[app][feature])
         except Exception as e:
             log.error(f"BOA Config: Failed to load config from {CONFIG_FILE}: {e}")
 
 def save_config():
-    """Save the current configuration to disk."""
+    """
+    Save the current configuration to disk.
+    Architectural Why: Serializes the in-memory state back to the JSON file. We use
+    indent=4 to ensure the file remains human-readable in case a user needs to manually edit it.
+    """
     global _current_config
     if _current_config is None:
         return
@@ -74,20 +86,33 @@ def save_config():
         log.error(f"BOA Config: Failed to save config to {CONFIG_FILE}: {e}")
 
 def get_feature_state(app, feature):
-    """Check if a specific feature is enabled."""
+    """
+    Check if a specific feature is enabled.
+    Architectural Why: This is the primary lookup method called by all application-specific managers
+    during NVDA events. It lazy-loads the config if it hasn't been initialized yet, ensuring
+    we never hit a NullReference exception during high-frequency UI events.
+    """
     if _current_config is None:
         load_config()
     return _current_config.get(app, {}).get(feature, True)
 
 def set_feature_state(app, feature, state):
-    """Set the state of a specific feature."""
+    """
+    Set the state of a specific feature in memory.
+    Architectural Why: Acts as a setter for the GUI panel. Changes are kept in memory until
+    save_config is explicitly called, matching the native apply/cancel flow of NVDA settings.
+    """
     if _current_config is None:
         load_config()
     if app in _current_config and feature in _current_config[app]:
         _current_config[app][feature] = bool(state)
 
 def get_all_config():
-    """Get the entire configuration dictionary."""
+    """
+    Get the entire configuration dictionary.
+    Architectural Why: Used primarily by the settings GUI to rapidly paint all checkboxes
+    at once rather than making individual calls for every feature, minimizing overhead.
+    """
     if _current_config is None:
         load_config()
     return _current_config

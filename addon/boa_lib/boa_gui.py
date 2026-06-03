@@ -25,13 +25,20 @@ class BOASettingsPanel(SettingsPanel):
     title = "BOA Office Enhancements"
     
     def makeSettings(self, settingsSizer):
-        """Build the GUI for the settings panel."""
+        """
+        Build the GUI for the settings panel.
+        Architectural Why: This method is called natively by NVDA when building the preferences dialog.
+        We dynamically generate standard WX checkboxes tied to our JSON config to provide
+        an accessible, native-feeling configuration experience for the user.
+        """
         self.checkboxes = {}
         
         # Ensure config is loaded
+        # Fetch the entire configuration dictionary from memory to populate initial UI state
         config = boa_config.get_all_config()
         
-        # Helper to create a group
+        # Helper function to create a labeled grouping of checkboxes (a wx.StaticBoxSizer)
+        # This keeps the UI code DRY (Don't Repeat Yourself) when adding features for new apps.
         def create_group(app_name, display_name, features):
             group_sizer = wx.StaticBoxSizer(wx.VERTICAL, self, display_name)
             self.checkboxes[app_name] = {}
@@ -69,9 +76,17 @@ class BOASettingsPanel(SettingsPanel):
         create_group("word", "Word Enhancements", word_features)
 
     def onSave(self):
-        """Called when the user presses OK or Apply."""
+        """
+        Called when the user presses OK or Apply in the NVDA settings dialog.
+        Architectural Why: We must persist the in-memory GUI state (checkboxes) back to the 
+        file system (JSON) so that configuration persists across NVDA restarts.
+        """
+        # Iterate over each application (e.g., excel, word) and its respective GUI checkboxes
         for app, features in self.checkboxes.items():
             for feature_key, cb in features.items():
+                # Update the in-memory configuration state based on checkbox value
                 boa_config.set_feature_state(app, feature_key, cb.GetValue())
+        
+        # Flush the updated configuration from memory to the physical JSON file
         boa_config.save_config()
         log.info("BOA settings saved successfully.")

@@ -15,8 +15,18 @@ from scriptHandler import script
 import queueHandler
 
 class BulkSheetOrganizer(object):
+    """
+    Handles launching and applying bulk sheet rearrangement operations.
+    ARCHITECTURAL INTENT: Reordering multiple sheets in Excel natively requires dragging tabs 
+    with a mouse or repeatedly opening the "Move or Copy" dialog. This class provides an
+    accessible, programmatic way to queue multiple sheet moves and execute them via COM
+    all at once.
+    """
     @staticmethod
     def _show_bulk_dialog(sheet_names, hwnd):
+        """
+        Creates and displays the wx.Dialog. Parses the result and triggers COM execution.
+        """
         import gui
         gui.mainFrame.prePopup()
         dlg = ExcelBulkSheetOrganizerDialog(gui.mainFrame, sheet_names)
@@ -28,12 +38,16 @@ class BulkSheetOrganizer(object):
         
         if planned_moves:
             def _do_com_moves():
+                """
+                Executes the queued sheet moves via Excel COM automation.
+                """
                 import comtypes.client
                 import comtypes.automation
                 import ctypes
                 import ui
                 import logHandler
                 
+                # Fetch Excel via the raw HWND to bypass COM unavailability
                 oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
                 ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
                 res = oleacc.AccessibleObjectFromWindow(hwnd, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
@@ -42,6 +56,7 @@ class BulkSheetOrganizer(object):
                         excel = comtypes.client.dynamic.Dispatch(ptr).Application
                         wb = excel.ActiveWorkbook
                         
+                        # Calculate the final order of sheets before moving anything
                         unmoved = [s for s in sheet_names if s not in planned_moves]
                         moved = [(s, planned_moves[s]) for s in planned_moves]
                         moved.sort(key=lambda x: x[1])
@@ -53,7 +68,7 @@ class BulkSheetOrganizer(object):
                             
                         total_sheets = wb.Sheets.Count
                         if total_sheets > 1:
-                            # Secure the absolute last sheet first
+                            # Step 1: Secure the absolute last sheet first
                             last_sheet_name = final_list[-1]
                             sheet = wb.Sheets(last_sheet_name)
                             if sheet.Index < total_sheets:
@@ -61,7 +76,7 @@ class BulkSheetOrganizer(object):
                                     sheet.Move(wb.Sheets(total_sheets))
                                 wb.Sheets(total_sheets).Move(sheet)
                                 
-                            # Working backwards, move every other sheet directly BEFORE the one to its right.
+                            # Step 2: Working backwards, move every other sheet directly BEFORE the one to its right.
                             for i in range(len(final_list) - 2, -1, -1):
                                 sheet_name = final_list[i]
                                 sheet_after_name = final_list[i + 1]
@@ -80,6 +95,9 @@ class BulkSheetOrganizer(object):
                         logHandler.log.error(f"BOA bulk bg error: {e}")
                         
             def _apply_moves():
+                """
+                Ensures Excel is in the foreground before starting COM moves.
+                """
                 import winUser
                 winUser.setForegroundWindow(hwnd)
                 import core
@@ -93,6 +111,8 @@ class BulkSheetOrganizer(object):
         """
         Connects to Excel, grabs a list of all current sheet names, 
         and then opens the custom Bulk Sheet Organizer WX dialog.
+        ARCHITECTURAL INTENT: We perform the heavy COM lifting here before launching the UI
+        so the dialog appears instantly and is prepopulated with correct data.
         """
         import comtypes.client
         import comtypes.automation
@@ -101,6 +121,7 @@ class BulkSheetOrganizer(object):
         import wx
         
         try:
+            # Safely hook into Excel grid via HWND traversal
             hwnd7 = None
             if getattr(obj, "windowClassName", "") == "EXCEL7":
                 hwnd7 = obj.windowHandle

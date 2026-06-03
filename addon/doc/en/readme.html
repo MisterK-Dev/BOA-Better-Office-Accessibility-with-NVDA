@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.2.0-dev14</title>
+<title>BOA: Better Office Accessibility 1.2.0-dev26</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
@@ -84,6 +84,21 @@ You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Setti
 <li>Restart NVDA.</li>
 </ol>
 <h2>Changelog</h2>
+<hr />
+<h3>Version 1.2.0-dev26 — 2026-06-03</h3>
+<p><strong>Development build.</strong></p>
+<h4>New Features</h4>
+<ul>
+<li><strong>App-Launch Caching</strong> — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.</li>
+<li><strong>Enhanced Cell Tracker (1D COM Math)</strong> — Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (<code>current_col</code> or <code>current_row</code>). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.</li>
+<li><strong>Process Memory Wiping</strong> — Implemented Excel Window Handle (<code>Hwnd</code>) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".</li>
+<li><strong>Intelligent API Codebase Comments</strong> — Completely documented the codebase using Automated Docstring injections. Every function, method, and NVDA UIA interaction is now fully documented for future maintainability.</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li><strong>Double Selection Announcement</strong> — Migrated away from unreliable asynchronous <code>winUser.getKeyState</code> and implemented <code>api.getLastInputGesture()</code> to perfectly suppress double announcements when using Shift+Arrow keys.</li>
+<li><strong>Boundary Detector Deactivation</strong> — The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.</li>
+</ul>
 <hr />
 <h3>Version 1.1.0 — 2026-05-30</h3>
 <p><strong>Final release.</strong></p>

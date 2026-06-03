@@ -15,9 +15,22 @@ from scriptHandler import script
 import queueHandler
 
 class QuickSheetMover(object):
+    """
+    Provides keyboard shortcuts for quickly reordering Excel worksheets.
+    ARCHITECTURAL INTENT: Native Excel lacks dedicated keyboard shortcuts for moving sheets.
+    This class intercepts NVDA+Shift+Arrow keys and uses COM automation to instantly shift
+    the active sheet left, right, to the start, or to the end, completely bypassing Excel's
+    clunky and inaccessible "Move or Copy" dialog.
+    """
     # Gestures merged to the bottom __gestures block
 
     def _move_sheet(self, direction):
+        """
+        Executes the sheet move operation using COM automation.
+        ARCHITECTURAL INTENT: Uses lower-level window handles (HWND) to fetch the IDispatch
+        pointer rather than `GetActiveObject`. This avoids the infamous `MK_E_UNAVAILABLE` 
+        COM error that occurs when Excel is busy or security boundaries isolate the process.
+        """
         import comtypes.client
         import comtypes.automation
         import ctypes
@@ -28,6 +41,7 @@ class QuickSheetMover(object):
             if getattr(self, "windowClassName", "") == "EXCEL7":
                 hwnd7 = self.windowHandle
             else:
+                # Crawl the window tree to find the raw EXCEL7 grid handle
                 hwnd = ctypes.windll.user32.FindWindowW("XLMAIN", None)
                 if hwnd:
                     xldesk = ctypes.windll.user32.FindWindowExW(hwnd, 0, "XLDESK", None)
@@ -42,6 +56,7 @@ class QuickSheetMover(object):
             OBJID_NATIVEOM = -16
             ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
             
+            # Use AccessibleObjectFromWindow to force a back-door COM connection directly from the HWND
             res = oleacc.AccessibleObjectFromWindow(
                 hwnd7, OBJID_NATIVEOM, 
                 ctypes.byref(comtypes.automation.IDispatch._iid_), 
@@ -52,6 +67,7 @@ class QuickSheetMover(object):
                 ui.message("Failed to hook Excel.")
                 return
                 
+            # Cast the IDispatch pointer into a usable COM object
             win = comtypes.client.dynamic.Dispatch(ptr)
             excel = win.Application
             wb = excel.ActiveWorkbook
@@ -68,17 +84,20 @@ class QuickSheetMover(object):
                 if current_index == 1:
                     ui.message("Already at beginning")
                     return
+                # Move before the previous sheet
                 sheet.Move(wb.Sheets(current_index - 1))
             elif direction == "right":
                 if current_index == total_sheets:
                     ui.message("Already at end")
                     return
                 # To move right, we just move the right neighbor before us!
+                # (Excel's Move method lacks a reliable 'After' parameter when dynamically dispatched)
                 wb.Sheets(current_index + 1).Move(sheet)
             elif direction == "start":
                 if current_index == 1:
                     ui.message("Already at beginning")
                     return
+                # Move before the very first sheet
                 sheet.Move(wb.Sheets(1))
             elif direction == "end":
                 if current_index == total_sheets:
@@ -92,7 +111,7 @@ class QuickSheetMover(object):
                 wb.Sheets(total_sheets).Move(sheet)
                 
             # Moving sheets can sometimes change the active sheet (especially the 2-step end trick).
-            # Force our target sheet to be the active one.
+            # Force our target sheet to be the active one so focus isn't lost.
             sheet.Activate()
             
             new_index = excel.ActiveSheet.Index
@@ -110,6 +129,10 @@ class QuickSheetMover(object):
         category="Better Office Accessibility"
     )
     def script_moveSheetLeft(self, gesture):
+        """
+        Command to move the current sheet one position to the left.
+        ARCHITECTURAL INTENT: Maps standard NVDA structural navigation keys to sheet movement.
+        """
         self._move_sheet("left")
 
     @script(
@@ -117,6 +140,9 @@ class QuickSheetMover(object):
         category="Better Office Accessibility"
     )
     def script_moveSheetRight(self, gesture):
+        """
+        Command to move the current sheet one position to the right.
+        """
         self._move_sheet("right")
 
     @script(
@@ -124,6 +150,9 @@ class QuickSheetMover(object):
         category="Better Office Accessibility"
     )
     def script_moveSheetStart(self, gesture):
+        """
+        Command to move the current sheet to the first position.
+        """
         self._move_sheet("start")
 
     @script(
@@ -131,6 +160,9 @@ class QuickSheetMover(object):
         category="Better Office Accessibility"
     )
     def script_moveSheetEnd(self, gesture):
+        """
+        Command to move the current sheet to the last position.
+        """
         self._move_sheet("end")
 
     __gestures = {

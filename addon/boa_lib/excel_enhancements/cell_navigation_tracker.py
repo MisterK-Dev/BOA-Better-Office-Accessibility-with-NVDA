@@ -34,9 +34,10 @@ _last_excel_hwnd = None
 def check_unselect(obj):
     """
     Called whenever Excel selection or focus changes.
-    Its primary purpose is to detect when a user has a multi-cell selection (e.g., A1 through D1)
+    ARCHITECTURAL INTENT: Detects when a user has a multi-cell selection (e.g., A1 through D1)
     and suddenly presses an arrow key, causing the selection to drop down to a single cell.
     Standard NVDA does not announce "unselected" in Excel, leaving the user unaware they lost their range.
+    By hooking into global focus events, we can detect this regression and provide feedback.
     """
     try:
         import controlTypes
@@ -47,11 +48,17 @@ def check_unselect(obj):
             return
             
         import core
+        # Defer execution by 50ms so Excel's internal selection state has time to update
         core.callLater(50, _do_check_unselect)
     except Exception:
         pass
 
 def _do_check_unselect():
+    """
+    Performs the actual COM check to determine if the selection has collapsed.
+    ARCHITECTURAL INTENT: Runs asynchronously to avoid blocking NVDA's event queue. Uses COM
+    to read the Selection.Count and compares it to the previously cached count.
+    """
     global _last_selection_count
     try:
         import comtypes.client
@@ -80,6 +87,7 @@ def _do_check_unselect():
 
         if excel:
             sel = excel.Selection
+            # Ensure the selection is actually a Range (has Cells) and not a Shape/Chart
             if getattr(sel, 'Cells', None):
                 try:
                     # ALWAYS check structural changes and hidden row skips on focus/selection change
@@ -187,8 +195,11 @@ class CellNavigationTracker(object):
     def check_hidden_skip(excel):
         """
         Detects if the user's focus jumped over completely hidden rows or columns.
-        Uses COM bulk checking and SpecialCells to avoid false positives and loops.
-        Announces mixed scenarios accurately and includes proactive boundary detection.
+        ARCHITECTURAL INTENT: NVDA relies on UI Automation (UIA) events to track focus. 
+        However, Excel exposes physically hidden cells to UIA as if they were visible, causing 
+        NVDA to silently skip over them without warning the user. We use COM bulk checking 
+        (SpecialCells) here to manually calculate hidden gaps whenever the focus coordinates 
+        jump by more than 1 unit.
         """
         global _last_focused_row, _last_focused_col, _last_focused_sheet, _last_focused_wb
         import ui
@@ -381,11 +392,11 @@ class CellNavigationTracker(object):
     @staticmethod
     def check_structural_changes(excel):
         """
-        Monitors for changes in Excel's structural layout that do not natively fire events,
-        such as toggling Freeze Panes or Hiding/Unhiding a worksheet.
-        By caching the previous state, we can detect if a change occurred while the user
-        was interacting with the Ribbon or right-click menus, and announce it upon returning
-        focus to the grid. Uses ui.message for safe output routing.
+        Monitors for changes in Excel's structural layout that do not natively fire events.
+        ARCHITECTURAL INTENT: Actions like toggling Freeze Panes or Hiding/Unhiding a worksheet
+        do not emit standard UIA/MSAA property change events. By caching the previous state and 
+        polling it on focus return, we can detect if a structural change occurred while the user
+        was interacting with the Ribbon or right-click menus, and announce it proactively.
         """
         global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb, _last_structural_wb, _last_excel_hwnd
         import ui
@@ -510,7 +521,9 @@ class CellNavigationTracker(object):
         """
         Fetches the initial visibility state, passes the native keystroke to Excel (or uses COM if forced),
         waits briefly, and then checks if the COM model state actually changed.
-        Uses core.callLater to safely delay without blocking NVDA's single-threaded core.
+        ARCHITECTURAL INTENT: Excel's keyboard shortcuts for hiding rows/columns (Ctrl+9, Ctrl+0) 
+        do not provide auditory feedback natively. Furthermore, Windows sometimes hijacks Ctrl+Shift+0.
+        This wrapper verifies the state change asynchronously via COM and speaks the result.
         """
         import comtypes.client
         import comtypes.automation
@@ -551,7 +564,9 @@ class CellNavigationTracker(object):
     def _verify_visibility_change_callback(self, element_type, is_hiding, initial_state):
         """
         Callback executed by core.callLater to verify the visibility state.
-        Announces the change via ui.message if successful and state actually changed.
+        ARCHITECTURAL INTENT: By checking the state after a 200ms delay, we give Excel's 
+        internal engine time to process the keystroke and update the COM model, ensuring 
+        accurate feedback without blocking NVDA's single-threaded core.
         """
         import comtypes.client
         import comtypes.automation

@@ -86,6 +86,21 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ---
 
+### Version 1.2.0-dev26 — 2026-06-03
+**Development build.**
+
+#### New Features
+- **App-Launch Caching** — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.
+- **Enhanced Cell Tracker (1D COM Math)** — Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (`current_col` or `current_row`). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.
+- **Process Memory Wiping** — Implemented Excel Window Handle (`Hwnd`) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".
+- **Intelligent API Codebase Comments** — Completely documented the codebase using Automated Docstring injections. Every function, method, and NVDA UIA interaction is now fully documented for future maintainability.
+
+#### Bug Fixes
+- **Double Selection Announcement** — Migrated away from unreliable asynchronous `winUser.getKeyState` and implemented `api.getLastInputGesture()` to perfectly suppress double announcements when using Shift+Arrow keys.
+- **Boundary Detector Deactivation** — The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.
+
+---
+
 ### Version 1.1.0 — 2026-05-30
 **Final release.**
 
