@@ -5,6 +5,9 @@ import wx
 import gui
 import threading
 import time
+import NVDAObjects.UIA
+import NVDAObjects.IAccessible
+import NVDAObjects.window.edit
 import winUser
 import keyboardHandler
 import core

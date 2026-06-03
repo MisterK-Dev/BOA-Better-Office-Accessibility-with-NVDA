@@ -1,3 +1,4 @@
+import NVDAObjects.UIA
 import controlTypes
 import UIAHandler
 from logHandler import log

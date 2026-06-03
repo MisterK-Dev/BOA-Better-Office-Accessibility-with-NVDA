@@ -1,4 +1,8 @@
 from logHandler import log
+import NVDAObjects.UIA
+import NVDAObjects.IAccessible
+import NVDAObjects.window.edit
+import controlTypes
 import UIAHandler
 import wx
 import gui
@@ -16,10 +20,7 @@ class SafeRichEdit(object):
     due to ITextDocument failing with OSError. 
     By bypassing ITextDocumentTextInfo and falling back to standard EditTextInfo, we avoid the crash.
     """
-    @property
-    def TextInfo(self):
-        import NVDAObjects.window.edit
-        return NVDAObjects.window.edit.EditTextInfo
+    TextInfo = NVDAObjects.window.edit.EditTextInfo
     
     def _get_ITextDocumentObject(self):
         return None

@@ -1,6 +1,9 @@
 import controlTypes
 from logHandler import log
 import UIAHandler
+import NVDAObjects.UIA
+import NVDAObjects.IAccessible
+import NVDAObjects.window.edit
 import wx
 import gui
 import threading

@@ -12,10 +12,12 @@ if addon_dir not in sys.path:
     sys.path.insert(0, addon_dir)
 
 from boa_lib import boa_config
-from boa_lib.excel_enhancements import manager as excel_manager
+
+# App-Launch Caching Variables
+excel_manager = None
+ppt_manager = None
+word_manager = None
 from boa_lib.safe_rich_edit import SafeRichEdit
-from boa_lib.powerpoint_enhancements import manager as ppt_manager
-from boa_lib.word_enhancements import manager as word_manager
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
     """
@@ -101,6 +103,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         # Excel Overrides
         # -----------------------------------------------------
         if appName == "excel":
+            global excel_manager
+            if excel_manager is None:
+                from boa_lib.excel_enhancements import manager as excel_manager
+
             if className in ("EXCEL7", "XLDESK", "NetUIHWND"):
                 excel_manager.inject_excel_grid_classes(clsList)
                 
@@ -114,6 +120,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         # PowerPoint Overrides
         # -----------------------------------------------------
         elif appName == "powerpnt":
+            global ppt_manager
+            if ppt_manager is None:
+                from boa_lib.powerpoint_enhancements import manager as ppt_manager
+
             if className == "bosa_sdm_Mso96":
                 import controlTypes
                 if getattr(obj, "role", None) == controlTypes.Role.TAB:
@@ -134,6 +144,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                     ppt_manager.inject_ppt_rgb_edit(clsList)
 
         elif appName == "winword":
+            global word_manager
+            if word_manager is None:
+                from boa_lib.word_enhancements import manager as word_manager
+
             if className in ("RichEdit20W", "RichEdit50W"):
                 word_manager.inject_word_safe_rich_edit(clsList)
 
@@ -167,10 +181,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         
         handled = False
         if appName == "excel":
+            global excel_manager
+            if excel_manager is None:
+                from boa_lib.excel_enhancements import manager as excel_manager
             handled = excel_manager.handle_prefix_command(key, obj)
         elif appName == "powerpnt":
+            global ppt_manager
+            if ppt_manager is None:
+                from boa_lib.powerpoint_enhancements import manager as ppt_manager
             handled = ppt_manager.handle_prefix_command(key, obj)
         elif appName == "winword":
+            global word_manager
+            if word_manager is None:
+                from boa_lib.word_enhancements import manager as word_manager
             handled = word_manager.handle_prefix_command(key, obj)
             
         if not handled:

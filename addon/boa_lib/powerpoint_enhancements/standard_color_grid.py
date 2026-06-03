@@ -1,5 +1,7 @@
 import ctypes
 import wx
+import NVDAObjects.window
+import controlTypes
 import winUser
 import ui
 import queueHandler

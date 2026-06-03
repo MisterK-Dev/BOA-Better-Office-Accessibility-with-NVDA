@@ -1,3 +1,4 @@
+import NVDAObjects.UIA
 from logHandler import log
 import UIAHandler
 import wx
