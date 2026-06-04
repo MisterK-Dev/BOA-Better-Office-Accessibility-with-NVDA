@@ -1,0 +1,31 @@
+# Antigravity Global Project Rules: NVDA Addon Core
+
+## 1. Context Retention & Memory Anchor
+- **Never Forget Past Context**: You must actively review previous feature discussions, structural choices, and design patterns before implementing new code blocks.
+- **Learn From Mistakes**: Maintain an active internal log of past architectural bugs, clashing keystrokes, and dynamic type errors encountered in this project. Cross-reference them to ensure you do not repeat the same mistakes.
+- **Continuous Evolution**: Treat all new feature requests as increments of the existing architecture. Do not suggest rewrites or radical refactors unless explicitly asked.
+
+## 2. NVDA Safety & Performance Constraints
+- **Zero Harm to Core Behavior**: New features must never degrade or slow down standard NVDA operations, native speech queues, or global focus tracking.
+- **Single-Threaded Safety**: NVDA is single-threaded. Never use standard Python blocking loops (`time.sleep`). All delays or async checks must use `tonictimer.wxTimer` or `queueHandler.queueFunction`.
+- **Output Routing**: Route all user-facing speech and braille notifications cleanly through `ui.message`. Never use raw `print()` statements for core announcements.
+- **Modular Isolation**: Keep feature code out of `globalPlugin.py`. Put new logic into independent local modules and use clean wrapper imports.
+
+## 3. Mandatory Pre-Finalization Verification
+Before presenting any finalized code block or script file in chat, you must run a strict triple-pass cross-verification:
+1. **Syntax & Typo Check**: Verify Python 3 compliance, check indentation, look for missing colons, and audit variable spelling typos.
+2. **Logical Path Verification**: Trace the execution flow to confirm that variable state scopes do not break across NVDA's dynamic event loops.
+3. **API Integrity**: Double-check that all referenced NVDA internal module methods (like `speech`, `braille`, `controlTypes`) match actual NVDA API specifications.
+
+## 4. Keystroke Conflict Check
+- **Gesture Audit**: Before generating or suggesting any new shortcut gesture (e.g., `kb:nvda+control+f`), you must perform a comprehensive scan across all existing script files and configuration blocks.
+- **Conflict Prevention**: Verify that the proposed shortcut is completely unique and is not already mapped to an existing or old feature within this addon.
+
+## 5. Automated Docstring & Detailed Commenting Rules
+- **Intent-Driven Docstrings**: Every single function, class, or method written must include an explicit, detailed docstring explaining the exact architectural *why* behind the logic. 
+- **Granular Code Comments**: Do not write bare code. Every logical step, complex condition, or NVDA API interaction must be accompanied by detailed line comments so the developer can instantly understand the system flow during a future project re-entry.
+also readme.md should be properly documented mentained after successful features addition. note: dev versions also ok to mentain in readme md file but final stable version if user asks, then dev versions related documentation should be removed and final updated features compare to previous stable version should be documented in a properly structured manner.
+## 6. Strict Deployment & Git Controls
+- **No Automatic Git Pushes**: Never run git push commands to GitHub or any remote repository. 
+- **Local Commits Only**: You may only stage or commit files to the local git repository layer (`git add`, `git commit`). Remote uploads are strictly forbidden until explicitly requested by the user.
+- **Explicit Permission**: A feature must be explicitly greenlit by the user before it is marked as finalized or merged into the local main branch.
