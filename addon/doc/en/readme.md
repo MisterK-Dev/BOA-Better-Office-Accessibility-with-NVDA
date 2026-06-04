@@ -2,40 +2,61 @@
 
 BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
 
-## Excel Features
+##Features
 
-### Bulk Sheet Organizer
+### Excel features:
+
+#### 1. Bulk Sheet Organizer
 Instantly reorder and arrange multiple sheets at once using a fully accessible dialog table.
-* **Shortcut:** `NVDA + Alt + C`
+* **Shortcut:** `NVDA + E then X
 * **How it works:** Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press `Del` to remove a mistake). Click `OK` and your workbook is rearranged instantly.
 
-### Quick Sheet Mover
+#### 2. Quick Sheet Mover
 Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard.
-* **Shortcuts:**
-  * Move Left: `NVDA + Shift + Left Arrow` (or PageUp)
-  * Move Right: `NVDA + Shift + Right Arrow` (or PageDown)
-  * Move to Start: `NVDA + Shift + Home`
-  * Move to End: `NVDA + Shift + End`
+* **Shortcuts: nvda shift plus right left arrow keys, page up down keys and home end keys. mentioned arrow keys use to move up and down,, page up down do same, home end with nvda shift moves sheet to starting or ending.**
 
-### Accessible Sheet Renaming
-Bypasses the notoriously inaccessible Excel "Rename Sheet" edit field.
-* **How it works:** When you trigger the native Excel sheet rename command (e.g., via the ribbon or context menu), BOA intercepts it and opens a reliable, 100% accessible standard text dialog. Type your new name, press Enter, and BOA handles the renaming safely in the background.
+####  3. Better Focus Loss Prevention
+- Excel's native UI automation frequently loses focus when unselecting cells. BOA automatically restores and reads the correct cell focus to prevent NVDA from going silent.
 
-### Smart Selection Tracking
-Accurately announces multi-cell range selections and deselections.
-* **How it works:** Fixes the silence when selecting ranges via the `F5` Go To dialog or when unexpectedly deselecting a range.
+#### 4. Accessible Sheet Renaming
+- When renaming a sheet, NVDA natively struggles to read the characters you are typing.
+- BOA injects a custom `ExcelSheetRenameEdit` class that uses the `SafeRichEdit` engine, meaning you can precisely read by character, word, or line while renaming.
 
-## PowerPoint Features
+#### 5. Hidden Row/Column Tracker
+- Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.
+- **Crossed Fragmented Cells:** If you jump across a heavily fragmented or hidden section of the grid (e.g. moving from Row 3 to Row 10 because Rows 4-9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure. if you say, crossed heavy fragmented cells it means 2 or more places different hidden blocks detected, and not entire single hidden block.
 
-### Accessible Color Pickers
-Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
-* **How it works:** Seamlessly binds to the Red, Green, Blue, and Hex text boxes in the PowerPoint color picker, properly labeling them for NVDA object navigation and focus.
+---
 
-### Standard Color Grid Support
-Read the exact color you are selecting in the inaccessible "Standard" color hexagon grid.
-* **How it works:** When you navigate the visual color hexagon using the arrow keys, BOA intercepts the movement and reads the hidden Hex code from PowerPoint's internal memory in real-time.
+### PowerPoint Features
 
-## ⚙️ Settings & Configuration
+#### 1. Accessible Color Pickers
+- Unlocks the Custom Color dialog in PowerPoint.
+- Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding `PowerPointRGBEdit`).
+- Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.
+
+#### 2. Standard Color Grid Support
+- Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.
+- BOA tracks your arrow keys (`Up, Down, Left, Right`) across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g. "Color #FF0000").
+
+---
+
+### The `NVDA+E` Command Prefix
+
+To prevent keystroke conflicts with other NVDA plugins, BOA uses a **Command Prefix Mode**:
+1. Press `NVDA+E` to enter Command Mode. You will hear a high-pitched beep.
+2. Press a secondary key to trigger a feature.
+   - Example: `NVDA+E` then `X` = Open the Excel Bulk Sheet Organizer.
+   - Example: `NVDA+E` then `Escape` = Cancel command mode.
+
+If you press an invalid key, you will hear an error beep.
+
+### Customization
+
+BOA features are fully modular and can be enabled or disabled at any time. 
+Go to `NVDA Menu -> Preferences -> Settings -> Better Office Accessibility` to toggle individual features on or off without restarting NVDA.
+
+### ⚙️ Settings & Configuration
 
 As of v1.1.0, BOA includes a fully accessible native NVDA Settings Panel. 
 You can find it by navigating to **NVDA Menu -> Preferences -> Settings -> BOA Office Enhancements**.
@@ -46,7 +67,7 @@ You can find it by navigating to **NVDA Menu -> Preferences -> Settings -> BOA O
 - Settings are saved securely to a standalone JSON file (`boa_settings.json`), ensuring your core NVDA configuration is never corrupted.
 - If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality!
 
-## Security
+### Security
 BOA is built with strict security boundaries. Background COM manipulations are executed within safely initialized sandboxes, and clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.
 
 ## Requirements
@@ -55,10 +76,24 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ## Installation
 1. Download the latest `.nvda-addon` release file.
-2. Open the file or use NVDA's Add-on Store -> Install from external file.
+2. Open the file or use NVDA's Add-on Store -> Install from external file. [in store expected soon]
 3. Restart NVDA.
 
 ## Changelog
+
+---
+
+### Version 1.2.0 — 2026-06-03
+**Final release v1.2.**
+
+#### New Features
+- ** App-Launch Caching** — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure. note: these bugs may not be in stable 1.1 but in the dev versions of 1.2. due to code base organisation.
+- **Enhanced Cell Tracker (1D COM Math)** — Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (`current_col` or `current_row`). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.
+- **Process Memory Wiping** — Implemented Excel Window Handle (`Hwnd`) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".
+- **Intelligent API Codebase Comments** — Completely documented the codebase using Automated Docstring injections. Every function, method, and NVDA UIA interaction is now fully documented for future maintainability.
+
+#### Bug Fixes
+- **Boundary Detector Deactivation** — The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.
 
 ---
 
@@ -69,6 +104,7 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 - **Settings GUI** — Added a native BOA Office Enhancements panel inside NVDA -> Preferences -> Settings to easily toggle features on or off.
 - **SafeRichEdit Hook** — Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.
 - **Customizable Hotkeys** — All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.
+- **Excel: Hidden Row/Column Skip Detection** — Proactively announces when navigating past hidden rows or columns, ensuring you never miss filtered data. Can be toggled in settings.
 
 #### Bug Fixes
 - **Thread Safety** — Removed all blocking delays (`time.sleep`) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.

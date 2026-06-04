@@ -10,7 +10,7 @@ Preferences menu, avoiding clunky standalone WX dialogs that break NVDA UI consi
 import wx
 import gui
 from gui.settingsDialogs import SettingsPanel
-import boa_config
+from boa_lib import boa_config
 from logHandler import log
 
 class BOASettingsPanel(SettingsPanel):
@@ -25,13 +25,20 @@ class BOASettingsPanel(SettingsPanel):
     title = "BOA Office Enhancements"
     
     def makeSettings(self, settingsSizer):
-        """Build the GUI for the settings panel."""
+        """
+        Build the GUI for the settings panel.
+        Architectural Why: This method is called natively by NVDA when building the preferences dialog.
+        We dynamically generate standard WX checkboxes tied to our JSON config to provide
+        an accessible, native-feeling configuration experience for the user.
+        """
         self.checkboxes = {}
         
         # Ensure config is loaded
+        # Fetch the entire configuration dictionary from memory to populate initial UI state
         config = boa_config.get_all_config()
         
-        # Helper to create a group
+        # Helper function to create a labeled grouping of checkboxes (a wx.StaticBoxSizer)
+        # This keeps the UI code DRY (Don't Repeat Yourself) when adding features for new apps.
         def create_group(app_name, display_name, features):
             group_sizer = wx.StaticBoxSizer(wx.VERTICAL, self, display_name)
             self.checkboxes[app_name] = {}
@@ -45,32 +52,41 @@ class BOASettingsPanel(SettingsPanel):
 
         # Excel Group
         excel_features = {
-            "grid_mover": "ExcelGridMover (Arrow Keystroke Interceptor)",
-            "sheet_rename": "ExcelSheetRenameEdit (Sheet Renaming Fix)",
-            "safe_rich_edit": "SafeRichEdit (Excel RichEdit Override)",
-            "unselect_tracking": "Unselect Tracking (Selection Loss Notification)"
+            "grid_mover": "Enable Bulk Sheet Organizer and Quick Sheet Mover",
+            "sheet_rename": "Use accessible Sheet Rename dialog instead of native edit field",
+            "safe_rich_edit": "Prevent NVDA crashes in Excel text fields",
+            "unselect_tracking": "Announce when a multi-cell selection is unexpectedly lost",
+            "hidden_row_skip": "Proactively announce when navigating past hidden rows or columns"
         }
         create_group("excel", "Excel Enhancements", excel_features)
         
         # PowerPoint Group
         ppt_features = {
-            "standard_color_grid": "PowerPointStandardColorGrid (Standard Colors TAB Fix)",
-            "hex_edit": "PowerPointHexEdit (Hex Color Edit Override)",
-            "rgb_edit": "PowerPointRGBEdit (RGB Dialog Override)",
-            "safe_rich_edit": "SafeRichEdit (PowerPoint RichEdit Override)"
+            "standard_color_grid": "Read hidden Hex codes when navigating the Standard Color hexagon grid",
+            "hex_edit": "Ensure the Hex Color edit field is properly labeled",
+            "rgb_edit": "Ensure the RGB Color edit fields are properly labeled",
+            "safe_rich_edit": "Prevent NVDA crashes in PowerPoint text fields"
         }
         create_group("powerpoint", "PowerPoint Enhancements", ppt_features)
         
         # Word Group
         word_features = {
-            "safe_rich_edit": "SafeRichEdit (Word RichEdit Override)"
+            "safe_rich_edit": "Prevent NVDA crashes in Word text fields"
         }
         create_group("word", "Word Enhancements", word_features)
 
     def onSave(self):
-        """Called when the user presses OK or Apply."""
+        """
+        Called when the user presses OK or Apply in the NVDA settings dialog.
+        Architectural Why: We must persist the in-memory GUI state (checkboxes) back to the 
+        file system (JSON) so that configuration persists across NVDA restarts.
+        """
+        # Iterate over each application (e.g., excel, word) and its respective GUI checkboxes
         for app, features in self.checkboxes.items():
             for feature_key, cb in features.items():
+                # Update the in-memory configuration state based on checkbox value
                 boa_config.set_feature_state(app, feature_key, cb.GetValue())
+        
+        # Flush the updated configuration from memory to the physical JSON file
         boa_config.save_config()
         log.info("BOA settings saved successfully.")
