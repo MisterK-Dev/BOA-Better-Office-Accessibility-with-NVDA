@@ -74,7 +74,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
                 # Verify if tracking features are enabled in BOA's configuration
                 if (boa_config.get_feature_state("excel", "unselect_tracking") or 
                     boa_config.get_feature_state("excel", "hidden_row_skip") or 
-                    boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"]):
+                    boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"] or
+                    boa_config.get_feature_state("excel", "conditional_formatting")):
                     from boa_lib.excel_enhancements.cell_navigation_tracker import check_unselect
                     # Delegate the check to the external tracker to keep this global hook lean
                     check_unselect(obj)
@@ -95,7 +96,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
             if appModule and getattr(appModule, 'appName', '').lower() == "excel":
                 if (boa_config.get_feature_state("excel", "unselect_tracking") or 
                     boa_config.get_feature_state("excel", "hidden_row_skip") or 
-                    boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"]):
+                    boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"] or
+                    boa_config.get_feature_state("excel", "conditional_formatting")):
                     from boa_lib.excel_enhancements.cell_navigation_tracker import check_unselect
                     check_unselect(obj)
         except Exception:

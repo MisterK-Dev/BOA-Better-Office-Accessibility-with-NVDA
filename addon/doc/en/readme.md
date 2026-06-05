@@ -97,6 +97,21 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ---
 
+### Version 1.3.0-dev2 — 2026-06-05
+**Development build.**
+
+#### New Features
+- **Conditional Formatting Detection** — Added a lightweight background scanner that passively detects conditional formatting as you navigate.
+- **Conditional Formatting Deep Dive (`NVDA+E, F`)** — Added a dedicated shortcut to extract the complete formatting rules (Color Scales, Data Bars, Icon Sets, formulas) and display them in the accessible BOA dialog, including the "Applies To" range and active visual outcomes.
+
+#### Technical Learnings & Architecture Fixes
+- **Utilizing NVDA Infrastructure (Colors)** — We learned a valuable lesson in not reinventing the wheel. We initially built a custom math algorithm to translate COM integer colors to text, which produced results like "Light Pink" when NVDA natively said "Light Pale Orange". We removed the custom dictionary and successfully hooked directly into NVDA's native `colors` module, guaranteeing 100% parity with NVDA's built-in formatting announcements.
+- **COM Named Properties (`AppliesTo.Address`)** — We discovered that in Python's `comtypes`, fetching the `Address` property on a `FormatCondition` range returns a `<comtypes.client.lazybind.NamedProperty>` object instead of the text string because it can accept arguments (e.g. absolute vs relative). We fixed this by explicitly invoking it with parentheses `Address()` to evaluate the default property fetch.
+- **Deep Rule Parsing** — A rule type of `xlColorScale` or `xlDatabar` is just the surface. We learned to drill down into the hidden `ColorScaleCriteria` and `MinPoint`/`MaxPoint` sub-objects to extract the exact `ConditionValue` type (e.g., "Lowest Value", "Percentile", "Number") to provide a 1:1 recreation of the visual Rules Manager logic.
+- **Visual Hiding Extraction** — We mapped the `ShowValue` and `ShowIconOnly` boolean properties so the add-on can explicitly warn blind users when a sighted user has visually hidden the underlying cell text in favor of a Data Bar or Icon.
+
+---
+
 ### Version 1.3.0-dev1 — 2026-06-05
 **Development build.**
 

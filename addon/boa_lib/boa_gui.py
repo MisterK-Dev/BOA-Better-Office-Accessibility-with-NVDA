@@ -76,7 +76,8 @@ class BOASettingsPanel(SettingsPanel):
             "unselect_tracking": "Announce when a multi-cell selection is unexpectedly lost",
             "hidden_row_skip": "Proactively announce when navigating past hidden rows or columns",
             "sheet_layout_analyzer": "Enable Sheet Layout Analyzer via NVDA+E, L",
-            "auto_announce_first_block": "Sheet Layout Auto-Announce Mode:"
+            "auto_announce_first_block": "Sheet Layout Auto-Announce Mode:",
+            "conditional_formatting": "Conditional Formatting and color"
         }
         create_group("excel", "Excel Enhancements", excel_features)
         

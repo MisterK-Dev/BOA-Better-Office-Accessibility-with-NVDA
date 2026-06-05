@@ -407,6 +407,13 @@ class CellNavigationTracker(object):
                 if row_changed or col_changed:
                     from .sheet_layout_analyzer import SheetLayoutAnalyzer
                     SheetLayoutAnalyzer.auto_announce_guided(excel)
+                    
+            if boa_config.get_feature_state("excel", "conditional_formatting"):
+                if row_changed or col_changed:
+                    from .conditional_formatting import ConditionalFormattingTracker
+                    msg = ConditionalFormattingTracker.check_quick_format(excel)
+                    if msg:
+                        ui.message(msg)
         except Exception as e:
             try:
                 logHandler.log.debug(f"BOA: Failed to check hidden skip: {e}")

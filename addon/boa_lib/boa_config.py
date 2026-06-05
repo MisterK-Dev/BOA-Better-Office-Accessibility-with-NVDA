@@ -26,7 +26,8 @@ DEFAULT_CONFIG = {
         "unselect_tracking": True,
         "hidden_row_skip": True,
         "sheet_layout_analyzer": True,
-        "auto_announce_first_block": "one_time"
+        "auto_announce_first_block": "one_time",
+        "conditional_formatting": True
     },
     "powerpoint": {
         "standard_color_grid": True,
