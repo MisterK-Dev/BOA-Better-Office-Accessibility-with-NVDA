@@ -300,61 +300,43 @@ class SheetLayoutAnalyzer:
                 
                 hidden_borders = []
                 
-                # Check absolute top edge (Row 1)
+                # Check Absolute Top Edge (Row 1)
                 try:
                     if sheet.Rows(1).Hidden:
                         end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Rows.Count, True, 1)
-                        if end_r == -1: hidden_borders.append("Top Rows 1 through 2000+ are hidden")
+                        if end_r == -1: hidden_borders.append("Top 2000+ Rows are hidden")
                         elif end_r == 1: hidden_borders.append("Top Row 1 is hidden")
                         else: hidden_borders.append(f"Top Rows 1 through {end_r} are hidden")
                 except Exception: pass
                 
-                # Check absolute left edge (Col 1)
+                # Check Absolute Left Edge (Col 1)
                 try:
                     if sheet.Columns(1).Hidden:
                         end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Columns.Count, False, 1)
-                        if end_c == -1: hidden_borders.append("Left Columns A through 2000+ are hidden")
+                        if end_c == -1: hidden_borders.append("Left 2000+ Columns are hidden")
                         elif end_c == 1: hidden_borders.append("Left Column A is hidden")
                         else: hidden_borders.append(f"Left Columns A through {SheetLayoutAnalyzer._col_num_to_letter(end_c)} are hidden")
                 except Exception: pass
                 
-                # Check bottom edge of used range
+                # Check Absolute Bottom Edge
                 try:
-                    bottom_start = None
-                    bottom_end = None
-                    if sheet.Rows(max_r).Hidden:
-                        start_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r, 1, True, -1)
-                        end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r, sheet.Rows.Count, True, 1)
-                        bottom_start = start_r if start_r != -1 else 1
-                        bottom_end = end_r
-                    elif sheet.Rows(max_r + 1).Hidden:
-                        bottom_start = max_r + 1
-                        bottom_end = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r + 1, sheet.Rows.Count, True, 1)
-                        
-                    if bottom_start is not None:
-                        if bottom_end == -1: hidden_borders.append(f"Bottom Rows {bottom_start} through 2000+ are hidden")
-                        elif bottom_start == bottom_end: hidden_borders.append(f"Bottom Row {bottom_start} is hidden")
-                        else: hidden_borders.append(f"Bottom Rows {bottom_start} through {bottom_end} are hidden")
+                    max_sheet_r = sheet.Rows.Count
+                    if sheet.Rows(max_sheet_r).Hidden:
+                        start_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_sheet_r, 1, True, -1)
+                        if start_r == -1: hidden_borders.append("Bottommost 2000+ Rows are hidden")
+                        elif start_r == max_sheet_r: hidden_borders.append(f"Bottom Row {max_sheet_r} is hidden")
+                        else: hidden_borders.append(f"Bottom Rows {start_r} through {max_sheet_r} are hidden")
                 except Exception: pass
                 
-                # Check right edge of used range
+                # Check Absolute Right Edge
                 try:
-                    right_start = None
-                    right_end = None
-                    if sheet.Columns(max_c).Hidden:
-                        start_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c, 1, False, -1)
-                        end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c, sheet.Columns.Count, False, 1)
-                        right_start = start_c if start_c != -1 else 1
-                        right_end = end_c
-                    elif sheet.Columns(max_c + 1).Hidden:
-                        right_start = max_c + 1
-                        right_end = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c + 1, sheet.Columns.Count, False, 1)
-                        
-                    if right_start is not None:
-                        s_let = SheetLayoutAnalyzer._col_num_to_letter(right_start)
-                        if right_end == -1: hidden_borders.append(f"Right Columns {s_let} through 2000+ are hidden")
-                        elif right_start == right_end: hidden_borders.append(f"Right Column {s_let} is hidden")
-                        else: hidden_borders.append(f"Right Columns {s_let} through {SheetLayoutAnalyzer._col_num_to_letter(right_end)} are hidden")
+                    max_sheet_c = sheet.Columns.Count
+                    if sheet.Columns(max_sheet_c).Hidden:
+                        start_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_sheet_c, 1, False, -1)
+                        max_c_let = SheetLayoutAnalyzer._col_num_to_letter(max_sheet_c)
+                        if start_c == -1: hidden_borders.append("Rightmost 2000+ Columns are hidden")
+                        elif start_c == max_sheet_c: hidden_borders.append(f"Right Column {max_c_let} is hidden")
+                        else: hidden_borders.append(f"Right Columns {SheetLayoutAnalyzer._col_num_to_letter(start_c)} through {max_c_let} are hidden")
                 except Exception: pass
                 
                 if hidden_borders:
