@@ -70,31 +70,31 @@ class BOASettingsPanel(SettingsPanel):
 
         # Excel Group
         excel_features = {
-            "grid_mover": "Enable Bulk Sheet Organizer and Quick Sheet Mover",
-            "sheet_rename": "Use accessible Sheet Rename dialog instead of native edit field",
-            "safe_rich_edit": "Prevent NVDA crashes in Excel text fields",
-            "unselect_tracking": "Announce when a multi-cell selection is unexpectedly lost",
-            "hidden_row_skip": "Proactively announce when navigating past hidden rows or columns",
-            "sheet_layout_analyzer": "Enable Sheet Layout Analyzer via NVDA+E, L",
-            "auto_announce_first_block": "Sheet Layout Auto-Announce Mode:",
-            "conditional_formatting": "Conditional Formatting and color"
+            "grid_mover": "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover",
+            "sheet_rename": "Use accessible Sheet &Rename dialog instead of native edit field",
+            "safe_rich_edit": "Prevent NVDA &crashes in Excel text fields",
+            "unselect_tracking": "Announce when a m&ulti-cell selection is unexpectedly lost",
+            "hidden_row_skip": "Proactively announce when navigating past &hidden rows or columns",
+            "sheet_layout_analyzer": "Enable Sheet &Layout Analyzer via NVDA+E, L",
+            "auto_announce_first_block": "Sheet Layout Auto-Announce &Mode:",
+            "conditional_formatting": "Conditional &Formatting and color"
         }
-        create_group("excel", "&Excel Enhancements", excel_features)
+        create_group("excel", "Excel Enhancements", excel_features)
         
         # PowerPoint Group
         ppt_features = {
-            "standard_color_grid": "Read hidden Hex codes when navigating the Standard Color hexagon grid",
-            "hex_edit": "Ensure the Hex Color edit field is properly labeled",
-            "rgb_edit": "Ensure the RGB Color edit fields are properly labeled",
-            "safe_rich_edit": "Prevent NVDA crashes in PowerPoint text fields"
+            "standard_color_grid": "&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid",
+            "hex_edit": "Ensure the He&x Color edit field is properly labeled",
+            "rgb_edit": "Ensure the R&GB Color edit fields are properly labeled",
+            "safe_rich_edit": "Prevent NVDA cr&ashes in PowerPoint text fields"
         }
-        create_group("powerpoint", "&PowerPoint Enhancements", ppt_features)
+        create_group("powerpoint", "PowerPoint Enhancements", ppt_features)
         
         # Word Group
         word_features = {
-            "safe_rich_edit": "Prevent NVDA crashes in Word text fields"
+            "safe_rich_edit": "&Word: Prevent NVDA crashes in Word text fields"
         }
-        create_group("word", "&Word Enhancements", word_features)
+        create_group("word", "Word Enhancements", word_features)
 
     def onSave(self):
         """
