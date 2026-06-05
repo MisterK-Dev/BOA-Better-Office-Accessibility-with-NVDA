@@ -132,35 +132,32 @@ class SheetLayoutAnalyzer:
             pass
             
         if not areas:
-            SheetLayoutAnalyzer._show_dialog("Sheet Layout Overview", "Sheet appears to be empty.")
-            return
-
-        count = len(areas)
-        if count == 1:
-            r, c, er, ec = areas[0]
-            if r == er and c == ec:
-                msg = f"Found 1 data block at {c}{r}."
-            else:
-                msg = f"Found 1 data block: {c}{r} to {ec}{er}."
-            SheetLayoutAnalyzer._show_dialog("Sheet Layout Overview", msg)
+            msg = "Sheet appears to be empty."
         else:
-            block_strings = []
-            for r, c, er, ec in areas:
+            count = len(areas)
+            if count == 1:
+                r, c, er, ec = areas[0]
                 if r == er and c == ec:
-                    block_strings.append(f"{c}{r}")
+                    msg = f"Found 1 data block at {c}{r}."
                 else:
-                    block_strings.append(f"{c}{r} to {ec}{er}")
-                    
-            blocks_msg = "\n".join([f"Block {i+1}: {addr}" for i, addr in enumerate(block_strings)])
-            
-            msg = f"Found {count} data blocks in this sheet.\n{blocks_msg}"
-            
-            # Append Sheet Properties
-            props = SheetLayoutAnalyzer._get_sheet_properties(excel)
-            if props:
-                msg += props
+                    msg = f"Found 1 data block: {c}{r} to {ec}{er}."
+            else:
+                block_strings = []
+                for r, c, er, ec in areas:
+                    if r == er and c == ec:
+                        block_strings.append(f"{c}{r}")
+                    else:
+                        block_strings.append(f"{c}{r} to {ec}{er}")
+                        
+                blocks_msg = "\n".join([f"Block {i+1}: {addr}" for i, addr in enumerate(block_strings)])
+                msg = f"Found {count} data blocks in this sheet.\n{blocks_msg}"
                 
-            SheetLayoutAnalyzer._show_dialog("Sheet Layout Overview", msg)
+        # Append Sheet Properties
+        props = SheetLayoutAnalyzer._get_sheet_properties(excel)
+        if props:
+            msg += props
+            
+        SheetLayoutAnalyzer._show_dialog("Sheet Layout Overview", msg)
 
     @staticmethod
     def auto_announce_one_time(excel):
