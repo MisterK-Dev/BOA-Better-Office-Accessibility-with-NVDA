@@ -79,7 +79,7 @@ class BOASettingsPanel(SettingsPanel):
             "auto_announce_first_block": "Sheet Layout Auto-Announce Mode:",
             "conditional_formatting": "Conditional Formatting and color"
         }
-        create_group("excel", "Excel Enhancements", excel_features)
+        create_group("excel", "&Excel Enhancements", excel_features)
         
         # PowerPoint Group
         ppt_features = {
@@ -88,13 +88,13 @@ class BOASettingsPanel(SettingsPanel):
             "rgb_edit": "Ensure the RGB Color edit fields are properly labeled",
             "safe_rich_edit": "Prevent NVDA crashes in PowerPoint text fields"
         }
-        create_group("powerpoint", "PowerPoint Enhancements", ppt_features)
+        create_group("powerpoint", "&PowerPoint Enhancements", ppt_features)
         
         # Word Group
         word_features = {
             "safe_rich_edit": "Prevent NVDA crashes in Word text fields"
         }
-        create_group("word", "Word Enhancements", word_features)
+        create_group("word", "&Word Enhancements", word_features)
 
     def onSave(self):
         """
