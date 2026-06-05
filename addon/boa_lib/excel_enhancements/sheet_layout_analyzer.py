@@ -429,7 +429,8 @@ class SheetLayoutAnalyzer:
             
         if props:
             return "\n\n--- Sheet Properties ---\n" + "\n".join(props)
-        return ""
+        else:
+            return "\n\n--- Sheet Properties ---\nNo special properties detected (No active filters, protection, frozen panes, or hidden borders)."
 
     @staticmethod
     def jump_to_nearest_block(excel):
