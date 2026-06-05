@@ -124,6 +124,7 @@ class SheetLayoutAnalyzer:
         """
         Manually triggered layout overview. Detects all blocks and displays them in a custom dialog.
         """
+        ui.message("Analyzing layout...")
         areas = SheetLayoutAnalyzer._get_data_areas(excel)
         try:
             sheet_name = excel.ActiveSheet.Name
@@ -319,20 +320,41 @@ class SheetLayoutAnalyzer:
                 
                 # Check bottom edge of used range
                 try:
-                    if sheet.Rows(max_r + 1).Hidden:
-                        end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r + 1, sheet.Rows.Count, True, 1)
-                        if end_r == -1: hidden_borders.append(f"Bottom Rows {max_r + 1} through 2000+ are hidden")
-                        elif end_r == max_r + 1: hidden_borders.append(f"Bottom Row {max_r + 1} is hidden")
-                        else: hidden_borders.append(f"Bottom Rows {max_r + 1} through {end_r} are hidden")
+                    bottom_start = None
+                    bottom_end = None
+                    if sheet.Rows(max_r).Hidden:
+                        start_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r, 1, True, -1)
+                        end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r, sheet.Rows.Count, True, 1)
+                        bottom_start = start_r if start_r != -1 else 1
+                        bottom_end = end_r
+                    elif sheet.Rows(max_r + 1).Hidden:
+                        bottom_start = max_r + 1
+                        bottom_end = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r + 1, sheet.Rows.Count, True, 1)
+                        
+                    if bottom_start is not None:
+                        if bottom_end == -1: hidden_borders.append(f"Bottom Rows {bottom_start} through 2000+ are hidden")
+                        elif bottom_start == bottom_end: hidden_borders.append(f"Bottom Row {bottom_start} is hidden")
+                        else: hidden_borders.append(f"Bottom Rows {bottom_start} through {bottom_end} are hidden")
                 except Exception: pass
                 
                 # Check right edge of used range
                 try:
-                    if sheet.Columns(max_c + 1).Hidden:
-                        end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c + 1, sheet.Columns.Count, False, 1)
-                        if end_c == -1: hidden_borders.append(f"Right Columns {SheetLayoutAnalyzer._col_num_to_letter(max_c + 1)} through 2000+ are hidden")
-                        elif end_c == max_c + 1: hidden_borders.append(f"Right Column {SheetLayoutAnalyzer._col_num_to_letter(max_c + 1)} is hidden")
-                        else: hidden_borders.append(f"Right Columns {SheetLayoutAnalyzer._col_num_to_letter(max_c + 1)} through {SheetLayoutAnalyzer._col_num_to_letter(end_c)} are hidden")
+                    right_start = None
+                    right_end = None
+                    if sheet.Columns(max_c).Hidden:
+                        start_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c, 1, False, -1)
+                        end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c, sheet.Columns.Count, False, 1)
+                        right_start = start_c if start_c != -1 else 1
+                        right_end = end_c
+                    elif sheet.Columns(max_c + 1).Hidden:
+                        right_start = max_c + 1
+                        right_end = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c + 1, sheet.Columns.Count, False, 1)
+                        
+                    if right_start is not None:
+                        s_let = SheetLayoutAnalyzer._col_num_to_letter(right_start)
+                        if right_end == -1: hidden_borders.append(f"Right Columns {s_let} through 2000+ are hidden")
+                        elif right_start == right_end: hidden_borders.append(f"Right Column {s_let} is hidden")
+                        else: hidden_borders.append(f"Right Columns {s_let} through {SheetLayoutAnalyzer._col_num_to_letter(right_end)} are hidden")
                 except Exception: pass
                 
                 if hidden_borders:
