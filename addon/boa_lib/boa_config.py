@@ -24,7 +24,10 @@ DEFAULT_CONFIG = {
         "sheet_rename": True,
         "safe_rich_edit": True,
         "unselect_tracking": True,
-        "hidden_row_skip": True
+        "hidden_row_skip": True,
+        "sheet_layout_analyzer": True,
+        "auto_announce_first_block": "one_time",
+        "conditional_formatting": True
     },
     "powerpoint": {
         "standard_color_grid": True,
@@ -63,9 +66,18 @@ def load_config():
                     # Only proceed if the application category exists and is properly formatted as a dict
                     if app in saved_config and isinstance(saved_config[app], dict):
                         for feature in _current_config[app]:
-                            # If the user had a saved preference for this feature, apply it and enforce boolean type
+                            # If the user had a saved preference for this feature, apply it
                             if feature in saved_config[app]:
-                                _current_config[app][feature] = bool(saved_config[app][feature])
+                                val = saved_config[app][feature]
+                                if feature == "auto_announce_first_block":
+                                    # Migrate old boolean values to new combo box states
+                                    if val is True:
+                                        val = "one_time"
+                                    elif val is False:
+                                        val = "off"
+                                    _current_config[app][feature] = str(val)
+                                else:
+                                    _current_config[app][feature] = bool(val)
         except Exception as e:
             log.error(f"BOA Config: Failed to load config from {CONFIG_FILE}: {e}")
 
@@ -105,7 +117,10 @@ def set_feature_state(app, feature, state):
     if _current_config is None:
         load_config()
     if app in _current_config and feature in _current_config[app]:
-        _current_config[app][feature] = bool(state)
+        if feature == "auto_announce_first_block":
+            _current_config[app][feature] = str(state)
+        else:
+            _current_config[app][feature] = bool(state)
 
 def get_all_config():
     """

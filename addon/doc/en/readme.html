@@ -4,33 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.2.0</title>
+<title>BOA: Better Office Accessibility 1.2.0-dev26</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
 <p>BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.</p>
-<h2>Features</h2>
-<h3>Excel features:</h3>
-<h4>1. Bulk Sheet Organizer</h4>
+<h2>Excel Features</h2>
+<h3>Bulk Sheet Organizer</h3>
 <p>Instantly reorder and arrange multiple sheets at once using a fully accessible dialog table.
-* <strong>Shortcut:</strong> <code>NVDA + E then X
-* **How it works:** Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press</code>Del<code>to remove a mistake). Click</code>OK` and your workbook is rearranged instantly.</p>
-<h4>2. Quick Sheet Mover</h4>
+* <strong>Shortcut:</strong> <code>NVDA + Alt + C</code>
+* <strong>How it works:</strong> Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press <code>Del</code> to remove a mistake). Click <code>OK</code> and your workbook is rearranged instantly.</p>
+<h3>Quick Sheet Mover</h3>
 <p>Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard.
-* <strong>Shortcuts: nvda shift plus right left arrow keys, page up down keys and home end keys. mentioned arrow keys use to move up and down,, page up down do same, home end with nvda shift moves sheet to starting or ending.</strong></p>
-<h4>3. Better Focus Loss Prevention</h4>
+* <strong>Shortcuts:</strong></p>
+<h4>1. Better Focus Loss Prevention</h4>
 <ul>
 <li>Excel's native UI automation frequently loses focus when unselecting cells. BOA automatically restores and reads the correct cell focus to prevent NVDA from going silent.</li>
+</ul>
+<h4>2. The Bulk Sheet Organizer</h4>
+<ul>
+<li>Easily sort, delete, and rename sheets in massive Excel workbooks via an accessible dialog box.</li>
+<li>Press <code>NVDA+E</code> followed by <code>X</code> to instantly open the Grid Mover Dialog. </li>
+<li>You can rapidly delete multiple sheets with the <code>Del</code> key and move them around using standard arrow keys.</li>
+</ul>
+<h4>3. Quick Sheet Movers</h4>
+<ul>
+<li>Swiftly swap sheet positions without opening a menu. </li>
+<li>Press <code>NVDA+Shift+LeftArrow</code> to move the current sheet to the left.</li>
+<li>Press <code>NVDA+Shift+RightArrow</code> to move the current sheet to the right.</li>
 </ul>
 <h4>4. Accessible Sheet Renaming</h4>
 <ul>
 <li>When renaming a sheet, NVDA natively struggles to read the characters you are typing.</li>
 <li>BOA injects a custom <code>ExcelSheetRenameEdit</code> class that uses the <code>SafeRichEdit</code> engine, meaning you can precisely read by character, word, or line while renaming.</li>
-</ul>
-<h4>5. Hidden Row/Column Tracker</h4>
-<ul>
-<li>Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.</li>
-<li><strong>Crossed Fragmented Cells:</strong> If you jump across a heavily fragmented or hidden section of the grid (e.g. moving from Row 3 to Row 10 because Rows 4-9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure. if you say, crossed heavy fragmented cells it means 2 or more places different hidden blocks detected, and not entire single hidden block.</li>
 </ul>
 <hr />
 <h3>PowerPoint Features</h3>
@@ -46,17 +52,17 @@
 <li>BOA tracks your arrow keys (<code>Up, Down, Left, Right</code>) across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g. "Color #FF0000").</li>
 </ul>
 <hr />
-<h3>The <code>NVDA+E</code> Command Prefix</h3>
+<h2>The <code>NVDA+E</code> Command Prefix</h2>
 <p>To prevent keystroke conflicts with other NVDA plugins, BOA uses a <strong>Command Prefix Mode</strong>:
 1. Press <code>NVDA+E</code> to enter Command Mode. You will hear a high-pitched beep.
 2. Press a secondary key to trigger a feature.
    - Example: <code>NVDA+E</code> then <code>X</code> = Open the Excel Bulk Sheet Organizer.
    - Example: <code>NVDA+E</code> then <code>Escape</code> = Cancel command mode.</p>
 <p>If you press an invalid key, you will hear an error beep.</p>
-<h3>Customization</h3>
+<h2>Customization</h2>
 <p>BOA features are fully modular and can be enabled or disabled at any time. 
 Go to <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; Better Office Accessibility</code> to toggle individual features on or off without restarting NVDA.</p>
-<h3>⚙️ Settings &amp; Configuration</h3>
+<h2>⚙️ Settings &amp; Configuration</h2>
 <p>As of v1.1.0, BOA includes a fully accessible native NVDA Settings Panel. 
 You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</strong>.</p>
 <p><strong>Features of the Configuration Manager:</strong>
@@ -64,7 +70,7 @@ You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Setti
 - The settings are grouped securely by application (Excel, PowerPoint, Word).
 - Settings are saved securely to a standalone JSON file (<code>boa_settings.json</code>), ensuring your core NVDA configuration is never corrupted.
 - If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality!</p>
-<h3>Security</h3>
+<h2>Security</h2>
 <p>BOA is built with strict security boundaries. Background COM manipulations are executed within safely initialized sandboxes, and clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.</p>
 <h2>Requirements</h2>
 <ul>
@@ -74,22 +80,23 @@ You can find it by navigating to <strong>NVDA Menu -&gt; Preferences -&gt; Setti
 <h2>Installation</h2>
 <ol>
 <li>Download the latest <code>.nvda-addon</code> release file.</li>
-<li>Open the file or use NVDA's Add-on Store -&gt; Install from external file. [in store expected soon]</li>
+<li>Open the file or use NVDA's Add-on Store -&gt; Install from external file.</li>
 <li>Restart NVDA.</li>
 </ol>
 <h2>Changelog</h2>
 <hr />
-<h3>Version 1.2.0 — 2026-06-03</h3>
-<p><strong>Final release v1.2.</strong></p>
+<h3>Version 1.2.0-dev26 — 2026-06-03</h3>
+<p><strong>Development build.</strong></p>
 <h4>New Features</h4>
 <ul>
-<li>** App-Launch Caching** — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure. note: these bugs may not be in stable 1.1 but in the dev versions of 1.2. due to code base organisation.</li>
+<li><strong>App-Launch Caching</strong> — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.</li>
 <li><strong>Enhanced Cell Tracker (1D COM Math)</strong> — Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (<code>current_col</code> or <code>current_row</code>). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.</li>
 <li><strong>Process Memory Wiping</strong> — Implemented Excel Window Handle (<code>Hwnd</code>) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".</li>
 <li><strong>Intelligent API Codebase Comments</strong> — Completely documented the codebase using Automated Docstring injections. Every function, method, and NVDA UIA interaction is now fully documented for future maintainability.</li>
 </ul>
 <h4>Bug Fixes</h4>
 <ul>
+<li><strong>Double Selection Announcement</strong> — Migrated away from unreliable asynchronous <code>winUser.getKeyState</code> and implemented <code>api.getLastInputGesture()</code> to perfectly suppress double announcements when using Shift+Arrow keys.</li>
 <li><strong>Boundary Detector Deactivation</strong> — The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.</li>
 </ul>
 <hr />

@@ -32,7 +32,10 @@ def inject_excel_grid_classes(clsList):
         clsList.insert(0, QuickSheetMover)
         
     # Cell Navigation Tracker (Gap/Boundary detection) for spatial awareness
-    if boa_config.get_feature_state("excel", "unselect_tracking") or boa_config.get_feature_state("excel", "hidden_row_skip"):
+    if (boa_config.get_feature_state("excel", "unselect_tracking") or 
+        boa_config.get_feature_state("excel", "hidden_row_skip") or 
+        boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"] or
+        boa_config.get_feature_state("excel", "conditional_formatting")):
         clsList.insert(0, CellNavigationTracker)
 
 
@@ -64,5 +67,80 @@ def handle_prefix_command(command_key, obj):
             BulkSheetOrganizer.launch_dialog(obj)
             return True
             
+    if command_key == 'l':
+        if boa_config.get_feature_state("excel", "sheet_layout_analyzer"):
+            import tones
+            tones.beep(600, 50)
+            from .sheet_layout_analyzer import SheetLayoutAnalyzer
+            try:
+                import comtypes.client
+                excel = comtypes.client.GetActiveObject("Excel.Application")
+                if excel:
+                    SheetLayoutAnalyzer.announce_layout(excel)
+            except Exception:
+                try:
+                    hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
+                    if hwnd7:
+                        import ctypes
+                        oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+                        ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                        res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+                        if res == 0 and ptr:
+                            excel = comtypes.client.dynamic.Dispatch(ptr).Application
+                            SheetLayoutAnalyzer.announce_layout(excel)
+                except Exception:
+                    pass
+            return True
+            
+    if command_key == 'j':
+        if boa_config.get_feature_state("excel", "sheet_layout_analyzer"):
+            import tones
+            tones.beep(600, 50)
+            from .sheet_layout_analyzer import SheetLayoutAnalyzer
+            try:
+                import comtypes.client
+                excel = comtypes.client.GetActiveObject("Excel.Application")
+                if excel:
+                    SheetLayoutAnalyzer.jump_to_nearest_block(excel)
+            except Exception:
+                try:
+                    hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
+                    if hwnd7:
+                        import ctypes
+                        oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+                        ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                        res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+                        if res == 0 and ptr:
+                            excel = comtypes.client.dynamic.Dispatch(ptr).Application
+                            SheetLayoutAnalyzer.jump_to_nearest_block(excel)
+                except Exception:
+                    pass
+            return True
+
+    if command_key == 'f':
+        if boa_config.get_feature_state("excel", "conditional_formatting"):
+            import tones
+            tones.beep(600, 50)
+            from .conditional_formatting import ConditionalFormattingTracker
+            try:
+                import comtypes.client
+                excel = comtypes.client.GetActiveObject("Excel.Application")
+                if excel:
+                    ConditionalFormattingTracker.announce_deep_dive(excel)
+            except Exception:
+                try:
+                    hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
+                    if hwnd7:
+                        import ctypes
+                        oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+                        ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                        res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+                        if res == 0 and ptr:
+                            excel = comtypes.client.dynamic.Dispatch(ptr).Application
+                            ConditionalFormattingTracker.announce_deep_dive(excel)
+                except Exception:
+                    pass
+            return True
+
     # Add future commands here (e.g. 'r' for rename)
     return False

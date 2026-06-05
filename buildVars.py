@@ -12,23 +12,32 @@ addon_info = {
     # Add-on description
     "addon_description": """A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users.
 
+New in v1.3.0:
+- Sheet Layout Analyzer: Press NVDA+E, L to instantly scan any Excel worksheet for Data Blocks, Hidden Tabs, Active Filters, Protected states, and Hidden Edge Borders.
+- Conditional Formatting Announcer: Automatically reads the dynamic visual color, font, and background shade of cells changed by Excel's Conditional Formatting rules.
+- Intelligent Accelerator Keys: The BOA Settings panel has been deeply integrated with NVDA's GUI architecture. Every single feature now has a unique, explicit Alt-key shortcut (e.g., Alt+E for Excel group, Alt+F for Conditional Formatting).
+
 New in v1.2.0:
-- Enhanced Hidden Cell Tracker: Redesigned with 1D COM Math to instantly detect crossed hidden rows or columns. When you jump across a heavily fragmented, filtered, or hidden section of the grid, BOA announces exactly what you skipped (e.g., "Rows 4 through 9 hidden") without freezing NVDA. [note: crossed heavy fragmented rows or columns means 2 or more than 2 hidden blocks detected]
-***
+- Lightning Fast App-Launch Caching: Core modules lazy-load exactly when you focus on Office, eliminating boot lag.
+- Enhanced Hidden Cell Tracker: Redesigned with 1D COM Math to instantly detect crossed hidden rows or columns without freezing NVDA.
+- Intelligent Process Tracking: Resolves false "Sheet hidden" alarms when reopening fresh workbooks.
+
 Excel Features:
-- Bulk Sheet Organizer (NVDA plus E then X): Instantly reorder multiple sheets at once using a fully accessible dialog.
+- Bulk Sheet Organizer (NVDA+Alt+C): Instantly reorder multiple sheets at once using a fully accessible dialog.
 - Quick Sheet Mover: Move the active sheet instantly via NVDA+Shift+Arrows (Left/Right) or Home/End.
 - Accessible Sheet Renaming: Bypasses the inaccessible Excel rename edit field with a reliable dialog.
 - Smart Selection Tracking: Accurately announces multi-cell range selections and deselections.
-detects hidden rows columns and sheets. note: boundary hidden rows columns sheets detection is currently not implemented.
+
 PowerPoint Features:
 - Accessible Color Pickers: Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
 - Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.""",
-    "addon_version": "1.2.0",
+    "addon_version": "1.3.0",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
     "addon_url": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA",
+    # URL for the add-on repository where the source code is hosted
+    "addon_sourceURL": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA",
     # Documentation file name
     "addon_docFileName": "readme.html",
     # Minimum NVDA version supported
@@ -36,7 +45,7 @@ PowerPoint Features:
     # Last NVDA version supported/tested
     "addon_lastTestedNVDAVersion": "2026.1.1",
     # True if the addon requires an update to the manifest format.
-    "addon_updateChannel": "stable",
+    "addon_updateChannel": "dev",
     # Changelog URL or None
     "addon_changelog": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA#changelog",
 }
