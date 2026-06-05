@@ -54,3 +54,9 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 
 ## 11. Scripting & File Encoding Traps
 - **No PowerShell Appending**: Never use native PowerShell output redirection (`>>` or `>`) to append text to codebase files. PowerShell defaults to UTF-16 LE encoding, which corrupts standard UTF-8 files by injecting invisible null-bytes. Always use native Python or strict UTF-8 file editing tools to manipulate repository documentation.
+
+## 12. Office COM Exception Handling
+- **Graceful Failure**: The Microsoft Office COM bridge is inherently unstable. If Excel is in "Cell Editing Mode", a dialog box is open, or the application is busy, simple COM calls (like fetching `ActiveSheet`) will violently throw `com_error` or `HRESULT` exceptions. *Always* wrap direct Office COM queries in a `try...except Exception:` block and fail gracefully. Never allow a raw COM exception to bubble up and crash NVDA.
+
+## 13. Safe Event Hooking (`nextHandler`)
+- **Event Forwarding**: When hooking into global NVDA events (like `event_NVDAObject_init` or `event_gainFocus`), you must *always* execute the fallback `nextHandler()` or `super()` method at the end of your logic. Failing to do so will intercept the event completely, effectively blinding NVDA and permanently breaking its ability to read standard Windows objects.
