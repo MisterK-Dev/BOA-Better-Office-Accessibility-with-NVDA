@@ -154,6 +154,12 @@ class SheetLayoutAnalyzer:
             blocks_msg = "\n".join([f"Block {i+1}: {addr}" for i, addr in enumerate(block_strings)])
             
             msg = f"Found {count} data blocks in this sheet.\n{blocks_msg}"
+            
+            # Append Sheet Properties
+            props = SheetLayoutAnalyzer._get_sheet_properties(excel)
+            if props:
+                msg += props
+                
             SheetLayoutAnalyzer._show_dialog("Sheet Layout Overview", msg)
 
     @staticmethod
@@ -249,6 +255,184 @@ class SheetLayoutAnalyzer:
                 ui.message(msg)
         except Exception as e:
             log.debug(f"BOA: auto_announce_guided Exception: {e}")
+
+    @staticmethod
+    def _get_contiguous_hidden(sheet, start_idx, limit_idx, is_row, step):
+        last_hidden = start_idx
+        curr = start_idx
+        
+        # Fast path: check if the rest of the entire sheet is hidden
+        try:
+            rng = sheet.Range(sheet.Rows(start_idx), sheet.Rows(limit_idx)) if is_row else sheet.Range(sheet.Columns(start_idx), sheet.Columns(limit_idx))
+            if getattr(rng, "Hidden", False) is True:
+                return limit_idx
+        except Exception: pass
+            
+        count = 0
+        while True:
+            if (step > 0 and curr > limit_idx) or (step < 0 and curr < limit_idx): break
+            try:
+                hidden = sheet.Rows(curr).Hidden if is_row else sheet.Columns(curr).Hidden
+                if hidden:
+                    last_hidden = curr
+                else:
+                    break
+            except Exception:
+                break
+            curr += step
+            count += 1
+            if count > 2000: # Safety bailout to prevent NVDA freezing
+                return -1 
+        return last_hidden
+
+    @staticmethod
+    def _get_sheet_properties(excel):
+        props = []
+        try:
+            sheet = excel.ActiveSheet
+            wb = excel.ActiveWorkbook
+            win = excel.ActiveWindow
+            
+            # 1. Filter Mode
+            try:
+                if getattr(sheet, "AutoFilterMode", False):
+                    props.append("Filter Mode: Active")
+            except Exception: pass
+            
+            # 2. Hidden Borders
+            try:
+                ur = sheet.UsedRange
+                min_r = ur.Row
+                min_c = ur.Column
+                max_r = min_r + ur.Rows.Count - 1
+                max_c = min_c + ur.Columns.Count - 1
+                
+                hidden_borders = []
+                
+                # Check absolute top edge (Row 1)
+                try:
+                    if sheet.Rows(1).Hidden:
+                        end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Rows.Count, True, 1)
+                        if end_r == -1: hidden_borders.append("Top Rows 1 through 2000+ are hidden")
+                        elif end_r == 1: hidden_borders.append("Top Row 1 is hidden")
+                        else: hidden_borders.append(f"Top Rows 1 through {end_r} are hidden")
+                except Exception: pass
+                
+                # Check absolute left edge (Col 1)
+                try:
+                    if sheet.Columns(1).Hidden:
+                        end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Columns.Count, False, 1)
+                        if end_c == -1: hidden_borders.append("Left Columns A through 2000+ are hidden")
+                        elif end_c == 1: hidden_borders.append("Left Column A is hidden")
+                        else: hidden_borders.append(f"Left Columns A through {SheetLayoutAnalyzer._col_num_to_letter(end_c)} are hidden")
+                except Exception: pass
+                
+                # Check bottom edge of used range
+                try:
+                    if sheet.Rows(max_r + 1).Hidden:
+                        end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_r + 1, sheet.Rows.Count, True, 1)
+                        if end_r == -1: hidden_borders.append(f"Bottom Rows {max_r + 1} through 2000+ are hidden")
+                        elif end_r == max_r + 1: hidden_borders.append(f"Bottom Row {max_r + 1} is hidden")
+                        else: hidden_borders.append(f"Bottom Rows {max_r + 1} through {end_r} are hidden")
+                except Exception: pass
+                
+                # Check right edge of used range
+                try:
+                    if sheet.Columns(max_c + 1).Hidden:
+                        end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_c + 1, sheet.Columns.Count, False, 1)
+                        if end_c == -1: hidden_borders.append(f"Right Columns {SheetLayoutAnalyzer._col_num_to_letter(max_c + 1)} through 2000+ are hidden")
+                        elif end_c == max_c + 1: hidden_borders.append(f"Right Column {SheetLayoutAnalyzer._col_num_to_letter(max_c + 1)} is hidden")
+                        else: hidden_borders.append(f"Right Columns {SheetLayoutAnalyzer._col_num_to_letter(max_c + 1)} through {SheetLayoutAnalyzer._col_num_to_letter(end_c)} are hidden")
+                except Exception: pass
+                
+                if hidden_borders:
+                    props.append("Hidden Borders: " + ", ".join(hidden_borders))
+            except Exception: pass
+            
+            # 3. Hidden Sheets
+            try:
+                sheet_count = wb.Sheets.Count
+                hidden_indices = []
+                # Visible = -1 (xlSheetVisible), 0 (xlSheetHidden), 2 (xlSheetVeryHidden)
+                for i in range(1, sheet_count + 1):
+                    if wb.Sheets(i).Visible != -1:
+                        hidden_indices.append(i)
+                
+                if hidden_indices:
+                    start_hidden = 0
+                    for i in range(1, sheet_count + 1):
+                        if i in hidden_indices: start_hidden += 1
+                        else: break
+                        
+                    end_hidden = 0
+                    for i in range(sheet_count, 0, -1):
+                        if i in hidden_indices: end_hidden += 1
+                        else: break
+                        
+                    parts = []
+                    if start_hidden > 0:
+                        parts.append(f"Top sheets 1-{start_hidden}" if start_hidden > 1 else "Top sheet 1")
+                    if end_hidden > 0 and (sheet_count - end_hidden >= start_hidden):
+                        parts.append(f"Bottom sheets {sheet_count - end_hidden + 1}-{sheet_count}" if end_hidden > 1 else f"Bottom sheet {sheet_count}")
+                        
+                    middle_count = len(hidden_indices) - start_hidden - end_hidden
+                    if middle_count > 0:
+                        parts.append(f"{middle_count} middle sheet{'s' if middle_count > 1 else ''}")
+                        
+                    if parts:
+                        props.append("Hidden Sheets: " + ", ".join(parts) + " hidden")
+            except Exception: pass
+            
+            # 4. Sheet Protected
+            try:
+                if getattr(sheet, "ProtectContents", False):
+                    props.append("Sheet Protected: True")
+            except Exception: pass
+            
+            # 5. Frozen Panes
+            try:
+                if getattr(win, "FreezePanes", False):
+                    r = win.SplitRow
+                    c = win.SplitColumn
+                    if r > 0 and c > 0:
+                        props.append(f"Frozen Panes: Rows 1-{r}, Columns A-{SheetLayoutAnalyzer._col_num_to_letter(c)}")
+                    elif r > 0:
+                        props.append(f"Frozen Panes: Rows 1-{r}")
+                    elif c > 0:
+                        props.append(f"Frozen Panes: Columns A-{SheetLayoutAnalyzer._col_num_to_letter(c)}")
+                    else:
+                        props.append("Frozen Panes: Active")
+            except Exception: pass
+            
+            # 6. Floating Objects
+            try:
+                c = sheet.Shapes.Count
+                if c > 0:
+                    props.append(f"Floating Objects: Contains {c} Shape(s)/Chart(s)")
+            except Exception: pass
+            
+            # 7. Pivot Tables
+            try:
+                c = sheet.PivotTables().Count
+                if c > 0:
+                    props.append(f"Pivot Tables: Contains {c} Pivot Table(s)")
+            except Exception: pass
+            
+            # 8. View Mode
+            try:
+                v = win.View
+                if v == 2:
+                    props.append("View Mode: Page Break Preview")
+                elif v == 3:
+                    props.append("View Mode: Page Layout")
+            except Exception: pass
+            
+        except Exception:
+            pass
+            
+        if props:
+            return "\n\n--- Sheet Properties ---\n" + "\n".join(props)
+        return ""
 
     @staticmethod
     def jump_to_nearest_block(excel):
