@@ -258,13 +258,6 @@ class SheetLayoutAnalyzer:
         last_hidden = start_idx
         curr = start_idx
         
-        # Fast path: check if the rest of the entire sheet is hidden
-        try:
-            rng = sheet.Range(sheet.Rows(start_idx), sheet.Rows(limit_idx)) if is_row else sheet.Range(sheet.Columns(start_idx), sheet.Columns(limit_idx))
-            if getattr(rng, "Hidden", False) is True:
-                return limit_idx
-        except Exception: pass
-            
         count = 0
         while True:
             if (step > 0 and curr > limit_idx) or (step < 0 and curr < limit_idx): break
