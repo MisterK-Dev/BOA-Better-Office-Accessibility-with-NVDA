@@ -26,11 +26,13 @@ Excel Features:
 PowerPoint Features:
 - Accessible Color Pickers: Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
 - Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.""",
-    "addon_version": "1.2.0",
+    "addon_version": "1.3.0-dev1",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
     "addon_url": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA",
+    # URL for the add-on repository where the source code is hosted
+    "addon_sourceURL": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA",
     # Documentation file name
     "addon_docFileName": "readme.html",
     # Minimum NVDA version supported
@@ -38,7 +40,7 @@ PowerPoint Features:
     # Last NVDA version supported/tested
     "addon_lastTestedNVDAVersion": "2026.1.1",
     # True if the addon requires an update to the manifest format.
-    "addon_updateChannel": "stable",
+    "addon_updateChannel": "dev",
     # Changelog URL or None
     "addon_changelog": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA#changelog",
 }

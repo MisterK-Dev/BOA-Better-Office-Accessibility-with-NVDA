@@ -43,11 +43,29 @@ class BOASettingsPanel(SettingsPanel):
             group_sizer = wx.StaticBoxSizer(wx.VERTICAL, self, display_name)
             self.checkboxes[app_name] = {}
             for feature_key, label in features.items():
-                cb = wx.CheckBox(self, label=label)
-                # Set initial value from config
-                cb.SetValue(config.get(app_name, {}).get(feature_key, True))
-                group_sizer.Add(cb, flag=wx.BOTTOM, border=5)
-                self.checkboxes[app_name][feature_key] = cb
+                if feature_key == "auto_announce_first_block":
+                    sizer = wx.BoxSizer(wx.HORIZONTAL)
+                    lbl = wx.StaticText(self, label=label)
+                    sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
+                    choices = ["Off", "One-time Announcement", "Guided Announcement"]
+                    cb = wx.Choice(self, choices=choices)
+                    val = config.get(app_name, {}).get(feature_key, "one_time")
+                    if val == "off":
+                        cb.SetSelection(0)
+                    elif val == "guided":
+                        cb.SetSelection(2)
+                    else:
+                        cb.SetSelection(1)
+                    cb.SetToolTip("Select layout announcement mode. 'Guided Announcement' requires you to press NVDA+E, L at least once per sheet to scan the layout.")
+                    sizer.Add(cb)
+                    group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
+                    self.checkboxes[app_name][feature_key] = cb
+                else:
+                    cb = wx.CheckBox(self, label=label)
+                    # Set initial value from config
+                    cb.SetValue(config.get(app_name, {}).get(feature_key, True))
+                    group_sizer.Add(cb, flag=wx.BOTTOM, border=5)
+                    self.checkboxes[app_name][feature_key] = cb
             settingsSizer.Add(group_sizer, flag=wx.ALL | wx.EXPAND, border=10)
 
         # Excel Group
@@ -56,7 +74,9 @@ class BOASettingsPanel(SettingsPanel):
             "sheet_rename": "Use accessible Sheet Rename dialog instead of native edit field",
             "safe_rich_edit": "Prevent NVDA crashes in Excel text fields",
             "unselect_tracking": "Announce when a multi-cell selection is unexpectedly lost",
-            "hidden_row_skip": "Proactively announce when navigating past hidden rows or columns"
+            "hidden_row_skip": "Proactively announce when navigating past hidden rows or columns",
+            "sheet_layout_analyzer": "Enable Sheet Layout Analyzer via NVDA+E, L",
+            "auto_announce_first_block": "Sheet Layout Auto-Announce Mode:"
         }
         create_group("excel", "Excel Enhancements", excel_features)
         
@@ -84,8 +104,17 @@ class BOASettingsPanel(SettingsPanel):
         # Iterate over each application (e.g., excel, word) and its respective GUI checkboxes
         for app, features in self.checkboxes.items():
             for feature_key, cb in features.items():
-                # Update the in-memory configuration state based on checkbox value
-                boa_config.set_feature_state(app, feature_key, cb.GetValue())
+                if feature_key == "auto_announce_first_block":
+                    sel = cb.GetSelection()
+                    if sel == 0:
+                        val = "off"
+                    elif sel == 2:
+                        val = "guided"
+                    else:
+                        val = "one_time"
+                    boa_config.set_feature_state(app, feature_key, val)
+                else:
+                    boa_config.set_feature_state(app, feature_key, cb.GetValue())
         
         # Flush the updated configuration from memory to the physical JSON file
         boa_config.save_config()

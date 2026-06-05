@@ -94,6 +94,9 @@ def _do_check_unselect():
                     from boa_lib import boa_config
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
                         CellNavigationTracker.check_structural_changes(excel)
+                        
+                    if (boa_config.get_feature_state("excel", "hidden_row_skip") or 
+                        boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"]):
                         CellNavigationTracker.check_hidden_skip(excel)
                 except Exception:
                     pass
@@ -163,8 +166,12 @@ class CellNavigationTracker(object):
                 if getattr(sel, 'Cells', None):
                     # ALWAYS check structural changes and hidden row skips on focus change
                     from boa_lib import boa_config
+                    
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
                         CellNavigationTracker.check_structural_changes(excel)
+                        
+                    if (boa_config.get_feature_state("excel", "hidden_row_skip") or 
+                        boa_config.get_feature_state("excel", "auto_announce_first_block") in ["one_time", "guided"]):
                         CellNavigationTracker.check_hidden_skip(excel)
                     
                     # Verify it is a Range object (has Cells property) and has more than 1 cell selected.
@@ -204,6 +211,7 @@ class CellNavigationTracker(object):
         global _last_focused_row, _last_focused_col, _last_focused_sheet, _last_focused_wb
         import ui
         import logHandler
+        from boa_lib import boa_config
         
         try:
             active_cell = excel.ActiveCell
@@ -219,10 +227,18 @@ class CellNavigationTracker(object):
 
             # Reset tracker if sheet/workbook changed to avoid ghost skips
             if current_sheet != _last_focused_sheet or current_wb != _last_focused_wb:
+                # One-time mode triggers only on sheet change/open
+                if boa_config.get_feature_state("excel", "auto_announce_first_block") == "one_time":
+                    from .sheet_layout_analyzer import SheetLayoutAnalyzer
+                    SheetLayoutAnalyzer.auto_announce_one_time(excel)
+                    
                 _last_focused_row = None
                 _last_focused_col = None
                 _last_focused_sheet = current_sheet
                 _last_focused_wb = current_wb
+            
+            row_changed = True
+            col_changed = True
             
             if _last_focused_row is not None and _last_focused_col is not None:
                 row_changed = current_row != _last_focused_row
@@ -240,150 +256,157 @@ class CellNavigationTracker(object):
                 skip_announced_left = False
                 skip_announced_right = False
                 
-                # ---------------- ROW JUMPS ----------------
-                if col_changed == False and row_changed:
-                    min_r = min(_last_focused_row, current_row)
-                    max_r = max(_last_focused_row, current_row)
-                    
-                    if max_r - min_r > 1:
-                        hidden_count = 0
-                        fragmented = False
-                        first_hidden = None
-                        last_hidden = None
+                if boa_config.get_feature_state("excel", "hidden_row_skip"):
+                    # ---------------- ROW JUMPS ----------------
+                    if col_changed == False and row_changed:
+                        min_r = min(_last_focused_row, current_row)
+                        max_r = max(_last_focused_row, current_row)
                         
-                        sheet = excel.ActiveSheet
-                        
-                        if max_r - min_r == 2:
-                            if excel.Rows(min_r + 1).Hidden in (True, -1):
-                                first_hidden = min_r + 1
-                                last_hidden = min_r + 1
-                                hidden_count = 1
-                        else:
-                            gap_range = sheet.Range(sheet.Cells(min_r + 1, current_col), sheet.Cells(max_r - 1, current_col))
-                            try:
-                                visible_range = gap_range.SpecialCells(12)
-                                areas_count = visible_range.Areas.Count
-                                
-                                if areas_count == 1:
-                                    vis_start = visible_range.Row
-                                    vis_end = visible_range.Row + visible_range.Rows.Count - 1
-                                    int_start = gap_range.Row
-                                    int_end = gap_range.Row + gap_range.Rows.Count - 1
+                        if max_r - min_r > 1:
+                            hidden_count = 0
+                            fragmented = False
+                            first_hidden = None
+                            last_hidden = None
+                            
+                            sheet = excel.ActiveSheet
+                            
+                            if max_r - min_r == 2:
+                                if excel.Rows(min_r + 1).Hidden in (True, -1):
+                                    first_hidden = min_r + 1
+                                    last_hidden = min_r + 1
+                                    hidden_count = 1
+                            else:
+                                gap_range = sheet.Range(sheet.Cells(min_r + 1, current_col), sheet.Cells(max_r - 1, current_col))
+                                try:
+                                    visible_range = gap_range.SpecialCells(12)
+                                    areas_count = visible_range.Areas.Count
                                     
-                                    if vis_start > int_start:
-                                        first_hidden = int_start
-                                        last_hidden = vis_start - 1
+                                    if areas_count == 1:
+                                        vis_start = visible_range.Row
+                                        vis_end = visible_range.Row + visible_range.Rows.Count - 1
+                                        int_start = gap_range.Row
+                                        int_end = gap_range.Row + gap_range.Rows.Count - 1
+                                        
+                                        if vis_start > int_start:
+                                            first_hidden = int_start
+                                            last_hidden = vis_start - 1
+                                            hidden_count = last_hidden - first_hidden + 1
+                                        elif vis_end < int_end:
+                                            first_hidden = vis_end + 1
+                                            last_hidden = int_end
+                                            hidden_count = last_hidden - first_hidden + 1
+                                    elif areas_count == 2:
+                                        area1 = visible_range.Areas.Item(1)
+                                        area2 = visible_range.Areas.Item(2)
+                                        first_hidden = area1.Row + area1.Rows.Count
+                                        last_hidden = area2.Row - 1
                                         hidden_count = last_hidden - first_hidden + 1
-                                    elif vis_end < int_end:
-                                        first_hidden = vis_end + 1
-                                        last_hidden = int_end
-                                        hidden_count = last_hidden - first_hidden + 1
-                                elif areas_count == 2:
-                                    area1 = visible_range.Areas.Item(1)
-                                    area2 = visible_range.Areas.Item(2)
-                                    first_hidden = area1.Row + area1.Rows.Count
-                                    last_hidden = area2.Row - 1
-                                    hidden_count = last_hidden - first_hidden + 1
-                                else:
-                                    fragmented = True
-                                    hidden_count = 3  # Triggers plural
-                            except Exception:
-                                # "No cells were found" -> Entire gap is hidden
-                                first_hidden = gap_range.Row
-                                last_hidden = gap_range.Row + gap_range.Rows.Count - 1
-                                hidden_count = last_hidden - first_hidden + 1
-                                
-                        if hidden_count > 0:
-                            if not fragmented:
-                                if hidden_count == 1:
-                                    ui.message(f"Row {first_hidden} hidden")
-                                else:
-                                    if first_hidden == min_r + 1 and last_hidden == max_r - 1 and (max_r - min_r - 1) >= 500:
-                                        ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
                                     else:
-                                        ui.message(f"Rows {first_hidden} through {last_hidden} hidden")
-                            else:
-                                ui.message("Crossed heavily fragmented hidden rows")
-                                
-                            if current_row > _last_focused_row:
-                                skip_announced_top = True
-                            else:
-                                skip_announced_bottom = True
-
-                # ---------------- COLUMN JUMPS ----------------
-                if row_changed == False and col_changed:
-                    min_c = min(_last_focused_col, current_col)
-                    max_c = max(_last_focused_col, current_col)
-                        
-                    if max_c - min_c > 1:
-                        hidden_count = 0
-                        fragmented = False
-                        first_hidden = None
-                        last_hidden = None
-                        
-                        sheet = excel.ActiveSheet
-                        
-                        if max_c - min_c == 2:
-                            if excel.Columns(min_c + 1).Hidden in (True, -1):
-                                first_hidden = min_c + 1
-                                last_hidden = min_c + 1
-                                hidden_count = 1
-                        else:
-                            gap_range = sheet.Range(sheet.Cells(current_row, min_c + 1), sheet.Cells(current_row, max_c - 1))
-                            try:
-                                visible_range = gap_range.SpecialCells(12)
-                                areas_count = visible_range.Areas.Count
-                                
-                                if areas_count == 1:
-                                    vis_start = visible_range.Column
-                                    vis_end = visible_range.Column + visible_range.Columns.Count - 1
-                                    int_start = gap_range.Column
-                                    int_end = gap_range.Column + gap_range.Columns.Count - 1
+                                        fragmented = True
+                                        hidden_count = 3  # Triggers plural
+                                except Exception:
+                                    # "No cells were found" -> Entire gap is hidden
+                                    first_hidden = gap_range.Row
+                                    last_hidden = gap_range.Row + gap_range.Rows.Count - 1
+                                    hidden_count = last_hidden - first_hidden + 1
                                     
-                                    if vis_start > int_start:
-                                        first_hidden = int_start
-                                        last_hidden = vis_start - 1
-                                        hidden_count = last_hidden - first_hidden + 1
-                                    elif vis_end < int_end:
-                                        first_hidden = vis_end + 1
-                                        last_hidden = int_end
-                                        hidden_count = last_hidden - first_hidden + 1
-                                elif areas_count == 2:
-                                    area1 = visible_range.Areas.Item(1)
-                                    area2 = visible_range.Areas.Item(2)
-                                    first_hidden = area1.Column + area1.Columns.Count
-                                    last_hidden = area2.Column - 1
-                                    hidden_count = last_hidden - first_hidden + 1
-                                else:
-                                    fragmented = True
-                                    hidden_count = 3  # Triggers plural
-                            except Exception:
-                                # "No cells were found" -> Entire intersection is hidden
-                                first_hidden = gap_range.Column
-                                last_hidden = gap_range.Column + gap_range.Columns.Count - 1
-                                hidden_count = last_hidden - first_hidden + 1
-                                
-                        if hidden_count > 0:
-                            if not fragmented:
-                                if hidden_count == 1:
-                                    ui.message(f"Column {col_num_to_letter(first_hidden)} hidden")
-                                else:
-                                    if first_hidden == min_c + 1 and last_hidden == max_c - 1 and (max_c - min_c - 1) >= 500:
-                                        ui.message(f"Columns {col_num_to_letter(min_c + 1)} through {col_num_to_letter(max_c - 1)} hidden")
+                            if hidden_count > 0:
+                                if not fragmented:
+                                    if hidden_count == 1:
+                                        ui.message(f"Row {first_hidden} hidden")
                                     else:
-                                        ui.message(f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
+                                        if first_hidden == min_r + 1 and last_hidden == max_r - 1 and (max_r - min_r - 1) >= 500:
+                                            ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
+                                        else:
+                                            ui.message(f"Rows {first_hidden} through {last_hidden} hidden")
+                                else:
+                                    ui.message("Crossed heavily fragmented hidden rows")
+                                    
+                                if current_row > _last_focused_row:
+                                    skip_announced_top = True
+                                else:
+                                    skip_announced_bottom = True
+    
+                    # ---------------- COLUMN JUMPS ----------------
+                    if row_changed == False and col_changed:
+                        min_c = min(_last_focused_col, current_col)
+                        max_c = max(_last_focused_col, current_col)
+                            
+                        if max_c - min_c > 1:
+                            hidden_count = 0
+                            fragmented = False
+                            first_hidden = None
+                            last_hidden = None
+                            
+                            sheet = excel.ActiveSheet
+                            
+                            if max_c - min_c == 2:
+                                if excel.Columns(min_c + 1).Hidden in (True, -1):
+                                    first_hidden = min_c + 1
+                                    last_hidden = min_c + 1
+                                    hidden_count = 1
                             else:
-                                ui.message("Crossed heavily fragmented hidden columns")
-                                
-                            if current_col > _last_focused_col:
-                                skip_announced_left = True
-                            else:
-                                skip_announced_right = True
-
+                                gap_range = sheet.Range(sheet.Cells(current_row, min_c + 1), sheet.Cells(current_row, max_c - 1))
+                                try:
+                                    visible_range = gap_range.SpecialCells(12)
+                                    areas_count = visible_range.Areas.Count
+                                    
+                                    if areas_count == 1:
+                                        vis_start = visible_range.Column
+                                        vis_end = visible_range.Column + visible_range.Columns.Count - 1
+                                        int_start = gap_range.Column
+                                        int_end = gap_range.Column + gap_range.Columns.Count - 1
+                                        
+                                        if vis_start > int_start:
+                                            first_hidden = int_start
+                                            last_hidden = vis_start - 1
+                                            hidden_count = last_hidden - first_hidden + 1
+                                        elif vis_end < int_end:
+                                            first_hidden = vis_end + 1
+                                            last_hidden = int_end
+                                            hidden_count = last_hidden - first_hidden + 1
+                                    elif areas_count == 2:
+                                        area1 = visible_range.Areas.Item(1)
+                                        area2 = visible_range.Areas.Item(2)
+                                        first_hidden = area1.Column + area1.Columns.Count
+                                        last_hidden = area2.Column - 1
+                                        hidden_count = last_hidden - first_hidden + 1
+                                    else:
+                                        fragmented = True
+                                        hidden_count = 3  # Triggers plural
+                                except Exception:
+                                    # "No cells were found" -> Entire intersection is hidden
+                                    first_hidden = gap_range.Column
+                                    last_hidden = gap_range.Column + gap_range.Columns.Count - 1
+                                    hidden_count = last_hidden - first_hidden + 1
+                                    
+                            if hidden_count > 0:
+                                if not fragmented:
+                                    if hidden_count == 1:
+                                        ui.message(f"Column {col_num_to_letter(first_hidden)} hidden")
+                                    else:
+                                        if first_hidden == min_c + 1 and last_hidden == max_c - 1 and (max_c - min_c - 1) >= 500:
+                                            ui.message(f"Columns {col_num_to_letter(min_c + 1)} through {col_num_to_letter(max_c - 1)} hidden")
+                                        else:
+                                            ui.message(f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
+                                else:
+                                    ui.message("Crossed heavily fragmented hidden columns")
+                                    
+                                if current_col > _last_focused_col:
+                                    skip_announced_left = True
+                                else:
+                                    skip_announced_right = True
+    
                 # Check right boundary
 
             _last_focused_row = current_row
             _last_focused_col = current_col
+            
+            # Guided mode triggers on cell movement
+            if boa_config.get_feature_state("excel", "auto_announce_first_block") == "guided":
+                if row_changed or col_changed:
+                    from .sheet_layout_analyzer import SheetLayoutAnalyzer
+                    SheetLayoutAnalyzer.auto_announce_guided(excel)
         except Exception as e:
             try:
                 logHandler.log.debug(f"BOA: Failed to check hidden skip: {e}")

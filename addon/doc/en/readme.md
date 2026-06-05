@@ -29,6 +29,17 @@ Move the active sheet left, right, to the very beginning, or to the very end ins
 - When renaming a sheet, NVDA natively struggles to read the characters you are typing.
 - BOA injects a custom `ExcelSheetRenameEdit` class that uses the `SafeRichEdit` engine, meaning you can precisely read by character, word, or line while renaming.
 
+#### 5. Hidden Row/Column Tracker
+- Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.
+- **Crossed Fragmented Cells:** If you jump across a heavily fragmented or hidden section of the grid (e.g. moving from Row 3 to Row 10 because Rows 4-9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure.
+
+#### 6. Sheet Layout Analyzer & Proactive Guidance
+- Excel sheets with scattered data can be extremely disorienting. BOA scans the sheet and proactively guides you when you get lost in empty space.
+- **Cache the Layout:** Press `NVDA+E, L` at any time to scan the active sheet and memorize all data blocks.
+- **Guided Announcement:** While navigating, if you land on an empty cell, BOA instantly calculates the Manhattan distance to the nearest cached data block and tells you exactly where it is (e.g., "Nearest data at B4").
+- **One-time Announcement:** Automatically calculates and announces the nearest data block the very first time you land on a new sheet, then goes dormant to keep quiet.
+- **Manual Jump Teleportation:** At any time, if you are lost in empty cells, press `NVDA+E, J`. BOA will instantly teleport your cursor directly to the nearest data block.
+
 ---
 
 ### PowerPoint Features
@@ -86,8 +97,22 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ---
 
-### Version 1.2.0-dev26 — 2026-06-03
+### Version 1.3.0-dev1 — 2026-06-05
 **Development build.**
+
+#### New Features
+- **Sheet Layout Analyzer** — Added `NVDA+E, L` to scan and memorize scattered data blocks on a sheet.
+- **Proactive Guidance (Auto-Announce)** — Added Guided and One-time announcement modes that proactively tell the user the coordinates of the nearest data block when navigating into empty space.
+- **Manual Jump (`NVDA+E, J`)** — Added a teleportation shortcut that calculates the Manhattan distance to all known blocks and natively moves the Excel selection to the closest one.
+
+#### Technical Learnings & Architecture Fixes
+- **Robust Empty Cell Detection** — Excel COM `cell.Value` is notoriously unreliable for detecting "empty" cells (it can return `VT_EMPTY`, `VT_NULL`, or evaluate formulas to `""` or `0`). We built a highly robust checker that evaluates both the underlying COM `Value` and the visual `cell.Text` to guarantee the cell actually appears empty to the user before triggering guidance.
+- **Garbage Collection of NVDA Timers** — We discovered that scheduling delayed speech in NVDA via `core.callLater(1000, lambda: ui.message(msg))` can fail silently because Python's garbage collector destroys the weak lambda closure before the 1-second timer fires. This was fixed by passing the explicit function and arguments `core.callLater(1000, ui.message, msg)` to lock them in memory.
+- **UIA COM Object Resolution** — We discovered that under modern UI Automation, relying on `AccessibleObjectFromWindow` using the `EXCEL7` window class fails entirely because the window class is now `NetUIHWND`. We fortified the object manager to natively fallback to `GetActiveObject("Excel.Application")` to ensure COM connectivity remains stable regardless of the UI framework.
+- **Eliminating Speech Delays** — Removed intentional 1000ms speech delays from guidance announcements. They were originally added to prevent NVDA's native selection reading from interrupting the add-on, but users preferred instant feedback over staggered speech queues.
+
+### Version 1.2.0 — 2026-06-03
+**Final release.**
 
 #### New Features
 - **App-Launch Caching** — Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.
