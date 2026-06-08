@@ -181,13 +181,43 @@ class CellMonitorManager:
             if not excel:
                 return
 
+            # Safety Gate 1: Mid-Calculation Trap
+            try:
+                # xlDone = 0. If Excel is calculating (1) or pending (2), wait.
+                if excel.CalculationState != 0:
+                    return
+            except Exception:
+                pass
+
+            # Safety Gate 2: Ghost Workbook Cleanup
+            open_wbs = []
+            try:
+                # Fetch all open workbook names
+                open_wbs = [wb.Name for wb in excel.Workbooks]
+            except Exception:
+                pass
+
+            to_remove = []
+
             for key, last_val in cls._monitors.items():
                 wb_name, sheet_name, cell_addr = key.split("|")
+                
+                # If we successfully fetched open workbooks and this one isn't there, it's closed
+                if open_wbs and wb_name not in open_wbs:
+                    to_remove.append(key)
+                    continue
+
                 try:
                     target_wb = excel.Workbooks(wb_name)
                     target_sheet = target_wb.Sheets(sheet_name)
                     target_cell = target_sheet.Range(cell_addr)
+                    
+                    # Safety Gate 3: Text vs Value display trap
                     current_val = str(target_cell.Text) if target_cell.Text is not None else ""
+                    # If column is too narrow, Excel returns ######. Fallback to raw value.
+                    if current_val.startswith("###"):
+                        raw_val = target_cell.Value
+                        current_val = str(raw_val) if raw_val is not None else ""
                     
                     if current_val != last_val:
                         cls._monitors[key] = current_val
@@ -197,7 +227,14 @@ class CellMonitorManager:
                                 
                         import ui
                         ui.message(f"{cell_addr} updated: {current_val}")
-                except Exception as e:
+                except Exception:
                     pass
+
+            for key in to_remove:
+                del cls._monitors[key]
+                import ui
+                wb_closed = key.split("|")[0]
+                ui.message(f"Monitor cleared: {wb_closed} closed.")
+
         except Exception:
             pass
