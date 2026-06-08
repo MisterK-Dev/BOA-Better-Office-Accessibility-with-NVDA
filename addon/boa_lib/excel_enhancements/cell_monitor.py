@@ -20,8 +20,8 @@ class CellMonitorManager:
         
         if not cls._timer.IsRunning():
             cls._active_excel = excelApp
-            # 750ms is highly performant, indistinguishable from instant for speech, and costs 0% CPU.
-            cls._timer.Start(750)
+            # 150ms feels absolutely instantaneous to the human ear and is perfectly safe for COM.
+            cls._timer.Start(150)
             log.info("BOA: Started Cell Monitor Timer.")
 
     @classmethod
