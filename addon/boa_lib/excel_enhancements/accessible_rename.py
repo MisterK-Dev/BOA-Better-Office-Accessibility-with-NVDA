@@ -26,6 +26,7 @@ class ExcelSheetRenameEdit(object):
         """
         Intercepts focus when the user triggers 'Rename Sheet'.
         """
+        super(ExcelSheetRenameEdit, self).event_gainFocus()
         global _is_renaming_sheet
         if not _is_renaming_sheet:
             _is_renaming_sheet = True

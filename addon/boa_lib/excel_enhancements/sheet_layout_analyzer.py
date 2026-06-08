@@ -28,7 +28,7 @@ class LayoutDialog(wx.Dialog):
         
         btnSizer = wx.BoxSizer(wx.HORIZONTAL)
         
-        self.copyBtn = wx.Button(self, label="Copy (Ctrl+Shift+C)")
+        self.copyBtn = wx.Button(self, label="&Copy (Ctrl+Shift+C)")
         self.copyBtn.Bind(wx.EVT_BUTTON, self.onCopy)
         btnSizer.Add(self.copyBtn, flag=wx.RIGHT, border=10)
         
@@ -292,12 +292,6 @@ class SheetLayoutAnalyzer:
             
             # 2. Hidden Borders
             try:
-                ur = sheet.UsedRange
-                min_r = ur.Row
-                min_c = ur.Column
-                max_r = min_r + ur.Rows.Count - 1
-                max_c = min_c + ur.Columns.Count - 1
-                
                 hidden_borders = []
                 
                 # Check Absolute Top Edge (Row 1)
