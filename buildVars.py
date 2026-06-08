@@ -31,7 +31,7 @@ Excel Features:
 PowerPoint Features:
 - Accessible Color Pickers: Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
 - Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.""",
-    "addon_version": "1.3.0",
+    "addon_version": "1.4-dev1",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
