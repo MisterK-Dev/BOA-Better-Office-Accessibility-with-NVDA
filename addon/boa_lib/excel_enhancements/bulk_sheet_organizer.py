@@ -180,7 +180,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         
         # --- Combo 1: Sheet Name Selection ---
         row1 = wx.BoxSizer(wx.HORIZONTAL)
-        row1.Add(wx.StaticText(self, label="Sheet Name:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
+        row1.Add(wx.StaticText(self, label="&Sheet Name:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
         self.cb_sheet = wx.ComboBox(self, choices=self.sheet_names, style=wx.CB_READONLY)
         if self.sheet_names:
             self.cb_sheet.SetSelection(0)
@@ -190,7 +190,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         
         # --- Combo 2: Target Position Selection ---
         row2 = wx.BoxSizer(wx.HORIZONTAL)
-        row2.Add(wx.StaticText(self, label="Target Position:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
+        row2.Add(wx.StaticText(self, label="&Target Position:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
         positions = [str(i) for i in range(1, len(self.sheet_names) + 1)]
         self.cb_pos = wx.ComboBox(self, choices=positions, style=wx.CB_READONLY)
         if positions:
@@ -203,7 +203,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         main_sizer.Add(row2, 0, wx.EXPAND)
         
         # --- List of Scheduled Moves ---
-        main_sizer.Add(wx.StaticText(self, label="Scheduled Moves (Press Del to remove):"), 0, wx.LEFT|wx.TOP, 5)
+        main_sizer.Add(wx.StaticText(self, label="S&cheduled Moves (Press Del to remove):"), 0, wx.LEFT|wx.TOP, 5)
         # LC_REPORT style creates a standard data table which is highly accessible to NVDA.
         self.list_moves = wx.ListCtrl(self, size=(-1, 150), style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.list_moves.InsertColumn(0, "Sheet", width=150)
