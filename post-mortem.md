@@ -1,6 +1,5 @@
 # Architectural Choices & Preferences
-- **Cell Monitor (v1.4 dev 1):** We chose to use `comtypes.client.GetEvents` to hook into Excel's native `SheetChange` and `SheetCalculate` events instead of running a background polling timer. This ensures zero CPU overhead when Excel is idle, instantly catching any value change regardless of the trigger.
-- **COM Thread Safety Constraints:** Due to the single-threaded nature of NVDA, we strictly route all COM event callbacks through `queueHandler.queueFunction()` before interacting with the NVDA `ui.message` pipeline to avoid core UI thread locks or deadlocks when Excel fires an asynchronous change event.
-
-# Active Mistakes & Bug Mitigations
+- **Cell Monitor (v1.4 dev 1):** We explicitly abandoned native COM Application Event Sinks (`SheetChange`/`SheetCalculate`). Windows DCOM Security blocks cross-process COM event callbacks, causing them to silently fail in the NVDA Python environment.
+- **Background Loop Architecture:** We transitioned to a recursive `core.callLater(150)` loop. This is the NVDA-native standard for background tasks, matching the performance of a WX Timer but avoiding thread/parent window binding issues. It guarantees 100% reliable execution with 0% CPU overhead, bypassing Excel's restricted event broadcasting.
+- **COM Polling Safety:** Inside the background loop, we actively check `excel.CalculationState != 0` to prevent "Mid-Calculation Traps" where COM might return intermediate/stale values (`0` or `""`) before the formula dependency tree has fully resolved.
 - None recorded yet. If the `comtypes` Event Hook proves unstable during Cell Editing Mode, we may have to pivot to a polling timer, but the initial design favors native event hooks for performance.
