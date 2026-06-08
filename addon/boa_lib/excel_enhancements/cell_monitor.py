@@ -9,33 +9,23 @@ class CellMonitorManager:
     _slots = {}  # Format: { "1": {"wb": "Book1", "sheet": "Sheet1", "cell": "$A$1", "val": "100"} }
     _monitors = {} # Format: { "Book1|Sheet1|$A$1": "100" }
     
-    _timer = None
+    _monitoring_active = False
 
     @classmethod
     def _start_timer(cls, excelApp):
-        if cls._timer is None:
-            import wx
-            cls._timer = wx.Timer()
-            cls._timer.Bind(wx.EVT_TIMER, cls._on_timer_tick)
-        
-        if not cls._timer.IsRunning():
-            cls._active_excel = excelApp
-            # 150ms feels absolutely instantaneous to the human ear and is perfectly safe for COM.
-            cls._timer.Start(150)
-            log.info("BOA: Started Cell Monitor Timer.")
+        cls._active_excel = excelApp
+        if not cls._monitoring_active:
+            cls._monitoring_active = True
+            import core
+            # 150ms feels instantaneous. We use NVDA's native core.callLater instead of wx.Timer for guaranteed execution.
+            core.callLater(150, cls._check_all_monitors)
+            log.info("BOA: Started Cell Monitor Loop.")
 
     @classmethod
     def _stop_timer(cls):
-        if cls._timer and cls._timer.IsRunning():
-            cls._timer.Stop()
-            cls._active_excel = None
-            log.info("BOA: Stopped Cell Monitor Timer.")
-
-    @classmethod
-    def _on_timer_tick(cls, evt):
-        # Safely route the check through the queue handler
-        import queueHandler
-        queueHandler.queueFunction(cls._check_all_monitors)
+        cls._monitoring_active = False
+        cls._active_excel = None
+        log.info("BOA: Stopped Cell Monitor Loop.")
 
     @classmethod
     def _get_active_cell_info(cls, obj):
@@ -170,35 +160,44 @@ class CellMonitorManager:
 
     @classmethod
     def _check_all_monitors(cls):
-        """ Called safely by NVDA queueHandler when Excel fires a change event """
-        if not cls._monitors or not cls._active_excel:
+        if not cls._monitoring_active:
             return
 
-        excel = cls._active_excel
-        to_remove = []
+        # Reschedule first to guarantee continuous loop
+        import core
+        core.callLater(150, cls._check_all_monitors)
+
+        if not cls._monitors:
+            return
 
         try:
+            import comtypes.client
+            try:
+                # Fetch fresh excel instance dynamically to avoid stale COM proxies
+                excel = comtypes.client.GetActiveObject("Excel.Application")
+            except Exception:
+                excel = cls._active_excel
+                
+            if not excel:
+                return
+
             for key, last_val in cls._monitors.items():
                 wb_name, sheet_name, cell_addr = key.split("|")
                 try:
-                    # Attempt to read current value
                     target_wb = excel.Workbooks(wb_name)
                     target_sheet = target_wb.Sheets(sheet_name)
                     target_cell = target_sheet.Range(cell_addr)
                     current_val = str(target_cell.Text) if target_cell.Text is not None else ""
                     
                     if current_val != last_val:
-                        # Value changed!
                         cls._monitors[key] = current_val
-                        # Update slot cache if it exists
                         for s_key, s_info in cls._slots.items():
                             if s_info["wb"] == wb_name and s_info["sheet"] == sheet_name and s_info["cell"] == cell_addr:
                                 cls._slots[s_key]["val"] = current_val
                                 
+                        import ui
                         ui.message(f"{cell_addr} updated: {current_val}")
-                except Exception:
-                    # Target might be closed or invalid, we ignore and potentially clean up later
+                except Exception as e:
                     pass
-        except Exception as e:
-            # Excel is busy (e.g. Cell Editing Mode), graceful failure
+        except Exception:
             pass
