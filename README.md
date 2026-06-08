@@ -91,6 +91,13 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ## Changelog
 
+### Version 1.4 dev 1 (Cell Monitor Preview)
+**Development Version.**
+
+#### New Features
+- **Cell Monitor** — Use `NVDA+E`, then `Shift+1` to `Shift+9` to map specific cells to memory slots. You can jump back and read them anytime using `NVDA+E` and the corresponding number.
+- **Continuous Monitoring** — Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually with `NVDA+E` then `M`. Clear all with `NVDA+E` then `Backspace`.
+
 ---
 
 ### Version 1.3.0 — 2026-06-05

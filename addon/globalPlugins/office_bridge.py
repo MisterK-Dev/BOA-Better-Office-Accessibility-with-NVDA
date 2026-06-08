@@ -196,9 +196,13 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         
         # Bind interceptor keys dynamically to capture the next keystroke
         self.bindGesture("kb:escape", "cancelCommandPrefix")
+        self.bindGesture("kb:backspace", "handleCommandKey")
         # Bind the entire alphabet and numbers to intercept valid commands
         for char in "abcdefghijklmnopqrstuvwxyz0123456789":
             self.bindGesture(f"kb:{char}", "handleCommandKey")
+        # Bind shifted numbers for assigning slots
+        for i in range(1, 10):
+            self.bindGesture(f"kb:shift+{i}", "handleCommandKey")
 
     def script_cancelCommandPrefix(self, gesture):
         """
@@ -257,8 +261,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         """
         try:
             self.removeGestureBinding("kb:escape")
+            self.removeGestureBinding("kb:backspace")
             for char in "abcdefghijklmnopqrstuvwxyz0123456789":
                 self.removeGestureBinding(f"kb:{char}")
+            for i in range(1, 10):
+                self.removeGestureBinding(f"kb:shift+{i}")
         except Exception:
             pass
 
