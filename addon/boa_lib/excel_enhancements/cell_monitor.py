@@ -9,11 +9,11 @@ class ExcelEventSink:
     def __init__(self):
         pass
 
-    def SheetChange(self, this, Sh, Target):
+    def SheetChange(self, *args, **kwargs):
         # We queue the check function to NVDA's main thread to prevent COM cross-thread crashes
         queueHandler.queueFunction(CellMonitorManager._check_all_monitors)
 
-    def SheetCalculate(self, this, Sh):
+    def SheetCalculate(self, *args, **kwargs):
         queueHandler.queueFunction(CellMonitorManager._check_all_monitors)
 
 
