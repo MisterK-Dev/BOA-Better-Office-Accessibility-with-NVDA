@@ -34,12 +34,24 @@ class CellMonitorManager:
             return
         try:
             import comtypes.client
+            
+            # Ensure we have an early-bound interface so GetEvents can find the IConnectionPointContainer IID
+            # Late-bound dynamic Dispatch objects often fail silently with GetEvents.
+            disp = getattr(excelApp, '_comobj', excelApp)
+            try:
+                excel_early = comtypes.client.GetBestInterface(disp)
+            except Exception as e:
+                log.debugWarning(f"BOA: GetBestInterface failed: {e}")
+                excel_early = excelApp
+                
             cls._sink = ExcelEventSink()
-            cls._event_connection = comtypes.client.GetEvents(excelApp, cls._sink)
-            cls._active_excel = excelApp
+            cls._event_connection = comtypes.client.GetEvents(excel_early, cls._sink)
+            cls._active_excel = excel_early
             log.info("BOA: Connected Excel COM Event Sink for Cell Monitor.")
         except Exception as e:
+            import ui
             log.error(f"BOA: Failed to connect Excel COM Events: {e}")
+            ui.message("Warning: COM Event Sink failed to attach to Excel.")
 
     @classmethod
     def _disconnect_events(cls):
