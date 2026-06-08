@@ -144,26 +144,30 @@ def handle_prefix_command(command_key, obj):
 
     # --- Cell Monitor Commands ---
     if command_key == 'backspace':
-        from .cell_monitor import CellMonitorManager
-        CellMonitorManager.clear_all(obj)
-        return True
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.clear_all(obj)
+            return True
         
     if command_key == 'm':
-        from .cell_monitor import CellMonitorManager
-        CellMonitorManager.toggle_monitor(obj)
-        return True
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.toggle_monitor(obj)
+            return True
         
     # Check for slots 1-9
     if len(command_key) == 1 and command_key.isdigit() and command_key != '0':
-        from .cell_monitor import CellMonitorManager
-        CellMonitorManager.read_slot(command_key, obj)
-        return True
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.read_slot(command_key, obj)
+            return True
         
     # Check for assigning slots (shift+1 to shift+9)
     if command_key.startswith("shift+") and len(command_key) == 7 and command_key[-1].isdigit() and command_key[-1] != '0':
-        from .cell_monitor import CellMonitorManager
-        CellMonitorManager.assign_slot(command_key[-1], obj)
-        return True
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.assign_slot(command_key[-1], obj)
+            return True
 
     # Add future commands here (e.g. 'r' for rename)
     return False

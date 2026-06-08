@@ -77,7 +77,8 @@ class BOASettingsPanel(SettingsPanel):
             "hidden_row_skip": "Proactively announce when navigating past &hidden rows or columns",
             "sheet_layout_analyzer": "Enable Sheet &Layout Analyzer via NVDA+E, L",
             "auto_announce_first_block": "Sheet Layout Auto-Announce &Mode:",
-            "conditional_formatting": "Conditional &Formatting and color"
+            "conditional_formatting": "Conditional &Formatting and color",
+            "cell_monitor": "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
         }
         create_group("excel", "Excel Enhancements", excel_features)
         
