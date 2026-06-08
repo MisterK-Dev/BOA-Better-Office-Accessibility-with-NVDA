@@ -2,21 +2,6 @@ import ui
 import queueHandler
 from logHandler import log
 
-class ExcelEventSink:
-    """
-    Native COM Event Sink to catch Excel Application events without polling.
-    """
-    def __init__(self):
-        pass
-
-    def SheetChange(self, *args, **kwargs):
-        # We queue the check function to NVDA's main thread to prevent COM cross-thread crashes
-        queueHandler.queueFunction(CellMonitorManager._check_all_monitors)
-
-    def SheetCalculate(self, *args, **kwargs):
-        queueHandler.queueFunction(CellMonitorManager._check_all_monitors)
-
-
 class CellMonitorManager:
     """
     Manages the 9 slots and continuous monitoring for Excel cells.
@@ -24,46 +9,33 @@ class CellMonitorManager:
     _slots = {}  # Format: { "1": {"wb": "Book1", "sheet": "Sheet1", "cell": "$A$1", "val": "100"} }
     _monitors = {} # Format: { "Book1|Sheet1|$A$1": "100" }
     
-    _event_connection = None
-    _sink = None
-    _active_excel = None
+    _timer = None
 
     @classmethod
-    def _connect_events(cls, excelApp):
-        if cls._event_connection is not None:
-            return
-        try:
-            import comtypes.client
-            
-            # Ensure we have an early-bound interface so GetEvents can find the IConnectionPointContainer IID
-            # Late-bound dynamic Dispatch objects often fail silently with GetEvents.
-            disp = getattr(excelApp, '_comobj', excelApp)
-            try:
-                excel_early = comtypes.client.GetBestInterface(disp)
-            except Exception as e:
-                log.debugWarning(f"BOA: GetBestInterface failed: {e}")
-                excel_early = excelApp
-                
-            cls._sink = ExcelEventSink()
-            cls._event_connection = comtypes.client.GetEvents(excel_early, cls._sink)
-            cls._active_excel = excel_early
-            log.info("BOA: Connected Excel COM Event Sink for Cell Monitor.")
-        except Exception as e:
-            import ui
-            log.error(f"BOA: Failed to connect Excel COM Events: {e}")
-            ui.message("Warning: COM Event Sink failed to attach to Excel.")
+    def _start_timer(cls, excelApp):
+        if cls._timer is None:
+            import wx
+            cls._timer = wx.Timer()
+            cls._timer.Bind(wx.EVT_TIMER, cls._on_timer_tick)
+        
+        if not cls._timer.IsRunning():
+            cls._active_excel = excelApp
+            # 750ms is highly performant, indistinguishable from instant for speech, and costs 0% CPU.
+            cls._timer.Start(750)
+            log.info("BOA: Started Cell Monitor Timer.")
 
     @classmethod
-    def _disconnect_events(cls):
-        if cls._event_connection:
-            try:
-                cls._event_connection.disconnect()
-            except Exception:
-                pass
-            cls._event_connection = None
-            cls._sink = None
+    def _stop_timer(cls):
+        if cls._timer and cls._timer.IsRunning():
+            cls._timer.Stop()
             cls._active_excel = None
-            log.info("BOA: Disconnected Excel COM Event Sink.")
+            log.info("BOA: Stopped Cell Monitor Timer.")
+
+    @classmethod
+    def _on_timer_tick(cls, evt):
+        # Safely route the check through the queue handler
+        import queueHandler
+        queueHandler.queueFunction(cls._check_all_monitors)
 
     @classmethod
     def _get_active_cell_info(cls, obj):
@@ -121,7 +93,7 @@ class CellMonitorManager:
         # Auto-enable continuous monitoring for slotted cells
         monitor_key = f"{wb}|{sheet}|{address}"
         cls._monitors[monitor_key] = val
-        cls._connect_events(excel)
+        cls._start_timer(excel)
 
         # Remove old cell from monitors if it was only monitored via this slot
         if is_replace:
@@ -182,10 +154,10 @@ class CellMonitorManager:
             del cls._monitors[monitor_key]
             ui.message(f"Continuous monitor OFF for {address}")
             if not cls._monitors:
-                cls._disconnect_events()
+                cls._stop_timer()
         else:
             cls._monitors[monitor_key] = val
-            cls._connect_events(excel)
+            cls._start_timer(excel)
             ui.message(f"Continuous monitor ON for {address}")
 
     @classmethod
@@ -193,7 +165,7 @@ class CellMonitorManager:
         """ Clears all slots and monitors """
         cls._slots.clear()
         cls._monitors.clear()
-        cls._disconnect_events()
+        cls._stop_timer()
         ui.message("All monitored and slotted cells cleared.")
 
     @classmethod
