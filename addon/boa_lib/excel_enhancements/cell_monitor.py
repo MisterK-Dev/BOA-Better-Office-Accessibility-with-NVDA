@@ -161,8 +161,28 @@ class CellMonitorManager:
                 return
 
         try:
-            # We access the specific workbook, sheet, and range directly
+            # First verify the workbook still exists (hasn't been renamed or closed)
+            wb_names = [wb.Name for wb in excel.Workbooks]
+            if info["wb"] not in wb_names:
+                ui.message(f"Slot {slot_str} lost. Workbook '{info['wb']}' was renamed or closed.")
+                del cls._slots[slot_str]
+                monitor_key = f"{info['wb']}|{info['sheet']}|{info['cell']}"
+                if monitor_key in cls._monitors:
+                    del cls._monitors[monitor_key]
+                return
+                
             target_wb = excel.Workbooks(info["wb"])
+            
+            # Verify the sheet still exists (hasn't been renamed or deleted)
+            sheet_names = [s.Name for s in target_wb.Sheets]
+            if info["sheet"] not in sheet_names:
+                ui.message(f"Slot {slot_str} lost. Sheet '{info['sheet']}' was renamed or deleted.")
+                del cls._slots[slot_str]
+                monitor_key = f"{info['wb']}|{info['sheet']}|{info['cell']}"
+                if monitor_key in cls._monitors:
+                    del cls._monitors[monitor_key]
+                return
+                
             target_sheet = target_wb.Sheets(info["sheet"])
             target_cell = target_sheet.Range(info["cell"])
             val = str(target_cell.Text) if target_cell.Text is not None else ""
@@ -175,7 +195,7 @@ class CellMonitorManager:
                 
             ui.message(f"{val} - {info['cell']} in {info['sheet']} of {info['wb']}")
         except Exception:
-            ui.message(f"Cannot read slot {slot_str}. Excel may be busy or workbook closed.")
+            ui.message(f"Cannot read slot {slot_str}. Excel may be busy.")
 
     @classmethod
     def toggle_monitor(cls, obj):
@@ -257,10 +277,10 @@ class CellMonitorManager:
             except Exception:
                 pass
 
-            # Safety Gate 2: Ghost Workbook Cleanup
-            open_wbs = []
+            # Safety Gate 2: Ghost Workbook Cleanup & Rename Detection
+            open_wbs = None
             try:
-                # Fetch all open workbook names
+                # Fetch all open workbook names. If this fails, Excel is busy (Edit Mode).
                 open_wbs = [wb.Name for wb in excel.Workbooks]
             except Exception:
                 pass
@@ -270,12 +290,22 @@ class CellMonitorManager:
             for key, last_val in cls._monitors.items():
                 wb_name, sheet_name, cell_addr = key.split("|")
                 
-                # Consideration: If the user closed a workbook that had monitored cells, querying its COM object 
-                # will violently crash the thread. We cross-reference our monitored keys against the actively 
-                # open workbooks and flag ghost cells for safe removal before querying them.
-                if open_wbs and wb_name not in open_wbs:
-                    to_remove.append(key)
-                    continue
+                # Active detection of renamed/lost Workbooks and Sheets
+                if open_wbs is not None:
+                    if wb_name not in open_wbs:
+                        to_remove.append(key)
+                        continue
+                        
+                    # If workbook exists, safely verify sheet exists.
+                    try:
+                        target_wb = excel.Workbooks(wb_name)
+                        sheet_names = [s.Name for s in target_wb.Sheets]
+                        if sheet_name not in sheet_names:
+                            to_remove.append(key)
+                            continue
+                    except Exception:
+                        # If checking sheets fails due to Edit Mode, safely ignore for this tick.
+                        pass
 
                 try:
                     target_wb = excel.Workbooks(wb_name)
@@ -302,9 +332,20 @@ class CellMonitorManager:
 
             for key in to_remove:
                 del cls._monitors[key]
+                wb_closed, sheet_closed, cell_addr = key.split("|")
+                
+                # Check if it belongs to a slot and clear it
+                slot_cleared = None
+                for s_key, s_info in list(cls._slots.items()):
+                    if s_info["wb"] == wb_closed and s_info["sheet"] == sheet_closed and s_info["cell"] == cell_addr:
+                        slot_cleared = s_key
+                        del cls._slots[s_key]
+                
                 import ui
-                wb_closed = key.split("|")[0]
-                ui.message(f"Monitor cleared: {wb_closed} closed.")
+                if slot_cleared:
+                    ui.message(f"Monitor for Slot {slot_cleared} lost due to name change or closure.")
+                else:
+                    ui.message(f"Monitor cleared: {sheet_closed} in {wb_closed} lost.")
 
         except Exception:
             pass
