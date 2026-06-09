@@ -1,9 +1,24 @@
 import math
 
 class ConditionalFormattingTracker:
+    """
+    Analyzes and reads Excel Conditional Formatting rules and active visual results.
+    
+    Architectural Intent & Considerations:
+    NVDA natively reads the raw underlying value of a cell. If a cell turns red because a value is negative, 
+    a blind user has no idea the cell is visually flagged. This class intercepts the COM `FormatConditions` 
+    collection to decode the rules, and uses `DisplayFormat` to read the final rendered color/font on the screen.
+    """
     @staticmethod
     def _get_color_name(color_int):
-        """Converts an Excel COM color integer (BBGGRR) to NVDA's native color name."""
+        """
+        Converts an Excel COM color integer (BBGGRR) to NVDA's native color name.
+        
+        Architectural Intent & Considerations:
+        Excel outputs raw 24-bit BGR integers. To make this accessible, we extract the RGB bytes using bitwise 
+        shifts and map them against NVDA's internal global color dictionary, ensuring the user hears "Red" 
+        instead of "255".
+        """
         import colors
         try:
             # Handle strange COM variants
@@ -30,6 +45,14 @@ class ConditionalFormattingTracker:
 
     @staticmethod
     def _get_condition_value_str(cv):
+        """
+        Extracts human-readable thresholds for data bars and color scales.
+        
+        Architectural Intent & Considerations:
+        Gradient rules (like Color Scales) have dynamic anchors (e.g., "Highest Value" or "50th Percentile") 
+        rather than static numbers. This helper queries the exact `ConditionValue` type enum to accurately 
+        explain the gradient's anchors.
+        """
         try:
             t = cv.Type
             if t == 1: return "Lowest Value"
@@ -47,8 +70,12 @@ class ConditionalFormattingTracker:
     @staticmethod
     def check_quick_format(excel):
         """
-        Lightweight checker called on every selection change.
-        Returns a brief string if conditional formatting is present.
+        Lightweight checker called on every selection change. Returns a brief string if formatting is present.
+        
+        Architectural Intent & Considerations:
+        Fired on EVERY arrow key press. It MUST be incredibly fast. It does not parse the complex rules; it 
+        only checks `FormatConditions.Count` and does a quick `DisplayFormat` comparison to see if the cell 
+        has changed color. Heavy parsing is deferred to `announce_deep_dive`.
         """
         from logHandler import log
         try:
@@ -95,8 +122,12 @@ class ConditionalFormattingTracker:
     @staticmethod
     def announce_deep_dive(excel):
         """
-        Heavy analyzer called only when the user presses NVDA+E, F.
-        Reads all exact rules and then the final DisplayFormat result.
+        Heavy analyzer called only when the user presses NVDA+E, F. Reads all rules and results.
+        
+        Architectural Intent & Considerations:
+        Because Excel has 12 entirely different formatting rule structures (Data Bars, Top 10, Formulas, etc.), 
+        they all possess completely different COM properties. This method manually unpacks the specific COM 
+        interfaces for each rule type to generate a readable English translation of the logic.
         """
         import ui
         from logHandler import log
@@ -131,9 +162,12 @@ class ConditionalFormattingTracker:
                     except Exception:
                         applies_str = ""
                         
-                    # Mapping of common xlFormatConditionType values
+                    # Consideration: Excel uses the `xlFormatConditionType` enum to classify rules. 
+                    # Each rule type requires accessing completely different COM properties (e.g., `xlColorScale` 
+                    # uses `ColorScaleCriteria`, while `xlCellValue` uses `Operator` and `Formula1`).
+                    # Mapping of common xlFormatConditionType values:
                     type_str = "Rule"
-                    if rule_type == 1: # xlCellValue
+                    if rule_type == 1: # xlCellValue (Basic cell value thresholds)
                         op = fc.Operator
                         op_map = {1: "Between", 2: "Not Between", 3: "Equal to", 4: "Not Equal to", 5: "Greater than", 6: "Less than", 7: "Greater than or equal to", 8: "Less than or equal to"}
                         op_str = op_map.get(op, "Operator " + str(op))
@@ -151,12 +185,12 @@ class ConditionalFormattingTracker:
                                 type_str = f"Cell Value is {op_str} {f1}"
                         else:
                             type_str = f"Cell Value is {op_str} {f1}"
-                    elif rule_type == 2: # xlExpression
+                    elif rule_type == 2: # xlExpression (Custom Formula)
                         try:
                             type_str = f"Formula: {fc.Formula1}"
                         except Exception:
                             type_str = "Formula rule"
-                    elif rule_type == 3: # xlColorScale
+                    elif rule_type == 3: # xlColorScale (2 or 3 color gradients)
                         try:
                             cc = fc.ColorScaleCriteria
                             count_crit = cc.Count
@@ -169,7 +203,7 @@ class ConditionalFormattingTracker:
                             type_str = f"{count_crit}-Color Scale gradient. " + ", ".join(c_strs)
                         except Exception:
                             type_str = "Color Scale gradient"
-                    elif rule_type == 4: # xlDatabar
+                    elif rule_type == 4: # xlDatabar (In-cell horizontal bar graphs)
                         try:
                             c = ConditionalFormattingTracker._get_color_name(fc.BarColor.Color)
                             min_val = ConditionalFormattingTracker._get_condition_value_str(fc.MinPoint)
@@ -178,7 +212,7 @@ class ConditionalFormattingTracker:
                             type_str = f"Data Bar gradient ({c}). From {min_val} to {max_val}{hide_str}"
                         except Exception:
                             type_str = "Data Bar"
-                    elif rule_type == 6: # xlIconSet
+                    elif rule_type == 6: # xlIconSet (Traffic lights, flags, arrows)
                         try:
                             hide_str = " (Note: Cell value is visually hidden)" if getattr(fc, "ShowIconOnly", False) is True else ""
                             type_str = f"Icon Set ({fc.IconSet.Count} icons){hide_str}"
