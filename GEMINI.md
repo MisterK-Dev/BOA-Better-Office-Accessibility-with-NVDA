@@ -44,6 +44,7 @@ Before outputting any finalized code blocks, scripts, or diff artifacts, execute
 - **Secure Code Quality**: All generated code must be securely structured, completely free from common vulnerabilities, and follow safe input/output handling.
 
 ## 8. Automated Docstring, Commenting & README Maintenance
+- **Absolute Comment Authenticity**: Comments and docstrings must be 100% factually accurate, authentic, and useful. False, misleading, or misguiding comments that contradict the code logic, historical git execution, or actual NVDA architecture are strictly prohibited.
 - **Intent-Driven Docstrings**: Every single function, class, or method written must include an explicit, detailed docstring explaining the architectural *why* behind the logic.
 - **Granular Code Comments**: Every logical step, complex condition, or NVDA API interaction must be accompanied by detailed line comments.
 - **README.md Lifecycle**: Update and maintain `README.md` immediately following successful feature additions. 
