@@ -88,7 +88,7 @@ class CellMonitorManager:
                 cell = excel.ActiveCell
                 sheet = excel.ActiveSheet.Name
                 wb = excel.ActiveWorkbook.Name
-                address = cell.Address(True, True) # absolute $A$1
+                address = cell.Address(False, False) # relative A1 without verbose $ symbols
                 val = str(cell.Text) if cell.Text is not None else ""
                 return excel, wb, sheet, address, val
         except Exception as e:
