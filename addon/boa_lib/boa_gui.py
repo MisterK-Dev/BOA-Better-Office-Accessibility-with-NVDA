@@ -37,9 +37,16 @@ class BOASettingsPanel(SettingsPanel):
         # Fetch the entire configuration dictionary from memory to populate initial UI state
         config = boa_config.get_all_config()
         
-        # Helper function to create a labeled grouping of checkboxes (a wx.StaticBoxSizer)
-        # This keeps the UI code DRY (Don't Repeat Yourself) when adding features for new apps.
         def create_group(app_name, display_name, features):
+            """
+            Dynamically generates a visually grouped subset of configuration controls (checkboxes/dropdowns).
+            
+            Architectural Intent & Considerations:
+            Instead of manually hardcoding individual wx.CheckBox objects, this helper iterates through a 
+            dictionary of features and binds them to the loaded JSON state. This keeps the UI code DRY 
+            (Don't Repeat Yourself) and makes adding future hooks trivial. It strictly packs them into a 
+            labeled `wx.StaticBoxSizer` to ensure NVDA correctly announces the group boundary.
+            """
             group_sizer = wx.StaticBoxSizer(wx.VERTICAL, self, display_name)
             self.checkboxes[app_name] = {}
             for feature_key, label in features.items():
@@ -50,6 +57,9 @@ class BOASettingsPanel(SettingsPanel):
                     choices = ["Off", "One-time Announcement", "Guided Announcement"]
                     cb = wx.Choice(self, choices=choices)
                     val = config.get(app_name, {}).get(feature_key, "one_time")
+                    
+                    # Map the stored string value from the JSON config to the correct zero-indexed UI dropdown selection.
+                    # Index 0 = "Off", Index 1 = "One-time Announcement", Index 2 = "Guided Announcement".
                     if val == "off":
                         cb.SetSelection(0)
                     elif val == "guided":
@@ -108,6 +118,10 @@ class BOASettingsPanel(SettingsPanel):
             for feature_key, cb in features.items():
                 if feature_key == "auto_announce_first_block":
                     sel = cb.GetSelection()
+                    
+                    # Reverse map the UI dropdown index back to the exact string expected by boa_config.json.
+                    # This consideration ensures the physical JSON configuration file remains human-readable 
+                    # strings (e.g., "off" or "guided") rather than cryptic GUI integers.
                     if sel == 0:
                         val = "off"
                     elif sel == 2:

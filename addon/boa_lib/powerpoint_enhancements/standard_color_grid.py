@@ -49,9 +49,16 @@ class PowerPointStandardColorGrid(object):
         hwnd = self.windowHandle
         children = []
         
-        # Define a C-compatible callback function for EnumChildWindows.
-        # This callback gets executed for every child window found.
         def callback(child, param):
+            """
+            Callback passed to the Win32 EnumChildWindows API.
+            
+            Architectural Intent & Considerations:
+            The Win32 API natively enumerates child windows and invokes this callback for each one. 
+            We append the raw window handle (HWND) to a Python list for later inspection. We MUST 
+            return True to explicitly tell the OS to continue enumerating the remaining children; 
+            returning False would abort the search prematurely.
+            """
             # Append the discovered child HWND to our list.
             children.append(child)
             return True # Continue enumeration.
