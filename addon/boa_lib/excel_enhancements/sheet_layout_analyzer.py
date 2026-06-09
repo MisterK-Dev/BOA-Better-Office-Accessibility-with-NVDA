@@ -28,7 +28,7 @@ class LayoutDialog(wx.Dialog):
         
         btnSizer = wx.BoxSizer(wx.HORIZONTAL)
         
-        self.copyBtn = wx.Button(self, label="&Copy (Ctrl+Shift+C)")
+        self.copyBtn = wx.Button(self, label="Copy (Ctrl+Shift+C)")
         self.copyBtn.Bind(wx.EVT_BUTTON, self.onCopy)
         btnSizer.Add(self.copyBtn, flag=wx.RIGHT, border=10)
         

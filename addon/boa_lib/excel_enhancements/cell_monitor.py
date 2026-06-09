@@ -126,7 +126,7 @@ class CellMonitorManager:
             if monitor_key in cls._monitors:
                 cls._monitors[monitor_key] = val
                 
-            ui.message(val)
+            ui.message(f"{val} - {info['cell']} in {info['sheet']} of {info['wb']}")
         except Exception:
             ui.message(f"Cannot read slot {slot_str}. Excel may be busy or workbook closed.")
 
@@ -226,7 +226,7 @@ class CellMonitorManager:
                                 cls._slots[s_key]["val"] = current_val
                                 
                         import ui
-                        ui.message(f"{cell_addr} updated: {current_val}")
+                        ui.message(f"{cell_addr} updated: {current_val} in {sheet_name} of {wb_name}")
                 except Exception:
                     pass
 
