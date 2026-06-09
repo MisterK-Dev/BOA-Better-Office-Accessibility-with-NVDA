@@ -91,12 +91,17 @@ BOA is built with strict security boundaries. Background COM manipulations are e
 
 ## Changelog
 
-### Version 1.4 dev 1 (Cell Monitor Preview)
+### Version 1.4 dev 1 (Cell Monitor Preview & Architecture Sweep)
 **Development Version.**
 
 #### New Features
 - **Cell Monitor** — Use `NVDA+E`, then `Shift+1` to `Shift+9` to map specific cells to memory slots. You can jump back and read them anytime using `NVDA+E` and the corresponding number.
 - **Continuous Monitoring** — Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually with `NVDA+E` then `M`. Clear all with `NVDA+E` then `Backspace`.
+- **Architectural Documentation Sweep** — Enforced 100% compliance with GEMINI Rule 8. Every core python module in Excel and PowerPoint enhancements now contains massive `Architectural Intent & Considerations` docstrings. This drastically improves the maintainability of complex COM traversals.
+
+#### Bug Fixes
+- **Focus Interception Trap** — Fixed a severe bug in `accessible_rename.py` where intercepting the `event_gainFocus` loop without calling `super()` swallowed UIA focus events, temporarily blinding NVDA to background processes.
+- **Dead Code Cleanup** — Purged deprecated `_do_check_unselect` background loops from `cell_navigation_tracker.py` to prevent unnecessary background processing.
 
 ---
 
