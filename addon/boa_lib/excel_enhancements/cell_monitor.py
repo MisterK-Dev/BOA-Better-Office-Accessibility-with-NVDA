@@ -5,6 +5,12 @@ from logHandler import log
 class CellMonitorManager:
     """
     Manages the 9 slots and continuous monitoring for Excel cells.
+    
+    Architectural Intent & Considerations:
+    Windows DCOM security natively prevents standard COM event sinks for Excel cell changes 
+    across out-of-process boundaries. Because we cannot "listen" for an event when a background 
+    cell changes, we MUST use a non-blocking polling architecture (`core.callLater`). 
+    This class manages both manual memory slots (1-9) and the active continuous background polling.
     """
     _slots = {}  # Format: { "1": {"wb": "Book1", "sheet": "Sheet1", "cell": "$A$1", "val": "100"} }
     _monitors = {} # Format: { "Book1|Sheet1|$A$1": "100" }
@@ -13,6 +19,14 @@ class CellMonitorManager:
 
     @classmethod
     def _start_timer(cls, excelApp):
+        """
+        Initiates the background polling loop for cell monitoring.
+        
+        Architectural Intent & Considerations:
+        We use NVDA's native `core.callLater(150, ...)` instead of `wx.Timer` or standard `time.sleep`. 
+        `time.sleep` would catastrophically block NVDA's single thread, freezing the entire screen reader. 
+        `core.callLater` safely schedules the execution on NVDA's main thread loop every 150ms.
+        """
         cls._active_excel = excelApp
         if not cls._monitoring_active:
             cls._monitoring_active = True
@@ -23,12 +37,27 @@ class CellMonitorManager:
 
     @classmethod
     def _stop_timer(cls):
+        """
+        Safely halts the continuous monitoring loop.
+        
+        Architectural Intent & Considerations:
+        To prevent memory leaks and unnecessary CPU polling when no cells are being monitored, 
+        we toggle the `_monitoring_active` flag. The loop function respects this flag and gracefully terminates.
+        """
         cls._monitoring_active = False
         cls._active_excel = None
         log.info("BOA: Stopped Cell Monitor Loop.")
 
     @classmethod
     def _get_active_cell_info(cls, obj):
+        """
+        Retrieves the exact workbook, sheet, address, and value of the currently focused cell.
+        
+        Architectural Intent & Considerations:
+        Because NVDA objects don't always expose complete structural metadata natively, we must 
+        query Excel's COM model directly to guarantee we have the absolute $A$1 address and parent 
+        workbook name required for strict slot tracking.
+        """
         try:
             import comtypes.client
             import ctypes
@@ -41,14 +70,18 @@ class CellMonitorManager:
             except Exception:
                 pass
                 
-            # Fallback to HWND digging
+            # Fallback Consideration: If GetActiveObject fails (common if Excel is in edit mode or blocked by security boundaries),
+            # we must manually dig for the EXCEL7 window class handle to force a back-door connection.
             if not excel:
                 hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
                 if hwnd7:
+                    # Dynamically load the oleacc library.
                     oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
                     ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                    # OBJID_NATIVEOM (-16) retrieves the native COM object underneath the window.
                     res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
                     if res == 0 and ptr:
+                        # Safely cast the raw COM pointer back into a usable Python Excel Application object.
                         excel = comtypes.client.dynamic.Dispatch(ptr).Application
 
             if excel:
@@ -64,7 +97,15 @@ class CellMonitorManager:
 
     @classmethod
     def assign_slot(cls, slot_str, obj):
-        """ Assigns the active cell to slot 1-9 """
+        """
+        Assigns the active cell to a memory slot (1-9).
+        
+        Architectural Intent & Considerations:
+        Users need a way to quickly check specific cells without physically navigating to them.
+        By assigning a cell to a dictionary slot, we cache its exact coordinate path. We also automatically 
+        enable continuous monitoring for this cell so that if its value changes while the user is elsewhere, 
+        they are immediately notified.
+        """
         excel, wb, sheet, address, val = cls._get_active_cell_info(obj)
         if not excel:
             ui.message("Error: Could not read Excel cell.")
@@ -98,7 +139,13 @@ class CellMonitorManager:
 
     @classmethod
     def read_slot(cls, slot_str, obj):
-        """ Reads the value of the mapped slot via COM """
+        """
+        Reads the current value of the mapped slot via COM.
+        
+        Architectural Intent & Considerations:
+        When the user presses the slot key, we must query the live COM model rather than returning 
+        a cached value. This ensures the reading is 100% accurate even if continuous polling was disabled.
+        """
         if slot_str not in cls._slots:
             ui.message(f"Slot {slot_str} is empty.")
             return
@@ -132,7 +179,14 @@ class CellMonitorManager:
 
     @classmethod
     def toggle_monitor(cls, obj):
-        """ Toggles continuous monitoring for the active cell """
+        """
+        Toggles continuous background monitoring for the active cell.
+        
+        Architectural Intent & Considerations:
+        Allows users to selectively monitor a single cell (like a total sum) without assigning it 
+        to a specific 1-9 slot. If all monitors are cleared, it proactively shuts down the background 
+        polling timer to conserve NVDA system resources.
+        """
         excel, wb, sheet, address, val = cls._get_active_cell_info(obj)
         if not excel:
             ui.message("Error: Could not read Excel cell.")
@@ -152,7 +206,13 @@ class CellMonitorManager:
 
     @classmethod
     def clear_all(cls, obj):
-        """ Clears all slots and monitors """
+        """
+        Wipes all slots and active monitors from memory.
+        
+        Architectural Intent & Considerations:
+        Provides a necessary reset switch for the user. Crucially, it must also call `_stop_timer()` 
+        to ensure the background polling loop is fully terminated.
+        """
         cls._slots.clear()
         cls._monitors.clear()
         cls._stop_timer()
@@ -160,6 +220,14 @@ class CellMonitorManager:
 
     @classmethod
     def _check_all_monitors(cls):
+        """
+        The core background polling loop that checks all registered cells for value changes.
+        
+        Architectural Intent & Considerations:
+        This function recursively calls itself via `core.callLater`. It iterates through the `_monitors` 
+        dictionary, queries the live COM cell value, and compares it against the cached value. 
+        It includes strict safety gates to prevent crashing if Excel is mid-calculation or a workbook is closed.
+        """
         if not cls._monitoring_active:
             return
 
@@ -202,7 +270,9 @@ class CellMonitorManager:
             for key, last_val in cls._monitors.items():
                 wb_name, sheet_name, cell_addr = key.split("|")
                 
-                # If we successfully fetched open workbooks and this one isn't there, it's closed
+                # Consideration: If the user closed a workbook that had monitored cells, querying its COM object 
+                # will violently crash the thread. We cross-reference our monitored keys against the actively 
+                # open workbooks and flag ghost cells for safe removal before querying them.
                 if open_wbs and wb_name not in open_wbs:
                     to_remove.append(key)
                     continue

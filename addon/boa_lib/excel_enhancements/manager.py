@@ -79,13 +79,18 @@ def handle_prefix_command(command_key, obj):
                     SheetLayoutAnalyzer.announce_layout(excel)
             except Exception:
                 try:
+                    # Fallback Consideration: If GetActiveObject fails (e.g. if Excel is busy), 
+                    # we must manually dig for the EXCEL7 window class handle from the NVDA object to force a connection.
                     hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
                     if hwnd7:
                         import ctypes
+                        # Dynamically load the oleacc library.
                         oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
                         ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                        # Use AccessibleObjectFromWindow (-16 is OBJID_NATIVEOM) to force a back-door COM connection directly from the HWND.
                         res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
                         if res == 0 and ptr:
+                            # Safely cast the raw COM pointer back into a usable Python Excel Application object.
                             excel = comtypes.client.dynamic.Dispatch(ptr).Application
                             SheetLayoutAnalyzer.announce_layout(excel)
                 except Exception:
@@ -104,6 +109,8 @@ def handle_prefix_command(command_key, obj):
                     SheetLayoutAnalyzer.jump_to_nearest_block(excel)
             except Exception:
                 try:
+                    # Fallback Consideration: If GetActiveObject fails (e.g. if Excel is busy), 
+                    # we must manually dig for the EXCEL7 window class handle from the NVDA object to force a connection.
                     hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
                     if hwnd7:
                         import ctypes
@@ -129,6 +136,8 @@ def handle_prefix_command(command_key, obj):
                     ConditionalFormattingTracker.announce_deep_dive(excel)
             except Exception:
                 try:
+                    # Fallback Consideration: If GetActiveObject fails (e.g. if Excel is busy), 
+                    # we must manually dig for the EXCEL7 window class handle from the NVDA object to force a connection.
                     hwnd7 = obj.windowHandle if getattr(obj, "windowClassName", "") == "EXCEL7" else None
                     if hwnd7:
                         import ctypes

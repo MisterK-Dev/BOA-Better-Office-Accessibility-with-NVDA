@@ -125,6 +125,14 @@ class CellNavigationTracker(object):
 
 
     def event_gainFocus(self):
+        """
+        Triggered natively by NVDA when the Excel grid gains focus.
+        
+        Architectural Intent & Considerations:
+        We MUST call `super()` immediately to ensure NVDA's base UIA handler processes the focus event 
+        properly. We then schedule our custom multi-selection check with a 50ms delay, allowing Excel's 
+        internal COM engine enough time to register the new focus state before we query it.
+        """
         super(CellNavigationTracker, self).event_gainFocus()
         import core
         core.callLater(50, self._check_multi_selection)
@@ -276,6 +284,10 @@ class CellNavigationTracker(object):
                                     last_hidden = min_r + 1
                                     hidden_count = 1
                             else:
+                                # Consideration: Manually looping through hundreds of rows to check their .Hidden property 
+                                # via COM is disastrously slow and will freeze NVDA. Instead, we define the gap and 
+                                # ask Excel to return ONLY the visible cells using SpecialCells(12) (xlCellTypeVisible). 
+                                # By comparing the visible chunks against the total gap, we mathematically deduce what is hidden instantly.
                                 gap_range = sheet.Range(sheet.Cells(min_r + 1, current_col), sheet.Cells(max_r - 1, current_col))
                                 try:
                                     visible_range = gap_range.SpecialCells(12)
@@ -465,6 +477,10 @@ class CellNavigationTracker(object):
                 total_sheets = excel.ActiveWorkbook.Sheets.Count
                 
                 # Check for skipped hidden sheets if navigated via Ctrl+PageDown
+                # Consideration: If the user presses Ctrl+PageDown, Excel natively skips 'Hidden' sheets. 
+                # UIA does not fire an event for skipped sheets. We mathematically compare the previous sheet Index 
+                # against the new sheet Index. If the difference is > 1, we jumped a gap. We then 
+                # loop through that gap to announce the exact names of the hidden sheets bypassed.
                 if _last_focused_sheet is not None and _last_focused_wb == excel.ActiveWorkbook.Name:
                     current_idx = excel.ActiveSheet.Index
                     try:
@@ -503,7 +519,11 @@ class CellNavigationTracker(object):
     def script_hideRow(self, gesture):
         """
         Intercepts Ctrl+9 to hide the selected row and announces the change.
-        Passes the keystroke to Excel natively first.
+        
+        Architectural Intent & Considerations:
+        Native Excel completely lacks auditory feedback when a row is hidden via shortcut. We intercept 
+        the shortcut, forward it to the OS so Excel executes it natively, and then asynchronously query 
+        the COM model to verify the change actually occurred before speaking it.
         """
         self._execute_and_verify_visibility_change(gesture, "row", True)
 
@@ -514,6 +534,10 @@ class CellNavigationTracker(object):
     def script_unhideRow(self, gesture):
         """
         Intercepts Ctrl+Shift+9 to unhide the selected row and announces the change.
+        
+        Architectural Intent & Considerations:
+        Native Excel completely lacks auditory feedback when a row is unhidden via shortcut. We intercept 
+        the shortcut, forward it to the OS, and asynchronously query the COM model to verify the change.
         """
         self._execute_and_verify_visibility_change(gesture, "row", False)
 
@@ -524,6 +548,10 @@ class CellNavigationTracker(object):
     def script_hideColumn(self, gesture):
         """
         Intercepts Ctrl+0 to hide the selected column and announces the change.
+        
+        Architectural Intent & Considerations:
+        Native Excel completely lacks auditory feedback when a column is hidden via shortcut. We intercept 
+        the shortcut, forward it to the OS, and asynchronously query the COM model to verify the change.
         """
         self._execute_and_verify_visibility_change(gesture, "column", True)
 
@@ -534,6 +562,10 @@ class CellNavigationTracker(object):
     def script_unhideColumn(self, gesture):
         """
         Intercepts Ctrl+Shift+0 to unhide the selected column and announces the change.
+        
+        Architectural Intent & Considerations:
+        Native Excel completely lacks auditory feedback when a column is unhidden via shortcut. We intercept 
+        the shortcut, forward it to the OS, and asynchronously query the COM model to verify the change.
         """
         self._execute_and_verify_visibility_change(gesture, "column", False)
 
@@ -544,6 +576,11 @@ class CellNavigationTracker(object):
     def script_unhideColumnFallback(self, gesture):
         """
         Forces the column to unhide using Excel COM.
+        
+        Architectural Intent & Considerations:
+        Windows 10/11 frequently hijacks Ctrl+Shift+0 for changing keyboard layouts, completely breaking 
+        Excel's native unhide shortcut. This fallback bypasses the OS keyboard hook entirely and forces 
+        the column visible via direct COM manipulation (`force_com=True`).
         """
         self._execute_and_verify_visibility_change(gesture, "column", False, force_com=True)
 
