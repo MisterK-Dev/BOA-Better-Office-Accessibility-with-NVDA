@@ -151,7 +151,7 @@ class CellMonitorManager:
             return
 
         info = cls._slots[slot_str]
-        excel, _, _, _, _ = cls._get_active_cell_info(obj)
+        excel, current_wb, current_sheet, _, _ = cls._get_active_cell_info(obj)
         if not excel:
             # Try to grab excel instance if we lost it
             if cls._active_excel:
@@ -193,7 +193,14 @@ class CellMonitorManager:
             if monitor_key in cls._monitors:
                 cls._monitors[monitor_key] = val
                 
-            ui.message(f"{val} - {info['cell']} in {info['sheet']} of {info['wb']}")
+            if current_wb == info['wb'] and current_sheet == info['sheet']:
+                location_str = ""
+            elif current_wb == info['wb']:
+                location_str = f" in {info['sheet']}"
+            else:
+                location_str = f" in {info['sheet']} of {info['wb']}"
+                
+            ui.message(f"{val} - {info['cell']}{location_str}")
         except Exception:
             ui.message(f"Cannot read slot {slot_str}. Excel may be busy.")
 
@@ -326,7 +333,20 @@ class CellMonitorManager:
                                 cls._slots[s_key]["val"] = current_val
                                 
                         import ui
-                        ui.message(f"{cell_addr} updated: {current_val} in {sheet_name} of {wb_name}")
+                        try:
+                            active_wb = excel.ActiveWorkbook.Name if excel.ActiveWorkbook else None
+                            active_sheet = excel.ActiveSheet.Name if excel.ActiveSheet else None
+                        except Exception:
+                            active_wb, active_sheet = None, None
+                            
+                        if active_wb == wb_name and active_sheet == sheet_name:
+                            location_str = ""
+                        elif active_wb == wb_name:
+                            location_str = f" in {sheet_name}"
+                        else:
+                            location_str = f" in {sheet_name} of {wb_name}"
+                            
+                        ui.message(f"{cell_addr} updated: {current_val}{location_str}")
                 except Exception:
                     pass
 
