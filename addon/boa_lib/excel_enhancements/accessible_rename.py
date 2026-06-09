@@ -25,6 +25,10 @@ class ExcelSheetRenameEdit(object):
     def event_gainFocus(self):
         """
         Intercepts focus when the user triggers 'Rename Sheet'.
+        
+        Architectural Intent & Considerations:
+        By intercepting the focus event of the broken native edit box, we can instantly pop up our 
+        accessible WX dialog before the user even realizes the native UI has launched.
         """
         super(ExcelSheetRenameEdit, self).event_gainFocus()
         global _is_renaming_sheet
@@ -38,6 +42,10 @@ class ExcelSheetRenameEdit(object):
     def _show_rename_dialog(self, initial_name, hwnd):
         """
         Creates the custom WX dialog to capture the new sheet name from the user.
+        
+        Architectural Intent & Considerations:
+        This dialog MUST be completely modal to halt the user's interaction until a name is typed, 
+        and it MUST be launched via `wx.CallAfter` to run safely on NVDA's main thread.
         """
         gui.mainFrame.prePopup()
         dlg = wx.TextEntryDialog(gui.mainFrame, "Enter new sheet name:", "Rename Sheet", initial_name)
@@ -73,6 +81,11 @@ class ExcelSheetRenameEdit(object):
         def _do_inject(old_clip, clean_name, fg_hwnd):
             """
             Injects the new name into Excel by pasting it from the clipboard.
+            
+            Architectural Intent & Considerations:
+            Excel's rename box is highly volatile. If we try to send individual characters via standard 
+            keyboard hooks, it frequently drops keystrokes or breaks. Sending a single `Ctrl+V` (paste) 
+            is atomic and 100% reliable.
             """
             if winUser.getForegroundWindow() == fg_hwnd:
                 # Ctrl+V is much faster and more reliable than typing characters individually
@@ -85,6 +98,11 @@ class ExcelSheetRenameEdit(object):
         def _do_clipboard(clean_name, fg_hwnd):
             """
             Backs up the clipboard and copies the new sheet name.
+            
+            Architectural Intent & Considerations:
+            Because we use `Ctrl+V` to inject the text, we must temporarily overwrite the user's clipboard. 
+            We MUST back up whatever they previously had copied so we can restore it silently later, 
+            preventing data loss.
             """
             import api
             old_clip = ""
@@ -101,7 +119,12 @@ class ExcelSheetRenameEdit(object):
         def _check_security():
             """
             Security check to prevent errant keystroke injection.
-            Ensures that Excel is still the active window before we start pasting and pressing Enter.
+            
+            Architectural Intent & Considerations:
+            If the user alt-tabs away from Excel exactly as they hit Enter on our custom dialog, 
+            NVDA would blind-fire `Ctrl+V` and `Enter` into whatever application they switched to 
+            (e.g., sending a random message in a chat app). We MUST verify the foreground window PID 
+            matches Excel's PID before injecting.
             """
             global _is_renaming_sheet
             import ctypes
