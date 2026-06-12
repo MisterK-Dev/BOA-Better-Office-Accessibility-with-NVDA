@@ -12,10 +12,14 @@ addon_info = {
     # Add-on description
     "addon_description": """A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users.
 
+New in v1.4.0:
+- Cell Monitor : Press NVDA+E, Shift+1 to 9 to map specific cells to memory slots. You can jump back and read them anytime using NVDA+E and the number.
+- Continuous Background Monitoring: Slotted cells are automatically monitored. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually with NVDA+E then M. Clear all with NVDA+E then Backspace.
+
 New in v1.3.0:
 - Sheet Layout Analyzer: Press NVDA+E, L to instantly scan any Excel worksheet for Data Blocks, Hidden Tabs, Active Filters, Protected states, and Hidden Edge Borders.
 - Conditional Formatting Announcer: Automatically reads the dynamic visual color, font, and background shade of cells changed by Excel's Conditional Formatting rules.
-- Intelligent Accelerator Keys: The BOA Settings panel has been deeply integrated with NVDA's GUI architecture. Every single feature now has a unique, explicit Alt-key shortcut (e.g., Alt+E for Excel group, Alt+F for Conditional Formatting).
+- Intelligent Accelerator Keys: The BOA Settings panel has been deeply integrated with NVDA's GUI architecture. Every single feature now has a unique, explicit Alt-key shortcut.
 
 New in v1.2.0:
 - Lightning Fast App-Launch Caching: Core modules lazy-load exactly when you focus on Office, eliminating boot lag.
@@ -31,7 +35,7 @@ Excel Features:
 PowerPoint Features:
 - Accessible Color Pickers: Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
 - Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.""",
-    "addon_version": "1.4-dev1",
+    "addon_version": "1.4.0",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support

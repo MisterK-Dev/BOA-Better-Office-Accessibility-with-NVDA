@@ -33,9 +33,7 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 ## 6. Automated Docstring, Commenting & README Maintenance
 - **Intent-Driven Docstrings**: Every single function, class, or method written must include an explicit, detailed docstring explaining the architectural *why* behind the logic.
 - **Granular Code Comments**: Every logical step, complex condition, or NVDA API interaction must be accompanied by detailed line comments.
-- **README.md Lifecycle**: Update and maintain `@README.md` immediately following successful feature additions. 
-  - **Development Versions**: Dev version notes may be actively maintained during iterative work cycles.
-  - **Stable Releases**: If a final stable release is requested, strip all dev-version documentation, structure the document cleanly, and explicitly compare updated features against the previous stable baseline.
+- **README.md will be mentained by the developer itself from now onwards no need to touch it.**: [no need to update and mentain`@README.md`] immediately following successful feature additions. 
 
 ## 7. Strict Deployment & Terminal Command Controls
 - **No Automatic Git Pushes**: You are strictly forbidden from running `git push` commands to GitHub or any remote repository. 
