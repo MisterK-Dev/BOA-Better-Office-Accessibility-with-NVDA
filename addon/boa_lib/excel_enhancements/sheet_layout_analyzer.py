@@ -17,6 +17,15 @@ import gui
 import api
 
 class LayoutDialog(wx.Dialog):
+    """
+    An accessible text dialog for displaying long, complex reports.
+    
+    Architectural Intent & Considerations:
+    NVDA's standard `ui.message()` is ephemeral speech and cannot be easily reviewed or copied. 
+    For massive analytical reports (like the Layout Overview or Conditional Formatting rules), 
+    we MUST use a native WX dialog with a ReadOnly TextCtrl so the user can navigate the text 
+    line-by-line using standard arrow keys and copy it to the clipboard.
+    """
     def __init__(self, parent, title, message):
         super(LayoutDialog, self).__init__(parent, title=title, size=(400, 300))
         
@@ -45,6 +54,13 @@ class LayoutDialog(wx.Dialog):
         self.Bind(wx.EVT_CHAR_HOOK, self.onCharHook)
         
     def onCharHook(self, evt):
+        """
+        Intercepts raw keystrokes while the dialog is active.
+        
+        Architectural Intent & Considerations:
+        To maximize accessibility and speed, we bind Ctrl+Shift+C natively at the dialog level 
+        so the user can copy the entire report instantly without needing to manually highlight it.
+        """
         # Check for Ctrl+Shift+C (Copy)
         if evt.ControlDown() and evt.ShiftDown() and evt.GetKeyCode() == ord('C'):
             self.onCopy(None)
@@ -54,16 +70,33 @@ class LayoutDialog(wx.Dialog):
             evt.Skip()
             
     def onCopy(self, evt):
+        """Copies the dialog's full text content to the Windows clipboard."""
         api.copyToClip(self.textCtrl.GetValue())
         import ui
         ui.message("Copied to clipboard")
         self.textCtrl.SetFocus()
 
 class SheetLayoutAnalyzer:
+    """
+    Core engine for spatial mapping and sheet boundary detection.
+    
+    Architectural Intent & Considerations:
+    Excel provides zero native APIs for screen readers to understand where data exists in a massive grid. 
+    This class uses advanced COM techniques (`SpecialCells`) to instantly mathematically deduce where 
+    data islands and boundaries are, preventing the user from getting lost in empty space.
+    """
     _layout_cache = {}
 
     @staticmethod
     def _show_dialog(title, message):
+        """
+        Thread-safe launcher for the LayoutDialog.
+        
+        Architectural Intent & Considerations:
+        WX GUI elements MUST be created and launched on the main GUI thread. Because our COM polling 
+        might originate from an asynchronous NVDA core thread, we wrap the dialog launch in `wx.CallAfter` 
+        to prevent catastrophic cross-thread GUI crashes.
+        """
         def run():
             gui.mainFrame.prePopup()
             d = LayoutDialog(gui.mainFrame, title, message)
@@ -74,6 +107,7 @@ class SheetLayoutAnalyzer:
 
     @staticmethod
     def _col_num_to_letter(n):
+        """Converts an integer column index (1) to an Excel letter (A)."""
         s = ""
         while n > 0:
             n, remainder = divmod(n - 1, 26)
@@ -83,8 +117,13 @@ class SheetLayoutAnalyzer:
     @staticmethod
     def _get_data_areas(excel):
         """
-        Extracts the top-left coordinates of all data blocks in the UsedRange.
+        Extracts the top-left and bottom-right coordinates of all data blocks in the UsedRange.
         Returns a sorted list of (row, col_letter) tuples.
+        
+        Architectural Intent & Considerations:
+        Scanning millions of cells iteratively is impossible. By using `SpecialCells(2)` (Constants) 
+        and `SpecialCells(-4123)` (Formulas), we force Excel's internal C++ engine to instantly yield 
+        the specific chunk coordinates where data physically exists, bypassing the Python bottleneck.
         """
         areas_coords = set()
         from logHandler import log
@@ -122,7 +161,12 @@ class SheetLayoutAnalyzer:
     @staticmethod
     def announce_layout(excel):
         """
-        Manually triggered layout overview. Detects all blocks and displays them in a custom dialog.
+        Manually triggered layout overview via NVDA+E, L. Detects all blocks and displays them in a dialog.
+        
+        Architectural Intent & Considerations:
+        Generates a comprehensive snapshot of the entire sheet's topography. It intentionally caches 
+        the result (`_layout_cache`) so that subsequent "Guided mode" jumps do not have to recalculate 
+        the expensive COM queries.
         """
         ui.message("Analyzing layout...")
         areas = SheetLayoutAnalyzer._get_data_areas(excel)
@@ -163,8 +207,12 @@ class SheetLayoutAnalyzer:
     @staticmethod
     def auto_announce_one_time(excel):
         """
-        Instantly calculates the nearest data block and announces it when the user lands on an empty cell
-        after opening a workbook or switching sheets. Does not rely on cache.
+        Instantly calculates the nearest data block and announces it when the user lands on an empty cell.
+        
+        Architectural Intent & Considerations:
+        Fired only when the user opens a workbook or switches sheets. It calculates the Manhattan 
+        distance to all blocks. It intentionally does NOT use the cache, as the user might be opening 
+        a brand new file that hasn't been scanned yet.
         """
         from logHandler import log
         import ui
@@ -208,8 +256,11 @@ class SheetLayoutAnalyzer:
     @staticmethod
     def auto_announce_guided(excel):
         """
-        Calculates the Manhattan distance to all known data blocks from the cache and announces 
-        the closest block when landing on an empty cell during normal navigation.
+        Announces the closest data block continuously during normal navigation.
+        
+        Architectural Intent & Considerations:
+        Because this fires on every single keystroke in "Guided" mode, it MUST use the `_layout_cache`. 
+        Executing live COM `SpecialCells` queries on every arrow key press would severely lag the NVDA interface.
         """
         from logHandler import log
         import ui
@@ -256,6 +307,14 @@ class SheetLayoutAnalyzer:
 
     @staticmethod
     def _get_contiguous_hidden(sheet, start_idx, limit_idx, is_row, step):
+        """
+        Calculates the exact boundary depth of hidden edge rows or columns.
+        
+        Architectural Intent & Considerations:
+        Users often hide massive blocks of rows at the edges of sheets (e.g., hiding Rows 100-1048576). 
+        This helper walks step-by-step to find exactly where the hidden block ends. It includes a strict 
+        2000-iteration safety bailout to prevent NVDA from hard-freezing if a user maliciously hides millions of rows.
+        """
         last_hidden = start_idx
         curr = start_idx
         
@@ -278,6 +337,13 @@ class SheetLayoutAnalyzer:
 
     @staticmethod
     def _get_sheet_properties(excel):
+        """
+        Aggregates global sheet states like Filters, Frozen Panes, and Hidden Boundaries.
+        
+        Architectural Intent & Considerations:
+        UIA doesn't expose global sheet properties well. We manually query COM properties to build 
+        a comprehensive summary string for the Layout dialog.
+        """
         props = []
         try:
             sheet = excel.ActiveSheet
@@ -292,16 +358,15 @@ class SheetLayoutAnalyzer:
             
             # 2. Hidden Borders
             try:
-                ur = sheet.UsedRange
-                min_r = ur.Row
-                min_c = ur.Column
-                max_r = min_r + ur.Rows.Count - 1
-                max_c = min_c + ur.Columns.Count - 1
-                
                 hidden_borders = []
+                
+                # Consideration: UsedRange ignores hidden columns at the extreme edges of the grid. 
+                # To find absolute borders, we must check the literal mathematical edges of the Excel grid 
+                # (Row 1, Col 1, MaxRow, MaxCol) instead of relying on the active data bounds.
                 
                 # Check Absolute Top Edge (Row 1)
                 try:
+                    # If Row 1 is hidden, we scan downwards (step=1) to see how deep the hidden block goes.
                     if sheet.Rows(1).Hidden:
                         end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Rows.Count, True, 1)
                         if end_r == -1: hidden_borders.append("Top 2000+ Rows are hidden")
@@ -320,6 +385,8 @@ class SheetLayoutAnalyzer:
                 
                 # Check Absolute Bottom Edge
                 try:
+                    # Excel's absolute max row is Rows.Count (usually 1,048,576). If the absolute bottom 
+                    # row is hidden, we scan upwards (step=-1) to find where the visible data stops.
                     max_sheet_r = sheet.Rows.Count
                     if sheet.Rows(max_sheet_r).Hidden:
                         start_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_sheet_r, 1, True, -1)
@@ -432,8 +499,11 @@ class SheetLayoutAnalyzer:
     @staticmethod
     def jump_to_nearest_block(excel):
         """
-        Calculates the Manhattan distance to all known data blocks and natively moves the Excel 
-        selection to the closest block.
+        Calculates the Manhattan distance to all known data blocks and natively moves the selection to it.
+        
+        Architectural Intent & Considerations:
+        Instead of just telling the user where data is, this function physically transports them to the 
+        closest island of data using the cached coordinates, saving them from having to press the arrow keys manually.
         """
         from logHandler import log
         import ui
@@ -488,6 +558,7 @@ class SheetLayoutAnalyzer:
 
     @staticmethod
     def _letter_to_col_num(letter):
+        """Converts an Excel column letter (A) to an integer index (1)."""
         num = 0
         for c in letter:
             num = num * 26 + (ord(c.upper()) - ord('A')) + 1

@@ -27,7 +27,8 @@ DEFAULT_CONFIG = {
         "hidden_row_skip": True,
         "sheet_layout_analyzer": True,
         "auto_announce_first_block": "one_time",
-        "conditional_formatting": True
+        "conditional_formatting": True,
+        "cell_monitor": True
     },
     "powerpoint": {
         "standard_color_grid": True,

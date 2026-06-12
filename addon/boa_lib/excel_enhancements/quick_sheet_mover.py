@@ -142,6 +142,9 @@ class QuickSheetMover(object):
     def script_moveSheetRight(self, gesture):
         """
         Command to move the current sheet one position to the right.
+        
+        Architectural Intent & Considerations:
+        Maps standard NVDA structural navigation keys to sheet movement.
         """
         self._move_sheet("right")
 
@@ -152,6 +155,9 @@ class QuickSheetMover(object):
     def script_moveSheetStart(self, gesture):
         """
         Command to move the current sheet to the first position.
+        
+        Architectural Intent & Considerations:
+        Maps standard NVDA structural navigation keys to sheet movement.
         """
         self._move_sheet("start")
 
@@ -162,6 +168,9 @@ class QuickSheetMover(object):
     def script_moveSheetEnd(self, gesture):
         """
         Command to move the current sheet to the last position.
+        
+        Architectural Intent & Considerations:
+        Maps standard NVDA structural navigation keys to sheet movement.
         """
         self._move_sheet("end")
 

@@ -40,6 +40,12 @@ class BulkSheetOrganizer(object):
             def _do_com_moves():
                 """
                 Executes the queued sheet moves via Excel COM automation.
+                
+                Architectural Intent & Considerations:
+                Moving sheets via COM changes their `.Index` dynamically. If we moved them sequentially, 
+                subsequent moves would be calculated against shifted indexes, resulting in chaos. 
+                Instead, we calculate the absolute final array order in memory, and then mathematically 
+                insert them one-by-one working strictly backwards from the end.
                 """
                 import comtypes.client
                 import comtypes.automation
@@ -165,7 +171,11 @@ class BulkSheetOrganizer(object):
 class ExcelBulkSheetOrganizerDialog(wx.Dialog):
     """
     A custom wxPython Dialog that provides a fully accessible interface for bulk moving sheets.
-    wxPython is the GUI framework used by NVDA.
+    
+    Architectural Intent & Considerations:
+    Complex multi-step operations like reordering 15 sheets cannot be done via simple NVDA speech prompts. 
+    We build a native WX dialog with Comboboxes and a ListCtrl so the user can review, modify, and delete 
+    their planned moves before committing them to the irreversible COM execution.
     """
     def __init__(self, parent, sheet_names):
         super().__init__(parent, title="Bulk Sheet Organizer")
