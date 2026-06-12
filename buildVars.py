@@ -81,7 +81,7 @@ baseLanguage = "en"
 # If you need to add support for markup such as tables, fill out the below list.
 # Extensions string must be of the format "markdown.extensions.extensionName"
 # e.g. "markdown.extensions.tables" to add tables.
-markdownExtensions = []
+markdownExtensions = ["markdown.extensions.tables"]
 
 # Added for SCons compatibility
 brailleTables = []
