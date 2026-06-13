@@ -70,6 +70,24 @@ class BOASettingsPanel(SettingsPanel):
                     sizer.Add(cb)
                     group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
                     self.checkboxes[app_name][feature_key] = cb
+                elif feature_key == "end_of_data_radar":
+                    sizer = wx.BoxSizer(wx.HORIZONTAL)
+                    lbl = wx.StaticText(self, label=label)
+                    sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
+                    choices = ["Off", "Strict Memory Check (CountA)", "Visible Data Only (Math Engine)"]
+                    cb = wx.Choice(self, choices=choices)
+                    val = config.get(app_name, {}).get(feature_key, "counta")
+                    
+                    if val == "off":
+                        cb.SetSelection(0)
+                    elif val == "visible":
+                        cb.SetSelection(2)
+                    else:
+                        cb.SetSelection(1)
+                    cb.SetToolTip("Select the engine used to detect the end of data in a row or column.")
+                    sizer.Add(cb)
+                    group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
+                    self.checkboxes[app_name][feature_key] = cb
                 else:
                     cb = wx.CheckBox(self, label=label)
                     # Set initial value from config
@@ -129,6 +147,15 @@ class BOASettingsPanel(SettingsPanel):
                         val = "guided"
                     else:
                         val = "one_time"
+                    boa_config.set_feature_state(app, feature_key, val)
+                elif feature_key == "end_of_data_radar":
+                    sel = cb.GetSelection()
+                    if sel == 0:
+                        val = "off"
+                    elif sel == 2:
+                        val = "visible"
+                    else:
+                        val = "counta"
                     boa_config.set_feature_state(app, feature_key, val)
                 else:
                     boa_config.set_feature_state(app, feature_key, cb.GetValue())
