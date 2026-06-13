@@ -107,6 +107,21 @@ To prevent keystroke conflicts with other NVDA plugins, BOA uses a **Command Pre
 
 ## 🛠️ Changelog
 
+### Version 1.5.0 
+#### New Features
+##### End of Data Radar
+When navigating through large spreadsheets, it can be difficult to tell if an empty cell means you've reached the end of a list, or if there is simply a gap in the data. The **End of Data Radar** acts as a smart perimeter check to save you from blindly arrowing through empty space.
+Whenever you navigate into an empty cell, BOA instantly scans the remaining cells in your direction of travel. If there is absolutely no data left, it will proactively announce:
+* *"No more data below"*
+* *"No more data above"*
+* *"No more data to the right"*
+* *"No more data to the left"*
+**Configuration Options:**
+You can configure this feature via `NVDA Preferences -> Settings -> BOA Office Enhancements`. Because spreadsheets can contain hidden complexities (like invisible formulas or collapsed rows), the radar provides three operating modes:
+1. **Off**: Disables the radar entirely.
+2. **Strict Memory Check (CountA) [Default]**: The safest and fastest approach. It checks the raw memory of the spreadsheet. If it detects *anything* below you (including hidden rows, text, numbers, or invisible formulas), it stays completely silent to prevent false alarms. It only announces "No more data" when the remainder of the sheet is 100% mathematically blank.
+3. **Visible Data Only (Math Engine)**: A highly advanced engine designed for complex sheets. It intelligently filters out hidden rows and invisible formulas (e.g., `=""`). It will only stay silent if there are actual, visible numbers or text left in your path.
+
 ### Version 1.4 - 2026-06-12
 #### New Features
 * **Cell Monitor:** Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.
