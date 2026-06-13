@@ -29,7 +29,7 @@ DEFAULT_CONFIG = {
         "auto_announce_first_block": "one_time",
         "conditional_formatting": True,
         "cell_monitor": True,
-        "end_of_data_radar": "counta"
+        "end_of_data_radar": True
     },
     "powerpoint": {
         "standard_color_grid": True,
@@ -71,15 +71,16 @@ def load_config():
                             # If the user had a saved preference for this feature, apply it
                             if feature in saved_config[app]:
                                 val = saved_config[app][feature]
-                                if feature in ["auto_announce_first_block", "end_of_data_radar"]:
-                                    # Migrate old boolean values to new combo box states
-                                    if feature == "auto_announce_first_block":
-                                        if val is True: val = "one_time"
-                                        elif val is False: val = "off"
-                                    elif feature == "end_of_data_radar":
-                                        if val is True: val = "counta"
-                                        elif val is False: val = "off"
+                                if feature == "auto_announce_first_block":
+                                    if val is True: val = "one_time"
+                                    elif val is False: val = "off"
                                     _current_config[app][feature] = str(val)
+                                elif feature == "end_of_data_radar":
+                                    # Handle cleanup of old string values ("off", "counta", "find")
+                                    if val == "off" or val is False or val == "False":
+                                        _current_config[app][feature] = False
+                                    else:
+                                        _current_config[app][feature] = True
                                 else:
                                     _current_config[app][feature] = bool(val)
         except Exception as e:
@@ -121,7 +122,7 @@ def set_feature_state(app, feature, state):
     if _current_config is None:
         load_config()
     if app in _current_config and feature in _current_config[app]:
-        if feature in ["auto_announce_first_block", "end_of_data_radar"]:
+        if feature == "auto_announce_first_block":
             _current_config[app][feature] = str(state)
         else:
             _current_config[app][feature] = bool(state)

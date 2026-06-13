@@ -414,7 +414,7 @@ class CellNavigationTracker(object):
             # --- End of Data Radar (Empty Cell Tracker) ---
             # Architectural Intent: Acts as a radar to inform the user if there is no more data left 
             # in the direction they are traveling, preventing them from blindly arrowing through empty space.
-            if boa_config.get_feature_state("excel", "end_of_data_radar") != "off":
+            if boa_config.get_feature_state("excel", "end_of_data_radar"):
                 if (row_changed or col_changed) and _last_focused_row is not None and _last_focused_col is not None:
                     is_empty = False
                     try:
@@ -429,46 +429,37 @@ class CellNavigationTracker(object):
                         sheet = excel.ActiveSheet
                         max_row = sheet.Rows.Count
                         max_col = sheet.Columns.Count
-                        radar_mode = boa_config.get_feature_state("excel", "end_of_data_radar")
-                        
-                        def has_data(rng):
-                            if radar_mode == "counta":
-                                return excel.WorksheetFunction.CountA(rng) > 0
-                            elif radar_mode == "find":
-                                # -4163 = xlValues. Searches for visible text, ignoring invisible formulas.
-                                try:
-                                    return rng.Find("*", LookIn=-4163) is not None
-                                except Exception:
-                                    return False
-                            return True
                         
                         try:
                             # Moving Down
                             if current_row > _last_focused_row and col_changed == False:
                                 if current_row < max_row:
+                                    # Use Excel's ultra-fast native C++ engine via WorksheetFunction.CountA 
+                                    # to count non-blank cells from the cell exactly below the current one, 
+                                    # stretching all the way to the absolute bottom of the sheet.
                                     rng = sheet.Range(sheet.Cells(current_row + 1, current_col), sheet.Cells(max_row, current_col))
-                                    if not has_data(rng):
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
                                         ui.message("No more data below")
                                         
                             # Moving Up
                             elif current_row < _last_focused_row and col_changed == False:
                                 if current_row > 1:
                                     rng = sheet.Range(sheet.Cells(1, current_col), sheet.Cells(current_row - 1, current_col))
-                                    if not has_data(rng):
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
                                         ui.message("No more data above")
                                         
                             # Moving Right
                             elif current_col > _last_focused_col and row_changed == False:
                                 if current_col < max_col:
                                     rng = sheet.Range(sheet.Cells(current_row, current_col + 1), sheet.Cells(current_row, max_col))
-                                    if not has_data(rng):
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
                                         ui.message("No more data to the right")
                                         
                             # Moving Left
                             elif current_col < _last_focused_col and row_changed == False:
                                 if current_col > 1:
                                     rng = sheet.Range(sheet.Cells(current_row, 1), sheet.Cells(current_row, current_col - 1))
-                                    if not has_data(rng):
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
                                         ui.message("No more data to the left")
                         except Exception as e:
                             try:
