@@ -88,7 +88,8 @@ class BOASettingsPanel(SettingsPanel):
             "sheet_layout_analyzer": "Enable Sheet &Layout Analyzer via NVDA+E, L",
             "auto_announce_first_block": "Sheet Layout Auto-Announce &Mode:",
             "conditional_formatting": "Conditional &Formatting and color",
-            "cell_monitor": "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
+            "cell_monitor": "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)",
+            "end_of_data_radar": "Announce when there is no more data in the direction you are &navigating"
         }
         create_group("excel", "Excel Enhancements", excel_features)
         

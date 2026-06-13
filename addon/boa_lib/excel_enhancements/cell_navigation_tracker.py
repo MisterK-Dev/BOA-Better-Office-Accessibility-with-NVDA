@@ -411,6 +411,63 @@ class CellNavigationTracker(object):
     
                 # Check right boundary
 
+            # --- End of Data Radar (Empty Cell Tracker) ---
+            # Architectural Intent: Acts as a radar to inform the user if there is no more data left 
+            # in the direction they are traveling, preventing them from blindly arrowing through empty space.
+            if boa_config.get_feature_state("excel", "end_of_data_radar"):
+                if (row_changed or col_changed) and _last_focused_row is not None and _last_focused_col is not None:
+                    is_empty = False
+                    try:
+                        val = active_cell.Value
+                        text = active_cell.Text
+                        if val is None or str(text).strip() == "":
+                            is_empty = True
+                    except Exception:
+                        pass
+                        
+                    if is_empty:
+                        sheet = excel.ActiveSheet
+                        max_row = sheet.Rows.Count
+                        max_col = sheet.Columns.Count
+                        
+                        try:
+                            # Moving Down
+                            if current_row > _last_focused_row and col_changed == False:
+                                if current_row < max_row:
+                                    # Use Excel's ultra-fast native C++ engine via WorksheetFunction.CountA 
+                                    # to count non-blank cells from the cell exactly below the current one, 
+                                    # stretching all the way to the absolute bottom of the sheet.
+                                    rng = sheet.Range(sheet.Cells(current_row + 1, current_col), sheet.Cells(max_row, current_col))
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
+                                        ui.message("No more data below")
+                                        
+                            # Moving Up
+                            elif current_row < _last_focused_row and col_changed == False:
+                                if current_row > 1:
+                                    rng = sheet.Range(sheet.Cells(1, current_col), sheet.Cells(current_row - 1, current_col))
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
+                                        ui.message("No more data above")
+                                        
+                            # Moving Right
+                            elif current_col > _last_focused_col and row_changed == False:
+                                if current_col < max_col:
+                                    rng = sheet.Range(sheet.Cells(current_row, current_col + 1), sheet.Cells(current_row, max_col))
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
+                                        ui.message("No more data to the right")
+                                        
+                            # Moving Left
+                            elif current_col < _last_focused_col and row_changed == False:
+                                if current_col > 1:
+                                    rng = sheet.Range(sheet.Cells(current_row, 1), sheet.Cells(current_row, current_col - 1))
+                                    if excel.WorksheetFunction.CountA(rng) == 0:
+                                        ui.message("No more data to the left")
+                        except Exception as e:
+                            try:
+                                import logHandler
+                                logHandler.log.debug(f"BOA: End of data radar failed: {e}")
+                            except Exception:
+                                pass
+
             _last_focused_row = current_row
             _last_focused_col = current_col
             

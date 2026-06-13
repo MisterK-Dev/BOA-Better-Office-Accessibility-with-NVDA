@@ -10,11 +10,11 @@ BOA is a powerful suite of accessibility enhancements for Microsoft Office, desi
 | :--- | :--- | :--- |
 | **Enter Command Mode** | `NVDA+E` | Activates Command Prefix Mode (triggers a high-pitched beep) |
 | **Analyze Sheet Layout** | `NVDA+E`, then `L` | Run within Excel before navigating data blocks |
-| **Jump to Nearest Data Block** | `NVDA+E`, then `J` | Requires Layout Analysis first |
+| **Jump to Nearest Data Block** | `NVDA+E`, then `J` /  | Requires Layout Analysis first |
 | **Open Bulk Sheet Organizer** | `NVDA+E`, then `X` | Opens the accessible sheet reordering dialog |
-| **Move Active Sheet Left** | `NVDA+Shift+LeftArrow` | Shifts the active sheet one position up |
-| **Move Active Sheet Right** | `NVDA+Shift+RightArrow` | Shifts the active worksheet one position down |
-| **Move Sheet to Start/End** | `NVDA+Shift+Home` or `End` | Sends worksheet to the absolute boundaries |
+| **Move Active Sheet Left** | `NVDA+Shift+LeftArrow` | Shifts the active sheet one position up|
+| **Move Active Sheet Right** | `NVDA+Shift+RightArrow` | Shifts the active worksheet one position down|
+| **Move Sheet to Start/End** | `NVDA+Shift+Home` / `End` | Sends worksheet to the absolute absolute boundaries |
 | **Detailed Conditional Formatting**| `NVDA+E`, then `F` | Announces complete formatting details of focused cell |
 | **Map Cell to Memory Slot** | `NVDA+E`, then `Shift+1` to `Shift+9` | Assigns current cell to a background monitor slot |
 | **Read Monitored Cell Slot** | `NVDA+E`, then `1` to `9` | Recalls and reads the value of the assigned slot |
@@ -31,7 +31,7 @@ BOA is a powerful suite of accessibility enhancements for Microsoft Office, desi
 #### 1. Sheet Layout Analyzer & Caching
 Instantly scan any Excel worksheet to understand its structure, hidden elements, and data blocks.
 * **How it works:** BOA quickly scans the sheet and announces active data blocks. It also warns you about **Hidden Worksheet Tabs**, active **Filters**, **Protected Modes**, and **Hidden Outer Boundaries** (e.g., if columns near the right edge of the sheet are hidden, preventing you from missing off-screen data).
-* **Data Navigation:** After scanning, you can use `NVDA+E` then `J` to instantly warp your cursor to the nearest discovered data block, effortlessly bypassing thousands of empty cells.
+* **Data Navigation:** After scanning, you can use the data block jump hotkeys to instantly warp your cursor between discovered data blocks, effortlessly bypassing thousands of empty cells.
 
 #### 2. Bulk Sheet Organizer
 Instantly reorder and arrange multiple sheets at once using a fully accessible dialog .
