@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.4.0</title>
+<title>BOA: Better Office Accessibility 1.5.0</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
@@ -166,6 +166,20 @@
 </ol>
 <hr />
 <h2>🛠️ Changelog</h2>
+<h3>Version 1.5.0</h3>
+<h4>New Features</h4>
+<h5>End of Data Radar</h5>
+<p>When navigating through large spreadsheets, it can be difficult to tell if an empty cell means you've reached the end of a list, or if there is simply a gap in the data. The <strong>End of Data Radar</strong> acts as a smart perimeter check to save you from blindly arrowing through empty space.
+Whenever you navigate into an empty cell, BOA instantly scans the remaining cells in your direction of travel. If there is absolutely no data left, it will proactively announce:
+* <em>"No more data below"</em>
+* <em>"No more data above"</em>
+* <em>"No more data to the right"</em>
+* <em>"No more data to the left"</em>
+<strong>Configuration Options:</strong>
+You can configure this feature via <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code>. Because spreadsheets can contain hidden complexities (like invisible formulas or collapsed rows), the radar provides three operating modes:
+1. <strong>Off</strong>: Disables the radar entirely.
+2. <strong>Strict Memory Check (CountA) [Default]</strong>: The safest and fastest approach. It checks the raw memory of the spreadsheet. If it detects <em>anything</em> below you (including hidden rows, text, numbers, or invisible formulas), it stays completely silent to prevent false alarms. It only announces "No more data" when the remainder of the sheet is 100% mathematically blank.
+3. <strong>Visible Data Only (Math Engine)</strong>: A highly advanced engine designed for complex sheets. It intelligently filters out hidden rows and invisible formulas (e.g., <code>=""</code>). It will only stay silent if there are actual, visible numbers or text left in your path.</p>
 <h3>Version 1.4 - 2026-06-12</h3>
 <h4>New Features</h4>
 <ul>
