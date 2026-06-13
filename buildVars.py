@@ -51,7 +51,7 @@ PowerPoint Features:
     # True if the addon requires an update to the manifest format.
     "addon_updateChannel": "dev",
     # Changelog URL or None
-    "addon_changelog": "https://github.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA#changelog",
+    "addon_changelog": "https://raw.githubusercontent.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA/main/CHANGELOG.md",
 }
 
 # Define the python files that are the sources of your add-on.
