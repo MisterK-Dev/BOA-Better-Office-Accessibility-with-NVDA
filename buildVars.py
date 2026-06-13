@@ -11,7 +11,7 @@ addon_info = {
     "addon_summary": "BOA: Better Office Accessibility",
     # Add-on description
     "addon_description": """A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users.
-
+I recommend to check whats new for complete change log and help file for features. just given below some details for refference. now onwards i avoide updating description section.
 New in v1.4.0:
 - Cell Monitor : Press NVDA+E, Shift+1 to 9 to map specific cells to memory slots. You can jump back and read them anytime using NVDA+E and the number.
 - Continuous Background Monitoring: Slotted cells are automatically monitored. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually with NVDA+E then M. Clear all with NVDA+E then Backspace.
@@ -35,7 +35,7 @@ Excel Features:
 PowerPoint Features:
 - Accessible Color Pickers: Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
 - Standard Color Grid Support: Intercepts arrow keys to read hidden color Hex codes from the inaccessible color hexagon.""",
-    "addon_version": "1.4.0",
+    "addon_version": "1.5.0",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
@@ -49,7 +49,7 @@ PowerPoint Features:
     # Last NVDA version supported/tested
     "addon_lastTestedNVDAVersion": "2026.1.1",
     # True if the addon requires an update to the manifest format.
-    "addon_updateChannel": "dev",
+    "addon_updateChannel": "stable",
     # Changelog URL or None
     "addon_changelog": "https://raw.githubusercontent.com/MisterK-Dev/BOA-Better-Office-Accessibility-with-NVDA/main/CHANGELOG.md",
 }
