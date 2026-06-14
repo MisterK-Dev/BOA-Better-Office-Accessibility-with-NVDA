@@ -16,8 +16,8 @@ Before doing any translation, the Main Agent MUST ensure the master template is 
 
 ### 2. Supported Languages Target List
 The default execution pipeline targets the following languages.
-- **Global Batch:** `es` (Spanish), `fr` (French), `de` (German), `pt` (Portuguese), `zh_CN` (Chinese), `ja` (Japanese), `ru` (Russian), `ar` (Arabic), `it` (Italian)
-- **Indian Batch:** `hi` (Hindi), `ta` (Tamil), `te` (Telugu), `mr` (Marathi), `bn` (Bengali), `kn` (Kannada), `gu` (Gujarati), `ml` (Malayalam)
+- **Global Batch:** `es` (Spanish), `fr` (French), `de` (German), `pt` (Portuguese), `zh_CN` (Chinese), `ja` (Japanese), `ru` (Russian), `ar` (Arabic), `it` (Italian), `tr` (Turkish), `pl` (Polish), `ko` (Korean), `uk` (Ukrainian), `cs` (Czech)
+- **Indian Batch:** `hi` (Hindi), `ta` (Tamil), `te` (Telugu), `mr` (Marathi), `bn` (Bengali), `kn` (Kannada), `gu` (Gujarati), `ml` (Malayalam), `ur` (Urdu), `pa` (Punjabi)
 
 ### 3. Translation Safety Protocol & Glossary (CRITICAL)
 Subagents must strictly adhere to the following when translating `msgid` to `msgstr` or translating the `readme.md`:
@@ -47,6 +47,8 @@ Treat the following terms as strict Microsoft Office and NVDA technical jargon. 
 2. **Never break `_()` syntax:** The final `.po` output must perfectly adhere to the GNU `gettext` format.
 3. **STRICT UTF-8 ENCODING (CRITICAL):** You MUST write the `.po` and `.md` files in strict, pure UTF-8 encoding. Any accents, special characters, or diacritics must be native. Do NOT hallucinate corrupted fallback bytes.
 4. **NO FUZZY HEADERS (CRITICAL):** When generating the `.po` file from `BOA.pot`, you MUST REMOVE the `#, fuzzy` line from the metadata header. If the header is left as fuzzy, the binary compilation will silently strip the `charset=utf-8` definition, causing the entire language to fall back to English!
+5. **Trailing Newlines Match (CRITICAL):** Subagents MUST ensure that if the English `msgid` does NOT end with a newline (`\n`), the translated `msgstr` must also NOT end with a newline. If the `msgid` ends with `\n`, the `msgstr` MUST end with `\n`. Mismatches will cause the `msgfmt` compiler to permanently crash during `scons`.
+6. **Syntax Artifact Sanitization:** Subagents must intelligently ignore and omit obvious code artifacts (e.g., stray `"""),` strings) if they appear to be accidental copy-paste errors from Python code into the English Markdown files.
 
 ### 4. Parallel Subagent Delegation (Antigravity 2 Architecture)
 Do NOT translate all languages synchronously on the main thread.
@@ -64,4 +66,5 @@ Each subagent receives the following exact task:
 The Main Agent MUST wait for all subagents across all batches to report success.
 Once confirmed:
 * Execute the terminal command: `scons` (or `scons merge`) to force the `.po` files to compile into binary `.mo` files and convert the `readme.md` files into `readme.html`.
+* **Scons Error Recovery:** If `scons` fails with a translation formatting error (e.g., `msgfmt` trailing newline crash), do NOT panic. Immediately execute the `Build Fixer` skill (`.agent/skills/build_fixer/build_fixer.md`) to automatically run Python recovery scripts and re-run `scons`.
 * Confirm to the user that the highly parallelized translation pipeline has finished successfully.
