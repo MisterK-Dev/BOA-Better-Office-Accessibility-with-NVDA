@@ -1,8 +1,17 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
 import globalPluginHandler
 
 from logHandler import log
 import os
 import sys
+import addonHandler
+
+# Initialize gettext translation for the addon domain
+addonHandler.initTranslation()
 
 # Dynamically add the 'boa_lib' directory to sys.path.
 # This ensures that NVDA can import our custom external logic files (excel_enhancement, powerpoint_enhancement)

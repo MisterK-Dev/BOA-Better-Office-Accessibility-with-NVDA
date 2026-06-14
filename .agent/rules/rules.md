@@ -58,3 +58,18 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 
 ## 13. Safe Event Hooking (`nextHandler`)
 - **Event Forwarding**: When hooking into global NVDA events (like `event_NVDAObject_init` or `event_gainFocus`), you must *always* execute the fallback `nextHandler()` or `super()` method at the end of your logic. Failing to do so will intercept the event completely, effectively blinding NVDA and permanently breaking its ability to read standard Windows objects.
+
+## 14 Internationalization (i18n) & Translation Governance
+1. **Strict Wrapping:** Any new user-facing English strings (UI labels, dialogs, speech announcements) MUST be wrapped in the `_()` translation function.
+2. **No F-Strings:** You MUST NEVER use Python f-strings for user-facing text (e.g., `_("Row {r}")`). You must use `.format()` structures (e.g., `_("Row {r}").format(r=row_num)`) to ensure translation tools can extract the template cleanly.
+3. **Auto-POT Generation:** Upon completing any new feature or modifying existing user-facing strings, you MUST automatically run the `scons pot` command to regenerate the master `BOA.pot` template.
+4. **Agent Auto-Translation Skill:** After generating the `.pot` file, if the user requests translation, you must execute the multi-lingual translation pipeline. Refer to `.agent/skills/translation_pipeline/translation_pipeline.md` for the exact step-by-step instructions.
+
+## 15. Copyright & Licensing
+- **Mandatory Headers**: Every new Python (`.py`) file created or modified for this project MUST include the standard copyright header at the very top of the file:
+```python
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+```

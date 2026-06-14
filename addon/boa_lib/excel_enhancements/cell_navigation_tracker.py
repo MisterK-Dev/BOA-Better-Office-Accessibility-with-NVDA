@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import NVDAObjects.UIA
 import NVDAObjects.IAccessible
 import NVDAObjects.window.edit
@@ -105,7 +113,7 @@ def _do_check_unselect():
                 if count == 1 and _last_selection_count > 1:
                     if boa_config.get_feature_state("excel", "unselect_tracking"):
                         import ui
-                        ui.message("unselected")
+                        ui.message(_("unselected"))
                 _last_selection_count = count
     except Exception:
         pass
@@ -199,7 +207,7 @@ class CellNavigationTracker(object):
                         
                         if boa_config.get_feature_state("excel", "unselect_tracking"):
                             spoken_address = address.replace(":", " through ")
-                            ui.message(f"{spoken_address} selected")
+                            ui.message(_("{address} selected").format(address=spoken_address))
                     else:
                         # Selection collapsed to single cell — reset tracker
                         _last_announced_address = None
@@ -325,14 +333,14 @@ class CellNavigationTracker(object):
                             if hidden_count > 0:
                                 if not fragmented:
                                     if hidden_count == 1:
-                                        ui.message(f"Row {first_hidden} hidden")
+                                        ui.message(_("Row {row_num} hidden").format(row_num=first_hidden))
                                     else:
                                         if first_hidden == min_r + 1 and last_hidden == max_r - 1 and (max_r - min_r - 1) >= 500:
-                                            ui.message(f"Rows {min_r + 1} through {max_r - 1} hidden")
+                                            ui.message(_("Rows {start} through {end} hidden").format(start=min_r + 1, end=max_r - 1))
                                         else:
-                                            ui.message(f"Rows {first_hidden} through {last_hidden} hidden")
+                                            ui.message(_("Rows {start} through {end} hidden").format(start=first_hidden, end=last_hidden))
                                 else:
-                                    ui.message("Crossed heavily fragmented hidden rows")
+                                    ui.message(_("Crossed heavily fragmented hidden rows"))
                                     
                                 if current_row > _last_focused_row:
                                     skip_announced_top = True
@@ -395,14 +403,14 @@ class CellNavigationTracker(object):
                             if hidden_count > 0:
                                 if not fragmented:
                                     if hidden_count == 1:
-                                        ui.message(f"Column {col_num_to_letter(first_hidden)} hidden")
+                                        ui.message(_("Column {col_letter} hidden").format(col_letter=col_num_to_letter(first_hidden)))
                                     else:
                                         if first_hidden == min_c + 1 and last_hidden == max_c - 1 and (max_c - min_c - 1) >= 500:
-                                            ui.message(f"Columns {col_num_to_letter(min_c + 1)} through {col_num_to_letter(max_c - 1)} hidden")
+                                            ui.message(_("Columns {start} through {end} hidden").format(start=col_num_to_letter(min_c + 1), end=col_num_to_letter(max_c - 1)))
                                         else:
-                                            ui.message(f"Columns {col_num_to_letter(first_hidden)} through {col_num_to_letter(last_hidden)} hidden")
+                                            ui.message(_("Columns {start} through {end} hidden").format(start=col_num_to_letter(first_hidden), end=col_num_to_letter(last_hidden)))
                                 else:
-                                    ui.message("Crossed heavily fragmented hidden columns")
+                                    ui.message(_("Crossed heavily fragmented hidden columns"))
                                     
                                 if current_col > _last_focused_col:
                                     skip_announced_left = True
@@ -457,28 +465,28 @@ class CellNavigationTracker(object):
                                 if current_row < max_row:
                                     rng = sheet.Range(sheet.Cells(current_row + 1, current_col), sheet.Cells(max_row, current_col))
                                     if not has_data(rng):
-                                        ui.message("No more data below")
+                                        ui.message(_("No more data below"))
                                         
                             # Moving Up
                             elif current_row < _last_focused_row and col_changed == False:
                                 if current_row > 1:
                                     rng = sheet.Range(sheet.Cells(1, current_col), sheet.Cells(current_row - 1, current_col))
                                     if not has_data(rng):
-                                        ui.message("No more data above")
+                                        ui.message(_("No more data above"))
                                         
                             # Moving Right
                             elif current_col > _last_focused_col and row_changed == False:
                                 if current_col < max_col:
                                     rng = sheet.Range(sheet.Cells(current_row, current_col + 1), sheet.Cells(current_row, max_col))
                                     if not has_data(rng):
-                                        ui.message("No more data to the right")
+                                        ui.message(_("No more data to the right"))
                                         
                             # Moving Left
                             elif current_col < _last_focused_col and row_changed == False:
                                 if current_col > 1:
                                     rng = sheet.Range(sheet.Cells(current_row, 1), sheet.Cells(current_row, current_col - 1))
                                     if not has_data(rng):
-                                        ui.message("No more data to the left")
+                                        ui.message(_("No more data to the left"))
                         except Exception as e:
                             try:
                                 import logHandler
@@ -541,9 +549,9 @@ class CellNavigationTracker(object):
             current_freeze = excel.ActiveWindow.FreezePanes
             if _last_freeze_panes_state is not None and current_freeze != _last_freeze_panes_state:
                 if current_freeze:
-                    ui.message("Panes frozen")
+                    ui.message(_("Panes frozen"))
                 else:
-                    ui.message("Panes unfrozen")
+                    ui.message(_("Panes unfrozen"))
             _last_freeze_panes_state = current_freeze
             
             # Check sheet counts and hidden sheets
@@ -566,7 +574,7 @@ class CellNavigationTracker(object):
                             for i in range(min_s + 1, max_s):
                                 sheet = excel.ActiveWorkbook.Sheets(i)
                                 if sheet.Visible != -1:  # -1 is xlSheetVisible
-                                    ui.message(f"{sheet.Name} hidden")
+                                    ui.message(_("{sheet} hidden").format(sheet=sheet.Name))
                     except Exception:
                         pass
 
@@ -578,9 +586,9 @@ class CellNavigationTracker(object):
                 
                 if _last_visible_sheet_count is not None and current_visible != _last_visible_sheet_count:
                     if current_visible < _last_visible_sheet_count:
-                        ui.message("Sheet hidden")
+                        ui.message(_("Sheet hidden"))
                     else:
-                        ui.message("Sheet unhidden")
+                        ui.message(_("Sheet unhidden"))
                 _last_visible_sheet_count = current_visible
             except Exception:
                 pass
@@ -763,7 +771,7 @@ class CellNavigationTracker(object):
                 # Only announce if the state successfully changed to avoid false positives
                 if is_hidden is not None and is_hidden != initial_state:
                     state_str = "hidden" if is_hidden else "unhidden"
-                    ui.message(f"{address_str} {state_str}")
+                    ui.message(_("{address} {state}").format(address=address_str, state=state_str))
         except Exception as e:
             logHandler.log.debugWarning(f"BOA: Failed to verify {element_type} visibility change. {e}")
 

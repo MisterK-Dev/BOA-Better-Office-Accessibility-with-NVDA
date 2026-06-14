@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import controlTypes
 from logHandler import log
 import UIAHandler
@@ -49,7 +57,7 @@ class QuickSheetMover(object):
                         hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
             
             if not hwnd7:
-                ui.message("Could not find Excel grid.")
+                ui.message(_("Could not find Excel grid."))
                 return
                 
             oleacc = ctypes.windll.oleacc
@@ -64,7 +72,7 @@ class QuickSheetMover(object):
             )
             
             if res != 0 or not ptr:
-                ui.message("Failed to hook Excel.")
+                ui.message(_("Failed to hook Excel."))
                 return
                 
             # Cast the IDispatch pointer into a usable COM object
@@ -77,31 +85,31 @@ class QuickSheetMover(object):
             total_sheets = wb.Sheets.Count
             
             if total_sheets <= 1:
-                ui.message("Only one sheet in workbook")
+                ui.message(_("Only one sheet in workbook"))
                 return
                 
             if direction == "left":
                 if current_index == 1:
-                    ui.message("Already at beginning")
+                    ui.message(_("Already at beginning"))
                     return
                 # Move before the previous sheet
                 sheet.Move(wb.Sheets(current_index - 1))
             elif direction == "right":
                 if current_index == total_sheets:
-                    ui.message("Already at end")
+                    ui.message(_("Already at end"))
                     return
                 # To move right, we just move the right neighbor before us!
                 # (Excel's Move method lacks a reliable 'After' parameter when dynamically dispatched)
                 wb.Sheets(current_index + 1).Move(sheet)
             elif direction == "start":
                 if current_index == 1:
-                    ui.message("Already at beginning")
+                    ui.message(_("Already at beginning"))
                     return
                 # Move before the very first sheet
                 sheet.Move(wb.Sheets(1))
             elif direction == "end":
                 if current_index == total_sheets:
-                    ui.message("Already at end")
+                    ui.message(_("Already at end"))
                     return
                 # Two-step COM trick to move to the very end without the broken 'After' parameter:
                 # 1. Move our sheet BEFORE the very last sheet (if we aren't already just before it)
@@ -116,9 +124,10 @@ class QuickSheetMover(object):
             
             new_index = excel.ActiveSheet.Index
             sheet_name = excel.ActiveSheet.Name
-            ui.message(f"Moved {sheet_name} to position {new_index} of {total_sheets}")
+            ui.message(_("Moved {sheet} to position {new_idx} of {total}").format(
+                sheet=sheet_name, new_idx=new_index, total=total_sheets))
         except Exception as e:
-            ui.message("Failed to move sheet")
+            ui.message(_("Failed to move sheet"))
             import logHandler
             logHandler.log.error(f"ExcelGridMover error: {e}")
 

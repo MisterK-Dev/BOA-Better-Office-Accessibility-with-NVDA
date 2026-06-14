@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import math
 
 class ConditionalFormattingTracker:
@@ -134,16 +142,16 @@ class ConditionalFormattingTracker:
         try:
             cell = excel.ActiveCell
             if not cell:
-                ui.message("No active cell found.")
+                ui.message(_("No active cell found."))
                 return
                 
             try:
                 count = cell.FormatConditions.Count
                 if count == 0:
-                    ui.message("No conditional formatting rules applied to this cell.")
+                    ui.message(_("No conditional formatting rules applied to this cell."))
                     return
             except Exception:
-                ui.message("Failed to read format conditions.")
+                ui.message(_("Failed to read format conditions."))
                 return
                 
             rules_msgs = []
@@ -285,4 +293,4 @@ class ConditionalFormattingTracker:
             
         except Exception as e:
             log.debug(f"BOA: announce_deep_dive failed: {e}")
-            ui.message("Failed to analyze conditional formatting.")
+            ui.message(_("Failed to analyze conditional formatting."))

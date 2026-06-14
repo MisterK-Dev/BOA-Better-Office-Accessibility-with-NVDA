@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>BOA: Better Office Accessibility 1.6.0</title>
+</head>
+<body>
+<h1>BOA: 優れたオフィスアクセシビリティ (Better Office Accessibility)</h1>
+<p>BOAは、Microsoft Office向けの強力なアクセシビリティ拡張機能スイートであり、NVDAユーザーのスクリーンリーダー体験を大幅に向上させるために設計されています。アクセスできないUIコンポーネントを直接修正し、ExcelおよびPowerPoint向けの迅速なナビゲーションツールを導入します。</p>
+<hr />
+<h2>⌨️ ホットキーリファレンス</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">機能</th>
+<th style="text-align: left;">キーの組み合わせ</th>
+<th style="text-align: left;">コンテキスト / メモ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>コマンドモードの開始</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code></td>
+<td style="text-align: left;">コマンドプレフィックスモードをアクティブ化します (高音のビープ音が鳴ります)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>シートレイアウトの分析</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>L</code></td>
+<td style="text-align: left;">データブロックを移動する前にExcel内で実行します</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最も近いデータブロックへのジャンプ</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>J</code> /</td>
+<td style="text-align: left;">事前にレイアウト分析が必要です</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>一括シート整理ダイアログを開く</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>X</code></td>
+<td style="text-align: left;">アクセシブルなシート並べ替えダイアログを開きます</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アクティブなシートを左に移動</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
+<td style="text-align: left;">アクティブなシートを1つ上の位置に移動します</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>アクティブなシートを右に移動</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
+<td style="text-align: left;">アクティブなワークシートを1つ下の位置に移動します</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>シートを先頭/末尾に移動</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
+<td style="text-align: left;">ワークシートを絶対的な境界へ移動します</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>詳細な条件付き書式</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>F</code></td>
+<td style="text-align: left;">フォーカスされているセルの完全な書式設定の詳細を通知します</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>セルをメモリスロットにマップ</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>Shift+1</code> から <code>Shift+9</code></td>
+<td style="text-align: left;">現在のセルをバックグラウンドモニタースロットに割り当てます</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>監視対象セルのスロットを読み上げ</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>1</code> から <code>9</code></td>
+<td style="text-align: left;">割り当てられたスロットの値を呼び出して読み上げます</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>バックグラウンド監視の切り替え</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>M</code></td>
+<td style="text-align: left;">バックグラウンドの計算トラッキングを手動で切り替えます</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>すべてのメモリスロットをクリア</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>、次に <code>Backspace</code></td>
+<td style="text-align: left;">保存されたすべてのバックグラウンドセルモニターを消去します</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>コマンドモードのキャンセル</strong></td>
+<td style="text-align: left;"><code>Escape</code></td>
+<td style="text-align: left;">コマンドプレフィックスモードを終了します</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🚀 機能</h2>
+<h3>Excel拡張機能</h3>
+<h4>1. シートレイアウトアナライザーとキャッシュ</h4>
+<p>任意のExcelワークシートを即座にスキャンして、その構造、非表示の要素、およびデータブロックを理解します。
+* <strong>仕組み:</strong> BOAはシートをすばやくスキャンし、アクティブなデータブロックを通知します。また、<strong>非表示のワークシートタブ</strong>、アクティブな<strong>フィルター</strong>、<strong>保護モード</strong>、および<strong>非表示の端の境界線</strong> (たとえば、シートの右端近くの列が非表示になっており、画面外のデータを見逃すのを防ぐ場合) についても警告します。
+* <strong>データナビゲーション:</strong> スキャン後、データブロックジャンプホットキーを使用して、検出されたデータブロック間でカーソルを即座にワープさせ、何千もの空のセルを簡単にバイパスできます。</p>
+<h4>2. 一括シート整理</h4>
+<p>完全にアクセシブルなダイアログを使用して、複数のシートを一度に即座に並べ替え、配置します。
+* <strong>仕組み:</strong> シートを選択して新しい位置にマップできるダイアログを開きます。予定された移動はデータテーブルにリストされます (<code>Del</code>を押して間違いを削除します)。<code>OK</code>をクリックすると、ブックが即座に再配置されます。</p>
+<h4>3. クイックシート移動</h4>
+<p>キーボードショートカットを使用して、アクティブなシートを即座に左、右、先頭、または末尾に移動します。</p>
+<h4>4. アクセシブルなシート名前変更</h4>
+<ul>
+<li>シートの名前を変更する際、NVDAはネイティブで入力中の文字の読み上げに苦労します。</li>
+<li>BOAは<code>SafeRichEdit</code>エンジンを使用するカスタムの<code>ExcelSheetRenameEdit</code>クラスを挿入し、名前の変更中に文字、単語、または行ごとに正確に読み上げられるようにします。これは既存のデフォルトの名前変更動作を強化するものです。</li>
+</ul>
+<h4>5. 非表示行/列トラッカー</h4>
+<ul>
+<li>非表示やフィルターされたデータを見逃さないように、グリッド全体での移動を積極的に追跡します。</li>
+<li><strong>交差した断片化されたセル:</strong> グリッドの細かく断片化された、または非表示のセクションをジャンプして通過する場合 (たとえば、行4から9が非表示のため行3から行10に移動する場合)、BOAは明示的に「行 4 から 9 まで非表示」と通知します。これにより、構造内でデータがスキップされたことを常に把握できます。</li>
+</ul>
+<h4>6. 条件付き書式の通知</h4>
+<ul>
+<li>Excelの条件付き書式ルールによって動的に変更されたセルの色、フォントスタイル、背景の影を自動的に読み上げます。</li>
+<li>基礎となる生の値だけでなく、セルの真の視覚的状態を提供します。最初にセルにフォーカスした際、「条件付き書式が設定されています、その他の細かい詳細など」と通知します。包括的な情報については、詳細なホットキー設定であるNVDA EとFを使用してください。</li>
+</ul>
+<h4>7. 優れた選択通知</h4>
+<p>セルまたは範囲が選択されているか、または選択解除されているかを読み上げます。</p>
+<h4>8 セルモニター:</h4>
+<ul>
+<li><strong>セルモニター:</strong> コマンドパスを使用して、特定のセルをメモリスロットにマップします。割り当てられた数値スロットを使用して、いつでもジャンプして読み上げることができます。</li>
+<li><strong>継続的な監視:</strong> スロットに割り当てられたセルはバックグラウンドで自動的に監視されます。Excelが再計算やセルの編集をトリガーした場合、BOAは新しい値を即座に通知します。コマンドスロットを介して手動で切り替えたり、すべてをクリアしたりできます。</li>
+</ul>
+<h3>PowerPoint拡張機能</h3>
+<h4>1. アクセシブルなカラーピッカー</h4>
+<ul>
+<li>PowerPointのカスタムカラーダイアログのロックを解除します。</li>
+<li>「赤」、「緑」、「青」の編集ボックスを正しく識別して明示的に読み上げます (<code>PowerPointRGBEdit</code>をオーバーライドすることによって)。</li>
+<li>以前は不可視だったHex入力フィールドをマップし、NVDAがHexの完全なカラー値をきれいに読み上げられるようにします。</li>
+</ul>
+<h4>2. 標準色グリッドのサポート</h4>
+<ul>
+<li>PowerPointの「標準」色の六角形グリッドを移動すると、通常は「グラフィック」または無音として読み上げられます。</li>
+<li>BOAは六角形全体での矢印キーを追跡し、隠されたカラー値をサイレントにフェッチして、リアルタイムで通知します (たとえば、「色 #FF0000」)。</li>
+</ul>
+<h3>インフラストラクチャと技術的メカニズム</h3>
+<h4>コマンドプレフィックスモード</h4>
+<p>他のNVDAプラグインとのキーストロークの競合を防ぐため、BOAは<strong>コマンドプレフィックスモード</strong>を使用します:
+1. アクティブ化ホットキーを押してコマンドモードに入ります。高音のビープ音が聞こえます。
+2. セカンダリキーを押して特定の機能をトリガーします。
+3. 無効なキーを押すと、エラーのビープ音が聞こえます。</p>
+<h4>カスタマイズと設定パネル</h4>
+<ul>
+<li>BOAの機能は完全にモジュール化されており、いつでも有効または無効にできます。<code>NVDAメニュー -&gt; 設定 -&gt; 設定 -&gt; BOA オフィス拡張機能</code>に移動して、個々の機能のオン/オフを切り替えます。</li>
+<li><strong>インテリジェントなアクセラレータキー:</strong> パネル内のすべての設定は、数学的に一意の<code>Alt+キー</code>アクセラレータショートカットを備えています。たとえば、Excelグループに即座にジャンプするには<code>Alt+E</code>、PowerPointには<code>Alt+P</code>、Wordには<code>Alt+W</code>を押します。</li>
+<li>設定はスタンドアロンのJSONファイル (<code>boa_settings.json</code>) に安全に保存され、コアのNVDA構成が破損することはありません。</li>
+<li>今後Microsoft Officeがアクセシビリティのバグを公式に修正した場合、アドオンの残りの機能を失うことなく、BOAの特定のオーバーライドフックを安全に無効にすることができます。</li>
+</ul>
+<h4>セキュリティと統合の境界</h4>
+<ul>
+<li>クリップボードの挿入は、他のアプリケーションへのデータの漏洩を防ぐために、ウィンドウのフォアグラウンドプロセスIDを厳密に検証します。</li>
+<li>一部のカスタムホットキーは、NVDAの入力ジェスチャーダイアログの「Better Office Accessibility」カテゴリに完全に公開されています。</li>
+</ul>
+<hr />
+<h2>📋 要件</h2>
+<ul>
+<li><strong>NVDA:</strong> バージョン2026.1.0以降。</li>
+<li><strong>アプリケーション:</strong> Microsoft Excel および Microsoft PowerPoint。</li>
+</ul>
+<hr />
+<h2>💾 インストール</h2>
+<ol>
+<li>最新の <code>.nvda-addon</code> リリースファイルをダウンロードするか、ネイティブのNVDAアドオンストア内で見つけます。</li>
+<li>ファイルからインストールする場合は、ファイルを開くか、<code>NVDAのアドオンストア -&gt; 外部ファイルからインストール</code>を使用します。</li>
+<li>NVDAを再起動します。</li>
+</ol>
+<hr />
+<h2>🛠️ 変更履歴</h2>
+<h3>v1.6.0</h3>
+<ul>
+<li><strong>包括的な翻訳サポート</strong>: アドオンは17のグローバル言語をサポートし、完全にローカライズされました。
+  <em>(注: これらの翻訳はAIによって生成されたため、一部の軽微な翻訳エラーや不正確さが含まれる場合があります。)</em></li>
+<li><strong>厳格なコードガバナンス</strong>: コードベース全体にGPL-2.0の著作権ヘッダーを適用しました。</li>
+</ul>
+<h3>バージョン 1.5.0</h3>
+<h4>新機能</h4>
+<h5>データの終わりのレーダー (End of Data Radar)</h5>
+<p>大規模なスプレッドシートを移動する際、空のセルがリストの終わりを意味するのか、単にデータにギャップがあるだけなのかを判断するのは困難な場合があります。<strong>データの終わりのレーダー</strong>は、スマートな境界チェックとして機能し、何もない空間を盲目的に矢印キーで進むことからあなたを救います。
+空のセルに移動するたびに、BOAは即座に進行方向の残りのセルをスキャンします。データが全く残っていない場合、以下のように積極的に通知します:
+* <em>"下にこれ以上データはありません"</em>
+* <em>"上にこれ以上データはありません"</em>
+* <em>"右にこれ以上データはありません"</em>
+* <em>"左にこれ以上データはありません"</em>
+<strong>設定オプション:</strong>
+<code>NVDAの設定 -&gt; 設定 -&gt; BOA オフィス拡張機能</code>からこの機能を設定できます。スプレッドシートには(見えない数式や折りたたまれた行などの)隠された複雑さが含まれる可能性があるため、レーダーは3つの動作モードを提供します:
+1. <strong>オフ</strong>: レーダーを完全に無効にします。
+2. <strong>厳密なメモリチェック (CountA) [デフォルト]</strong>: 最も安全で高速なアプローチです。スプレッドシートの生メモリをチェックします。下に<em>何か</em> (非表示の行、テキスト、数字、見えない数式など) を検出した場合は、誤報を防ぐために完全に沈黙を保ちます。シートの残りの部分が数学的に100%空白の場合にのみ「これ以上データはありません」と通知します。
+3. <strong>表示データのみ (数式エンジン)</strong>: 複雑なシート向けに設計された高度なエンジンです。非表示の行や見えない数式 (たとえば <code>=""</code>) をインテリジェントに除外します。進行方向に実際の表示可能な数字やテキストが残っている場合にのみ沈黙を保ちます。</p>
+<h3>バージョン 1.4 - 2026-06-12</h3>
+<h4>新機能</h4>
+<ul>
+<li><strong>セルモニター:</strong> コマンドパスを使用して、特定のセルをメモリスロットにマップします。割り当てられた数値スロットを使用して、いつでもジャンプして読み上げることができます。</li>
+<li><strong>継続的な監視:</strong> スロットに割り当てられたセルはバックグラウンドで自動的に監視されます。Excelが再計算やセルの編集をトリガーした場合、BOAは新しい値を即座に通知します。コマンドスロットを介して手動で切り替えたり、すべてをクリアしたりできます。</li>
+</ul>
+<h4>バグ修正</h4>
+<h3>バージョン 1.3.0 — 2026-06-05</h3>
+<p><em>最終リリース。</em></p>
+<h4>新機能</h4>
+<ul>
+<li><strong>シートレイアウトアナライザー:</strong> 強力なレイアウトスキャンインフラストラクチャを追加しました。検出されたデータブロックをキャッシュしながら、ワークシートの保護、アクティブな列フィルター、非表示のワークシートタブ、および非表示の絶対境界を即座に検出します。</li>
+<li><strong>ガイド付きデータブロックナビゲーション:</strong> 分析後のナビゲーションにより、データの大規模なクラスター間の即時カーソルワープが可能になり、空のセルをシームレスにバイパスできます。</li>
+<li><strong>条件付き書式の通知:</strong> Excelの条件付き書式ルールによって変更されたセルの動的な色、フォントスタイル、および背景の影を自動的に検出し、読み上げます。</li>
+<li><strong>明示的な設定アクセラレータ:</strong> NVDAアーキテクチャに厳密に準拠するようにBOA設定GUIを完全にオーバーホールしました。各機能のチェックボックスにはグローバルに一意の <code>Alt+文字</code> ショートカットが設定され、キーボードの循環を防ぎ、最初の文字でのナビゲーションの失敗を排除しました。</li>
+</ul>
+<h4>バグ修正</h4>
+<ul>
+<li><strong>絶対的な端の境界検出:</strong> アクティブなデータブロックのはるか外側にある場合でも、非表示の行/列の検出を保証するために、ネイティブCOMの <code>UsedRange</code> エッジチェックを絶対1D数学的境界チェック (<code>行 1048576</code> および <code>列 16384</code>) に置き換えました。</li>
+<li><strong>遅延COMプロパティの安全なベイルアウト:</strong> 数百万の連続した非表示構造を評価する際のNVDAスレッドのフリーズを防ぐために、COMプロパティループを強化しました。</li>
+</ul>
+<h3>バージョン 1.2.0 — 2026-06-03</h3>
+<p><em>最終リリース。</em></p>
+<h4>新機能</h4>
+<ul>
+<li><strong>アプリ起動キャッシュ:</strong> 大規模なアーキテクチャのオーバーホール。コアモジュールはOfficeアプリケーションにフォーカスした際に正確に遅延ロードされるようになり、起動ラグを排除し、名前変更ダイアログでの「不明な」オブジェクトフォーカスグリッチを完全に解決し、複数ファイルのコードベース構造を維持します。</li>
+<li><strong>拡張されたセルトラッカー (1D COM Math):</strong> 非表示セルのギャップ検出ロジックを書き換え、1次元の断面 (<code>current_col</code> または <code>current_row</code>) のみを評価するようにしました。これにより、COM計算のペイロードが1600万セル以上減少し、非表示範囲をジャンプする際のナビゲーションのフリーズが即座に排除されます。</li>
+<li><strong>プロセスメモリのワイプ:</strong> ユーザーがExcelを閉じて再び開いたことを検出するためのExcelウィンドウハンドル (<code>Hwnd</code>) の追跡を実装しました。これにより、古いグローバル状態メモリが積極的に消去され、新しい「Book1」を開く際の誤った「シート非表示」の通知が完全に解決されます。</li>
+</ul>
+<h4>バグ修正</h4>
+<ul>
+<li><strong>二重選択通知:</strong> 信頼性の低い非同期の <code>winUser.getKeyState</code> から移行し、<code>api.getLastInputGesture()</code> を実装して、Shift+矢印キーを使用した際の二重通知を完全に抑制しました。</li>
+<li><strong>境界検出器の非アクティブ化:</strong> NVDAネイティブのナビゲーションの安定性を保護するために、プロアクティブな境界検出器は非アクティブ化され、完全にギャップスキップトラッカーにフォールバックしました。</li>
+</ul>
+<h3>バージョン 1.1.0 — 2026-05-30</h3>
+<p><em>最終リリース。</em></p>
+<h4>新機能</h4>
+<ul>
+<li><strong>設定GUI:</strong> <code>NVDAメニュー -&gt; 設定 -&gt; 設定</code>内にネイティブのBOA オフィス拡張機能パネルを追加し、機能のオン/オフを簡単に切り替えられるようにしました。</li>
+<li><strong>SafeRichEditフック:</strong> Office 2024でRichEditコントロールと対話する際のサイレントなNVDAのクラッシュを防止します。</li>
+<li><strong>カスタマイズ可能なホットキー:</strong> すべてのBOAホットキーがNVDAの入力ジェスチャーダイアログの「Better Office Accessibility」カテゴリに完全に公開されました。</li>
+<li><strong>Excel: 非表示行/列のスキップ検出:</strong> 非表示やフィルターされたデータを見逃さないように、非表示の行または列を通過する際に積極的に通知します。設定で切り替えることができます。</li>
+</ul>
+<h4>バグ修正</h4>
+<ul>
+<li><strong>スレッドの安全性:</strong> すべてのブロッキング遅延 (<code>time.sleep</code>) を削除し、ノンブロッキングのNVDA非同期コールバックに置き換えて、バックグラウンド操作中にスクリーンリーダーが途切れることがないようにしました。</li>
+</ul>
+<h3>バージョン 1.0.0 — 2026-05-24</h3>
+<p><em>最初の一般リリース。</em></p>
+<h4>新機能</h4>
+<ul>
+<li><strong>Excel: 一括シート整理:</strong> 完全にアクセシブルなダイアログを使用して、複数のシートを一度に即座に並べ替えます。</li>
+<li><strong>Excel: クイックシート移動:</strong> キーボードコマンドを介して、アクティブなシートを左、右、先頭、または末尾に移動します。</li>
+<li><strong>Excel: アクセシブルなシート名前変更:</strong> アクセスできないネイティブの名前変更フィールドを傍受し、信頼性の高いアクセシブルなダイアログに置き換えます。</li>
+<li><strong>Excel: スマート選択トラッキング:</strong> 複数セルの範囲選択と選択解除を正確に通知します。</li>
+<li><strong>PowerPoint: アクセシブルなカラーピッカー:</strong> カスタムカラーダイアログ内でNVDAがRGB値およびHex値を正確に読み上げるようにします。</li>
+<li><strong>PowerPoint: 標準色グリッドのサポート:</strong> 矢印キーのナビゲーションを傍受して、アクセスできない色の六角形グリッドから隠されたHexコードを読み上げます。</li>
+</ul>
+</body>
+</html>

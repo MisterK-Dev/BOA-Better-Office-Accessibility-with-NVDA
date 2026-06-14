@@ -1,0 +1,447 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 'BOA' '1.6.0'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-06-14 09:32+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#. Title for the NVDA settings dialog list and the panel title
+#: addon\boa_lib\boa_gui.py:33
+msgid "BOA Office Enhancements"
+msgstr "Mejoras de BOA Office"
+
+#: addon\boa_lib\boa_gui.py:65 addon\boa_lib\boa_gui.py:85
+msgid "Off"
+msgstr "Desactivado"
+
+#: addon\boa_lib\boa_gui.py:65
+msgid "One-time Announcement"
+msgstr "Anuncio único"
+
+#: addon\boa_lib\boa_gui.py:65
+msgid "Guided Announcement"
+msgstr "Anuncio guiado"
+
+#: addon\boa_lib\boa_gui.py:85
+msgid "Strict Memory Check (CountA)"
+msgstr "Comprobación estricta de memoria (CountA)"
+
+#: addon\boa_lib\boa_gui.py:85
+msgid "Visible Data Only (Math Engine)"
+msgstr "Solo datos visibles (Motor matemático)"
+
+#: addon\boa_lib\boa_gui.py:95
+msgid "Select the engine used to detect the end of data in a row or column."
+msgstr "Seleccione el motor utilizado para detectar el final de los datos en una fila o columna."
+
+#: addon\boa_lib\boa_gui.py:109
+msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
+msgstr "&Excel: Habilitar el Organizador de hojas en masa y el Movimiento rápido de hoja"
+
+#: addon\boa_lib\boa_gui.py:110
+msgid "Use accessible Sheet &Rename dialog instead of native edit field"
+msgstr "Usar el cuadro de diálogo accesible de &Renombrar hoja en lugar del campo de edición nativo"
+
+#: addon\boa_lib\boa_gui.py:111
+msgid "Prevent NVDA &crashes in Excel text fields"
+msgstr "Prevenir que NVDA se &cierre inesperadamente en campos de texto de Excel"
+
+#: addon\boa_lib\boa_gui.py:112
+msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
+msgstr "Anunciar cuando se pierde inesperadamente una selección m&últiple de celdas"
+
+#: addon\boa_lib\boa_gui.py:113
+msgid "Proactively announce when navigating past &hidden rows or columns"
+msgstr "Anunciar proactivamente al navegar más allá de filas o columnas &ocultas"
+
+#: addon\boa_lib\boa_gui.py:114
+msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
+msgstr "Habilitar el Analizador de diseño de hoja mediante NVDA+E, L"
+
+#: addon\boa_lib\boa_gui.py:115
+msgid "Sheet Layout Auto-Announce &Mode:"
+msgstr "&Modo de anuncio automático del diseño de hoja:"
+
+#: addon\boa_lib\boa_gui.py:116
+msgid "Conditional &Formatting and color"
+msgstr "&Formato condicional y color"
+
+#: addon\boa_lib\boa_gui.py:117
+msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
+msgstr "Habilitar el Moni&tor de celda (espacios del 1 al 9 y monitoreo continuo en segundo plano)"
+
+#: addon\boa_lib\boa_gui.py:118
+msgid ""
+"Announce when there is no more data in the direction you are &navigating"
+msgstr "Anunciar cuando no hay más datos en la dirección en la que está &navegando"
+
+#: addon\boa_lib\boa_gui.py:120
+msgid "Excel Enhancements"
+msgstr "Mejoras de Excel"
+
+#: addon\boa_lib\boa_gui.py:124
+msgid ""
+"&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
+"hexagon grid"
+msgstr "&PowerPoint: Leer los códigos Hex ocultos al navegar por la cuadrícula hexagonal de Color estándar"
+
+#: addon\boa_lib\boa_gui.py:125
+msgid "Ensure the He&x Color edit field is properly labeled"
+msgstr "Asegurar que el campo de edición de Color He&x esté etiquetado correctamente"
+
+#: addon\boa_lib\boa_gui.py:126
+msgid "Ensure the R&GB Color edit fields are properly labeled"
+msgstr "Asegurar que los campos de edición de Color R&GB estén etiquetados correctamente"
+
+#: addon\boa_lib\boa_gui.py:127
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
+msgstr "Prevenir que NVDA se ci&erre inesperadamente en campos de texto de PowerPoint"
+
+#: addon\boa_lib\boa_gui.py:129
+msgid "PowerPoint Enhancements"
+msgstr "Mejoras de PowerPoint"
+
+#: addon\boa_lib\boa_gui.py:133
+msgid "&Word: Prevent NVDA crashes in Word text fields"
+msgstr "&Word: Prevenir que NVDA se cierre inesperadamente en campos de texto de Word"
+
+#: addon\boa_lib\boa_gui.py:135
+msgid "Word Enhancements"
+msgstr "Mejoras de Word"
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:85
+#, python-brace-format
+msgid "Renaming to {name}"
+msgstr "Renombrando a {name}"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
+msgid "Bulk arrangement complete"
+msgstr "Organización en masa completada"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:108
+#, python-brace-format
+msgid "Error during bulk move: {error}"
+msgstr "Error durante el movimiento en masa: {error}"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:150
+msgid "Could not find Excel grid."
+msgstr "No se pudo encontrar la cuadrícula de Excel."
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:158
+msgid "Failed to hook Excel."
+msgstr "Error al enlazar Excel."
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:165
+msgid "No active workbook."
+msgstr "No hay libro de trabajo activo."
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
+msgid "Error opening organizer"
+msgstr "Error al abrir el organizador"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
+#, python-brace-format
+msgid "Scheduled: {sheet} to position {pos}"
+msgstr "Programado: {sheet} a la posición {pos}"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:289
+msgid "Move removed"
+msgstr "Movimiento eliminado"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:119
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:231
+msgid "Error: Could not read Excel cell."
+msgstr "Error: No se pudo leer la celda de Excel."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:144
+#, python-brace-format
+msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
+msgstr "{old_cell} ha sido reemplazada por {address} para el espacio {slot_str}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:147
+#, python-brace-format
+msgid "{address} set to slot {slot_str}"
+msgstr "{address} asignada al espacio {slot_str}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:159
+#, python-brace-format
+msgid "Slot {slot_str} is empty."
+msgstr "El espacio {slot_str} está vacío."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:169
+msgid "Error: Excel not accessible."
+msgstr "Error: Excel no accesible."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:176
+#, python-brace-format
+msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
+msgstr "Espacio {slot_str} perdido. El libro de trabajo '{wb}' fue renombrado o cerrado."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:189
+#, python-brace-format
+msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
+msgstr "Espacio {slot_str} perdido. La hoja '{sheet}' fue renombrada o eliminada."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:214
+#, python-brace-format
+msgid "{val} - {cell}{location_str}"
+msgstr "{val} - {cell}{location_str}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:217
+#, python-brace-format
+msgid "Cannot read slot {slot_str}. Excel may be busy."
+msgstr "No se puede leer el espacio {slot_str}. Excel podría estar ocupado."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:238
+#, python-brace-format
+msgid "Continuous monitor OFF for {address}"
+msgstr "Monitoreo continuo DESACTIVADO para {address}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:244
+#, python-brace-format
+msgid "Continuous monitor ON for {address}"
+msgstr "Monitoreo continuo ACTIVADO para {address}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:258
+msgid "All monitored and slotted cells cleared."
+msgstr "Todas las celdas monitoreadas y asignadas han sido borradas."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:361
+#, python-brace-format
+msgid "{cell_addr} updated: {current_val}{location_str}"
+msgstr "{cell_addr} actualizada: {current_val}{location_str}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:379
+#, python-brace-format
+msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
+msgstr "Monitor del Espacio {slot_cleared} perdido debido a cambio de nombre o cierre."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:382
+#, python-brace-format
+msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
+msgstr "Monitor borrado: {sheet_closed} en {wb_closed} perdida."
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
+msgid "unselected"
+msgstr "deseleccionada"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:210
+#, python-brace-format
+msgid "{address} selected"
+msgstr "{address} seleccionada"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:336
+#, python-brace-format
+msgid "Row {row_num} hidden"
+msgstr "Fila {row_num} oculta"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:339
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:341
+#, python-brace-format
+msgid "Rows {start} through {end} hidden"
+msgstr "Filas desde {start} hasta {end} ocultas"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:343
+msgid "Crossed heavily fragmented hidden rows"
+msgstr "Cruzó filas ocultas muy fragmentadas"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:406
+#, python-brace-format
+msgid "Column {col_letter} hidden"
+msgstr "Columna {col_letter} oculta"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:409
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:411
+#, python-brace-format
+msgid "Columns {start} through {end} hidden"
+msgstr "Columnas desde {start} hasta {end} ocultas"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:413
+msgid "Crossed heavily fragmented hidden columns"
+msgstr "Cruzó columnas ocultas muy fragmentadas"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:468
+msgid "No more data below"
+msgstr "No hay más datos abajo"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:475
+msgid "No more data above"
+msgstr "No hay más datos arriba"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:482
+msgid "No more data to the right"
+msgstr "No hay más datos a la derecha"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:489
+msgid "No more data to the left"
+msgstr "No hay más datos a la izquierda"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:552
+msgid "Panes frozen"
+msgstr "Paneles inmovilizados"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:554
+msgid "Panes unfrozen"
+msgstr "Paneles movilizados"
+
+#. -1 is xlSheetVisible
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:577
+#, python-brace-format
+msgid "{sheet} hidden"
+msgstr "{sheet} oculta"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:589
+msgid "Sheet hidden"
+msgstr "Hoja oculta"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:591
+msgid "Sheet unhidden"
+msgstr "Hoja desocultada"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
+#, python-brace-format
+msgid "{address} {state}"
+msgstr "{address} {state}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
+msgid "No active cell found."
+msgstr "No se encontró celda activa."
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
+msgid "No conditional formatting rules applied to this cell."
+msgstr "No hay reglas de formato condicional aplicadas a esta celda."
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
+msgid "Failed to read format conditions."
+msgstr "Error al leer las condiciones de formato."
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
+msgid "Failed to analyze conditional formatting."
+msgstr "Error al analizar el formato condicional."
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:88
+msgid "Only one sheet in workbook"
+msgstr "Solo una hoja en el libro de trabajo"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:93
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:106
+msgid "Already at beginning"
+msgstr "Ya está al principio"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:99
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:112
+msgid "Already at end"
+msgstr "Ya está al final"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:127
+#, python-brace-format
+msgid "Moved {sheet} to position {new_idx} of {total}"
+msgstr "Movida {sheet} a la posición {new_idx} de {total}"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:130
+msgid "Failed to move sheet"
+msgstr "Error al mover la hoja"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:84
+msgid "Copied to clipboard"
+msgstr "Copiado al portapapeles"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
+msgid "Analyzing layout..."
+msgstr "Analizando el diseño..."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
+#, python-brace-format
+msgid "Empty cell. Nearest data at {col}{row}."
+msgstr "Celda vacía. Datos más cercanos en {col}{row}."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
+#, python-brace-format
+msgid "Nearest data at {col}{row}"
+msgstr "Datos más cercanos en {col}{row}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
+msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
+msgstr "Caché de diseño vacía. Presione NVDA+E, L para escanear la hoja primero."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
+msgid "No data blocks found in cache."
+msgstr "No se encontraron bloques de datos en la caché."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:545
+msgid "Already on a data cell."
+msgstr "Ya está en una celda de datos."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:562
+#, python-brace-format
+msgid "Jumped to {col}{row}"
+msgstr "Saltó a {col}{row}"
+
+#. Announce the color cleanly to the user.
+#: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:52
+#, python-brace-format
+msgid "Color {text}"
+msgstr "Color {text}"
+
+#: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:101
+#, python-brace-format
+msgid "Color {hex_val}"
+msgstr "Color {hex_val}"
+
+#. Add-on description
+#: buildVars.py:15
+msgid ""
+"A powerful suite of accessibility enhancements for Microsoft Office, "
+"designed to vastly improve the screen reader experience for NVDA users. \n"
+"    \n"
+"    Key Features:\n"
+"    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
+"protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple "
+"sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside "
+"standard color grids.\n"
+"    \n"
+"    Please refer to the add-on help documentation for a complete list of "
+"features and shortcuts."
+msgstr ""
+"Una potente suite de mejoras de accesibilidad para Microsoft Office, "
+"diseñada para mejorar enormemente la experiencia del lector de pantalla para usuarios de NVDA. \n"
+"    \n"
+"    Características principales:\n"
+"    - Monitor de celda: Guarde y rastree continuamente celdas dinámicas de Excel.\n"
+"    - Analizador de diseño de hoja: Escanee instantáneamente hojas de cálculo en busca de pestañas ocultas, "
+"estados protegidos y bloques de datos.\n"
+"    - Organizador de hojas en masa y Movimiento rápido de hoja: Mueva o reordene instantáneamente múltiples "
+"hojas usando cuadros de diálogo accesibles.\n"
+"    - Selectores de color de PowerPoint: Lea los códigos Hex y RGB ocultos dentro "
+"de cuadrículas de color estándar.\n"
+"    \n"
+"    Consulte la documentación de ayuda del complemento para obtener una lista completa de "
+"características y atajos."
+
+#. Changelog URL or None
+#: buildVars.py:40
+msgid ""
+"## What's New in v1.6.0\n"
+"* **Comprehensive Translation Support**: The add-on is now fully localized "
+"with support for 17 global languages. \n"
+"  *(Note: These translations were generated by AI, so some minor translation "
+"errors or inaccuracies may be present.)*\n"
+"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
+"entire codebase."
+msgstr ""
+"## Qué hay de nuevo en v1.6.0\n"
+"* **Soporte integral de traducción**: El complemento ahora está completamente localizado "
+"con soporte para 17 idiomas globales. \n"
+"  *(Nota: Estas traducciones fueron generadas por IA, por lo que pueden estar presentes algunos "
+"errores o inexactitudes menores de traducción.)*\n"
+"* **Gobernanza estricta del código**: Se aplicaron encabezados de derechos de autor GPL-2.0 en "
+"toda la base de código."
