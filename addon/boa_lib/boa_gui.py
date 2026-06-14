@@ -74,7 +74,7 @@ class BOASettingsPanel(SettingsPanel):
                         cb.SetSelection(2)
                     else:
                         cb.SetSelection(1)
-                    cb.SetToolTip("Select layout announcement mode. 'Guided Announcement' requires you to press NVDA+E, L at least once per sheet to scan the layout.")
+                    cb.SetToolTip(_("Select layout announcement mode. 'Guided Announcement' requires you to press NVDA+E, L at least once per sheet to scan the layout."))
                     sizer.Add(cb)
                     group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
                     self.checkboxes[app_name][feature_key] = cb

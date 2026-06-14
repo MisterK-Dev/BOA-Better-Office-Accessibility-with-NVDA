@@ -207,9 +207,9 @@ class CellMonitorManager:
             if current_wb == info['wb'] and current_sheet == info['sheet']:
                 location_str = ""
             elif current_wb == info['wb']:
-                location_str = f" in {info['sheet']}"
+                location_str = _(" in {sheet}").format(sheet=info['sheet'])
             else:
-                location_str = f" in {info['sheet']} of {info['wb']}"
+                location_str = _(" in {sheet} of {wb}").format(sheet=info['sheet'], wb=info['wb'])
                 
             ui.message(_("{val} - {cell}{location_str}").format(
                 val=val, cell=info['cell'], location_str=location_str))
@@ -354,9 +354,9 @@ class CellMonitorManager:
                         if active_wb == wb_name and active_sheet == sheet_name:
                             location_str = ""
                         elif active_wb == wb_name:
-                            location_str = f" in {sheet_name}"
+                            location_str = _(" in {sheet}").format(sheet=sheet_name)
                         else:
-                            location_str = f" in {sheet_name} of {wb_name}"
+                            location_str = _(" in {sheet} of {wb}").format(sheet=sheet_name, wb=wb_name)
                             
                         ui.message(_("{cell_addr} updated: {current_val}{location_str}").format(
                             cell_addr=cell_addr, current_val=current_val, location_str=location_str))

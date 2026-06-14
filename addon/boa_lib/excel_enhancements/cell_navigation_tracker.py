@@ -746,9 +746,9 @@ class CellNavigationTracker(object):
                     start_row = sel.Row
                     end_row = sel.Row + sel.Rows.Count - 1
                     if start_row == end_row:
-                        address_str = f"Row {start_row}"
+                        address_str = _("Row {num}").format(num=start_row)
                     else:
-                        address_str = f"Rows {start_row} through {end_row}"
+                        address_str = _("Rows {start} through {end}").format(start=start_row, end=end_row)
                 elif element_type == "column":
                     is_hidden = sel.EntireColumn.Hidden
                     start_col = sel.Column
@@ -763,14 +763,14 @@ class CellNavigationTracker(object):
                         
                     start_letter = col_num_to_letter(start_col)
                     if start_col == end_col:
-                        address_str = f"Column {start_letter}"
+                        address_str = _("Column {col}").format(col=start_letter)
                     else:
                         end_letter = col_num_to_letter(end_col)
-                        address_str = f"Columns {start_letter} through {end_letter}"
+                        address_str = _("Columns {start} through {end}").format(start=start_letter, end=end_letter)
                     
                 # Only announce if the state successfully changed to avoid false positives
                 if is_hidden is not None and is_hidden != initial_state:
-                    state_str = "hidden" if is_hidden else "unhidden"
+                    state_str = _("hidden") if is_hidden else _("unhidden")
                     ui.message(_("{address} {state}").format(address=address_str, state=state_str))
         except Exception as e:
             logHandler.log.debugWarning(f"BOA: Failed to verify {element_type} visibility change. {e}")
