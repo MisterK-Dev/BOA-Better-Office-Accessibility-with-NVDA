@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import controlTypes
 from logHandler import log
 import UIAHandler
@@ -95,9 +103,9 @@ class BulkSheetOrganizer(object):
                                 if sheet.Index != sheet_after.Index - 1:
                                     sheet.Move(sheet_after)
                                     
-                        ui.message("Bulk arrangement complete")
+                        ui.message(_("Bulk arrangement complete"))
                     except Exception as e:
-                        ui.message(f"Error during bulk move: {e}")
+                        ui.message(_("Error during bulk move: {error}").format(error=e))
                         logHandler.log.error(f"BOA bulk bg error: {e}")
                         
             def _apply_moves():
@@ -139,7 +147,7 @@ class BulkSheetOrganizer(object):
                         hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
             
             if not hwnd7:
-                ui.message("Could not find Excel grid.")
+                ui.message(_("Could not find Excel grid."))
                 return
                 
             oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
@@ -147,14 +155,14 @@ class BulkSheetOrganizer(object):
             res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
             
             if res != 0 or not ptr:
-                ui.message("Failed to hook Excel.")
+                ui.message(_("Failed to hook Excel."))
                 return
                 
             win = comtypes.client.dynamic.Dispatch(ptr)
             excel = win.Application
             wb = excel.ActiveWorkbook
             if not wb:
-                ui.message("No active workbook.")
+                ui.message(_("No active workbook."))
                 return
                 
             # Extract the names of every sheet currently in the workbook to populate the dialog.
@@ -164,7 +172,7 @@ class BulkSheetOrganizer(object):
             # Use wx.CallAfter to safely push the dialog creation onto NVDA's main GUI thread.
             wx.CallAfter(BulkSheetOrganizer._show_bulk_dialog, sheet_names, hwnd7)
         except Exception as e:
-            ui.message("Error opening organizer")
+            ui.message(_("Error opening organizer"))
             import logHandler
             logHandler.log.error(f"ExcelGridMover bulk error: {e}")
 
@@ -260,7 +268,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
             self.planned_moves[sheet] = pos
             self._refresh_list()
             import ui
-            ui.message(f"Scheduled: {sheet} to position {pos}")
+            ui.message(_("Scheduled: {sheet} to position {pos}").format(sheet=sheet, pos=pos))
 
     def on_list_key_down(self, event):
         """
@@ -278,7 +286,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
                 del self.planned_moves[sheet]
             self._refresh_list()
             import ui
-            ui.message("Move removed")
+            ui.message(_("Move removed"))
             # Update combo box to original position
             self.on_sheet_change(None)
             

@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import ctypes
 import wx
 import NVDAObjects.window
@@ -41,7 +49,7 @@ class PowerPointStandardColorGrid(object):
             # Verify the text looks like a valid hex color string (e.g., "#FFFFFF").
             if text and text.startswith("#") and len(text) == 7:
                 # Announce the color cleanly to the user.
-                ui.message(f"Color {text}")
+                ui.message(_("Color {text}").format(text=text))
                 return
 
         # Slow path: We need to traverse the window tree to find the hex edit box.
@@ -90,7 +98,7 @@ class PowerPointStandardColorGrid(object):
                         
         # If we successfully found a hex value, announce it to the user.
         if hex_val:
-            ui.message(f"Color {hex_val}")
+            ui.message(_("Color {hex_val}").format(hex_val=hex_val))
 
     def _get_text_from_hwnd(self, hwnd):
         """

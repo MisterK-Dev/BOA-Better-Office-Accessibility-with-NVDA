@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>BOA: Better Office Accessibility 1.6.0</title>
+</head>
+<body>
+<h1>BOA: Better Office Accessibility</h1>
+<p>BOA ist eine leistungsstarke Suite von Zugangserweiterungen für Microsoft Office, die entwickelt wurde, um die Bildschirmleser-Erfahrung für NVDA-Benutzer erheblich zu verbessern. Sie korrigiert direkt unzugängliche UI-Komponenten und führt schnelle Navigationswerkzeuge für Excel und PowerPoint ein.</p>
+<hr />
+<h2>⌨️ Hotkey-Referenz</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Funktion</th>
+<th style="text-align: left;">Tastenkombination</th>
+<th style="text-align: left;">Kontext / Notizen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Befehlsmodus aktivieren</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code></td>
+<td style="text-align: left;">Aktiviert den Befehlspräfix-Modus (löst einen hohen Piepton aus)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tabellenlayout analysieren</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>L</code></td>
+<td style="text-align: left;">Innerhalb von Excel ausführen, bevor in Datenblöcken navigiert wird</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zum nächsten Datenblock springen</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>J</code> /</td>
+<td style="text-align: left;">Erfordert vorherige Layout-Analyse</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bulk-Tabellen-Organisator öffnen</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>X</code></td>
+<td style="text-align: left;">Öffnet den zugänglichen Dialog zur Tabellen-Neuanordnung</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aktive Tabelle nach links verschieben</strong></td>
+<td style="text-align: left;"><code>NVDA+Umschalt+PfeilLinks</code></td>
+<td style="text-align: left;">Verschiebt die aktive Tabelle um eine Position nach oben</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aktive Tabelle nach rechts verschieben</strong></td>
+<td style="text-align: left;"><code>NVDA+Umschalt+PfeilRechts</code></td>
+<td style="text-align: left;">Verschiebt das aktive Arbeitsblatt um eine Position nach unten</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tabelle an den Anfang/das Ende verschieben</strong></td>
+<td style="text-align: left;"><code>NVDA+Umschalt+Pos1</code> / <code>Ende</code></td>
+<td style="text-align: left;">Sendet das Arbeitsblatt an die absoluten Grenzen</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Detaillierte bedingte Formatierung</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>F</code></td>
+<td style="text-align: left;">Sagt vollständige Formatierungsdetails der fokussierten Zelle an</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zelle einem Speichersteckplatz zuweisen</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>Umschalt+1</code> bis <code>Umschalt+9</code></td>
+<td style="text-align: left;">Weist die aktuelle Zelle einem Hintergrund-Überwachungssteckplatz zu</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Überwachten Zellen-Steckplatz lesen</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>1</code> bis <code>9</code></td>
+<td style="text-align: left;">Ruft den Wert des zugewiesenen Steckplatzes ab und liest ihn</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hintergrundüberwachung umschalten</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>M</code></td>
+<td style="text-align: left;">Schaltet die Hintergrundberechnungs-Verfolgung manuell um</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Alle Speichersteckplätze löschen</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, dann <code>Rücktaste</code></td>
+<td style="text-align: left;">Löscht alle gespeicherten Hintergrund-Zellen-Monitore</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Befehlsmodus abbrechen</strong></td>
+<td style="text-align: left;"><code>Escape</code></td>
+<td style="text-align: left;">Verlässt den Befehlspräfix-Modus</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🚀 Funktionen</h2>
+<h3>Excel-Erweiterungen</h3>
+<h4>1. Tabellenlayout-Analysator &amp; Caching</h4>
+<p>Scannen Sie sofort jede Excel-Tabelle, um ihre Struktur, verborgene Elemente und Datenblöcke zu verstehen.
+* <strong>Wie es funktioniert:</strong> BOA scannt die Tabelle schnell und sagt aktive Datenblöcke an. Es warnt Sie auch vor <strong>ausgeblendeten Tabellen-Tabs</strong>, aktiven <strong>Filtern</strong>, <strong>geschützten Modi</strong> und <strong>verborgenen äußeren Rändern</strong> (z.B. wenn Spalten nahe dem rechten Rand der Tabelle ausgeblendet sind, um zu verhindern, dass Sie Daten außerhalb des Bildschirms übersehen).
+* <strong>Daten-Navigation:</strong> Nach dem Scannen können Sie die Datenblock-Sprung-Hotkeys verwenden, um Ihren Cursor sofort zwischen den entdeckten Datenblöcken zu bewegen und mühelos Tausende leerer Zellen zu überspringen.</p>
+<h4>2. Bulk-Tabellen-Organisator</h4>
+<p>Ordnen und arrangieren Sie mehrere Tabellen sofort und gleichzeitig über einen vollständig zugänglichen Dialog.
+* <strong>Wie es funktioniert:</strong> Öffnet einen Dialog, in dem Sie eine Tabelle auswählen und sie auf eine neue Position abbilden können. Geplante Verschiebungen werden in einer Datentabelle aufgelistet (drücken Sie <code>Entf</code>, um einen Fehler zu entfernen). Klicken Sie auf <code>OK</code> und Ihre Arbeitsmappe wird sofort neu angeordnet.</p>
+<h4>3. Schneller Tabellenverschieber</h4>
+<p>Verschieben Sie die aktive Tabelle sofort mit Ihren Tastaturkürzeln nach links, nach rechts, ganz an den Anfang oder ganz an das Ende.</p>
+<h4>4. Zugängliches Umbenennen von Tabellen</h4>
+<ul>
+<li>Beim Umbenennen einer Tabelle hat NVDA nativ Probleme, die von Ihnen eingegebenen Zeichen zu lesen.</li>
+<li>BOA fügt eine benutzerdefinierte <code>ExcelSheetRenameEdit</code>-Klasse ein, die die <code>SafeRichEdit</code>-Engine verwendet, was bedeutet, dass Sie beim Umbenennen präzise nach Zeichen, Wort oder Zeile lesen können. Dies dient als Verbesserung des bestehenden Standard-Umbenennungsverhaltens.</li>
+</ul>
+<h4>5. Tracker für versteckte Zeilen/Spalten</h4>
+<ul>
+<li>Verfolgt proaktiv Ihre Bewegung über das Raster, um zu verhindern, dass Sie verborgene oder gefilterte Daten übersehen.</li>
+<li><strong>Überquerte fragmentierte Zellen:</strong> Wenn Sie einen stark fragmentierten oder verborgenen Abschnitt des Rasters überspringen (z.B. von Zeile 3 zu Zeile 10 wechseln, da die Zeilen 4–9 ausgeblendet sind), sagt BOA explizit „Zeilen 4 bis 9 ausgeblendet" an. Dies stellt sicher, dass Sie immer wissen, wenn Daten in der Struktur übersprungen wurden.</li>
+</ul>
+<h4>6. Ansage für bedingte Formatierung</h4>
+<ul>
+<li>Liest automatisch die Farbe, den Schriftstil und die Hintergrundschattierung von Zellen, die durch die bedingten Formatierungsregeln von Excel dynamisch geändert wurden.</li>
+<li>Gibt Ihnen den wahren visuellen Zustand der Zelle anstelle nur des rohen zugrunde liegenden Werts. Wenn Sie die Zelle fokussieren, wird zunächst „hat bedingte Formatierung und einige andere kleinere Details" angesagt. Für umfassende Informationen verwenden Sie die detaillierte Hotkey-Konfiguration, die NVDA E und F ist.</li>
+</ul>
+<h4>7. Bessere Auswahl-Ansage</h4>
+<p>Liest, ob eine Zelle oder ein Bereich ausgewählt oder abgewählt wird.</p>
+<h4>8 Zellen-Monitor:</h4>
+<ul>
+<li><strong>Zellen-Monitor:</strong> Verwenden Sie Befehlspfade, um bestimmte Zellen auf Speichersteckplätze abzubilden. Sie können jederzeit zurückspringen und sie über den zugewiesenen numerischen Steckplatz lesen.</li>
+<li><strong>Kontinuierliche Überwachung:</strong> Zugewiesene Zellen werden automatisch im Hintergrund überwacht. Wenn Excel eine Neuberechnung oder Zellenbearbeitung auslöst, sagt BOA sofort den neuen Wert an. Manuelles Umschalten oder Löschen aller über Befehlssteckplätze.</li>
+</ul>
+<h3>PowerPoint-Erweiterungen</h3>
+<h4>1. Zugängliche Farbwähler</h4>
+<ul>
+<li>Entsperrt das Dialogfeld „Benutzerdefinierte Farbe" in PowerPoint.</li>
+<li>Identifiziert und liest die Bearbeitungsfelder „Rot", „Grün" und „Blau" explizit und korrekt vor (durch Überschreiben von <code>PowerPointRGBEdit</code>).</li>
+<li>Bildet das zuvor unsichtbare Hex-Eingabefeld ab, damit NVDA den vollständigen Hex-Farbwert sauber lesen kann.</li>
+</ul>
+<h4>2. Standardfarbraster-Unterstützung</h4>
+<ul>
+<li>Das Navigieren im PowerPoint „Standard"-Farbsechseckraster wird normalerweise als „Grafik" oder durch Stille gelesen.</li>
+<li>BOA verfolgt Ihre Pfeiltasten über das Sechseck und ruft den versteckten Farbwert im Hintergrund ab und sagt ihn Ihnen in Echtzeit an (z.B. „Farbe #FF0000").</li>
+</ul>
+<h3>Infrastruktur &amp; Technische Mechanismen</h3>
+<h4>Der Befehlspräfix-Modus</h4>
+<p>Um Tastaturkürzel-Konflikte mit anderen NVDA-Plugins zu vermeiden, verwendet BOA einen <strong>Befehlspräfix-Modus</strong>:
+1. Drücken Sie den Aktivierungs-Hotkey, um in den Befehlsmodus zu gelangen. Sie hören einen hohen Piepton.
+2. Drücken Sie eine zweite Taste, um eine bestimmte Funktion auszulösen.
+3. Wenn Sie eine ungültige Taste drücken, hören Sie einen Fehler-Piepton.</p>
+<h4>Anpassungs- &amp; Einstellungsfeld</h4>
+<ul>
+<li>Die BOA-Funktionen sind vollständig modular und können jederzeit aktiviert oder deaktiviert werden. Gehen Sie zu <code>NVDA Menü -&gt; Optionen -&gt; Einstellungen -&gt; BOA Office Erweiterungen</code>, um einzelne Funktionen ein- oder auszuschalten.</li>
+<li><strong>Intelligente Beschleunigertasten:</strong> Jede einzelne Einstellung verfügt über ein mathematisch eindeutiges <code>Alt+Taste</code>-Beschleuniger-Kürzel innerhalb des Bedienfelds. Drücken Sie beispielsweise <code>Alt+E</code>, um sofort zur Excel-Gruppe zu springen, <code>Alt+P</code> für PowerPoint und <code>Alt+W</code> für Word.</li>
+<li>Die Einstellungen werden sicher in einer eigenständigen JSON-Datei (<code>boa_settings.json</code>) gespeichert, sodass Ihre NVDA-Kernkonfiguration niemals beschädigt wird.</li>
+<li>Wenn Microsoft Office in Zukunft einen Zugänglichkeitsfehler offiziell behebt, können Sie den spezifischen BOA-Überschreibungs-Hook sicher deaktivieren, ohne den Rest der Add-on-Funktionalität zu verlieren.</li>
+</ul>
+<h4>Sicherheit &amp; Integrationsgrenzen</h4>
+<ul>
+<li>Zwischenablage-Einfügungen überprüfen strikt die Vordergrund-Prozess-IDs der Fenster, um ein Durchsickern von Daten in andere Anwendungen zu verhindern.</li>
+<li>Einige benutzerdefinierte Hotkeys sind vollständig im Dialogfeld für NVDA-Eingabegesten in der Kategorie „Better Office Accessibility" verfügbar.</li>
+</ul>
+<hr />
+<h2>📋 Anforderungen</h2>
+<ul>
+<li><strong>NVDA:</strong> Version 2026.1.0 oder neuer.</li>
+<li><strong>Anwendungen:</strong> Microsoft Excel &amp; Microsoft PowerPoint.</li>
+</ul>
+<hr />
+<h2>💾 Installation</h2>
+<ol>
+<li>Laden Sie die neueste <code>.nvda-addon</code>-Release-Datei herunter oder suchen Sie sie im nativen NVDA-Add-on-Store.</li>
+<li>Wenn Sie aus einer Datei installieren, öffnen Sie die Datei oder verwenden Sie <code>NVDA Add-on-Store -&gt; Aus externer Datei installieren</code>.</li>
+<li>Starten Sie NVDA neu.</li>
+</ol>
+<hr />
+<h2>🛠️ Änderungsprotokoll</h2>
+<h3>v1.6.0</h3>
+<ul>
+<li><strong>Umfassende Übersetzungsunterstützung</strong>: Das Add-on ist jetzt vollständig lokalisiert und unterstützt 17 globale Sprachen. 
+  <em>(Hinweis: Diese Übersetzungen wurden durch KI generiert, daher können geringfügige Übersetzungsfehler oder Ungenauigkeiten vorhanden sein.)</em></li>
+<li><strong>Strikte Code-Governance</strong>: GPL-2.0-Copyright-Header im gesamten Codebestand angewendet.</li>
+</ul>
+<h3>Version 1.5.0</h3>
+<h4>Neue Funktionen</h4>
+<h5>Datenende-Radar</h5>
+<p>Beim Navigieren durch große Tabellen kann es schwierig sein zu erkennen, ob eine leere Zelle das Ende einer Liste bedeutet oder ob es nur eine Lücke in den Daten gibt. Das <strong>Datenende-Radar</strong> fungiert als intelligente Umkreiskontrolle, um Sie davor zu bewahren, blind durch leeren Raum zu navigieren.
+Wenn Sie in eine leere Zelle navigieren, scannt BOA sofort die restlichen Zellen in Ihrer Bewegungsrichtung. Wenn absolut keine Daten mehr übrig sind, wird proaktiv angesagt:
+* <em>„Keine weiteren Daten darunter"</em>
+* <em>„Keine weiteren Daten darüber"</em>
+* <em>„Keine weiteren Daten rechts"</em>
+* <em>„Keine weiteren Daten links"</em>
+<strong>Konfigurationsoptionen:</strong>
+Sie können diese Funktion über <code>NVDA Optionen -&gt; Einstellungen -&gt; BOA Office Erweiterungen</code> konfigurieren. Da Tabellen verborgene Komplexitäten (wie unsichtbare Formeln oder reduzierte Zeilen) enthalten können, bietet das Radar drei Betriebsmodi:
+1. <strong>Aus</strong>: Deaktiviert das Radar vollständig.
+2. <strong>Strenge Speicherprüfung (Anzahl2) [Standard]</strong>: Der sicherste und schnellste Ansatz. Es überprüft den Rohspeicher der Tabelle. Wenn es <em>irgendetwas</em> unter Ihnen erkennt (einschließlich versteckter Zeilen, Text, Zahlen oder unsichtbarer Formeln), bleibt es völlig stumm, um Fehlalarme zu vermeiden. Es sagt nur „Keine weiteren Daten" an, wenn der Rest der Tabelle zu 100% mathematisch leer ist.
+3. <strong>Nur sichtbare Daten (Mathematische Engine)</strong>: Eine hochentwickelte Engine für komplexe Tabellen. Sie filtert intelligent ausgeblendete Zeilen und unsichtbare Formeln (z.B. <code>=""</code>) heraus. Es bleibt nur dann stumm, wenn sich in Ihrem Pfad tatsächliche, sichtbare Zahlen oder Text befinden.</p>
+<h3>Version 1.4 - 2026-06-12</h3>
+<h4>Neue Funktionen</h4>
+<ul>
+<li><strong>Zellen-Monitor:</strong> Verwenden Sie Befehlspfade, um bestimmte Zellen auf Speichersteckplätze abzubilden. Sie können jederzeit zurückspringen und sie über den zugewiesenen numerischen Steckplatz lesen.</li>
+<li><strong>Kontinuierliche Überwachung:</strong> Zugewiesene Zellen werden automatisch im Hintergrund überwacht. Wenn Excel eine Neuberechnung oder Zellenbearbeitung auslöst, sagt BOA sofort den neuen Wert an. Manuelles Umschalten oder Löschen aller über Befehlssteckplätze.</li>
+</ul>
+<h4>Fehlerbehebungen</h4>
+<h3>Version 1.3.0 — 2026-06-05</h3>
+<p><em>Finale Veröffentlichung.</em></p>
+<h4>Neue Funktionen</h4>
+<ul>
+<li><strong>Tabellenlayout-Analysator:</strong> Leistungsstarke Layout-Scan-Infrastruktur hinzugefügt. Erkennt sofort den Tabellenschutz, aktive Spaltenfilter, ausgeblendete Tabellen-Tabs und versteckte absolute Ränder, während entdeckte Datenblöcke zwischengespeichert werden.</li>
+<li><strong>Geführte Datenblock-Navigation:</strong> Die Navigation nach der Analyse ermöglicht sofortige Cursor-Sprünge zwischen großen Daten-Clustern, wodurch leere Zellen nahtlos umgangen werden.</li>
+<li><strong>Ansage für bedingte Formatierung:</strong> Erkennt und liest automatisch die dynamische Farbe, den Schriftstil und die Hintergrundschattierung von Zellen, die durch die bedingten Formatierungsregeln von Excel geändert wurden.</li>
+<li><strong>Explizite Einstellungs-Beschleuniger:</strong> Die BOA-Einstellungs-GUI wurde komplett überarbeitet, um strikt der NVDA-Architektur zu entsprechen. Jedes Funktionskontrollkästchen besitzt nun ein global eindeutiges <code>Alt+Buchstabe</code>-Kürzel, das Tastaturwechsel verhindert und Fehler bei der Navigation mit dem ersten Buchstaben beseitigt.</li>
+</ul>
+<h4>Fehlerbehebungen</h4>
+<ul>
+<li><strong>Absolute Randgrenzenerkennung:</strong> Native COM-<code>UsedRange</code>-Randprüfungen wurden durch absolute mathematische 1D-Grenzprüfungen (<code>Zeile 1048576</code> und <code>Spalte 16384</code>) ersetzt, um die Erkennung verborgener Zeilen/Spalten zu gewährleisten, selbst wenn sie weit außerhalb des aktiven Datenblocks liegen.</li>
+<li><strong>Sicheres Abbrechen von faulen COM-Eigenschaften:</strong> COM-Eigenschaftsschleifen wurden gehärtet, um das Einfrieren des NVDA-Threads bei der Auswertung von Millionen zusammenhängender versteckter Strukturen zu verhindern.</li>
+</ul>
+<h3>Version 1.2.0 — 2026-06-03</h3>
+<p><em>Finale Veröffentlichung.</em></p>
+<h4>Neue Funktionen</h4>
+<ul>
+<li><strong>App-Start-Caching:</strong> Große Architekturüberholung. Kernmodule werden jetzt exakt dann geladen, wenn Sie Office-Anwendungen fokussieren, was Boot-Verzögerungen eliminiert, den 'unbekannten' Objektfokus-Fehler in Umbenennungsdialogen vollständig löst und die Multi-File-Codebasis-Struktur erhält.</li>
+<li><strong>Verbesserter Tracker für versteckte Zellen (1D COM Math):</strong> Die Logik zur Erkennung von Lücken durch versteckte Zellen wurde neu geschrieben, um nur eindimensionale Querschnitte (<code>current_col</code> oder <code>current_row</code>) auszuwerten. Dies reduziert die COM-Berechnungslast um über 16 Millionen Zellen und eliminiert sofort das Einfrieren der Navigation beim Überspringen verborgener Bereiche.</li>
+<li><strong>Löschen des Prozessspeichers:</strong> Excel Window Handle (<code>Hwnd</code>)-Verfolgung implementiert, um zu erkennen, wenn der Benutzer Excel schließt und wieder öffnet. Dies löscht aktiv den veralteten globalen Zustandsspeicher und löst die falsche Ansage „Tabelle ausgeblendet" beim Öffnen einer frischen „Mappe1" vollständig.</li>
+</ul>
+<h4>Fehlerbehebungen</h4>
+<ul>
+<li><strong>Doppelte Auswahl-Ansage:</strong> Abkehr vom unzuverlässigen asynchronen <code>winUser.getKeyState</code> und Implementierung von <code>api.getLastInputGesture()</code>, um doppelte Ansagen bei Verwendung der Umschalt+Pfeil-Tasten perfekt zu unterdrücken.</li>
+<li><strong>Deaktivierung des Grenzwertdetektors:</strong> Der proaktive Grenzwertdetektor wurde deaktiviert, um die native Navigationsstabilität von NVDA zu schützen, und greift nun vollständig auf den Lücken überspringenden Tracker zurück.</li>
+</ul>
+<h3>Version 1.1.0 — 2026-05-30</h3>
+<p><em>Finale Veröffentlichung.</em></p>
+<h4>Neue Funktionen</h4>
+<ul>
+<li><strong>Einstellungs-GUI:</strong> Ein natives BOA-Office-Erweiterungsfeld wurde unter <code>NVDA -&gt; Optionen -&gt; Einstellungen</code> hinzugefügt, um Funktionen einfach ein- oder auszuschalten.</li>
+<li><strong>SafeRichEdit-Hook:</strong> Verhindert lautlose NVDA-Abstürze bei der Interaktion mit RichEdit-Steuerelementen in Office 2024.</li>
+<li><strong>Anpassbare Hotkeys:</strong> Alle BOA-Hotkeys sind jetzt vollständig im Dialogfeld für NVDA-Eingabegesten unter der Kategorie „Better Office Accessibility" zugänglich.</li>
+<li><strong>Excel: Erkennung von versteckten Zeilen/Spalten-Sprüngen:</strong> Sagt proaktiv an, wenn an ausgeblendeten Zeilen oder Spalten vorbeinavigiert wird, und stellt sicher, dass Sie gefilterte Daten nie übersehen. Kann in den Einstellungen umgeschaltet werden.</li>
+</ul>
+<h4>Fehlerbehebungen</h4>
+<ul>
+<li><strong>Thread-Sicherheit:</strong> Alle blockierenden Verzögerungen (<code>time.sleep</code>) wurden entfernt und durch nicht blockierende asynchrone NVDA-Rückrufe ersetzt, um sicherzustellen, dass der Bildschirmleser bei Hintergrundvorgängen niemals stottert.</li>
+</ul>
+<h3>Version 1.0.0 — 2026-05-24</h3>
+<p><em>Erste öffentliche Veröffentlichung.</em></p>
+<h4>Neue Funktionen</h4>
+<ul>
+<li><strong>Excel: Bulk-Tabellen-Organisator:</strong> Ordnen Sie mehrere Tabellen gleichzeitig über einen vollständig zugänglichen Dialog neu an.</li>
+<li><strong>Excel: Schneller Tabellenverschieber:</strong> Verschieben Sie die aktive Tabelle mit Tastaturbefehlen nach links, nach rechts, an den Anfang oder an das Ende.</li>
+<li><strong>Excel: Zugängliches Umbenennen von Tabellen:</strong> Fängt das unzugängliche native Umbenennungsfeld ab und ersetzt es durch einen zuverlässigen, zugänglichen Dialog.</li>
+<li><strong>Excel: Intelligente Auswahlverfolgung:</strong> Sagt Mehrfachzellenauswahlen und -abwahlen präzise an.</li>
+<li><strong>PowerPoint: Zugängliche Farbwähler:</strong> Ermöglicht NVDA das genaue Lesen von RGB- und Hex-Werten im Dialogfeld 'Benutzerdefinierte Farbe'.</li>
+<li><strong>PowerPoint: Standardfarbraster-Unterstützung:</strong> Fängt die Pfeiltastennavigation ab, um versteckte Hex-Codes aus dem unzugänglichen Farbsechseckraster zu lesen.</li>
+</ul>
+</body>
+</html>

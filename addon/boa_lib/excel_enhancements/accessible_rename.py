@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import NVDAObjects.UIA
 from logHandler import log
 import UIAHandler
@@ -74,7 +82,7 @@ class ExcelSheetRenameEdit(object):
             """
             keyboardHandler.KeyboardInputGesture.fromName("enter").send()
             import ui
-            ui.message(f"Renaming to {clean_name}")
+            ui.message(_("Renaming to {name}").format(name=clean_name))
             # Delay restoring the clipboard to ensure Excel has time to process the Enter key
             core.callLater(1500, lambda: _restore_clip_and_reset(old_clip))
 

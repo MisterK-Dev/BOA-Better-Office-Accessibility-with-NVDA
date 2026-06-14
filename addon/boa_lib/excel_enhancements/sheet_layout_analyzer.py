@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 """
 Sheet Layout Analyzer
 
@@ -73,7 +81,7 @@ class LayoutDialog(wx.Dialog):
         """Copies the dialog's full text content to the Windows clipboard."""
         api.copyToClip(self.textCtrl.GetValue())
         import ui
-        ui.message("Copied to clipboard")
+        ui.message(_("Copied to clipboard"))
         self.textCtrl.SetFocus()
 
 class SheetLayoutAnalyzer:
@@ -168,7 +176,7 @@ class SheetLayoutAnalyzer:
         the result (`_layout_cache`) so that subsequent "Guided mode" jumps do not have to recalculate 
         the expensive COM queries.
         """
-        ui.message("Analyzing layout...")
+        ui.message(_("Analyzing layout..."))
         areas = SheetLayoutAnalyzer._get_data_areas(excel)
         try:
             sheet_name = excel.ActiveSheet.Name
@@ -248,7 +256,7 @@ class SheetLayoutAnalyzer:
                     closest = (ar, ac_letter)
                     
             if closest:
-                msg = f"Empty cell. Nearest data at {closest[1]}{closest[0]}."
+                msg = _("Empty cell. Nearest data at {col}{row}.").format(col=closest[1], row=closest[0])
                 ui.message(msg)
         except Exception as e:
             log.debug(f"BOA: auto_announce_one_time Exception: {e}")
@@ -300,7 +308,7 @@ class SheetLayoutAnalyzer:
                     closest = (ar, ac_letter)
                     
             if closest:
-                msg = f"Nearest data at {closest[1]}{closest[0]}"
+                msg = _("Nearest data at {col}{row}").format(col=closest[1], row=closest[0])
                 ui.message(msg)
         except Exception as e:
             log.debug(f"BOA: auto_announce_guided Exception: {e}")
@@ -510,12 +518,12 @@ class SheetLayoutAnalyzer:
         try:
             sheet_name = excel.ActiveSheet.Name
             if sheet_name not in SheetLayoutAnalyzer._layout_cache:
-                ui.message("Layout cache empty. Press NVDA+E, L to scan sheet first.")
+                ui.message(_("Layout cache empty. Press NVDA+E, L to scan sheet first."))
                 return
                 
             areas = SheetLayoutAnalyzer._layout_cache[sheet_name]
             if not areas:
-                ui.message("No data blocks found in cache.")
+                ui.message(_("No data blocks found in cache."))
                 return
                 
             cell = excel.ActiveCell
@@ -534,7 +542,7 @@ class SheetLayoutAnalyzer:
 
             if not is_empty:
                 import ui
-                ui.message("Already on a data cell.")
+                ui.message(_("Already on a data cell."))
                 return
                 
             closest = None
@@ -551,7 +559,7 @@ class SheetLayoutAnalyzer:
             if closest:
                 ar, ac_letter = closest
                 excel.ActiveSheet.Cells(ar, SheetLayoutAnalyzer._letter_to_col_num(ac_letter)).Select()
-                msg = f"Jumped to {ac_letter}{ar}"
+                msg = _("Jumped to {col}{row}").format(col=ac_letter, row=ar)
                 ui.message(msg)
         except Exception as e:
             log.debug(f"BOA: jump_to_nearest_block Exception: {e}")

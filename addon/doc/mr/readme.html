@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../style.css" media="screen">
+<title>BOA: Better Office Accessibility 1.6.0</title>
+</head>
+<body>
+<h1>BOA: Better Office Accessibility</h1>
+<p>BOA ही Microsoft Office साठी ॲक्सेसिबिलिटी एन्हान्समेंट्सची एक शक्तिशाली प्रणाली आहे, जी NVDA वापरकर्त्यांसाठी स्क्रीन रीडरचा अनुभव मोठ्या प्रमाणावर सुधारण्यासाठी तयार केलेली आहे. ती इनॲक्सेसिबल UI घटकांना थेट पॅच करते आणि Excel आणि PowerPoint साठी जलद नेव्हिगेशन साधने सादर करते.</p>
+<hr />
+<h2>⌨️ हॉटकी संदर्भ (Hotkey Reference)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">फीचर</th>
+<th style="text-align: left;">की कॉम्बिनेशन</th>
+<th style="text-align: left;">संदर्भ / नोट्स</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>कमांड मोड एंटर करा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code></td>
+<td style="text-align: left;">कमांड प्रीफिक्स मोड ॲक्टिव्हेट करते (उच्च आवाजाचा बीप ट्रिगर करते)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sheet लेआउट ॲनालाइज करा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>L</code></td>
+<td style="text-align: left;">Data Blocks नेव्हिगेट करण्यापूर्वी Excel मध्ये रन करा</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>सर्वात जवळच्या Data Block वर जंप करा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>J</code> /</td>
+<td style="text-align: left;">आधी लेआउट ॲनालिसिस आवश्यक आहे</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bulk Sheet Organizer उघडा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>X</code></td>
+<td style="text-align: left;">ॲक्सेसिबल Sheet रीऑर्डरिंग डायलॉग उघडते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>सक्रिय Sheet डावीकडे हलवा</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
+<td style="text-align: left;">सक्रिय Sheet ला एक स्थान वर (मागे) हलवते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>सक्रिय Sheet उजवीकडे हलवा</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
+<td style="text-align: left;">सक्रिय Worksheet ला एक स्थान खाली (पुढे) हलवते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sheet सुरुवातीला/शेवटी हलवा</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
+<td style="text-align: left;">Worksheet ला अगदी सुरुवातीला किंवा अगदी शेवटी पाठवते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>तपशीलवार Conditional Formatting</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>F</code></td>
+<td style="text-align: left;">फोकस केलेल्या Cell चे संपूर्ण फॉरमॅटिंग तपशील घोषित करते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cell ला मेमरी स्लॉटमध्ये मॅप करा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>Shift+1</code> ते <code>Shift+9</code></td>
+<td style="text-align: left;">वर्तमान Cell ला बॅकग्राउंड मॉनिटर स्लॉटमध्ये असाइन करते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>मॉनिटर केलेला Cell स्लॉट वाचा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>1</code> ते <code>9</code></td>
+<td style="text-align: left;">असाइन केलेल्या स्लॉटची व्हॅल्यू रिकॉल करून वाचते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>बॅकग्राउंड मॉनिटरिंग टॉगल करा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>M</code></td>
+<td style="text-align: left;">बॅकग्राउंड कॅलक्युलेशन ट्रॅकिंग मॅन्युअली टॉगल करते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>सर्व मेमरी स्लॉट्स क्लिअर करा</strong></td>
+<td style="text-align: left;"><code>NVDA+E</code>, नंतर <code>Backspace</code></td>
+<td style="text-align: left;">जतन केलेले सर्व बॅकग्राउंड Cell मॉनिटर्स काढून टाकते</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>कमांड मोड कॅन्सल करा</strong></td>
+<td style="text-align: left;"><code>Escape</code></td>
+<td style="text-align: left;">कमांड प्रीफिक्स मोडमधून बाहेर पडते</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>🚀 फीचर्स</h2>
+<h3>Excel एन्हान्समेंट्स</h3>
+<h4>1. Sheet Layout Analyzer आणि Caching</h4>
+<p>कोणत्याही Excel Worksheet ची रचना, लपवलेले घटक आणि Data Blocks समजून घेण्यासाठी ते त्वरित स्कॅन करा.
+* <strong>हे कसे काम करते:</strong> BOA शीट त्वरीत स्कॅन करते आणि सक्रिय Data Blocks घोषित करते. हे तुम्हाला <strong>Hidden Worksheet Tabs</strong>, सक्रिय <strong>Filters</strong>, <strong>Protected Modes</strong>, आणि <strong>Hidden Outer Boundaries</strong> (उदा., जर शीटच्या उजव्या काठाजवळील Columns लपवलेले असतील, जेणेकरून तुमचा स्क्रीनबाहेरील डेटा चुकू नये) यांबद्दल देखील चेतावणी देते.
+* <strong>डेटा नेव्हिगेशन:</strong> स्कॅनिंगनंतर, तुम्ही हजारो रिकाम्या Cells ला सहजरीत्या पार करून, शोधलेल्या Data Blocks मध्ये तुमचा कर्सर झटपट वळवण्यासाठी डेटा ब्लॉक जंप हॉटकीज वापरू शकता.</p>
+<h4>2. Bulk Sheet Organizer</h4>
+<p>पूर्णपणे ॲक्सेसिबल डायलॉग वापरून एकाच वेळी अनेक Sheets त्वरित रीऑर्डर करा आणि व्यवस्थापित करा.
+* <strong>हे कसे काम करते:</strong> एक डायलॉग उघडतो जिथे तुम्ही Sheet निवडू शकता आणि नवीन स्थानावर मॅप करू शकता. शेड्युल केलेल्या मूव्ह्ज डेटा टेबलमध्ये सूचीबद्ध केल्या जातात (चूक काढण्यासाठी <code>Del</code> दाबा). <code>OK</code> क्लिक करा आणि तुमचे Workbook त्वरित पुनर्रचना केले जाईल.</p>
+<h4>3. Quick Sheet Mover</h4>
+<p>तुमचे कीबोर्ड शॉर्टकट वापरून सक्रिय Sheet डावीकडे, उजवीकडे, अगदी सुरुवातीला किंवा अगदी शेवटी त्वरित हलवा.</p>
+<h4>4. ॲक्सेसिबल Sheet Renaming</h4>
+<ul>
+<li>Sheet चे नाव बदलताना, तुम्ही टाईप करत असलेले कॅरेक्टर्स वाचण्यात NVDA ला नेटिव्हरीत्या अडचण येते.</li>
+<li>BOA एक कस्टम <code>ExcelSheetRenameEdit</code> क्लास इंजेक्ट करते जो <code>SafeRichEdit</code> इंजिन वापरतो, याचा अर्थ नाव बदलताना तुम्ही कॅरेक्टर, शब्द किंवा ओळीनुसार अचूक वाचू शकता. हे विद्यमान डीफॉल्ट रिनेमिंग वर्तनाला एन्हान्समेंट म्हणून काम करते.</li>
+</ul>
+<h4>5. Hidden Row/Column Tracker</h4>
+<ul>
+<li>तुमचा लपवलेला किंवा फिल्टर केलेला डेटा चुकू नये म्हणून ग्रिडवरील तुमच्या हालचालीचा अगोदरच मागोवा घेतो.</li>
+<li><strong>क्रॉस्ड फ्रॅगमेंटेड Cells:</strong> जर तुम्ही ग्रिडच्या मोठ्या प्रमाणावर विखुरलेल्या किंवा लपलेल्या भागावरून उडी मारली (उदा., Row 3 वरून Row 10 वर जाणे कारण Rows 4–9 लपलेल्या आहेत), तर BOA स्पष्टपणे घोषित करते "Rows 4 through 9 hidden". यामुळे तुम्हाला नेहमी माहित असते की रचनेमधील डेटा कधी वगळला गेला आहे.</li>
+</ul>
+<h4>6. Conditional Formatting Announcer</h4>
+<ul>
+<li>Excel च्या Conditional Formatting नियमांमुळे डायनॅमिकरीत्या बदललेल्या Cells चा रंग, फॉन्ट स्टाईल आणि बॅकग्राउंड शेड आपोआप वाचते.</li>
+<li>तुम्हाला फक्त मूळ व्हॅल्यू देण्याऐवजी Cell ची खरी व्हिज्युअल स्थिती देते. सुरुवातीला, Cell वर फोकस केल्यावर, ते घोषित करते "has conditional formatting, and some other minor details". सर्वसमावेशक माहितीसाठी, तपशीलवार हॉटकी कॉन्फिगरेशन वापरा जे NVDA E आणि F आहे.</li>
+</ul>
+<h4>7. उत्तम Selection घोषणा</h4>
+<p>Cell किंवा रेंज निवडली असल्यास किंवा निवड काढली असल्यास ते वाचते.</p>
+<h4>8 Cell monitor:</h4>
+<ul>
+<li><strong>Cell Monitor:</strong> ठराविक Cells ना मेमरी स्लॉटमध्ये मॅप करण्यासाठी कमांड पाथ्स वापरा. तुम्ही असाइन केलेला संख्यात्मक स्लॉट वापरून कधीही परत जाऊन ते वाचू शकता.</li>
+<li><strong>Continuous Monitoring:</strong> स्लॉट केलेले Cells आपोआप बॅकग्राउंडमध्ये मॉनिटर केले जातात. जर Excel ने recalculation किंवा Cell edit केले, तर BOA लगेच नवीन व्हॅल्यू घोषित करते. मॅन्युअली टॉगल करा किंवा कमांड स्लॉट्सद्वारे सर्व क्लिअर करा.</li>
+</ul>
+<h3>PowerPoint एन्हान्समेंट्स</h3>
+<h4>1. Accessible Color Pickers</h4>
+<ul>
+<li>PowerPoint मधील Custom Color डायलॉग अनलॉक करते.</li>
+<li>"Red", "Green", आणि "Blue" एडिट बॉक्सेस ओळखते आणि स्पष्टपणे अचूक वाचते (<code>PowerPointRGBEdit</code> ला ओव्हरराइड करून).</li>
+<li>आधी अदृश्य असलेले Hex इनपुट फील्ड मॅप करते जेणेकरून NVDA पूर्ण Hex कलर व्हॅल्यू स्पष्टपणे वाचू शकेल.</li>
+</ul>
+<h4>2. Standard Color Grid Support</h4>
+<ul>
+<li>PowerPoint "Standard" कलर हेक्सागॉन ग्रिड नेव्हिगेट करताना सहसा "Graphic" असे वाचते किंवा शांत राहते.</li>
+<li>हेक्सागॉन ओलांडणाऱ्या तुमच्या ॲरो कीजचा BOA मागोवा घेते आणि लपलेली कलर व्हॅल्यू शांतपणे मिळवते, ती तुम्हाला रिअल-टाइममध्ये घोषित करते (उदा., "Color #FF0000").</li>
+</ul>
+<h3>इन्फ्रास्ट्रक्चर आणि टेक्निकल मेकॅनिझम्स (Infrastructure &amp; Technical Mechanisms)</h3>
+<h4>Command Prefix Mode</h4>
+<p>इतर NVDA प्लगइन्ससोबत कीस्ट्रोक संघर्ष टाळण्यासाठी, BOA एक <strong>Command Prefix Mode</strong> वापरते:
+1. कमांड मोड एंटर करण्यासाठी ॲक्टिव्हेशन हॉटकी दाबा. तुम्हाला एक उच्च आवाजाचा बीप ऐकू येईल.
+2. विशिष्ट फीचर ट्रिगर करण्यासाठी दुसरी की दाबा.
+3. जर तुम्ही चुकीची की दाबली, तर तुम्हाला एक एरर बीप ऐकू येईल.</p>
+<h4>Customization आणि Settings पॅनेल</h4>
+<ul>
+<li>BOA फीचर्स पूर्णपणे मॉड्युलर आहेत आणि कधीही सक्षम किंवा अक्षम केले जाऊ शकतात. वैयक्तिक फीचर्स चालू किंवा बंद करण्यासाठी <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> वर जा.</li>
+<li><strong>Intelligent Accelerator Keys:</strong> पॅनेलमध्ये प्रत्येक सेटिंगमध्ये गणितीयदृष्ट्या अद्वितीय असा <code>Alt+Key</code> ॲक्सलरेटर शॉर्टकट आहे. उदाहरणार्थ, Excel ग्रुपवर झटपट जाण्यासाठी <code>Alt+E</code> दाबा, PowerPoint साठी <code>Alt+P</code>, आणि Word साठी <code>Alt+W</code> दाबा.</li>
+<li>सेटिंग्स एका स्टँडअलोन JSON फाईल (<code>boa_settings.json</code>) मध्ये सुरक्षितपणे सेव्ह केल्या जातात, ज्यामुळे तुमचे मुख्य NVDA कॉन्फिगरेशन कधीही खराब होणार नाही याची खात्री होते.</li>
+<li>जर Microsoft Office ने भविष्यात एखादा ॲक्सेसिबिलिटी बग अधिकृतपणे दुरुस्त केला, तर तुम्ही ॲड-ऑनची उर्वरित कार्यक्षमता न गमावता BOA चा विशिष्ट ओव्हरराइड हूक सुरक्षितपणे अक्षम करू शकता.</li>
+</ul>
+<h4>सुरक्षा आणि इंटिग्रेशन सीमा (Security &amp; Integration Boundaries)</h4>
+<ul>
+<li>क्लिपबोर्ड इंजेक्शन्स अन्य ॲप्लिकेशन्समध्ये डेटा लीक होण्यापासून रोखण्यासाठी विंडो फोरग्राउंड प्रोसेस आयडीची काटेकोरपणे पडताळणी करतात.</li>
+<li>काही कस्टम हॉटकीज NVDA च्या Input Gestures डायलॉगमध्ये "Better Office Accessibility" कॅटेगरी अंतर्गत पूर्णपणे उघड केलेल्या आहेत.</li>
+</ul>
+<hr />
+<h2>📋 आवश्यकता (Requirements)</h2>
+<ul>
+<li><strong>NVDA:</strong> आवृत्ती 2026.1.0 किंवा त्यापुढील.</li>
+<li><strong>ॲप्लिकेशन्स (Applications):</strong> Microsoft Excel आणि Microsoft PowerPoint.</li>
+</ul>
+<hr />
+<h2>💾 इन्स्टॉलेशन (Installation)</h2>
+<ol>
+<li>नवीनतम <code>.nvda-addon</code> रिलीज फाईल डाउनलोड करा, किंवा नेटिव्ह NVDA ॲड-ऑन स्टोअरमध्ये ती शोधा.</li>
+<li>फाईलमधून इन्स्टॉल करत असल्यास, फाईल उघडा किंवा <code>NVDA's Add-on Store -&gt; Install from external file</code> वापरा.</li>
+<li>NVDA रीस्टार्ट करा.</li>
+</ol>
+<hr />
+<h2>🛠️ चेंजलॉग (Changelog)</h2>
+<h3>v1.6.0</h3>
+<ul>
+<li><strong>व्यापक भाषांतर समर्थन (Comprehensive Translation Support)</strong>: ॲड-ऑन आता 17 जागतिक भाषांच्या समर्थनासह पूर्णपणे स्थानिकीकृत आहे. 
+  <em>(टीप: ही भाषांतरे AI द्वारे तयार केली गेली आहेत, त्यामुळे काही किरकोळ भाषांतर त्रुटी किंवा अयोग्यता असू शकतात.)</em></li>
+<li><strong>काटेकोर कोड गव्हर्नन्स (Strict Code Governance)</strong>: संपूर्ण कोडबेसमध्ये GPL-2.0 कॉपीराइट हेडर्स लागू केले.</li>
+</ul>
+<h3>आवृत्ती 1.5.0 (Version 1.5.0)</h3>
+<h4>नवीन फीचर्स (New Features)</h4>
+<h5>End of Data Radar</h5>
+<p>मोठ्या स्प्रेडशीट्समधून नेव्हिगेट करताना, रिकामा Cell म्हणजे तुम्ही यादीच्या शेवटी पोहोचला आहात की डेटामध्ये फक्त गॅप आहे हे सांगणे कठीण होऊ शकते. <strong>End of Data Radar</strong> एक स्मार्ट परिमिती तपासणी म्हणून कार्य करते ज्यामुळे तुम्हाला रिकाम्या जागेत अंधपणे ॲरो कीज दाबण्यापासून वाचवता येते.
+जेव्हा तुम्ही रिकाम्या Cell मध्ये नेव्हिगेट करता, तेव्हा BOA तुमच्या प्रवासाच्या दिशेने उर्वरित Cells त्वरित स्कॅन करते. जर अजिबात डेटा शिल्लक नसेल, तर ते अगोदरच घोषित करेल:
+* <em>"No more data below"</em>
+* <em>"No more data above"</em>
+* <em>"No more data to the right"</em>
+* <em>"No more data to the left"</em>
+<strong>कॉन्फिगरेशन पर्याय (Configuration Options):</strong>
+तुम्ही <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> द्वारे हे फीचर कॉन्फिगर करू शकता. कारण स्प्रेडशीट्समध्ये लपलेली गुंतागुंत (जसे की अदृश्य फॉर्म्युले किंवा लपलेल्या Rows) असू शकते, रडार तीन ऑपरेटिंग मोड्स प्रदान करते:
+1. <strong>Off</strong>: रडार पूर्णपणे अक्षम करते.
+2. <strong>Strict Memory Check (CountA) [Default]</strong>: सर्वात सुरक्षित आणि जलद दृष्टिकोन. हे स्प्रेडशीटची कच्ची मेमरी तपासते. जर त्याला तुमच्या खाली <em>काहीही</em> आढळले (लपलेल्या Rows, मजकूर, संख्या किंवा अदृश्य फॉर्म्युल्यांसह), तर चुकीचे अलार्म टाळण्यासाठी ते पूर्णपणे शांत राहते. जेव्हा शीटचा उर्वरित भाग 100% गणितीयदृष्ट्या रिकामा असतो तेव्हाच हे "No more data" घोषित करते.
+3. <strong>Visible Data Only (Math Engine)</strong>: गुंतागुंतीच्या शीट्ससाठी डिझाइन केलेले अत्यंत प्रगत इंजिन. हे लपलेल्या Rows आणि अदृश्य फॉर्म्युले (उदा., <code>=""</code>) कल्पकतेने फिल्टर करते. जर तुमच्या मार्गात प्रत्यक्ष, दृश्यमान संख्या किंवा मजकूर शिल्लक असेल तरच ते शांत राहील.</p>
+<h3>आवृत्ती 1.4 - 2026-06-12 (Version 1.4 - 2026-06-12)</h3>
+<h4>नवीन फीचर्स (New Features)</h4>
+<ul>
+<li><strong>Cell Monitor:</strong> ठराविक Cells ना मेमरी स्लॉटमध्ये मॅप करण्यासाठी कमांड पाथ्स वापरा. तुम्ही असाइन केलेला संख्यात्मक स्लॉट वापरून कधीही परत जाऊन ते वाचू शकता.</li>
+<li><strong>Continuous Monitoring:</strong> स्लॉट केलेले Cells आपोआप बॅकग्राउंडमध्ये मॉनिटर केले जातात. जर Excel ने recalculation किंवा Cell edit केले, तर BOA लगेच नवीन व्हॅल्यू घोषित करते. मॅन्युअली टॉगल करा किंवा कमांड स्लॉट्सद्वारे सर्व क्लिअर करा.</li>
+</ul>
+<h4>बग फिक्सेस (Bug Fixes)</h4>
+<h3>आवृत्ती 1.3.0 — 2026-06-05 (Version 1.3.0 — 2026-06-05)</h3>
+<p><em>अंतिम रिलीज. (Final release.)</em></p>
+<h4>नवीन फीचर्स (New Features)</h4>
+<ul>
+<li><strong>Sheet Layout Analyzer:</strong> शक्तिशाली लेआउट स्कॅनिंग इन्फ्रास्ट्रक्चर जोडले. Worksheet Protection, सक्रिय Column Filters, Hidden Worksheet Tabs, आणि लपलेल्या ॲब्सोल्युट बॉर्डर्स त्वरित शोधते आणि शोधलेल्या Data Blocks ला कॅश करते.</li>
+<li><strong>Guided Data Block Navigation:</strong> ॲनालिसीस नंतरचे नेव्हिगेशन रिकाम्या Cells ला अखंडपणे वगळून डेटाच्या प्रमुख क्लस्टर्सच्या दरम्यान कर्सरला तात्काळ जंप करण्याची परवानगी देते.</li>
+<li><strong>Conditional Formatting Announcer:</strong> Excel च्या Conditional Formatting नियमांमुळे बदललेल्या Cells चा डायनॅमिक रंग, फॉन्ट स्टाईल आणि बॅकग्राउंड शेड आपोआप शोधते आणि वाचते.</li>
+<li><strong>Explicit Settings Accelerators:</strong> NVDA आर्किटेक्चरचे काटेकोरपणे पालन करण्यासाठी BOA Settings GUI पूर्णपणे ओव्हरहॉल केले. कीबोर्ड सायकलिंग टाळून आणि फर्स्ट-लेटर नेव्हिगेशन फेल्युअर्स दूर करून, प्रत्येक फीचर चेकबॉक्सला आता जागतिक स्तरावर अद्वितीय <code>Alt+Letter</code> शॉर्टकट आहे.</li>
+</ul>
+<h4>बग फिक्सेस (Bug Fixes)</h4>
+<ul>
+<li><strong>Absolute Edge Boundary Detection:</strong> लपवलेल्या Rows/Columns सक्रिय Data Block च्या खूप बाहेर असल्या तरीही त्यांचा शोध घेण्याची हमी देण्यासाठी नेटिव्ह COM <code>UsedRange</code> एज चेक्स च्या जागी ॲब्सोल्युट 1D मॅथेमॅटिकल बाउंड्री चेक्स (<code>Row 1048576</code> आणि <code>Column 16384</code>) वापरले.</li>
+<li><strong>Lazy COM Property Safe Bailouts:</strong> लाखो सलग लपलेल्या स्ट्रक्चर्सचे मूल्यमापन करताना NVDA थ्रेड फ्रीझ होण्यापासून रोखण्यासाठी COM प्रॉपर्टी लूप्स मजबूत केले.</li>
+</ul>
+<h3>आवृत्ती 1.2.0 — 2026-06-03 (Version 1.2.0 — 2026-06-03)</h3>
+<p><em>अंतिम रिलीज. (Final release.)</em></p>
+<h4>नवीन फीचर्स (New Features)</h4>
+<ul>
+<li><strong>App-Launch Caching:</strong> मेजर आर्किटेक्चरल ओव्हरहॉल. जेव्हा तुम्ही Office ॲप्लिकेशन्सवर फोकस करता तेव्हाच कोर मॉड्यूल्स आता लेझी-लोड होतात, ज्यामुळे बूट लॅग दूर होतो, रिनेम डायलॉग्सवरील 'अज्ञात' ऑब्जेक्ट फोकस ग्लिच पूर्णपणे सोडवला जातो आणि मल्टी-फाईल कोडबेस स्ट्रक्चर संरक्षित केले जाते.</li>
+<li><strong>Enhanced Cell Tracker (1D COM Math):</strong> लपवलेल्या सेल गॅप डिटेक्शन लॉजिकला फक्त एक-आयामी क्रॉस-सेक्शन्स (<code>current_col</code> किंवा <code>current_row</code>) चे मूल्यमापन करण्यासाठी पुन्हा लिहिले. हे COM कॅल्क्युलेशन पेलोड 16 दशलक्षपेक्षा जास्त Cells ने कमी करते, लपलेल्या रेंजेसवरून जंप करताना नेव्हिगेशन फ्रीझ तात्काळ दूर करते.</li>
+<li><strong>Process Memory Wiping:</strong> वापरकर्ता जेव्हा Excel बंद करून पुन्हा उघडतो तेव्हा ते शोधण्यासाठी Excel Window Handle (<code>Hwnd</code>) ट्रॅकिंग लागू केले. हे सक्रियपणे शिळ्या (stale) ग्लोबल स्टेट मेमरी पुसून टाकते आणि नवीन "Book1" उघडताना येणारी चुकीची "Sheet hidden" घोषणा पूर्णपणे सोडवते.</li>
+</ul>
+<h4>बग फिक्सेस (Bug Fixes)</h4>
+<ul>
+<li><strong>Double Selection Announcement:</strong> अविश्वसनीय असिंक्रोनस <code>winUser.getKeyState</code> पासून दूर स्थलांतर केले आणि Shift+Arrow कीज वापरताना दुहेरी घोषणा योग्यरीत्या दाबून ठेवण्यासाठी <code>api.getLastInputGesture()</code> लागू केले.</li>
+<li><strong>Boundary Detector Deactivation:</strong> Proactive Boundary Detector NVDA नेटिव्ह नेव्हिगेशन स्थिरता संरक्षित करण्यासाठी अक्षम केले गेले आहे, जे पूर्णपणे गॅप-स्किपिंग ट्रॅकरवर परत येते.</li>
+</ul>
+<h3>आवृत्ती 1.1.0 — 2026-05-30 (Version 1.1.0 — 2026-05-30)</h3>
+<p><em>अंतिम रिलीज. (Final release.)</em></p>
+<h4>नवीन फीचर्स (New Features)</h4>
+<ul>
+<li><strong>Settings GUI:</strong> फीचर्स सहजपणे चालू किंवा बंद करण्यासाठी <code>NVDA -&gt; Preferences -&gt; Settings</code> मध्ये एक नेटिव्ह BOA Office Enhancements पॅनेल जोडले.</li>
+<li><strong>SafeRichEdit Hook:</strong> Office 2024 मधील RichEdit कंट्रोल्सशी संवाद साधताना मूक (silent) NVDA क्रॅशला प्रतिबंध करते.</li>
+<li><strong>Customizable Hotkeys:</strong> सर्व BOA हॉटकीज आता NVDA च्या Input Gestures डायलॉगमध्ये "Better Office Accessibility" कॅटेगरी अंतर्गत पूर्णपणे उघड केलेल्या आहेत.</li>
+<li><strong>Excel: Hidden Row/Column Skip Detection:</strong> लपवलेल्या Rows किंवा Columns ओलांडून पुढे जाताना अगोदरच घोषणा करते, हे सुनिश्चित करते की तुमचा फिल्टर केलेला डेटा कधीही चुकणार नाही. सेटिंग्समध्ये टॉगल केले जाऊ शकते.</li>
+</ul>
+<h4>बग फिक्सेस (Bug Fixes)</h4>
+<ul>
+<li><strong>Thread Safety:</strong> सर्व ब्लॉकिंग डिलेज (<code>time.sleep</code>) काढले आणि त्यांच्या जागी नॉन-ब्लॉकिंग NVDA असिंक्रोनस कॉलबॅक्स ठेवले जेणेकरून बॅकग्राउंड ऑपरेशन्स दरम्यान स्क्रीन रीडर कधीही अडखळणार नाही याची खात्री होईल.</li>
+</ul>
+<h3>आवृत्ती 1.0.0 — 2026-05-24 (Version 1.0.0 — 2026-05-24)</h3>
+<p><em>प्रारंभिक सार्वजनिक रिलीज. (Initial public release.)</em></p>
+<h4>नवीन फीचर्स (New Features)</h4>
+<ul>
+<li><strong>Excel: Bulk Sheet Organizer:</strong> पूर्णपणे ॲक्सेसिबल डायलॉग वापरून एकाच वेळी अनेक Sheets त्वरित रीऑर्डर करा.</li>
+<li><strong>Excel: Quick Sheet Mover:</strong> सक्रिय Sheet डावीकडे, उजवीकडे, सुरुवातीला किंवा शेवटी कीबोर्ड कमांड्सद्वारे हलवा.</li>
+<li><strong>Excel: Accessible Sheet Renaming:</strong> इनॲक्सेसिबल नेटिव्ह रिनेम फील्डला अडवते आणि त्या जागी एक विश्वासार्ह ॲक्सेसिबल डायलॉग ठेवते.</li>
+<li><strong>Excel: Smart Selection Tracking:</strong> मल्टी-Cell रेंज सिलेक्शन आणि डि-सिलेक्शनची अचूक घोषणा करते.</li>
+<li><strong>PowerPoint: Accessible Color Pickers:</strong> NVDA ला Custom Color डायलॉगमध्ये RGB आणि Hex व्हॅल्यूज अचूक वाचण्यास सक्षम करते.</li>
+<li><strong>PowerPoint: Standard Color Grid Support:</strong> इनॲक्सेसिबल कलर हेक्सागॉन ग्रिडमधून लपवलेले Hex कोड वाचण्यासाठी ॲरो की नेव्हिगेशनला अडवते.</li>
+</ul>
+</body>
+</html>

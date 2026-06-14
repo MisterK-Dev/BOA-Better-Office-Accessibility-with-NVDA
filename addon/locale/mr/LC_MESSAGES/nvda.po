@@ -1,0 +1,449 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'BOA' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 'BOA' '1.6.0'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-06-14 09:32+0530\n"
+"PO-Revision-Date: 2026-06-14 09:48+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Marathi <mr@li.org>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#. Title for the NVDA settings dialog list and the panel title
+#: addon\boa_lib\boa_gui.py:33
+msgid "BOA Office Enhancements"
+msgstr "बीओए ऑफिस एन्हान्समेंट्स"
+
+#: addon\boa_lib\boa_gui.py:65 addon\boa_lib\boa_gui.py:85
+msgid "Off"
+msgstr "बंद"
+
+#: addon\boa_lib\boa_gui.py:65
+msgid "One-time Announcement"
+msgstr "एक वेळ घोषणा"
+
+#: addon\boa_lib\boa_gui.py:65
+msgid "Guided Announcement"
+msgstr "मार्गदर्शित घोषणा"
+
+#: addon\boa_lib\boa_gui.py:85
+msgid "Strict Memory Check (CountA)"
+msgstr "सक्त मेमरी तपासणी (CountA)"
+
+#: addon\boa_lib\boa_gui.py:85
+msgid "Visible Data Only (Math Engine)"
+msgstr "फक्त दृश्यमान डेटा (Math Engine)"
+
+#: addon\boa_lib\boa_gui.py:95
+msgid "Select the engine used to detect the end of data in a row or column."
+msgstr "Row किंवा Column मधील डेटाचा शेवट शोधण्यासाठी वापरले जाणारे इंजिन निवडा."
+
+#: addon\boa_lib\boa_gui.py:109
+msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
+msgstr "एक्सेल (&E): बल्क Sheet ऑर्गनायझर आणि क्विक Sheet मूव्हर सुरू करा"
+
+#: addon\boa_lib\boa_gui.py:110
+msgid "Use accessible Sheet &Rename dialog instead of native edit field"
+msgstr "नेटिव्ह एडिट फील्ड ऐवजी ॲक्सेसिबल Sheet रिनेम डायलॉग वापरा (&R)"
+
+#: addon\boa_lib\boa_gui.py:111
+msgid "Prevent NVDA &crashes in Excel text fields"
+msgstr "एक्सेल टेक्स्ट फील्डमध्ये NVDA क्रॅश होण्यापासून थांबवा (&c)"
+
+#: addon\boa_lib\boa_gui.py:112
+msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
+msgstr "अपेक्षित नसताना मल्टी-Cell निवड सुटल्यास घोषणा करा (&u)"
+
+#: addon\boa_lib\boa_gui.py:113
+msgid "Proactively announce when navigating past &hidden rows or columns"
+msgstr "Hidden Rows किंवा Columns ओलांडून पुढे जाताना अगोदरच घोषणा करा (&h)"
+
+#: addon\boa_lib\boa_gui.py:114
+msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
+msgstr "NVDA+E, L द्वारे Sheet लेआउट अ‍ॅनालायझर सुरू करा (&L)"
+
+#: addon\boa_lib\boa_gui.py:115
+msgid "Sheet Layout Auto-Announce &Mode:"
+msgstr "Sheet लेआउट ऑटो-अनाउन्स मोड (&M):"
+
+#: addon\boa_lib\boa_gui.py:116
+msgid "Conditional &Formatting and color"
+msgstr "कंडिशनल फॉरमॅटिंग आणि रंग (&F)"
+
+#: addon\boa_lib\boa_gui.py:117
+msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
+msgstr "Cell मॉनिटर सुरू करा (स्लॉट 1-9 आणि सतत बॅकग्राउंड मॉनिटरिंग) (&t)"
+
+#: addon\boa_lib\boa_gui.py:118
+msgid "Announce when there is no more data in the direction you are &navigating"
+msgstr "तुम्ही नेव्हिगेट करत असलेल्या दिशेने आणखी डेटा नसल्यास घोषणा करा (&n)"
+
+#: addon\boa_lib\boa_gui.py:120
+msgid "Excel Enhancements"
+msgstr "एक्सेल एन्हान्समेंट्स"
+
+#: addon\boa_lib\boa_gui.py:124
+msgid "&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"
+msgstr "पॉवरपॉईंट (&P): स्टँडर्ड कलर हेक्सागॉन ग्रिड नेव्हिगेट करताना लपलेले Hex कोड वाचा"
+
+#: addon\boa_lib\boa_gui.py:125
+msgid "Ensure the He&x Color edit field is properly labeled"
+msgstr "Hex कलर एडिट फील्ड योग्यरीत्या लेबल केलेले असल्याची खात्री करा (&x)"
+
+#: addon\boa_lib\boa_gui.py:126
+msgid "Ensure the R&GB Color edit fields are properly labeled"
+msgstr "RGB कलर एडिट फील्ड्स योग्यरीत्या लेबल केलेले असल्याची खात्री करा (&G)"
+
+#: addon\boa_lib\boa_gui.py:127
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
+msgstr "पॉवरपॉईंट टेक्स्ट फील्ड्समध्ये NVDA क्रॅश होण्यापासून थांबवा (&a)"
+
+#: addon\boa_lib\boa_gui.py:129
+msgid "PowerPoint Enhancements"
+msgstr "पॉवरपॉईंट एन्हान्समेंट्स"
+
+#: addon\boa_lib\boa_gui.py:133
+msgid "&Word: Prevent NVDA crashes in Word text fields"
+msgstr "वर्ड (&W): वर्ड टेक्स्ट फील्ड्समध्ये NVDA क्रॅश होण्यापासून थांबवा"
+
+#: addon\boa_lib\boa_gui.py:135
+msgid "Word Enhancements"
+msgstr "वर्ड एन्हान्समेंट्स"
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:85
+#, python-brace-format
+msgid "Renaming to {name}"
+msgstr "{name} असे नाव बदलत आहे"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
+msgid "Bulk arrangement complete"
+msgstr "बल्क व्यवस्थापन पूर्ण झाले"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:108
+#, python-brace-format
+msgid "Error during bulk move: {error}"
+msgstr "बल्क मूव्ह दरम्यान त्रुटी: {error}"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:150
+msgid "Could not find Excel grid."
+msgstr "एक्सेल ग्रिड सापडले नाही."
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:158
+msgid "Failed to hook Excel."
+msgstr "एक्सेल हूक करण्यात अयशस्वी."
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:165
+msgid "No active workbook."
+msgstr "कोणतेही सक्रिय Workbook नाही."
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
+msgid "Error opening organizer"
+msgstr "ऑर्गनायझर उघडण्यात त्रुटी"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
+#, python-brace-format
+msgid "Scheduled: {sheet} to position {pos}"
+msgstr "नियोजित: {sheet} हे {pos} या स्थानावर"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:289
+msgid "Move removed"
+msgstr "मूव्ह काढली"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:119
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:231
+msgid "Error: Could not read Excel cell."
+msgstr "त्रुटी: एक्सेल Cell वाचता आला नाही."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:144
+#, python-brace-format
+msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
+msgstr "स्लॉट {slot_str} साठी {old_cell} च्या जागी {address} ठेवला आहे"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:147
+#, python-brace-format
+msgid "{address} set to slot {slot_str}"
+msgstr "{address} हे स्लॉट {slot_str} वर सेट केले"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:159
+#, python-brace-format
+msgid "Slot {slot_str} is empty."
+msgstr "स्लॉट {slot_str} रिकामा आहे."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:169
+msgid "Error: Excel not accessible."
+msgstr "त्रुटी: एक्सेल ॲक्सेसिबल नाही."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:176
+#, python-brace-format
+msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
+msgstr "स्लॉट {slot_str} हरवला. Workbook '{wb}' चे नाव बदलले किंवा ते बंद केले."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:189
+#, python-brace-format
+msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
+msgstr "स्लॉट {slot_str} हरवला. Sheet '{sheet}' चे नाव बदलले किंवा ती हटवली."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:214
+#, python-brace-format
+msgid "{val} - {cell}{location_str}"
+msgstr "{val} - {cell}{location_str}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:217
+#, python-brace-format
+msgid "Cannot read slot {slot_str}. Excel may be busy."
+msgstr "स्लॉट {slot_str} वाचता येत नाही. एक्सेल कदाचित व्यस्त असेल."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:238
+#, python-brace-format
+msgid "Continuous monitor OFF for {address}"
+msgstr "{address} साठी सतत मॉनिटर बंद"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:244
+#, python-brace-format
+msgid "Continuous monitor ON for {address}"
+msgstr "{address} साठी सतत मॉनिटर चालू"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:258
+msgid "All monitored and slotted cells cleared."
+msgstr "सर्व मॉनिटर केलेले आणि स्लॉट केलेले Cells क्लिअर केले."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:361
+#, python-brace-format
+msgid "{cell_addr} updated: {current_val}{location_str}"
+msgstr "{cell_addr} अपडेट झाले: {current_val}{location_str}"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:379
+#, python-brace-format
+msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
+msgstr "नाव बदलल्यामुळे किंवा बंद केल्यामुळे स्लॉट {slot_cleared} चा मॉनिटर हरवला."
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:382
+#, python-brace-format
+msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
+msgstr "मॉनिटर क्लिअर झाला: {wb_closed} मधील {sheet_closed} हरवली."
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
+msgid "unselected"
+msgstr "निवड काढली"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:210
+#, python-brace-format
+msgid "{address} selected"
+msgstr "{address} निवडले"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:336
+#, python-brace-format
+msgid "Row {row_num} hidden"
+msgstr "Row {row_num} लपवलेली आहे"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:339
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:341
+#, python-brace-format
+msgid "Rows {start} through {end} hidden"
+msgstr "Rows {start} ते {end} लपवलेल्या आहेत"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:343
+msgid "Crossed heavily fragmented hidden rows"
+msgstr "खूप जास्त विखुरलेल्या लपवलेल्या Rows ओलांडल्या"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:406
+#, python-brace-format
+msgid "Column {col_letter} hidden"
+msgstr "Column {col_letter} लपवलेला आहे"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:409
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:411
+#, python-brace-format
+msgid "Columns {start} through {end} hidden"
+msgstr "Columns {start} ते {end} लपवलेले आहेत"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:413
+msgid "Crossed heavily fragmented hidden columns"
+msgstr "खूप जास्त विखुरलेले लपवलेले Columns ओलांडले"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:468
+msgid "No more data below"
+msgstr "खाली आणखी डेटा नाही"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:475
+msgid "No more data above"
+msgstr "वर आणखी डेटा नाही"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:482
+msgid "No more data to the right"
+msgstr "उजवीकडे आणखी डेटा नाही"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:489
+msgid "No more data to the left"
+msgstr "डावीकडे आणखी डेटा नाही"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:552
+msgid "Panes frozen"
+msgstr "पेन फ्रोझन"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:554
+msgid "Panes unfrozen"
+msgstr "पेन अनफ्रोझन"
+
+#. -1 is xlSheetVisible
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:577
+#, python-brace-format
+msgid "{sheet} hidden"
+msgstr "{sheet} लपवली आहे"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:589
+msgid "Sheet hidden"
+msgstr "Sheet लपवली आहे"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:591
+msgid "Sheet unhidden"
+msgstr "Sheet दृश्यमान केली"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
+#, python-brace-format
+msgid "{address} {state}"
+msgstr "{address} {state}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
+msgid "No active cell found."
+msgstr "कोणताही सक्रिय Cell आढळला नाही."
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
+msgid "No conditional formatting rules applied to this cell."
+msgstr "या Cell वर कोणतेही कंडिशनल फॉरमॅटिंग नियम लागू केलेले नाहीत."
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
+msgid "Failed to read format conditions."
+msgstr "फॉरमॅटच्या अटी वाचण्यात अयशस्वी."
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
+msgid "Failed to analyze conditional formatting."
+msgstr "कंडिशनल फॉरमॅटिंगचे विश्लेषण करण्यात अयशस्वी."
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:88
+msgid "Only one sheet in workbook"
+msgstr "Workbook मध्ये फक्त एकच Sheet आहे"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:93
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:106
+msgid "Already at beginning"
+msgstr "आधीपासूनच सुरुवातीला आहे"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:99
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:112
+msgid "Already at end"
+msgstr "आधीपासूनच शेवटी आहे"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:127
+#, python-brace-format
+msgid "Moved {sheet} to position {new_idx} of {total}"
+msgstr "{sheet} ला {total} पैकी {new_idx} स्थानावर हलवले"
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:130
+msgid "Failed to move sheet"
+msgstr "Sheet हलवण्यात अयशस्वी"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:84
+msgid "Copied to clipboard"
+msgstr "क्लिपबोर्डवर कॉपी केले"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
+msgid "Analyzing layout..."
+msgstr "लेआउटचे विश्लेषण करत आहे..."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
+#, python-brace-format
+msgid "Empty cell. Nearest data at {col}{row}."
+msgstr "रिकामा Cell. सर्वात जवळचा डेटा {col}{row} वर."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
+#, python-brace-format
+msgid "Nearest data at {col}{row}"
+msgstr "सर्वात जवळचा डेटा {col}{row} वर"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
+msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
+msgstr "लेआउट कॅशे रिक्त आहे. आधी Sheet स्कॅन करण्यासाठी NVDA+E, L दाबा."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
+msgid "No data blocks found in cache."
+msgstr "कॅशेमध्ये कोणतेही Data Blocks आढळले नाहीत."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:545
+msgid "Already on a data cell."
+msgstr "आधीपासूनच एका डेटा Cell वर आहे."
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:562
+#, python-brace-format
+msgid "Jumped to {col}{row}"
+msgstr "{col}{row} वर उडी मारली"
+
+#. Announce the color cleanly to the user.
+#: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:52
+#, python-brace-format
+msgid "Color {text}"
+msgstr "रंग {text}"
+
+#: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:101
+#, python-brace-format
+msgid "Color {hex_val}"
+msgstr "रंग {hex_val}"
+
+#. Add-on description
+#: buildVars.py:15
+msgid ""
+"A powerful suite of accessibility enhancements for Microsoft Office, "
+"designed to vastly improve the screen reader experience for NVDA users. \n"
+"    \n"
+"    Key Features:\n"
+"    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
+"protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple "
+"sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside "
+"standard color grids.\n"
+"    \n"
+"    Please refer to the add-on help documentation for a complete list of "
+"features and shortcuts."
+msgstr ""
+"NVDA वापरकर्त्यांसाठी स्क्रीन रीडरचा अनुभव मोठ्या प्रमाणावर सुधारण्यासाठी तयार केलेली "
+"Microsoft Office साठी ॲक्सेसिबिलिटी एन्हान्समेंट्सची एक शक्तिशाली प्रणाली. \n"
+"    \n"
+"    मुख्य फीचर्स:\n"
+"    - Cell Monitor: डायनॅमिक Excel Cells सेव्ह करा आणि सतत ट्रॅक करा.\n"
+"    - Sheet Layout Analyzer: लपलेल्या Tabs, संरक्षित स्थिती आणि "
+"Data Blocks साठी Worksheets त्वरित स्कॅन करा.\n"
+"    - Bulk Sheet Organizer आणि Quick Mover: ॲक्सेसिबल डायलॉग्स वापरून "
+"अनेक Sheets त्वरित हलवा किंवा रीऑर्डर करा.\n"
+"    - PowerPoint Color Pickers: स्टँडर्ड कलर ग्रिड्समधील लपलेले "
+"Hex आणि RGB कोड वाचा.\n"
+"    \n"
+"    फीचर्स आणि शॉर्टकट्सच्या संपूर्ण यादीसाठी कृपया ॲड-ऑन मदत "
+"दस्तऐवज पहा."
+
+#. Changelog URL or None
+#: buildVars.py:40
+msgid ""
+"## What's New in v1.6.0\n"
+"* **Comprehensive Translation Support**: The add-on is now fully localized "
+"with support for 17 global languages. \n"
+"  *(Note: These translations were generated by AI, so some minor translation "
+"errors or inaccuracies may be present.)*\n"
+"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
+"entire codebase."
+msgstr ""
+"## v1.6.0 मध्ये नवीन काय आहे\n"
+"* **व्यापक भाषांतर समर्थन (Comprehensive Translation Support)**: ॲड-ऑन आता 17 "
+"जागतिक भाषांच्या समर्थनासह पूर्णपणे स्थानिकीकृत आहे. \n"
+"  *(टीप: ही भाषांतरे AI द्वारे तयार केली गेली आहेत, त्यामुळे काही किरकोळ भाषांतर "
+"त्रुटी किंवा अयोग्यता असू शकतात.)*\n"
+"* **काटेकोर कोड गव्हर्नन्स (Strict Code Governance)**: संपूर्ण कोडबेसमध्ये "
+"GPL-2.0 कॉपीराइट हेडर्स लागू केले."

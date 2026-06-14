@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 """
 BOA Settings GUI Module
 
@@ -22,7 +30,7 @@ class BOASettingsPanel(SettingsPanel):
     natively fixes a bug and our hook becomes obsolete.
     """
     # Title for the NVDA settings dialog list and the panel title
-    title = "BOA Office Enhancements"
+    title = _("BOA Office Enhancements")
     
     def makeSettings(self, settingsSizer):
         """
@@ -54,7 +62,7 @@ class BOASettingsPanel(SettingsPanel):
                     sizer = wx.BoxSizer(wx.HORIZONTAL)
                     lbl = wx.StaticText(self, label=label)
                     sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
-                    choices = ["Off", "One-time Announcement", "Guided Announcement"]
+                    choices = [_("Off"), _("One-time Announcement"), _("Guided Announcement")]
                     cb = wx.Choice(self, choices=choices)
                     val = config.get(app_name, {}).get(feature_key, "one_time")
                     
@@ -74,7 +82,7 @@ class BOASettingsPanel(SettingsPanel):
                     sizer = wx.BoxSizer(wx.HORIZONTAL)
                     lbl = wx.StaticText(self, label=label)
                     sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
-                    choices = ["Off", "Strict Memory Check (CountA)", "Visible Data Only (Math Engine)"]
+                    choices = [_("Off"), _("Strict Memory Check (CountA)"), _("Visible Data Only (Math Engine)")]
                     cb = wx.Choice(self, choices=choices)
                     val = config.get(app_name, {}).get(feature_key, "counta")
                     
@@ -84,7 +92,7 @@ class BOASettingsPanel(SettingsPanel):
                         cb.SetSelection(2)
                     else:
                         cb.SetSelection(1)
-                    cb.SetToolTip("Select the engine used to detect the end of data in a row or column.")
+                    cb.SetToolTip(_("Select the engine used to detect the end of data in a row or column."))
                     sizer.Add(cb)
                     group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
                     self.checkboxes[app_name][feature_key] = cb
@@ -98,33 +106,33 @@ class BOASettingsPanel(SettingsPanel):
 
         # Excel Group
         excel_features = {
-            "grid_mover": "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover",
-            "sheet_rename": "Use accessible Sheet &Rename dialog instead of native edit field",
-            "safe_rich_edit": "Prevent NVDA &crashes in Excel text fields",
-            "unselect_tracking": "Announce when a m&ulti-cell selection is unexpectedly lost",
-            "hidden_row_skip": "Proactively announce when navigating past &hidden rows or columns",
-            "sheet_layout_analyzer": "Enable Sheet &Layout Analyzer via NVDA+E, L",
-            "auto_announce_first_block": "Sheet Layout Auto-Announce &Mode:",
-            "conditional_formatting": "Conditional &Formatting and color",
-            "cell_monitor": "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)",
-            "end_of_data_radar": "Announce when there is no more data in the direction you are &navigating"
+            "grid_mover": _("&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"),
+            "sheet_rename": _("Use accessible Sheet &Rename dialog instead of native edit field"),
+            "safe_rich_edit": _("Prevent NVDA &crashes in Excel text fields"),
+            "unselect_tracking": _("Announce when a m&ulti-cell selection is unexpectedly lost"),
+            "hidden_row_skip": _("Proactively announce when navigating past &hidden rows or columns"),
+            "sheet_layout_analyzer": _("Enable Sheet &Layout Analyzer via NVDA+E, L"),
+            "auto_announce_first_block": _("Sheet Layout Auto-Announce &Mode:"),
+            "conditional_formatting": _("Conditional &Formatting and color"),
+            "cell_monitor": _("Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"),
+            "end_of_data_radar": _("Announce when there is no more data in the direction you are &navigating")
         }
-        create_group("excel", "Excel Enhancements", excel_features)
+        create_group("excel", _("Excel Enhancements"), excel_features)
         
         # PowerPoint Group
         ppt_features = {
-            "standard_color_grid": "&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid",
-            "hex_edit": "Ensure the He&x Color edit field is properly labeled",
-            "rgb_edit": "Ensure the R&GB Color edit fields are properly labeled",
-            "safe_rich_edit": "Prevent NVDA cr&ashes in PowerPoint text fields"
+            "standard_color_grid": _("&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"),
+            "hex_edit": _("Ensure the He&x Color edit field is properly labeled"),
+            "rgb_edit": _("Ensure the R&GB Color edit fields are properly labeled"),
+            "safe_rich_edit": _("Prevent NVDA cr&ashes in PowerPoint text fields")
         }
-        create_group("powerpoint", "PowerPoint Enhancements", ppt_features)
+        create_group("powerpoint", _("PowerPoint Enhancements"), ppt_features)
         
         # Word Group
         word_features = {
-            "safe_rich_edit": "&Word: Prevent NVDA crashes in Word text fields"
+            "safe_rich_edit": _("&Word: Prevent NVDA crashes in Word text fields")
         }
-        create_group("word", "Word Enhancements", word_features)
+        create_group("word", _("Word Enhancements"), word_features)
 
     def onSave(self):
         """

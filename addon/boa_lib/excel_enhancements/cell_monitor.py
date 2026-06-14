@@ -1,3 +1,11 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
 import ui
 import queueHandler
 from logHandler import log
@@ -108,7 +116,7 @@ class CellMonitorManager:
         """
         excel, wb, sheet, address, val = cls._get_active_cell_info(obj)
         if not excel:
-            ui.message("Error: Could not read Excel cell.")
+            ui.message(_("Error: Could not read Excel cell."))
             return
 
         is_replace = slot_str in cls._slots
@@ -133,9 +141,10 @@ class CellMonitorManager:
                 # Keep it in monitors if it's assigned to another slot or manually monitored,
                 # but to keep things simple for now, we leave it in the monitor list unless cleared.
                 pass
-            ui.message(f"{old_info['cell']} has been replaced by {address} for slot {slot_str}")
+            ui.message(_("{old_cell} has been replaced by {address} for slot {slot_str}").format(
+                old_cell=old_info['cell'], address=address, slot_str=slot_str))
         else:
-            ui.message(f"{address} set to slot {slot_str}")
+            ui.message(_("{address} set to slot {slot_str}").format(address=address, slot_str=slot_str))
 
     @classmethod
     def read_slot(cls, slot_str, obj):
@@ -147,7 +156,7 @@ class CellMonitorManager:
         a cached value. This ensures the reading is 100% accurate even if continuous polling was disabled.
         """
         if slot_str not in cls._slots:
-            ui.message(f"Slot {slot_str} is empty.")
+            ui.message(_("Slot {slot_str} is empty.").format(slot_str=slot_str))
             return
 
         info = cls._slots[slot_str]
@@ -157,14 +166,15 @@ class CellMonitorManager:
             if cls._active_excel:
                 excel = cls._active_excel
             else:
-                ui.message("Error: Excel not accessible.")
+                ui.message(_("Error: Excel not accessible."))
                 return
 
         try:
             # First verify the workbook still exists (hasn't been renamed or closed)
             wb_names = [wb.Name for wb in excel.Workbooks]
             if info["wb"] not in wb_names:
-                ui.message(f"Slot {slot_str} lost. Workbook '{info['wb']}' was renamed or closed.")
+                ui.message(_("Slot {slot_str} lost. Workbook '{wb}' was renamed or closed.").format(
+                    slot_str=slot_str, wb=info['wb']))
                 del cls._slots[slot_str]
                 monitor_key = f"{info['wb']}|{info['sheet']}|{info['cell']}"
                 if monitor_key in cls._monitors:
@@ -176,7 +186,8 @@ class CellMonitorManager:
             # Verify the sheet still exists (hasn't been renamed or deleted)
             sheet_names = [s.Name for s in target_wb.Sheets]
             if info["sheet"] not in sheet_names:
-                ui.message(f"Slot {slot_str} lost. Sheet '{info['sheet']}' was renamed or deleted.")
+                ui.message(_("Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted.").format(
+                    slot_str=slot_str, sheet=info['sheet']))
                 del cls._slots[slot_str]
                 monitor_key = f"{info['wb']}|{info['sheet']}|{info['cell']}"
                 if monitor_key in cls._monitors:
@@ -200,9 +211,10 @@ class CellMonitorManager:
             else:
                 location_str = f" in {info['sheet']} of {info['wb']}"
                 
-            ui.message(f"{val} - {info['cell']}{location_str}")
+            ui.message(_("{val} - {cell}{location_str}").format(
+                val=val, cell=info['cell'], location_str=location_str))
         except Exception:
-            ui.message(f"Cannot read slot {slot_str}. Excel may be busy.")
+            ui.message(_("Cannot read slot {slot_str}. Excel may be busy.").format(slot_str=slot_str))
 
     @classmethod
     def toggle_monitor(cls, obj):
@@ -216,20 +228,20 @@ class CellMonitorManager:
         """
         excel, wb, sheet, address, val = cls._get_active_cell_info(obj)
         if not excel:
-            ui.message("Error: Could not read Excel cell.")
+            ui.message(_("Error: Could not read Excel cell."))
             return
 
         monitor_key = f"{wb}|{sheet}|{address}"
         
         if monitor_key in cls._monitors:
             del cls._monitors[monitor_key]
-            ui.message(f"Continuous monitor OFF for {address}")
+            ui.message(_("Continuous monitor OFF for {address}").format(address=address))
             if not cls._monitors:
                 cls._stop_timer()
         else:
             cls._monitors[monitor_key] = val
             cls._start_timer(excel)
-            ui.message(f"Continuous monitor ON for {address}")
+            ui.message(_("Continuous monitor ON for {address}").format(address=address))
 
     @classmethod
     def clear_all(cls, obj):
@@ -243,7 +255,7 @@ class CellMonitorManager:
         cls._slots.clear()
         cls._monitors.clear()
         cls._stop_timer()
-        ui.message("All monitored and slotted cells cleared.")
+        ui.message(_("All monitored and slotted cells cleared."))
 
     @classmethod
     def _check_all_monitors(cls):
@@ -346,7 +358,8 @@ class CellMonitorManager:
                         else:
                             location_str = f" in {sheet_name} of {wb_name}"
                             
-                        ui.message(f"{cell_addr} updated: {current_val}{location_str}")
+                        ui.message(_("{cell_addr} updated: {current_val}{location_str}").format(
+                            cell_addr=cell_addr, current_val=current_val, location_str=location_str))
                 except Exception:
                     pass
 
@@ -363,9 +376,11 @@ class CellMonitorManager:
                 
                 import ui
                 if slot_cleared:
-                    ui.message(f"Monitor for Slot {slot_cleared} lost due to name change or closure.")
+                    ui.message(_("Monitor for Slot {slot_cleared} lost due to name change or closure.").format(
+                        slot_cleared=slot_cleared))
                 else:
-                    ui.message(f"Monitor cleared: {sheet_closed} in {wb_closed} lost.")
+                    ui.message(_("Monitor cleared: {sheet_closed} in {wb_closed} lost.").format(
+                        sheet_closed=sheet_closed, wb_closed=wb_closed))
 
         except Exception:
             pass
