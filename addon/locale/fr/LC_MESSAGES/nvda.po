@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '1.6.0-dev1'\n"
@@ -8,8 +9,8 @@ msgstr ""
 "Language-Team: fr <LL@li.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
@@ -38,15 +39,21 @@ msgstr "Données visibles uniquement (Moteur mathématique)"
 
 #: addon\boa_lib\boa_gui.py:95
 msgid "Select the engine used to detect the end of data in a row or column."
-msgstr "Sélectionnez le moteur utilisé pour détecter la fin des données dans une Ligne ou une Colonne."
+msgstr ""
+"Sélectionnez le moteur utilisé pour détecter la fin des données dans une "
+"Ligne ou une Colonne."
 
 #: addon\boa_lib\boa_gui.py:109
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
-msgstr "&Excel : Activer l'organisateur de Feuille en masse et le déplacement rapide de Feuille"
+msgstr ""
+"&Excel : Activer l'organisateur de Feuille en masse et le déplacement rapide"
+" de Feuille"
 
 #: addon\boa_lib\boa_gui.py:110
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
-msgstr "Utiliser la boîte de dialogue accessible pour &renommer la Feuille au lieu du champ d'édition natif"
+msgstr ""
+"Utiliser la boîte de dialogue accessible pour &renommer la Feuille au lieu "
+"du champ d'édition natif"
 
 #: addon\boa_lib\boa_gui.py:111
 msgid "Prevent NVDA &crashes in Excel text fields"
@@ -54,11 +61,15 @@ msgstr "Empêcher les plantages de NVDA dans les champs de texte &Excel"
 
 #: addon\boa_lib\boa_gui.py:112
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
-msgstr "Annoncer lorsqu'une sélection m&ulti-Cellule est perdue de manière inattendue"
+msgstr ""
+"Annoncer lorsqu'une sélection m&ulti-Cellule est perdue de manière "
+"inattendue"
 
 #: addon\boa_lib\boa_gui.py:113
 msgid "Proactively announce when navigating past &hidden rows or columns"
-msgstr "Annoncer de manière proactive lors de la navigation au-delà des Lignes ou Colonnes mas&quées"
+msgstr ""
+"Annoncer de manière proactive lors de la navigation au-delà des Lignes ou "
+"Colonnes mas&quées"
 
 #: addon\boa_lib\boa_gui.py:114
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
@@ -74,12 +85,15 @@ msgstr "Mise en &forme conditionnelle et couleur"
 
 #: addon\boa_lib\boa_gui.py:117
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
-msgstr "Activer le moni&teur de Cellule (emplacements 1-9 et surveillance continue en arrière-plan)"
+msgstr ""
+"Activer le moni&teur de Cellule (emplacements 1-9 et surveillance continue "
+"en arrière-plan)"
 
 #: addon\boa_lib\boa_gui.py:118
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
-msgstr "Annoncer lorsqu'il n'y a plus de données dans la direction où vous &naviguez"
+msgstr ""
+"Annoncer lorsqu'il n'y a plus de données dans la direction où vous &naviguez"
 
 #: addon\boa_lib\boa_gui.py:120
 msgid "Excel Enhancements"
@@ -89,15 +103,19 @@ msgstr "Améliorations Excel"
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
-msgstr "&PowerPoint : Lire les codes Hexadécimaux masqués lors de la navigation dans la grille hexagonale de couleurs standard"
+msgstr ""
+"&PowerPoint : Lire les codes Hexadécimaux masqués lors de la navigation dans"
+" la grille hexagonale de couleurs standard"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
-msgstr "Assurer que le champ d'édition de couleur He&x est correctement étiqueté"
+msgstr ""
+"Assurer que le champ d'édition de couleur He&x est correctement étiqueté"
 
 #: addon\boa_lib\boa_gui.py:126
 msgid "Ensure the R&GB Color edit fields are properly labeled"
-msgstr "Assurer que les champs d'édition de couleur R&VB sont correctement étiquetés"
+msgstr ""
+"Assurer que les champs d'édition de couleur R&VB sont correctement étiquetés"
 
 #: addon\boa_lib\boa_gui.py:127
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
@@ -183,12 +201,15 @@ msgstr "Erreur : Excel n'est pas accessible."
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:176
 #, python-brace-format
 msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
-msgstr "Emplacement {slot_str} perdu. Le Classeur '{wb}' a été renommé ou fermé."
+msgstr ""
+"Emplacement {slot_str} perdu. Le Classeur '{wb}' a été renommé ou fermé."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:189
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
-msgstr "Emplacement {slot_str} perdu. La Feuille '{sheet}' a été renommée ou supprimée."
+msgstr ""
+"Emplacement {slot_str} perdu. La Feuille '{sheet}' a été renommée ou "
+"supprimée."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:214
 #, python-brace-format
@@ -198,7 +219,8 @@ msgstr "{val} - {cell}{location_str}"
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:217
 #, python-brace-format
 msgid "Cannot read slot {slot_str}. Excel may be busy."
-msgstr "Impossible de lire l'emplacement {slot_str}. Excel est peut-être occupé."
+msgstr ""
+"Impossible de lire l'emplacement {slot_str}. Excel est peut-être occupé."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:238
 #, python-brace-format
@@ -222,7 +244,9 @@ msgstr "{cell_addr} mis à jour : {current_val}{location_str}"
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
-msgstr "Moniteur pour l'emplacement {slot_cleared} perdu en raison d'un changement de nom ou d'une fermeture."
+msgstr ""
+"Moniteur pour l'emplacement {slot_cleared} perdu en raison d'un changement "
+"de nom ou d'une fermeture."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
@@ -317,7 +341,8 @@ msgstr "Aucune Cellule active trouvée."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
 msgid "No conditional formatting rules applied to this cell."
-msgstr "Aucune règle de mise en forme conditionnelle appliquée à cette Cellule."
+msgstr ""
+"Aucune règle de mise en forme conditionnelle appliquée à cette Cellule."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
 msgid "Failed to read format conditions."
@@ -370,7 +395,9 @@ msgstr "Données les plus proches en {col}{row}"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
-msgstr "Cache de disposition vide. Appuyez sur NVDA+E, L pour analyser la Feuille d'abord."
+msgstr ""
+"Cache de disposition vide. Appuyez sur NVDA+E, L pour analyser la Feuille "
+"d'abord."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
 msgid "No data blocks found in cache."
@@ -399,23 +426,17 @@ msgstr "Couleur {hex_val}"
 #. Add-on description
 #: buildVars.py:15
 msgid ""
-"A powerful suite of accessibility enhancements for Microsoft Office, "
-"designed to vastly improve the screen reader experience for NVDA users. \n"
+"A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. \n"
 "    \n"
 "    Key Features:\n"
 "    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
-"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
-"protected states, and data blocks.\n"
-"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple "
-"sheets using accessible dialogs.\n"
-"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside "
-"standard color grids.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.\n"
 "    \n"
-"    Please refer to the add-on help documentation for a complete list of "
-"features and shortcuts."
+"    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
-"Une puissante suite d'améliorations d'accessibilité pour Microsoft Office, "
-"conçue pour améliorer considérablement l'expérience du lecteur d'écran pour les utilisateurs de NVDA. \n"
+"Une puissante suite d'améliorations d'accessibilité pour Microsoft Office, conçue pour améliorer considérablement l'expérience du lecteur d'écran pour les utilisateurs de NVDA. \n"
 "    \n"
 "    Fonctionnalités clés :\n"
 "    - Moniteur de Cellule : Enregistrez et suivez en permanence les Cellules Excel dynamiques.\n"
@@ -429,17 +450,424 @@ msgstr ""
 #: buildVars.py:40
 msgid ""
 "## What's New in v1.6.0\n"
-"* **Comprehensive Translation Support**: The add-on is now fully localized "
-"with support for 17 global languages. \n"
-"  *(Note: These translations were generated by AI, so some minor translation "
-"errors or inaccuracies may be present.)*\n"
-"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
-"entire codebase."
+"* **Comprehensive Translation Support**: The add-on is now fully localized with support for 17 global languages. \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*\n"
+"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the entire codebase."
 msgstr ""
 "## Quoi de neuf dans la v1.6.0\n"
-"* **Prise en charge complète de la traduction** : Le Module complémentaire est désormais entièrement localisé "
-"avec la prise en charge de 17 langues mondiales. \n"
-"  *(Remarque : Ces traductions ont été générées par l'IA, de sorte que des erreurs de "
-"traduction mineures ou des inexactitudes peuvent être présentes.)*\n"
-"* **Gouvernance stricte du code** : Application des en-têtes de droits d'auteur GPL-2.0 sur "
-"l'ensemble du code source."
+"* **Prise en charge complète de la traduction** : Le Module complémentaire est désormais entièrement localisé avec la prise en charge de 17 langues mondiales. \n"
+"  *(Remarque : Ces traductions ont été générées par l'IA, de sorte que des erreurs de traduction mineures ou des inexactitudes peuvent être présentes.)*\n"
+"* **Gouvernance stricte du code** : Application des en-têtes de droits d'auteur GPL-2.0 sur l'ensemble du code source."
+
+msgid ""
+"Select layout announcement mode. 'Guided Announcement' requires you to press"
+" NVDA+E, L at least once per sheet to scan the layout."
+msgstr ""
+"Sélectionnez le mode d'annonce de la disposition. 'Annonce guidée' nécessite"
+" d'appuyer sur NVDA+E, L au moins une fois par feuille pour analyser la "
+"disposition."
+
+msgid "Enter new sheet name:"
+msgstr "Entrer le nouveau nom de la feuille :"
+
+msgid "Rename Sheet"
+msgstr "Renommer la feuille"
+
+msgid "Rename sheet"
+msgstr "Renommer la feuille"
+
+msgid "Bulk Sheet Organizer"
+msgstr "Organisateur de feuilles en masse"
+
+msgid "Sheet Name:"
+msgstr "Nom de la feuille :"
+
+msgid "Target Position:"
+msgstr "Position cible :"
+
+msgid "Scheduled Moves (Press Del to remove):"
+msgstr "Déplacements programmés (Appuyez sur Suppr pour supprimer) :"
+
+msgid "Sheet"
+msgstr "Feuille"
+
+msgid "Target Position"
+msgstr "Position cible"
+
+msgid "&OK"
+msgstr "&OK"
+
+msgid "&Cancel"
+msgstr "&Annuler"
+
+msgid " in {sheet}"
+msgstr " dans {sheet}"
+
+msgid " in {sheet} of {wb}"
+msgstr " dans {sheet} de {wb}"
+
+msgid "Row {num}"
+msgstr "Ligne {num}"
+
+msgid "Rows {start} through {end}"
+msgstr "Lignes {start} à {end}"
+
+msgid "Column {col}"
+msgstr "Colonne {col}"
+
+msgid "Columns {start} through {end}"
+msgstr "Colonnes {start} à {end}"
+
+msgid "hidden"
+msgstr "masquée"
+
+msgid "unhidden"
+msgstr "affichée"
+
+msgid "Unknown Color"
+msgstr "Couleur inconnue"
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Lowest Value"
+msgstr "Valeur la plus basse"
+
+msgid "Highest Value"
+msgstr "Valeur la plus élevée"
+
+msgid "Number {val}"
+msgstr "Nombre {val}"
+
+msgid "{val}%"
+msgstr "{val}%"
+
+msgid "Formula {val}"
+msgstr "Formule {val}"
+
+msgid "{val}th Percentile"
+msgstr "{val}e Centile"
+
+msgid "Unknown Criteria"
+msgstr "Critère inconnu"
+
+msgid "Has conditional formatting"
+msgstr "A une mise en forme conditionnelle"
+
+msgid ": {color_name} Background"
+msgstr ": Arrière-plan {color_name}"
+
+msgid ": {color_name} Text"
+msgstr ": Texte {color_name}"
+
+msgid "Found {count} conditional formatting rules."
+msgstr "{count} règles de mise en forme conditionnelle trouvées."
+
+msgid " (Stops if true)"
+msgstr " (S'arrête si vrai)"
+
+msgid " [Applies to {address}]"
+msgstr " [S'applique à {address}]"
+
+msgid "Rule"
+msgstr "Règle"
+
+msgid "Between"
+msgstr "Compris entre"
+
+msgid "Not Between"
+msgstr "Non compris entre"
+
+msgid "Equal to"
+msgstr "Égal à"
+
+msgid "Not Equal to"
+msgstr "Différent de"
+
+msgid "Greater than"
+msgstr "Supérieur à"
+
+msgid "Less than"
+msgstr "Inférieur à"
+
+msgid "Greater than or equal to"
+msgstr "Supérieur ou égal à"
+
+msgid "Less than or equal to"
+msgstr "Inférieur ou égal à"
+
+msgid "Operator {op}"
+msgstr "Opérateur {op}"
+
+msgid "Unknown"
+msgstr "Inconnu"
+
+msgid "Cell Value is {op} {f1} and {f2}"
+msgstr "La valeur de la cellule est {op} {f1} et {f2}"
+
+msgid "Cell Value is {op} {f1}"
+msgstr "La valeur de la cellule est {op} {f1}"
+
+msgid "Formula: {form}"
+msgstr "Formule : {form}"
+
+msgid "Formula rule"
+msgstr "Règle de formule"
+
+msgid "Point {num} ({val}) is {color}"
+msgstr "Le point {num} ({val}) est {color}"
+
+msgid "{count}-Color Scale gradient. {points}"
+msgstr "Dégradé à échelle de {count} couleurs. {points}"
+
+msgid "Color Scale gradient"
+msgstr "Dégradé à échelle de couleurs"
+
+msgid " (Note: Cell value is visually hidden)"
+msgstr " (Note : La valeur de la cellule est visuellement masquée)"
+
+msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
+msgstr ""
+"Dégradé de barre de données ({color}). De {min_val} à {max_val}{hide_str}"
+
+msgid "Data Bar"
+msgstr "Barre de données"
+
+msgid "Icon Set ({count} icons){hide_str}"
+msgstr "Jeu d'icônes ({count} icônes){hide_str}"
+
+msgid "Icon Set"
+msgstr "Jeu d'icônes"
+
+msgid "Unique or Duplicate Values"
+msgstr "Valeurs uniques ou en double"
+
+msgid "Text contains: '{text}'"
+msgstr "Le texte contient : '{text}'"
+
+msgid "Text String rule"
+msgstr "Règle de chaîne de texte"
+
+msgid "Format Blank cells"
+msgstr "Mettre en forme les cellules vides"
+
+msgid "Format Error cells"
+msgstr "Mettre en forme les cellules en erreur"
+
+msgid "Top {rank} values"
+msgstr "{rank} premières valeurs"
+
+msgid "Bottom {rank} values"
+msgstr "{rank} dernières valeurs"
+
+msgid "Top/Bottom ranking rule"
+msgstr "Règle de classement haut/bas"
+
+msgid "Formatting Rule Type {type}"
+msgstr "Règle de mise en forme type {type}"
+
+msgid "Rule {num}{stop}: {type}.{applies}"
+msgstr "Règle {num}{stop} : {type}.{applies}"
+
+msgid "Rule {num}: Unknown type."
+msgstr "Règle {num} : Type inconnu."
+
+msgid "Background is {color}."
+msgstr "L'arrière-plan est {color}."
+
+msgid "Bold"
+msgstr "Gras"
+
+msgid "Italic"
+msgstr "Italique"
+
+msgid "Strikethrough"
+msgstr "Barré"
+
+msgid "Font is {styles}."
+msgstr "La police est {styles}."
+
+msgid "Black"
+msgstr "Noir"
+
+msgid "Text is {color}."
+msgstr "Le texte est {color}."
+
+msgid "Number format changed to {format}."
+msgstr "Le format de nombre a été changé en {format}."
+
+msgid "Could not analyze final display format."
+msgstr "Impossible d'analyser le format d'affichage final."
+
+msgid "No active visual changes detected."
+msgstr "Aucun changement visuel actif détecté."
+
+msgid ""
+"{rules}\n"
+"\n"
+"Analyzed Results:\n"
+"{results}"
+msgstr ""
+"{rules}\n"
+"\n"
+"Résultats analysés :\n"
+"{results}"
+
+msgid "Conditional Formatting Analysis"
+msgstr "Analyse de la mise en forme conditionnelle"
+
+msgid "Copy (Ctrl+Shift+C)"
+msgstr "Copier (Ctrl+Maj+C)"
+
+msgid "&Close"
+msgstr "&Fermer"
+
+msgid "Sheet appears to be empty."
+msgstr "La feuille semble être vide."
+
+msgid "Found 1 data block at {c}{r}."
+msgstr "Trouvé 1 bloc de données en {c}{r}."
+
+msgid "Found 1 data block: {c}{r} to {ec}{er}."
+msgstr "Trouvé 1 bloc de données : de {c}{r} à {ec}{er}."
+
+msgid "{c}{r} to {ec}{er}"
+msgstr "de {c}{r} à {ec}{er}"
+
+msgid "Block {num}: {addr}"
+msgstr "Bloc {num} : {addr}"
+
+msgid ""
+"Found {count} data blocks in this sheet.\n"
+"{blocks_msg}"
+msgstr ""
+"Trouvé {count} blocs de données dans cette feuille.\n"
+"{blocks_msg}"
+
+msgid "Sheet Layout Overview"
+msgstr "Aperçu de la disposition de la feuille"
+
+msgid "Filter Mode: Active"
+msgstr "Mode de filtrage : Actif"
+
+msgid "Top 2000+ Rows are hidden"
+msgstr "Plus de 2000 lignes supérieures sont masquées"
+
+msgid "Top Row 1 is hidden"
+msgstr "La ligne supérieure 1 est masquée"
+
+msgid "Top Rows 1 through {end_r} are hidden"
+msgstr "Les lignes supérieures 1 à {end_r} sont masquées"
+
+msgid "Left 2000+ Columns are hidden"
+msgstr "Plus de 2000 colonnes de gauche sont masquées"
+
+msgid "Left Column A is hidden"
+msgstr "La colonne de gauche A est masquée"
+
+msgid "Left Columns A through {end_col} are hidden"
+msgstr "Les colonnes de gauche A à {end_col} sont masquées"
+
+msgid "Bottommost 2000+ Rows are hidden"
+msgstr "Plus de 2000 lignes inférieures sont masquées"
+
+msgid "Bottom Row {max_r} is hidden"
+msgstr "La ligne inférieure {max_r} est masquée"
+
+msgid "Bottom Rows {start_r} through {max_r} are hidden"
+msgstr "Les lignes inférieures {start_r} à {max_r} sont masquées"
+
+msgid "Rightmost 2000+ Columns are hidden"
+msgstr "Plus de 2000 colonnes de droite sont masquées"
+
+msgid "Right Column {col} is hidden"
+msgstr "La colonne de droite {col} est masquée"
+
+msgid "Right Columns {start_col} through {end_col} are hidden"
+msgstr "Les colonnes de droite {start_col} à {end_col} sont masquées"
+
+msgid "Hidden Borders: {borders}"
+msgstr "Bordures masquées : {borders}"
+
+msgid "Top sheets 1-{count}"
+msgstr "Feuilles supérieures 1-{count}"
+
+msgid "Top sheet 1"
+msgstr "Feuille supérieure 1"
+
+msgid "Bottom sheets {start}-{end}"
+msgstr "Feuilles inférieures {start}-{end}"
+
+msgid "Bottom sheet {num}"
+msgstr "Feuille inférieure {num}"
+
+msgid "{count} middle sheets"
+msgstr "{count} feuilles intermédiaires"
+
+msgid "{count} middle sheet"
+msgstr "{count} feuille intermédiaire"
+
+msgid "Hidden Sheets: {parts} hidden"
+msgstr "Feuilles masquées : {parts} masquée"
+
+msgid "Sheet Protected: True"
+msgstr "Feuille protégée : Oui"
+
+msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
+msgstr "Volets figés : Lignes 1-{r}, Colonnes A-{c}"
+
+msgid "Frozen Panes: Rows 1-{r}"
+msgstr "Volets figés : Lignes 1-{r}"
+
+msgid "Frozen Panes: Columns A-{c}"
+msgstr "Volets figés : Colonnes A-{c}"
+
+msgid "Frozen Panes: Active"
+msgstr "Volets figés : Actif"
+
+msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
+msgstr "Objets flottants : Contient {count} Forme(s)/Graphique(s)"
+
+msgid "Pivot Tables: Contains {count} Pivot Table(s)"
+msgstr ""
+"Tableaux croisés dynamiques : Contient {count} Tableau(x) croisé(s) "
+"dynamique(s)"
+
+msgid "View Mode: Page Break Preview"
+msgstr "Mode d'affichage : Aperçu des sauts de page"
+
+msgid "View Mode: Page Layout"
+msgstr "Mode d'affichage : Mise en page"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"{props}"
+msgstr ""
+"\n"
+"\n"
+"--- Propriétés de la feuille ---\n"
+"{props}"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"No special properties detected (No active filters, protection, frozen panes, or hidden borders)."
+msgstr ""
+"\n"
+"\n"
+"--- Propriétés de la feuille ---\n"
+"Aucune propriété spéciale détectée (pas de filtres actifs, protection, volets figés ou bordures masquées)."
+
+msgid ""
+"## What's New in v1.6.1\n"
+"* **Deep File Localization**: Fixed missing string translations deep within the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick Sheet Mover) to ensure 100% localization coverage.\n"
+"* **Expanded Translation Support**: Added 7 new languages to the system (Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*"
+msgstr ""
+"## Nouveautés de la v1.6.1\n"
+"* **Localisation approfondie** : Correction des traductions manquantes au cœur des modules d'amélioration d'Excel (tels que l'Analyseur de disposition de feuille et le Déplaceur rapide de feuille) pour garantir une couverture de localisation à 100 %.\n"
+"* **Support de traduction élargi** : Ajout de 7 nouvelles langues au système (Turc, Polonais, Coréen, Ukrainien, Tchèque, Ourdou et Pendjabi).\n"
+"  *(Note : Ces traductions ont été générées par une IA, de légères erreurs de traduction ou imprécisions peuvent donc être présentes.)*"

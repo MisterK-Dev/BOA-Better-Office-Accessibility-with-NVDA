@@ -211,7 +211,7 @@ class CellMonitorManager:
             else:
                 location_str = _(" in {sheet} of {wb}").format(sheet=info['sheet'], wb=info['wb'])
                 
-            ui.message(_("{val} - {cell}{location_str}").format(
+            ui.message("{val} - {cell}{location_str}".format(
                 val=val, cell=info['cell'], location_str=location_str))
         except Exception:
             ui.message(_("Cannot read slot {slot_str}. Excel may be busy.").format(slot_str=slot_str))

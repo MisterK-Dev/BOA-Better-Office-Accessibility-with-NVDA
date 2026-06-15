@@ -36,10 +36,10 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 - **README.md will be mentained by the developer itself from now onwards no need to touch it.**: [no need to update and mentain`@README.md`] immediately following successful feature additions. 
 
 ## 7. Strict Deployment & Terminal Command Controls
-- **No Automatic Git Pushes**: You are strictly forbidden from running `git push` commands to GitHub or any remote repository. 
-- **Local Commits Only**: You may only stage or commit files locally (`git add`, `git commit`).
+- **No Automatic Git Pushes**: You are strictly forbidden from running `git push` commands to GitHub or any remote repository automatically. You may only push to remote branches if explicitly directed, reviewed, and approved by the user.
+- **Local Commits Only**: You may only stage or commit files locally (`git add`, `git commit`) unless granted the final greenlight to push.
 - **Dev Branch Archiving**: All development version commits must be isolated and committed directly to the `archive-dev-BOA` local branch. The `main` branch must only receive stable commits.
-- **Explicit Permission Gate**: A feature must be explicitly greenlit by the user before it is marked as finalized, merged into the local `archive-dev-BOA` branch, or pushed to `main`.
+- **Explicit Permission Gate**: A feature must be explicitly greenlit by the user before it is marked as finalized, merged into the local `archive-dev-BOA` branch, or pushed to `main`. Before any push, you MUST execute the Release Validation Pipeline.
 
 ## 8. GUI Architecture & Navigation Rules
 - **Explicit Accelerator Keys**: Every control inside a WxPython or NVDA Settings panel must have a unique, explicit accelerator key assigned via the ampersand symbol (`&`). Never rely on Windows' default first-letter navigation. When attempting to assign shortcuts to Group Boxes (`wx.StaticBox`), always apply the `&` to the **first child control** within the group, as Windows natively ignores accelerators on StaticBox titles inside complex embedded dialogs.
@@ -73,3 +73,6 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 # This file is covered by the GNU General Public License (GPL), version 2.
 # See the file COPYING.txt for more details.
 ```
+
+## 16. Branch Syncing Architecture
+- **Syncing Stable to Dev**: When syncing release updates, large translations, or finalized tags from `main` back into the `archive-dev-BOA` branch, you must **always use a Squash Merge** (`git merge --squash main`). This keeps the archive history perfectly clean as a standalone log without inheriting `main`'s granular commit history.

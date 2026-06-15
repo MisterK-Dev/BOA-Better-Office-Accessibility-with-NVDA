@@ -107,6 +107,11 @@ Um Tastaturkürzel-Konflikte mit anderen NVDA-Plugins zu vermeiden, verwendet BO
 
 ## 🛠️ Änderungsprotokoll
 
+### Neuerungen in v1.6.1
+* **Tiefe Dateilokalisierung**: Fehlende Zeichenfolgen-Übersetzungen tief in den Excel-Erweiterungsmodulen (wie dem Blattlayout-Analysator und der Schnellen Blattverschiebung) wurden behoben, um eine 100%ige Abdeckung der Lokalisierung sicherzustellen.
+* **Erweiterte Übersetzungsunterstützung**: Es wurden 7 neue Sprachen zum System hinzugefügt (Türkisch, Polnisch, Koreanisch, Ukrainisch, Tschechisch, Urdu und Punjabi).
+  *(Hinweis: Diese Übersetzungen wurden von einer KI erstellt, daher können kleinere Übersetzungsfehler oder Ungenauigkeiten vorhanden sein.)*
+
 ### v1.6.0
 * **Umfassende Übersetzungsunterstützung**: Das Add-on ist jetzt vollständig lokalisiert und unterstützt 17 globale Sprachen. 
   *(Hinweis: Diese Übersetzungen wurden durch KI generiert, daher können geringfügige Übersetzungsfehler oder Ungenauigkeiten vorhanden sein.)*

@@ -231,7 +231,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         manager (Excel, PowerPoint, Word) based on the currently active application.
         """
         import tones
-        key = gesture.displayName.lower()
+        try:
+            # Extract programmatic unlocalized key name (e.g., 'shift+1') from NVDA identifiers
+            kb_id = list(gesture.identifiers)[-1]
+            key = kb_id.split(":", 1)[1].lower() if ":" in kb_id else gesture.displayName.lower()
+        except Exception:
+            key = gesture.displayName.lower()
         # Immediately clear bindings so subsequent keys act normally
         self._clear_command_bindings()
         

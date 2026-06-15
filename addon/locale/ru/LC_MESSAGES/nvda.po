@@ -1,3 +1,4 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '1.6.0'\n"
@@ -8,8 +9,8 @@ msgstr ""
 "Language-Team: ru <LL@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
@@ -38,15 +39,20 @@ msgstr "Только видимые данные (математический �
 
 #: addon\boa_lib\boa_gui.py:95
 msgid "Select the engine used to detect the end of data in a row or column."
-msgstr "Выберите движок, используемый для обнаружения конца данных в строке или столбце."
+msgstr ""
+"Выберите движок, используемый для обнаружения конца данных в строке или "
+"столбце."
 
 #: addon\boa_lib\boa_gui.py:109
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
-msgstr "&Excel: Включить массовый организатор листов и быстрое перемещение листов"
+msgstr ""
+"&Excel: Включить массовый организатор листов и быстрое перемещение листов"
 
 #: addon\boa_lib\boa_gui.py:110
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
-msgstr "Использовать доступный диалог &переименования листа вместо нативного поля редактирования"
+msgstr ""
+"Использовать доступный диалог &переименования листа вместо нативного поля "
+"редактирования"
 
 #: addon\boa_lib\boa_gui.py:111
 msgid "Prevent NVDA &crashes in Excel text fields"
@@ -77,20 +83,29 @@ msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
 msgstr "Включить мони&тор ячеек (слоты 1-9 и непрерывный фоновый мониторинг)"
 
 #: addon\boa_lib\boa_gui.py:118
-msgid "Announce when there is no more data in the direction you are &navigating"
-msgstr "Объявлять, когда больше нет данных в направлении, в котором вы &перемещаетесь"
+msgid ""
+"Announce when there is no more data in the direction you are &navigating"
+msgstr ""
+"Объявлять, когда больше нет данных в направлении, в котором вы "
+"&перемещаетесь"
 
 #: addon\boa_lib\boa_gui.py:120
 msgid "Excel Enhancements"
 msgstr "Улучшения Excel"
 
 #: addon\boa_lib\boa_gui.py:124
-msgid "&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"
-msgstr "&PowerPoint: Читать скрытые шестнадцатеричные (Hex) коды при навигации по стандартной цветовой сетке шестиугольников"
+msgid ""
+"&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
+"hexagon grid"
+msgstr ""
+"&PowerPoint: Читать скрытые шестнадцатеричные (Hex) коды при навигации по "
+"стандартной цветовой сетке шестиугольников"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
-msgstr "Обеспечить правильную маркировку поля редактирования &шестнадцатеричного (Hex) цвета"
+msgstr ""
+"Обеспечить правильную маркировку поля редактирования &шестнадцатеричного "
+"(Hex) цвета"
 
 #: addon\boa_lib\boa_gui.py:126
 msgid "Ensure the R&GB Color edit fields are properly labeled"
@@ -219,7 +234,8 @@ msgstr "{cell_addr} обновлена: {current_val}{location_str}"
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
-msgstr "Монитор для слота {slot_cleared} потерян из-за изменения имени или закрытия."
+msgstr ""
+"Монитор для слота {slot_cleared} потерян из-за изменения имени или закрытия."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
@@ -367,7 +383,8 @@ msgstr "Ближайшие данные в {col}{row}"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
-msgstr "Кэш макета пуст. Нажмите NVDA+E, L, чтобы сначала просканировать лист."
+msgstr ""
+"Кэш макета пуст. Нажмите NVDA+E, L, чтобы сначала просканировать лист."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
 msgid "No data blocks found in cache."
@@ -396,51 +413,444 @@ msgstr "Цвет {hex_val}"
 #. Add-on description
 #: buildVars.py:15
 msgid ""
-"A powerful suite of accessibility enhancements for Microsoft Office, "
-"designed to vastly improve the screen reader experience for NVDA users. \n"
+"A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. \n"
 "    \n"
 "    Key Features:\n"
 "    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
-"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
-"protected states, and data blocks.\n"
-"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple "
-"sheets using accessible dialogs.\n"
-"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside "
-"standard color grids.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.\n"
 "    \n"
-"    Please refer to the add-on help documentation for a complete list of "
-"features and shortcuts."
+"    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
-"Мощный набор улучшений доступности для Microsoft Office, "
-"разработанный для значительного улучшения работы программы экранного доступа для пользователей NVDA. \n"
+"Мощный набор улучшений доступности для Microsoft Office, разработанный для значительного улучшения работы программы экранного доступа для пользователей NVDA. \n"
 "    \n"
 "    Основные возможности:\n"
 "    - Монитор ячеек: Сохранение и непрерывное отслеживание динамических ячеек Excel.\n"
-"    - Анализатор макета листа: Мгновенное сканирование листов на наличие скрытых вкладок, "
-"защищённых состояний и блоков данных.\n"
-"    - Массовый организатор листов и быстрое перемещение: Мгновенное перемещение или изменение порядка нескольких "
-"листов с помощью доступных диалогов.\n"
-"    - Палитры цветов PowerPoint: Чтение скрытых кодов Hex и RGB внутри "
-"стандартных цветовых сеток.\n"
+"    - Анализатор макета листа: Мгновенное сканирование листов на наличие скрытых вкладок, защищённых состояний и блоков данных.\n"
+"    - Массовый организатор листов и быстрое перемещение: Мгновенное перемещение или изменение порядка нескольких листов с помощью доступных диалогов.\n"
+"    - Палитры цветов PowerPoint: Чтение скрытых кодов Hex и RGB внутри стандартных цветовых сеток.\n"
 "    \n"
-"    Пожалуйста, обратитесь к документации справки дополнения для получения полного списка "
-"функций и сочетаний клавиш."
+"    Пожалуйста, обратитесь к документации справки дополнения для получения полного списка функций и сочетаний клавиш."
 
 #. Changelog URL or None
 #: buildVars.py:40
 msgid ""
 "## What's New in v1.6.0\n"
-"* **Comprehensive Translation Support**: The add-on is now fully localized "
-"with support for 17 global languages. \n"
-"  *(Note: These translations were generated by AI, so some minor translation "
-"errors or inaccuracies may be present.)*\n"
-"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
-"entire codebase."
+"* **Comprehensive Translation Support**: The add-on is now fully localized with support for 17 global languages. \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*\n"
+"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the entire codebase."
 msgstr ""
 "## Что нового в v1.6.0\n"
-"* **Комплексная поддержка переводов**: Дополнение теперь полностью локализовано "
-"с поддержкой 17 мировых языков. \n"
-"  *(Примечание: Эти переводы были сгенерированы ИИ, поэтому возможны некоторые незначительные ошибки "
-"или неточности перевода.)*\n"
-"* **Строгое управление кодом**: Применены заголовки авторских прав GPL-2.0 ко всей "
-"кодовой базе."
+"* **Комплексная поддержка переводов**: Дополнение теперь полностью локализовано с поддержкой 17 мировых языков. \n"
+"  *(Примечание: Эти переводы были сгенерированы ИИ, поэтому возможны некоторые незначительные ошибки или неточности перевода.)*\n"
+"* **Строгое управление кодом**: Применены заголовки авторских прав GPL-2.0 ко всей кодовой базе."
+
+msgid ""
+"Select layout announcement mode. 'Guided Announcement' requires you to press"
+" NVDA+E, L at least once per sheet to scan the layout."
+msgstr ""
+"Выберите режим объявления макета. 'Управляемое объявление' требует нажатия "
+"NVDA+E, L хотя бы один раз на лист для сканирования макета."
+
+msgid "Enter new sheet name:"
+msgstr "Введите новое имя листа:"
+
+msgid "Rename Sheet"
+msgstr "Переименовать лист"
+
+msgid "Rename sheet"
+msgstr "Переименовать лист"
+
+msgid "Bulk Sheet Organizer"
+msgstr "Менеджер листов"
+
+msgid "Sheet Name:"
+msgstr "Имя листа:"
+
+msgid "Target Position:"
+msgstr "Целевая позиция:"
+
+msgid "Scheduled Moves (Press Del to remove):"
+msgstr "Запланированные перемещения (Нажмите Del для удаления):"
+
+msgid "Sheet"
+msgstr "Лист"
+
+msgid "Target Position"
+msgstr "Целевая позиция"
+
+msgid "&OK"
+msgstr "&ОК"
+
+msgid "&Cancel"
+msgstr "&Отмена"
+
+msgid " in {sheet}"
+msgstr " на листе {sheet}"
+
+msgid " in {sheet} of {wb}"
+msgstr " на листе {sheet} книги {wb}"
+
+msgid "Row {num}"
+msgstr "Строка {num}"
+
+msgid "Rows {start} through {end}"
+msgstr "Строки со {start} по {end}"
+
+msgid "Column {col}"
+msgstr "Столбец {col}"
+
+msgid "Columns {start} through {end}"
+msgstr "Столбцы со {start} по {end}"
+
+msgid "hidden"
+msgstr "скрыто"
+
+msgid "unhidden"
+msgstr "отображается"
+
+msgid "Unknown Color"
+msgstr "Неизвестный цвет"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Lowest Value"
+msgstr "Наименьшее значение"
+
+msgid "Highest Value"
+msgstr "Наибольшее значение"
+
+msgid "Number {val}"
+msgstr "Число {val}"
+
+msgid "{val}%"
+msgstr "{val}%"
+
+msgid "Formula {val}"
+msgstr "Формула {val}"
+
+msgid "{val}th Percentile"
+msgstr "{val}-й процентиль"
+
+msgid "Unknown Criteria"
+msgstr "Неизвестный критерий"
+
+msgid "Has conditional formatting"
+msgstr "Имеет условное форматирование"
+
+msgid ": {color_name} Background"
+msgstr ": Фон {color_name}"
+
+msgid ": {color_name} Text"
+msgstr ": Текст {color_name}"
+
+msgid "Found {count} conditional formatting rules."
+msgstr "Найдено {count} правил условного форматирования."
+
+msgid " (Stops if true)"
+msgstr " (Остановить, если истина)"
+
+msgid " [Applies to {address}]"
+msgstr " [Применяется к {address}]"
+
+msgid "Rule"
+msgstr "Правило"
+
+msgid "Between"
+msgstr "Между"
+
+msgid "Not Between"
+msgstr "Вне"
+
+msgid "Equal to"
+msgstr "Равно"
+
+msgid "Not Equal to"
+msgstr "Не равно"
+
+msgid "Greater than"
+msgstr "Больше"
+
+msgid "Less than"
+msgstr "Меньше"
+
+msgid "Greater than or equal to"
+msgstr "Больше или равно"
+
+msgid "Less than or equal to"
+msgstr "Меньше или равно"
+
+msgid "Operator {op}"
+msgstr "Оператор {op}"
+
+msgid "Unknown"
+msgstr "Неизвестно"
+
+msgid "Cell Value is {op} {f1} and {f2}"
+msgstr "Значение ячейки {op} {f1} и {f2}"
+
+msgid "Cell Value is {op} {f1}"
+msgstr "Значение ячейки {op} {f1}"
+
+msgid "Formula: {form}"
+msgstr "Формула: {form}"
+
+msgid "Formula rule"
+msgstr "Правило формулы"
+
+msgid "Point {num} ({val}) is {color}"
+msgstr "Точка {num} ({val}) - это {color}"
+
+msgid "{count}-Color Scale gradient. {points}"
+msgstr "Градиент цветовой шкалы ({count} цвета). {points}"
+
+msgid "Color Scale gradient"
+msgstr "Градиент цветовой шкалы"
+
+msgid " (Note: Cell value is visually hidden)"
+msgstr " (Примечание: Значение ячейки визуально скрыто)"
+
+msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
+msgstr "Градиент гистограммы ({color}). От {min_val} до {max_val}{hide_str}"
+
+msgid "Data Bar"
+msgstr "Гистограмма"
+
+msgid "Icon Set ({count} icons){hide_str}"
+msgstr "Набор значков ({count} значков){hide_str}"
+
+msgid "Icon Set"
+msgstr "Набор значков"
+
+msgid "Unique or Duplicate Values"
+msgstr "Уникальные или повторяющиеся значения"
+
+msgid "Text contains: '{text}'"
+msgstr "Текст содержит: '{text}'"
+
+msgid "Text String rule"
+msgstr "Правило текстовой строки"
+
+msgid "Format Blank cells"
+msgstr "Форматировать пустые ячейки"
+
+msgid "Format Error cells"
+msgstr "Форматировать ячейки с ошибками"
+
+msgid "Top {rank} values"
+msgstr "Первые {rank} значений"
+
+msgid "Bottom {rank} values"
+msgstr "Последние {rank} значений"
+
+msgid "Top/Bottom ranking rule"
+msgstr "Правило первых/последних значений"
+
+msgid "Formatting Rule Type {type}"
+msgstr "Тип правила форматирования {type}"
+
+msgid "Rule {num}{stop}: {type}.{applies}"
+msgstr "Правило {num}{stop}: {type}.{applies}"
+
+msgid "Rule {num}: Unknown type."
+msgstr "Правило {num}: Неизвестный тип."
+
+msgid "Background is {color}."
+msgstr "Фон: {color}."
+
+msgid "Bold"
+msgstr "Полужирный"
+
+msgid "Italic"
+msgstr "Курсив"
+
+msgid "Strikethrough"
+msgstr "Зачеркнутый"
+
+msgid "Font is {styles}."
+msgstr "Шрифт: {styles}."
+
+msgid "Black"
+msgstr "Черный"
+
+msgid "Text is {color}."
+msgstr "Текст: {color}."
+
+msgid "Number format changed to {format}."
+msgstr "Числовой формат изменен на {format}."
+
+msgid "Could not analyze final display format."
+msgstr "Не удалось проанализировать конечный формат отображения."
+
+msgid "No active visual changes detected."
+msgstr "Активных визуальных изменений не обнаружено."
+
+msgid ""
+"{rules}\n"
+"\n"
+"Analyzed Results:\n"
+"{results}"
+msgstr ""
+"{rules}\n"
+"\n"
+"Результаты анализа:\n"
+"{results}"
+
+msgid "Conditional Formatting Analysis"
+msgstr "Анализ условного форматирования"
+
+msgid "Copy (Ctrl+Shift+C)"
+msgstr "Копировать (Ctrl+Shift+C)"
+
+msgid "&Close"
+msgstr "&Закрыть"
+
+msgid "Sheet appears to be empty."
+msgstr "Лист кажется пустым."
+
+msgid "Found 1 data block at {c}{r}."
+msgstr "Найден 1 блок данных в {c}{r}."
+
+msgid "Found 1 data block: {c}{r} to {ec}{er}."
+msgstr "Найден 1 блок данных: от {c}{r} до {ec}{er}."
+
+msgid "{c}{r} to {ec}{er}"
+msgstr "от {c}{r} до {ec}{er}"
+
+msgid "Block {num}: {addr}"
+msgstr "Блок {num}: {addr}"
+
+msgid ""
+"Found {count} data blocks in this sheet.\n"
+"{blocks_msg}"
+msgstr ""
+"Найдено {count} блоков данных на этом листе.\n"
+"{blocks_msg}"
+
+msgid "Sheet Layout Overview"
+msgstr "Обзор макета листа"
+
+msgid "Filter Mode: Active"
+msgstr "Режим фильтрации: Активен"
+
+msgid "Top 2000+ Rows are hidden"
+msgstr "Скрыто более 2000 верхних строк"
+
+msgid "Top Row 1 is hidden"
+msgstr "Верхняя строка 1 скрыта"
+
+msgid "Top Rows 1 through {end_r} are hidden"
+msgstr "Верхние строки со 1 по {end_r} скрыты"
+
+msgid "Left 2000+ Columns are hidden"
+msgstr "Скрыто более 2000 левых столбцов"
+
+msgid "Left Column A is hidden"
+msgstr "Левый столбец A скрыт"
+
+msgid "Left Columns A through {end_col} are hidden"
+msgstr "Левые столбцы с A по {end_col} скрыты"
+
+msgid "Bottommost 2000+ Rows are hidden"
+msgstr "Скрыто более 2000 нижних строк"
+
+msgid "Bottom Row {max_r} is hidden"
+msgstr "Нижняя строка {max_r} скрыта"
+
+msgid "Bottom Rows {start_r} through {max_r} are hidden"
+msgstr "Нижние строки с {start_r} по {max_r} скрыты"
+
+msgid "Rightmost 2000+ Columns are hidden"
+msgstr "Скрыто более 2000 правых столбцов"
+
+msgid "Right Column {col} is hidden"
+msgstr "Правый столбец {col} скрыт"
+
+msgid "Right Columns {start_col} through {end_col} are hidden"
+msgstr "Правые столбцы со {start_col} по {end_col} скрыты"
+
+msgid "Hidden Borders: {borders}"
+msgstr "Скрытые границы: {borders}"
+
+msgid "Top sheets 1-{count}"
+msgstr "Верхние листы 1-{count}"
+
+msgid "Top sheet 1"
+msgstr "Верхний лист 1"
+
+msgid "Bottom sheets {start}-{end}"
+msgstr "Нижние листы {start}-{end}"
+
+msgid "Bottom sheet {num}"
+msgstr "Нижний лист {num}"
+
+msgid "{count} middle sheets"
+msgstr "{count} средних листов"
+
+msgid "{count} middle sheet"
+msgstr "{count} средний лист"
+
+msgid "Hidden Sheets: {parts} hidden"
+msgstr "Скрытые листы: {parts} скрыто"
+
+msgid "Sheet Protected: True"
+msgstr "Лист защищен: Да"
+
+msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
+msgstr "Закрепленные области: Строки 1-{r}, Столбцы A-{c}"
+
+msgid "Frozen Panes: Rows 1-{r}"
+msgstr "Закрепленные области: Строки 1-{r}"
+
+msgid "Frozen Panes: Columns A-{c}"
+msgstr "Закрепленные области: Столбцы A-{c}"
+
+msgid "Frozen Panes: Active"
+msgstr "Закрепленные области: Активны"
+
+msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
+msgstr "Плавающие объекты: Содержит {count} фигур/диаграмм"
+
+msgid "Pivot Tables: Contains {count} Pivot Table(s)"
+msgstr "Сводные таблицы: Содержит {count} сводных таблиц"
+
+msgid "View Mode: Page Break Preview"
+msgstr "Режим просмотра: Страничный режим"
+
+msgid "View Mode: Page Layout"
+msgstr "Режим просмотра: Разметка страницы"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"{props}"
+msgstr ""
+"\n"
+"\n"
+"--- Свойства листа ---\n"
+"{props}"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"No special properties detected (No active filters, protection, frozen panes, or hidden borders)."
+msgstr ""
+"\n"
+"\n"
+"--- Свойства листа ---\n"
+"Особых свойств не обнаружено (нет активных фильтров, защиты, закрепленных областей или скрытых границ)."
+
+msgid ""
+"## What's New in v1.6.1\n"
+"* **Deep File Localization**: Fixed missing string translations deep within the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick Sheet Mover) to ensure 100% localization coverage.\n"
+"* **Expanded Translation Support**: Added 7 new languages to the system (Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*"
+msgstr ""
+"## Что нового в v1.6.1\n"
+"* **Глубокая локализация файлов**: Исправлены пропущенные переводы строк в глубине модулей улучшения Excel (таких как Анализатор макета листа и Быстрое перемещение листов) для обеспечения 100% покрытия локализации.\n"
+"* **Расширенная поддержка перевода**: В систему добавлены 7 новых языков (турецкий, польский, корейский, украинский, чешский, урду и панджаби).\n"
+"  *(Примечание: Эти переводы были сгенерированы ИИ, поэтому могут присутствовать незначительные ошибки перевода или неточности.)*"

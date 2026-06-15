@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'BOA' '1.6.0'\n"
+"Project-Id-Version: 'BOA' '1.6.1'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-14 09:32+0530\n"
+"POT-Creation-Date: 2026-06-15 09:08+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,6 +32,12 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "Guided Announcement"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:77
+msgid ""
+"Select layout announcement mode. 'Guided Announcement' requires you to press "
+"NVDA+E, L at least once per sheet to scan the layout."
 msgstr ""
 
 #: addon\boa_lib\boa_gui.py:85
@@ -121,9 +127,21 @@ msgstr ""
 msgid "Word Enhancements"
 msgstr ""
 
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:59
+msgid "Enter new sheet name:"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:59
+msgid "Rename Sheet"
+msgstr ""
+
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:85
 #, python-brace-format
 msgid "Renaming to {name}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:174
+msgid "Rename sheet"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
@@ -151,6 +169,39 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
 msgid "Error opening organizer"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:189
+msgid "Bulk Sheet Organizer"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:201
+msgid "Sheet Name:"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:211
+msgid "Target Position:"
+msgstr ""
+
+#. --- List of Scheduled Moves ---
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:224
+msgid "Scheduled Moves (Press Del to remove):"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:227
+msgid "Sheet"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:228
+msgid "Target Position"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:235
+msgid "&OK"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:236
+msgid "&Cancel"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
@@ -194,6 +245,18 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:189
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:210
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:357
+#, python-brace-format
+msgid " in {sheet}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:212
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:359
+#, python-brace-format
+msgid " in {sheet} of {wb}"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:214
@@ -312,9 +375,94 @@ msgstr ""
 msgid "Sheet unhidden"
 msgstr ""
 
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:749
+#, python-brace-format
+msgid "Row {num}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:751
+#, python-brace-format
+msgid "Rows {start} through {end}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:766
+#, python-brace-format
+msgid "Column {col}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:769
+#, python-brace-format
+msgid "Columns {start} through {end}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:773
+msgid "hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:773
+msgid "unhidden"
+msgstr ""
+
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
 #, python-brace-format
 msgid "{address} {state}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:34
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:39
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:52
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:275
+msgid "Unknown Color"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:42
+msgid "None"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:66
+msgid "Lowest Value"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:67
+msgid "Highest Value"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:70
+#, python-brace-format
+msgid "Number {val}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:71
+#, python-brace-format
+msgid "{val}%"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:72
+#, python-brace-format
+msgid "Formula {val}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:73
+#, python-brace-format
+msgid "{val}th Percentile"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:76
+msgid "Unknown Criteria"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:102
+msgid "Has conditional formatting"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:113
+#, python-brace-format
+msgid ": {color_name} Background"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:120
+#, python-brace-format
+msgid ": {color_name} Text"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
@@ -327,6 +475,239 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
 msgid "Failed to read format conditions."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:158
+#, python-brace-format
+msgid "Found {count} conditional formatting rules."
+msgstr ""
+
+#. Stop if true and Applies To
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:167
+msgid " (Stops if true)"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:169
+#, python-brace-format
+msgid " [Applies to {address}]"
+msgstr ""
+
+#. Consideration: Excel uses the `xlFormatConditionType` enum to classify rules.
+#. Each rule type requires accessing completely different COM properties (e.g., `xlColorScale`
+#. uses `ColorScaleCriteria`, while `xlCellValue` uses `Operator` and `Formula1`).
+#. Mapping of common xlFormatConditionType values:
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:177
+msgid "Rule"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Between"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Not Between"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Equal to"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Not Equal to"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Greater than"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Less than"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Greater than or equal to"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Less than or equal to"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:181
+#, python-brace-format
+msgid "Operator {op}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:186
+msgid "Unknown"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:191
+#, python-brace-format
+msgid "Cell Value is {op} {f1} and {f2}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:193
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:195
+#, python-brace-format
+msgid "Cell Value is {op} {f1}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:198
+#, python-brace-format
+msgid "Formula: {form}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:200
+msgid "Formula rule"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:210
+#, python-brace-format
+msgid "Point {num} ({val}) is {color}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:211
+#, python-brace-format
+msgid "{count}-Color Scale gradient. {points}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:213
+msgid "Color Scale gradient"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:219
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:225
+msgid " (Note: Cell value is visually hidden)"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:220
+#, python-brace-format
+msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:222
+msgid "Data Bar"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:226
+#, python-brace-format
+msgid "Icon Set ({count} icons){hide_str}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:228
+msgid "Icon Set"
+msgstr ""
+
+#. xlUniqueValues
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:230
+msgid "Unique or Duplicate Values"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:233
+#, python-brace-format
+msgid "Text contains: '{text}'"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:235
+msgid "Text String rule"
+msgstr ""
+
+#. xlBlanksCondition
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:237
+msgid "Format Blank cells"
+msgstr ""
+
+#. xlErrorsCondition
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:239
+msgid "Format Error cells"
+msgstr ""
+
+#. xlTop10Top
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:243
+#, python-brace-format
+msgid "Top {rank} values"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:245
+#, python-brace-format
+msgid "Bottom {rank} values"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:247
+msgid "Top/Bottom ranking rule"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:249
+#, python-brace-format
+msgid "Formatting Rule Type {type}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:251
+#, python-brace-format
+msgid "Rule {num}{stop}: {type}.{applies}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:253
+#, python-brace-format
+msgid "Rule {num}: Unknown type."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:263
+#, python-brace-format
+msgid "Background is {color}."
+msgstr ""
+
+#. Font
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:266
+msgid "Bold"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:267
+msgid "Italic"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:268
+msgid "Strikethrough"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:272
+#, python-brace-format
+msgid "Font is {styles}."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:275
+msgid "Black"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:276
+#, python-brace-format
+msgid "Text is {color}."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:280
+#, python-brace-format
+msgid "Number format changed to {format}."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:283
+msgid "Could not analyze final display format."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:286
+msgid "No active visual changes detected."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:288
+#, python-brace-format
+msgid ""
+"{rules}\n"
+"\n"
+"Analyzed Results:\n"
+"{results}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:292
+msgid "Conditional Formatting Analysis"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
@@ -356,12 +737,56 @@ msgstr ""
 msgid "Failed to move sheet"
 msgstr ""
 
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:48
+msgid "Copy (Ctrl+Shift+C)"
+msgstr ""
+
+#. Using &Close automatically binds Alt+C natively in wxPython
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:53
+msgid "&Close"
+msgstr ""
+
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:84
 msgid "Copied to clipboard"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
 msgid "Analyzing layout..."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:188
+msgid "Sheet appears to be empty."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:194
+#, python-brace-format
+msgid "Found 1 data block at {c}{r}."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:196
+#, python-brace-format
+msgid "Found 1 data block: {c}{r} to {ec}{er}."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:203
+#, python-brace-format
+msgid "{c}{r} to {ec}{er}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:205
+#, python-brace-format
+msgid "Block {num}: {addr}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:206
+#, python-brace-format
+msgid ""
+"Found {count} data blocks in this sheet.\n"
+"{blocks_msg}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:213
+msgid "Sheet Layout Overview"
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
@@ -372,6 +797,162 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
 #, python-brace-format
 msgid "Nearest data at {col}{row}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:364
+msgid "Filter Mode: Active"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:380
+msgid "Top 2000+ Rows are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:381
+msgid "Top Row 1 is hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:382
+#, python-brace-format
+msgid "Top Rows 1 through {end_r} are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:389
+msgid "Left 2000+ Columns are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:390
+msgid "Left Column A is hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:391
+#, python-brace-format
+msgid "Left Columns A through {end_col} are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:401
+msgid "Bottommost 2000+ Rows are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:402
+#, python-brace-format
+msgid "Bottom Row {max_r} is hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:403
+#, python-brace-format
+msgid "Bottom Rows {start_r} through {max_r} are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:412
+msgid "Rightmost 2000+ Columns are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:413
+#, python-brace-format
+msgid "Right Column {col} is hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:414
+#, python-brace-format
+msgid "Right Columns {start_col} through {end_col} are hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:418
+#, python-brace-format
+msgid "Hidden Borders: {borders}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:443
+#, python-brace-format
+msgid "Top sheets 1-{count}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:443
+msgid "Top sheet 1"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:445
+#, python-brace-format
+msgid "Bottom sheets {start}-{end}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:445
+#, python-brace-format
+msgid "Bottom sheet {num}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:449
+#, python-brace-format
+msgid "{count} middle sheets"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:449
+#, python-brace-format
+msgid "{count} middle sheet"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:452
+#, python-brace-format
+msgid "Hidden Sheets: {parts} hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:458
+msgid "Sheet Protected: True"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:467
+#, python-brace-format
+msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:469
+#, python-brace-format
+msgid "Frozen Panes: Rows 1-{r}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:471
+#, python-brace-format
+msgid "Frozen Panes: Columns A-{c}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:473
+msgid "Frozen Panes: Active"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:480
+#, python-brace-format
+msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:487
+#, python-brace-format
+msgid "Pivot Tables: Contains {count} Pivot Table(s)"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:494
+msgid "View Mode: Page Break Preview"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:496
+msgid "View Mode: Page Layout"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:503
+#, python-brace-format
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"{props}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:505
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"No special properties detected (No active filters, protection, frozen panes, "
+"or hidden borders)."
 msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
@@ -424,11 +1005,12 @@ msgstr ""
 #. Changelog URL or None
 #: buildVars.py:40
 msgid ""
-"## What's New in v1.6.0\n"
-"* **Comprehensive Translation Support**: The add-on is now fully localized "
-"with support for 17 global languages. \n"
+"## What's New in v1.6.1\n"
+"* **Deep File Localization**: Fixed missing string translations deep within "
+"the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick "
+"Sheet Mover) to ensure 100% localization coverage.\n"
+"* **Expanded Translation Support**: Added 7 new languages to the system "
+"(Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
 "  *(Note: These translations were generated by AI, so some minor translation "
-"errors or inaccuracies may be present.)*\n"
-"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
-"entire codebase."
+"errors or inaccuracies may be present.)*"
 msgstr ""
