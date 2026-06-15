@@ -13,8 +13,8 @@ msgstr ""
 "Language-Team: Gujarati <gu@li.org>\n"
 "Language: gu\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
@@ -84,7 +84,9 @@ msgstr "સેલ Moni&tor સક્ષમ કરો (સ્લોટ 1-9 અન
 #: addon\boa_lib\boa_gui.py:118
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
-msgstr "જ્યારે તમે &navigating કરી રહ્યા હોવ તે દિશામાં વધુ ડેટા ન હોય ત્યારે જાહેરાત કરો"
+msgstr ""
+"જ્યારે તમે &navigating કરી રહ્યા હોવ તે દિશામાં વધુ ડેટા ન હોય ત્યારે "
+"જાહેરાત કરો"
 
 #: addon\boa_lib\boa_gui.py:120
 msgid "Excel Enhancements"
@@ -94,7 +96,9 @@ msgstr "Excel એન્હાન્સમેન્ટ્સ"
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
-msgstr "&PowerPoint: માનક રંગ ષટ્કોણ ગ્રીડમાં નેવિગેટ કરતી વખતે છુપાયેલા Hex કોડ્સ વાંચો"
+msgstr ""
+"&PowerPoint: માનક રંગ ષટ્કોણ ગ્રીડમાં નેવિગેટ કરતી વખતે છુપાયેલા Hex કોડ્સ "
+"વાંચો"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
@@ -167,7 +171,8 @@ msgstr "ભૂલ: Excel સેલ વાંચી શક્યા નથી."
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:144
 #, python-brace-format
 msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
-msgstr "સ્લોટ {slot_str} માટે {old_cell} ને {address} દ્વારા બદલવામાં આવ્યો છે"
+msgstr ""
+"સ્લોટ {slot_str} માટે {old_cell} ને {address} દ્વારા બદલવામાં આવ્યો છે"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:147
 #, python-brace-format
@@ -186,12 +191,16 @@ msgstr "ભૂલ: Excel સુલભ નથી."
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:176
 #, python-brace-format
 msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
-msgstr "સ્લોટ {slot_str} ખોવાઈ ગયો. વર્કબુક '{wb}' નું નામ બદલવામાં આવ્યું છે અથવા તે બંધ થઈ ગઈ છે."
+msgstr ""
+"સ્લોટ {slot_str} ખોવાઈ ગયો. વર્કબુક '{wb}' નું નામ બદલવામાં આવ્યું છે અથવા "
+"તે બંધ થઈ ગઈ છે."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:189
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
-msgstr "સ્લોટ {slot_str} ખોવાઈ ગયો. શીટ '{sheet}' નું નામ બદલવામાં આવ્યું છે અથવા કાઢી નાખવામાં આવી છે."
+msgstr ""
+"સ્લોટ {slot_str} ખોવાઈ ગયો. શીટ '{sheet}' નું નામ બદલવામાં આવ્યું છે અથવા "
+"કાઢી નાખવામાં આવી છે."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:214
 #, python-brace-format
@@ -225,7 +234,8 @@ msgstr "{cell_addr} અપડેટ થયું: {current_val}{location_str}"
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
-msgstr "નામ બદલવા અથવા બંધ થવાને કારણે સ્લોટ {slot_cleared} માટે મોનિટર ખોવાઈ ગયું."
+msgstr ""
+"નામ બદલવા અથવા બંધ થવાને કારણે સ્લોટ {slot_cleared} માટે મોનિટર ખોવાઈ ગયું."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
@@ -402,23 +412,17 @@ msgstr "રંગ {hex_val}"
 #. Add-on description
 #: buildVars.py:15
 msgid ""
-"A powerful suite of accessibility enhancements for Microsoft Office, "
-"designed to vastly improve the screen reader experience for NVDA users. \n"
+"A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. \n"
 "    \n"
 "    Key Features:\n"
 "    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
-"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
-"protected states, and data blocks.\n"
-"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple "
-"sheets using accessible dialogs.\n"
-"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside "
-"standard color grids.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.\n"
 "    \n"
-"    Please refer to the add-on help documentation for a complete list of "
-"features and shortcuts."
+"    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
-"Microsoft Office માટે એક્સેસિબિલિટી એન્હાન્સમેન્ટ્સનો એક શક્તિશાળી સ્યુટ, "
-"જે NVDA વપરાશકર્તાઓ માટે સ્ક્રીન રીડર અનુભવને મોટા પ્રમાણમાં સુધારવા માટે રચાયેલ છે. \n"
+"Microsoft Office માટે એક્સેસિબિલિટી એન્હાન્સમેન્ટ્સનો એક શક્તિશાળી સ્યુટ, જે NVDA વપરાશકર્તાઓ માટે સ્ક્રીન રીડર અનુભવને મોટા પ્રમાણમાં સુધારવા માટે રચાયેલ છે. \n"
 "    \n"
 "    મુખ્ય વિશેષતાઓ:\n"
 "    - સેલ મોનિટર: ડાયનેમિક Excel સેલને સાચવો અને સતત ટ્રૅક કરો.\n"
@@ -432,14 +436,420 @@ msgstr ""
 #: buildVars.py:40
 msgid ""
 "## What's New in v1.6.0\n"
-"* **Comprehensive Translation Support**: The add-on is now fully localized "
-"with support for 17 global languages. \n"
-"  *(Note: These translations were generated by AI, so some minor translation "
-"errors or inaccuracies may be present.)*\n"
-"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
-"entire codebase."
+"* **Comprehensive Translation Support**: The add-on is now fully localized with support for 17 global languages. \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*\n"
+"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the entire codebase."
 msgstr ""
 "## v1.6.0 માં નવું શું છે\n"
 "* **વ્યાપક અનુવાદ આધાર**: 17 વૈશ્વિક ભાષાઓના સમર્થન સાથે એડ-ઑન હવે સંપૂર્ણપણે સ્થાનિક કરવામાં આવ્યું છે. \n"
 "  *(નોંધ: આ અનુવાદો AI દ્વારા જનરેટ કરવામાં આવ્યા હતા, તેથી કેટલીક નાની અનુવાદ ભૂલો અથવા અચોક્કસતાઓ હાજર હોઈ શકે છે.)*\n"
 "* **કડક કોડ ગવર્નન્સ**: સમગ્ર કોડબેઝમાં GPL-2.0 કૉપિરાઇટ હેડર્સ લાગુ કર્યા."
+
+msgid ""
+"Select layout announcement mode. 'Guided Announcement' requires you to press"
+" NVDA+E, L at least once per sheet to scan the layout."
+msgstr ""
+"લેઆઉટ ઘોષણા મોડ પસંદ કરો. લેઆઉટ સ્કેન કરવા માટે 'માર્ગદર્શિત ઘોષણા' માટે "
+"તમારે શીટ દીઠ ઓછામાં ઓછા એક વખત NVDA+E, L દબાવવું જરૂરી છે."
+
+msgid "Enter new sheet name:"
+msgstr "નવું શીટ નામ દાખલ કરો:"
+
+msgid "Rename Sheet"
+msgstr "શીટનું નામ બદલો"
+
+msgid "Rename sheet"
+msgstr "શીટનું નામ બદલો"
+
+msgid "Bulk Sheet Organizer"
+msgstr "બલ્ક શીટ ઓર્ગેનાઇઝર"
+
+msgid "Sheet Name:"
+msgstr "શીટનું નામ:"
+
+msgid "Target Position:"
+msgstr "લક્ષ્ય સ્થાન:"
+
+msgid "Scheduled Moves (Press Del to remove):"
+msgstr "નિર્ધારિત ચાલ (દૂર કરવા માટે Del દબાવો):"
+
+msgid "Sheet"
+msgstr "શીટ"
+
+msgid "Target Position"
+msgstr "લક્ષ્ય સ્થાન"
+
+msgid "&OK"
+msgstr "&બરાબર"
+
+msgid "&Cancel"
+msgstr "&રદ કરો"
+
+msgid " in {sheet}"
+msgstr " {sheet} માં"
+
+msgid " in {sheet} of {wb}"
+msgstr " {wb} ની {sheet} માં"
+
+msgid "Row {num}"
+msgstr "પંક્તિ {num}"
+
+msgid "Rows {start} through {end}"
+msgstr "પંક્તિઓ {start} થી {end} સુધી"
+
+msgid "Column {col}"
+msgstr "કૉલમ {col}"
+
+msgid "Columns {start} through {end}"
+msgstr "કૉલમ્સ {start} થી {end} સુધી"
+
+msgid "hidden"
+msgstr "છુપાયેલ"
+
+msgid "unhidden"
+msgstr "દૃશ્યમાન"
+
+msgid "Unknown Color"
+msgstr "અજ્ઞાત રંગ"
+
+msgid "None"
+msgstr "કોઈ નહિ"
+
+msgid "Lowest Value"
+msgstr "સૌથી ઓછું મૂલ્ય"
+
+msgid "Highest Value"
+msgstr "સૌથી વધુ મૂલ્ય"
+
+msgid "Number {val}"
+msgstr "નંબર {val}"
+
+msgid "{val}%"
+msgstr "{val}%"
+
+msgid "Formula {val}"
+msgstr "ફોર્મ્યુલા {val}"
+
+msgid "{val}th Percentile"
+msgstr "{val}મું પર્સેન્ટાઇલ"
+
+msgid "Unknown Criteria"
+msgstr "અજ્ઞાત માપદંડ"
+
+msgid "Has conditional formatting"
+msgstr "શરતી ફોર્મેટિંગ ધરાવે છે"
+
+msgid ": {color_name} Background"
+msgstr ": {color_name} પૃષ્ઠભૂમિ"
+
+msgid ": {color_name} Text"
+msgstr ": {color_name} લખાણ"
+
+msgid "Found {count} conditional formatting rules."
+msgstr "{count} શરતી ફોર્મેટિંગ નિયમો મળ્યાં."
+
+msgid " (Stops if true)"
+msgstr " (જો સાચું હોય તો અટકે છે)"
+
+msgid " [Applies to {address}]"
+msgstr " [{address} ને લાગુ પડે છે]"
+
+msgid "Rule"
+msgstr "નિયમ"
+
+msgid "Between"
+msgstr "વચ્ચે"
+
+msgid "Not Between"
+msgstr "વચ્ચે નથી"
+
+msgid "Equal to"
+msgstr "બરાબર"
+
+msgid "Not Equal to"
+msgstr "બરાબર નથી"
+
+msgid "Greater than"
+msgstr "કરતા વધારે"
+
+msgid "Less than"
+msgstr "કરતા ઓછું"
+
+msgid "Greater than or equal to"
+msgstr "કરતા વધારે અથવા બરાબર"
+
+msgid "Less than or equal to"
+msgstr "કરતા ઓછું અથવા બરાબર"
+
+msgid "Operator {op}"
+msgstr "ઓપરેટર {op}"
+
+msgid "Unknown"
+msgstr "અજ્ઞાત"
+
+msgid "Cell Value is {op} {f1} and {f2}"
+msgstr "સેલ મૂલ્ય {op} {f1} અને {f2} છે"
+
+msgid "Cell Value is {op} {f1}"
+msgstr "સેલ મૂલ્ય {op} {f1} છે"
+
+msgid "Formula: {form}"
+msgstr "ફોર્મ્યુલા: {form}"
+
+msgid "Formula rule"
+msgstr "ફોર્મ્યુલા નિયમ"
+
+msgid "Point {num} ({val}) is {color}"
+msgstr "બિંદુ {num} ({val}) એ {color} છે"
+
+msgid "{count}-Color Scale gradient. {points}"
+msgstr "{count}-કલર સ્કેલ ગ્રેડિયન્ટ. {points}"
+
+msgid "Color Scale gradient"
+msgstr "કલર સ્કેલ ગ્રેડિયન્ટ"
+
+msgid " (Note: Cell value is visually hidden)"
+msgstr " (નોંધ: સેલ મૂલ્ય દૃષ્ટિની રીતે છુપાયેલું છે)"
+
+msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
+msgstr "ડેટા બાર ગ્રેડિયન્ટ ({color}). {min_val} થી {max_val} સુધી{hide_str}"
+
+msgid "Data Bar"
+msgstr "ડેટા બાર"
+
+msgid "Icon Set ({count} icons){hide_str}"
+msgstr "આયકન સેટ ({count} આયકન્સ){hide_str}"
+
+msgid "Icon Set"
+msgstr "આયકન સેટ"
+
+msgid "Unique or Duplicate Values"
+msgstr "અનન્ય અથવા ડુપ્લિકેટ મૂલ્યો"
+
+msgid "Text contains: '{text}'"
+msgstr "લખાણમાં શામેલ છે: '{text}'"
+
+msgid "Text String rule"
+msgstr "ટેક્સ્ટ સ્ટ્રિંગ નિયમ"
+
+msgid "Format Blank cells"
+msgstr "ખાલી સેલ્સ ફોર્મેટ કરો"
+
+msgid "Format Error cells"
+msgstr "ભૂલ સેલ્સ ફોર્મેટ કરો"
+
+msgid "Top {rank} values"
+msgstr "ટોચના {rank} મૂલ્યો"
+
+msgid "Bottom {rank} values"
+msgstr "નીચેના {rank} મૂલ્યો"
+
+msgid "Top/Bottom ranking rule"
+msgstr "ઉપર/નીચે રેન્કિંગ નિયમ"
+
+msgid "Formatting Rule Type {type}"
+msgstr "ફોર્મેટિંગ નિયમ પ્રકાર {type}"
+
+msgid "Rule {num}{stop}: {type}.{applies}"
+msgstr "નિયમ {num}{stop}: {type}.{applies}"
+
+msgid "Rule {num}: Unknown type."
+msgstr "નિયમ {num}: અજ્ઞાત પ્રકાર."
+
+msgid "Background is {color}."
+msgstr "પૃષ્ઠભૂમિ {color} છે."
+
+msgid "Bold"
+msgstr "ઘાટું"
+
+msgid "Italic"
+msgstr "ત્રાંસુ"
+
+msgid "Strikethrough"
+msgstr "સ્ટ્રાઈકથ્રુ"
+
+msgid "Font is {styles}."
+msgstr "ફોન્ટ {styles} છે."
+
+msgid "Black"
+msgstr "કાળો"
+
+msgid "Text is {color}."
+msgstr "લખાણ {color} છે."
+
+msgid "Number format changed to {format}."
+msgstr "નંબર ફોર્મેટ {format} માં બદલાયું."
+
+msgid "Could not analyze final display format."
+msgstr "અંતિમ પ્રદર્શન ફોર્મેટનું વિશ્લેષણ કરી શક્યા નથી."
+
+msgid "No active visual changes detected."
+msgstr "કોઈ સક્રિય દ્રશ્ય ફેરફારો મળ્યાં નથી."
+
+msgid ""
+"{rules}\n"
+"\n"
+"Analyzed Results:\n"
+"{results}"
+msgstr ""
+"{rules}\n"
+"\n"
+"વિશ્લેષિત પરિણામો:\n"
+"{results}"
+
+msgid "Conditional Formatting Analysis"
+msgstr "શરતી ફોર્મેટિંગ વિશ્લેષણ"
+
+msgid "Copy (Ctrl+Shift+C)"
+msgstr "કોપી કરો (Ctrl+Shift+C)"
+
+msgid "&Close"
+msgstr "બંધ કરો (&C)"
+
+msgid "Sheet appears to be empty."
+msgstr "શીટ ખાલી હોવાનું જણાય છે."
+
+msgid "Found 1 data block at {c}{r}."
+msgstr "{c}{r} પર 1 ડેટા બ્લોક મળ્યો."
+
+msgid "Found 1 data block: {c}{r} to {ec}{er}."
+msgstr "1 ડેટા બ્લોક મળ્યો: {c}{r} થી {ec}{er}."
+
+msgid "{c}{r} to {ec}{er}"
+msgstr "{c}{r} થી {ec}{er}"
+
+msgid "Block {num}: {addr}"
+msgstr "બ્લોક {num}: {addr}"
+
+msgid ""
+"Found {count} data blocks in this sheet.\n"
+"{blocks_msg}"
+msgstr ""
+"આ શીટમાં {count} ડેટા બ્લોક્સ મળ્યાં.\n"
+"{blocks_msg}"
+
+msgid "Sheet Layout Overview"
+msgstr "શીટ લેઆઉટ વિહંગાવલોકન"
+
+msgid "Filter Mode: Active"
+msgstr "ફિલ્ટર મોડ: સક્રિય"
+
+msgid "Top 2000+ Rows are hidden"
+msgstr "ટોચની 2000+ પંક્તિઓ છુપાયેલ છે"
+
+msgid "Top Row 1 is hidden"
+msgstr "ટોચની પંક્તિ 1 છુપાયેલ છે"
+
+msgid "Top Rows 1 through {end_r} are hidden"
+msgstr "ટોચની પંક્તિઓ 1 થી {end_r} છુપાયેલ છે"
+
+msgid "Left 2000+ Columns are hidden"
+msgstr "ડાબી 2000+ કૉલમ્સ છુપાયેલ છે"
+
+msgid "Left Column A is hidden"
+msgstr "ડાબી કૉલમ A છુપાયેલ છે"
+
+msgid "Left Columns A through {end_col} are hidden"
+msgstr "ડાબી કૉલમ્સ A થી {end_col} છુપાયેલ છે"
+
+msgid "Bottommost 2000+ Rows are hidden"
+msgstr "નીચેની 2000+ પંક્તિઓ છુપાયેલ છે"
+
+msgid "Bottom Row {max_r} is hidden"
+msgstr "નીચેની પંક્તિ {max_r} છુપાયેલ છે"
+
+msgid "Bottom Rows {start_r} through {max_r} are hidden"
+msgstr "નીચેની પંક્તિઓ {start_r} થી {max_r} છુપાયેલ છે"
+
+msgid "Rightmost 2000+ Columns are hidden"
+msgstr "જમણી 2000+ કૉલમ્સ છુપાયેલ છે"
+
+msgid "Right Column {col} is hidden"
+msgstr "જમણી કૉલમ {col} છુપાયેલ છે"
+
+msgid "Right Columns {start_col} through {end_col} are hidden"
+msgstr "જમણી કૉલમ્સ {start_col} થી {end_col} છુપાયેલ છે"
+
+msgid "Hidden Borders: {borders}"
+msgstr "છુપાયેલ સરહદો: {borders}"
+
+msgid "Top sheets 1-{count}"
+msgstr "ટોચની શીટ્સ 1-{count}"
+
+msgid "Top sheet 1"
+msgstr "ટોચની શીટ 1"
+
+msgid "Bottom sheets {start}-{end}"
+msgstr "નીચેની શીટ્સ {start}-{end}"
+
+msgid "Bottom sheet {num}"
+msgstr "નીચેની શીટ {num}"
+
+msgid "{count} middle sheets"
+msgstr "{count} મધ્ય શીટ્સ"
+
+msgid "{count} middle sheet"
+msgstr "{count} મધ્ય શીટ"
+
+msgid "Hidden Sheets: {parts} hidden"
+msgstr "છુપાયેલ શીટ્સ: {parts} છુપાયેલ"
+
+msgid "Sheet Protected: True"
+msgstr "શીટ સુરક્ષિત છે: હા"
+
+msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
+msgstr "સ્થિર પેન: પંક્તિઓ 1-{r}, કૉલમ્સ A-{c}"
+
+msgid "Frozen Panes: Rows 1-{r}"
+msgstr "સ્થિર પેન: પંક્તિઓ 1-{r}"
+
+msgid "Frozen Panes: Columns A-{c}"
+msgstr "સ્થિર પેન: કૉલમ્સ A-{c}"
+
+msgid "Frozen Panes: Active"
+msgstr "સ્થિર પેન: સક્રિય"
+
+msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
+msgstr "ફ્લોટિંગ ઑબ્જેક્ટ્સ: {count} આકાર/ચાર્ટ ધરાવે છે"
+
+msgid "Pivot Tables: Contains {count} Pivot Table(s)"
+msgstr "પિવોટ કોષ્ટકો: {count} પિવોટ કોષ્ટક ધરાવે છે"
+
+msgid "View Mode: Page Break Preview"
+msgstr "વ્યૂ મોડ: પેજ બ્રેક પ્રીવ્યૂ"
+
+msgid "View Mode: Page Layout"
+msgstr "વ્યૂ મોડ: પેજ લેઆઉટ"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"{props}"
+msgstr ""
+"\n"
+"\n"
+"--- શીટના ગુણધર્મો ---\n"
+"{props}"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"No special properties detected (No active filters, protection, frozen panes, or hidden borders)."
+msgstr ""
+"\n"
+"\n"
+"--- શીટના ગુણધર્મો ---\n"
+"કોઈ વિશિષ્ટ ગુણધર્મો મળ્યા નથી (કોઈ સક્રિય ફિલ્ટર્સ, સુરક્ષા, સ્થિર પેન અથવા છુપાયેલ સરહદો નથી)."
+
+msgid ""
+"## What's New in v1.6.1\n"
+"* **Deep File Localization**: Fixed missing string translations deep within the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick Sheet Mover) to ensure 100% localization coverage.\n"
+"* **Expanded Translation Support**: Added 7 new languages to the system (Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*"
+msgstr ""
+"## v1.6.1 માં નવું શું છે\n"
+"* **ડીપ ફાઇલ લોકલાઇઝેશન**: 100% લોકલાઇઝેશન સુનિશ્ચિત કરવા માટે એક્સેલ એન્હાન્સમેન્ટ મોડ્યુલો (જેમ કે શીટ લેઆઉટ એનાલાઇઝર અને ક્વિક શીટ મૂવર) ની અંદર ગુમ થયેલ સ્ટ્રિંગ અનુવાદોને ઠીક કર્યા.\n"
+"* **વિસ્તૃત અનુવાદ આધાર**: સિસ્ટમમાં 7 નવી ભાષાઓ (તુર્કી, પોલિશ, કોરિયન, યુક્રેનિયન, ચેક, ઉર્દૂ અને પંજાબી) ઉમેરવામાં આવી છે.\n"
+"  *(નોંધ: આ અનુવાદો AI દ્વારા જનરેટ કરવામાં આવ્યા હતા, તેથી કેટલીક નાની અનુવાદ ભૂલો અથવા અચોક્કસતાઓ હોઈ શકે છે.)*"

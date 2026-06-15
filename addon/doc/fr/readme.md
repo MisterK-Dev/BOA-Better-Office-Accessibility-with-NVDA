@@ -107,6 +107,11 @@ Pour éviter les conflits de frappe avec d'autres plugins NVDA, BOA utilise un *
 
 ## 🛠️ Journal des modifications
 
+### Nouveautés de la v1.6.1
+* **Localisation approfondie** : Correction des traductions manquantes au cœur des modules d'amélioration d'Excel (tels que l'Analyseur de disposition de feuille et le Déplaceur rapide de feuille) pour garantir une couverture de localisation à 100 %.
+* **Support de traduction élargi** : Ajout de 7 nouvelles langues au système (Turc, Polonais, Coréen, Ukrainien, Tchèque, Ourdou et Pendjabi).
+  *(Note : Ces traductions ont été générées par une IA, de légères erreurs de traduction ou imprécisions peuvent donc être présentes.)*
+
 ### v1.6.0
 * **Prise en charge complète de la traduction** : Le Module complémentaire est désormais entièrement localisé avec la prise en charge de 17 langues mondiales. 
   *(Remarque : Ces traductions ont été générées par l'IA, de sorte que des erreurs de traduction mineures ou des inexactitudes peuvent être présentes.)*

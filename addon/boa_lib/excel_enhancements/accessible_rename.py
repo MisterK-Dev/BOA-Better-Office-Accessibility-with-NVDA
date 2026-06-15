@@ -56,7 +56,7 @@ class ExcelSheetRenameEdit(object):
         and it MUST be launched via `wx.CallAfter` to run safely on NVDA's main thread.
         """
         gui.mainFrame.prePopup()
-        dlg = wx.TextEntryDialog(gui.mainFrame, "Enter new sheet name:", "Rename Sheet", initial_name)
+        dlg = wx.TextEntryDialog(gui.mainFrame, _("Enter new sheet name:"), _("Rename Sheet"), initial_name)
         dlg.Raise()
         res = dlg.ShowModal()
         new_name = dlg.GetValue() if res == wx.ID_OK else None
@@ -171,7 +171,7 @@ class ExcelSheetRenameEdit(object):
         """
         Override the UIA name property to ensure it announces logically.
         """
-        return "Rename sheet"
+        return _("Rename sheet")
 
     def _fetch_sheet_name(self):
         """

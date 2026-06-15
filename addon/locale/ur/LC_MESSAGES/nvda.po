@@ -1,0 +1,1029 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 'BOA' package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 'BOA' '1.6.1'\n"
+"Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
+"POT-Creation-Date: 2026-06-15 09:08+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: ur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Title for the NVDA settings dialog list and the panel title
+#: addon\boa_lib\boa_gui.py:33
+msgid "BOA Office Enhancements"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:65 addon\boa_lib\boa_gui.py:85
+msgid "Off"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:65
+msgid "One-time Announcement"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:65
+msgid "Guided Announcement"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:77
+msgid ""
+"Select layout announcement mode. 'Guided Announcement' requires you to press"
+" NVDA+E, L at least once per sheet to scan the layout."
+msgstr ""
+"لے آؤٹ اعلان موڈ منتخب کریں۔ 'رہنمائی شدہ اعلان' کے لیے آپ کو لے آؤٹ کو "
+"اسکین کرنے کے لیے فی شیٹ کم از کم ایک بار NVDA+E, L دبانا ہوگا۔"
+
+#: addon\boa_lib\boa_gui.py:85
+msgid "Strict Memory Check (CountA)"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:85
+msgid "Visible Data Only (Math Engine)"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:95
+msgid "Select the engine used to detect the end of data in a row or column."
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:109
+msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:110
+msgid "Use accessible Sheet &Rename dialog instead of native edit field"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:111
+msgid "Prevent NVDA &crashes in Excel text fields"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:112
+msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:113
+msgid "Proactively announce when navigating past &hidden rows or columns"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:114
+msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:115
+msgid "Sheet Layout Auto-Announce &Mode:"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:116
+msgid "Conditional &Formatting and color"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:117
+msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:118
+msgid ""
+"Announce when there is no more data in the direction you are &navigating"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:120
+msgid "Excel Enhancements"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:124
+msgid ""
+"&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
+"hexagon grid"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:125
+msgid "Ensure the He&x Color edit field is properly labeled"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:126
+msgid "Ensure the R&GB Color edit fields are properly labeled"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:127
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:129
+msgid "PowerPoint Enhancements"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:133
+msgid "&Word: Prevent NVDA crashes in Word text fields"
+msgstr ""
+
+#: addon\boa_lib\boa_gui.py:135
+msgid "Word Enhancements"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:59
+msgid "Enter new sheet name:"
+msgstr "نئی شیٹ کا نام درج کریں:"
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:59
+msgid "Rename Sheet"
+msgstr "شیٹ کا نام تبدیل کریں"
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:85
+#, python-brace-format
+msgid "Renaming to {name}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\accessible_rename.py:174
+msgid "Rename sheet"
+msgstr "شیٹ کا نام تبدیل کریں"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
+msgid "Bulk arrangement complete"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:108
+#, python-brace-format
+msgid "Error during bulk move: {error}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:150
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:60
+msgid "Could not find Excel grid."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:158
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:75
+msgid "Failed to hook Excel."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:165
+msgid "No active workbook."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
+msgid "Error opening organizer"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:189
+msgid "Bulk Sheet Organizer"
+msgstr "بلک شیٹ آرگنائزر"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:201
+msgid "Sheet Name:"
+msgstr "شیٹ کا نام:"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:211
+msgid "Target Position:"
+msgstr "ہدف پوزیشن:"
+
+#. --- List of Scheduled Moves ---
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:224
+msgid "Scheduled Moves (Press Del to remove):"
+msgstr "طے شدہ حرکات (ہٹانے کے لیے Del دبائیں):"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:227
+msgid "Sheet"
+msgstr "شیٹ"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:228
+msgid "Target Position"
+msgstr "ہدف پوزیشن"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:235
+msgid "&OK"
+msgstr "&ٹھیک ہے"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:236
+msgid "&Cancel"
+msgstr "&منسوخ کریں"
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
+#, python-brace-format
+msgid "Scheduled: {sheet} to position {pos}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:289
+msgid "Move removed"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:119
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:231
+msgid "Error: Could not read Excel cell."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:144
+#, python-brace-format
+msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:147
+#, python-brace-format
+msgid "{address} set to slot {slot_str}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:159
+#, python-brace-format
+msgid "Slot {slot_str} is empty."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:169
+msgid "Error: Excel not accessible."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:176
+#, python-brace-format
+msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:189
+#, python-brace-format
+msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:210
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:357
+#, python-brace-format
+msgid " in {sheet}"
+msgstr " {sheet} میں"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:212
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:359
+#, python-brace-format
+msgid " in {sheet} of {wb}"
+msgstr " {wb} کی {sheet} میں"
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:214
+#, python-brace-format
+msgid "{val} - {cell}{location_str}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:217
+#, python-brace-format
+msgid "Cannot read slot {slot_str}. Excel may be busy."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:238
+#, python-brace-format
+msgid "Continuous monitor OFF for {address}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:244
+#, python-brace-format
+msgid "Continuous monitor ON for {address}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:258
+msgid "All monitored and slotted cells cleared."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:361
+#, python-brace-format
+msgid "{cell_addr} updated: {current_val}{location_str}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:379
+#, python-brace-format
+msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_monitor.py:382
+#, python-brace-format
+msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
+msgid "unselected"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:210
+#, python-brace-format
+msgid "{address} selected"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:336
+#, python-brace-format
+msgid "Row {row_num} hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:339
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:341
+#, python-brace-format
+msgid "Rows {start} through {end} hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:343
+msgid "Crossed heavily fragmented hidden rows"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:406
+#, python-brace-format
+msgid "Column {col_letter} hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:409
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:411
+#, python-brace-format
+msgid "Columns {start} through {end} hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:413
+msgid "Crossed heavily fragmented hidden columns"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:468
+msgid "No more data below"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:475
+msgid "No more data above"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:482
+msgid "No more data to the right"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:489
+msgid "No more data to the left"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:552
+msgid "Panes frozen"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:554
+msgid "Panes unfrozen"
+msgstr ""
+
+#. -1 is xlSheetVisible
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:577
+#, python-brace-format
+msgid "{sheet} hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:589
+msgid "Sheet hidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:591
+msgid "Sheet unhidden"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:749
+#, python-brace-format
+msgid "Row {num}"
+msgstr "قطار {num}"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:751
+#, python-brace-format
+msgid "Rows {start} through {end}"
+msgstr "قطاریں {start} سے {end} تک"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:766
+#, python-brace-format
+msgid "Column {col}"
+msgstr "کالم {col}"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:769
+#, python-brace-format
+msgid "Columns {start} through {end}"
+msgstr "کالم {start} سے {end} تک"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:773
+msgid "hidden"
+msgstr "پوشیدہ"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:773
+msgid "unhidden"
+msgstr "ظاہر"
+
+#: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
+#, python-brace-format
+msgid "{address} {state}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:34
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:39
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:52
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:275
+msgid "Unknown Color"
+msgstr "نامعلوم رنگ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:42
+msgid "None"
+msgstr "کوئی نہیں"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:66
+msgid "Lowest Value"
+msgstr "کم ترین قدر"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:67
+msgid "Highest Value"
+msgstr "اعلی ترین قدر"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:70
+#, python-brace-format
+msgid "Number {val}"
+msgstr "نمبر {val}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:71
+#, python-brace-format
+msgid "{val}%"
+msgstr "{val}%"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:72
+#, python-brace-format
+msgid "Formula {val}"
+msgstr "فارمولا {val}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:73
+#, python-brace-format
+msgid "{val}th Percentile"
+msgstr "{val}واں پرسنٹائل"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:76
+msgid "Unknown Criteria"
+msgstr "نامعلوم معیار"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:102
+msgid "Has conditional formatting"
+msgstr "مشروط فارمیٹنگ ہے"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:113
+#, python-brace-format
+msgid ": {color_name} Background"
+msgstr ": {color_name} پس منظر"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:120
+#, python-brace-format
+msgid ": {color_name} Text"
+msgstr ": {color_name} متن"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
+msgid "No active cell found."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
+msgid "No conditional formatting rules applied to this cell."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
+msgid "Failed to read format conditions."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:158
+#, python-brace-format
+msgid "Found {count} conditional formatting rules."
+msgstr "{count} مشروط فارمیٹنگ کے قواعد ملے۔"
+
+#. Stop if true and Applies To
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:167
+msgid " (Stops if true)"
+msgstr " (اگر درست ہو تو رک جاتا ہے)"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:169
+#, python-brace-format
+msgid " [Applies to {address}]"
+msgstr " [{address} پر لاگو ہوتا ہے]"
+
+#. Consideration: Excel uses the `xlFormatConditionType` enum to classify
+#. rules.
+#. Each rule type requires accessing completely different COM properties
+#. (e.g., `xlColorScale`
+#. uses `ColorScaleCriteria`, while `xlCellValue` uses `Operator` and
+#. `Formula1`).
+#. Mapping of common xlFormatConditionType values:
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:177
+msgid "Rule"
+msgstr "قاعدہ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Between"
+msgstr "درمیان"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Not Between"
+msgstr "درمیان نہیں"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Equal to"
+msgstr "برابر"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Not Equal to"
+msgstr "برابر نہیں"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Greater than"
+msgstr "سے بڑا"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Less than"
+msgstr "سے چھوٹا"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Greater than or equal to"
+msgstr "بڑا یا برابر"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:180
+msgid "Less than or equal to"
+msgstr "چھوٹا یا برابر"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:181
+#, python-brace-format
+msgid "Operator {op}"
+msgstr "آپریٹر {op}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:186
+msgid "Unknown"
+msgstr "نامعلوم"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:191
+#, python-brace-format
+msgid "Cell Value is {op} {f1} and {f2}"
+msgstr "سیل کی قدر {op} {f1} اور {f2} ہے"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:193
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:195
+#, python-brace-format
+msgid "Cell Value is {op} {f1}"
+msgstr "سیل کی قدر {op} {f1} ہے"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:198
+#, python-brace-format
+msgid "Formula: {form}"
+msgstr "فارمولا: {form}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:200
+msgid "Formula rule"
+msgstr "فارمولے کا قاعدہ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:210
+#, python-brace-format
+msgid "Point {num} ({val}) is {color}"
+msgstr "پوائنٹ {num} ({val}) {color} ہے"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:211
+#, python-brace-format
+msgid "{count}-Color Scale gradient. {points}"
+msgstr "{count}-کلر اسکیل گریڈینٹ۔ {points}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:213
+msgid "Color Scale gradient"
+msgstr "رنگ اسکیل گریڈینٹ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:219
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:225
+msgid " (Note: Cell value is visually hidden)"
+msgstr " (نوٹ: سیل کی قدر بصری طور پر پوشیدہ ہے)"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:220
+#, python-brace-format
+msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
+msgstr "ڈیٹا بار گریڈینٹ ({color})۔ {min_val} سے {max_val} تک{hide_str}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:222
+msgid "Data Bar"
+msgstr "ڈیٹا بار"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:226
+#, python-brace-format
+msgid "Icon Set ({count} icons){hide_str}"
+msgstr "آئیکن سیٹ ({count} آئیکنز){hide_str}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:228
+msgid "Icon Set"
+msgstr "آئیکن سیٹ"
+
+#. xlUniqueValues
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:230
+msgid "Unique or Duplicate Values"
+msgstr "منفرد یا ڈپلیکیٹ قدریں"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:233
+#, python-brace-format
+msgid "Text contains: '{text}'"
+msgstr "متن پر مشتمل ہے: '{text}'"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:235
+msgid "Text String rule"
+msgstr "ٹیکسٹ اسٹرنگ قاعدہ"
+
+#. xlBlanksCondition
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:237
+msgid "Format Blank cells"
+msgstr "خالی سیلز کو فارمیٹ کریں"
+
+#. xlErrorsCondition
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:239
+msgid "Format Error cells"
+msgstr "ایرر سیلز کو فارمیٹ کریں"
+
+#. xlTop10Top
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:243
+#, python-brace-format
+msgid "Top {rank} values"
+msgstr "ٹاپ {rank} قدریں"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:245
+#, python-brace-format
+msgid "Bottom {rank} values"
+msgstr "نیچے کی {rank} قدریں"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:247
+msgid "Top/Bottom ranking rule"
+msgstr "اوپر/نیچے رینکنگ کا قاعدہ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:249
+#, python-brace-format
+msgid "Formatting Rule Type {type}"
+msgstr "فارمیٹنگ قاعدہ کی قسم {type}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:251
+#, python-brace-format
+msgid "Rule {num}{stop}: {type}.{applies}"
+msgstr "قاعدہ {num}{stop}: {type}.{applies}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:253
+#, python-brace-format
+msgid "Rule {num}: Unknown type."
+msgstr "قاعدہ {num}: نامعلوم قسم۔"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:263
+#, python-brace-format
+msgid "Background is {color}."
+msgstr "پس منظر {color} ہے۔"
+
+#. Font
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:266
+msgid "Bold"
+msgstr "بولڈ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:267
+msgid "Italic"
+msgstr "اٹالک"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:268
+msgid "Strikethrough"
+msgstr "اسٹرائیک تھرو"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:272
+#, python-brace-format
+msgid "Font is {styles}."
+msgstr "فونٹ {styles} ہے۔"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:275
+msgid "Black"
+msgstr "سیاہ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:276
+#, python-brace-format
+msgid "Text is {color}."
+msgstr "متن {color} ہے۔"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:280
+#, python-brace-format
+msgid "Number format changed to {format}."
+msgstr "نمبر فارمیٹ کو {format} میں تبدیل کر دیا گیا۔"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:283
+msgid "Could not analyze final display format."
+msgstr "حتمی ڈسپلے فارمیٹ کا تجزیہ نہیں کیا جا سکا۔"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:286
+msgid "No active visual changes detected."
+msgstr "کوئی فعال بصری تبدیلیاں نہیں ملیں۔"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:288
+#, python-brace-format
+msgid ""
+"{rules}\n"
+"\n"
+"Analyzed Results:\n"
+"{results}"
+msgstr ""
+"{rules}\n"
+"\n"
+"تجزیہ کردہ نتائج:\n"
+"{results}"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:292
+msgid "Conditional Formatting Analysis"
+msgstr "مشروط فارمیٹنگ کا تجزیہ"
+
+#: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
+msgid "Failed to analyze conditional formatting."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:88
+msgid "Only one sheet in workbook"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:93
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:106
+msgid "Already at beginning"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:99
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:112
+msgid "Already at end"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:127
+#, python-brace-format
+msgid "Moved {sheet} to position {new_idx} of {total}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:130
+msgid "Failed to move sheet"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:48
+msgid "Copy (Ctrl+Shift+C)"
+msgstr "کاپی کریں (Ctrl+Shift+C)"
+
+#. Using &Close automatically binds Alt+C natively in wxPython
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:53
+msgid "&Close"
+msgstr "بند کریں (&C)"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:84
+msgid "Copied to clipboard"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
+msgid "Analyzing layout..."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:188
+msgid "Sheet appears to be empty."
+msgstr "شیٹ خالی لگتی ہے۔"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:194
+#, python-brace-format
+msgid "Found 1 data block at {c}{r}."
+msgstr "{c}{r} پر 1 ڈیٹا بلاک ملا۔"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:196
+#, python-brace-format
+msgid "Found 1 data block: {c}{r} to {ec}{er}."
+msgstr "1 ڈیٹا بلاک ملا: {c}{r} سے {ec}{er} تک۔"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:203
+#, python-brace-format
+msgid "{c}{r} to {ec}{er}"
+msgstr "{c}{r} سے {ec}{er} تک"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:205
+#, python-brace-format
+msgid "Block {num}: {addr}"
+msgstr "بلاک {num}: {addr}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:206
+#, python-brace-format
+msgid ""
+"Found {count} data blocks in this sheet.\n"
+"{blocks_msg}"
+msgstr ""
+"اس شیٹ میں {count} ڈیٹا بلاکس ملے۔\n"
+"{blocks_msg}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:213
+msgid "Sheet Layout Overview"
+msgstr "شیٹ لے آؤٹ کا جائزہ"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
+#, python-brace-format
+msgid "Empty cell. Nearest data at {col}{row}."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
+#, python-brace-format
+msgid "Nearest data at {col}{row}"
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:364
+msgid "Filter Mode: Active"
+msgstr "فلٹر موڈ: فعال"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:380
+msgid "Top 2000+ Rows are hidden"
+msgstr "اوپر کی 2000+ قطاریں پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:381
+msgid "Top Row 1 is hidden"
+msgstr "اوپر کی قطار 1 پوشیدہ ہے"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:382
+#, python-brace-format
+msgid "Top Rows 1 through {end_r} are hidden"
+msgstr "اوپر کی قطاریں 1 سے {end_r} تک پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:389
+msgid "Left 2000+ Columns are hidden"
+msgstr "بائیں 2000+ کالم پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:390
+msgid "Left Column A is hidden"
+msgstr "بائیں کالم A پوشیدہ ہے"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:391
+#, python-brace-format
+msgid "Left Columns A through {end_col} are hidden"
+msgstr "بائیں کالم A سے {end_col} تک پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:401
+msgid "Bottommost 2000+ Rows are hidden"
+msgstr "سب سے نیچے کی 2000+ قطاریں پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:402
+#, python-brace-format
+msgid "Bottom Row {max_r} is hidden"
+msgstr "نیچے کی قطار {max_r} پوشیدہ ہے"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:403
+#, python-brace-format
+msgid "Bottom Rows {start_r} through {max_r} are hidden"
+msgstr "نیچے کی قطاریں {start_r} سے {max_r} تک پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:412
+msgid "Rightmost 2000+ Columns are hidden"
+msgstr "دائیں 2000+ کالم پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:413
+#, python-brace-format
+msgid "Right Column {col} is hidden"
+msgstr "دایاں کالم {col} پوشیدہ ہے"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:414
+#, python-brace-format
+msgid "Right Columns {start_col} through {end_col} are hidden"
+msgstr "دائیں کالم {start_col} سے {end_col} تک پوشیدہ ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:418
+#, python-brace-format
+msgid "Hidden Borders: {borders}"
+msgstr "پوشیدہ سرحدیں: {borders}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:443
+#, python-brace-format
+msgid "Top sheets 1-{count}"
+msgstr "اوپر کی شیٹس 1-{count}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:443
+msgid "Top sheet 1"
+msgstr "اوپر کی شیٹ 1"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:445
+#, python-brace-format
+msgid "Bottom sheets {start}-{end}"
+msgstr "نیچے کی شیٹس {start}-{end}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:445
+#, python-brace-format
+msgid "Bottom sheet {num}"
+msgstr "نیچے کی شیٹ {num}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:449
+#, python-brace-format
+msgid "{count} middle sheets"
+msgstr "{count} درمیانی شیٹس"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:449
+#, python-brace-format
+msgid "{count} middle sheet"
+msgstr "{count} درمیانی شیٹ"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:452
+#, python-brace-format
+msgid "Hidden Sheets: {parts} hidden"
+msgstr "پوشیدہ شیٹس: {parts} پوشیدہ"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:458
+msgid "Sheet Protected: True"
+msgstr "شیٹ محفوظ ہے: ہاں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:467
+#, python-brace-format
+msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
+msgstr "فروزن پینز: قطاریں 1-{r}، کالم A-{c}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:469
+#, python-brace-format
+msgid "Frozen Panes: Rows 1-{r}"
+msgstr "فروزن پینز: قطاریں 1-{r}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:471
+#, python-brace-format
+msgid "Frozen Panes: Columns A-{c}"
+msgstr "فروزن پینز: کالم A-{c}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:473
+msgid "Frozen Panes: Active"
+msgstr "فروزن پینز: فعال"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:480
+#, python-brace-format
+msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
+msgstr "تیرتی ہوئی اشیاء: {count} شکل/چارٹ شامل ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:487
+#, python-brace-format
+msgid "Pivot Tables: Contains {count} Pivot Table(s)"
+msgstr "پیوٹ ٹیبلز: {count} پیوٹ ٹیبل شامل ہیں"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:494
+msgid "View Mode: Page Break Preview"
+msgstr "ویو موڈ: صفحہ بریک پیش نظارہ"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:496
+msgid "View Mode: Page Layout"
+msgstr "ویو موڈ: صفحہ لے آؤٹ"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:503
+#, python-brace-format
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"{props}"
+msgstr ""
+"\n"
+"\n"
+"--- شیٹ کی خصوصیات ---\n"
+"{props}"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:505
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"No special properties detected (No active filters, protection, frozen panes, or hidden borders)."
+msgstr ""
+"\n"
+"\n"
+"--- شیٹ کی خصوصیات ---\n"
+"کوئی خاص خصوصیات نہیں ملیں (کوئی فعال فلٹرز، تحفظ، فروزن پینز، یا پوشیدہ سرحدیں نہیں)۔"
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
+msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
+msgid "No data blocks found in cache."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:545
+msgid "Already on a data cell."
+msgstr ""
+
+#: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:562
+#, python-brace-format
+msgid "Jumped to {col}{row}"
+msgstr ""
+
+#. Announce the color cleanly to the user.
+#: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:52
+#, python-brace-format
+msgid "Color {text}"
+msgstr ""
+
+#: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:101
+#, python-brace-format
+msgid "Color {hex_val}"
+msgstr ""
+
+#. Add-on description
+#: buildVars.py:15
+msgid ""
+"A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. \n"
+"    \n"
+"    Key Features:\n"
+"    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.\n"
+"    \n"
+"    Please refer to the add-on help documentation for a complete list of features and shortcuts."
+msgstr ""
+
+#. Changelog URL or None
+#: buildVars.py:40
+msgid ""
+"## What's New in v1.6.1\n"
+"* **Deep File Localization**: Fixed missing string translations deep within the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick Sheet Mover) to ensure 100% localization coverage.\n"
+"* **Expanded Translation Support**: Added 7 new languages to the system (Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*"
+msgstr ""
+"## v1.6.1 میں نیا کیا ہے\n"
+"* **ڈیپ فائل لوکلائزیشن**: 100% لوکلائزیشن کوریج کو یقینی بنانے کے لیے ایکسل اینہانسمنٹ ماڈیولز (جیسے شیٹ لے آؤٹ اینالائزر اور کوئیک شیٹ موور) کے اندر گہرے گمشدہ سٹرنگ ترجمہ کو درست کیا۔\n"
+"* **توسیع شدہ ترجمے کی معاونت**: سسٹم میں 7 نئی زبانیں (ترکی، پولش، کوریائی، یوکرائنی، چیک، اردو، اور پنجابی) شامل کی گئیں۔\n"
+"  *(نوٹ: یہ تراجم AI کے ذریعے تیار کیے گئے تھے، اس لیے کچھ معمولی ترجمے کی غلطیاں یا غلطیاں موجود ہو سکتی ہیں۔)*"

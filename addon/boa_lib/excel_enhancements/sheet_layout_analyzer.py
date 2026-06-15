@@ -45,12 +45,12 @@ class LayoutDialog(wx.Dialog):
         
         btnSizer = wx.BoxSizer(wx.HORIZONTAL)
         
-        self.copyBtn = wx.Button(self, label="Copy (Ctrl+Shift+C)")
+        self.copyBtn = wx.Button(self, label=_("Copy (Ctrl+Shift+C)"))
         self.copyBtn.Bind(wx.EVT_BUTTON, self.onCopy)
         btnSizer.Add(self.copyBtn, flag=wx.RIGHT, border=10)
         
         # Using &Close automatically binds Alt+C natively in wxPython
-        self.closeBtn = wx.Button(self, id=wx.ID_CANCEL, label="&Close")
+        self.closeBtn = wx.Button(self, id=wx.ID_CANCEL, label=_("&Close"))
         self.closeBtn.Bind(wx.EVT_BUTTON, lambda evt: self.EndModal(wx.ID_CANCEL))
         btnSizer.Add(self.closeBtn)
         
@@ -185,32 +185,32 @@ class SheetLayoutAnalyzer:
             pass
             
         if not areas:
-            msg = "Sheet appears to be empty."
+            msg = _("Sheet appears to be empty.")
         else:
             count = len(areas)
             if count == 1:
                 r, c, er, ec = areas[0]
                 if r == er and c == ec:
-                    msg = f"Found 1 data block at {c}{r}."
+                    msg = _("Found 1 data block at {c}{r}.").format(c=c, r=r)
                 else:
-                    msg = f"Found 1 data block: {c}{r} to {ec}{er}."
+                    msg = _("Found 1 data block: {c}{r} to {ec}{er}.").format(c=c, r=r, ec=ec, er=er)
             else:
                 block_strings = []
                 for r, c, er, ec in areas:
                     if r == er and c == ec:
                         block_strings.append(f"{c}{r}")
                     else:
-                        block_strings.append(f"{c}{r} to {ec}{er}")
+                        block_strings.append(_("{c}{r} to {ec}{er}").format(c=c, r=r, ec=ec, er=er))
                         
-                blocks_msg = "\n".join([f"Block {i+1}: {addr}" for i, addr in enumerate(block_strings)])
-                msg = f"Found {count} data blocks in this sheet.\n{blocks_msg}"
+                blocks_msg = "\n".join([_("Block {num}: {addr}").format(num=i+1, addr=addr) for i, addr in enumerate(block_strings)])
+                msg = _("Found {count} data blocks in this sheet.\n{blocks_msg}").format(count=count, blocks_msg=blocks_msg)
                 
         # Append Sheet Properties
         props = SheetLayoutAnalyzer._get_sheet_properties(excel)
         if props:
             msg += props
             
-        SheetLayoutAnalyzer._show_dialog("Sheet Layout Overview", msg)
+        SheetLayoutAnalyzer._show_dialog(_("Sheet Layout Overview"), msg)
 
     @staticmethod
     def auto_announce_one_time(excel):
@@ -361,7 +361,7 @@ class SheetLayoutAnalyzer:
             # 1. Filter Mode
             try:
                 if getattr(sheet, "AutoFilterMode", False):
-                    props.append("Filter Mode: Active")
+                    props.append(_("Filter Mode: Active"))
             except Exception: pass
             
             # 2. Hidden Borders
@@ -377,18 +377,18 @@ class SheetLayoutAnalyzer:
                     # If Row 1 is hidden, we scan downwards (step=1) to see how deep the hidden block goes.
                     if sheet.Rows(1).Hidden:
                         end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Rows.Count, True, 1)
-                        if end_r == -1: hidden_borders.append("Top 2000+ Rows are hidden")
-                        elif end_r == 1: hidden_borders.append("Top Row 1 is hidden")
-                        else: hidden_borders.append(f"Top Rows 1 through {end_r} are hidden")
+                        if end_r == -1: hidden_borders.append(_("Top 2000+ Rows are hidden"))
+                        elif end_r == 1: hidden_borders.append(_("Top Row 1 is hidden"))
+                        else: hidden_borders.append(_("Top Rows 1 through {end_r} are hidden").format(end_r=end_r))
                 except Exception: pass
                 
                 # Check Absolute Left Edge (Col 1)
                 try:
                     if sheet.Columns(1).Hidden:
                         end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Columns.Count, False, 1)
-                        if end_c == -1: hidden_borders.append("Left 2000+ Columns are hidden")
-                        elif end_c == 1: hidden_borders.append("Left Column A is hidden")
-                        else: hidden_borders.append(f"Left Columns A through {SheetLayoutAnalyzer._col_num_to_letter(end_c)} are hidden")
+                        if end_c == -1: hidden_borders.append(_("Left 2000+ Columns are hidden"))
+                        elif end_c == 1: hidden_borders.append(_("Left Column A is hidden"))
+                        else: hidden_borders.append(_("Left Columns A through {end_col} are hidden").format(end_col=SheetLayoutAnalyzer._col_num_to_letter(end_c)))
                 except Exception: pass
                 
                 # Check Absolute Bottom Edge
@@ -398,9 +398,9 @@ class SheetLayoutAnalyzer:
                     max_sheet_r = sheet.Rows.Count
                     if sheet.Rows(max_sheet_r).Hidden:
                         start_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_sheet_r, 1, True, -1)
-                        if start_r == -1: hidden_borders.append("Bottommost 2000+ Rows are hidden")
-                        elif start_r == max_sheet_r: hidden_borders.append(f"Bottom Row {max_sheet_r} is hidden")
-                        else: hidden_borders.append(f"Bottom Rows {start_r} through {max_sheet_r} are hidden")
+                        if start_r == -1: hidden_borders.append(_("Bottommost 2000+ Rows are hidden"))
+                        elif start_r == max_sheet_r: hidden_borders.append(_("Bottom Row {max_r} is hidden").format(max_r=max_sheet_r))
+                        else: hidden_borders.append(_("Bottom Rows {start_r} through {max_r} are hidden").format(start_r=start_r, max_r=max_sheet_r))
                 except Exception: pass
                 
                 # Check Absolute Right Edge
@@ -409,13 +409,13 @@ class SheetLayoutAnalyzer:
                     if sheet.Columns(max_sheet_c).Hidden:
                         start_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_sheet_c, 1, False, -1)
                         max_c_let = SheetLayoutAnalyzer._col_num_to_letter(max_sheet_c)
-                        if start_c == -1: hidden_borders.append("Rightmost 2000+ Columns are hidden")
-                        elif start_c == max_sheet_c: hidden_borders.append(f"Right Column {max_c_let} is hidden")
-                        else: hidden_borders.append(f"Right Columns {SheetLayoutAnalyzer._col_num_to_letter(start_c)} through {max_c_let} are hidden")
+                        if start_c == -1: hidden_borders.append(_("Rightmost 2000+ Columns are hidden"))
+                        elif start_c == max_sheet_c: hidden_borders.append(_("Right Column {col} is hidden").format(col=max_c_let))
+                        else: hidden_borders.append(_("Right Columns {start_col} through {end_col} are hidden").format(start_col=SheetLayoutAnalyzer._col_num_to_letter(start_c), end_col=max_c_let))
                 except Exception: pass
                 
                 if hidden_borders:
-                    props.append("Hidden Borders: " + ", ".join(hidden_borders))
+                    props.append(_("Hidden Borders: {borders}").format(borders=", ".join(hidden_borders)))
             except Exception: pass
             
             # 3. Hidden Sheets
@@ -440,22 +440,22 @@ class SheetLayoutAnalyzer:
                         
                     parts = []
                     if start_hidden > 0:
-                        parts.append(f"Top sheets 1-{start_hidden}" if start_hidden > 1 else "Top sheet 1")
+                        parts.append(_("Top sheets 1-{count}").format(count=start_hidden) if start_hidden > 1 else _("Top sheet 1"))
                     if end_hidden > 0 and (sheet_count - end_hidden >= start_hidden):
-                        parts.append(f"Bottom sheets {sheet_count - end_hidden + 1}-{sheet_count}" if end_hidden > 1 else f"Bottom sheet {sheet_count}")
+                        parts.append(_("Bottom sheets {start}-{end}").format(start=sheet_count - end_hidden + 1, end=sheet_count) if end_hidden > 1 else _("Bottom sheet {num}").format(num=sheet_count))
                         
                     middle_count = len(hidden_indices) - start_hidden - end_hidden
                     if middle_count > 0:
-                        parts.append(f"{middle_count} middle sheet{'s' if middle_count > 1 else ''}")
+                        parts.append(_("{count} middle sheets").format(count=middle_count) if middle_count > 1 else _("{count} middle sheet").format(count=middle_count))
                         
                     if parts:
-                        props.append("Hidden Sheets: " + ", ".join(parts) + " hidden")
+                        props.append(_("Hidden Sheets: {parts} hidden").format(parts=", ".join(parts)))
             except Exception: pass
             
             # 4. Sheet Protected
             try:
                 if getattr(sheet, "ProtectContents", False):
-                    props.append("Sheet Protected: True")
+                    props.append(_("Sheet Protected: True"))
             except Exception: pass
             
             # 5. Frozen Panes
@@ -464,45 +464,45 @@ class SheetLayoutAnalyzer:
                     r = win.SplitRow
                     c = win.SplitColumn
                     if r > 0 and c > 0:
-                        props.append(f"Frozen Panes: Rows 1-{r}, Columns A-{SheetLayoutAnalyzer._col_num_to_letter(c)}")
+                        props.append(_("Frozen Panes: Rows 1-{r}, Columns A-{c}").format(r=r, c=SheetLayoutAnalyzer._col_num_to_letter(c)))
                     elif r > 0:
-                        props.append(f"Frozen Panes: Rows 1-{r}")
+                        props.append(_("Frozen Panes: Rows 1-{r}").format(r=r))
                     elif c > 0:
-                        props.append(f"Frozen Panes: Columns A-{SheetLayoutAnalyzer._col_num_to_letter(c)}")
+                        props.append(_("Frozen Panes: Columns A-{c}").format(c=SheetLayoutAnalyzer._col_num_to_letter(c)))
                     else:
-                        props.append("Frozen Panes: Active")
+                        props.append(_("Frozen Panes: Active"))
             except Exception: pass
             
             # 6. Floating Objects
             try:
                 c = sheet.Shapes.Count
                 if c > 0:
-                    props.append(f"Floating Objects: Contains {c} Shape(s)/Chart(s)")
+                    props.append(_("Floating Objects: Contains {count} Shape(s)/Chart(s)").format(count=c))
             except Exception: pass
             
             # 7. Pivot Tables
             try:
                 c = sheet.PivotTables().Count
                 if c > 0:
-                    props.append(f"Pivot Tables: Contains {c} Pivot Table(s)")
+                    props.append(_("Pivot Tables: Contains {count} Pivot Table(s)").format(count=c))
             except Exception: pass
             
             # 8. View Mode
             try:
                 v = win.View
                 if v == 2:
-                    props.append("View Mode: Page Break Preview")
+                    props.append(_("View Mode: Page Break Preview"))
                 elif v == 3:
-                    props.append("View Mode: Page Layout")
+                    props.append(_("View Mode: Page Layout"))
             except Exception: pass
             
         except Exception:
             pass
             
         if props:
-            return "\n\n--- Sheet Properties ---\n" + "\n".join(props)
+            return _("\n\n--- Sheet Properties ---\n{props}").format(props="\n".join(props))
         else:
-            return "\n\n--- Sheet Properties ---\nNo special properties detected (No active filters, protection, frozen panes, or hidden borders)."
+            return _("\n\n--- Sheet Properties ---\nNo special properties detected (No active filters, protection, frozen panes, or hidden borders).")
 
     @staticmethod
     def jump_to_nearest_block(excel):

@@ -107,6 +107,11 @@ Para evitar conflictos de pulsaciones de teclas con otros complementos de NVDA, 
 
 ## 🛠️ Registro de cambios
 
+### Novedades de la v1.6.1
+* **Localización profunda**: Se han corregido las traducciones de cadenas que faltaban en el interior de los módulos de mejora de Excel (como el Analizador de diseño de hoja y el Movedor rápido de hoja) para garantizar una cobertura de localización del 100%.
+* **Soporte de traducción ampliado**: Se han añadido 7 nuevos idiomas al sistema (turco, polaco, coreano, ucraniano, checo, urdu y punjabi).
+  *(Nota: Estas traducciones fueron generadas por IA, por lo que podrían estar presentes errores menores de traducción o imprecisiones.)*
+
 ### v1.6.0
 * **Soporte integral de traducción**: El complemento ahora está completamente localizado con soporte para 17 idiomas globales. 
   *(Nota: Estas traducciones fueron generadas por IA, por lo que pueden estar presentes algunos errores o inexactitudes menores de traducción.)*

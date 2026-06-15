@@ -107,6 +107,11 @@ Para evitar conflitos de teclas com outros plugins do NVDA, o BOA usa um **Modo 
 
 ## 🛠️ Log de Alterações
 
+### O que há de novo na v1.6.1
+* **Localização profunda**: Corrigidas traduções de strings ausentes no interior dos módulos de aprimoramento do Excel (como o Analisador de layout de planilha e o Movedor rápido de planilha) para garantir 100% de cobertura de localização.
+* **Suporte a tradução expandido**: Foram adicionados 7 novos idiomas ao sistema (turco, polonês, coreano, ucraniano, tcheco, urdu e punjabi).
+  *(Nota: Essas traduções foram geradas por IA, portanto, podem estar presentes alguns pequenos erros de tradução ou imprecisões.)*
+
 ### v1.6.0
 * **Suporte Abrangente a Traduções**: O add-on está agora totalmente localizado com suporte para 17 idiomas globais. 
   *(Nota: Estas traduções foram geradas por IA, portanto alguns pequenos erros de tradução ou imprecisões podem estar presentes.)*

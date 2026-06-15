@@ -186,7 +186,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
     their planned moves before committing them to the irreversible COM execution.
     """
     def __init__(self, parent, sheet_names):
-        super().__init__(parent, title="Bulk Sheet Organizer")
+        super().__init__(parent, title=_("Bulk Sheet Organizer"))
         self.sheet_names = sheet_names
         # Dictionary to track the user's requested moves before they press OK.
         # Format: {"Sheet1": 3, "Sheet2": 1}
@@ -198,7 +198,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         
         # --- Combo 1: Sheet Name Selection ---
         row1 = wx.BoxSizer(wx.HORIZONTAL)
-        row1.Add(wx.StaticText(self, label="Sheet Name:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
+        row1.Add(wx.StaticText(self, label=_("Sheet Name:")), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
         self.cb_sheet = wx.ComboBox(self, choices=self.sheet_names, style=wx.CB_READONLY)
         if self.sheet_names:
             self.cb_sheet.SetSelection(0)
@@ -208,7 +208,7 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         
         # --- Combo 2: Target Position Selection ---
         row2 = wx.BoxSizer(wx.HORIZONTAL)
-        row2.Add(wx.StaticText(self, label="Target Position:"), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
+        row2.Add(wx.StaticText(self, label=_("Target Position:")), 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5)
         positions = [str(i) for i in range(1, len(self.sheet_names) + 1)]
         self.cb_pos = wx.ComboBox(self, choices=positions, style=wx.CB_READONLY)
         if positions:
@@ -221,19 +221,19 @@ class ExcelBulkSheetOrganizerDialog(wx.Dialog):
         main_sizer.Add(row2, 0, wx.EXPAND)
         
         # --- List of Scheduled Moves ---
-        main_sizer.Add(wx.StaticText(self, label="Scheduled Moves (Press Del to remove):"), 0, wx.LEFT|wx.TOP, 5)
+        main_sizer.Add(wx.StaticText(self, label=_("Scheduled Moves (Press Del to remove):")), 0, wx.LEFT|wx.TOP, 5)
         # LC_REPORT style creates a standard data table which is highly accessible to NVDA.
         self.list_moves = wx.ListCtrl(self, size=(-1, 150), style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
-        self.list_moves.InsertColumn(0, "Sheet", width=150)
-        self.list_moves.InsertColumn(1, "Target Position", width=100)
+        self.list_moves.InsertColumn(0, _("Sheet"), width=150)
+        self.list_moves.InsertColumn(1, _("Target Position"), width=100)
         # Bind the Delete key so users can easily remove mistakes.
         self.list_moves.Bind(wx.EVT_LIST_KEY_DOWN, self.on_list_key_down)
         main_sizer.Add(self.list_moves, 1, wx.ALL|wx.EXPAND, 5)
         
         # --- OK / Cancel Buttons ---
         btn_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        btn_ok = wx.Button(self, wx.ID_OK, label="&OK")
-        btn_cancel = wx.Button(self, wx.ID_CANCEL, label="&Cancel")
+        btn_ok = wx.Button(self, wx.ID_OK, label=_("&OK"))
+        btn_cancel = wx.Button(self, wx.ID_CANCEL, label=_("&Cancel"))
         btn_sizer.Add(btn_ok, 0, wx.ALL, 5)
         btn_sizer.Add(btn_cancel, 0, wx.ALL, 5)
         main_sizer.Add(btn_sizer, 0, wx.ALL|wx.ALIGN_RIGHT, 5)

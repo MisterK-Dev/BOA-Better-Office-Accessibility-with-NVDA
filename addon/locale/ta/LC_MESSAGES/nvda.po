@@ -14,7 +14,7 @@ msgstr ""
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
@@ -43,15 +43,20 @@ msgstr "புலப்படும் தரவு மட்டும் (Math 
 
 #: addon\boa_lib\boa_gui.py:95
 msgid "Select the engine used to detect the end of data in a row or column."
-msgstr "ஒரு வரிசை அல்லது நெடுவரிசையில் தரவின் முடிவைக் கண்டறியப் பயன்படும் இன்ஜினைத் தேர்ந்தெடுக்கவும்."
+msgstr ""
+"ஒரு வரிசை அல்லது நெடுவரிசையில் தரவின் முடிவைக் கண்டறியப் பயன்படும் இன்ஜினைத்"
+" தேர்ந்தெடுக்கவும்."
 
 #: addon\boa_lib\boa_gui.py:109
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
-msgstr "&Excel: Bulk Sheet Organizer மற்றும் Quick Sheet Mover ஆகியவற்றை இயக்கு"
+msgstr ""
+"&Excel: Bulk Sheet Organizer மற்றும் Quick Sheet Mover ஆகியவற்றை இயக்கு"
 
 #: addon\boa_lib\boa_gui.py:110
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
-msgstr "நேட்டிவ் எடிட் புலத்திற்குப் பதிலாக அணுகக்கூடிய தாள் மறுபெயரிடு (&R) உரையாடலைப் பயன்படுத்தவும்"
+msgstr ""
+"நேட்டிவ் எடிட் புலத்திற்குப் பதிலாக அணுகக்கூடிய தாள் மறுபெயரிடு (&R) "
+"உரையாடலைப் பயன்படுத்தவும்"
 
 #: addon\boa_lib\boa_gui.py:111
 msgid "Prevent NVDA &crashes in Excel text fields"
@@ -63,7 +68,9 @@ msgstr "பல-கலத் தேர்வு எதிர்பாராத �
 
 #: addon\boa_lib\boa_gui.py:113
 msgid "Proactively announce when navigating past &hidden rows or columns"
-msgstr "மறைக்கப்பட்ட வரிசைகள் அல்லது நெடுவரிசைகளைக் கடந்து செல்லும் போது முன்கூட்டியே அறிவிக்கவும் (&h)"
+msgstr ""
+"மறைக்கப்பட்ட வரிசைகள் அல்லது நெடுவரிசைகளைக் கடந்து செல்லும் போது "
+"முன்கூட்டியே அறிவிக்கவும் (&h)"
 
 #: addon\boa_lib\boa_gui.py:114
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
@@ -79,10 +86,13 @@ msgstr "நிபந்தனை வடிவமைப்பு மற்று�
 
 #: addon\boa_lib\boa_gui.py:117
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
-msgstr "கலக் கண்காணிப்பியை இயக்கு (ஸ்லாட்டுகள் 1-9 மற்றும் தொடர்ச்சியான பின்னணி கண்காணிப்பு) (&t)"
+msgstr ""
+"கலக் கண்காணிப்பியை இயக்கு (ஸ்லாட்டுகள் 1-9 மற்றும் தொடர்ச்சியான பின்னணி "
+"கண்காணிப்பு) (&t)"
 
 #: addon\boa_lib\boa_gui.py:118
-msgid "Announce when there is no more data in the direction you are &navigating"
+msgid ""
+"Announce when there is no more data in the direction you are &navigating"
 msgstr "நீங்கள் செல்லும் திசையில் வேறு தரவு இல்லாதபோது அறிவிக்கவும் (&n)"
 
 #: addon\boa_lib\boa_gui.py:120
@@ -90,8 +100,12 @@ msgid "Excel Enhancements"
 msgstr "Excel மேம்பாடுகள்"
 
 #: addon\boa_lib\boa_gui.py:124
-msgid "&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"
-msgstr "&PowerPoint: ஸ்டாண்டர்ட் கலர் அறுகோண கட்டத்தில் செல்லும்போது மறைக்கப்பட்ட Hex குறியீடுகளைப் படிக்கவும்"
+msgid ""
+"&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
+"hexagon grid"
+msgstr ""
+"&PowerPoint: ஸ்டாண்டர்ட் கலர் அறுகோண கட்டத்தில் செல்லும்போது மறைக்கப்பட்ட "
+"Hex குறியீடுகளைப் படிக்கவும்"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
@@ -164,7 +178,8 @@ msgstr "பிழை: Excel கலத்தைப் படிக்க மு�
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:144
 #, python-brace-format
 msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
-msgstr "ஸ்லாட் {slot_str} க்கு {old_cell} ஆனது {address} ஆல் மாற்றப்பட்டுள்ளது"
+msgstr ""
+"ஸ்லாட் {slot_str} க்கு {old_cell} ஆனது {address} ஆல் மாற்றப்பட்டுள்ளது"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:147
 #, python-brace-format
@@ -183,12 +198,16 @@ msgstr "பிழை: Excel ஐ அணுக முடியவில்லை."
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:176
 #, python-brace-format
 msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
-msgstr "ஸ்லாட் {slot_str} இழக்கப்பட்டது. பணிப்புத்தகம் '{wb}' மறுபெயரிடப்பட்டது அல்லது மூடப்பட்டது."
+msgstr ""
+"ஸ்லாட் {slot_str} இழக்கப்பட்டது. பணிப்புத்தகம் '{wb}' மறுபெயரிடப்பட்டது "
+"அல்லது மூடப்பட்டது."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:189
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
-msgstr "ஸ்லாட் {slot_str} இழக்கப்பட்டது. தாள் '{sheet}' மறுபெயரிடப்பட்டது அல்லது நீக்கப்பட்டது."
+msgstr ""
+"ஸ்லாட் {slot_str} இழக்கப்பட்டது. தாள் '{sheet}' மறுபெயரிடப்பட்டது அல்லது "
+"நீக்கப்பட்டது."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:214
 #, python-brace-format
@@ -212,7 +231,9 @@ msgstr "{address} க்கான தொடர்ச்சியான கண்
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:258
 msgid "All monitored and slotted cells cleared."
-msgstr "கண்காணிக்கப்படும் மற்றும் ஸ்லாட் செய்யப்பட்ட அனைத்து கலங்களும் அழிக்கப்பட்டன."
+msgstr ""
+"கண்காணிக்கப்படும் மற்றும் ஸ்லாட் செய்யப்பட்ட அனைத்து கலங்களும் "
+"அழிக்கப்பட்டன."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:361
 #, python-brace-format
@@ -222,12 +243,16 @@ msgstr "{cell_addr} புதுப்பிக்கப்பட்டது: {
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
-msgstr "பெயர் மாற்றம் அல்லது மூடல் காரணமாக ஸ்லாட் {slot_cleared} க்கான கண்காணிப்பு இழக்கப்பட்டது."
+msgstr ""
+"பெயர் மாற்றம் அல்லது மூடல் காரணமாக ஸ்லாட் {slot_cleared} க்கான கண்காணிப்பு "
+"இழக்கப்பட்டது."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
 msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
-msgstr "கண்காணிப்பு அழிக்கப்பட்டது: {wb_closed} இல் உள்ள {sheet_closed} இழக்கப்பட்டது."
+msgstr ""
+"கண்காணிப்பு அழிக்கப்பட்டது: {wb_closed} இல் உள்ள {sheet_closed} "
+"இழக்கப்பட்டது."
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
 msgid "unselected"
@@ -317,7 +342,8 @@ msgstr "செயலில் உள்ள கலம் எதுவும் �
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
 msgid "No conditional formatting rules applied to this cell."
-msgstr "இந்த கலத்தில் எந்த நிபந்தனை வடிவமைப்பு விதிகளும் பயன்படுத்தப்படவில்லை."
+msgstr ""
+"இந்த கலத்தில் எந்த நிபந்தனை வடிவமைப்பு விதிகளும் பயன்படுத்தப்படவில்லை."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
 msgid "Failed to read format conditions."
@@ -370,7 +396,9 @@ msgstr "அருகிலுள்ள தரவு {col}{row} இல் உள�
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
-msgstr "லேஅவுட் தற்காலிக சேமிப்பு காலியாக உள்ளது. முதலில் தாளை ஸ்கேன் செய்ய NVDA+E, L ஐ அழுத்தவும்."
+msgstr ""
+"லேஅவுட் தற்காலிக சேமிப்பு காலியாக உள்ளது. முதலில் தாளை ஸ்கேன் செய்ய NVDA+E, "
+"L ஐ அழுத்தவும்."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
 msgid "No data blocks found in cache."
@@ -399,32 +427,23 @@ msgstr "நிறம் {hex_val}"
 #. Add-on description
 #: buildVars.py:15
 msgid ""
-"A powerful suite of accessibility enhancements for Microsoft Office, "
-"designed to vastly improve the screen reader experience for NVDA users. \n"
+"A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. \n"
 "    \n"
 "    Key Features:\n"
 "    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
-"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
-"protected states, and data blocks.\n"
-"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple "
-"sheets using accessible dialogs.\n"
-"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside "
-"standard color grids.\n"
+"    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, protected states, and data blocks.\n"
+"    - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple sheets using accessible dialogs.\n"
+"    - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.\n"
 "    \n"
-"    Please refer to the add-on help documentation for a complete list of "
-"features and shortcuts."
+"    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
-"மைக்ரோசாஃப்ட் ஆஃபீஸிற்கான சக்திவாய்ந்த அணுகல்தன்மை மேம்பாடுகளின் தொகுப்பு, "
-"NVDA பயனர்களுக்கான ஸ்கிரீன் ரீடர் அனுபவத்தை கணிசமாக மேம்படுத்த வடிவமைக்கப்பட்டுள்ளது. \n"
+"மைக்ரோசாஃப்ட் ஆஃபீஸிற்கான சக்திவாய்ந்த அணுகல்தன்மை மேம்பாடுகளின் தொகுப்பு, NVDA பயனர்களுக்கான ஸ்கிரீன் ரீடர் அனுபவத்தை கணிசமாக மேம்படுத்த வடிவமைக்கப்பட்டுள்ளது. \n"
 "    \n"
 "    முக்கிய அம்சங்கள்:\n"
 "    - கலக் கண்காணிப்பி (Cell Monitor): டைனமிக் Excel கலங்களைச் சேமித்து தொடர்ந்து கண்காணிக்கவும்.\n"
-"    - தாள் லேஅவுட் அனலைசர் (Sheet Layout Analyzer): மறைக்கப்பட்ட தாவல்கள், பாதுகாக்கப்பட்ட "
-"நிலைகள் மற்றும் தரவு தொகுதிகளுக்கு பணித்தாள்களை உடனடியாக ஸ்கேன் செய்யவும்.\n"
-"    - Bulk Sheet Organizer & Quick Mover: அணுகக்கூடிய உரையாடல்களைப் பயன்படுத்தி பல "
-"தாள்களை உடனடியாக நகர்த்தவும் அல்லது மறுவரிசைப்படுத்தவும்.\n"
-"    - PowerPoint Color Pickers: நிலையான வண்ண கட்டங்களுக்குள் (standard color grids) "
-"மறைக்கப்பட்ட Hex மற்றும் RGB குறியீடுகளைப் படிக்கவும்.\n"
+"    - தாள் லேஅவுட் அனலைசர் (Sheet Layout Analyzer): மறைக்கப்பட்ட தாவல்கள், பாதுகாக்கப்பட்ட நிலைகள் மற்றும் தரவு தொகுதிகளுக்கு பணித்தாள்களை உடனடியாக ஸ்கேன் செய்யவும்.\n"
+"    - Bulk Sheet Organizer & Quick Mover: அணுகக்கூடிய உரையாடல்களைப் பயன்படுத்தி பல தாள்களை உடனடியாக நகர்த்தவும் அல்லது மறுவரிசைப்படுத்தவும்.\n"
+"    - PowerPoint Color Pickers: நிலையான வண்ண கட்டங்களுக்குள் (standard color grids) மறைக்கப்பட்ட Hex மற்றும் RGB குறியீடுகளைப் படிக்கவும்.\n"
 "    \n"
 "    அம்சங்கள் மற்றும் குறுக்குவழிகளின் முழுமையான பட்டியலுக்கு ஆட்-ஆன் உதவி ஆவணத்தைப் பார்க்கவும்."
 
@@ -432,17 +451,421 @@ msgstr ""
 #: buildVars.py:40
 msgid ""
 "## What's New in v1.6.0\n"
-"* **Comprehensive Translation Support**: The add-on is now fully localized "
-"with support for 17 global languages. \n"
-"  *(Note: These translations were generated by AI, so some minor translation "
-"errors or inaccuracies may be present.)*\n"
-"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the "
-"entire codebase."
+"* **Comprehensive Translation Support**: The add-on is now fully localized with support for 17 global languages. \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*\n"
+"* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the entire codebase."
 msgstr ""
 "## v1.6.0 இல் புதியவை என்ன\n"
-"* **விரிவான மொழிபெயர்ப்பு ஆதரவு**: ஆட்-ஆன் இப்போது 17 உலகளாவிய மொழிகளுக்கான "
-"ஆதரவுடன் முழுமையாக உள்ளூர்மயமாக்கப்பட்டுள்ளது. \n"
-"  *(குறிப்பு: இந்த மொழிபெயர்ப்புகள் AI ஆல் உருவாக்கப்பட்டவை, எனவே சில சிறிய "
-"மொழிபெயர்ப்பு பிழைகள் அல்லது தவறுகள் இருக்கலாம்.)*\n"
-"* **கண்டிப்பான குறியீடு நிர்வாகம் (Strict Code Governance)**: முழு குறியீட்டுத் "
-"தளத்திலும் GPL-2.0 பதிப்புரிமை தலைப்புகள் பயன்படுத்தப்பட்டுள்ளன."
+"* **விரிவான மொழிபெயர்ப்பு ஆதரவு**: ஆட்-ஆன் இப்போது 17 உலகளாவிய மொழிகளுக்கான ஆதரவுடன் முழுமையாக உள்ளூர்மயமாக்கப்பட்டுள்ளது. \n"
+"  *(குறிப்பு: இந்த மொழிபெயர்ப்புகள் AI ஆல் உருவாக்கப்பட்டவை, எனவே சில சிறிய மொழிபெயர்ப்பு பிழைகள் அல்லது தவறுகள் இருக்கலாம்.)*\n"
+"* **கண்டிப்பான குறியீடு நிர்வாகம் (Strict Code Governance)**: முழு குறியீட்டுத் தளத்திலும் GPL-2.0 பதிப்புரிமை தலைப்புகள் பயன்படுத்தப்பட்டுள்ளன."
+
+msgid ""
+"Select layout announcement mode. 'Guided Announcement' requires you to press"
+" NVDA+E, L at least once per sheet to scan the layout."
+msgstr ""
+"தளவமைப்பு அறிவிப்பு பயன்முறையைத் தேர்ந்தெடுக்கவும். 'வழிகாட்டப்பட்ட "
+"அறிவிப்பு' தளவமைப்பை ஸ்கேன் செய்ய ஒரு தாளுக்கு குறைந்தது ஒரு முறையாவது "
+"NVDA+E, L ஐ அழுத்த வேண்டும்."
+
+msgid "Enter new sheet name:"
+msgstr "புதிய தாள் பெயரை உள்ளிடவும்:"
+
+msgid "Rename Sheet"
+msgstr "தாளின் பெயரை மாற்றவும்"
+
+msgid "Rename sheet"
+msgstr "தாளின் பெயரை மாற்றவும்"
+
+msgid "Bulk Sheet Organizer"
+msgstr "மொத்த தாள் அமைப்பாளர்"
+
+msgid "Sheet Name:"
+msgstr "தாள் பெயர்:"
+
+msgid "Target Position:"
+msgstr "இலக்கு நிலை:"
+
+msgid "Scheduled Moves (Press Del to remove):"
+msgstr "திட்டமிடப்பட்ட நகர்வுகள் (அகற்ற Del ஐ அழுத்தவும்):"
+
+msgid "Sheet"
+msgstr "தாள்"
+
+msgid "Target Position"
+msgstr "இலக்கு நிலை"
+
+msgid "&OK"
+msgstr "&சரி"
+
+msgid "&Cancel"
+msgstr "&ரத்துசெய்"
+
+msgid " in {sheet}"
+msgstr " {sheet} இல்"
+
+msgid " in {sheet} of {wb}"
+msgstr " {wb} இன் {sheet} இல்"
+
+msgid "Row {num}"
+msgstr "வரிசை {num}"
+
+msgid "Rows {start} through {end}"
+msgstr "வரிசைகள் {start} முதல் {end} வரை"
+
+msgid "Column {col}"
+msgstr "நெடுவரிசை {col}"
+
+msgid "Columns {start} through {end}"
+msgstr "நெடுவரிசைகள் {start} முதல் {end} வரை"
+
+msgid "hidden"
+msgstr "மறைக்கப்பட்டுள்ளது"
+
+msgid "unhidden"
+msgstr "காண்பிக்கப்பட்டுள்ளது"
+
+msgid "Unknown Color"
+msgstr "தெரியாத நிறம்"
+
+msgid "None"
+msgstr "எதுவுமில்லை"
+
+msgid "Lowest Value"
+msgstr "குறைந்த மதிப்பு"
+
+msgid "Highest Value"
+msgstr "அதிக மதிப்பு"
+
+msgid "Number {val}"
+msgstr "எண் {val}"
+
+msgid "{val}%"
+msgstr "{val}%"
+
+msgid "Formula {val}"
+msgstr "சூத்திரம் {val}"
+
+msgid "{val}th Percentile"
+msgstr "{val}வது சதவீதம்"
+
+msgid "Unknown Criteria"
+msgstr "தெரியாத அளவுகோல்"
+
+msgid "Has conditional formatting"
+msgstr "நிபந்தனை வடிவமைப்பு உள்ளது"
+
+msgid ": {color_name} Background"
+msgstr ": {color_name} பின்னணி"
+
+msgid ": {color_name} Text"
+msgstr ": {color_name} உரை"
+
+msgid "Found {count} conditional formatting rules."
+msgstr "{count} நிபந்தனை வடிவமைப்பு விதிகள் கண்டறியப்பட்டன."
+
+msgid " (Stops if true)"
+msgstr " (உண்மையாக இருந்தால் நிறுத்தப்படும்)"
+
+msgid " [Applies to {address}]"
+msgstr " [{address} க்கு பொருந்தும்]"
+
+msgid "Rule"
+msgstr "விதி"
+
+msgid "Between"
+msgstr "இடையில்"
+
+msgid "Not Between"
+msgstr "இடையில் இல்லை"
+
+msgid "Equal to"
+msgstr "சமம்"
+
+msgid "Not Equal to"
+msgstr "சமமில்லை"
+
+msgid "Greater than"
+msgstr "விட பெரியது"
+
+msgid "Less than"
+msgstr "விட குறைவு"
+
+msgid "Greater than or equal to"
+msgstr "பெரியது அல்லது சமம்"
+
+msgid "Less than or equal to"
+msgstr "குறைவு அல்லது சமம்"
+
+msgid "Operator {op}"
+msgstr "ஆபரேட்டர் {op}"
+
+msgid "Unknown"
+msgstr "தெரியவில்லை"
+
+msgid "Cell Value is {op} {f1} and {f2}"
+msgstr "செல் மதிப்பு {op} {f1} மற்றும் {f2}"
+
+msgid "Cell Value is {op} {f1}"
+msgstr "செல் மதிப்பு {op} {f1}"
+
+msgid "Formula: {form}"
+msgstr "சூத்திரம்: {form}"
+
+msgid "Formula rule"
+msgstr "சூத்திர விதி"
+
+msgid "Point {num} ({val}) is {color}"
+msgstr "புள்ளி {num} ({val}) என்பது {color}"
+
+msgid "{count}-Color Scale gradient. {points}"
+msgstr "{count}-வண்ண அளவு சாய்வு. {points}"
+
+msgid "Color Scale gradient"
+msgstr "வண்ண அளவு சாய்வு"
+
+msgid " (Note: Cell value is visually hidden)"
+msgstr " (குறிப்பு: செல் மதிப்பு பார்வைக்கு மறைக்கப்பட்டுள்ளது)"
+
+msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
+msgstr "தரவு பட்டி சாய்வு ({color}). {min_val} முதல் {max_val} வரை{hide_str}"
+
+msgid "Data Bar"
+msgstr "தரவு பட்டி"
+
+msgid "Icon Set ({count} icons){hide_str}"
+msgstr "ஐகான் தொகுப்பு ({count} ஐகான்கள்){hide_str}"
+
+msgid "Icon Set"
+msgstr "ஐகான் தொகுப்பு"
+
+msgid "Unique or Duplicate Values"
+msgstr "தனித்துவமான அல்லது நகல் மதிப்புகள்"
+
+msgid "Text contains: '{text}'"
+msgstr "உரையில் உள்ளது: '{text}'"
+
+msgid "Text String rule"
+msgstr "உரை சரம் விதி"
+
+msgid "Format Blank cells"
+msgstr "வெற்று செல்களை வடிவமைக்கவும்"
+
+msgid "Format Error cells"
+msgstr "பிழை செல்களை வடிவமைக்கவும்"
+
+msgid "Top {rank} values"
+msgstr "சிறந்த {rank} மதிப்புகள்"
+
+msgid "Bottom {rank} values"
+msgstr "கீழ் {rank} மதிப்புகள்"
+
+msgid "Top/Bottom ranking rule"
+msgstr "மேல்/கீழ் தரவரிசை விதி"
+
+msgid "Formatting Rule Type {type}"
+msgstr "வடிவமைப்பு விதி வகை {type}"
+
+msgid "Rule {num}{stop}: {type}.{applies}"
+msgstr "விதி {num}{stop}: {type}.{applies}"
+
+msgid "Rule {num}: Unknown type."
+msgstr "விதி {num}: தெரியாத வகை."
+
+msgid "Background is {color}."
+msgstr "பின்னணி {color}."
+
+msgid "Bold"
+msgstr "தடிமன்"
+
+msgid "Italic"
+msgstr "சாய்வெழுத்து"
+
+msgid "Strikethrough"
+msgstr "பின்கோடு"
+
+msgid "Font is {styles}."
+msgstr "எழுத்துரு {styles}."
+
+msgid "Black"
+msgstr "கருப்பு"
+
+msgid "Text is {color}."
+msgstr "உரை {color}."
+
+msgid "Number format changed to {format}."
+msgstr "எண் வடிவமைப்பு {format} ஆக மாற்றப்பட்டது."
+
+msgid "Could not analyze final display format."
+msgstr "இறுதி காட்சி வடிவமைப்பை பகுப்பாய்வு செய்ய முடியவில்லை."
+
+msgid "No active visual changes detected."
+msgstr "செயலில் உள்ள காட்சி மாற்றங்கள் எதுவும் கண்டறியப்படவில்லை."
+
+msgid ""
+"{rules}\n"
+"\n"
+"Analyzed Results:\n"
+"{results}"
+msgstr ""
+"{rules}\n"
+"\n"
+"பகுப்பாய்வு செய்யப்பட்ட முடிவுகள்:\n"
+"{results}"
+
+msgid "Conditional Formatting Analysis"
+msgstr "நிபந்தனை வடிவமைப்பு பகுப்பாய்வு"
+
+msgid "Copy (Ctrl+Shift+C)"
+msgstr "நகலெடு (Ctrl+Shift+C)"
+
+msgid "&Close"
+msgstr "மூடு (&C)"
+
+msgid "Sheet appears to be empty."
+msgstr "தாள் காலியாக இருப்பதாகத் தெரிகிறது."
+
+msgid "Found 1 data block at {c}{r}."
+msgstr "{c}{r} இல் 1 தரவுத் தொகுதி கண்டறியப்பட்டது."
+
+msgid "Found 1 data block: {c}{r} to {ec}{er}."
+msgstr "1 தரவுத் தொகுதி கண்டறியப்பட்டது: {c}{r} முதல் {ec}{er} வரை."
+
+msgid "{c}{r} to {ec}{er}"
+msgstr "{c}{r} முதல் {ec}{er} வரை"
+
+msgid "Block {num}: {addr}"
+msgstr "தொகுதி {num}: {addr}"
+
+msgid ""
+"Found {count} data blocks in this sheet.\n"
+"{blocks_msg}"
+msgstr ""
+"இந்தத் தாளில் {count} தரவுத் தொகுதிகள் கண்டறியப்பட்டன.\n"
+"{blocks_msg}"
+
+msgid "Sheet Layout Overview"
+msgstr "தாள் தளவமைப்பு மேலோட்டம்"
+
+msgid "Filter Mode: Active"
+msgstr "வடிகட்டி பயன்முறை: செயலில் உள்ளது"
+
+msgid "Top 2000+ Rows are hidden"
+msgstr "மேல் 2000+ வரிசைகள் மறைக்கப்பட்டுள்ளன"
+
+msgid "Top Row 1 is hidden"
+msgstr "மேல் வரிசை 1 மறைக்கப்பட்டுள்ளது"
+
+msgid "Top Rows 1 through {end_r} are hidden"
+msgstr "மேல் வரிசைகள் 1 முதல் {end_r} வரை மறைக்கப்பட்டுள்ளன"
+
+msgid "Left 2000+ Columns are hidden"
+msgstr "இடது 2000+ நெடுவரிசைகள் மறைக்கப்பட்டுள்ளன"
+
+msgid "Left Column A is hidden"
+msgstr "இடது நெடுவரிசை A மறைக்கப்பட்டுள்ளது"
+
+msgid "Left Columns A through {end_col} are hidden"
+msgstr "இடது நெடுவரிசைகள் A முதல் {end_col} வரை மறைக்கப்பட்டுள்ளன"
+
+msgid "Bottommost 2000+ Rows are hidden"
+msgstr "கீழே உள்ள 2000+ வரிசைகள் மறைக்கப்பட்டுள்ளன"
+
+msgid "Bottom Row {max_r} is hidden"
+msgstr "கீழ் வரிசை {max_r} மறைக்கப்பட்டுள்ளது"
+
+msgid "Bottom Rows {start_r} through {max_r} are hidden"
+msgstr "கீழ் வரிசைகள் {start_r} முதல் {max_r} வரை மறைக்கப்பட்டுள்ளன"
+
+msgid "Rightmost 2000+ Columns are hidden"
+msgstr "வலதுபுறம் உள்ள 2000+ நெடுவரிசைகள் மறைக்கப்பட்டுள்ளன"
+
+msgid "Right Column {col} is hidden"
+msgstr "வலது நெடுவரிசை {col} மறைக்கப்பட்டுள்ளது"
+
+msgid "Right Columns {start_col} through {end_col} are hidden"
+msgstr "வலது நெடுவரிசைகள் {start_col} முதல் {end_col} வரை மறைக்கப்பட்டுள்ளன"
+
+msgid "Hidden Borders: {borders}"
+msgstr "மறைக்கப்பட்ட எல்லைகள்: {borders}"
+
+msgid "Top sheets 1-{count}"
+msgstr "மேல் தாள்கள் 1-{count}"
+
+msgid "Top sheet 1"
+msgstr "மேல் தாள் 1"
+
+msgid "Bottom sheets {start}-{end}"
+msgstr "கீழ் தாள்கள் {start}-{end}"
+
+msgid "Bottom sheet {num}"
+msgstr "கீழ் தாள் {num}"
+
+msgid "{count} middle sheets"
+msgstr "{count} நடுத்தர தாள்கள்"
+
+msgid "{count} middle sheet"
+msgstr "{count} நடுத்தர தாள்"
+
+msgid "Hidden Sheets: {parts} hidden"
+msgstr "மறைக்கப்பட்ட தாள்கள்: {parts} மறைக்கப்பட்டுள்ளது"
+
+msgid "Sheet Protected: True"
+msgstr "தாள் பாதுகாக்கப்பட்டது: ஆம்"
+
+msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
+msgstr "உறைந்த பலகங்கள்: வரிசைகள் 1-{r}, நெடுவரிசைகள் A-{c}"
+
+msgid "Frozen Panes: Rows 1-{r}"
+msgstr "உறைந்த பலகங்கள்: வரிசைகள் 1-{r}"
+
+msgid "Frozen Panes: Columns A-{c}"
+msgstr "உறைந்த பலகங்கள்: நெடுவரிசைகள் A-{c}"
+
+msgid "Frozen Panes: Active"
+msgstr "உறைந்த பலகங்கள்: செயலில் உள்ளது"
+
+msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
+msgstr "மிதக்கும் பொருள்கள்: {count} வடிவம்(கள்)/விளக்கப்படம்(கள்) உள்ளன"
+
+msgid "Pivot Tables: Contains {count} Pivot Table(s)"
+msgstr "பிவோட் அட்டவணைகள்: {count} பிவோட் அட்டவணை(கள்) உள்ளன"
+
+msgid "View Mode: Page Break Preview"
+msgstr "காட்சி பயன்முறை: பக்க இடைவெளி முன்னோட்டம்"
+
+msgid "View Mode: Page Layout"
+msgstr "காட்சி பயன்முறை: பக்க தளவமைப்பு"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"{props}"
+msgstr ""
+"\n"
+"\n"
+"--- தாளின் பண்புகள் ---\n"
+"{props}"
+
+msgid ""
+"\n"
+"\n"
+"--- Sheet Properties ---\n"
+"No special properties detected (No active filters, protection, frozen panes, or hidden borders)."
+msgstr ""
+"\n"
+"\n"
+"--- தாளின் பண்புகள் ---\n"
+"சிறப்பு பண்புகள் எதுவும் கண்டறியப்படவில்லை (செயலில் உள்ள வடிப்பான்கள், பாதுகாப்பு, உறைந்த பலகங்கள் அல்லது மறைக்கப்பட்ட எல்லைகள் இல்லை)."
+
+msgid ""
+"## What's New in v1.6.1\n"
+"* **Deep File Localization**: Fixed missing string translations deep within the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick Sheet Mover) to ensure 100% localization coverage.\n"
+"* **Expanded Translation Support**: Added 7 new languages to the system (Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
+"  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*"
+msgstr ""
+"## v1.6.1 இல் புதியது என்ன\n"
+"* **ஆழமான கோப்பு உள்ளூர்மயமாக்கல்**: 100% உள்ளூர்மயமாக்கலை உறுதிசெய்ய, எக்செல் மேம்படுத்தல் தொகுதிகளில் (தாள் தளவமைப்பு பகுப்பாய்வி மற்றும் விரைவு தாள் நகர்த்தி போன்ற) காணாமல் போன சர மொழிபெயர்ப்புகள் சரிசெய்யப்பட்டன.\n"
+"* **விரிவாக்கப்பட்ட மொழிபெயர்ப்பு ஆதரவு**: கணினியில் 7 புதிய மொழிகள் (துருக்கியம், போலிஷ், கொரியன், உக்ரைனியன், செக், உருது மற்றும் பஞ்சாபி) சேர்க்கப்பட்டன.\n"
+"  *(குறிப்பு: இந்த மொழிபெயர்ப்புகள் AI ஆல் உருவாக்கப்பட்டவை, எனவே சில சிறிய மொழிபெயர்ப்பு பிழைகள் அல்லது தவறுகள் இருக்கலாம்.)*"
