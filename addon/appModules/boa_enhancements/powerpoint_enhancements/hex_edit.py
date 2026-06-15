@@ -10,7 +10,7 @@ import NVDAObjects.UIA
 import controlTypes
 import UIAHandler
 from logHandler import log
-from boa_lib.safe_rich_edit import SafeRichEdit
+from appModules.boa_enhancements.safe_rich_edit import SafeRichEdit
 
 class PowerPointHexEdit(SafeRichEdit):
     """

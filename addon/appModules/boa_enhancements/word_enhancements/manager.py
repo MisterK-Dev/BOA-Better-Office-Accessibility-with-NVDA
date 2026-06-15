@@ -16,8 +16,8 @@ Currently, it only injects SafeRichEdit for standard edit fields, but is future-
 This strictly adheres to `rules.mdc` modular isolation constraints.
 """
 
-from boa_lib import boa_config
-from boa_lib.safe_rich_edit import SafeRichEdit
+from appModules.boa_enhancements import boa_config
+from appModules.boa_enhancements.safe_rich_edit import SafeRichEdit
 from logHandler import log
 
 def inject_word_safe_rich_edit(clsList):

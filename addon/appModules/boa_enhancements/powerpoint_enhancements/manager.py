@@ -16,7 +16,7 @@ this manager cleanly injects independent, feature-specific classes into the NVDA
 This strictly adheres to `rules.mdc` modular isolation constraints.
 """
 
-from boa_lib import boa_config
+from appModules.boa_enhancements import boa_config
 from .hex_edit import PowerPointHexEdit
 from .rgb_edit import PowerPointRGBEdit
 from .standard_color_grid import PowerPointStandardColorGrid

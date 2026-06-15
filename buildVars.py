@@ -21,7 +21,7 @@ addon_info = {
     - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.
     
     Please refer to the add-on help documentation for a complete list of features and shortcuts."""),
-    "addon_version": "1.6.1",
+    "addon_version": "2.0",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
@@ -48,11 +48,12 @@ addon_info = {
 # or use glob expressions.
 pythonSources = [
     "addon/globalPlugins/*.py", 
-    "addon/boa_lib/*.py",
-    "addon/boa_lib/excel_enhancements/*.py",
-    "addon/boa_lib/powerpoint_enhancements/*.py",
-    "addon/boa_lib/word_enhancements/*.py",
-    "addon/boa_lib/ui/*.py"
+    "addon/appModules/*.py",
+    "addon/appModules/boa_enhancements/*.py",
+    "addon/appModules/boa_enhancements/excel_enhancements/*.py",
+    "addon/appModules/boa_enhancements/powerpoint_enhancements/*.py",
+    "addon/appModules/boa_enhancements/word_enhancements/*.py",
+    "addon/appModules/boa_enhancements/ui/*.py"
 ]
 
 # Files that contain strings for translation. Usually your python sources

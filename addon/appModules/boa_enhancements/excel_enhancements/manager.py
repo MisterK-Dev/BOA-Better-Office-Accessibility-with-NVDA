@@ -16,7 +16,7 @@ this manager cleanly injects independent, feature-specific classes into the NVDA
 This strictly adheres to `rules.mdc` modular isolation constraints.
 """
 
-from boa_lib import boa_config
+from appModules.boa_enhancements import boa_config
 from .cell_navigation_tracker import CellNavigationTracker
 from .quick_sheet_mover import QuickSheetMover
 from .bulk_sheet_organizer import BulkSheetOrganizer

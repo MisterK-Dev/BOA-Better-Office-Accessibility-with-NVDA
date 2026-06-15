@@ -99,7 +99,7 @@ def _do_check_unselect():
             if getattr(sel, 'Cells', None):
                 try:
                     # ALWAYS check structural changes and hidden row skips on focus/selection change
-                    from boa_lib import boa_config
+                    from appModules.boa_enhancements import boa_config
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
                         CellNavigationTracker.check_structural_changes(excel)
                         
@@ -181,7 +181,7 @@ class CellNavigationTracker(object):
 
                 if getattr(sel, 'Cells', None):
                     # ALWAYS check structural changes and hidden row skips on focus change
-                    from boa_lib import boa_config
+                    from appModules.boa_enhancements import boa_config
                     
                     if boa_config.get_feature_state("excel", "hidden_row_skip"):
                         CellNavigationTracker.check_structural_changes(excel)
@@ -227,7 +227,7 @@ class CellNavigationTracker(object):
         global _last_focused_row, _last_focused_col, _last_focused_sheet, _last_focused_wb
         import ui
         import logHandler
-        from boa_lib import boa_config
+        from appModules.boa_enhancements import boa_config
         
         try:
             active_cell = excel.ActiveCell
@@ -699,7 +699,7 @@ class CellNavigationTracker(object):
         except Exception:
             pass
 
-        from boa_lib import boa_config
+        from appModules.boa_enhancements import boa_config
         if not force_com:
             # Send the original gesture through to Excel natively
             gesture.send()
