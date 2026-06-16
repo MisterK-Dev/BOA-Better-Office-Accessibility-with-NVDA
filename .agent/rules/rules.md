@@ -13,7 +13,10 @@ alwaysApply: true
 
 ## 2. NVDA Safety & Performance Constraints
 - **Zero Harm to Core Behavior**: New features must never degrade standard NVDA operations, native speech queues, existing features, or global focus tracking.
-- **Single-Threaded Safety**: NVDA is single-threaded. Never execute standard Python blocking loops (`time.sleep`). All delays or async checks must use `tonictimer.wxTimer` or `queueHandler.queueFunction`.
+- **Single-Threaded Safety & Timers**: NVDA is single-threaded. Never execute standard Python blocking loops (`time.sleep`) or run raw Python threads that interact with NVDA's core or GUI.
+  - For background polling or recurring checks in appModules, always use NVDA's native `core.callLater(millis, callback)` (which schedules callbacks safely on the main event queue and avoids WX window binding errors).
+  - For scheduling UI-related dialogs or objects on the main GUI thread, use `wx.CallAfter` or `wx.CallLater`.
+  - For thread-blocking calls to GUI elements, use `gui.guiHelper.wxCallOnMain`.
 - **Output Routing**: Route all user-facing speech and braille notifications cleanly through `ui.message`. Never use raw `print()` statements for core announcements.
 - **Modular Isolation**: Keep application-specific feature code out of global plugins. Isolate Office enhancements under `addon/appModules/boa_enhancements/` and load them through their respective appModules (`excel.py`, `powerpnt.py`, `winword.py`).
 - **Settings & GUI Isolation**: Global settings, menus, and user preferences panels must reside in `addon/globalPlugins/boa_settings.py`. Keep MS Office application logic and COM bridge queries strictly isolated within appModules and their enhancements to avoid execution errors when Office applications are not running.
@@ -35,10 +38,11 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 ## 5. Security & Vulnerability Controls
 - **Secure Code Quality**: All generated code must be securely structured, completely free from common vulnerabilities, and follow safe input/output handling.
 
-## 6. Automated Docstring, Commenting & README Maintenance
-- **Intent-Driven Docstrings**: Every single function, class, or method written must include an explicit, detailed docstring explaining the architectural *why* behind the logic.
+## 6. Docstrings, Comments & README Scope
+- **Intent-Driven Docstrings**: Every single function, class, or method written must include an explicit docstring explaining the architectural reasoning behind the logic.
 - **Granular Code Comments**: Every logical step, complex condition, or NVDA API interaction must be accompanied by detailed line comments.
-- **README.md will be mentained by the developer itself from now onwards no need to touch it.**: [no need to update and mentain`@README.md`] immediately following successful feature additions. 
+- **Root README Protection**: The repository root `README.md` (or `@README.md`) is maintained strictly by the developer; agents must not modify it.
+- **Localized Readmes Exception**: Translation scripts and subagents are fully authorized and required to update the localized documentation readmes (`addon/doc/<lang>/readme.md`) under the locales directory when executing the translation pipeline. 
 
 ## 7. Strict Deployment & Terminal Command Controls
 - **No Automatic Git Pushes**: You are strictly forbidden from running `git push` commands to GitHub or any remote repository automatically. You may only push to remote branches if explicitly directed, reviewed, and approved by the user.
