@@ -18,6 +18,7 @@ class AppModule(CorePowerpntAppModule):
     BOA's PowerPoint AppModule.
     This subclasses NVDA's built-in PowerPoint appModule to safely add our custom enhancements.
     """
+    scriptCategory = _("BOA (Better Office Accessibility)")
 
     def __init__(self, *args, **kwargs):
         super(AppModule, self).__init__(*args, **kwargs)

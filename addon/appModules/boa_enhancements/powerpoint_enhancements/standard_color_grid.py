@@ -135,7 +135,7 @@ class PowerPointStandardColorGrid(object):
 
     @script(
         description="Reads the hidden hex color while navigating UP in the PowerPoint Standard color grid.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_arrowUp(self, gesture):
         """
@@ -150,7 +150,7 @@ class PowerPointStandardColorGrid(object):
 
     @script(
         description="Reads the hidden hex color while navigating DOWN in the PowerPoint Standard color grid.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_arrowDown(self, gesture):
         """
@@ -162,7 +162,7 @@ class PowerPointStandardColorGrid(object):
 
     @script(
         description="Reads the hidden hex color while navigating LEFT in the PowerPoint Standard color grid.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_arrowLeft(self, gesture):
         """
@@ -174,7 +174,7 @@ class PowerPointStandardColorGrid(object):
 
     @script(
         description="Reads the hidden hex color while navigating RIGHT in the PowerPoint Standard color grid.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_arrowRight(self, gesture):
         """

@@ -135,7 +135,7 @@ class QuickSheetMover(object):
 
     @script(
         description="Moves the active Excel sheet to the left.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_moveSheetLeft(self, gesture):
         """
@@ -146,7 +146,7 @@ class QuickSheetMover(object):
 
     @script(
         description="Moves the active Excel sheet to the right.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_moveSheetRight(self, gesture):
         """
@@ -159,7 +159,7 @@ class QuickSheetMover(object):
 
     @script(
         description="Moves the active Excel sheet to the very beginning of the workbook.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_moveSheetStart(self, gesture):
         """
@@ -172,7 +172,7 @@ class QuickSheetMover(object):
 
     @script(
         description="Moves the active Excel sheet to the very end of the workbook.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_moveSheetEnd(self, gesture):
         """

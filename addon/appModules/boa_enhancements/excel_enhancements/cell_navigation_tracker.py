@@ -597,7 +597,7 @@ class CellNavigationTracker(object):
             pass
     @script(
         description="Hides the currently selected row.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_hideRow(self, gesture):
         """
@@ -612,7 +612,7 @@ class CellNavigationTracker(object):
 
     @script(
         description="Unhides the currently selected row.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_unhideRow(self, gesture):
         """
@@ -626,7 +626,7 @@ class CellNavigationTracker(object):
 
     @script(
         description="Hides the currently selected column.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_hideColumn(self, gesture):
         """
@@ -640,7 +640,7 @@ class CellNavigationTracker(object):
 
     @script(
         description="Unhides the currently selected column.",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_unhideColumn(self, gesture):
         """
@@ -654,7 +654,7 @@ class CellNavigationTracker(object):
 
     @script(
         description="Unhides the currently selected column natively via COM (Fallback for when Windows blocks Ctrl+Shift+0).",
-        category="Better Office Accessibility"
+        category=_("BOA (Better Office Accessibility)")
     )
     def script_unhideColumnFallback(self, gesture):
         """

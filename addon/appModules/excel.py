@@ -19,6 +19,7 @@ class AppModule(CoreExcelAppModule):
     This subclasses NVDA's built-in Excel appModule to safely add our custom enhancements
     without breaking core functionality.
     """
+    scriptCategory = _("BOA (Better Office Accessibility)")
 
     def __init__(self, *args, **kwargs):
         super(AppModule, self).__init__(*args, **kwargs)
@@ -99,10 +100,8 @@ class AppModule(CoreExcelAppModule):
         self._clear_command_bindings()
         
     def script_handleCommandKey(self, gesture):
-        """
-        Catches the subsequent key pressed after NVDA+E.
-        Routes to excel_manager.handle_prefix_command(key, obj).
-        """
+        # Catches the subsequent key pressed after NVDA+E.
+        # Routes to excel_manager.handle_prefix_command(key, obj).
         import tones
         try:
             kb_id = list(gesture.identifiers)[-1]
@@ -116,6 +115,36 @@ class AppModule(CoreExcelAppModule):
         handled = excel_manager.handle_prefix_command(key, obj)
         if not handled:
             tones.beep(150, 50)
+
+    def script_bulkSheetOrganizer(self, gesture):
+        obj = api.getFocusObject()
+        excel_manager.show_bulk_sheet_organizer(obj)
+    script_bulkSheetOrganizer.__doc__ = _("Launches the Bulk Sheet Organizer dialog to reorder sheets.")
+
+    def script_announceSheetLayout(self, gesture):
+        obj = api.getFocusObject()
+        excel_manager.announce_sheet_layout(obj)
+    script_announceSheetLayout.__doc__ = _("Analyzes and announces the layout structure of the current sheet.")
+
+    def script_jumpToNearestBlock(self, gesture):
+        obj = api.getFocusObject()
+        excel_manager.jump_to_nearest_block(obj)
+    script_jumpToNearestBlock.__doc__ = _("Jumps the focus to the nearest cell block.")
+
+    def script_announceConditionalFormatting(self, gesture):
+        obj = api.getFocusObject()
+        excel_manager.announce_conditional_formatting(obj)
+    script_announceConditionalFormatting.__doc__ = _("Announces conditional formatting details for the current cell.")
+
+    def script_toggleCellMonitor(self, gesture):
+        obj = api.getFocusObject()
+        excel_manager.toggle_cell_monitor(obj)
+    script_toggleCellMonitor.__doc__ = _("Toggles monitoring on the active cell.")
+
+    def script_clearAllCellMonitors(self, gesture):
+        obj = api.getFocusObject()
+        excel_manager.clear_all_cell_monitors(obj)
+    script_clearAllCellMonitors.__doc__ = _("Clears all monitored cells.")
 
     __gestures = {
         "kb:NVDA+e": "triggerCommandPrefix"

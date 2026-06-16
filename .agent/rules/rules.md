@@ -22,11 +22,15 @@ alwaysApply: true
 Before outputting any finalized code blocks, scripts, or diff artifacts in the workspace view, execute a strict triple-pass validation:
 1. **Syntax & Typo Check**: Verify full Python 3 compliance, check indentation, find missing colons, and audit variable spelling.
 2. **Logical Path Verification**: Trace the execution flow to confirm variable scopes do not break across NVDA's dynamic event loops.
-3. **API Integrity**: Double-check that all referenced NVDA internal module methods (like `speech`, `braille`, `controlTypes`) match actual NVDA API specifications.
+3. **API Integrity**: Double-check that all referenced NVDA internal module methods (like `speech`, `braille`, `controlTypes`) match actual NVDA API specifications. 2026.1 and more, always update yourself with latest NVDA development guides and APIS.
 
-## 4. Keystroke Conflict Check
-- **Gesture Audit**: Before generating or suggesting any new shortcut gesture (e.g., `kb:nvda+control+f`), perform a comprehensive scan across all existing script files and configuration blocks.
-- **Conflict Prevention**: Verify that the proposed shortcut is completely unique and is not already mapped to an active or deprecated feature within this addon.
+## 4. Keystroke Conflict & Gesture Customization Rules
+- **Gesture Audit**: Before generating or suggesting any new shortcut gesture (e.g., `kb:nvda+control+f`), you must perform a comprehensive scan across all existing script files and configuration blocks to prevent clashes.
+- **Unified Categorization**: All user-facing scripts and decorators **must** use the unified category `_("BOA (Better Office Accessibility)")` (or `scriptCategory = _("BOA (Better Office Accessibility)")` on the AppModule class) so they are cleanly grouped in the Input Gestures dialog.
+- **Clean Defaults**: Standalone user-customizable scripts **must not** define default keys in the source code (keep `__gestures` empty for these). This preserves a clean default keyboard footprint and lets the user decide custom keys.
+- **Prefix Exposure Rule**: Every new keyboard-driven feature mapped under prefix mode **must** be exposed as a standalone `script_*` method in its AppModule with a descriptive docstring.
+- **Hide Internal Helpers**: Helper scripts (like prefix state interceptors or cancelers) **must not** have docstrings, keeping them hidden from the Input Gestures dialog.
+- **Zero-Hallucination API Matrix Updates**: When updating or verifying NVDA API changes or compatibility constraints, you are strictly forbidden from writing entries to `api_matrix.json` based on memory. You must verify them against the local developer guide in `.agent/REFS_Sources/` or the official web documentation. If the target version's documentation is missing from `.agent/REFS_Sources/` and cannot be resolved via the official web links, you must immediately halt and ask the user to provide the documentation.
 
 ## 5. Security & Vulnerability Controls
 - **Secure Code Quality**: All generated code must be securely structured, completely free from common vulnerabilities, and follow safe input/output handling.

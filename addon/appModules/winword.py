@@ -17,6 +17,7 @@ class AppModule(CoreWinwordAppModule):
     BOA's Word AppModule.
     This subclasses NVDA's built-in Word appModule.
     """
+    scriptCategory = _("BOA (Better Office Accessibility)")
 
     def __init__(self, *args, **kwargs):
         super(AppModule, self).__init__(*args, **kwargs)
