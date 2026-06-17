@@ -23,6 +23,55 @@ from scriptHandler import script
 import queueHandler
 _is_renaming_sheet = False
 _last_selection_count = 1
+_cached_excel_app = None
+
+def _get_excel_app():
+    """
+    Retrieves and caches the active Excel Application COM object.
+    Uses the cached connection if it is still alive to avoid expensive Running Object Table lookups.
+    """
+    global _cached_excel_app
+    if _cached_excel_app is not None:
+        try:
+            # Query a simple, fast property to verify the COM object is alive and responding
+            _ = _cached_excel_app.Version
+            return _cached_excel_app
+        except Exception:
+            _cached_excel_app = None
+
+    import comtypes.client
+    import comtypes.automation
+    import ctypes
+    
+    try:
+        # Standard fast retrieval
+        app = comtypes.client.GetActiveObject("Excel.Application")
+        if app:
+            _cached_excel_app = app
+            return app
+    except Exception:
+        pass
+
+    try:
+        # Fallback raw grid tree crawl
+        hwnd7 = ctypes.windll.user32.FindWindowW("XLMAIN", None)
+        if hwnd7:
+            xldesk = ctypes.windll.user32.FindWindowExW(hwnd7, 0, "XLDESK", None)
+            if xldesk:
+                hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
+        if hwnd7:
+            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+            res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+            if res == 0 and ptr:
+                app = comtypes.client.dynamic.Dispatch(ptr).Application
+                if app:
+                    _cached_excel_app = app
+                    return app
+    except Exception:
+        pass
+
+    return None
 
 # Tracks the last multi-cell address BOA announced aloud.
 # This prevents BOA from re-announcing the same range that NVDA already spoke natively.
@@ -31,6 +80,7 @@ _last_announced_address = None
 # Track states for structural Excel changes that lack native COM/UIA events
 _last_freeze_panes_state = None
 _last_visible_sheet_count = None
+_last_total_sheet_count = None
 
 # Track last focused cell coordinates to detect jumps over hidden rows/cols
 _last_focused_row = None
@@ -38,6 +88,7 @@ _last_focused_col = None
 _last_focused_sheet = None
 _last_focused_wb = None
 _last_structural_wb = None
+_last_structural_sheet = None
 _last_excel_hwnd = None
 def check_unselect(obj):
     """
@@ -69,30 +120,7 @@ def _do_check_unselect():
     """
     global _last_selection_count
     try:
-        import comtypes.client
-        import comtypes.automation
-        import ctypes
-        
-        # Attempt to hook into the active Excel instance via standard COM.
-        excel = None
-        try:
-            excel = comtypes.client.GetActiveObject("Excel.Application")
-        except Exception:
-            # Fallback: If GetActiveObject fails (common due to Windows security boundaries or multiple instances),
-            # we manually crawl the window tree to find the raw EXCEL7 grid handle.
-            hwnd7 = ctypes.windll.user32.FindWindowW("XLMAIN", None)
-            if hwnd7:
-                xldesk = ctypes.windll.user32.FindWindowExW(hwnd7, 0, "XLDESK", None)
-                if xldesk:
-                    hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
-            if hwnd7:
-                # Use AccessibleObjectFromWindow to force a back-door COM connection directly from the HWND.
-                oleacc = ctypes.windll.user32.oleacc if hasattr(ctypes.windll.user32, 'oleacc') else ctypes.windll.oleacc
-                ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-                res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-                if res == 0 and ptr:
-                    excel = comtypes.client.dynamic.Dispatch(ptr).Application
-
+        excel = _get_excel_app()
         if excel:
             sel = excel.Selection
             # Ensure the selection is actually a Range (has Cells) and not a Shape/Chart
@@ -165,18 +193,8 @@ class CellNavigationTracker(object):
         import ctypes
         import ui
         try:
-            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
-            if not hwnd7:
-                return
-
-            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
-            OBJID_NATIVEOM = -16
-            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-            res = oleacc.AccessibleObjectFromWindow(hwnd7, OBJID_NATIVEOM, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-
-            if res == 0 and ptr:
-                win = comtypes.client.dynamic.Dispatch(ptr)
-                excel = win.Application
+            excel = _get_excel_app()
+            if excel:
                 sel = excel.Selection
 
                 if getattr(sel, 'Cells', None):
@@ -523,73 +541,134 @@ class CellNavigationTracker(object):
         polling it on focus return, we can detect if a structural change occurred while the user
         was interacting with the Ribbon or right-click menus, and announce it proactively.
         """
-        global _last_freeze_panes_state, _last_visible_sheet_count, _last_focused_sheet, _last_focused_wb, _last_structural_wb, _last_excel_hwnd
+        global _last_freeze_panes_state, _last_visible_sheet_count, _last_total_sheet_count, _last_focused_sheet, _last_focused_wb, _last_structural_wb, _last_structural_sheet, _last_excel_hwnd
         import ui
         
         try:
-            current_wb_name = excel.ActiveWorkbook.Name
-            current_hwnd = excel.Application.Hwnd
+            active_wb = excel.ActiveWorkbook
+            if not active_wb:
+                return
+            current_wb_name = active_wb.Name
+            current_hwnd = excel.Hwnd
             
             # Reset trackers if the user closed and reopened Excel (new Process Window Handle)
             if _last_excel_hwnd != current_hwnd:
                 _last_structural_wb = None
+                _last_structural_sheet = None
                 _last_focused_wb = None
                 _last_visible_sheet_count = None
+                _last_total_sheet_count = None
                 _last_freeze_panes_state = None
                 _last_excel_hwnd = current_hwnd
             
             # Reset trackers if the user switched to a different workbook
             if _last_structural_wb != current_wb_name:
                 _last_visible_sheet_count = None
+                _last_total_sheet_count = None
                 _last_freeze_panes_state = None
                 _last_structural_wb = current_wb_name
+                _last_structural_sheet = None
                 
             # Check Freeze Panes
             # ActiveWindow.FreezePanes returns a boolean indicating if panes are frozen.
-            current_freeze = excel.ActiveWindow.FreezePanes
-            if _last_freeze_panes_state is not None and current_freeze != _last_freeze_panes_state:
-                if current_freeze:
-                    ui.message(_("Panes frozen"))
-                else:
-                    ui.message(_("Panes unfrozen"))
-            _last_freeze_panes_state = current_freeze
+            active_win = excel.ActiveWindow
+            if active_win:
+                current_freeze = active_win.FreezePanes
+                if _last_freeze_panes_state is not None and current_freeze != _last_freeze_panes_state:
+                    if current_freeze:
+                        ui.message(_("Panes frozen"))
+                    else:
+                        ui.message(_("Panes unfrozen"))
+                _last_freeze_panes_state = current_freeze
             
             # Check sheet counts and hidden sheets
             try:
-                current_visible = 0
-                total_sheets = excel.ActiveWorkbook.Sheets.Count
+                sheets = active_wb.Sheets
+                total_sheets = sheets.Count
+                active_sheet = excel.ActiveSheet
+                if not active_sheet:
+                    return
+                current_sheet = active_sheet.Name
+                
+                # Throttle execution: only execute heavy sheet checking loop if:
+                # - The active sheet has changed
+                # - The active workbook has changed
+                # - The total sheet count has changed
+                if (_last_structural_sheet == current_sheet and 
+                    _last_structural_wb == current_wb_name and 
+                    _last_total_sheet_count == total_sheets):
+                    return
+                
+                sheet_was_deleted = False
+                # Check for sheet deletion within the same workbook by iterating Sheets
+                if (_last_structural_sheet is not None and 
+                    _last_structural_wb == current_wb_name and 
+                    _last_total_sheet_count is not None and 
+                    total_sheets < _last_total_sheet_count):
+                    found = False
+                    for s in sheets:
+                        try:
+                            if s.Name == _last_structural_sheet:
+                                found = True
+                                break
+                        except Exception:
+                            pass
+                    if not found:
+                        sheet_was_deleted = True
+                        ui.message(_("{sheet_name} deleted").format(sheet_name=_last_structural_sheet))
                 
                 # Check for skipped hidden sheets if navigated via Ctrl+PageDown
-                # Consideration: If the user presses Ctrl+PageDown, Excel natively skips 'Hidden' sheets. 
-                # UIA does not fire an event for skipped sheets. We mathematically compare the previous sheet Index 
-                # against the new sheet Index. If the difference is > 1, we jumped a gap. We then 
-                # loop through that gap to announce the exact names of the hidden sheets bypassed.
-                if _last_focused_sheet is not None and _last_focused_wb == excel.ActiveWorkbook.Name:
-                    current_idx = excel.ActiveSheet.Index
-                    try:
-                        last_idx = excel.ActiveWorkbook.Sheets(_last_focused_sheet).Index
-                        if abs(current_idx - last_idx) > 1:
-                            min_s = min(last_idx, current_idx)
-                            max_s = max(last_idx, current_idx)
-                            for i in range(min_s + 1, max_s):
-                                sheet = excel.ActiveWorkbook.Sheets(i)
+                # Only valid if the sheet count hasn't changed (meaning no deletion/insertion shifted indices)
+                last_idx = None
+                if (not sheet_was_deleted and 
+                    _last_total_sheet_count == total_sheets and 
+                    _last_focused_sheet is not None and 
+                    _last_focused_wb == current_wb_name):
+                    
+                    # Find last index safely via loop to avoid failing comtypes key index lookups
+                    for s in sheets:
+                        try:
+                            if s.Name == _last_focused_sheet:
+                                last_idx = s.Index
+                                break
+                        except Exception:
+                            pass
+                            
+                if last_idx is not None:
+                    current_idx = active_sheet.Index
+                    if abs(current_idx - last_idx) > 1:
+                        min_s = min(last_idx, current_idx)
+                        max_s = max(last_idx, current_idx)
+                        for i in range(min_s + 1, max_s):
+                            try:
+                                sheet = sheets(i)
                                 if sheet.Visible != -1:  # -1 is xlSheetVisible
                                     ui.message(_("{sheet} hidden").format(sheet=sheet.Name))
+                            except Exception:
+                                pass
+
+                current_visible = 0
+                for sheet in sheets:
+                    try:
+                        # Visible property returns -1 for visible, 0 for hidden, 2 for very hidden
+                        if sheet.Visible == -1:
+                            current_visible += 1
                     except Exception:
                         pass
-
-                for i in range(1, total_sheets + 1):
-                    sheet = excel.ActiveWorkbook.Sheets(i)
-                    # Visible property returns -1 for visible, 0 for hidden, 2 for very hidden
-                    if sheet.Visible == -1:
-                        current_visible += 1
                 
                 if _last_visible_sheet_count is not None and current_visible != _last_visible_sheet_count:
+                    total_changed = _last_total_sheet_count is not None and total_sheets != _last_total_sheet_count
                     if current_visible < _last_visible_sheet_count:
-                        ui.message(_("Sheet hidden"))
+                        if not sheet_was_deleted:
+                            ui.message(_("Sheet hidden"))
                     else:
-                        ui.message(_("Sheet unhidden"))
+                        if not total_changed:
+                            ui.message(_("Sheet unhidden"))
+                
                 _last_visible_sheet_count = current_visible
+                _last_total_sheet_count = total_sheets
+                _last_structural_sheet = current_sheet
+                _last_structural_wb = current_wb_name
             except Exception:
                 pass
                 
@@ -675,27 +754,19 @@ class CellNavigationTracker(object):
         do not provide auditory feedback natively. Furthermore, Windows sometimes hijacks Ctrl+Shift+0.
         This wrapper verifies the state change asynchronously via COM and speaks the result.
         """
-        import comtypes.client
-        import comtypes.automation
-        import ctypes
-        
         initial_state = None
         try:
-            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
-            if hwnd7:
-                oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
-                ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-                res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-                if res == 0 and ptr:
-                    excel = comtypes.client.dynamic.Dispatch(ptr).Application
-                    if element_type == "row":
-                        initial_state = excel.Selection.EntireRow.Hidden
-                        if force_com:
-                            excel.Selection.EntireRow.Hidden = is_hiding
-                    elif element_type == "column":
-                        initial_state = excel.Selection.EntireColumn.Hidden
-                        if force_com:
-                            excel.Selection.EntireColumn.Hidden = is_hiding
+            excel = _get_excel_app()
+            if excel:
+                sel = excel.Selection
+                if element_type == "row":
+                    initial_state = sel.EntireRow.Hidden
+                    if force_com:
+                        sel.EntireRow.Hidden = is_hiding
+                elif element_type == "column":
+                    initial_state = sel.EntireColumn.Hidden
+                    if force_com:
+                        sel.EntireColumn.Hidden = is_hiding
         except Exception:
             pass
 
@@ -718,25 +789,12 @@ class CellNavigationTracker(object):
         internal engine time to process the keystroke and update the COM model, ensuring 
         accurate feedback without blocking NVDA's single-threaded core.
         """
-        import comtypes.client
-        import comtypes.automation
-        import ctypes
         import ui
         import logHandler
         
         try:
-            hwnd7 = self.windowHandle if getattr(self, "windowClassName", "") == "EXCEL7" else None
-            if not hwnd7:
-                return
-
-            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
-            OBJID_NATIVEOM = -16
-            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-            res = oleacc.AccessibleObjectFromWindow(hwnd7, OBJID_NATIVEOM, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-
-            if res == 0 and ptr:
-                win = comtypes.client.dynamic.Dispatch(ptr)
-                excel = win.Application
+            excel = _get_excel_app()
+            if excel:
                 sel = excel.Selection
                 
                 is_hidden = None
