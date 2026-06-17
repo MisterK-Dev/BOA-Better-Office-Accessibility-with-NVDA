@@ -39,9 +39,9 @@ class SheetLayoutAnalyzer:
         """
         Thread-safe launcher for the NVDA browseableMessage.
         
-        Architectural Intent & Considerations:
-        UI calls MUST be executed on the main GUI thread. Wrapping this call in `wx.CallAfter` 
-        safely prevents catastrophic cross-thread GUI crashes during asynchronous background events.
+        Wrapping this call in `wx.CallAfter` ensures that dialog creation is deferred
+        until the current input gesture event loop completes, preventing focus and
+        Alt+Tab Z-order corruption in the Windows OS window manager.
         """
         wx.CallAfter(ui.browseableMessage, message, title=title, isHtml=is_html, closeButton=True, copyButton=True)
 
