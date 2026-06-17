@@ -21,68 +21,7 @@ from logHandler import log
 import comtypes.client
 
 import wx
-import gui
 import api
-
-class LayoutDialog(wx.Dialog):
-    """
-    An accessible text dialog for displaying long, complex reports.
-    
-    Architectural Intent & Considerations:
-    NVDA's standard `ui.message()` is ephemeral speech and cannot be easily reviewed or copied. 
-    For massive analytical reports (like the Layout Overview or Conditional Formatting rules), 
-    we MUST use a native WX dialog with a ReadOnly TextCtrl so the user can navigate the text 
-    line-by-line using standard arrow keys and copy it to the clipboard.
-    """
-    def __init__(self, parent, title, message):
-        super(LayoutDialog, self).__init__(parent, title=title, size=(400, 300))
-        
-        mainSizer = wx.BoxSizer(wx.VERTICAL)
-        
-        self.textCtrl = wx.TextCtrl(self, style=wx.TE_MULTILINE | wx.TE_READONLY | wx.HSCROLL)
-        self.textCtrl.SetValue(message)
-        mainSizer.Add(self.textCtrl, proportion=1, flag=wx.EXPAND | wx.ALL, border=10)
-        
-        btnSizer = wx.BoxSizer(wx.HORIZONTAL)
-        
-        self.copyBtn = wx.Button(self, label=_("Copy (Ctrl+Shift+C)"))
-        self.copyBtn.Bind(wx.EVT_BUTTON, self.onCopy)
-        btnSizer.Add(self.copyBtn, flag=wx.RIGHT, border=10)
-        
-        # Using &Close automatically binds Alt+C natively in wxPython
-        self.closeBtn = wx.Button(self, id=wx.ID_CANCEL, label=_("&Close"))
-        self.closeBtn.Bind(wx.EVT_BUTTON, lambda evt: self.EndModal(wx.ID_CANCEL))
-        btnSizer.Add(self.closeBtn)
-        
-        mainSizer.Add(btnSizer, flag=wx.ALIGN_RIGHT | wx.ALL, border=10)
-        
-        self.SetSizer(mainSizer)
-        self.CenterOnParent()
-        
-        self.Bind(wx.EVT_CHAR_HOOK, self.onCharHook)
-        
-    def onCharHook(self, evt):
-        """
-        Intercepts raw keystrokes while the dialog is active.
-        
-        Architectural Intent & Considerations:
-        To maximize accessibility and speed, we bind Ctrl+Shift+C natively at the dialog level 
-        so the user can copy the entire report instantly without needing to manually highlight it.
-        """
-        # Check for Ctrl+Shift+C (Copy)
-        if evt.ControlDown() and evt.ShiftDown() and evt.GetKeyCode() == ord('C'):
-            self.onCopy(None)
-        elif evt.GetKeyCode() == wx.WXK_ESCAPE:
-            self.EndModal(wx.ID_CANCEL)
-        else:
-            evt.Skip()
-            
-    def onCopy(self, evt):
-        """Copies the dialog's full text content to the Windows clipboard."""
-        api.copyToClip(self.textCtrl.GetValue())
-        import ui
-        ui.message(_("Copied to clipboard"))
-        self.textCtrl.SetFocus()
 
 class SheetLayoutAnalyzer:
     """
@@ -96,22 +35,15 @@ class SheetLayoutAnalyzer:
     _layout_cache = {}
 
     @staticmethod
-    def _show_dialog(title, message):
+    def _show_dialog(title, message, is_html=True):
         """
-        Thread-safe launcher for the LayoutDialog.
+        Thread-safe launcher for the NVDA browseableMessage.
         
         Architectural Intent & Considerations:
-        WX GUI elements MUST be created and launched on the main GUI thread. Because our COM polling 
-        might originate from an asynchronous NVDA core thread, we wrap the dialog launch in `wx.CallAfter` 
-        to prevent catastrophic cross-thread GUI crashes.
+        UI calls MUST be executed on the main GUI thread. Wrapping this call in `wx.CallAfter` 
+        safely prevents catastrophic cross-thread GUI crashes during asynchronous background events.
         """
-        def run():
-            gui.mainFrame.prePopup()
-            d = LayoutDialog(gui.mainFrame, title, message)
-            d.ShowModal()
-            d.Destroy()
-            gui.mainFrame.postPopup()
-        wx.CallAfter(run)
+        wx.CallAfter(ui.browseableMessage, message, title=title, isHtml=is_html, closeButton=True, copyButton=True)
 
     @staticmethod
     def _col_num_to_letter(n):
@@ -184,8 +116,11 @@ class SheetLayoutAnalyzer:
         except Exception:
             pass
             
+        html_parts = []
+        html_parts.append("<h2>" + _("Data Blocks Summary") + "</h2>")
+
         if not areas:
-            msg = _("Sheet appears to be empty.")
+            html_parts.append("<h3>" + _("Sheet appears to be empty.") + "</h3>")
         else:
             count = len(areas)
             if count == 1:
@@ -194,23 +129,32 @@ class SheetLayoutAnalyzer:
                     msg = _("Found 1 data block at {c}{r}.").format(c=c, r=r)
                 else:
                     msg = _("Found 1 data block: {c}{r} to {ec}{er}.").format(c=c, r=r, ec=ec, er=er)
+                html_parts.append("<h3>" + msg + "</h3>")
             else:
-                block_strings = []
-                for r, c, er, ec in areas:
+                summary = _("Found {count} data blocks in this sheet.").format(count=count)
+                html_parts.append("<h3>" + summary + "</h3>")
+                
+                html_parts.append('<ul>')
+                for i, (r, c, er, ec) in enumerate(areas):
                     if r == er and c == ec:
-                        block_strings.append(f"{c}{r}")
+                        addr = f"{c}{r}"
                     else:
-                        block_strings.append(_("{c}{r} to {ec}{er}").format(c=c, r=r, ec=ec, er=er))
-                        
-                blocks_msg = "\n".join([_("Block {num}: {addr}").format(num=i+1, addr=addr) for i, addr in enumerate(block_strings)])
-                msg = _("Found {count} data blocks in this sheet.\n{blocks_msg}").format(count=count, blocks_msg=blocks_msg)
+                        addr = _("{c}{r} to {ec}{er}").format(c=c, r=r, ec=ec, er=er)
+                    
+                    block_str = _("Block {num}: {addr}").format(num=i+1, addr=addr)
+                    if ":" in block_str:
+                        label, val = block_str.split(":", 1)
+                        html_parts.append(f'<li><b>{label.strip()}:</b> {val.strip()}</li>')
+                    else:
+                        html_parts.append(f'<li>{block_str}</li>')
+                html_parts.append("</ul>")
                 
         # Append Sheet Properties
-        props = SheetLayoutAnalyzer._get_sheet_properties(excel)
-        if props:
-            msg += props
-            
-        SheetLayoutAnalyzer._show_dialog(_("Sheet Layout Overview"), msg)
+        props_html = SheetLayoutAnalyzer._get_sheet_properties(excel)
+        html_parts.append(props_html)
+        
+        final_html = "".join(html_parts)
+        SheetLayoutAnalyzer._show_dialog(_("Sheet Layout Overview"), final_html)
 
     @staticmethod
     def auto_announce_one_time(excel):
@@ -499,10 +443,21 @@ class SheetLayoutAnalyzer:
         except Exception:
             pass
             
+        html_props = []
+        html_props.append("<h2>" + _("Sheet Properties") + "</h2>")
         if props:
-            return _("\n\n--- Sheet Properties ---\n{props}").format(props="\n".join(props))
+            html_props.append('<ul>')
+            for prop in props:
+                if ":" in prop:
+                    name, val = prop.split(":", 1)
+                    html_props.append(f'<li><b>{name.strip()}:</b> {val.strip()}</li>')
+                else:
+                    html_props.append(f'<li>{prop}</li>')
+            html_props.append("</ul>")
         else:
-            return _("\n\n--- Sheet Properties ---\nNo special properties detected (No active filters, protection, frozen panes, or hidden borders).")
+            html_props.append("<p>" + _("No special properties detected (No active filters, protection, frozen panes, or hidden borders).") + "</p>")
+            
+        return "".join(html_props)
 
     @staticmethod
     def jump_to_nearest_block(excel):

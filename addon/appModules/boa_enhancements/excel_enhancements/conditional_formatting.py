@@ -155,7 +155,7 @@ class ConditionalFormattingTracker:
                 return
                 
             rules_msgs = []
-            rules_msgs.append(_("Found {count} conditional formatting rules.").format(count=count))
+            summary_msg = _("Found {count} conditional formatting rules.").format(count=count)
             
             # 1. READ THE EXACT RULES
             for i in range(1, count + 1):
@@ -285,11 +285,43 @@ class ConditionalFormattingTracker:
             if not results_msgs:
                 results_msgs.append(_("No active visual changes detected."))
                 
-            final_msg = _("{rules}\n\nAnalyzed Results:\n{results}").format(rules="\n".join(rules_msgs), results="\n".join(results_msgs))
+            # Build HTML content
+            html_parts = []
+            html_parts.append("<h2>" + _("Rules Summary") + "</h2>")
+            html_parts.append("<h3>" + summary_msg + "</h3>")
+            
+            if rules_msgs:
+                html_parts.append("<ul>")
+                for r_msg in rules_msgs:
+                    if ":" in r_msg:
+                        label, val = r_msg.split(":", 1)
+                        html_parts.append(f"<li><b>{label.strip()}:</b> {val.strip()}</li>")
+                    else:
+                        html_parts.append(f"<li>{r_msg}</li>")
+                html_parts.append("</ul>")
+                
+            html_parts.append("<h2>" + _("Analyzed Results") + "</h2>")
+            is_fallback = False
+            fallback_text = ""
+            if len(results_msgs) == 1:
+                raw_text = results_msgs[0]
+                if raw_text == _("No active visual changes detected.") or raw_text == _("Could not analyze final display format."):
+                    is_fallback = True
+                    fallback_text = raw_text
+                    
+            if is_fallback:
+                html_parts.append(f"<p>{fallback_text}</p>")
+            else:
+                html_parts.append("<ul>")
+                for res in results_msgs:
+                    html_parts.append(f"<li>{res}</li>")
+                html_parts.append("</ul>")
+                
+            final_html = "".join(html_parts)
             
             # Using our fully accessible SheetLayoutAnalyzer dialog
             from .sheet_layout_analyzer import SheetLayoutAnalyzer
-            SheetLayoutAnalyzer._show_dialog(_("Conditional Formatting Analysis"), final_msg)
+            SheetLayoutAnalyzer._show_dialog(_("Conditional Formatting Analysis"), final_html)
             
         except Exception as e:
             log.debug(f"BOA: announce_deep_dive failed: {e}")
