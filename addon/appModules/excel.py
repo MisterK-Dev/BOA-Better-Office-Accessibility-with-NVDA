@@ -172,6 +172,16 @@ class AppModule(CoreExcelAppModule):
         excel_manager.clear_all_cell_monitors(obj)
     script_clearAllCellMonitors.__doc__ = _("Clears all monitored cells.")
 
+    def script_tracePrecedents(self, gesture):
+        from appModules.boa_enhancements.excel_enhancements import formula_auditor
+        formula_auditor.trace_precedents()
+    script_tracePrecedents.__doc__ = _("Traces precedents and opens a dialog to jump to cells that provide data to the active cell.")
+
+    def script_traceDependents(self, gesture):
+        from appModules.boa_enhancements.excel_enhancements import formula_auditor
+        formula_auditor.trace_dependents()
+    script_traceDependents.__doc__ = _("Traces dependents and opens a dialog to jump to cells that depend on the active cell.")
+
     __gestures = {
         "kb:NVDA+e": "triggerCommandPrefix"
     }

@@ -1,7 +1,6 @@
-feat: enhance Precedents/Dependents tracing and fix silent Ctrl+[ navigation
+fix: expose trace precedents and dependents to Input Gestures
 
-- Implemented NVDA+E -> Shift+P and Shift+D accessible dialogs for tracing Excel Precedents and Dependents natively.
-- Fixed a major NVDA limitation where Excel completely suppresses native Windows OS accessibility events during fast navigation shortcuts like `Ctrl+[` (trace precedent) and `Ctrl+Shift+[` (trace all precedents), which previously caused NVDA to remain completely silent.
-- Designed a robust 100ms State-Driven Poller to catch these silent jumps by tracking Excel ActiveCell drift. This completely bypasses NVDA's broken STA/MTA UIA threading model which was silently dropping COM events.
-- Added a 100ms 'Confirmation Delay' debouncer to perfectly distinguish between native arrow key navigation and silent Ctrl+[ jumps, entirely preventing double-announcements.
-- Implemented native NVDA focus injection to flawlessly announce single cells and multi-cell selection ranges whenever those OS events are dropped by Excel.
+- Added script_tracePrecedents and script_traceDependents to excel.py.
+- Assigned localized docstrings for clean display in the NVDA Input Gestures dialog under the BOA category.
+- Adhered to the Clean Defaults rule by keeping __gestures free of hardcoded bindings for these standalone scripts.
+- Ran 'scons pot' to regenerate the master translation template for the new strings.
