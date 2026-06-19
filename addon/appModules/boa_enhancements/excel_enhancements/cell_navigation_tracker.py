@@ -25,6 +25,142 @@ _is_renaming_sheet = False
 _last_selection_count = 1
 _cached_excel_app = None
 _cached_excel_pid = None
+_excel_event_connection = None
+_last_force_synced_address = None
+
+_drift_timer_running = False
+_pending_injection_address = None
+
+def _drift_poll_loop():
+    global _drift_timer_running
+    if not _drift_timer_running: return
+    try:
+        global _cached_excel_app
+        if not _cached_excel_app: 
+            import core
+            core.callLater(100, _drift_poll_loop)
+            return
+            
+        active_cell = _cached_excel_app.ActiveCell
+        if not active_cell:
+            import core
+            core.callLater(100, _drift_poll_loop)
+            return
+            
+        global _last_focused_row, _last_focused_col, _last_focused_sheet, _last_focused_wb
+        
+        current_row = active_cell.Row
+        current_col = active_cell.Column
+        try:
+            current_sheet = _cached_excel_app.ActiveSheet.Name
+            current_wb = _cached_excel_app.ActiveWorkbook.Name
+        except Exception:
+            current_sheet = None
+            current_wb = None
+        
+        is_match = False
+        if _last_focused_row == current_row and _last_focused_col == current_col:
+            if _last_focused_sheet == current_sheet and _last_focused_wb == current_wb:
+                is_match = True
+                
+        global _last_force_synced_address
+        global _pending_injection_address
+        current_address = f"[{current_wb}]{current_sheet}!{active_cell.Address(False, False)}"
+        
+        if not is_match:
+            if current_address != _last_force_synced_address and current_address != _pending_injection_address:
+                _pending_injection_address = current_address
+                
+                def _verify_and_inject(expected_row, expected_col, expected_sheet, expected_wb, expected_addr, expected_cell):
+                    global _pending_injection_address
+                    _pending_injection_address = None
+                    
+                    # Check if NVDA cache STILL hasn't updated to match expected
+                    global _last_focused_row, _last_focused_col, _last_focused_sheet, _last_focused_wb
+                    still_mismatched = False
+                    if _last_focused_row != expected_row or _last_focused_col != expected_col:
+                        still_mismatched = True
+                    elif _last_focused_sheet != expected_sheet or _last_focused_wb != expected_wb:
+                        still_mismatched = True
+                        
+                    if still_mismatched:
+                        import logHandler
+                        logHandler.log.debug(f"BOA: Drift confirmed after 100ms. NVDA totally missed jump to {expected_addr}. Forcing COM sync.")
+                        global _last_force_synced_address
+                        _last_force_synced_address = expected_addr
+                        try:
+                            import api
+                            import eventHandler
+                            import controlTypes
+                            
+                            # 1. Update our cache manually to ensure the tracker doesn't break on the next arrow key
+                            _last_focused_row = expected_row
+                            _last_focused_col = expected_col
+                            _last_focused_sheet = expected_sheet
+                            _last_focused_wb = expected_wb
+                            
+                            native_success = False
+                            
+                            # Attempt 1: Try querying OS focus
+                            focus_obj = api.getDesktopObject().objectWithFocus()
+                            if focus_obj and getattr(focus_obj, "role", None) == controlTypes.Role.TABLECELL:
+                                eventHandler.executeEvent("gainFocus", focus_obj)
+                                native_success = True
+                            
+                            # Attempt 2: Try building the NVDAObject manually (Legacy MSAA)
+                            if not native_success:
+                                try:
+                                    from NVDAObjects.window.excel import ExcelCell
+                                    fg = api.getForegroundObject()
+                                    excelWindow = fg
+                                    while excelWindow and getattr(excelWindow, "windowClassName", "") != "EXCEL7":
+                                        excelWindow = excelWindow.parent
+                                        
+                                    if excelWindow:
+                                        obj = ExcelCell(windowHandle=excelWindow.windowHandle, excelWindowObject=excelWindow, excelCellObject=expected_cell)
+                                        eventHandler.executeEvent("gainFocus", obj)
+                                        native_success = True
+                                except Exception:
+                                    pass
+                                    
+                            # Fallback: Perfect UI Message Synthesis (Identical to native speech/Braille flash)
+                            if not native_success:
+                                import ui
+                                val = expected_cell.Value
+                                if val is None: val = ""
+                                elif type(val) is float and val.is_integer(): val = int(val)
+                                
+                                addr = expected_cell.Address(False, False)
+                                ui.message(f"{val} {addr}".strip())
+                                
+                            # ALWAYS Handle Multi-cell selection ranges (Ctrl+Shift+[)
+                            try:
+                                if _cached_excel_app.Selection.Cells.Count > 1:
+                                    sel_addr = _cached_excel_app.Selection.Address(False, False)
+                                    global _last_announced_address
+                                    if sel_addr != _last_announced_address:
+                                        _last_announced_address = sel_addr
+                                        spoken_address = sel_addr.replace(":", " through ")
+                                        import ui
+                                        ui.message(_("{address} selected").format(address=spoken_address))
+                            except Exception:
+                                pass
+                                
+                        except Exception as e:
+                            import logHandler
+                            logHandler.log.debug(f"BOA: Complete failure in force focus sync: {e}")
+                
+                import core
+                core.callLater(100, _verify_and_inject, current_row, current_col, current_sheet, current_wb, current_address, active_cell)
+        else:
+            # Successfully matched natively! Clear the force sync tracker.
+            _last_force_synced_address = None
+            _pending_injection_address = None
+    except Exception:
+        pass
+        
+    import core
+    core.callLater(100, _drift_poll_loop)
 
 def _get_excel_app():
     """
@@ -72,8 +208,22 @@ def _get_excel_app():
 
     if app:
         try:
+            global _drift_timer_running
             _cached_excel_app = app
-            return app
+            # Get the exact PID from the COM process
+            import ctypes
+            pid = ctypes.c_ulong()
+            hwnd = app.Hwnd
+            ctypes.windll.user32.GetWindowThreadProcessId(hwnd, ctypes.byref(pid))
+            _cached_excel_pid = pid.value
+            
+            # Start background poller instead of relying on COM Event Sinks
+            if not _drift_timer_running:
+                _drift_timer_running = True
+                import core
+                core.callLater(100, _drift_poll_loop)
+                
+            return _cached_excel_app
         except Exception:
             pass
 
@@ -117,6 +267,8 @@ def release_if_closed():
     
     if not found_window:
         # No windows belonging to this Excel process are open. Release COM!
+        global _drift_timer_running
+        _drift_timer_running = False
         _cached_excel_app = None
         _cached_excel_pid = None
         # Explicit garbage collection ensures COM proxy is deleted, reducing ref count
