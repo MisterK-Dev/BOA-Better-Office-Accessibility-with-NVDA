@@ -45,6 +45,10 @@ class AppModule(CoreExcelAppModule):
 
     def event_gainFocus(self, obj, nextHandler):
         try:
+            # Safely grab the exact Process ID of the currently focused Excel instance without COM!
+            from appModules.boa_enhancements.excel_enhancements import cell_navigation_tracker
+            cell_navigation_tracker._cached_excel_pid = obj.processID
+            
             from appModules.boa_enhancements import boa_config
             if (boa_config.get_feature_state("excel", "unselect_tracking") or 
                 boa_config.get_feature_state("excel", "hidden_row_skip") or 
@@ -54,6 +58,26 @@ class AppModule(CoreExcelAppModule):
         except Exception:
             pass
         nextHandler()
+
+    def event_appModule_loseFocus(self, *args, **kwargs):
+        try:
+            import core
+            from appModules.boa_enhancements.excel_enhancements.cell_navigation_tracker import release_if_closed
+            # Defer by 200ms to allow Windows to update the focused HWND state before checking
+            core.callLater(200, release_if_closed)
+        except Exception:
+            pass
+            
+        # Safely call nextHandler if it exists, or fallback to super() for NVDA's base method
+        if args and len(args) >= 2 and callable(args[1]):
+            args[1]()
+        elif 'nextHandler' in kwargs and callable(kwargs['nextHandler']):
+            kwargs['nextHandler']()
+        else:
+            try:
+                super(AppModule, self).event_appModule_loseFocus(*args, **kwargs)
+            except Exception:
+                pass
 
     def event_selectionChange(self, obj, nextHandler):
         try:
@@ -67,14 +91,17 @@ class AppModule(CoreExcelAppModule):
             pass
         nextHandler()
 
+    def event_UIA_invoke(self, obj, nextHandler):
+        # Placeholder for future UIA invoke enhancements
+        nextHandler()
+
     def _clear_command_bindings(self):
         try:
             self.removeGestureBinding("kb:escape")
             self.removeGestureBinding("kb:backspace")
             for char in "abcdefghijklmnopqrstuvwxyz0123456789":
                 self.removeGestureBinding(f"kb:{char}")
-            for i in range(1, 10):
-                self.removeGestureBinding(f"kb:shift+{i}")
+                self.removeGestureBinding(f"kb:shift+{char}")
         except Exception:
             pass
 
@@ -89,8 +116,7 @@ class AppModule(CoreExcelAppModule):
         self.bindGesture("kb:backspace", "handleCommandKey")
         for char in "abcdefghijklmnopqrstuvwxyz0123456789":
             self.bindGesture(f"kb:{char}", "handleCommandKey")
-        for i in range(1, 10):
-            self.bindGesture(f"kb:shift+{i}", "handleCommandKey")
+            self.bindGesture(f"kb:shift+{char}", "handleCommandKey")
     
     script_triggerCommandPrefix.__doc__ = _("Triggers the BOA command prefix. Press this, followed by a specific command key.")
 

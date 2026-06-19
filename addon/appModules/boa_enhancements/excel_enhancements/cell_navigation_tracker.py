@@ -24,13 +24,14 @@ import queueHandler
 _is_renaming_sheet = False
 _last_selection_count = 1
 _cached_excel_app = None
+_cached_excel_pid = None
 
 def _get_excel_app():
     """
     Retrieves and caches the active Excel Application COM object.
     Uses the cached connection if it is still alive to avoid expensive Running Object Table lookups.
     """
-    global _cached_excel_app
+    global _cached_excel_app, _cached_excel_pid
     if _cached_excel_app is not None:
         try:
             # Query a simple, fast property to verify the COM object is alive and responding
@@ -38,40 +39,88 @@ def _get_excel_app():
             return _cached_excel_app
         except Exception:
             _cached_excel_app = None
+            _cached_excel_pid = None
 
     import comtypes.client
     import comtypes.automation
     import ctypes
+    import winUser
     
+    app = None
     try:
         # Standard fast retrieval
         app = comtypes.client.GetActiveObject("Excel.Application")
-        if app:
+    except Exception:
+        pass
+
+    if not app:
+        try:
+            # Fallback raw grid tree crawl
+            hwnd7 = ctypes.windll.user32.FindWindowW("XLMAIN", None)
+            if hwnd7:
+                xldesk = ctypes.windll.user32.FindWindowExW(hwnd7, 0, "XLDESK", None)
+                if xldesk:
+                    hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
+            if hwnd7:
+                oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
+                ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+                res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
+                if res == 0 and ptr:
+                    app = comtypes.client.dynamic.Dispatch(ptr).Application
+        except Exception:
+            pass
+
+    if app:
+        try:
             _cached_excel_app = app
             return app
-    except Exception:
-        pass
-
-    try:
-        # Fallback raw grid tree crawl
-        hwnd7 = ctypes.windll.user32.FindWindowW("XLMAIN", None)
-        if hwnd7:
-            xldesk = ctypes.windll.user32.FindWindowExW(hwnd7, 0, "XLDESK", None)
-            if xldesk:
-                hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
-        if hwnd7:
-            oleacc = ctypes.windll.oleacc if hasattr(ctypes.windll, 'oleacc') else ctypes.windll.user32.oleacc
-            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-            res = oleacc.AccessibleObjectFromWindow(hwnd7, -16, ctypes.byref(comtypes.automation.IDispatch._iid_), ctypes.byref(ptr))
-            if res == 0 and ptr:
-                app = comtypes.client.dynamic.Dispatch(ptr).Application
-                if app:
-                    _cached_excel_app = app
-                    return app
-    except Exception:
-        pass
+        except Exception:
+            pass
 
     return None
+
+def release_if_closed():
+    """
+    Checks if there are any EXCEL.EXE windows remaining for the cached PID.
+    If none exist, releases the COM cache so the background process can terminate.
+    """
+    global _cached_excel_app, _cached_excel_pid
+    if _cached_excel_app is None or _cached_excel_pid is None:
+        return
+        
+    import winUser
+    import ctypes
+    import ctypes.wintypes as wintypes
+    import gc
+    
+    found_window = False
+    
+    # EnumWindows callback
+    def enum_windows_proc(hwnd, lParam):
+        nonlocal found_window
+        if found_window:
+            return False # Stop enumeration
+            
+        # Check class name
+        class_name = winUser.getClassName(hwnd)
+        if class_name == "XLMAIN":
+            _, pid = winUser.getWindowThreadProcessID(hwnd)
+            if pid == _cached_excel_pid:
+                found_window = True
+                return False # Stop enumeration
+        return True
+        
+    CMPFUNC = ctypes.WINFUNCTYPE(ctypes.c_bool, wintypes.HWND, wintypes.LPARAM)
+    enum_func = CMPFUNC(enum_windows_proc)
+    
+    ctypes.windll.user32.EnumWindows(enum_func, 0)
+    
+    if not found_window:
+        # No windows belonging to this Excel process are open. Release COM!
+        _cached_excel_app = None
+        _cached_excel_pid = None
+        # Explicit garbage collection ensures COM proxy is deleted, reducing ref count
+        gc.collect()
 
 # Tracks the last multi-cell address BOA announced aloud.
 # This prevents BOA from re-announcing the same range that NVDA already spoke natively.

@@ -37,7 +37,8 @@ DEFAULT_CONFIG = {
         "auto_announce_first_block": "one_time",
         "conditional_formatting": True,
         "cell_monitor": True,
-        "end_of_data_radar": "counta"
+        "end_of_data_radar": "counta",
+        "formula_auditing_announcements": True
     },
     "powerpoint": {
         "standard_color_grid": True,

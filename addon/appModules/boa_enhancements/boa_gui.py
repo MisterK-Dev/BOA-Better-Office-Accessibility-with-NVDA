@@ -115,7 +115,8 @@ class BOASettingsPanel(SettingsPanel):
             "auto_announce_first_block": _("Sheet Layout Auto-Announce &Mode:"),
             "conditional_formatting": _("Conditional &Formatting and color"),
             "cell_monitor": _("Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"),
-            "end_of_data_radar": _("Announce when there is no more data in the direction you are &navigating")
+            "end_of_data_radar": _("Announce when there is no more data in the direction you are &navigating"),
+            "formula_auditing_announcements": _("Announce Formula Auditing &Hotkeys (Ctrl+[, etc.)")
         }
         create_group("excel", _("Excel Enhancements"), excel_features)
         

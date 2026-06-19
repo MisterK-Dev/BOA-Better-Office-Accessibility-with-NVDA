@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-16 10:06+0530\n"
+"POT-Creation-Date: 2026-06-18 11:39+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: addon\appModules\excel.py:22 addon\appModules\powerpnt.py:21
 #: addon\appModules\winword.py:20
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:600
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:615
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:629
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:643
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:657
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:679
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:694
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:708
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:722
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:736
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:138
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:149
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:162
@@ -35,34 +35,50 @@ msgstr ""
 msgid "BOA (Better Office Accessibility)"
 msgstr ""
 
-#: addon\appModules\excel.py:95
+#: addon\appModules\excel.py:109
 msgid ""
 "Triggers the BOA command prefix. Press this, followed by a specific command "
 "key."
 msgstr ""
 
-#: addon\appModules\excel.py:122
+#: addon\appModules\excel.py:136
 msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
 msgstr ""
 
-#: addon\appModules\excel.py:127
+#: addon\appModules\excel.py:141
 msgid "Analyzes and announces the layout structure of the current sheet."
 msgstr ""
 
-#: addon\appModules\excel.py:132
+#: addon\appModules\excel.py:146
 msgid "Jumps the focus to the nearest cell block."
 msgstr ""
 
-#: addon\appModules\excel.py:137
+#: addon\appModules\excel.py:151
 msgid "Announces conditional formatting details for the current cell."
 msgstr ""
 
-#: addon\appModules\excel.py:142
+#: addon\appModules\excel.py:156
 msgid "Toggles monitoring on the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:147
+#: addon\appModules\excel.py:161
 msgid "Clears all monitored cells."
+msgstr ""
+
+#: addon\appModules\excel.py:166
+msgid "Traces precedents safely."
+msgstr ""
+
+#: addon\appModules\excel.py:171
+msgid "Traces dependents safely."
+msgstr ""
+
+#: addon\appModules\excel.py:176
+msgid "Traces all precedents safely."
+msgstr ""
+
+#: addon\appModules\excel.py:181
+msgid "Traces all dependents safely."
 msgstr ""
 
 #: addon\appModules\powerpnt.py:71
@@ -154,37 +170,41 @@ msgid ""
 "Announce when there is no more data in the direction you are &navigating"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:120
+#: addon\appModules\boa_enhancements\boa_gui.py:119
+msgid "Announce Formula Auditing &Hotkeys (Ctrl+[, etc.)"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\boa_gui.py:121
 msgid "Excel Enhancements"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:124
+#: addon\appModules\boa_enhancements\boa_gui.py:125
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:125
+#: addon\appModules\boa_enhancements\boa_gui.py:126
 msgid "Ensure the He&x Color edit field is properly labeled"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:126
+#: addon\appModules\boa_enhancements\boa_gui.py:127
 msgid "Ensure the R&GB Color edit fields are properly labeled"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:127
+#: addon\appModules\boa_enhancements\boa_gui.py:128
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:129
+#: addon\appModules\boa_enhancements\boa_gui.py:130
 msgid "PowerPoint Enhancements"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:133
+#: addon\appModules\boa_enhancements\boa_gui.py:134
 msgid "&Word: Prevent NVDA crashes in Word text fields"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:135
+#: addon\appModules\boa_enhancements\boa_gui.py:136
 msgid "Word Enhancements"
 msgstr ""
 
@@ -262,6 +282,7 @@ msgid "&OK"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:236
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:50
 msgid "&Cancel"
 msgstr ""
 
@@ -354,112 +375,117 @@ msgstr ""
 msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:116
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:144
 msgid "unselected"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:210
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:228
 #, python-brace-format
 msgid "{address} selected"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:336
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:354
 #, python-brace-format
 msgid "Row {row_num} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:339
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:341
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:357
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:359
 #, python-brace-format
 msgid "Rows {start} through {end} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:343
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:361
 msgid "Crossed heavily fragmented hidden rows"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:406
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:424
 #, python-brace-format
 msgid "Column {col_letter} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:409
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:411
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:427
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:429
 #, python-brace-format
 msgid "Columns {start} through {end} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:413
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:431
 msgid "Crossed heavily fragmented hidden columns"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:468
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:486
 msgid "No more data below"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:475
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:493
 msgid "No more data above"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:482
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:500
 msgid "No more data to the right"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:489
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:507
 msgid "No more data to the left"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:552
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:579
 msgid "Panes frozen"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:554
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:581
 msgid "Panes unfrozen"
 msgstr ""
 
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:618
+#, python-brace-format
+msgid "{sheet_name} deleted"
+msgstr ""
+
 #. -1 is xlSheetVisible
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:577
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:646
 #, python-brace-format
 msgid "{sheet} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:589
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:663
 msgid "Sheet hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:591
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:666
 msgid "Sheet unhidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:749
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:807
 #, python-brace-format
 msgid "Row {num}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:751
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:809
 #, python-brace-format
 msgid "Rows {start} through {end}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:766
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:824
 #, python-brace-format
 msgid "Column {col}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:769
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:827
 #, python-brace-format
 msgid "Columns {start} through {end}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:773
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:831
 msgid "hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:773
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:831
 msgid "unhidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:774
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:832
 #, python-brace-format
 msgid "{address} {state}"
 msgstr ""
@@ -746,28 +772,81 @@ msgid "Number format changed to {format}."
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:283
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:308
 msgid "Could not analyze final display format."
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:286
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:308
 msgid "No active visual changes detected."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:288
-#, python-brace-format
-msgid ""
-"{rules}\n"
-"\n"
-"Analyzed Results:\n"
-"{results}"
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:290
+msgid "Rules Summary"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:292
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:303
+msgid "Analyzed Results"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:324
 msgid "Conditional Formatting Analysis"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:296
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:328
 msgid "Failed to analyze conditional formatting."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:38
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:46
+msgid "&Jump"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:68
+msgid "Cannot jump to a closed external workbook."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:98
+#, python-brace-format
+msgid "(External) {}"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:238
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:322
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:359
+msgid "No precedents found."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:248
+msgid "Precedents"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:258
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:324
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:361
+msgid "No dependents found."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:268
+msgid "Dependents"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:314
+#, python-brace-format
+msgid "Jumped to {wb}{sheet}!{addr}"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:376
+#, python-brace-format
+msgid "Precedent: {wb}{sheet}!{cell} - {val}"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:378
+#, python-brace-format
+msgid "Dependent: {wb}{sheet}!{cell} - {val}"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:88
@@ -793,237 +872,218 @@ msgstr ""
 msgid "Failed to move sheet"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:48
-msgid "Copy (Ctrl+Shift+C)"
-msgstr ""
-
-#. Using &Close automatically binds Alt+C natively in wxPython
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:53
-msgid "&Close"
-msgstr ""
-
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:84
-msgid "Copied to clipboard"
-msgstr ""
-
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:179
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:111
 msgid "Analyzing layout..."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:188
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:120
+msgid "Data Blocks Summary"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:123
 msgid "Sheet appears to be empty."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:194
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:129
 #, python-brace-format
 msgid "Found 1 data block at {c}{r}."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:196
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:131
 #, python-brace-format
 msgid "Found 1 data block: {c}{r} to {ec}{er}."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:203
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:134
+#, python-brace-format
+msgid "Found {count} data blocks in this sheet."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:142
 #, python-brace-format
 msgid "{c}{r} to {ec}{er}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:205
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:144
 #, python-brace-format
 msgid "Block {num}: {addr}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:206
-#, python-brace-format
-msgid ""
-"Found {count} data blocks in this sheet.\n"
-"{blocks_msg}"
-msgstr ""
-
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:213
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:157
 msgid "Sheet Layout Overview"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:259
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:203
 #, python-brace-format
 msgid "Empty cell. Nearest data at {col}{row}."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:311
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:255
 #, python-brace-format
 msgid "Nearest data at {col}{row}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:364
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:308
 msgid "Filter Mode: Active"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:380
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:324
 msgid "Top 2000+ Rows are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:381
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:325
 msgid "Top Row 1 is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:382
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:326
 #, python-brace-format
 msgid "Top Rows 1 through {end_r} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:389
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:333
 msgid "Left 2000+ Columns are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:390
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:334
 msgid "Left Column A is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:391
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:335
 #, python-brace-format
 msgid "Left Columns A through {end_col} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:401
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:345
 msgid "Bottommost 2000+ Rows are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:402
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:346
 #, python-brace-format
 msgid "Bottom Row {max_r} is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:403
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:347
 #, python-brace-format
 msgid "Bottom Rows {start_r} through {max_r} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:412
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:356
 msgid "Rightmost 2000+ Columns are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:413
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:357
 #, python-brace-format
 msgid "Right Column {col} is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:414
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:358
 #, python-brace-format
 msgid "Right Columns {start_col} through {end_col} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:418
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:362
 #, python-brace-format
 msgid "Hidden Borders: {borders}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:443
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:387
 #, python-brace-format
 msgid "Top sheets 1-{count}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:443
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:387
 msgid "Top sheet 1"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:445
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:389
 #, python-brace-format
 msgid "Bottom sheets {start}-{end}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:445
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:389
 #, python-brace-format
 msgid "Bottom sheet {num}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:449
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:393
 #, python-brace-format
 msgid "{count} middle sheets"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:449
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:393
 #, python-brace-format
 msgid "{count} middle sheet"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:452
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:396
 #, python-brace-format
 msgid "Hidden Sheets: {parts} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:458
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:402
 msgid "Sheet Protected: True"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:467
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:411
 #, python-brace-format
 msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:469
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:413
 #, python-brace-format
 msgid "Frozen Panes: Rows 1-{r}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:471
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:415
 #, python-brace-format
 msgid "Frozen Panes: Columns A-{c}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:473
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:417
 msgid "Frozen Panes: Active"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:480
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:424
 #, python-brace-format
 msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:487
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:431
 #, python-brace-format
 msgid "Pivot Tables: Contains {count} Pivot Table(s)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:494
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:438
 msgid "View Mode: Page Break Preview"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:496
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:440
 msgid "View Mode: Page Layout"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:503
-#, python-brace-format
-msgid ""
-"\n"
-"\n"
-"--- Sheet Properties ---\n"
-"{props}"
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:447
+msgid "Sheet Properties"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:505
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:458
 msgid ""
-"\n"
-"\n"
-"--- Sheet Properties ---\n"
 "No special properties detected (No active filters, protection, frozen panes, "
 "or hidden borders)."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:521
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:476
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:526
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:481
 msgid "No data blocks found in cache."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:545
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:500
 msgid "Already on a data cell."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:562
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:517
 #, python-brace-format
 msgid "Jumped to {col}{row}"
 msgstr ""
@@ -1040,7 +1100,7 @@ msgid "Color {hex_val}"
 msgstr ""
 
 #. Add-on description
-#: buildVars.py:15
+#: buildVars.py:18
 msgid ""
 "A powerful suite of accessibility enhancements for Microsoft Office, "
 "designed to vastly improve the screen reader experience for NVDA users. \n"
@@ -1059,7 +1119,7 @@ msgid ""
 msgstr ""
 
 #. Changelog URL or None
-#: buildVars.py:40
+#: buildVars.py:43
 msgid ""
 "## What's New in v1.6.1\n"
 "* **Deep File Localization**: Fixed missing string translations deep within "

@@ -177,6 +177,16 @@ def handle_prefix_command(command_key, obj):
     if command_key == 'f':
         return announce_conditional_formatting(obj)
 
+    if command_key == 'shift+p':
+        from .formula_auditor import show_precedents_dialog
+        show_precedents_dialog(obj)
+        return True
+
+    if command_key == 'shift+d':
+        from .formula_auditor import show_dependents_dialog
+        show_dependents_dialog(obj)
+        return True
+
     # --- Cell Monitor Commands ---
     if command_key == 'backspace':
         return clear_all_cell_monitors(obj)
