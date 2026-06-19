@@ -168,6 +168,16 @@ def handle_prefix_command(command_key, obj):
     if command_key == 'x':
         return show_bulk_sheet_organizer(obj)
             
+    if command_key == 'f2':
+        import scriptHandler
+        from . import cell_editor
+        if scriptHandler.getLastScriptRepeatCount() == 0:
+            cell_editor.speak_formula()
+            return "keep_alive"
+        else:
+            cell_editor.open_power_editor()
+            return True
+            
     if command_key == 'l':
         return announce_sheet_layout(obj)
             

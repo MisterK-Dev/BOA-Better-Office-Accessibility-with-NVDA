@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-19 21:31+0530\n"
+"POT-Creation-Date: 2026-06-19 23:07+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,43 +35,43 @@ msgstr ""
 msgid "BOA (Better Office Accessibility)"
 msgstr ""
 
-#: addon\appModules\excel.py:121
+#: addon\appModules\excel.py:123
 msgid ""
 "Triggers the BOA command prefix. Press this, followed by a specific command "
 "key."
 msgstr ""
 
-#: addon\appModules\excel.py:148
+#: addon\appModules\excel.py:161
 msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
 msgstr ""
 
-#: addon\appModules\excel.py:153
+#: addon\appModules\excel.py:166
 msgid "Analyzes and announces the layout structure of the current sheet."
 msgstr ""
 
-#: addon\appModules\excel.py:158
+#: addon\appModules\excel.py:171
 msgid "Jumps the focus to the nearest cell block."
 msgstr ""
 
-#: addon\appModules\excel.py:163
+#: addon\appModules\excel.py:176
 msgid "Announces conditional formatting details for the current cell."
 msgstr ""
 
-#: addon\appModules\excel.py:168
+#: addon\appModules\excel.py:181
 msgid "Toggles monitoring on the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:173
+#: addon\appModules\excel.py:186
 msgid "Clears all monitored cells."
 msgstr ""
 
-#: addon\appModules\excel.py:178
+#: addon\appModules\excel.py:191
 msgid ""
 "Traces precedents and opens a dialog to jump to cells that provide data to "
 "the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:183
+#: addon\appModules\excel.py:196
 msgid ""
 "Traces dependents and opens a dialog to jump to cells that depend on the "
 "active cell."
@@ -278,6 +278,7 @@ msgid "&OK"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:236
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:73
 #: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:46
 msgid "&Cancel"
 msgstr ""
@@ -289,6 +290,49 @@ msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:289
 msgid "Move removed"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:34
+msgid "No formula"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:41
+msgid "BOA Power Editor"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:57
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:69
+msgid "&Save"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:109
+#, python-brace-format
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:112
+msgid "Calculation Error"
+msgstr ""
+
+#. Keep editor alive
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:120
+msgid "Done"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:127
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:128
+msgid "Invalid Formula"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:119

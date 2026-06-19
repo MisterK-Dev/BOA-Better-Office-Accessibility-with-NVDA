@@ -1,6 +1,0 @@
-fix: expose trace precedents and dependents to Input Gestures
-
-- Added script_tracePrecedents and script_traceDependents to excel.py.
-- Assigned localized docstrings for clean display in the NVDA Input Gestures dialog under the BOA category.
-- Adhered to the Clean Defaults rule by keeping __gestures free of hardcoded bindings for these standalone scripts.
-- Ran 'scons pot' to regenerate the master translation template for the new strings.

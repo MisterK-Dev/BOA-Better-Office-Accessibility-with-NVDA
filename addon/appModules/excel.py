@@ -99,6 +99,7 @@ class AppModule(CoreExcelAppModule):
         try:
             self.removeGestureBinding("kb:escape")
             self.removeGestureBinding("kb:backspace")
+            self.removeGestureBinding("kb:f2")
             for char in "abcdefghijklmnopqrstuvwxyz0123456789":
                 self.removeGestureBinding(f"kb:{char}")
                 self.removeGestureBinding(f"kb:shift+{char}")
@@ -114,6 +115,7 @@ class AppModule(CoreExcelAppModule):
         
         self.bindGesture("kb:escape", "cancelCommandPrefix")
         self.bindGesture("kb:backspace", "handleCommandKey")
+        self.bindGesture("kb:f2", "handleCommandKey")
         for char in "abcdefghijklmnopqrstuvwxyz0123456789":
             self.bindGesture(f"kb:{char}", "handleCommandKey")
             self.bindGesture(f"kb:shift+{char}", "handleCommandKey")
@@ -135,12 +137,23 @@ class AppModule(CoreExcelAppModule):
         except Exception:
             key = gesture.displayName.lower()
             
-        self._clear_command_bindings()
-        
         obj = api.getFocusObject()
-        handled = excel_manager.handle_prefix_command(key, obj)
-        if not handled:
-            tones.beep(150, 50)
+        result = excel_manager.handle_prefix_command(key, obj)
+        
+        if result == "keep_alive":
+            # Do NOT clear bindings yet. Give the user time to press a second key (like double-tapping F2).
+            # Schedule a 500ms cleanup to ensure they don't get stuck in prefix mode.
+            import core
+            def delayed_cleanup():
+                import scriptHandler
+                # If they didn't trigger another prefix script, clean up.
+                if scriptHandler.getLastScriptRepeatCount() == 0:
+                    self._clear_command_bindings()
+            core.callLater(500, delayed_cleanup)
+        else:
+            self._clear_command_bindings()
+            if not result:
+                tones.beep(150, 50)
 
     def script_bulkSheetOrganizer(self, gesture):
         obj = api.getFocusObject()
