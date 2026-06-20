@@ -10,7 +10,7 @@ This skill acts as an unskippable gatekeeper. It forces the AI Agent to pause, r
 
 ## The Pre-Release Checklist
 
-Before communicating with the user, the Agent MUST autonomously execute and verify the following 5 steps:
+Before communicating with the user, the Agent MUST autonomously execute and verify the following 6 steps:
 
 ### 1. Translation Wrapping Verification (`_()`)
 - Scan all newly added or modified `.py` files.
@@ -39,6 +39,10 @@ Before communicating with the user, the Agent MUST autonomously execute and veri
 - **Rule:** Run the [Gesture Auditing Skill](file:///.agent/skills/gesture_auditor/gesture_auditor.md) to ensure all user gestures are properly categorized under `BOA (Better Office Accessibility)` and there are zero shortcut conflicts.
 - **Action:** Open and follow the instructions in `gesture_auditor.md` to execute the audit. The audit must pass with 0 conflicts and verify that all keyboard commands are correctly exposed before releasing.
 
+### 6. Security Audit
+- **Rule:** The add-on must be securely structured, completely free from common vulnerabilities (e.g. `eval()` execution, command injection), and NVDA-specific traps (COM freezes).
+- **Action:** Trigger the [Security Auditor Skill](file:///.agent/skills/security_auditor/SKILL.md). This skill is strictly read-only. Do not halt validation if it outputs warnings. You must aggregate all output warnings from the scanner and present them in the final "Greenlight" report.
+
 ---
 
 ## The "Greenlight" Protocol (Mandatory Gate)
@@ -46,7 +50,7 @@ Before communicating with the user, the Agent MUST autonomously execute and veri
 Once the checklist is 100% complete and passing, the Agent MUST NOT push the code yet. 
 
 The Agent must output a final message to the user containing:
-1. A summary of the 5 checklist items (e.g., *"GPL Headers: Verified", "Scons Build: Passed", "Gesture Audit: Passed"*).
+1. A summary of the 6 checklist items (e.g., *"GPL Headers: Verified", "Scons Build: Passed", "Security Audit: 2 Warnings Found"*).
 2. The exact Git commands it intends to run (e.g., `git push origin main`, `git push origin v1.7.0`).
 3. The exact Question: **"Everything is verified. Do I have your final Greenlight to push this release to the remote repository?"**
 
