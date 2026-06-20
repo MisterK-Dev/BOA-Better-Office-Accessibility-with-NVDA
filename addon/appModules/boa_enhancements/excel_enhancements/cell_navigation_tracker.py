@@ -171,7 +171,7 @@ def _get_excel_app():
     if _cached_excel_app is not None:
         try:
             # Query a simple, fast property to verify the COM object is alive and responding
-            _ = _cached_excel_app.Version
+            _unused_version = _cached_excel_app.Version
             return _cached_excel_app
         except Exception:
             _cached_excel_app = None
@@ -254,7 +254,7 @@ def release_if_closed():
         # Check class name
         class_name = winUser.getClassName(hwnd)
         if class_name == "XLMAIN":
-            _, pid = winUser.getWindowThreadProcessID(hwnd)
+            _unused_thread_id, pid = winUser.getWindowThreadProcessID(hwnd)
             if pid == _cached_excel_pid:
                 found_window = True
                 return False # Stop enumeration
