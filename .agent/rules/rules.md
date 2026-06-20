@@ -74,7 +74,8 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 2. **No F-Strings:** You MUST NEVER use Python f-strings for user-facing text (e.g., `_("Row {r}")`). You must use `.format()` structures (e.g., `_("Row {r}").format(r=row_num)`) to ensure translation tools can extract the template cleanly.
 3. **Module Initialization**: Any main appModule or global settings module containing translatable strings must call `addonHandler.initTranslation()` at the module scope before using `_()`.
 4. **Auto-POT Generation:** Upon completing any new feature or modifying existing user-facing strings, you MUST automatically run the `scons pot` command to regenerate the master `BOA.pot` template.
-5. **Agent Auto-Translation Skill:** After generating the `.pot` file, if the user requests translation, you must execute the multi-lingual translation pipeline. Refer to `.agent/skills/translation_pipeline/translation_pipeline.md` for the exact step-by-step instructions.
+5. **Agent Auto-Translation Skill**: After generating the `.pot` file, if the user requests translation, you must execute the multi-lingual translation pipeline. Refer to `.agent/skills/translation_pipeline/translation_pipeline.md` for the exact step-by-step instructions.
+6. **Never Shadow Translation Function**: You MUST NEVER use the single underscore `_` as a throwaway variable (e.g., `excel, _, _, _, _ = get_info()`). Because NVDA globally injects `_` as the translation callable function, doing so overwrites it with a local string, completely destroying the localization pipeline and causing instant `TypeError` crashes. Always use explicit names like `_unused` instead.
 
 ## 15. Copyright & Licensing
 - **Mandatory Headers**: Every new Python (`.py`) file created or modified for this project MUST include the standard copyright header at the very top of the file:

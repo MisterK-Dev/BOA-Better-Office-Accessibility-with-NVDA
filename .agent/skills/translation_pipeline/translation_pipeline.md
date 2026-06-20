@@ -37,6 +37,7 @@ Treat the following terms as strict NVDA technical jargon. Use their accepted lo
 2. **The Formatting Anti-Pattern (CRITICAL):** Never wrap pure Python structural formatting strings (e.g., `_("{val} - {cell}{location}")`) in `gettext _()`. Only wrap actual human-readable text. Translators will inevitably break the braces, causing silent Python KeyErrors.
 3. **STRICT UTF-8 ENCODING:** You MUST write all output in strict, pure UTF-8 encoding. Do NOT hallucinate corrupted fallback bytes.
 4. **"Source of Truth" Readme Rule:** All 24 languages MUST translate their readmes exclusively from the master English manual (`addon/doc/en/readme.md`). Translating from secondary languages is strictly prohibited.
+5. **No Underscore Throwaway Variables (CRITICAL):** During script automation or translation updates, agents must never assign data to the single underscore `_` variable (e.g., `_, val = result`). Because `addonHandler.initTranslation()` makes `_` a global callable, shadowing it locally causes fatal translation formatting crashes downstream.
 
 ### 4. PO File Generation via Scripted JSON Injection (CRITICAL)
 **DO NOT allow subagents to physically edit `.po` files directly.** Direct editing causes GNU formatting corruption and trailing-newline crashes.

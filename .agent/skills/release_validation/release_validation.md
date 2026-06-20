@@ -16,7 +16,9 @@ Before communicating with the user, the Agent MUST autonomously execute and veri
 - Scan all newly added or modified `.py` files.
 - **Rule:** Every single user-facing English string (UI labels, dialog text, speech announcements) MUST be wrapped in the GNU `gettext` function `_()`.
 - **Rule:** No raw f-strings may be used for user text. They must use `.format()`.
+- **Rule:** The global translation function `_` must absolutely never be shadowed by local variable assignments.
 - **Action:** If any raw English UI strings are found without `_()`, halt validation, report the exact file and line number to the user, and ask to fix it.
+- **Action:** Run a `grep_search` across all Python files for shadowing patterns (such as `_, ` or `_ =`). If any throwaway underscore variables are found, do not rewrite them yourself. Compile a report of all exact files and line numbers where this occurs, include it in the final summary at the end of the complete check, and halt validation until the user explicitly grants permission to fix them.
 
 ### 2. GPL-2.0 Header Audit
 - Check the top 4 lines of every newly added or modified `.py` file.
