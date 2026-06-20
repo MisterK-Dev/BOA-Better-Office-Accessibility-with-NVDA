@@ -58,6 +58,16 @@ def inject_excel_rename_class(clsList):
         clsList.insert(0, ExcelSheetRenameEdit)
 
 
+def inject_evaluate_formula_dialog_class(clsList):
+    """
+    Injects the accessible Evaluate Formula evaluation hook into Buttons of legacy Excel dialogs.
+    ARCHITECTURAL INTENT: Tied strictly to the formula_auditing config. It allows tracking 
+    of dynamic formula evaluation text changes without completely overriding button logic.
+    """
+    if boa_config.get_feature_state("excel", "formula_auditing_announcements"):
+        from .formula_auditor import ExcelLegacyDialogButtonMixin
+        clsList.insert(0, ExcelLegacyDialogButtonMixin)
+
 def show_bulk_sheet_organizer(obj):
     if boa_config.get_feature_state("excel", "grid_mover"):
         import tones

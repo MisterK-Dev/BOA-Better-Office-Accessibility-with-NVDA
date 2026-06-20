@@ -43,6 +43,9 @@ class AppModule(CoreExcelAppModule):
         elif className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("excel", "safe_rich_edit"):
             clsList.insert(0, SafeRichEdit)
 
+        elif className == "bosa_sdm_XL9":
+            excel_manager.inject_evaluate_formula_dialog_class(clsList)
+
     def event_gainFocus(self, obj, nextHandler):
         try:
             # Safely grab the exact Process ID of the currently focused Excel instance without COM!

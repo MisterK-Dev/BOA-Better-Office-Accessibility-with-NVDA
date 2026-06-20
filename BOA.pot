@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-20 13:09+0530\n"
+"POT-Creation-Date: 2026-06-20 20:00+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,63 +35,63 @@ msgstr ""
 msgid "BOA (Better Office Accessibility)"
 msgstr ""
 
-#: addon\appModules\excel.py:123
+#: addon\appModules\excel.py:130
 msgid ""
 "Triggers the BOA command prefix. Press this, followed by a specific command "
 "key."
 msgstr ""
 
-#: addon\appModules\excel.py:161
+#: addon\appModules\excel.py:168
 msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
 msgstr ""
 
-#: addon\appModules\excel.py:166
+#: addon\appModules\excel.py:173
 msgid "Analyzes and announces the layout structure of the current sheet."
 msgstr ""
 
-#: addon\appModules\excel.py:171
+#: addon\appModules\excel.py:178
 msgid "Jumps the focus to the nearest cell block."
 msgstr ""
 
-#: addon\appModules\excel.py:176
+#: addon\appModules\excel.py:183
 msgid "Announces conditional formatting details for the current cell."
 msgstr ""
 
-#: addon\appModules\excel.py:181
+#: addon\appModules\excel.py:188
 msgid "Toggles monitoring on the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:186
+#: addon\appModules\excel.py:193
 msgid "Clears all monitored cells."
 msgstr ""
 
-#: addon\appModules\excel.py:191
+#: addon\appModules\excel.py:198
 msgid ""
 "Traces precedents and opens a dialog to jump to cells that provide data to "
 "the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:196
+#: addon\appModules\excel.py:203
 msgid ""
 "Traces dependents and opens a dialog to jump to cells that depend on the "
 "active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:201
+#: addon\appModules\excel.py:208
 msgid "Announces the raw formula of the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:206
+#: addon\appModules\excel.py:213
 msgid ""
 "Opens the accessible Power Editor dialog to edit the active cell's contents."
 msgstr ""
 
-#: addon\appModules\excel.py:211
+#: addon\appModules\excel.py:218
 msgid ""
 "Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
 msgstr ""
 
-#: addon\appModules\excel.py:216
+#: addon\appModules\excel.py:223
 msgid ""
 "Jumps focus back to the cell you were working on before navigating away."
 msgstr ""
@@ -354,126 +354,125 @@ msgstr ""
 msgid "Invalid Formula"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:119
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:231
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:120
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:230
 msgid "Error: Could not read Excel cell."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:144
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:146
 #, python-brace-format
 msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:147
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:149
 #, python-brace-format
 msgid "{address} set to slot {slot_str}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:159
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:154
 #, python-brace-format
 msgid "Slot {slot_str} is empty."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:169
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:166
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:407
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:424
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:441
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:457
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:539
 msgid "Error: Excel not accessible."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:176
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:181
 #, python-brace-format
-msgid "Slot {slot_str} lost. Workbook '{wb}' was renamed or closed."
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:189
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:187
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:210
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:357
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:209
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:343
 #, python-brace-format
 msgid " in {sheet}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:212
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:359
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:211
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:345
 #, python-brace-format
 msgid " in {sheet} of {wb}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:217
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:216
 #, python-brace-format
 msgid "Cannot read slot {slot_str}. Excel may be busy."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:238
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:237
 #, python-brace-format
 msgid "Continuous monitor OFF for {address}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:244
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:243
 #, python-brace-format
 msgid "Continuous monitor ON for {address}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:258
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:257
 msgid "All monitored and slotted cells cleared."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:361
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:347
 #, python-brace-format
 msgid "{cell_addr} updated: {current_val}{location_str}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:379
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:380
 #, python-brace-format
-msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
+msgid "Cannot jump. The workbook '{wb}' is closed."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:382
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:386
 #, python-brace-format
-msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:410
-msgid "Cannot jump. The workbook or sheet is no longer available."
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:393
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:415
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:398
 #, python-brace-format
 msgid "No cell assigned to slot {slot_num}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:432
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:415
 msgid "No previous cell to jump back to."
 msgstr ""
 
-#. We inherit dynamically to avoid global wx imports that break tests
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:478
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:433
 msgid "Active Cell Monitors"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:486
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:440
 msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:498
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:450
 #: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:42
 msgid "&Jump"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:502
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:453
 msgid "&Close"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:554
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:499
 #, python-brace-format
 msgid "Slot {slot} deleted"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:557
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:503
 msgid "Monitor deleted"
 msgstr ""
 
@@ -927,6 +926,15 @@ msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:407
 msgid "Dependents"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:532
+msgid "Clicks the button and dynamically announces formula evaluation changes."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:627
+#, python-brace-format
+msgid "{old_diff} evaluated to {new_diff}"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:88

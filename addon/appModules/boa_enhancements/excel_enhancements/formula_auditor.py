@@ -455,3 +455,192 @@ def show_precedents_dialog(obj):
 def show_dependents_dialog(obj):
     _show_auditing_dialog(False)
 
+
+class ExcelLegacyDialogButtonMixin(object):
+    """
+    Mixin injected into legacy Excel dialogs (e.g., Evaluate Formula).
+    """
+    def initOverlayClass(self):
+        try:
+            super(ExcelLegacyDialogButtonMixin, self).initOverlayClass()
+        except AttributeError:
+            pass
+        self._pre_texts = {}
+        self.bindGesture("kb:space", "evaluateAndRead")
+        self.bindGesture("kb:enter", "evaluateAndRead")
+        self.bindGesture("kb:alt+e", "evaluateAndRead")
+
+    def script_evaluateAndRead(self, gesture):
+        from logHandler import log
+        if getattr(self, "windowText", "") != "Evaluate Formula":
+            return gesture.send()
+            
+        def _get_display_model_text(windowHandle):
+            try:
+                import displayModel
+                import textInfos
+                info = displayModel.DisplayModelTextInfo(self.parent, textInfos.POSITION_ALL)
+                return info.text
+            except Exception as e:
+                log.debug(f"BOA DisplayModel error: {e}")
+                return ""
+                
+        def _get_uia_text(windowHandle):
+            try:
+                import UIAHandler
+                element = UIAHandler.handler.clientObject.ElementFromHandle(windowHandle)
+                if not element: return ""
+                
+                walker = UIAHandler.handler.clientObject.ControlViewWalker
+                
+                texts = []
+                def walk(el):
+                    if not el: return
+                    try:
+                        name = el.currentName
+                        if name: texts.append(name)
+                    except:
+                        pass
+                    child = walker.GetFirstChildElement(el)
+                    while child:
+                        walk(child)
+                        child = walker.GetNextSiblingElement(child)
+                        
+                walk(element)
+                return "\n".join(texts)
+            except Exception as e:
+                log.debug(f"BOA UIA error: {e}")
+                return ""
+
+        try:
+            hwnd = self.parent.windowHandle
+            dm_text = _get_display_model_text(hwnd)
+            uia_text = _get_uia_text(hwnd)
+            log.debug(f"BOA PRE-CLICK: DisplayModel text:\n{dm_text}")
+            log.debug(f"BOA PRE-CLICK: UIA text:\n{uia_text}")
+            self._pre_dm = dm_text
+            self._pre_uia = uia_text
+        except Exception as e:
+            log.debug(f"BOA pre-text extraction error: {e}")
+            
+        gesture.send()
+        
+        self._poll_count = 0
+        import core
+        core.callLater(50, self._poll_for_changes)
+
+    script_evaluateAndRead.__doc__ = _("Clicks the button and dynamically announces formula evaluation changes.")
+
+    def _poll_for_changes(self):
+        from logHandler import log
+        try:
+            import ctypes
+            hwnd = self.parent.windowHandle
+            if not ctypes.windll.user32.IsWindow(hwnd):
+                return
+            
+            def _get_display_model_text(windowHandle):
+                import displayModel
+                import textInfos
+                try:
+                    info = displayModel.DisplayModelTextInfo(self.parent, textInfos.POSITION_ALL)
+                    return info.text
+                except Exception:
+                    return ""
+                    
+            def _get_uia_text(windowHandle):
+                import UIAHandler
+                try:
+                    element = UIAHandler.handler.clientObject.ElementFromHandle(windowHandle)
+                    if not element: return ""
+                    walker = UIAHandler.handler.clientObject.ControlViewWalker
+                    texts = []
+                    def walk(el):
+                        if not el: return
+                        try:
+                            if el.currentControlType == UIAHandler.UIA_ButtonControlTypeId:
+                                return
+                            name = el.currentName
+                            if name and name.strip(): texts.append(name.strip())
+                        except:
+                            pass
+                        child = walker.GetFirstChildElement(el)
+                        while child:
+                            walk(child)
+                            child = walker.GetNextSiblingElement(child)
+                    walk(element)
+                    return "\n".join(texts)
+                except Exception:
+                    return ""
+
+            post_dm = _get_display_model_text(hwnd)
+            post_uia = _get_uia_text(hwnd)
+            
+            pre_uia_lines = set(getattr(self, "_pre_uia", "").split("\n"))
+            post_uia_lines = set(post_uia.split("\n"))
+            
+            new_lines = post_uia_lines - pre_uia_lines
+            old_lines = pre_uia_lines - post_uia_lines
+            
+            ignore_list = ("Evaluation:", "Reference:", "Evaluate Formula", "Evaluate", "Restart", "Step In", "Step Out", "Close", "Line up", "Line down", "Context help")
+            
+            valid_new = [x for x in new_lines if x not in ignore_list]
+            valid_old = [x for x in old_lines if x not in ignore_list]
+            
+            best_new = max(valid_new, key=len) if valid_new else ""
+            best_old = max(valid_old, key=len) if valid_old else ""
+            
+            pre_dm_lines = set(getattr(self, "_pre_dm", "").split("\n"))
+            post_dm_lines = set(post_dm.split("\n"))
+            new_dm = post_dm_lines - pre_dm_lines
+            old_dm = pre_dm_lines - post_dm_lines
+            
+            valid_dm_new = [x for x in new_dm if x and x.strip() not in ignore_list]
+            valid_dm_old = [x for x in old_dm if x and x.strip() not in ignore_list]
+            
+            best_dm_new = max(valid_dm_new, key=len) if valid_dm_new else ""
+            best_dm_old = max(valid_dm_old, key=len) if valid_dm_old else ""
+            
+            if not best_new and not best_dm_new:
+                self._poll_count += 1
+                if self._poll_count < 40:
+                    import core
+                    core.callLater(50, self._poll_for_changes)
+                return
+
+            def _extract_diff(old_str, new_str):
+                if not old_str or not new_str:
+                    return new_str
+                else:
+                    prefix_len = 0
+                    for i in range(min(len(old_str), len(new_str))):
+                        if old_str[i] == new_str[i]: prefix_len += 1
+                        else: break
+                    suffix_len = 0
+                    for i in range(min(len(old_str) - prefix_len, len(new_str) - prefix_len)):
+                        if old_str[-(i+1)] == new_str[-(i+1)]: suffix_len += 1
+                        else: break
+                        
+                    old_diff = old_str[prefix_len : len(old_str) - suffix_len]
+                    new_diff = new_str[prefix_len : len(new_str) - suffix_len]
+                    if old_diff:
+                        return _("{old_diff} evaluated to {new_diff}").format(old_diff=old_diff, new_diff=new_diff)
+                    else:
+                        return new_str
+
+            import ui
+            import tones
+            tones.beep(800, 40)
+            
+            if best_new:
+                speech_text = _extract_diff(best_old, best_new)
+            else:
+                speech_text = _extract_diff(best_dm_old, best_dm_new)
+                
+            ui.message(speech_text)
+            
+            self._pre_dm = post_dm
+            self._pre_uia = post_uia
+                    
+        except Exception as e:
+            log.debug(f"BOA announce error: {e}")
