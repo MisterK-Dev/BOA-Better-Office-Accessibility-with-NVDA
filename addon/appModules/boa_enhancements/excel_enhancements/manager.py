@@ -217,5 +217,25 @@ def handle_prefix_command(command_key, obj):
             from .cell_monitor import CellMonitorManager
             CellMonitorManager.assign_slot(command_key[-1], obj)
             return True
+    # Check for jumping to slots (alt+1 to alt+9)
+    if command_key.startswith("alt+") and len(command_key) == 5 and command_key[-1].isdigit() and command_key[-1] != '0':
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.jump_to_slot(command_key[-1], obj)
+            return True
+
+    # Jump Back
+    if command_key == '\\':
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.jump_back(obj)
+            return True
+
+    # Open Monitor Dialog
+    if command_key == 'alt+m':
+        if boa_config.get_feature_state("excel", "cell_monitor"):
+            from .cell_monitor import CellMonitorManager
+            CellMonitorManager.open_monitor_dialog(obj)
+            return True
 
     return False

@@ -100,9 +100,11 @@ class AppModule(CoreExcelAppModule):
             self.removeGestureBinding("kb:escape")
             self.removeGestureBinding("kb:backspace")
             self.removeGestureBinding("kb:f2")
+            self.removeGestureBinding("kb:\\")
             for char in "abcdefghijklmnopqrstuvwxyz0123456789":
                 self.removeGestureBinding(f"kb:{char}")
                 self.removeGestureBinding(f"kb:shift+{char}")
+                self.removeGestureBinding(f"kb:alt+{char}")
         except Exception:
             pass
 
@@ -116,9 +118,11 @@ class AppModule(CoreExcelAppModule):
         self.bindGesture("kb:escape", "cancelCommandPrefix")
         self.bindGesture("kb:backspace", "handleCommandKey")
         self.bindGesture("kb:f2", "handleCommandKey")
+        self.bindGesture("kb:\\", "handleCommandKey")
         for char in "abcdefghijklmnopqrstuvwxyz0123456789":
             self.bindGesture(f"kb:{char}", "handleCommandKey")
             self.bindGesture(f"kb:shift+{char}", "handleCommandKey")
+            self.bindGesture(f"kb:alt+{char}", "handleCommandKey")
     
     script_triggerCommandPrefix.__doc__ = _("Triggers the BOA command prefix. Press this, followed by a specific command key.")
 
@@ -194,6 +198,26 @@ class AppModule(CoreExcelAppModule):
         from appModules.boa_enhancements.excel_enhancements import formula_auditor
         formula_auditor.trace_dependents()
     script_traceDependents.__doc__ = _("Traces dependents and opens a dialog to jump to cells that depend on the active cell.")
+
+    def script_speakFormula(self, gesture):
+        from appModules.boa_enhancements.excel_enhancements import cell_editor
+        cell_editor.speak_formula()
+    script_speakFormula.__doc__ = _("Announces the raw formula of the active cell.")
+
+    def script_openPowerEditor(self, gesture):
+        from appModules.boa_enhancements.excel_enhancements import cell_editor
+        cell_editor.open_power_editor()
+    script_openPowerEditor.__doc__ = _("Opens the accessible Power Editor dialog to edit the active cell's contents.")
+
+    def script_openMonitorDialog(self, gesture):
+        from appModules.boa_enhancements.excel_enhancements import cell_monitor
+        cell_monitor.CellMonitorManager.open_monitor_dialog(api.getFocusObject())
+    script_openMonitorDialog.__doc__ = _("Opens the Active Cell Monitors dialog to manage and jump to monitored cells.")
+
+    def script_jumpBack(self, gesture):
+        from appModules.boa_enhancements.excel_enhancements import cell_monitor
+        cell_monitor.CellMonitorManager.jump_back(api.getFocusObject())
+    script_jumpBack.__doc__ = _("Jumps focus back to the cell you were working on before navigating away.")
 
     __gestures = {
         "kb:NVDA+e": "triggerCommandPrefix"
