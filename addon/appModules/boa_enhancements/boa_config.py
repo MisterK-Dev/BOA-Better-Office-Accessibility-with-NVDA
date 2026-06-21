@@ -38,7 +38,8 @@ DEFAULT_CONFIG = {
         "conditional_formatting": True,
         "cell_monitor": True,
         "end_of_data_radar": "counta",
-        "formula_auditing_announcements": True
+        "formula_auditing_announcements": True,
+        "merged_cell_tracking": True
     },
     "powerpoint": {
         "standard_color_grid": True,

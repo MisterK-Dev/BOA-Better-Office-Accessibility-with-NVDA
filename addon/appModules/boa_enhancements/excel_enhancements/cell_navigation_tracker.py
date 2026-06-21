@@ -438,9 +438,22 @@ class CellNavigationTracker(object):
 
                         _last_announced_address = address
                         
-                        if boa_config.get_feature_state("excel", "unselect_tracking"):
-                            spoken_address = address.replace(":", " through ")
-                            ui.message(_("{address} selected").format(address=spoken_address))
+                        is_merged = False
+                        try:
+                            # In COM, VBA True is often returned as -1, so we check for both
+                            if sel.MergeCells in (True, -1):
+                                is_merged = True
+                        except Exception:
+                            pass
+                            
+                        if is_merged:
+                            if boa_config.get_feature_state("excel", "merged_cell_tracking"):
+                                spoken_address = address.replace(":", " through ")
+                                ui.message(_("Merged cell, {address}").format(address=spoken_address))
+                        else:
+                            if boa_config.get_feature_state("excel", "unselect_tracking"):
+                                spoken_address = address.replace(":", " through ")
+                                ui.message(_("{address} selected").format(address=spoken_address))
                     else:
                         # Selection collapsed to single cell — reset tracker
                         _last_announced_address = None
