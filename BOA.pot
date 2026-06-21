@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-21 14:11+0530\n"
+"POT-Creation-Date: 2026-06-21 14:17+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,7 +190,7 @@ msgid "Enable Formula Auditor &features"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\boa_gui.py:120
-msgid "Explicitly announce boundaries of m&erged cells"
+msgid "Explicitly announce m&erged cells"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\boa_gui.py:122

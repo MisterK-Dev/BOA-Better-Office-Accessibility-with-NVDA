@@ -117,7 +117,7 @@ class BOASettingsPanel(SettingsPanel):
             "cell_monitor": _("Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"),
             "end_of_data_radar": _("Announce when there is no more data in the direction you are &navigating"),
             "formula_auditing_announcements": _("Enable Formula Auditor &features"),
-            "merged_cell_tracking": _("Explicitly announce boundaries of m&erged cells")
+            "merged_cell_tracking": _("Explicitly announce m&erged cells")
         }
         create_group("excel", _("Excel Enhancements"), excel_features)
         
