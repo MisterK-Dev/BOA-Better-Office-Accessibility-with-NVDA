@@ -6,192 +6,191 @@
 import addonHandler
 addonHandler.initTranslation()
 
-import controlTypes
-from logHandler import log
-import UIAHandler
-import wx
-import gui
-import threading
-import time
-import NVDAObjects.UIA
-import NVDAObjects.IAccessible
-import NVDAObjects.window.edit
-import winUser
-import keyboardHandler
-import core
-from scriptHandler import script
-import queueHandler
+from scriptHandler import script  # noqa: E402
 
 class QuickSheetMover(object):
-    """
-    Provides keyboard shortcuts for quickly reordering Excel worksheets.
-    ARCHITECTURAL INTENT: Native Excel lacks dedicated keyboard shortcuts for moving sheets.
-    This class intercepts NVDA+Shift+Arrow keys and uses COM automation to instantly shift
-    the active sheet left, right, to the start, or to the end, completely bypassing Excel's
-    clunky and inaccessible "Move or Copy" dialog.
-    """
-    # Gestures merged to the bottom __gestures block
+	"""
+	Provides keyboard shortcuts for quickly reordering Excel worksheets.
+	ARCHITECTURAL INTENT: Native Excel lacks dedicated keyboard shortcuts for moving sheets.
+	This class intercepts NVDA+Shift+Arrow keys and uses COM automation to instantly shift
+	the active sheet left, right, to the start, or to the end, completely bypassing Excel's
+	clunky and inaccessible "Move or Copy" dialog.
+	"""
+	# Gestures merged to the bottom __gestures block
 
-    def _move_sheet(self, direction):
-        """
-        Executes the sheet move operation using COM automation.
-        ARCHITECTURAL INTENT: Uses lower-level window handles (HWND) to fetch the IDispatch
-        pointer rather than `GetActiveObject`. This avoids the infamous `MK_E_UNAVAILABLE` 
-        COM error that occurs when Excel is busy or security boundaries isolate the process.
-        """
-        import comtypes.client
-        import comtypes.automation
-        import ctypes
-        import ui
-        try:
-            # Safely get the Excel object bypassing GetActiveObject to prevent MK_E_UNAVAILABLE errors
-            hwnd7 = None
-            if getattr(self, "windowClassName", "") == "EXCEL7":
-                hwnd7 = self.windowHandle
-            else:
-                # Crawl the window tree to find the raw EXCEL7 grid handle
-                hwnd = ctypes.windll.user32.FindWindowW("XLMAIN", None)
-                if hwnd:
-                    xldesk = ctypes.windll.user32.FindWindowExW(hwnd, 0, "XLDESK", None)
-                    if xldesk:
-                        hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
-            
-            if not hwnd7:
-                ui.message(_("Could not find Excel grid."))
-                return
-                
-            oleacc = ctypes.windll.oleacc
-            OBJID_NATIVEOM = -16
-            ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
-            
-            # Use AccessibleObjectFromWindow to force a back-door COM connection directly from the HWND
-            res = oleacc.AccessibleObjectFromWindow(
-                hwnd7, OBJID_NATIVEOM, 
-                ctypes.byref(comtypes.automation.IDispatch._iid_), 
-                ctypes.byref(ptr)
-            )
-            
-            if res != 0 or not ptr:
-                ui.message(_("Failed to hook Excel."))
-                return
-                
-            # Cast the IDispatch pointer into a usable COM object
-            win = comtypes.client.dynamic.Dispatch(ptr)
-            excel = win.Application
-            wb = excel.ActiveWorkbook
-            sheet = excel.ActiveSheet
-            
-            current_index = sheet.Index
-            total_sheets = wb.Sheets.Count
-            
-            if total_sheets <= 1:
-                ui.message(_("Only one sheet in workbook"))
-                return
-                
-            if direction == "left":
-                if current_index == 1:
-                    ui.message(_("Already at beginning"))
-                    return
-                # Move before the previous sheet
-                sheet.Move(wb.Sheets(current_index - 1))
-            elif direction == "right":
-                if current_index == total_sheets:
-                    ui.message(_("Already at end"))
-                    return
-                # To move right, we just move the right neighbor before us!
-                # (Excel's Move method lacks a reliable 'After' parameter when dynamically dispatched)
-                wb.Sheets(current_index + 1).Move(sheet)
-            elif direction == "start":
-                if current_index == 1:
-                    ui.message(_("Already at beginning"))
-                    return
-                # Move before the very first sheet
-                sheet.Move(wb.Sheets(1))
-            elif direction == "end":
-                if current_index == total_sheets:
-                    ui.message(_("Already at end"))
-                    return
-                # Two-step COM trick to move to the very end without the broken 'After' parameter:
-                # 1. Move our sheet BEFORE the very last sheet (if we aren't already just before it)
-                if current_index < total_sheets - 1:
-                    sheet.Move(wb.Sheets(total_sheets))
-                # 2. Move the last sheet BEFORE our sheet! This puts our sheet at the very end!
-                wb.Sheets(total_sheets).Move(sheet)
-                
-            # Moving sheets can sometimes change the active sheet (especially the 2-step end trick).
-            # Force our target sheet to be the active one so focus isn't lost.
-            sheet.Activate()
-            
-            new_index = excel.ActiveSheet.Index
-            sheet_name = excel.ActiveSheet.Name
-            ui.message(_("Moved {sheet} to position {new_idx} of {total}").format(
-                sheet=sheet_name, new_idx=new_index, total=total_sheets))
-        except Exception as e:
-            ui.message(_("Failed to move sheet"))
-            import logHandler
-            logHandler.log.error(f"ExcelGridMover error: {e}")
+	def _move_sheet(self, direction):
+		"""
+		Executes the sheet move operation using COM automation.
+		ARCHITECTURAL INTENT: Uses lower-level window handles (HWND) to fetch the IDispatch
+		pointer rather than `GetActiveObject`. This avoids the infamous `MK_E_UNAVAILABLE` 
+		COM error that occurs when Excel is busy or security boundaries isolate the process.
+		"""
+		import comtypes.client
+		import comtypes.automation
+		import ctypes
+		import ui
+		try:
+			# Safely get the Excel object bypassing GetActiveObject to prevent MK_E_UNAVAILABLE errors
+			hwnd7 = None
+			if getattr(self, "windowClassName", "") == "EXCEL7":
+				hwnd7 = self.windowHandle
+			else:
+				# Crawl the window tree to find the raw EXCEL7 grid handle
+				hwnd = ctypes.windll.user32.FindWindowW("XLMAIN", None)
+				if hwnd:
+					xldesk = ctypes.windll.user32.FindWindowExW(hwnd, 0, "XLDESK", None)
+					if xldesk:
+						hwnd7 = ctypes.windll.user32.FindWindowExW(xldesk, 0, "EXCEL7", None)
+			
+			if not hwnd7:
+				# Translators: Error shown when Excel cannot be found.
+				ui.message(_("Could not find Excel grid."))
+				return
+				
+			oleacc = ctypes.windll.oleacc
+			OBJID_NATIVEOM = -16
+			ptr = ctypes.POINTER(comtypes.automation.IDispatch)()
+			
+			# Use AccessibleObjectFromWindow to force a back-door COM connection directly from the HWND
+			res = oleacc.AccessibleObjectFromWindow(
+				hwnd7, OBJID_NATIVEOM, 
+				ctypes.byref(comtypes.automation.IDispatch._iid_), 
+				ctypes.byref(ptr)
+			)
+			
+			if res != 0 or not ptr:
+				# Translators: Error shown when BOA cannot connect to Excel.
+				ui.message(_("Failed to hook Excel."))
+				return
+				
+			# Cast the IDispatch pointer into a usable COM object
+			win = comtypes.client.dynamic.Dispatch(ptr)
+			excel = win.Application
+			wb = excel.ActiveWorkbook
+			sheet = excel.ActiveSheet
+			
+			current_index = sheet.Index
+			total_sheets = wb.Sheets.Count
+			
+			if total_sheets <= 1:
+				# Translators: Message shown when trying to move a sheet but there is only one sheet.
+				ui.message(_("Only one sheet in workbook"))
+				return
+				
+			if direction == "left":
+				if current_index == 1:
+					# Translators: Message shown when trying to move the sheet left but it is already the first sheet.
+					ui.message(_("Already at beginning"))
+					return
+				# Move before the previous sheet
+				sheet.Move(wb.Sheets(current_index - 1))
+			elif direction == "right":
+				if current_index == total_sheets:
+					# Translators: Message shown when trying to move the sheet right but it is already the last sheet.
+					ui.message(_("Already at end"))
+					return
+				# To move right, we just move the right neighbor before us!
+				# (Excel's Move method lacks a reliable 'After' parameter when dynamically dispatched)
+				wb.Sheets(current_index + 1).Move(sheet)
+			elif direction == "start":
+				if current_index == 1:
+					# Translators: Message shown when trying to move the sheet to the first position but it is already there.
+					ui.message(_("Already at beginning"))
+					return
+				# Move before the very first sheet
+				sheet.Move(wb.Sheets(1))
+			elif direction == "end":
+				if current_index == total_sheets:
+					# Translators: Message shown when trying to move the sheet to the last position but it is already there.
+					ui.message(_("Already at end"))
+					return
+				# Two-step COM trick to move to the very end without the broken 'After' parameter:
+				# 1. Move our sheet BEFORE the very last sheet (if we aren't already just before it)
+				if current_index < total_sheets - 1:
+					sheet.Move(wb.Sheets(total_sheets))
+				# 2. Move the last sheet BEFORE our sheet! This puts our sheet at the very end!
+				wb.Sheets(total_sheets).Move(sheet)
+				
+			# Moving sheets can sometimes change the active sheet (especially the 2-step end trick).
+			# Force our target sheet to be the active one so focus isn't lost.
+			sheet.Activate()
+			
+			new_index = excel.ActiveSheet.Index
+			sheet_name = excel.ActiveSheet.Name
+			# Translators: Success message when a sheet is moved.
+			ui.message(_("Moved {sheet} to position {new_idx} of {total}").format(
+				sheet=sheet_name, new_idx=new_index, total=total_sheets))
+		except Exception as e:
+			# Translators: Error message shown when moving the sheet fails.
+			ui.message(_("Failed to move sheet"))
+			import logHandler
+			logHandler.log.error(f"ExcelGridMover error: {e}")
 
-    # (script import moved to top of file)
+	# (script import moved to top of file)
 
-    @script(
-        description="Moves the active Excel sheet to the left.",
-        category=_("BOA (Better Office Accessibility)")
-    )
-    def script_moveSheetLeft(self, gesture):
-        """
-        Command to move the current sheet one position to the left.
-        ARCHITECTURAL INTENT: Maps standard NVDA structural navigation keys to sheet movement.
-        """
-        self._move_sheet("left")
+	@script(
+		description="Moves the active Excel sheet to the left.",
+		# Translators: The category name for NVDA gestures belonging to this add-on.
+		category=_("BOA (Better Office Accessibility)")
+	)
+	def script_moveSheetLeft(self, gesture):
+		"""
+		Command to move the current sheet one position to the left.
+		ARCHITECTURAL INTENT: Maps standard NVDA structural navigation keys to sheet movement.
+		"""
+		self._move_sheet("left")
 
-    @script(
-        description="Moves the active Excel sheet to the right.",
-        category=_("BOA (Better Office Accessibility)")
-    )
-    def script_moveSheetRight(self, gesture):
-        """
-        Command to move the current sheet one position to the right.
-        
-        Architectural Intent & Considerations:
-        Maps standard NVDA structural navigation keys to sheet movement.
-        """
-        self._move_sheet("right")
+	@script(
+		description="Moves the active Excel sheet to the right.",
+		# Translators: The category name for NVDA gestures belonging to this add-on.
+		category=_("BOA (Better Office Accessibility)")
+	)
+	def script_moveSheetRight(self, gesture):
+		"""
+		Command to move the current sheet one position to the right.
+		
+		Architectural Intent & Considerations:
+		Maps standard NVDA structural navigation keys to sheet movement.
+		"""
+		self._move_sheet("right")
 
-    @script(
-        description="Moves the active Excel sheet to the very beginning of the workbook.",
-        category=_("BOA (Better Office Accessibility)")
-    )
-    def script_moveSheetStart(self, gesture):
-        """
-        Command to move the current sheet to the first position.
-        
-        Architectural Intent & Considerations:
-        Maps standard NVDA structural navigation keys to sheet movement.
-        """
-        self._move_sheet("start")
+	@script(
+		description="Moves the active Excel sheet to the very beginning of the workbook.",
+		# Translators: The category name for NVDA gestures belonging to this add-on.
+		category=_("BOA (Better Office Accessibility)")
+	)
+	def script_moveSheetStart(self, gesture):
+		"""
+		Command to move the current sheet to the first position.
+		
+		Architectural Intent & Considerations:
+		Maps standard NVDA structural navigation keys to sheet movement.
+		"""
+		self._move_sheet("start")
 
-    @script(
-        description="Moves the active Excel sheet to the very end of the workbook.",
-        category=_("BOA (Better Office Accessibility)")
-    )
-    def script_moveSheetEnd(self, gesture):
-        """
-        Command to move the current sheet to the last position.
-        
-        Architectural Intent & Considerations:
-        Maps standard NVDA structural navigation keys to sheet movement.
-        """
-        self._move_sheet("end")
+	@script(
+		description="Moves the active Excel sheet to the very end of the workbook.",
+		# Translators: The category name for NVDA gestures belonging to this add-on.
+		category=_("BOA (Better Office Accessibility)")
+	)
+	def script_moveSheetEnd(self, gesture):
+		"""
+		Command to move the current sheet to the last position.
+		
+		Architectural Intent & Considerations:
+		Maps standard NVDA structural navigation keys to sheet movement.
+		"""
+		self._move_sheet("end")
 
-    __gestures = {
-        "kb:NVDA+shift+leftArrow": "moveSheetLeft",
-        "kb:NVDA+shift+rightArrow": "moveSheetRight",
-        "kb:NVDA+shift+left": "moveSheetLeft",
-        "kb:NVDA+shift+right": "moveSheetRight",
-        "kb:NVDA+shift+pageUp": "moveSheetLeft",
-        "kb:NVDA+shift+pageDown": "moveSheetRight",
-        "kb:NVDA+shift+home": "moveSheetStart",
-        "kb:NVDA+shift+end": "moveSheetEnd",
-        "kb:NVDA+alt+leftArrow": "moveSheetLeft",
-        "kb:NVDA+alt+rightArrow": "moveSheetRight",
-    }
+	__gestures = {
+		"kb:NVDA+shift+leftArrow": "moveSheetLeft",
+		"kb:NVDA+shift+rightArrow": "moveSheetRight",
+		"kb:NVDA+shift+left": "moveSheetLeft",
+		"kb:NVDA+shift+right": "moveSheetRight",
+		"kb:NVDA+shift+pageUp": "moveSheetLeft",
+		"kb:NVDA+shift+pageDown": "moveSheetRight",
+		"kb:NVDA+shift+home": "moveSheetStart",
+		"kb:NVDA+shift+end": "moveSheetEnd",
+		"kb:NVDA+alt+leftArrow": "moveSheetLeft",
+		"kb:NVDA+alt+rightArrow": "moveSheetRight",
+	}

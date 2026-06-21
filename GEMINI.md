@@ -54,11 +54,18 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 │       │   ├── scripts/
 │       │   ├── api_matrix.json
 │       │   └── compatibility_guard.md
+│       ├── compliance_auditor/
+│       │   ├── scripts/
+│       │   ├── static/
+│       │   └── SKILL.md
 │       ├── gesture_auditor/
 │       │   ├── scripts/
 │       │   └── gesture_auditor.md
 │       ├── release_validation/
 │       │   └── release_validation.md
+│       ├── security_auditor/
+│       │   ├── scripts/
+│       │   └── SKILL.md
 │       └── translation_pipeline/
 │           ├── scripts/
 │           └── translation_pipeline.md
@@ -238,6 +245,7 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 ├── manifest-translated.ini.tpl
 ├── manifest.ini.tpl
 ├── sconstruct
+├── standards.txt
 └── style.css
 ```
 

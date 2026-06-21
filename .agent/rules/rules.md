@@ -75,7 +75,8 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 3. **Module Initialization**: Any main appModule or global settings module containing translatable strings must call `addonHandler.initTranslation()` at the module scope before using `_()`.
 4. **Auto-POT Generation:** Upon completing any new feature or modifying existing user-facing strings, you MUST automatically run the `scons pot` command to regenerate the master `BOA.pot` template.
 5. **Agent Auto-Translation Skill**: After generating the `.pot` file, if the user requests translation, you must execute the multi-lingual translation pipeline. Refer to `.agent/skills/translation_pipeline/translation_pipeline.md` for the exact step-by-step instructions.
-6. **Never Shadow Translation Function**: You MUST NEVER use the single underscore `_` as a throwaway variable (e.g., `excel, _, _, _, _ = get_info()`). Because NVDA globally injects `_` as the translation callable function, doing so overwrites it with a local string, completely destroying the localization pipeline and causing instant `TypeError` crashes. Always use explicit names like `_unused` instead.
+7. **Mandatory Translator Comments**: Every single translatable string `_("string")` MUST have a preceding comment starting with `# Translators: ` directly above it explaining the context to translators.
+8. **Never Shadow Translation Function**: You MUST NEVER use the single underscore `_` as a throwaway variable (e.g., `excel, _, _, _, _ = get_info()`). Because NVDA globally injects `_` as the translation callable function, doing so overwrites it with a local string, completely destroying the localization pipeline and causing instant `TypeError` crashes. Always use explicit names like `_unused` instead.
 
 ## 15. Copyright & Licensing
 - **Mandatory Headers**: Every new Python (`.py`) file created or modified for this project MUST include the standard copyright header at the very top of the file:
@@ -88,3 +89,19 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 
 ## 16. Branch Syncing Architecture
 - **Syncing Stable to Dev**: When syncing release updates, large translations, or finalized tags from `main` back into the `archive-dev-BOA` branch, you must **always use a Squash Merge** (`git merge --squash main`). This keeps the archive history perfectly clean as a standalone log without inheriting `main`'s granular commit history.
+
+## 17. NVDA Official Code Standards
+- **Indentation & Encoding**: You must strictly use Tabs (one per level) for indentation. Python files must be UTF-8 and text files must use LF (Unix) line endings.
+- **Naming Conventions**: 
+  - Variables, properties, and internal functions must use `camelCase` starting with a lowercase letter.
+  - Classes must use `PascalCase`.
+  - Constants must use `UPPER_SNAKE_CASE`.
+  - Booleans must start with a question word (`isEnabled`, `shouldSpeak`, `hasChildren`) and avoid double negatives.
+  - Scripts must be prefixed with `script_` followed by camelCase (e.g., `script_reportCurrentLine`).
+  - Event Handlers must be prefixed with `event_`, with `object` and `action` separated by underscores (e.g., `event_gainFocus`, `event_appModule_gainFocus`).
+- **Type Hinting & Docstrings**: 
+  - All functions, arguments, and variables should be strictly typed using PEP-484 hints (e.g., using `X | None` instead of `Optional[X]`).
+  - Docstrings must use Sphinx format. **Do not** put type information inside docstrings (use annotations instead).
+  - Document class constructors inside `__init__`, not at the top of the class.
+- **Inclusive Language**: Avoid ableist or historical master/slave metaphors. Use `blocklist/allowlist` instead of `blacklist/whitelist`, `confidence check` instead of `sanity check`, and `placeholder` instead of `dummy`.
+- **Compliance Checks**: Periodically trigger the `compliance_auditor` skill to verify the repository against these NVDA standards.
