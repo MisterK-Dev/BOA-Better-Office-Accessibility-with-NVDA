@@ -229,6 +229,20 @@ def _get_excel_app():
 
     return None
 
+def suspend_tracker_and_release():
+    """
+    Instantly pauses the background 100ms COM polling loop and checks for Excel closure.
+    
+    Architectural Intent & Considerations:
+    If this loop runs continuously while Excel is minimized, it causes a global performance 
+    drain on NVDA by firing COM requests across process boundaries endlessly. By setting 
+    _drift_timer_running to False when Excel loses focus, we preserve CPU. The tracker will 
+    automatically revive itself via _get_excel_app() the instant the user returns to the grid.
+    """
+    global _drift_timer_running
+    _drift_timer_running = False
+    release_if_closed()
+
 def release_if_closed():
     """
     Checks if there are any EXCEL.EXE windows remaining for the cached PID.

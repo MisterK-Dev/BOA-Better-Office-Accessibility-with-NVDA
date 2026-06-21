@@ -65,9 +65,11 @@ class AppModule(CoreExcelAppModule):
     def event_appModule_loseFocus(self, *args, **kwargs):
         try:
             import core
-            from appModules.boa_enhancements.excel_enhancements.cell_navigation_tracker import release_if_closed
-            # Defer by 200ms to allow Windows to update the focused HWND state before checking
-            core.callLater(200, release_if_closed)
+            from appModules.boa_enhancements.excel_enhancements.cell_navigation_tracker import suspend_tracker_and_release
+            # Defer by 200ms to allow Windows to update the focused HWND state before checking.
+            # We call suspend_tracker_and_release to instantly kill the background CellNavigationTracker
+            # polling loop, ensuring BOA consumes 0% background CPU while the user is in other apps.
+            core.callLater(200, suspend_tracker_and_release)
         except Exception:
             pass
             
