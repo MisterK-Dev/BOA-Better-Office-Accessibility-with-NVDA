@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-20 20:00+0530\n"
+"POT-Creation-Date: 2026-06-21 14:00+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,11 @@ msgstr ""
 
 #: addon\appModules\excel.py:22 addon\appModules\powerpnt.py:21
 #: addon\appModules\winword.py:20
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:880
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:895
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:894
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:909
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:923
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:937
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:951
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:138
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:149
 #: addon\appModules\boa_enhancements\excel_enhancements\quick_sheet_mover.py:162
@@ -35,63 +35,63 @@ msgstr ""
 msgid "BOA (Better Office Accessibility)"
 msgstr ""
 
-#: addon\appModules\excel.py:130
+#: addon\appModules\excel.py:132
 msgid ""
 "Triggers the BOA command prefix. Press this, followed by a specific command "
 "key."
 msgstr ""
 
-#: addon\appModules\excel.py:168
+#: addon\appModules\excel.py:170
 msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
 msgstr ""
 
-#: addon\appModules\excel.py:173
+#: addon\appModules\excel.py:175
 msgid "Analyzes and announces the layout structure of the current sheet."
 msgstr ""
 
-#: addon\appModules\excel.py:178
+#: addon\appModules\excel.py:180
 msgid "Jumps the focus to the nearest cell block."
 msgstr ""
 
-#: addon\appModules\excel.py:183
+#: addon\appModules\excel.py:185
 msgid "Announces conditional formatting details for the current cell."
 msgstr ""
 
-#: addon\appModules\excel.py:188
+#: addon\appModules\excel.py:190
 msgid "Toggles monitoring on the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:193
+#: addon\appModules\excel.py:195
 msgid "Clears all monitored cells."
 msgstr ""
 
-#: addon\appModules\excel.py:198
+#: addon\appModules\excel.py:200
 msgid ""
 "Traces precedents and opens a dialog to jump to cells that provide data to "
 "the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:203
+#: addon\appModules\excel.py:205
 msgid ""
 "Traces dependents and opens a dialog to jump to cells that depend on the "
 "active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:208
+#: addon\appModules\excel.py:210
 msgid "Announces the raw formula of the active cell."
 msgstr ""
 
-#: addon\appModules\excel.py:213
+#: addon\appModules\excel.py:215
 msgid ""
 "Opens the accessible Power Editor dialog to edit the active cell's contents."
 msgstr ""
 
-#: addon\appModules\excel.py:218
+#: addon\appModules\excel.py:220
 msgid ""
 "Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
 msgstr ""
 
-#: addon\appModules\excel.py:223
+#: addon\appModules\excel.py:225
 msgid ""
 "Jumps focus back to the cell you were working on before navigating away."
 msgstr ""
@@ -216,7 +216,7 @@ msgid "PowerPoint Enhancements"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\boa_gui.py:134
-msgid "&Word: Prevent NVDA crashes in Word text fields"
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\boa_gui.py:136
@@ -477,117 +477,117 @@ msgid "Monitor deleted"
 msgstr ""
 
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:145
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:429
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:443
 #, python-brace-format
 msgid "{address} selected"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:345
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:359
 msgid "unselected"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:555
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:569
 #, python-brace-format
 msgid "Row {row_num} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:558
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:560
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:572
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:574
 #, python-brace-format
 msgid "Rows {start} through {end} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:562
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:576
 msgid "Crossed heavily fragmented hidden rows"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:625
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:639
 #, python-brace-format
 msgid "Column {col_letter} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:628
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:630
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:642
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:644
 #, python-brace-format
 msgid "Columns {start} through {end} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:632
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:646
 msgid "Crossed heavily fragmented hidden columns"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:687
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:701
 msgid "No more data below"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:694
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:708
 msgid "No more data above"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:701
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:715
 msgid "No more data to the right"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:708
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:722
 msgid "No more data to the left"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:780
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:794
 msgid "Panes frozen"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:782
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:796
 msgid "Panes unfrozen"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:819
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:833
 #, python-brace-format
 msgid "{sheet_name} deleted"
 msgstr ""
 
 #. -1 is xlSheetVisible
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:847
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:861
 #, python-brace-format
 msgid "{sheet} hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:864
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:878
 msgid "Sheet hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:867
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:881
 msgid "Sheet unhidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1008
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1022
 #, python-brace-format
 msgid "Row {num}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1010
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1024
 #, python-brace-format
 msgid "Rows {start} through {end}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1025
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1039
 #, python-brace-format
 msgid "Column {col}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1028
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1042
 #, python-brace-format
 msgid "Columns {start} through {end}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1032
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1046
 msgid "hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1032
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1046
 msgid "unhidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1033
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_navigation_tracker.py:1047
 #, python-brace-format
 msgid "{address} {state}"
 msgstr ""

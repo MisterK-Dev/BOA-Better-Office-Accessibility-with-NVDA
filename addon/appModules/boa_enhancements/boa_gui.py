@@ -131,7 +131,7 @@ class BOASettingsPanel(SettingsPanel):
         
         # Word Group
         word_features = {
-            "safe_rich_edit": _("&Word: Prevent NVDA crashes in Word text fields")
+            "safe_rich_edit": _("&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)")
         }
         create_group("word", _("Word Enhancements"), word_features)
 
