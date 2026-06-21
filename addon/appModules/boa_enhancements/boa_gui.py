@@ -108,7 +108,7 @@ class BOASettingsPanel(SettingsPanel):
         excel_features = {
             "grid_mover": _("&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"),
             "sheet_rename": _("Use accessible Sheet &Rename dialog instead of native edit field"),
-            "safe_rich_edit": _("Prevent NVDA &crashes in Excel text fields"),
+            "safe_rich_edit": _("Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"),
             "unselect_tracking": _("Announce when a m&ulti-cell selection is unexpectedly lost"),
             "hidden_row_skip": _("Proactively announce when navigating past &hidden rows or columns"),
             "sheet_layout_analyzer": _("Enable Sheet &Layout Analyzer via NVDA+E, L"),
@@ -125,7 +125,7 @@ class BOASettingsPanel(SettingsPanel):
             "standard_color_grid": _("&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"),
             "hex_edit": _("Ensure the He&x Color edit field is properly labeled"),
             "rgb_edit": _("Ensure the R&GB Color edit fields are properly labeled"),
-            "safe_rich_edit": _("Prevent NVDA cr&ashes in PowerPoint text fields")
+            "safe_rich_edit": _("Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)")
         }
         create_group("powerpoint", _("PowerPoint Enhancements"), ppt_features)
         
