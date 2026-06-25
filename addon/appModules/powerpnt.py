@@ -25,6 +25,7 @@ class AppModule(CorePowerpntAppModule):
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		super(AppModule, self).chooseNVDAObjectOverlayClasses(obj, clsList)
+		
 		from appModules.boa_enhancements import boa_config
 		className = getattr(obj, "windowClassName", "")
 		
@@ -69,7 +70,7 @@ class AppModule(CorePowerpntAppModule):
 			self.bindGesture(f"kb:shift+{i}", "handleCommandKey")
 	
 	# Translators: Describes the script that triggers the BOA command prefix for PowerPoint.
-	script_triggerCommandPrefix.__doc__ = _("Triggers the BOA command prefix for PowerPoint. Press this, followed by a specific command key.")
+	script_triggerCommandPrefix.__doc__ = _("Triggers the BOA command prefix. Press this, followed by a specific command key.")
 
 	def script_cancelCommandPrefix(self, gesture):
 		import tones

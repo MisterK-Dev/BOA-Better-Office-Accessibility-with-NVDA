@@ -31,6 +31,7 @@ class AppModule(CoreExcelAppModule):
 		then BOA inserts its enhancements at position 0 (highest priority) on top.
 		"""
 		super(AppModule, self).chooseNVDAObjectOverlayClasses(obj, clsList)
+		
 		from appModules.boa_enhancements import boa_config
 		className = getattr(obj, "windowClassName", "")
 		

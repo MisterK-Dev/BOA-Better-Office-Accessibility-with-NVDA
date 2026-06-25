@@ -54,6 +54,8 @@ class CellMonitorManager:
 		"""
 		cls._isMonitoringActive = False
 		cls._active_excel = None
+		import gc
+		gc.collect()
 		log.info("BOA: Stopped Cell Monitor Loop.")
 
 	@classmethod
@@ -97,7 +99,11 @@ class CellMonitorManager:
 				sheet = excel.ActiveSheet.Name
 				wb = excel.ActiveWorkbook.Name
 				address = cell.Address(False, False) # relative A1 without verbose $ symbols
+				
 				val = str(cell.Text) if cell.Text is not None else ""
+				if "comtypes" in val.lower():
+					val = ""
+				val = val.strip()
 				return excel, wb, sheet, address, val
 		except Exception as e:
 			log.debugWarning(f"BOA CellMonitor: Failed to get cell info: {e}")
@@ -140,9 +146,16 @@ class CellMonitorManager:
 		if is_replace:
 			old_monitor_key = f"{old_info['wb']}|{old_info['sheet']}|{old_info['cell']}"
 			if old_monitor_key != monitor_key:
-				# Keep it in monitors if it's assigned to another slot or manually monitored,
-				# but to keep things simple for now, we leave it in the monitor list unless cleared.
-				pass
+				# Check if the old cell is still assigned to ANY other slot
+				is_still_slotted = False
+				for s_key, s_info in cls._slots.items():
+					if f"{s_info['wb']}|{s_info['sheet']}|{s_info['cell']}" == old_monitor_key:
+						is_still_slotted = True
+						break
+				
+				# If it's not in any other slot, delete it from background monitors
+				if not is_still_slotted and old_monitor_key in cls._monitors:
+					del cls._monitors[old_monitor_key]
 			# Translators: Message when a monitored slot is overwritten.
 			ui.message(_("{old_cell} has been replaced by {address} for slot {slot_str}").format(
 				old_cell=old_info['cell'], address=address, slot_str=slot_str))
@@ -196,18 +209,28 @@ class CellMonitorManager:
 				
 			target_sheet = target_wb.Sheets(info["sheet"])
 			target_cell = target_sheet.Range(info["cell"])
+			
 			try:
 				val = str(target_cell.Text)
+				if "comtypes" in val.lower():
+					val = ""
 			except Exception:
 				val = ""
 			if not val or val.startswith("###"):
 				raw_val = target_cell.Value
 				val = str(raw_val) if raw_val is not None else ""
+				if "comtypes" in val.lower():
+					val = ""
 			
+			val = val.strip()
 			info["val"] = val
 			monitor_key = f"{info['wb']}|{info['sheet']}|{info['cell']}"
 			if monitor_key in cls._monitors:
 				cls._monitors[monitor_key] = val
+				
+			spoken_val = val
+			if not spoken_val:
+				spoken_val = _("Empty cell")
 				
 			if current_wb == info['wb'] and current_sheet == info['sheet']:
 				location_str = ""
@@ -219,7 +242,7 @@ class CellMonitorManager:
 				location_str = _(" in {sheet} of {wb}").format(sheet=info['sheet'], wb=info['wb'])
 				
 			ui.message("{val} - {cell}{location_str}".format(
-				val=val, cell=info['cell'], location_str=location_str))
+				val=spoken_val, cell=info['cell'], location_str=location_str))
 		except Exception:
 			# Translators: Error when Excel is too busy to read the slot.
 			ui.message(_("Cannot read slot {slot_str}. Excel may be busy.").format(slot_str=slot_str))
@@ -287,6 +310,7 @@ class CellMonitorManager:
 		core.callLater(150, cls._check_all_monitors)
 
 		if not cls._monitors:
+			cls._stop_timer()
 			return
 
 		try:
@@ -300,6 +324,17 @@ class CellMonitorManager:
 			if not excel:
 				return
 
+			# Safety Gate 0: Global Excel Closure Detection
+			# If the user closed Excel visually, we must immediately release cls._active_excel
+			# otherwise the COM reference keeps EXCEL.EXE alive as a zombie process.
+			try:
+				import ctypes
+				if not ctypes.windll.user32.FindWindowW("XLMAIN", None):
+					cls.clear_all(None)
+					return
+			except Exception:
+				pass
+
 			# Safety Gate 1: Mid-Calculation Trap
 			try:
 				# xlDone = 0. If Excel is calculating (1) or pending (2), wait.
@@ -308,34 +343,53 @@ class CellMonitorManager:
 			except Exception:
 				pass
 
+			# Safety Gate 2: Ghost Workbook Cleanup & Rename Detection
+			open_wbs = None
+			try:
+				# Fetch all open workbook names. If this fails, Excel is busy (Edit Mode).
+				open_wbs = [wb.Name for wb in excel.Workbooks]
+			except Exception:
+				pass
+
+			to_remove = []
+
 			for key, last_val in cls._monitors.items():
 				wb_name, sheet_name, cell_addr = key.split("|")
 				
-				try:
-					# Robustly find workbook object without proxy wrapping
-					target_wb = None
-					for w in excel.Workbooks:
-						w_name = w.Name
-						if w_name == wb_name or w_name.split('.')[0] == wb_name.split('.')[0]:
-							target_wb = w
-							break
-					
-					if not target_wb:
-						continue # Skip this tick, might be in a background Excel instance
+				# Active detection of renamed/lost Workbooks and Sheets
+				if open_wbs is not None:
+					if wb_name not in open_wbs:
+						to_remove.append(key)
+						continue
 						
-					# Safely verify sheet exists
-					sheet_names = [s.Name for s in target_wb.Sheets]
-					if sheet_name not in sheet_names:
-						continue # Skip this tick
+					# If workbook exists, safely verify sheet exists.
+					try:
+						target_wb = excel.Workbooks(wb_name)
+						sheet_names = [s.Name for s in target_wb.Sheets]
+						if sheet_name not in sheet_names:
+							to_remove.append(key)
+							continue
+					except Exception:
+						# If checking sheets fails due to Edit Mode, safely ignore for this tick.
+						pass
+
+				try:
+					target_wb = excel.Workbooks(wb_name)
 					target_sheet = target_wb.Sheets(sheet_name)
 					target_cell = target_sheet.Range(cell_addr)
 					
 					# Safety Gate 3: Text vs Value display trap
 					current_val = str(target_cell.Text) if target_cell.Text is not None else ""
+					if "comtypes" in current_val.lower():
+						current_val = ""
 					# If column is too narrow, Excel returns ######. Fallback to raw value.
-					if current_val.startswith("###"):
+					if not current_val or current_val.startswith("###"):
 						raw_val = target_cell.Value
 						current_val = str(raw_val) if raw_val is not None else ""
+						if "comtypes" in current_val.lower():
+							current_val = ""
+							
+					current_val = current_val.strip()
 					
 					if current_val != last_val:
 						cls._monitors[key] = current_val
@@ -364,6 +418,27 @@ class CellMonitorManager:
 							cell_addr=cell_addr, current_val=current_val, location_str=location_str))
 				except Exception:
 					pass
+
+			for key in to_remove:
+				del cls._monitors[key]
+				wb_closed, sheet_closed, cell_addr = key.split("|")
+				
+				# Check if it belongs to a slot and clear it
+				slot_cleared = None
+				for s_key, s_info in list(cls._slots.items()):
+					if s_info["wb"] == wb_closed and s_info["sheet"] == sheet_closed and s_info["cell"] == cell_addr:
+						slot_cleared = s_key
+						del cls._slots[s_key]
+				
+				import ui
+				if slot_cleared:
+					# Translators: Message when a monitored slot is cleared because the workbook or sheet was closed or renamed.
+					ui.message(_("Monitor for Slot {slot_cleared} lost due to name change or closure.").format(
+						slot_cleared=slot_cleared))
+				else:
+					# Translators: Message when a continuously monitored cell is cleared because the workbook or sheet was closed or renamed.
+					ui.message(_("Monitor cleared: {sheet_closed} in {wb_closed} lost.").format(
+						sheet_closed=sheet_closed, wb_closed=wb_closed))
 
 		except Exception:
 			pass
@@ -473,9 +548,9 @@ class ActiveMonitorsDialog(wx.Dialog):
 		
 		btnSizer = wx.StdDialogButtonSizer()
 		# Translators: Label for the Jump button.
-		jumpBtn = wx.Button(self, wx.ID_OK, label=_("&Jump"))
-		jumpBtn.Bind(wx.EVT_BUTTON, self.onJump)
-		btnSizer.AddButton(jumpBtn)
+		self.jumpBtn = wx.Button(self, wx.ID_OK, label=_("&Jump"))
+		self.jumpBtn.Bind(wx.EVT_BUTTON, self.onJump)
+		btnSizer.AddButton(self.jumpBtn)
 		# Translators: Label for the Close button.
 		closeBtn = wx.Button(self, wx.ID_CANCEL, label=_("&Close"))
 		closeBtn.Bind(wx.EVT_BUTTON, self.onClose)
@@ -488,6 +563,7 @@ class ActiveMonitorsDialog(wx.Dialog):
 		
 		if self.listBox.GetCount() > 0:
 			self.listBox.SetSelection(0)
+		self.listBox.SetFocus()
 			
 	def populate_list(self):
 		self.listBox.Clear()
@@ -510,12 +586,25 @@ class ActiveMonitorsDialog(wx.Dialog):
 				display_text = f"Monitor: {sheet}!{cell} ({val})"
 				self.listBox.Append(display_text)
 				self.mapping.append((False, key))
+				
+		if self.listBox.GetCount() == 0:
+			# Translators: Message in dialog when no cells are monitored
+			self.listBox.Append(_("No cells are currently being monitored."))
+			self.mapping.append((False, None))
+			if hasattr(self, 'jumpBtn'):
+				self.jumpBtn.Disable()
+		else:
+			if hasattr(self, 'jumpBtn'):
+				self.jumpBtn.Enable()
 
 	def onCharHook(self, evt):
 		if evt.GetKeyCode() == wx.WXK_DELETE:
 			idx = self.listBox.GetSelection()
 			if idx != wx.NOT_FOUND:
 				is_slot, key = self.mapping[idx]
+				if key is None:
+					evt.Skip()
+					return
 				if is_slot:
 					info = self.slots[key]
 					monitor_key = f"{info['wb']}|{info['sheet']}|{info['cell']}"
@@ -544,6 +633,8 @@ class ActiveMonitorsDialog(wx.Dialog):
 		idx = self.listBox.GetSelection()
 		if idx != wx.NOT_FOUND:
 			is_slot, key = self.mapping[idx]
+			if key is None:
+				return
 			if is_slot:
 				info = self.slots[key]
 				CellMonitorManager._jump_to_address(self.excel, info["wb"], info["sheet"], info["cell"])
