@@ -48,7 +48,9 @@ DEFAULT_CONFIG = {
 		"safe_rich_edit": True
 	},
 	"word": {
-		"safe_rich_edit": True
+		"safe_rich_edit": True,
+		"fix_list_double_read": True,
+		"read_word_notes_inline": "native"
 	}
 }
 
@@ -81,7 +83,7 @@ def load_config():
 							# If the user had a saved preference for this feature, apply it
 							if feature in saved_config[app]:
 								val = saved_config[app][feature]
-								if feature in ["auto_announce_first_block", "end_of_data_radar"]:
+								if feature in ["auto_announce_first_block", "end_of_data_radar", "read_word_notes_inline"]:
 									if feature == "auto_announce_first_block":
 										if val is True:
 											val = "one_time"
@@ -93,6 +95,11 @@ def load_config():
 											val = "counta"
 										elif val is False or val == "False":
 											val = "off"
+									elif feature == "read_word_notes_inline":
+										if val is True:
+											val = "inline"
+										elif val is False:
+											val = "native"
 									_current_config[app][feature] = str(val)
 								else:
 									_current_config[app][feature] = bool(val)
@@ -135,7 +142,7 @@ def set_feature_state(app, feature, state):
 	if _current_config is None:
 		load_config()
 	if app in _current_config and feature in _current_config[app]:
-		if feature in ["auto_announce_first_block", "end_of_data_radar"]:
+		if feature in ["auto_announce_first_block", "end_of_data_radar", "read_word_notes_inline"]:
 			_current_config[app][feature] = str(state)
 		else:
 			_current_config[app][feature] = bool(state)

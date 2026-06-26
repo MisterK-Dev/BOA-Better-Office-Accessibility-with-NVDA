@@ -45,3 +45,4 @@ def handle_prefix_command(command_key, obj):
 	"""
 	# No prefix commands currently assigned for Word, but ready for future!
 	return False
+

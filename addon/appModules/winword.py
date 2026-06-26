@@ -3,6 +3,7 @@
 # This file is covered by the GNU General Public License (GPL), version 2.
 
 import api
+import controlTypes
 import addonHandler
 
 addonHandler.initTranslation()
@@ -26,10 +27,16 @@ class AppModule(CoreWinwordAppModule):
 		super(AppModule, self).chooseNVDAObjectOverlayClasses(obj, clsList)
 		
 		from appModules.boa_enhancements import boa_config
+		from appModules.boa_enhancements.word_enhancements.list_navigator import BOAWordDocumentOverlay
+		from appModules.boa_enhancements.word_enhancements.notes_reader import BOAWordNotesOverlay
 		className = getattr(obj, "windowClassName", "")
 		
 		if className in ("RichEdit20W", "RichEdit50W") and boa_config.get_feature_state("word", "safe_rich_edit"):
 			clsList.insert(0, SafeRichEdit)
+			
+		if className in ("_WwG", "OpusApp") or getattr(obj, "role", None) == controlTypes.Role.DOCUMENT:
+			clsList.insert(0, BOAWordDocumentOverlay)
+			clsList.insert(0, BOAWordNotesOverlay)
 
 	def _clear_command_bindings(self):
 		try:

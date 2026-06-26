@@ -100,6 +100,24 @@ class BOASettingsPanel(SettingsPanel):
 					sizer.Add(cb)
 					group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
 					self.checkboxes[app_name][feature_key] = cb
+				elif feature_key == "read_word_notes_inline":
+					sizer = wx.BoxSizer(wx.HORIZONTAL)
+					lbl = wx.StaticText(self, label=label)
+					sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
+					# Translators: Options for inline reading of Word notes
+					choices = [_("Default NVDA Behavior (Reference Only)"), _("Read Note Content Inline")]
+					cb = wx.Choice(self, choices=choices)
+					val = config.get(app_name, {}).get(feature_key, "native")
+					
+					if val == "inline":
+						cb.SetSelection(1)
+					else:
+						cb.SetSelection(0)
+					# Translators: Tooltip for inline reading of Word notes.
+					cb.SetToolTip(_("Choose whether NVDA should automatically read the text of footnotes and endnotes inline with the document text."))
+					sizer.Add(cb)
+					group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
+					self.checkboxes[app_name][feature_key] = cb
 				else:
 					cb = wx.CheckBox(self, label=label)
 					# Set initial value from config
@@ -155,7 +173,11 @@ class BOASettingsPanel(SettingsPanel):
 		# Word Group
 		word_features = {
 			# Translators: Label for the SafeRichEdit in Word setting checkbox.
-			"safe_rich_edit": _("&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)")
+			"safe_rich_edit": _("&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"),
+			# Translators: Label for the list double-read fix in Word setting checkbox.
+			"fix_list_double_read": _("Prevent &double-reading of list items during paragraph navigation"),
+			# Translators: Label for reading word notes inline setting.
+			"read_word_notes_inline": _("Footnotes and Endnotes reading &mode:")
 		}
 		# Translators: Title of the group box containing Word specific settings.
 		create_group("word", _("Word Enhancements"), word_features)
@@ -191,6 +213,12 @@ class BOASettingsPanel(SettingsPanel):
 					else:
 						val = "counta"
 					boa_config.set_feature_state(app, feature_key, val)
+				elif feature_key == "read_word_notes_inline":
+					sel = cb.GetSelection()
+					if sel == 1:
+						boa_config.set_feature_state(app, feature_key, "inline")
+					else:
+						boa_config.set_feature_state(app, feature_key, "native")
 				else:
 					boa_config.set_feature_state(app, feature_key, cb.GetValue())
 		
