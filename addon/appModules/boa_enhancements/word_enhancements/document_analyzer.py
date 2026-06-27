@@ -129,16 +129,37 @@ class WordDocumentAnalyzer:
 			wdActiveEndPageNumber = 3
 			wdFirstCharacterLineNumber = 10
 			wdFirstCharacterColumnNumber = 9
+			wdWithInTable = 12
 			
-			page = self.selection.Information(wdActiveEndPageNumber)
-			line = self.selection.Information(wdFirstCharacterLineNumber)
-			col = self.selection.Information(wdFirstCharacterColumnNumber)
-			
-			# Translators: Page: {page}, Line: {line}, Column: {col}
-			html_parts.append(f"<li>{_('Page: {page}, Line: {line}, Column: {col}').format(page=page, line=line, col=col)}</li>")
-		except Exception:
-			# Translators: Error when cursor position cannot be read
-			html_parts.append(f"<li>{_('Could not retrieve cursor position.')}</li>")
+			get_info = getattr(self.selection, "Information", getattr(self.selection, "information", None))
+			if get_info:
+				page = get_info(wdActiveEndPageNumber)
+				line = get_info(wdFirstCharacterLineNumber)
+				col = get_info(wdFirstCharacterColumnNumber)
+				in_table = get_info(wdWithInTable)
+				
+				# Get current section
+				try:
+					sec_idx = self.selection.Sections(1).Index
+				except Exception:
+					sec_idx = 1
+				
+				if in_table:
+					try:
+						cell = self.selection.Cells(1)
+						r_idx = cell.RowIndex
+						c_idx = cell.ColumnIndex
+						# Translators: Context inside a table
+						html_parts.append(f"<li>{_('In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})').format(sec=sec_idx, page=page, row=r_idx, col=c_idx)}</li>")
+					except Exception:
+						# Translators: Context inside a table without exact cell
+						html_parts.append(f"<li>{_('In Section {sec}, Page {page} (Inside a Table)').format(sec=sec_idx, page=page)}</li>")
+				else:
+					# Translators: Context in normal text
+					html_parts.append(f"<li>{_('In Section {sec}, Page {page}, Line {line}, Column {col}').format(sec=sec_idx, page=page, line=line, col=col)}</li>")
+			else:
+				# Translators: Error when cursor position cannot be read
+				html_parts.append(f"<li>{_('Could not retrieve cursor position.')}</li>")
 		html_parts.append("</ul>")
 		yield
 		
@@ -146,6 +167,20 @@ class WordDocumentAnalyzer:
 		# Translators: Heading for document properties
 		html_parts.append(f"<h2>{_('2. Document Properties & Options')}</h2><ul>")
 		try:
+			try:
+				prot = self.doc.ProtectionType
+				prot_map = {
+					-1: _("Unprotected"),
+					0: _("Allow Only Revisions (Tracked Changes)"),
+					1: _("Allow Only Comments"),
+					2: _("Allow Only Form Fields")
+				}
+				prot_str = prot_map.get(prot, _("Unknown Protection"))
+				# Translators: Document protection status
+				html_parts.append(f"<li><strong>{_('Document Protection: {status}').format(status=prot_str)}</strong></li>")
+			except Exception:
+				pass
+				
 			try:
 				name = self.doc.Name
 				# Translators: File Name: {name}
@@ -164,7 +199,11 @@ class WordDocumentAnalyzer:
 			
 			for prop_name, label in props:
 				try:
-					val = self.doc.BuiltInDocumentProperties(prop_name).Value
+					prop = self.doc.BuiltInDocumentProperties(prop_name)
+					try:
+						val = prop.Value()
+					except TypeError:
+						val = prop.Value
 					if val:
 						html_parts.append(f"<li>{label}: {val}</li>")
 				except Exception:
@@ -173,12 +212,27 @@ class WordDocumentAnalyzer:
 			if self.app:
 				try:
 					opt_obj = self.app.Options
-					spell = _("Enabled") if opt_obj.CheckSpellingAsYouType else _("Disabled")
-					gramm = _("Enabled") if opt_obj.CheckGrammarAsYouType else _("Disabled")
+					spell = _("Enabled") if getattr(opt_obj, "CheckSpellingAsYouType", False) else _("Disabled")
+					gramm = _("Enabled") if getattr(opt_obj, "CheckGrammarAsYouType", False) else _("Disabled")
+					gramm_spell = _("Enabled") if getattr(opt_obj, "CheckGrammarWithSpelling", False) else _("Disabled")
+					
 					# Translators: Check spelling as you type: {status}
 					html_parts.append(f"<li>{_('Check spelling as you type: {status}').format(status=spell)}</li>")
 					# Translators: Check grammar as you type: {status}
 					html_parts.append(f"<li>{_('Check grammar as you type: {status}').format(status=gramm)}</li>")
+					# Translators: Check grammar with spelling
+					html_parts.append(f"<li>{_('Check grammar with spelling: {status}').format(status=gramm_spell)}</li>")
+					
+					track = _("Enabled") if getattr(self.doc, "TrackRevisions", False) else _("Disabled")
+					# Translators: Track revisions status
+					html_parts.append(f"<li>{_('Track Revisions (Recording): {status}').format(status=track)}</li>")
+					
+					try:
+						hidden = _("Visible") if self.doc.ActiveWindow.View.ShowHiddenText else _("Hidden")
+						# Translators: Hidden text visibility
+						html_parts.append(f"<li>{_('Display hidden text on screen: {status}').format(status=hidden)}</li>")
+					except Exception:
+						pass
 				except Exception:
 					pass
 		except Exception:
