@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-27 19:16+0530\n"
+"POT-Creation-Date: 2026-06-27 21:49+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,7 +131,7 @@ msgid "Analysis cancelled."
 msgstr ""
 
 #. Translators: Message spoken when an async background task fails.
-#: addon\appModules\boa_enhancements\async_engine.py:69
+#: addon\appModules\boa_enhancements\async_engine.py:81
 msgid "An error occurred during analysis."
 msgstr ""
 
@@ -939,9 +939,7 @@ msgid "Operator {op}"
 msgstr ""
 
 #. Translators: Fallback for an unknown formula value.
-#. Translators: Unknown
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:215
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:161
 msgid "Unknown"
 msgstr ""
 
@@ -1495,234 +1493,325 @@ msgid "Color {hex_val}"
 msgstr ""
 
 #. Translators: Analyzing document, please wait...
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:57
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:50
 msgid "Analyzing document, please wait..."
 msgstr ""
 
 #. Translators: Cannot access Word application.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:101
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:56
 #: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:24
 msgid "Cannot access Word application."
 msgstr ""
 
-#. Translators: No active document found.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:105
-msgid "No active document found."
+#. Translators: Message spoken when auditor fails to launch
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:66
+msgid "Failed to start document analyzer."
 msgstr ""
 
 #. Translators: Main title of the Document Analyzer report
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:110
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:123
 msgid "Word Document Analyzer Report"
 msgstr ""
 
-#. Translators: Word Document Analyzer
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:119
-msgid "Word Document Analyzer"
+#. 1. Cursor Context
+#. Translators: Heading for cursor context
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:127
+msgid "1. Cursor Context"
 msgstr ""
 
-#. Translators: Heading for the layout section of the analyzer
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:132
-msgid "1. Document & Page Layout"
-msgstr ""
-
-#. Translators: Total Sections: {count}
+#. Translators: Page: {page}, Line: {line}, Column: {col}
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:138
 #, python-brace-format
-msgid "Total Sections: {count}"
+msgid "Page: {page}, Line: {line}, Column: {col}"
 msgstr ""
 
-#. Translators: Portrait
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:146
-msgid "Portrait"
+#. Translators: Error when cursor position cannot be read
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:141
+msgid "Could not retrieve cursor position."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:146
-msgid "Landscape"
+#. 2. Document Properties & Options
+#. Translators: Heading for document properties
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:147
+msgid "2. Document Properties & Options"
 msgstr ""
 
-#. Translators: Orientation (Section 1): {orient}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:148
-#, python-brace-format
-msgid "Orientation (Section 1): {orient}"
-msgstr ""
-
-#. Translators: Top
+#. Translators: File Name: {name}
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:152
-msgid "Top"
+#, python-brace-format
+msgid "File Name: {name}"
 msgstr ""
 
-#. Translators: Center
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:154
-msgid "Center"
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:157
+msgid "Author"
 msgstr ""
 
-#. Translators: Justified
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:156
-msgid "Justified"
-msgstr ""
-
-#. Translators: Bottom
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:158
-msgid "Bottom"
+msgid "Creation Date"
 msgstr ""
 
-#. Translators: Vertical Alignment: {align}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:163
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:159
+msgid "Revision Number"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:160
+msgid "Title"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:161
+msgid "Subject"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:162
+msgid "Company"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:176
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:177
+msgid "Enabled"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:176
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:177
+msgid "Disabled"
+msgstr ""
+
+#. Translators: Check spelling as you type: {status}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:179
 #, python-brace-format
-msgid "Vertical Alignment: {align}"
+msgid "Check spelling as you type: {status}"
 msgstr ""
 
-#. Translators: Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:171
-#, python-brace-format
-msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
-msgstr ""
-
-#. Translators: Margins: {margins}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:174
-#, python-brace-format
-msgid "Margins: {margins}"
-msgstr ""
-
-#. Translators: Warning: First page has a different header/footer.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:178
-msgid "Warning: First page has a different header/footer."
-msgstr ""
-
-#. Translators: Warning: Odd and even pages have different headers/footers.
+#. Translators: Check grammar as you type: {status}
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:181
-msgid "Warning: Odd and even pages have different headers/footers."
+#, python-brace-format
+msgid "Check grammar as you type: {status}"
 msgstr ""
 
-#. Translators: Could not retrieve layout statistics.
+#. Translators: Error when properties cannot be read
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:186
-msgid "Could not retrieve layout statistics."
+msgid "Could not retrieve document properties."
 msgstr ""
 
-#. Translators: Heading for the structural section of the analyzer
+#. 3. Overall Statistics
+#. Translators: Heading for overall statistics
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:192
-msgid "2. Structural Breakdown"
+msgid "3. Overall Statistics"
 msgstr ""
 
 #. Translators: Pages: {pages}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:203
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:210
 #, python-brace-format
 msgid "Pages: {pages}"
 msgstr ""
 
 #. Translators: Words (including footnotes): {words}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:205
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:212
 #, python-brace-format
 msgid "Words (including footnotes): {words}"
 msgstr ""
 
 #. Translators: Characters (including footnotes): {chars}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:207
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:214
 #, python-brace-format
 msgid "Characters (including footnotes): {chars}"
 msgstr ""
 
 #. Translators: Text Paragraphs: {paras}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:209
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:216
 #, python-brace-format
 msgid "Text Paragraphs: {paras}"
 msgstr ""
 
 #. Translators: Structural Paragraphs (incl. blank lines & tables): {paras}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:211
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:218
 #, python-brace-format
 msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
 msgstr ""
 
 #. Translators: Lines: {lines}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:213
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:220
 #, python-brace-format
 msgid "Lines: {lines}"
 msgstr ""
 
-#. Translators: Could not retrieve structural statistics.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:217
+#. Translators: Error when structural statistics cannot be read
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:223
 msgid "Could not retrieve structural statistics."
 msgstr ""
 
-#. Translators: Heading for the accessibility section of the analyzer
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:223
-msgid "3. Accessibility Audit"
-msgstr ""
-
-#. Translators: Images (Inline): {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:244
-#, python-brace-format
-msgid "Images (Inline): {count}"
-msgstr ""
-
-#. Translators: Warning: {count} images are missing alternative text!
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:247
-#, python-brace-format
-msgid "Warning: {count} images are missing alternative text!"
-msgstr ""
-
-#. Translators: Warning: {count} floating shapes detected. These are often inaccessible.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:254
-#, python-brace-format
-msgid ""
-"Warning: {count} floating shapes detected. These are often inaccessible."
-msgstr ""
-
-#. Translators: Tables: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:260
-#, python-brace-format
-msgid "Tables: {count}"
-msgstr ""
-
-#. Translators: Hyperlinks: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:266
-#, python-brace-format
-msgid "Hyperlinks: {count}"
-msgstr ""
-
-#. Translators: Could not retrieve accessibility statistics.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:271
-msgid "Could not retrieve accessibility statistics."
-msgstr ""
-
-#. Translators: Heading for the collaboration section of the analyzer
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:277
+#. 4. Collaboration Status
+#. Translators: Heading for collaboration status
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:229
 msgid "4. Collaboration Status"
 msgstr ""
 
 #. Translators: Comments: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:283
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:233
 #, python-brace-format
 msgid "Comments: {count}"
 msgstr ""
 
 #. Translators: Unresolved Tracked Changes: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:289
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:238
 #, python-brace-format
 msgid "Unresolved Tracked Changes: {count}"
 msgstr ""
 
 #. Translators: Unresolved Tracked Changes: 0
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:292
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:241
 msgid "Unresolved Tracked Changes: 0"
 msgstr ""
 
 #. Translators: Footnotes: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:297
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:245
 #, python-brace-format
 msgid "Footnotes: {count}"
 msgstr ""
 
 #. Translators: Endnotes: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:302
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:249
 #, python-brace-format
 msgid "Endnotes: {count}"
 msgstr ""
 
-#. Translators: Could not retrieve collaboration statistics.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:307
+#. Translators: Error when collaboration stats cannot be read
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:252
 msgid "Could not retrieve collaboration statistics."
+msgstr ""
+
+#. 5. Accessibility Audit Summary
+#. Translators: Heading for accessibility summary
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:258
+msgid "5. Accessibility Audit Summary"
+msgstr ""
+
+#. Async loop yield
+#. Translators: Images (Inline): {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:275
+#, python-brace-format
+msgid "Images (Inline): {count}"
+msgstr ""
+
+#. Translators: Warning: {count} images are missing alternative text!
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:278
+#, python-brace-format
+msgid "Warning: {count} images are missing alternative text!"
+msgstr ""
+
+#. Translators: Warning: {count} floating shapes detected. These are often inaccessible.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:283
+#, python-brace-format
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr ""
+
+#. Translators: Hyperlinks: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:287
+#, python-brace-format
+msgid "Hyperlinks: {count}"
+msgstr ""
+
+#. Translators: Error when accessibility stats cannot be read
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:290
+msgid "Could not retrieve accessibility statistics."
+msgstr ""
+
+#. 6. Layout & Structural Breakdown
+#. Translators: Heading for layout breakdown
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:296
+msgid "6. Layout & Structural Breakdown"
+msgstr ""
+
+#. Sections
+#. Translators: Heading for Sections list
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:300
+msgid "Sections"
+msgstr ""
+
+#. Translators: No sections found message
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:305
+msgid "No sections found."
+msgstr ""
+
+#. Translators: Section heading number
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:308
+#, python-brace-format
+msgid "Section {num}"
+msgstr ""
+
+#. Translators: Portrait Orientation
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:314
+msgid "Portrait"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:314
+msgid "Landscape"
+msgstr ""
+
+#. Translators: Orientation info
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:316
+#, python-brace-format
+msgid "Orientation: {orient}"
+msgstr ""
+
+#. Translators: Margin dimensions string
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:323
+#, python-brace-format
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr ""
+
+#. Translators: Margins info
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:325
+#, python-brace-format
+msgid "Margins: {margins}"
+msgstr ""
+
+#. Translators: Different first page header warning
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:329
+msgid "Warning: Different first page header/footer."
+msgstr ""
+
+#. Translators: Odd/Even header warning
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:332
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr ""
+
+#. Tables
+#. Translators: Heading for Tables list
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:342
+msgid "Tables"
+msgstr ""
+
+#. Translators: No tables found message
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:347
+msgid "No tables found."
+msgstr ""
+
+#. Translators: Table heading number
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:350
+#, python-brace-format
+msgid "Table {num}"
+msgstr ""
+
+#. Translators: Table dimensions
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:357
+#, python-brace-format
+msgid "Dimensions: {rows} Rows, {cols} Columns"
+msgstr ""
+
+#. Translators: Error when table dimensions cannot be read due to merged cells
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:360
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr ""
+
+#. Translators: Merged cells warning
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:364
+msgid "Warning: Contains merged or split cells."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:377
+msgid "Word Document Analyzer"
 msgstr ""
 
 #. Translators: Initial message when starting the format auditor
@@ -1736,50 +1825,50 @@ msgid "Failed to start formatting audit."
 msgstr ""
 
 #. Translators: Formats the location of an error using Page, Line, and Paragraph numbers.
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:84
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:91
 #, python-brace-format
 msgid "<b>Page {page}, Line {line}</b> (Para {num})"
 msgstr ""
 
 #. Translators: Formats the location using Page and Paragraph numbers.
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:87
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:94
 #, python-brace-format
 msgid "<b>Page {page}</b> (Para {num})"
 msgstr ""
 
 #. Translators: Formats the location using only the Paragraph number.
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:90
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:97
 #, python-brace-format
 msgid "<b>Paragraph {num}</b>"
 msgstr ""
 
 #. Translators: Formats the location of a table error using Page and Table numbers.
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:102
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:109
 #, python-brace-format
 msgid "<b>Page {page}</b> (Table {num})"
 msgstr ""
 
 #. Translators: Formats the location using only the Table number.
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:105
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:112
 #, python-brace-format
 msgid "<b>Table {num}</b>"
 msgstr ""
 
 #. Translators: Format auditor warning about blank lines
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:130
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:137
 #, python-brace-format
 msgid ""
 "{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
 msgstr ""
 
 #. Translators: Format auditor warning about empty headings
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:136
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:143
 #, python-brace-format
 msgid "{loc}: Empty heading detected."
 msgstr ""
 
 #. Translators: Format auditor warning about manual line breaks
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:143
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:150
 #, python-brace-format
 msgid ""
 "{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
@@ -1787,14 +1876,14 @@ msgid ""
 msgstr ""
 
 #. Translators: Format auditor warning about spacebar indents
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:148
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:155
 #, python-brace-format
 msgid ""
 "{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
 msgstr ""
 
 #. Translators: Format auditor warning about tab abuse
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:153
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:160
 #, python-brace-format
 msgid ""
 "{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
@@ -1802,33 +1891,33 @@ msgid ""
 msgstr ""
 
 #. Translators: Format auditor warning about mixed font sizes
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:160
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:167
 #, python-brace-format
 msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
 msgstr ""
 
 #. Translators: Format auditor warning about mixed font names
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:164
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:171
 #, python-brace-format
 msgid "{loc}: Inconsistent font types detected within the same paragraph."
 msgstr ""
 
 #. Translators: Format auditor warning about text highlights
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:169
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:176
 #, python-brace-format
 msgid "{loc}: Highlighted text detected."
 msgstr ""
 
 #. 0 means wdListNoNumbering
 #. Translators: Format auditor warning about fake lists
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:177
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:184
 #, python-brace-format
 msgid ""
 "{loc}: Fake list detected. Manual numbering used instead of built-in list."
 msgstr ""
 
 #. Translators: Format auditor warning about skipped heading levels
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:185
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:192
 #, python-brace-format
 msgid ""
 "{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
@@ -1836,7 +1925,7 @@ msgid ""
 msgstr ""
 
 #. Translators: Format auditor warning about merged cells
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:206
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:213
 #, python-brace-format
 msgid ""
 "{loc}: Table contains merged or split cells. This breaks screen reader grid "
@@ -1844,7 +1933,7 @@ msgid ""
 msgstr ""
 
 #. Translators: Format auditor warning about missing table headers
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:211
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:218
 #, python-brace-format
 msgid ""
 "{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
@@ -1852,41 +1941,41 @@ msgid ""
 msgstr ""
 
 #. Translators: Success message when no errors found.
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:230
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:237
 msgid ""
 "<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
 "inconsistencies found! The document looks clean.</p>"
 msgstr ""
 
 #. Translators: Title of the browseable message window
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:230
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:265
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:237
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:272
 msgid "Format Audit Results"
 msgstr ""
 
 #. Translators: Heading for the format audit report
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:235
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:242
 msgid "Format & Accessibility Audit Report"
 msgstr ""
 
 #. Translators: Summary of paragraphs and errors
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:241
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:248
 #, python-brace-format
 msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
 msgstr ""
 
 #. Translators: Category heading for structural errors
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:245
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:252
 msgid "1. Structural Accessibility Blockers (WCAG)"
 msgstr ""
 
 #. Translators: Category heading for visual layout errors
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:252
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:259
 msgid "2. Visual Layout & Spacing Issues"
 msgstr ""
 
 #. Translators: Category heading for font errors
-#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:259
+#: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:266
 msgid "3. Font & Style Inconsistencies"
 msgstr ""
 
