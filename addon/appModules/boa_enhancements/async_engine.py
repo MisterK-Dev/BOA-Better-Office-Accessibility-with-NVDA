@@ -24,10 +24,10 @@ class AsyncCOMTask:
 	scheduling the next chunk safely via core.callLater.
 	"""
 	
-	def __init__(self, generator, on_complete=None, chunk_size=50):
+	def __init__(self, generator, on_complete=None, max_tick_time=0.05):
 		self.generator = generator
 		self.on_complete = on_complete
-		self.chunk_size = chunk_size
+		self.max_tick_time = max_tick_time
 		self.is_running = False
 		
 	def start(self):
@@ -50,8 +50,20 @@ class AsyncCOMTask:
 			ui.message(_("Analysis cancelled."))
 			return
 			
+		import time
+		
+		# We use time.perf_counter() instead of time.time() because it is a high-resolution 
+		# clock specifically designed for benchmarking short durations. It is immune to 
+		# background system clock updates (like NTP syncs or Daylight Savings Time).
+		start_time = time.perf_counter()
+		
 		try:
-			for _ in range(self.chunk_size):
+			# Dynamic Time-Based Processing:
+			# Instead of processing a fixed number of items (which might take 1ms if empty, 
+			# or 200ms if massive), we use a while loop to process as many items as physically 
+			# possible until exactly `max_tick_time` (e.g. 50ms) has passed. This guarantees 
+			# 100% CPU utilization during the tick without ever causing NVDA to freeze.
+			while time.perf_counter() - start_time < self.max_tick_time:
 				next(self.generator)
 		except StopIteration as e:
 			# Finished successfully

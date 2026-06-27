@@ -28,7 +28,7 @@ class WordFormatAuditor:
 			ui.message(_("Auditing document formatting, please wait..."))
 			
 			auditor = WordFormatAuditor(doc)
-			task = AsyncCOMTask(auditor._audit_generator(), on_complete=auditor._on_complete, chunk_size=30)
+			task = AsyncCOMTask(auditor._audit_generator(), on_complete=auditor._on_complete, max_tick_time=0.05)
 			task.start()
 		except Exception as e:
 			log.error(f"BOA WordFormatAuditor Error: {e}", exc_info=True)
@@ -69,12 +69,19 @@ class WordFormatAuditor:
 		self.struct_errors = []
 		
 	def _format_loc(self, para_idx, p):
+		# Word COM constants for the Range.Information property.
 		wdActiveEndPageNumber = 3
 		wdFirstCharacterLineNumber = 10
 		page = -1
 		line = -1
 		try:
+			# Get absolute page number
 			page = p.Information(wdActiveEndPageNumber)
+			
+			# Architectural Note: In default Print Layout view, wdFirstCharacterLineNumber 
+			# returns the line number relative to the top of the CURRENT PAGE (e.g. Line 15), 
+			# which is why we pair it with the Page Number to give the user exact coordinates.
+			# Word COM does not have a native "Universal Line" property across multiple pages.
 			line = p.Information(wdFirstCharacterLineNumber)
 		except Exception:
 			pass

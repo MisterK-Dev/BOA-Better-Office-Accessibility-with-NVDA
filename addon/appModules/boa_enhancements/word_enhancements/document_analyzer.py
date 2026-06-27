@@ -195,6 +195,13 @@ class WordDocumentAnalyzer:
 			pages = doc.ComputeStatistics(WD_STAT_PAGES, True)
 			words = doc.ComputeStatistics(WD_STAT_WORDS, True)
 			chars = doc.ComputeStatistics(WD_STAT_CHARS, True)
+			# Architectural Note: 
+			# `doc.Paragraphs.Count` returns the raw structural paragraph count. This includes 
+			# completely empty lines, lines inside tables, and structural markers.
+			# `doc.ComputeStatistics(WD_STAT_PARAGRAPHS)` only counts actual text paragraphs 
+			# that contain words, largely ignoring tables and empty lines. We display both 
+			# because screen readers navigate via the structural count, but sighted users 
+			# think of paragraphs via the text count.
 			paras_structural = doc.Paragraphs.Count
 			paras_text = doc.ComputeStatistics(WD_STAT_PARAGRAPHS, True)
 			lines = doc.ComputeStatistics(WD_STAT_LINES, True)
