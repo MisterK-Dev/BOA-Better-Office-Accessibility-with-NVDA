@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# Acknowledgment: COM property mappings and layout extraction logic derived from wordAccessEnhancement by paulber19.
 # This file is covered by the GNU General Public License (GPL), version 2.
 # See the file COPYING.txt for more details.
 
@@ -76,6 +77,8 @@ class WordDocumentAnalyzer:
 		selection = getattr(obj, "winwordSelectionObject", None)
 		if not doc:
 			doc = getattr(obj, "WinwordDocumentObject", None)
+		if not selection:
+			selection = getattr(obj, "WinwordSelectionObject", None)
 			
 		# 2. Try UIA Word Window Object's document property
 		if not doc:
@@ -160,6 +163,10 @@ class WordDocumentAnalyzer:
 			else:
 				# Translators: Error when cursor position cannot be read
 				html_parts.append(f"<li>{_('Could not retrieve cursor position.')}</li>")
+		except Exception:
+			# Translators: General error retrieving cursor context
+			html_parts.append(f"<li>{_('Error retrieving cursor context.')}</li>")
+			
 		html_parts.append("</ul>")
 		yield
 		
@@ -260,6 +267,16 @@ class WordDocumentAnalyzer:
 			paras_text = self.doc.ComputeStatistics(WD_STAT_PARAGRAPHS, True)
 			lines = self.doc.ComputeStatistics(WD_STAT_LINES, True)
 			
+			try:
+				list_count = self.doc.Lists.Count
+			except Exception:
+				list_count = 0
+				
+			try:
+				spell_count = self.doc.SpellingErrors.Count
+			except Exception:
+				spell_count = 0
+			
 			# Translators: Pages: {pages}
 			html_parts.append(f"<li>{_('Pages: {pages}').format(pages=pages)}</li>")
 			# Translators: Words (including footnotes): {words}
@@ -272,6 +289,10 @@ class WordDocumentAnalyzer:
 			html_parts.append(f"<li>{_('Structural Paragraphs (incl. blank lines & tables): {paras}').format(paras=paras_structural)}</li>")
 			# Translators: Lines: {lines}
 			html_parts.append(f"<li>{_('Lines: {lines}').format(lines=lines)}</li>")
+			# Translators: Lists: {lists}
+			html_parts.append(f"<li>{_('Lists: {lists}').format(lists=list_count)}</li>")
+			# Translators: Spelling errors: {errors}
+			html_parts.append(f"<li>{_('Spelling errors: {errors}').format(errors=spell_count)}</li>")
 		except Exception:
 			# Translators: Error when structural statistics cannot be read
 			html_parts.append(f"<li>{_('Could not retrieve structural statistics.')}</li>")
@@ -384,6 +405,51 @@ class WordDocumentAnalyzer:
 					if getattr(ps, "OddAndEvenPagesHeaderFooter", False):
 						# Translators: Odd/Even header warning
 						html_parts.append(f"<li><strong>{_('Warning: Odd and even pages have different headers/footers.')}</strong></li>")
+						
+					try:
+						sec_start_map = {0: _("Continuous"), 1: _("New Column"), 2: _("New Page"), 3: _("Even Page"), 4: _("Odd Page")}
+						sec_start = sec_start_map.get(getattr(ps, "SectionStart", 2), _("Unknown"))
+						html_parts.append(f"<li>{_('Section start: {start}').format(start=sec_start)}</li>")
+					except Exception:
+						pass
+
+					try:
+						valign_map = {0: _("Top"), 1: _("Center"), 2: _("Justify"), 3: _("Bottom")}
+						valign = valign_map.get(getattr(ps, "VerticalAlignment", 0), _("Top"))
+						html_parts.append(f"<li>{_('Vertical alignment: {align}').format(align=valign)}</li>")
+					except Exception:
+						pass
+					
+					try:
+						h_dist = self._convert_points_to_cm(getattr(ps, "HeaderDistance", 0))
+						f_dist = self._convert_points_to_cm(getattr(ps, "FooterDistance", 0))
+						html_parts.append(f"<li>{_('Distance from top to header: {d:.2f}cm').format(d=h_dist)}</li>")
+						html_parts.append(f"<li>{_('Distance from bottom to footer: {d:.2f}cm').format(d=f_dist)}</li>")
+					except Exception:
+						pass
+						
+					try:
+						prot_forms = _("Yes") if getattr(sec, "ProtectedForForms", False) else _("No")
+						html_parts.append(f"<li>{_('Text modification only in form fields: {status}').format(status=prot_forms)}</li>")
+					except Exception:
+						pass
+
+					try:
+						paper_map = {7: "A4", 2: "Letter", 41: _("Custom"), 1: "11x17", 4: "Legal", 6: "A3", 9: "A5"}
+						p_size = paper_map.get(getattr(ps, "PaperSize", 7), _("Standard/Other"))
+						p_w = self._convert_points_to_cm(getattr(ps, "PageWidth", 0))
+						p_h = self._convert_points_to_cm(getattr(ps, "PageHeight", 0))
+						html_parts.append(f"<li>{_('Paper size: {size}').format(size=p_size)}</li>")
+						html_parts.append(f"<li>{_('Page dimensions: {w:.2f}cm width, {h:.2f}cm height').format(w=p_w, h=p_h)}</li>")
+						
+						two_pages = _("Yes") if getattr(ps, "TwoPagesOnOne", False) else _("No")
+						html_parts.append(f"<li>{_('Print two pages per sheet: {status}').format(status=two_pages)}</li>")
+						
+						dir_map = {0: _("Right-to-Left (RTL)"), 1: _("Left-to-Right (LTR)")}
+						direction = dir_map.get(getattr(ps, "SectionDirection", 1), _("Left-to-Right (LTR)"))
+						html_parts.append(f"<li>{_('Reading direction: {dir}').format(dir=direction)}</li>")
+					except Exception:
+						pass
 				except Exception:
 					pass
 				html_parts.append("</ul>")
@@ -407,15 +473,51 @@ class WordDocumentAnalyzer:
 					try:
 						rows = tb.Rows.Count
 						cols = tb.Columns.Count
+						uniform = _("uniform") if getattr(tb, "Uniform", True) else _("non-uniform")
+						nested = _("nested ") if getattr(tb, "NestingLevel", 1) > 1 else ""
 						# Translators: Table dimensions
-						html_parts.append(f"<li>{_('Dimensions: {rows} Rows, {cols} Columns').format(rows=rows, cols=cols)}</li>")
+						html_parts.append(f"<li>{_('Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns').format(nest=nested, uni=uniform, rows=rows, cols=cols)}</li>")
 					except Exception:
 						# Translators: Error when table dimensions cannot be read due to merged cells
 						html_parts.append(f"<li>{_('Dimensions: Complex (Contains merged/split cells preventing row count)')}</li>")
 					
-					if not getattr(tb, "Uniform", True):
-						# Translators: Merged cells warning
-						html_parts.append(f"<li><strong>{_('Warning: Contains merged or split cells.')}</strong></li>")
+					try:
+						wdActiveEndPageNumber = 3
+						wdFirstCharacterLineNumber = 10
+						tb_page = tb.Range.Information(wdActiveEndPageNumber)
+						tb_line = tb.Range.Information(wdFirstCharacterLineNumber)
+						# Translators: Localized at page {page}, line {line}
+						html_parts.append(f"<li>{_('Localized at page {page}, line {line}').format(page=tb_page, line=tb_line)}</li>")
+					except Exception:
+						pass
+						
+					try:
+						title = getattr(tb, "Title", "")
+						if title:
+							html_parts.append(f"<li>{_('Title: {t}').format(t=title)}</li>")
+						desc = getattr(tb, "Descr", "")
+						if desc:
+							html_parts.append(f"<li>{_('Description: {d}').format(d=desc)}</li>")
+					except Exception:
+						pass
+					
+					try:
+						autofit = _("Yes") if getattr(tb, "AllowAutoFit", False) else _("No")
+						html_parts.append(f"<li>{_('Automatic resize to fit content: {status}').format(status=autofit)}</li>")
+						
+						t_pad = self._convert_points_to_cm(getattr(tb, "TopPadding", 0))
+						b_pad = self._convert_points_to_cm(getattr(tb, "BottomPadding", 0))
+						spacing = self._convert_points_to_cm(getattr(tb, "Spacing", 0))
+						html_parts.append(f"<li>{_('Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm').format(pad=t_pad, bpad=b_pad)}</li>")
+						html_parts.append(f"<li>{_('Spacing between cells: {sp:.4f}cm').format(sp=spacing)}</li>")
+					except Exception:
+						pass
+						
+					try:
+						borders = _("Yes") if getattr(tb.Borders, "Enable", False) else _("No")
+						html_parts.append(f"<li>{_('Borders Enabled: {status}').format(status=borders)}</li>")
+					except Exception:
+						pass
 				except Exception:
 					pass
 				html_parts.append("</ul>")
