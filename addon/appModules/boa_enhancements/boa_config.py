@@ -51,6 +51,7 @@ DEFAULT_CONFIG = {
 		"safe_rich_edit": True,
 		"fix_list_double_read": True,
 		"document_analyzer": True,
+		"format_auditor": True,
 		"read_word_notes_inline": "native"
 	}
 }

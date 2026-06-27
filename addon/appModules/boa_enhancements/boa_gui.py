@@ -177,6 +177,8 @@ class BOASettingsPanel(SettingsPanel):
 			"fix_list_double_read": _("Prevent &double-reading of list items during paragraph navigation"),
 			# Translators: Label for the document analyzer setting checkbox.
 			"document_analyzer": _("Enable Document &Analyzer via NVDA+E, D"),
+			# Translators: Label for the format auditor setting checkbox.
+			"format_auditor": _("Enable Format &Auditor via NVDA+E, F"),
 			# Translators: Label for reading word notes inline setting.
 			"read_word_notes_inline": _("Footnotes and Endnotes reading &mode:")
 		}

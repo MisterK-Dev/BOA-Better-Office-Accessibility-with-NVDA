@@ -48,5 +48,10 @@ def handle_prefix_command(command_key, obj):
 		if boa_config.get_feature_state("word", "document_analyzer"):
 			WordDocumentAnalyzer.analyze(obj)
 		return True
+	elif command_key == "f":
+		if boa_config.get_feature_state("word", "format_auditor"):
+			from appModules.boa_enhancements.word_enhancements.format_auditor import WordFormatAuditor
+			WordFormatAuditor.audit(obj)
+		return True
 	return False
 

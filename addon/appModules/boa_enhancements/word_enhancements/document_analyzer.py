@@ -195,7 +195,8 @@ class WordDocumentAnalyzer:
 			pages = doc.ComputeStatistics(WD_STAT_PAGES, True)
 			words = doc.ComputeStatistics(WD_STAT_WORDS, True)
 			chars = doc.ComputeStatistics(WD_STAT_CHARS, True)
-			paras = doc.ComputeStatistics(WD_STAT_PARAGRAPHS, True)
+			paras_structural = doc.Paragraphs.Count
+			paras_text = doc.ComputeStatistics(WD_STAT_PARAGRAPHS, True)
 			lines = doc.ComputeStatistics(WD_STAT_LINES, True)
 			
 			# Translators: Pages: {pages}
@@ -204,8 +205,10 @@ class WordDocumentAnalyzer:
 			html_parts.append(f"<li>{_('Words (including footnotes): {words}').format(words=words)}</li>")
 			# Translators: Characters (including footnotes): {chars}
 			html_parts.append(f"<li>{_('Characters (including footnotes): {chars}').format(chars=chars)}</li>")
-			# Translators: Paragraphs: {paras}
-			html_parts.append(f"<li>{_('Paragraphs: {paras}').format(paras=paras)}</li>")
+			# Translators: Text Paragraphs: {paras}
+			html_parts.append(f"<li>{_('Text Paragraphs: {paras}').format(paras=paras_text)}</li>")
+			# Translators: Structural Paragraphs (incl. blank lines & tables): {paras}
+			html_parts.append(f"<li>{_('Structural Paragraphs (incl. blank lines & tables): {paras}').format(paras=paras_structural)}</li>")
 			# Translators: Lines: {lines}
 			html_parts.append(f"<li>{_('Lines: {lines}').format(lines=lines)}</li>")
 		except Exception as e:
