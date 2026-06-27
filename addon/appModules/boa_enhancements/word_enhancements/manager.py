@@ -19,6 +19,7 @@ This strictly adheres to `rules.mdc` modular isolation constraints.
 from appModules.boa_enhancements import boa_config  # noqa: E402
 from appModules.boa_enhancements.safe_rich_edit import SafeRichEdit  # noqa: E402
 from logHandler import log  # noqa: E402
+from appModules.boa_enhancements.word_enhancements.document_analyzer import WordDocumentAnalyzer  # noqa: E402
 
 def inject_word_safe_rich_edit(clsList):
 	"""
@@ -43,6 +44,9 @@ def handle_prefix_command(command_key, obj):
 	when the user accidentally presses NVDA+E inside Word.
 	Returns True if handled, False if invalid.
 	"""
-	# No prefix commands currently assigned for Word, but ready for future!
+	if command_key == "d":
+		if boa_config.get_feature_state("word", "document_analyzer"):
+			WordDocumentAnalyzer.analyze(obj)
+		return True
 	return False
 

@@ -50,6 +50,7 @@ DEFAULT_CONFIG = {
 	"word": {
 		"safe_rich_edit": True,
 		"fix_list_double_read": True,
+		"document_analyzer": True,
 		"read_word_notes_inline": "native"
 	}
 }

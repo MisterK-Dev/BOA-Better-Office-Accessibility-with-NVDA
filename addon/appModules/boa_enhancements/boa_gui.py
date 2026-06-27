@@ -170,12 +170,13 @@ class BOASettingsPanel(SettingsPanel):
 		# Translators: Title of the group box containing PowerPoint specific settings.
 		create_group("powerpoint", _("PowerPoint Enhancements"), ppt_features)
 		
-		# Word Group
 		word_features = {
 			# Translators: Label for the SafeRichEdit in Word setting checkbox.
 			"safe_rich_edit": _("&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"),
 			# Translators: Label for the list double-read fix in Word setting checkbox.
 			"fix_list_double_read": _("Prevent &double-reading of list items during paragraph navigation"),
+			# Translators: Label for the document analyzer setting checkbox.
+			"document_analyzer": _("Enable Document &Analyzer via NVDA+E, D"),
 			# Translators: Label for reading word notes inline setting.
 			"read_word_notes_inline": _("Footnotes and Endnotes reading &mode:")
 		}

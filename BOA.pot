@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-25 19:41+0530\n"
+"POT-Creation-Date: 2026-06-27 18:06+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgstr ""
 #. Translators: Describes the script that triggers the BOA command prefix for PowerPoint.
 #. Translators: Describes the script that triggers the BOA command prefix for Word.
 #: addon\appModules\excel.py:134 addon\appModules\powerpnt.py:73
-#: addon\appModules\winword.py:58
+#: addon\appModules\winword.py:64
 msgid ""
 "Triggers the BOA command prefix. Press this, followed by a specific command "
 "key."
@@ -113,6 +113,13 @@ msgid ""
 "Jumps focus back to the cell you were working on before navigating away."
 msgstr ""
 
+#. Translators: Description for the Input Gestures dialog.
+#: addon\appModules\winword.py:94
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr ""
+
 #. Title for the NVDA settings dialog list and the panel title
 #. Translators: Title of the BOA general settings dialog.
 #: addon\appModules\boa_enhancements\boa_gui.py:33
@@ -154,111 +161,137 @@ msgstr ""
 msgid "Select the engine used to detect the end of data in a row or column."
 msgstr ""
 
+#. Translators: Options for inline reading of Word notes
+#: addon\appModules\boa_enhancements\boa_gui.py:108
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\boa_gui.py:108
+msgid "Read Note Content Inline"
+msgstr ""
+
+#. Translators: Tooltip for inline reading of Word notes.
+#: addon\appModules\boa_enhancements\boa_gui.py:117
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr ""
+
 #. Translators: Label for the Bulk Sheet Organizer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:114
+#: addon\appModules\boa_enhancements\boa_gui.py:132
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
 msgstr ""
 
 #. Translators: Label for the accessible Sheet Rename setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:116
+#: addon\appModules\boa_enhancements\boa_gui.py:134
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Excel setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:118
+#: addon\appModules\boa_enhancements\boa_gui.py:136
 msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the multi-cell selection tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:120
+#: addon\appModules\boa_enhancements\boa_gui.py:138
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
 msgstr ""
 
 #. Translators: Label for the hidden row skip announcement setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:122
+#: addon\appModules\boa_enhancements\boa_gui.py:140
 msgid "Proactively announce when navigating past &hidden rows or columns"
 msgstr ""
 
 #. Translators: Label for the Sheet Layout Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:124
+#: addon\appModules\boa_enhancements\boa_gui.py:142
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
 msgstr ""
 
 #. Translators: Label for the auto-announce mode dropdown setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:126
+#: addon\appModules\boa_enhancements\boa_gui.py:144
 msgid "Sheet Layout Auto-Announce &Mode:"
 msgstr ""
 
 #. Translators: Label for the conditional formatting tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:128
+#: addon\appModules\boa_enhancements\boa_gui.py:146
 msgid "Conditional &Formatting and color"
 msgstr ""
 
 #. Translators: Label for the Cell Monitor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:130
+#: addon\appModules\boa_enhancements\boa_gui.py:148
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
 msgstr ""
 
 #. Translators: Label for the End of Data Radar setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:132
+#: addon\appModules\boa_enhancements\boa_gui.py:150
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
 msgstr ""
 
 #. Translators: Label for the Formula Auditor features setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:134
+#: addon\appModules\boa_enhancements\boa_gui.py:152
 msgid "Enable Formula Auditor &features"
 msgstr ""
 
 #. Translators: Label for the merged cell tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:136
+#: addon\appModules\boa_enhancements\boa_gui.py:154
 msgid "Explicitly announce m&erged cells"
 msgstr ""
 
 #. Translators: Title of the group box containing Excel specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:139
+#: addon\appModules\boa_enhancements\boa_gui.py:157
 msgid "Excel Enhancements"
 msgstr ""
 
 #. Translators: Label for the PowerPoint color grid setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:144
+#: addon\appModules\boa_enhancements\boa_gui.py:162
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
 msgstr ""
 
 #. Translators: Label for the PowerPoint hex color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:146
+#: addon\appModules\boa_enhancements\boa_gui.py:164
 msgid "Ensure the He&x Color edit field is properly labeled"
 msgstr ""
 
 #. Translators: Label for the PowerPoint RGB color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:148
+#: addon\appModules\boa_enhancements\boa_gui.py:166
 msgid "Ensure the R&GB Color edit fields are properly labeled"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:150
+#: addon\appModules\boa_enhancements\boa_gui.py:168
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Title of the group box containing PowerPoint specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:153
+#: addon\appModules\boa_enhancements\boa_gui.py:171
 msgid "PowerPoint Enhancements"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:158
+#: addon\appModules\boa_enhancements\boa_gui.py:175
 msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the list double-read fix in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:160
-msgid "Filter duplicate speech events when navigating lists in &Word"
+#: addon\appModules\boa_enhancements\boa_gui.py:177
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr ""
+
+#. Translators: Label for the document analyzer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:179
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr ""
+
+#. Translators: Label for reading word notes inline setting.
+#: addon\appModules\boa_enhancements\boa_gui.py:181
+msgid "Footnotes and Endnotes reading &mode:"
 msgstr ""
 
 #. Translators: Title of the group box containing Word specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:163
+#: addon\appModules\boa_enhancements\boa_gui.py:184
 msgid "Word Enhancements"
 msgstr ""
 
@@ -886,7 +919,9 @@ msgid "Operator {op}"
 msgstr ""
 
 #. Translators: Fallback for an unknown formula value.
+#. Translators: Unknown
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:215
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:161
 msgid "Unknown"
 msgstr ""
 
@@ -1437,6 +1472,238 @@ msgstr ""
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\standard_color_grid.py:100
 #, python-brace-format
 msgid "Color {hex_val}"
+msgstr ""
+
+#. Translators: Analyzing document, please wait...
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:57
+msgid "Analyzing document, please wait..."
+msgstr ""
+
+#. Translators: Cannot access Word application.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:101
+msgid "Cannot access Word application."
+msgstr ""
+
+#. Translators: No active document found.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:105
+msgid "No active document found."
+msgstr ""
+
+#. Translators: Main title of the Document Analyzer report
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:110
+msgid "Word Document Analyzer Report"
+msgstr ""
+
+#. Translators: Word Document Analyzer
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:119
+msgid "Word Document Analyzer"
+msgstr ""
+
+#. Translators: Heading for the layout section of the analyzer
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:132
+msgid "1. Document & Page Layout"
+msgstr ""
+
+#. Translators: Total Sections: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:138
+#, python-brace-format
+msgid "Total Sections: {count}"
+msgstr ""
+
+#. Translators: Portrait
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:146
+msgid "Portrait"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:146
+msgid "Landscape"
+msgstr ""
+
+#. Translators: Orientation (Section 1): {orient}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:148
+#, python-brace-format
+msgid "Orientation (Section 1): {orient}"
+msgstr ""
+
+#. Translators: Top
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:152
+msgid "Top"
+msgstr ""
+
+#. Translators: Center
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:154
+msgid "Center"
+msgstr ""
+
+#. Translators: Justified
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:156
+msgid "Justified"
+msgstr ""
+
+#. Translators: Bottom
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:158
+msgid "Bottom"
+msgstr ""
+
+#. Translators: Vertical Alignment: {align}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:163
+#, python-brace-format
+msgid "Vertical Alignment: {align}"
+msgstr ""
+
+#. Translators: Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:171
+#, python-brace-format
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr ""
+
+#. Translators: Margins: {margins}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:174
+#, python-brace-format
+msgid "Margins: {margins}"
+msgstr ""
+
+#. Translators: Warning: First page has a different header/footer.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:178
+msgid "Warning: First page has a different header/footer."
+msgstr ""
+
+#. Translators: Warning: Odd and even pages have different headers/footers.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:181
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr ""
+
+#. Translators: Could not retrieve layout statistics.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:186
+msgid "Could not retrieve layout statistics."
+msgstr ""
+
+#. Translators: Heading for the structural section of the analyzer
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:192
+msgid "2. Structural Breakdown"
+msgstr ""
+
+#. Translators: Pages: {pages}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:202
+#, python-brace-format
+msgid "Pages: {pages}"
+msgstr ""
+
+#. Translators: Words (including footnotes): {words}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:204
+#, python-brace-format
+msgid "Words (including footnotes): {words}"
+msgstr ""
+
+#. Translators: Characters (including footnotes): {chars}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:206
+#, python-brace-format
+msgid "Characters (including footnotes): {chars}"
+msgstr ""
+
+#. Translators: Paragraphs: {paras}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:208
+#, python-brace-format
+msgid "Paragraphs: {paras}"
+msgstr ""
+
+#. Translators: Lines: {lines}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:210
+#, python-brace-format
+msgid "Lines: {lines}"
+msgstr ""
+
+#. Translators: Could not retrieve structural statistics.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:214
+msgid "Could not retrieve structural statistics."
+msgstr ""
+
+#. Translators: Heading for the accessibility section of the analyzer
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:220
+msgid "3. Accessibility Audit"
+msgstr ""
+
+#. Translators: Images (Inline): {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:241
+#, python-brace-format
+msgid "Images (Inline): {count}"
+msgstr ""
+
+#. Translators: Warning: {count} images are missing alternative text!
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:244
+#, python-brace-format
+msgid "Warning: {count} images are missing alternative text!"
+msgstr ""
+
+#. Translators: Warning: {count} floating shapes detected. These are often inaccessible.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:251
+#, python-brace-format
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr ""
+
+#. Translators: Tables: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:257
+#, python-brace-format
+msgid "Tables: {count}"
+msgstr ""
+
+#. Translators: Hyperlinks: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:263
+#, python-brace-format
+msgid "Hyperlinks: {count}"
+msgstr ""
+
+#. Translators: Could not retrieve accessibility statistics.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:268
+msgid "Could not retrieve accessibility statistics."
+msgstr ""
+
+#. Translators: Heading for the collaboration section of the analyzer
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:274
+msgid "4. Collaboration Status"
+msgstr ""
+
+#. Translators: Comments: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:280
+#, python-brace-format
+msgid "Comments: {count}"
+msgstr ""
+
+#. Translators: Unresolved Tracked Changes: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:286
+#, python-brace-format
+msgid "Unresolved Tracked Changes: {count}"
+msgstr ""
+
+#. Translators: Unresolved Tracked Changes: 0
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:289
+msgid "Unresolved Tracked Changes: 0"
+msgstr ""
+
+#. Translators: Footnotes: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:294
+#, python-brace-format
+msgid "Footnotes: {count}"
+msgstr ""
+
+#. Translators: Endnotes: {count}
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:299
+#, python-brace-format
+msgid "Endnotes: {count}"
+msgstr ""
+
+#. Translators: Could not retrieve collaboration statistics.
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:304
+msgid "Could not retrieve collaboration statistics."
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\list_navigator.py:71
+msgid "bottom"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\list_navigator.py:73
+msgid "top"
 msgstr ""
 
 #. Add-on description

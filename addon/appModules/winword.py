@@ -83,6 +83,16 @@ class AppModule(CoreWinwordAppModule):
 		if not handled:
 			tones.beep(150, 50)
 
+	def script_analyzeDocument(self, gesture):
+		from appModules.boa_enhancements import boa_config
+		if boa_config.get_feature_state("word", "document_analyzer"):
+			obj = api.getFocusObject()
+			from appModules.boa_enhancements.word_enhancements.document_analyzer import WordDocumentAnalyzer
+			WordDocumentAnalyzer.analyze(obj)
+		
+	# Translators: Description for the Input Gestures dialog.
+	script_analyzeDocument.__doc__ = _("Analyzes the current Word document and displays a comprehensive layout and health report.")
+
 	__gestures = {
 		"kb:NVDA+e": "triggerCommandPrefix"
 	}
