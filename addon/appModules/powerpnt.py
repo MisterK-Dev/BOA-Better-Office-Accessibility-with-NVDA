@@ -92,6 +92,12 @@ class AppModule(CorePowerpntAppModule):
 		if not handled:
 			tones.beep(150, 50)
 
+	def script_bulkSlideOrganizer(self, gesture):
+		obj = api.getFocusObject()
+		ppt_manager.BulkSlideOrganizer.launch_dialog(obj)
+	# Translators: Describes the script that launches the Bulk Slide Organizer.
+	script_bulkSlideOrganizer.__doc__ = _("Launches the Bulk Slide Organizer dialog to reorder slides.")
+
 	__gestures = {
 		"kb:NVDA+e": "triggerCommandPrefix"
 	}

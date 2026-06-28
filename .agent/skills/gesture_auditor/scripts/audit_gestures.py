@@ -10,7 +10,10 @@ import ast
 # Whitelist of internal scripts that are exempt from docstring and direct hotkey checks
 HELPER_WHITELIST = {
     "script_handleCommandKey",
-    "script_cancelCommandPrefix"
+    "script_cancelCommandPrefix",
+    "script_evaluateAndRead",
+    "script_caret_nextParagraph",
+    "script_caret_previousParagraph"
 }
 
 # The main prefix trigger script (allowed to have a default gesture, but must have description/category)

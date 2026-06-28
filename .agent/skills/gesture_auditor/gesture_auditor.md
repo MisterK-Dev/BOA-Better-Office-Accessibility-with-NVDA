@@ -21,6 +21,9 @@ This skill acts as a keyboard sanity check for the BOA add-on. It ensures that a
 * **Exempt List**:
   * `script_handleCommandKey`
   * `script_cancelCommandPrefix`
+  * `script_evaluateAndRead`
+  * `script_caret_nextParagraph`
+  * `script_caret_previousParagraph`
 
 ---
 

@@ -20,6 +20,7 @@ from appModules.boa_enhancements import boa_config  # noqa: E402
 from .hex_edit import PowerPointHexEdit  # noqa: E402
 from .rgb_edit import PowerPointRGBEdit  # noqa: E402
 from .standard_color_grid import PowerPointStandardColorGrid  # noqa: E402
+from .bulk_slide_organizer import BulkSlideOrganizer  # noqa: E402
 
 def inject_ppt_hex_edit(clsList):
 	"""
@@ -72,5 +73,9 @@ def handle_prefix_command(command_key, obj):
 	how the next key press should be handled within the PPT context.
 	Returns True if handled, False if invalid, allowing the key to pass through if not recognized.
 	"""
-	# No prefix commands currently assigned for PPT, but the hook is ready for future expansion!
+	if command_key == "x":
+		if boa_config.get_feature_state("powerpoint", "bulk_slide_organizer"):
+			BulkSlideOrganizer.launch_dialog(obj)
+		return True
+		
 	return False

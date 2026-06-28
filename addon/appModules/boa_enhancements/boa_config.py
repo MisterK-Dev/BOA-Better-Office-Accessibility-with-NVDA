@@ -45,7 +45,8 @@ DEFAULT_CONFIG = {
 		"standard_color_grid": True,
 		"hex_edit": True,
 		"rgb_edit": True,
-		"safe_rich_edit": True
+		"safe_rich_edit": True,
+		"bulk_slide_organizer": True
 	},
 	"word": {
 		"safe_rich_edit": True,

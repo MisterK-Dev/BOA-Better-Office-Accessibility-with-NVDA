@@ -158,6 +158,8 @@ class BOASettingsPanel(SettingsPanel):
 		
 		# PowerPoint Group
 		ppt_features = {
+			# Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
+			"bulk_slide_organizer": _("Enable Bulk Slide &Organizer via NVDA+E, X"),
 			# Translators: Label for the PowerPoint color grid setting checkbox.
 			"standard_color_grid": _("&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"),
 			# Translators: Label for the PowerPoint hex color edit field setting checkbox.
