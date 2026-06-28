@@ -46,7 +46,8 @@ DEFAULT_CONFIG = {
 		"hex_edit": True,
 		"rgb_edit": True,
 		"safe_rich_edit": True,
-		"bulk_slide_organizer": True
+		"bulk_slide_organizer": True,
+		"canvas_audio_mode": "default"
 	},
 	"word": {
 		"safe_rich_edit": True,
@@ -86,7 +87,7 @@ def load_config():
 							# If the user had a saved preference for this feature, apply it
 							if feature in saved_config[app]:
 								val = saved_config[app][feature]
-								if feature in ["auto_announce_first_block", "end_of_data_radar", "read_word_notes_inline"]:
+								if feature in ["auto_announce_first_block", "end_of_data_radar", "read_word_notes_inline", "canvas_audio_mode"]:
 									if feature == "auto_announce_first_block":
 										if val is True:
 											val = "one_time"
@@ -103,6 +104,9 @@ def load_config():
 											val = "inline"
 										elif val is False:
 											val = "native"
+									elif feature == "canvas_audio_mode":
+										if val not in ["default", "default_sound", "canvas", "canvas_sound"]:
+											val = "default"
 									_current_config[app][feature] = str(val)
 								else:
 									_current_config[app][feature] = bool(val)
@@ -145,7 +149,7 @@ def set_feature_state(app, feature, state):
 	if _current_config is None:
 		load_config()
 	if app in _current_config and feature in _current_config[app]:
-		if feature in ["auto_announce_first_block", "end_of_data_radar", "read_word_notes_inline"]:
+		if feature in ["auto_announce_first_block", "end_of_data_radar", "read_word_notes_inline", "canvas_audio_mode"]:
 			_current_config[app][feature] = str(state)
 		else:
 			_current_config[app][feature] = bool(state)

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-28 12:32+0530\n"
+"POT-Creation-Date: 2026-06-28 19:57+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgstr ""
 #. Translators: Describes the script that triggers the BOA command prefix for Excel.
 #. Translators: Describes the script that triggers the BOA command prefix for PowerPoint.
 #. Translators: Describes the script that triggers the BOA command prefix for Word.
-#: addon\appModules\excel.py:134 addon\appModules\powerpnt.py:73
+#: addon\appModules\excel.py:134 addon\appModules\powerpnt.py:74
 #: addon\appModules\winword.py:64
 msgid ""
 "Triggers the BOA command prefix. Press this, followed by a specific command "
@@ -114,7 +114,7 @@ msgid ""
 msgstr ""
 
 #. Translators: Describes the script that launches the Bulk Slide Organizer.
-#: addon\appModules\powerpnt.py:99
+#: addon\appModules\powerpnt.py:100
 msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
 msgstr ""
 
@@ -197,126 +197,152 @@ msgid ""
 "endnotes inline with the document text."
 msgstr ""
 
+#: addon\appModules\boa_enhancements\boa_gui.py:127
+msgid "Default NVDA Behavior"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\boa_gui.py:128
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr ""
+
+#. Translators: Tooltip explaining the Audio Canvas mode setting.
+#: addon\appModules\boa_enhancements\boa_gui.py:141
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr ""
+
 #. Translators: Label for the Bulk Sheet Organizer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:132
+#: addon\appModules\boa_enhancements\boa_gui.py:156
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
 msgstr ""
 
 #. Translators: Label for the accessible Sheet Rename setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:134
+#: addon\appModules\boa_enhancements\boa_gui.py:158
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Excel setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:136
+#: addon\appModules\boa_enhancements\boa_gui.py:160
 msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the multi-cell selection tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:138
+#: addon\appModules\boa_enhancements\boa_gui.py:162
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
 msgstr ""
 
 #. Translators: Label for the hidden row skip announcement setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:140
+#: addon\appModules\boa_enhancements\boa_gui.py:164
 msgid "Proactively announce when navigating past &hidden rows or columns"
 msgstr ""
 
 #. Translators: Label for the Sheet Layout Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:142
+#: addon\appModules\boa_enhancements\boa_gui.py:166
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
 msgstr ""
 
 #. Translators: Label for the auto-announce mode dropdown setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:144
+#: addon\appModules\boa_enhancements\boa_gui.py:168
 msgid "Sheet Layout Auto-Announce &Mode:"
 msgstr ""
 
 #. Translators: Label for the conditional formatting tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:146
+#: addon\appModules\boa_enhancements\boa_gui.py:170
 msgid "Conditional &Formatting and color"
 msgstr ""
 
 #. Translators: Label for the Cell Monitor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:148
+#: addon\appModules\boa_enhancements\boa_gui.py:172
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
 msgstr ""
 
 #. Translators: Label for the End of Data Radar setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:150
+#: addon\appModules\boa_enhancements\boa_gui.py:174
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
 msgstr ""
 
 #. Translators: Label for the Formula Auditor features setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:152
+#: addon\appModules\boa_enhancements\boa_gui.py:176
 msgid "Enable Formula Auditor &features"
 msgstr ""
 
 #. Translators: Label for the merged cell tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:154
+#: addon\appModules\boa_enhancements\boa_gui.py:178
 msgid "Explicitly announce m&erged cells"
 msgstr ""
 
 #. Translators: Title of the group box containing Excel specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:157
+#: addon\appModules\boa_enhancements\boa_gui.py:181
 msgid "Excel Enhancements"
 msgstr ""
 
 #. Translators: Label for the PowerPoint color grid setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:162
+#: addon\appModules\boa_enhancements\boa_gui.py:186
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
 msgstr ""
 
 #. Translators: Label for the PowerPoint hex color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:164
+#: addon\appModules\boa_enhancements\boa_gui.py:188
 msgid "Ensure the He&x Color edit field is properly labeled"
 msgstr ""
 
 #. Translators: Label for the PowerPoint RGB color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:166
+#: addon\appModules\boa_enhancements\boa_gui.py:190
 msgid "Ensure the R&GB Color edit fields are properly labeled"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:168
+#: addon\appModules\boa_enhancements\boa_gui.py:192
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
 msgstr ""
 
+#. Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:194
+msgid "Enable Bulk Slide &Organizer via NVDA+E, X"
+msgstr ""
+
+#. Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
+#: addon\appModules\boa_enhancements\boa_gui.py:196
+msgid "Shape Movement Audio Mode:"
+msgstr ""
+
 #. Translators: Title of the group box containing PowerPoint specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:171
+#: addon\appModules\boa_enhancements\boa_gui.py:199
 msgid "PowerPoint Enhancements"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:175
+#: addon\appModules\boa_enhancements\boa_gui.py:203
 msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the list double-read fix in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:177
+#: addon\appModules\boa_enhancements\boa_gui.py:205
 msgid "Prevent &double-reading of list items during paragraph navigation"
 msgstr ""
 
 #. Translators: Label for the document analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:179
+#: addon\appModules\boa_enhancements\boa_gui.py:207
 msgid "Enable Document &Analyzer via NVDA+E, D"
 msgstr ""
 
 #. Translators: Label for the format auditor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:181
+#: addon\appModules\boa_enhancements\boa_gui.py:209
 msgid "Enable Format &Auditor via NVDA+E, F"
 msgstr ""
 
 #. Translators: Label for reading word notes inline setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:183
+#: addon\appModules\boa_enhancements\boa_gui.py:211
 msgid "Footnotes and Endnotes reading &mode:"
 msgstr ""
 
 #. Translators: Title of the group box containing Word specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:186
+#: addon\appModules\boa_enhancements\boa_gui.py:214
 msgid "Word Enhancements"
 msgstr ""
 
@@ -372,7 +398,7 @@ msgstr ""
 
 #. Translators: Error message when the organizer dialog fails to open.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:167
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:180
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:226
 msgid "Error opening organizer"
 msgstr ""
 
@@ -388,7 +414,7 @@ msgstr ""
 
 #. Translators: Label for the Target Position field.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:206
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:212
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:264
 msgid "Target Position:"
 msgstr ""
 
@@ -397,7 +423,7 @@ msgstr ""
 #. --- List of Scheduled Moves ---
 #. Translators: Label for the list of scheduled slide moves.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:220
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:225
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:277
 msgid "Scheduled Moves (Press Del to remove):"
 msgstr ""
 
@@ -408,13 +434,13 @@ msgstr ""
 
 #. Translators: Column header for the target position in the moves list.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:226
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:230
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:282
 msgid "Target Position"
 msgstr ""
 
 #. Translators: Label for the OK button.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:234
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:237
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:289
 msgid "&OK"
 msgstr ""
 
@@ -424,7 +450,7 @@ msgstr ""
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:236
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:77
 #: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:46
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:239
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:291
 msgid "&Cancel"
 msgstr ""
 
@@ -437,7 +463,7 @@ msgstr ""
 #. Translators: Message announcing a scheduled move has been removed.
 #. Translators: Message announcing a scheduled slide move has been removed.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:291
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:280
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:332
 msgid "Move removed"
 msgstr ""
 
@@ -1496,65 +1522,70 @@ msgstr ""
 msgid "Jumped to {col}{row}"
 msgstr ""
 
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:99
+msgid "Failed to connect to PowerPoint."
+msgstr ""
+
 #. Translators: Error message when trying to organize slides but no presentation is active.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:62
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:147
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:105
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:193
 msgid "No active presentation."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:67
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:152
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:110
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:198
 msgid "Not enough slides to move."
 msgstr ""
 
+#. 3. Delayed Success Message: Give PowerPoint 500ms to settle its focus events
 #. Translators: Success message when slides have been reorganized
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:91
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:149
 msgid "Successfully reorganized slides."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:95
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:154
 msgid "Failed to move slides. See log for details."
 msgstr ""
 
-#. Translators: Error message when PowerPoint grid cannot be found.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:130
-msgid "Could not find PowerPoint."
+#. Immediately inform the user so they know NVDA hasn't frozen
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:179
+msgid "Loading slides, please wait..."
 msgstr ""
 
-#. Translators: Error message when the add-on fails to connect to PowerPoint.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:139
+#. Translators: Error message when trying to organize slides but no presentation is active.
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:187
 msgid "Failed to hook PowerPoint."
 msgstr ""
 
 #. Translators: Slide item format with a title (e.g., Slide 1 - Welcome)
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:169
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:215
 #, python-brace-format
 msgid "Slide {index} - {title}"
 msgstr ""
 
 #. Translators: Slide item format without a title (e.g., Slide 1 - (No Title))
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:172
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:218
 #, python-brace-format
 msgid "Slide {index} - (No Title)"
 msgstr ""
 
 #. Translators: Title of the Bulk Slide Organizer dialog.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:190
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:242
 msgid "Bulk Slide Organizer"
 msgstr ""
 
 #. Translators: Label for the Slide Name field.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:202
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:254
 msgid "Slide Name:"
 msgstr ""
 
 #. Translators: Column header for the slide name in the moves list.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:228
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:280
 msgid "Slide"
 msgstr ""
 
 #. Translators: Message announcing a move has been scheduled.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:264
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:316
 #, python-brace-format
 msgid "Scheduled: {slide} to position {pos}"
 msgstr ""

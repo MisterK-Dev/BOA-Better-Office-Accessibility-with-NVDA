@@ -118,6 +118,30 @@ class BOASettingsPanel(SettingsPanel):
 					sizer.Add(cb)
 					group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
 					self.checkboxes[app_name][feature_key] = cb
+				elif feature_key == "canvas_audio_mode":
+					sizer = wx.BoxSizer(wx.HORIZONTAL)
+					lbl = wx.StaticText(self, label=label)
+					sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
+					# Translators: Options for the PowerPoint Shape Movement Audio mode.
+					choices = [
+						_("Default NVDA Behavior"),
+						_("Default Behavior + 3D Spatial Audio (Experimental)")
+					]
+					cb = wx.Choice(self, choices=choices)
+					val = config.get(app_name, {}).get(feature_key, "default")
+					
+					# Fallback logic for users who had previously selected removed options
+					if val in ("default_sound", "canvas", "canvas_sound"):
+						cb.SetSelection(1)
+					else:
+						cb.SetSelection(0)
+					
+						
+					# Translators: Tooltip explaining the Audio Canvas mode setting.
+					cb.SetToolTip(_("Controls how NVDA announces shape movement in PowerPoint. Canvas modes translate raw math coordinates into human-readable locations like 'Top-Left Quadrant'."))
+					sizer.Add(cb)
+					group_sizer.Add(sizer, flag=wx.BOTTOM, border=5)
+					self.checkboxes[app_name][feature_key] = cb
 				else:
 					cb = wx.CheckBox(self, label=label)
 					# Set initial value from config
@@ -158,8 +182,6 @@ class BOASettingsPanel(SettingsPanel):
 		
 		# PowerPoint Group
 		ppt_features = {
-			# Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
-			"bulk_slide_organizer": _("Enable Bulk Slide &Organizer via NVDA+E, X"),
 			# Translators: Label for the PowerPoint color grid setting checkbox.
 			"standard_color_grid": _("&PowerPoint: Read hidden Hex codes when navigating the Standard Color hexagon grid"),
 			# Translators: Label for the PowerPoint hex color edit field setting checkbox.
@@ -167,7 +189,11 @@ class BOASettingsPanel(SettingsPanel):
 			# Translators: Label for the PowerPoint RGB color edit field setting checkbox.
 			"rgb_edit": _("Ensure the R&GB Color edit fields are properly labeled"),
 			# Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
-			"safe_rich_edit": _("Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)")
+			"safe_rich_edit": _("Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"),
+			# Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
+			"bulk_slide_organizer": _("Enable Bulk Slide &Organizer via NVDA+E, X"),
+			# Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
+			"canvas_audio_mode": _("Shape Movement Audio Mode:")
 		}
 		# Translators: Title of the group box containing PowerPoint specific settings.
 		create_group("powerpoint", _("PowerPoint Enhancements"), ppt_features)
@@ -224,6 +250,17 @@ class BOASettingsPanel(SettingsPanel):
 						boa_config.set_feature_state(app, feature_key, "inline")
 					else:
 						boa_config.set_feature_state(app, feature_key, "native")
+				elif feature_key == "canvas_audio_mode":
+					sel = cb.GetSelection()
+					if sel == 1:
+						val = "default_sound"
+					elif sel == 2:
+						val = "canvas"
+					elif sel == 3:
+						val = "canvas_sound"
+					else:
+						val = "default"
+					boa_config.set_feature_state(app, feature_key, val)
 				else:
 					boa_config.set_feature_state(app, feature_key, cb.GetValue())
 		

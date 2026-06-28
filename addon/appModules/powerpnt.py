@@ -22,6 +22,7 @@ class AppModule(CorePowerpntAppModule):
 
 	def __init__(self, *args, **kwargs):
 		super(AppModule, self).__init__(*args, **kwargs)
+		ppt_manager.init_enhancements()
 
 	def chooseNVDAObjectOverlayClasses(self, obj, clsList):
 		super(AppModule, self).chooseNVDAObjectOverlayClasses(obj, clsList)

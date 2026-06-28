@@ -21,6 +21,13 @@ from .hex_edit import PowerPointHexEdit  # noqa: E402
 from .rgb_edit import PowerPointRGBEdit  # noqa: E402
 from .standard_color_grid import PowerPointStandardColorGrid  # noqa: E402
 from .bulk_slide_organizer import BulkSlideOrganizer  # noqa: E402
+from . import shape_movement_enhancer  # noqa: E402
+
+def init_enhancements():
+	"""
+	Initializes global PowerPoint enhancements like monkey-patches that must happen on startup.
+	"""
+	shape_movement_enhancer.init_shape_movement_enhancer()
 
 def inject_ppt_hex_edit(clsList):
 	"""
