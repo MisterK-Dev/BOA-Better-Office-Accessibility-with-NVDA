@@ -8,6 +8,9 @@ conversation_history.html
 # Auto-generated documentation
 addon/doc/en/readme.html
 
-# Scratch scripts
+# Scratch scripts and temp files
 test_*.py
 fix_boa_config.py
+scratch/
+diff_po.py
+make_template.py
