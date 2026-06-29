@@ -4,251 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.6.1</title>
+<title>BOA: Better Office Accessibility 2.0.0</title>
 </head>
 <body>
-<h1>BOA: 更好的 Office 无障碍 (Better Office Accessibility)</h1>
-<p>BOA 是一套功能强大的 Microsoft Office 无障碍增强组件，旨在极大地改善 NVDA 用户的屏幕阅读器体验。它直接修补了无法访问的 UI 组件，并引入了适用于 Excel 和 PowerPoint 的快速导航工具。</p>
+<h1>BOA：更佳的 Office 无障碍体验</h1>
+<p>BOA 是一套功能强大的 Microsoft Office 无障碍增强套件，旨在极大地改善 NVDA 用户的屏幕阅读器使用体验。它直接修复了不可访问的 UI 组件，并为 Excel 和 PowerPoint 引入了快速导航工具。</p>
 <hr />
-<h2>⌨️ 快捷键参考</h2>
+<h2>⌨️ 热键参考</h2>
 <table>
 <thead>
 <tr>
 <th style="text-align: left;">功能</th>
-<th style="text-align: left;">组合键</th>
-<th style="text-align: left;">上下文 / 备注</th>
+<th style="text-align: left;">按键组合</th>
+<th style="text-align: left;">上下文 / 说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>进入命令模式</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code></td>
-<td style="text-align: left;">激活命令前缀模式（触发高音提示音）</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>分析工作表布局</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>L</code></td>
-<td style="text-align: left;">在导航数据块之前于 Excel 中运行</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>跳转到最近的数据块</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>J</code> /</td>
-<td style="text-align: left;">需要先进行布局分析</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>打开批量工作表管理器</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>X</code></td>
-<td style="text-align: left;">打开无障碍的工作表重新排序对话框</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>将活动工作表向左移动</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
-<td style="text-align: left;">将活动工作表向上移动一个位置</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>将活动工作表向右移动</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
-<td style="text-align: left;">将活动工作表向下移动一个位置</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>将工作表移动到开始/结束</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
-<td style="text-align: left;">将工作表发送到绝对的边界位置</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>详细的条件格式</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>F</code></td>
-<td style="text-align: left;">播报焦点单元格的完整格式细节</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>将单元格映射到内存插槽</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>Shift+1</code> 到 <code>Shift+9</code></td>
-<td style="text-align: left;">将当前单元格分配到后台监视插槽</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>读取被监视的单元格插槽</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>1</code> 到 <code>9</code></td>
-<td style="text-align: left;">回调并读取分配的插槽的值</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>切换后台监视</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>M</code></td>
-<td style="text-align: left;">手动切换后台计算跟踪</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>清除所有内存插槽</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>，然后按 <code>Backspace</code></td>
-<td style="text-align: left;">清除所有保存的后台单元格监视器</td>
+<td style="text-align: left;"><code>[Prefix]</code>（默认：<code>NVDA+E</code>）</td>
+<td style="text-align: left;">激活命令前缀模式（会发出高音提示音）</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>取消命令模式</strong></td>
 <td style="text-align: left;"><code>Escape</code></td>
 <td style="text-align: left;">退出命令前缀模式</td>
 </tr>
+<tr>
+<td style="text-align: left;"><strong>EXCEL 增强功能</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>分析工作表布局</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>L</code></td>
+<td style="text-align: left;">在导航数据块之前于 Excel 中运行</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>跳转至最近的数据块</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>J</code></td>
+<td style="text-align: left;">需要先进行工作表布局分析</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>打开批量工作表管理器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>X</code></td>
+<td style="text-align: left;">打开无障碍的工作表重排序对话框</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>原公式朗读器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>F2</code></td>
+<td style="text-align: left;">单击以听取原始公式字符串</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>超级公式编辑器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后双击 <code>F2</code></td>
+<td style="text-align: left;">双击以打开无障碍多行公式编辑器</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>追踪引用单元格</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>Shift+P</code></td>
+<td style="text-align: left;">以无障碍方式实现追踪引用单元格的相同功能。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>追踪从属单元格</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>Shift+D</code></td>
+<td style="text-align: left;">以无障碍方式实现追踪从属单元格的相同功能，在单元格上按回车键会将您传送到该位置。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>详细条件格式</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>F</code></td>
+<td style="text-align: left;">播报所获焦点单元格的完整格式详细信息</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>将当前工作表左移</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
+<td style="text-align: left;">将当前工作表向上（左）移动一个位置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>将当前工作表右移</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
+<td style="text-align: left;">将当前工作表向下（右）移动一个位置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>将工作表移至开头/结尾</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
+<td style="text-align: left;">将工作表发送至绝对边界位置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>隐藏 / 取消隐藏行</strong></td>
+<td style="text-align: left;"><code>Ctrl+9</code> / <code>Ctrl+Shift+9</code></td>
+<td style="text-align: left;">原生快捷键；BOA 明确播报可见性变化</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>隐藏 / 取消隐藏列</strong></td>
+<td style="text-align: left;"><code>Ctrl+0</code> / <code>Ctrl+Shift+0</code></td>
+<td style="text-align: left;">原生快捷键；BOA 明确播报可见性变化</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>取消隐藏列（备用）</strong></td>
+<td style="text-align: left;"><code>NVDA+Ctrl+Shift+0</code></td>
+<td style="text-align: left;">避开 Windows 输入法语言热键冲突</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>将单元格映射到内存槽</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>Shift+1</code> 至 <code>Shift+9</code></td>
+<td style="text-align: left;">将当前单元格分配给后台监视槽</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>读取被监视单元格槽</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>1</code> 至 <code>9</code></td>
+<td style="text-align: left;">获取并读取已分配槽的值</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>直接槽跳转</strong></td>
+<td style="text-align: left;"><code>Alt</code> + <code>1</code> 至 <code>9</code></td>
+<td style="text-align: left;">将光标立即跳转到被监视的单元格槽</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>返回上一单元格</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>\</code></td>
+<td style="text-align: left;">在检查槽后，立即将您传送回先前的单元格</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>槽管理器对话框</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>Alt+M</code></td>
+<td style="text-align: left;">打开对话框以查看和管理所有活动的监视器</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>切换后台监视</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>M</code></td>
+<td style="text-align: left;">手动切换后台计算跟踪</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>清除所有内存槽</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>Backspace</code></td>
+<td style="text-align: left;">清空所有已保存的后台单元格监视器</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>POWERPOINT 增强功能</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>幻灯片布局分析器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>L</code></td>
+<td style="text-align: left;">分析并播报当前幻灯片的空间布局</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>文档分析器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>D</code></td>
+<td style="text-align: left;">生成综合目录和健康报告</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>批量幻灯片管理器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>X</code></td>
+<td style="text-align: left;">打开无障碍对话框以重新排序多张幻灯片</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WORD 增强功能</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>格式审核器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>F</code></td>
+<td style="text-align: left;">审核当前文档中的格式不一致问题</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>文档分析器</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>，然后 <code>D</code></td>
+<td style="text-align: left;">分析当前 Word 文档的布局和结构</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2>🚀 功能特性</h2>
 <h3>Excel 增强功能</h3>
-<h4>1. 工作表布局分析器与缓存</h4>
-<p>即时扫描任何 Excel 工作表以了解其结构、隐藏元素和数据块。
-* <strong>工作原理：</strong> BOA 会快速扫描工作表并播报活动数据块。它还会警告您有关<strong>隐藏的工作表标签页</strong>、活动的<strong>筛选器</strong>、<strong>受保护模式</strong>和<strong>隐藏的外部边界</strong>（例如，如果靠近工作表右侧边缘的列被隐藏，可防止您错过屏幕外的数据）。
-* <strong>数据导航：</strong> 扫描完成后，您可以使用数据块跳转快捷键在发现的数据块之间即时传送光标，轻松绕过成千上万个空单元格。</p>
-<h4>2. 批量工作表管理器</h4>
-<p>使用完全无障碍的对话框即时重新排序和排列多个工作表。
-* <strong>工作原理：</strong> 打开一个对话框，您可以在其中选择一个工作表并将其映射到新位置。已计划的移动会列在数据表中（按 <code>Del</code> 键移除错误操作）。单击"确定"，您的工作簿就会被立即重新排列。</p>
-<h4>3. 快速工作表移动器</h4>
-<p>使用键盘快捷键即时将活动工作表向左、向右、移动到最开头或最末尾。</p>
-<h4>4. 无障碍的工作表重命名</h4>
+<h4>1. Sheet Layout Analyzer &amp; Caching</h4>
+<p>立即扫描任何 Excel 工作表，以了解其结构、隐藏元素和数据块。
+* <strong>工作原理：</strong> BOA 快速扫描工作表并播报活动的数据块。它还会向您发出有关<strong>隐藏工作表标签页</strong>、活动<strong>筛选器</strong>、<strong>保护模式</strong>以及<strong>隐藏的外部边界</strong>的警告（例如，如果工作表右边缘附近的列被隐藏，以防止您遗漏屏幕外的数据）。
+* <strong>数据导航：</strong> 扫描完成后，您可以使用数据块跳转热键在发现的数据块之间立即传送光标，轻松绕过数千个空白单元格。</p>
+<h4>2. Bulk Sheet Organizer</h4>
+<p>使用完全无障碍的对话框一次性立即重新排序和排列多个工作表。
+* <strong>工作原理：</strong> 打开一个对话框，您可以在其中选择工作表并将其映射 to 新位置。计划的移动将列在数据表中（按 <code>Del</code> 可删除错误）。点击 <code>OK</code>，您的工作簿将立即重新排列。</p>
+<h4>3. Quick Sheet Mover</h4>
+<p>使用键盘快捷键立即将当前工作表向左、向右移动，或移动到最开头或最末尾。</p>
+<h4>4. Accessible Sheet Renaming</h4>
 <ul>
-<li>重命名工作表时，NVDA 本身很难读取您键入的字符。</li>
-<li>BOA 注入了一个自定义的 <code>ExcelSheetRenameEdit</code> 类，该类使用 <code>SafeRichEdit</code> 引擎，这意味着在重命名时，您可以精确地按字符、单词或行进行读取。这作为对现有默认重命名行为的增强。</li>
+<li>重命名工作表时，NVDA 原生难以朗读您输入的字符。</li>
+<li>BOA 注入了使用 <code>SafeRichEdit</code> 引擎的自定义 <code>ExcelSheetRenameEdit</code> 类，这意味着您可以在重命名时精确地按字符、单词或行进行阅读。这可以作为对现有默认重命名行为的增强。</li>
 </ul>
-<h4>5. 隐藏行/列跟踪器</h4>
+<h4>5. Hidden Row/Column Tracker</h4>
 <ul>
-<li>主动跟踪您在网格上的移动，以防止您遗漏隐藏或过滤的数据。</li>
-<li><strong>跨越的碎片化单元格：</strong> 如果您跳过网格中严重碎片化或隐藏的部分（例如，由于第 4-9 行被隐藏，从而从第 3 行移动到第 10 行），BOA 会明确播报"隐藏了从 4 到 9 的行"。这可确保您始终知道在结构中何时跳过了数据。</li>
+<li>主动跟踪您在网格中的移动，以防止您遗漏隐藏或被筛选的数据。</li>
+<li><strong>跨越分段单元格：</strong> 如果您跨越网格中严重碎片化或隐藏的部分（例如，由于第 4-9 行被隐藏，从第 3 行移到第 10 行），BOA 会明确播报“隐藏了从 4 到 9 的行”。这可确保您始终了解结构中何时跳过了数据。</li>
 </ul>
-<h4>6. 条件格式播报器</h4>
+<h4>6. Conditional Formatting Announcer</h4>
 <ul>
-<li>自动读取由 Excel 条件格式规则动态更改的单元格的颜色、字体样式和背景阴影。</li>
-<li>为您提供单元格的真实视觉状态，而不仅仅是原始底层值。最初，当聚焦单元格时，它会播报"具有条件格式，以及一些其他次要详细信息"。如需了解综合信息，请使用详细的快捷键配置（即 NVDA+E，然后按 F）。</li>
+<li>自动读取因 Excel 条件格式规则而动态改变的单元格颜色、字体样式和背景底纹。</li>
+<li>为您提供单元格的真实视觉状态，而不仅仅是原始的基础值。最初，当聚焦于单元格时，它会播报“has conditional formatting, and some other minor details”（具有条件格式以及其他一些次要细节）。要获取完整信息，请使用详细的热键配置，即 NVDA E 和 F。</li>
 </ul>
-<h4>7. 更好的选择播报</h4>
-<p>播报是否选择或取消选择了单元格或区域。</p>
-<h4>8 单元格监视器：</h4>
+<h4>7. Better selection announcement</h4>
+<p>在单元格或范围被选中或取消选中时进行朗读。</p>
+<h4>8 Cell Monitor</h4>
 <ul>
-<li><strong>单元格监视器：</strong> 使用命令路径将特定单元格映射到内存插槽。您可以随时使用分配的数字插槽跳回并读取它们。</li>
-<li><strong>持续监视：</strong> 系统会自动在后台监视已分配插槽的单元格。如果 Excel 触发了重新计算或单元格编辑，BOA 会立即播报新值。可通过命令插槽手动切换或清除所有内容。</li>
+<li><strong>Cell Monitor：</strong> 使用命令路径将特定单元格映射到内存槽。您可以随时使用分配的数字槽跳转回来并读取它们。</li>
+<li><strong>持续监视：</strong> 处于槽中的单元格将在后台自动受到监视。如果 Excel 触发重新计算或单元格编辑，BOA 会立即播报新值。可通过命令槽手动切换或全部清除。</li>
+<li><strong>Excel: Cell Monitor Pro Upgrades:</strong> </li>
+<li><strong>Slot Manager Dialog（<code>NVDA+E</code>，然后按 <code>Alt+M</code>）：</strong> 打开一个对话框，列出所有处于活动监视状态的单元格。按 <code>Enter</code> 可立即跳转到其中一个单元格。</li>
+<li><strong>Warp Back（<code>NVDA+E</code>，然后按 <code>\</code>）：</strong> 在检查槽后，立即将您传送回先前工作的单元格。</li>
+<li><strong>Direct Slot Jump（<code>Prefix + Alt</code> + <code>Slot Number</code>）：</strong> 绕过前缀并立即跳转到已分配的单元格槽。</li>
+</ul>
+<h4>9 Power Editor</h4>
+<ul>
+<li><strong>Excel: The Power Editor（无障碍公式编辑器）：</strong> 修改海量公式的绝对游戏规则改变者。</li>
+<li><strong>单击 <code>NVDA+E</code>，然后按 <code>F2</code>：</strong> 立即播报当前单元格的原始公式字符串（或者播报“No formula”/无公式）。</li>
+<li><strong>双击 <code>NVDA+E</code>，然后按 <code>F2</code>：</strong> 打开一个完全无障碍的多行编辑器，以安全地修改庞大的嵌套公式。使用原生的 <code>Enter</code> 可以添加换行以便于阅读，而按 <code>Ctrl+Enter</code> 则将其保存回 Excel。</li>
+<li><em>安全检查：</em> 在语法错误损坏您的工作表之前安全地捕获它们，并检测计算后错误（例如 <code>#NAME?</code> 或 <code>#DIV/0!</code>），以便在公式损坏时立即向您发出警告。</li>
+</ul>
+<h4>10 公式审核与评估增强功能：</h4>
+<ul>
+<li><strong>Excel: Formula Auditing &amp; Evaluation：</strong> 添加了自定义快捷键（<code>NVDA+E</code>，然后按 <code>Shift+P</code> 以及 <code>NVDA+E</code>，然后按 <code>Shift+D</code>）以可靠地追踪引用单元格（Precedents）和从属单元格（Dependents）。此外，Excel 原生的“评估公式”对话框现已完全无障碍；当您逐步执行计算时，NVDA 会自动读取评估结果！</li>
 </ul>
 <h3>PowerPoint 增强功能</h3>
-<h4>1. 无障碍的颜色选择器</h4>
+<h4>1. Accessible Color Pickers</h4>
 <ul>
-<li>解锁 PowerPoint 中的"自定义颜色"对话框。</li>
-<li>正确识别并明确读取"红"、"绿"和"蓝"编辑框（通过重写 <code>PowerPointRGBEdit</code>）。</li>
-<li>映射以前不可见的十六进制输入字段，以便 NVDA 可以清晰地读取完整的十六进制颜色值。</li>
+<li>解锁 PowerPoint 中的“自定义颜色”对话框。</li>
+<li>正确识别并明确朗读“红”、“绿”、“蓝”编辑框（通过重写 <code>PowerPointRGBEdit</code>）。</li>
+<li>映射了先前不可见的十六进制（Hex）输入字段，以便 NVDA 可以清晰地读取完整的十六进制颜色值。</li>
 </ul>
-<h4>2. 标准颜色网格支持</h4>
+<h4>2. Standard Color Grid Support</h4>
 <ul>
-<li>导航 PowerPoint 的"标准"颜色六边形网格通常会被读作"图形"或保持沉默。</li>
-<li>BOA 跟踪您在六边形上的箭头键操作，并以静默方式获取隐藏的颜色值，实时为您播报（例如，"颜色 #FF0000"）。</li>
+<li>在 PowerPoint 的“标准”彩色六边形网格中导航时，通常只会朗读为“图形”或保持静音。</li>
+<li>BOA 会在六边形网格中跟踪您的方向键，并静默获取隐藏的颜色值，实时向您播报（例如，“Color #FF0000”）。</li>
 </ul>
-<h3>基础架构和技术机制</h3>
+<h4>3 Bulk Slide Organizer</h4>
+<ul>
+<li><strong>PowerPoint: Bulk Slide Organizer (Experimental)（<code>NVDA+E</code>，然后按 <code>X</code>）：</strong> 类似于 Excel 功能，您现在可以使用完全无障碍的对话框一次性立即重新排序、移动和排列多张 PowerPoint 幻灯片。</li>
+</ul>
+<h4>4 Slide Layout Analyzer</h4>
+<ul>
+<li><strong>PowerPoint: Slide Layout Analyzer (Experimental)（<code>NVDA+E</code>，然后按 <code>L</code>）：</strong> 立即扫描您当前活动的幻灯片，以了解其空间布局 and 无障碍限制，确保完全流畅且响应迅速的屏幕阅读器体验。这意味着，您将在这里获得类似于 Excel 工作表布局分析器的当前幻灯片详细信息。</li>
+</ul>
+<h4>5 PowerPoint Document Analyzer</h4>
+<ul>
+<li><strong>PowerPoint: Complete Document Analyzer (Experimental)（<code>NVDA+E</code>，然后按 <code>D</code>）：</strong> 一款高度先进的、在后台处理的无障碍工具，可以绘制出整个演示文稿的结构，而不会冻结 NVDA 的语音引擎。它提供了一个可深度导航的虚拟目录，检测阅读顺序不匹配问题（视觉顺序 vs. Z 轴顺序），标记“大段文字”（Wall of Text）幻灯片，并映射 SmartArt 和数据表等复杂对象。</li>
+</ul>
+<h4>6 shape movement [adjustment] enhancements:</h4>
+<ul>
+<li><strong>PowerPoint: Shape Movement Audio Mode (Experimental)：</strong> 为 PowerPoint 画布引入 3D 空间音频提示。在您移动对象时提供听觉反馈，指示对象的移动方向和边界限制，从而极大地提高空间感知能力。</li>
+</ul>
+<h3>Word 增强功能：</h3>
+<h4>1. Document Analyzer（灵感来源于 Paul 的 Word Access 插件）：</h4>
+<ul>
+<li><strong>Word: Document Analyzer（<code>NVDA+E</code>，然后按 <code>D</code>）：</strong> 立即调出 Word 文档的结构概述。<em>（特别致谢 Paul：此功能的灵感直接源自他出色的“Word Access”插件。我们对他在此领域的奠基性工作表示深切的感谢！）</em></li>
+</ul>
+<h4>2 Formatting Auditor</h4>
+<ul>
+<li><strong>Word: Formatting Auditor（<code>NVDA+E</code>，然后按 <code>F</code>）：</strong> 扫描您的 Word 文档以查找格式不一致，确保符合视觉标准。</li>
+</ul>
+<h4>3 脚注阅读器：</h4>
+<ul>
+<li><strong>Word: Automated Footnote Announcer：</strong> 根据您的自定义 BOA 设置，现在在您阅读时会自动在行内播报脚注。<em>（注意：对尾注和批注的支持计划在未来的版本中推出）。</em></li>
+</ul>
+<h3>基础设施与技术机制</h3>
 <h4>命令前缀模式</h4>
-<p>为了防止与其他 NVDA 插件发生击键冲突，BOA 使用了<strong>命令前缀模式</strong>：
-1. 按下激活快捷键进入命令模式。您将听到高音提示音。
-2. 按下第二个键以触发特定功能。
-3. 如果您按下了无效键，您将听到错误提示音。</p>
-<h4>自定义和设置面板</h4>
+<p>为了防止与其他 NVDA 插件发生按键冲突，BOA 使用了<strong>命令前缀模式</strong>：
+1. 按下激活热键以进入命令模式。您将听到一声高音提示音。默认是 NVDA 加上 E。
+2. 按下辅助键以触发特定功能。
+3. 如果您按下了无效的键，您将听到一声错误提示音。</p>
+<h4>自定义与设置面板</h4>
 <ul>
-<li>BOA 的功能是完全模块化的，可以随时启用或禁用。转到 <code>NVDA 菜单 -&gt; 首选项 -&gt; 设置 -&gt; BOA Office 增强功能</code> 以开启或关闭单个功能。</li>
-<li><strong>智能快捷键：</strong> 面板内的每个设置都有一个数学上唯一的 <code>Alt+键</code> 快捷键。例如，按 <code>Alt+E</code> 即可立即跳转到 Excel 组，按 <code>Alt+P</code> 跳转到 PowerPoint，按 <code>Alt+W</code> 跳转到 Word。</li>
-<li>设置安全地保存到一个独立的 JSON 文件 (<code>boa_settings.json</code>) 中，从而确保您的核心 NVDA 配置绝不会损坏。</li>
-<li>如果未来 Microsoft Office 官方修复了无障碍错误，您可以安全地禁用 BOA 的特定覆盖挂钩，而不会丢失附加组件的其余功能。</li>
+<li>BOA 功能是完全模块化的，可以随时启用或禁用。转到 <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</code>（NVDA 菜单 -&gt; 首选项 -&gt; 设置 -&gt; BOA Office 增强功能）来开启或关闭各个功能。</li>
+<li><strong>智能加速键：</strong> 面板内的每一个设置都具有数学上唯一的 <code>Alt+Key</code> 加速键快捷键。例如，按 <code>Alt+E</code> 可立即跳转到 Excel 组，按 <code>Alt+P</code> 跳转到 PowerPoint，按 <code>Alt+W</code> 跳转到 Word。</li>
+<li>设置安全地保存到独立的 JSON 文件（<code>boa_settings.json</code>）中，确保您的 NVDA 核心配置永远不会损坏。</li>
+<li>如果 Microsoft Office 在未来正式修复了某个无障碍 Bug，您可以安全地禁用 BOA 的特定重写钩子，而不会失去该插件的其他功能。</li>
+<li><strong>输入手势自定义：</strong> 所有 Office 应用中的所有功能都已明确公开在原生 NVDA 的“输入手势”对话框中，赋予您完全自由来自定义每个键盘快捷键。</li>
 </ul>
-<h4>安全性和集成边界</h4>
+<h4>安全与集成边界</h4>
 <ul>
-<li>剪贴板注入严格验证窗口前台进程 ID，以防止数据泄漏到其他应用程序中。</li>
-<li>某些自定义快捷键完全公开在 NVDA 的"输入手势"对话框的"Better Office Accessibility"类别下。</li>
-</ul>
-<hr />
-<h2>📋 要求</h2>
-<ul>
-<li><strong>NVDA:</strong> 版本 2026.1.0 或更高版本。</li>
-<li><strong>应用程序:</strong> Microsoft Excel 和 Microsoft PowerPoint。</li>
+<li>剪贴板注入严格验证窗口前台进程 ID，以防止数据泄露到其他应用程序中。</li>
+<li>某些自定义热键完全公开在 NVDA“输入手势”对话框的“Better Office Accessibility”类别下。</li>
 </ul>
 <hr />
-<h2>💾 安装</h2>
+<h2>📋 系统要求</h2>
+<ul>
+<li><strong>NVDA：</strong> 2026.1.0 或更高版本。</li>
+<li><strong>应用程序：</strong> Microsoft Excel 和 Microsoft PowerPoint。</li>
+</ul>
+<hr />
+<h2>💾 安装方法</h2>
 <ol>
-<li>下载最新的 <code>.nvda-addon</code> 发布文件，或者在原生的 NVDA 附加组件商店中找到它。</li>
-<li>如果从文件安装，请打开文件或使用 <code>NVDA 的附加组件商店 -&gt; 从外部文件安装</code>。</li>
-<li>重新启动 NVDA。</li>
+<li>下载最新的 <code>.nvda-addon</code> 发布文件，或在原生的 NVDA 插件商店中找到它。</li>
+<li>如果从文件安装，请打开该文件或使用 <code>NVDA's Add-on Store -&gt; Install from external file</code>。</li>
+<li>重启 NVDA。</li>
 </ol>
 <hr />
 <h2>🛠️ 更新日志</h2>
-<h3>v1.6.1 新功能</h3>
+<h3>版本 2.0.0</h3>
+<h4>新功能</h4>
 <ul>
-<li><strong>深度文件本地化</strong>：修复了 Excel 增强模块（例如工作表布局分析器和快速工作表移动器）深处缺失的字符串翻译，确保 100% 的本地化覆盖率。</li>
-<li><strong>扩展的翻译支持</strong>：系统中添加了 7 种新语言（土耳其语、波兰语、韩语、乌克兰语、捷克语、乌尔都语和旁遮普语）。
-  <em>(注意：这些翻译由人工智能生成，因此可能存在少许翻译错误或不准确之处。)</em></li>
+<li><strong>PowerPoint: Complete Document Analyzer (Experimental)（<code>NVDA+E</code>，然后按 <code>D</code>）：</strong> 一款高度先进的、在后台处理的无障碍工具，可以绘制出整个演示文稿的结构，而不会冻结 NVDA 的语音引擎。它提供了一个可深度导航的虚拟目录，检测阅读顺序不匹配问题（视觉顺序 vs. Z 轴顺序），标记“大段文字”（Wall of Text）幻灯片，并映射 SmartArt 和数据表等复杂对象。</li>
+<li><strong>PowerPoint: Slide Layout Analyzer (Experimental)（<code>NVDA+E</code>，然后按 <code>L</code>）：</strong> 立即扫描您当前活动的幻灯片，以了解其空间布局和无障碍限制，确保完全流畅且响应迅速的屏幕阅读器体验。这意味着，您将在这里获得类似于 Excel 工作表布局分析器的当前幻灯片详细信息。</li>
+<li><strong>PowerPoint: Bulk Slide Organizer (Experimental)（<code>NVDA+E</code>，然后按 <code>X</code>）：</strong> 类似于 Excel 功能，您现在可以使用完全无障碍的对话框一次性立即重新排序、移动和排列多张 PowerPoint 幻灯片。</li>
+<li><strong>PowerPoint: Shape Movement Audio Mode (Experimental)：</strong> 为 PowerPoint 画布引入 3D 空间音频提示。在您移动对象时提供听觉反馈，指示对象的移动方向和边界限制，从而极大地提高空间感知能力。正如所提到的，这仍处于实验阶段，等待反馈以进行改进。</li>
+<li><strong>Word: Formatting Auditor（<code>NVDA+E</code>，然后按 <code>F</code>）：</strong> 扫描您的 Word 文档以查找格式不一致，确保符合视觉标准。</li>
+<li><strong>Word: Document Analyzer（<code>NVDA+E</code>，然后按 <code>D</code>）：</strong> 立即调出 Word 文档的结构概述。<em>（特别致谢 Paul：此功能的灵感直接源自他出色的“Word Access”插件。我们对他在此领域的奠基性工作表示深切的感谢！）</em></li>
+<li><strong>Word: Automated Footnote Announcer：</strong> 根据您的自定义 BOA 设置，现在在您阅读时会自动在行内播报脚注。<em>（注意：对尾注和批注的支持计划在未来的版本中推出）。</em></li>
+<li><strong>Excel: The Power Editor（无障碍公式编辑器）：</strong> 修改海量公式的绝对游戏规则改变者。</li>
+<li><strong>单击 <code>NVDA+E</code>，然后按 <code>F2</code>：</strong> 立即播报当前单元格的原始公式字符串（或者播报“No formula”/无公式）。</li>
+<li><strong>双击 <code>NVDA+E</code>，然后按 <code>F2</code>：</strong> 打开一个完全无障碍的多行编辑器，以安全地修改庞大的嵌套公式。使用原生的 <code>Enter</code> 可以添加换行以便于阅读，而按 <code>Ctrl+Enter</code> 则将其保存回 Excel。</li>
+<li><em>安全检查：</em> 在语法错误损坏您的工作表之前安全地捕获它们，并检测计算后错误（例如 <code>#NAME?</code> 或 <code>#DIV/0!</code>），以便在公式损坏时立即向您发出警告。</li>
+<li><strong>Excel: Formula Auditing &amp; Evaluation：</strong> 添加了自定义快捷键（<code>NVDA+E</code>，然后按 <code>Shift+P</code> 以及 <code>NVDA+E</code>，然后按 <code>Shift+D</code>）以可靠地追踪引用单元格（Precedents）和从属单元格（Dependents）。此外，Excel 原生的“评估公式”对话框现已完全无障碍；当您逐步执行计算时，NVDA 会自动读取评估结果！</li>
+<li><strong>Excel: Cell Monitor Pro Upgrades:</strong> </li>
+<li><strong>Slot Manager Dialog（<code>NVDA+E</code>，然后按 <code>Alt+M</code>）：</strong> 打开一个对话框，列出所有处于活动监视状态的单元格。按 <code>Enter</code> 可立即跳转到其中一个单元格。</li>
+<li><strong>Warp Back（<code>NVDA+E</code>，然后按 <code>\</code>）：</strong> 在检查槽后，立即将您传送回先前工作的单元格。</li>
+<li><strong>Direct Slot Jump（<code>Alt</code> + <code>Slot Number</code>）：</strong> 完全绕过前缀，立即跳转到已分配的单元格槽。</li>
+<li><strong>输入手势自定义：</strong> 所有 Office 应用中的所有功能都已明确公开在原生 NVDA 的“输入手势”对话框中，赋予您完全自由来自定义每个键盘快捷键。</li>
+</ul>
+<h4>UX/UI 增强功能</h4>
+<ul>
+<li><strong>统一的可浏览报告：</strong> 我们在整个插件中采用了统一的 HTML 报告系统。Excel 条件格式播报器、布局分析器和文档分析器等功能不再只是朗读大段文本；它们的结果现在会在一个原生的、可导航的 HTML 窗口中打开，允许您以自己的节奏查看数据。</li>
+<li><strong>Excel：增强的从属/引用单元格跟踪：</strong> 极大地增强了 Excel 原生公式追踪快捷键的语音输出（<code>Ctrl+[</code> 用于直接引用单元格，<code>Ctrl+]</code> 用于直接从属单元格）。NVDA 现在将明确播报具体选中了哪些单元格。</li>
+<li><strong>Excel：合并单元格支持：</strong> 现在，跨越空隙的单元格跟踪器能正确检测并明确播报合并单元格。</li>
+</ul>
+<h4>Bug 修复</h4>
+<ul>
+<li><strong>Word：列表项重复朗读：</strong> 实施了临时补丁，以修复 NVDA 在某些 Word 视图中重复朗读段落列表项的 Bug。</li>
+<li><strong>Excel：单元格监视器本地化 Bug：</strong> 解决了由近期翻译本地化更新引起的底层跟踪 Bug。</li>
+</ul>
+<h3>v1.6.1 中的新功能</h3>
+<ul>
+<li><strong>深度文件本地化</strong>：修复了 Excel 增强模块（例如工作表布局分析器和快速工作表移动器）深处缺失的字符串翻译，以确保 100% 的本地化覆盖率。</li>
+<li><strong>扩展的翻译支持</strong>：系统中新增了 7 种语言（土耳其语、波兰语、韩语、乌克兰语、捷克语、乌尔都语和旁遮普语）。
+  <em>（注意：这些翻译是由人工智能生成的，因此可能存在一些微小的翻译错误或不准确之处。）</em></li>
 </ul>
 <h3>v1.6.0</h3>
 <ul>
-<li><strong>全面的翻译支持</strong>：该附加组件现已完全本地化，支持 17 种全球语言。
-  <em>（注意：这些翻译由 AI 生成，因此可能存在一些轻微的翻译错误或不准确之处。）</em></li>
-<li><strong>严格的代码治理</strong>：在整个代码库中应用了 GPL-2.0 版权声明。</li>
+<li><strong>全面的翻译支持</strong>：该插件现已完全本地化，支持 17 种全球语言。
+  <em>（注意：这些翻译是由人工智能生成的，因此可能存在一些微小的翻译错误或不准确之处。）</em></li>
+<li><strong>严格的代码管理</strong>：在整个代码库中应用了 GPL-2.0 版权信息头。"",</li>
 </ul>
 <h3>版本 1.5.0</h3>
-<h4>新增功能</h4>
-<h5>数据结束雷达</h5>
-<p>当浏览大型电子表格时，很难判断空单元格是指您已经到达列表末尾，还是数据中仅仅存在间隙。<strong>数据结束雷达</strong>作为一个智能的周边检查工具，可以避免您在空白区域盲目地使用方向键。
-每当您导航到一个空单元格时，BOA 会即时扫描您移动方向上剩余的单元格。如果绝对没有剩余数据，它会主动播报：
-* <em>"下方没有更多数据"</em>
-* <em>"上方没有更多数据"</em>
-* <em>"右侧没有更多数据"</em>
-* <em>"左侧没有更多数据"</em>
+<h4>新功能</h4>
+<h5>End of Data Radar</h5>
+<p>在大型电子表格中导航时，很难判断一个空白单元格是意味着您已到达列表的末尾，还是仅仅数据中存在间隙。<strong>End of Data Radar</strong> 作为一种智能周边检查，可避免您盲目地在空白区域中按方向键。
+每当您导航到空白单元格时，BOA 会立即在您的移动方向上扫描其余单元格。如果绝对没有剩余数据，它将主动播报：
+* <em>“下方没有更多数据”</em>
+* <em>“上方没有更多数据”</em>
+* <em>“右侧没有更多数据”</em>
+* <em>“左侧没有更多数据”</em>
 <strong>配置选项：</strong>
-您可以通过 <code>NVDA 首选项 -&gt; 设置 -&gt; BOA Office 增强功能</code> 来配置此功能。由于电子表格可能包含隐藏的复杂性（比如不可见的公式或折叠的行），雷达提供了三种操作模式：
-1. <strong>关闭 (Off)</strong>：完全禁用雷达。
-2. <strong>严格内存检查 (CountA) [默认]</strong>：最安全且最快的方法。它检查电子表格的原始内存。如果检测到您下方有<em>任何</em>内容（包括隐藏行、文本、数字或不可见的公式），它将保持完全沉默，以防止误报。仅当工作表的其余部分在数学上 100% 为空白时，它才会播报"没有更多数据"。
-3. <strong>仅可见数据 (数学引擎)</strong>：专为复杂工作表设计的高度高级的引擎。它智能地过滤掉隐藏行和不可见的公式（例如 <code>=""</code>）。只有在您的路径中还留有实际可见的数字或文本时，它才会保持沉默。</p>
+您可以通过 <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> 配置此功能。由于电子表格可能包含隐藏的复杂情况（如不可见的公式或折叠的行），雷达提供了三种工作模式：
+1. <strong>Off</strong>：完全禁用雷达。
+2. <strong>Strict Memory Check (CountA) [默认]</strong>：最安全、最快速的方法。它检查电子表格的原始内存。如果它检测到您下方有<em>任何内容</em>（包括隐藏行、文本、数字或不可见公式），它会保持完全静音以防止误报。只有当工作表的其余部分在数学上 100% 为空白时，它才会播报“No more data”。
+3. <strong>Visible Data Only (Math Engine)</strong>：专为复杂工作表设计的高度先进的引擎。它智能地过滤掉隐藏行和不可见的公式（例如 <code>=""</code>）。只有在您的路径上确实剩下实际可见 of 数字或文本时，它才会保持静音。</p>
 <h3>版本 1.4 - 2026-06-12</h3>
-<h4>新增功能</h4>
+<h4>新功能</h4>
 <ul>
-<li><strong>单元格监视器：</strong> 使用命令路径将特定单元格映射到内存插槽。您可以随时使用分配的数字插槽跳回并读取它们。</li>
-<li><strong>持续监视：</strong> 系统会自动在后台监视已分配插槽的单元格。如果 Excel 触发了重新计算或单元格编辑，BOA 会立即播报新值。可通过命令插槽手动切换或清除所有内容。</li>
+<li><strong>Cell Monitor：</strong> 使用命令路径将特定单元格映射到内存槽。您可以随时使用分配的数字槽跳转回来并读取它们。</li>
+<li><strong>持续监视：</strong> 处于槽中的单元格将在后台自动受到监视。如果 Excel 触发重新计算或单元格编辑，BOA 会立即播报新值。可通过命令槽手动切换或全部清除。</li>
 </ul>
-<h4>修复错误</h4>
+<h4>Bug 修复</h4>
 <h3>版本 1.3.0 — 2026-06-05</h3>
-<p><em>最终发布。</em></p>
-<h4>新增功能</h4>
+<p><em>最终发布版本。</em></p>
+<h4>新功能</h4>
 <ul>
-<li><strong>工作表布局分析器：</strong> 添加了强大的布局扫描基础架构。即时检测工作表保护、活动列筛选器、隐藏工作表标签页和隐藏的绝对边界，同时缓存发现的数据块。</li>
-<li><strong>引导式数据块导航：</strong> 分析后的导航允许光标在主要数据簇之间立即跳转，无缝绕过空单元格。</li>
-<li><strong>条件格式播报器：</strong> 自动检测并读取由 Excel 条件格式规则更改的单元格的动态颜色、字体样式和背景阴影。</li>
-<li><strong>显式的设置快捷键：</strong> 彻底改革了 BOA 设置 GUI，以严格遵守 NVDA 架构。每个功能复选框现在都有一个全局唯一的 <code>Alt+字母</code> 快捷键，防止键盘循环并消除了首字母导航故障。</li>
+<li><strong>Sheet Layout Analyzer：</strong> 添加了强大的布局扫描基础设施。立即检测工作表保护、活动列筛选器、隐藏的工作表标签页以及隐藏的绝对边界，同时缓存发现的数据块。</li>
+<li><strong>引导式数据块导航：</strong> 分析后的导航允许光标在主要数据群之间立即传送，无缝绕过空白单元格。</li>
+<li><strong>Conditional Formatting Announcer：</strong> 自动检测并读取因 Excel 条件格式规则而改变的单元格动态颜色、字体样式和背景底纹。</li>
+<li><strong>明确设置加速键：</strong> 完全重构了 BOA 设置 GUI，以严格遵守 NVDA 架构。现在，每个功能复选框都拥有全局唯一的 <code>Alt+Letter</code> 快捷键，防止键盘循环并消除首字母导航失败的问题。</li>
 </ul>
-<h4>修复错误</h4>
+<h4>Bug 修复</h4>
 <ul>
-<li><strong>绝对边缘边界检测：</strong> 使用绝对 1D 数学边界检查（<code>行 1048576</code> 和 <code>列 16384</code>）取代了本机 COM <code>UsedRange</code> 边缘检查，以保证检测到隐藏的行/列，即使它们位于活动数据块之外很远。</li>
-<li><strong>延迟的 COM 属性安全退出：</strong> 强化了 COM 属性循环，以防止在评估数百万个连续隐藏结构时 NVDA 线程冻结。</li>
+<li><strong>绝对边缘边界检测：</strong> 使用绝对一维数学边界检查（<code>Row 1048576</code> 和 <code>Column 16384</code>）取代了原生 COM 的 <code>UsedRange</code> 边缘检查，以确保即使隐藏的行/列位于活动数据块之外很远，也能检测到它们。</li>
+<li><strong>延迟加载 COM 属性 safe bailouts：</strong> 加固了 COM 属性循环，以防止在评估数百万个连续的隐藏结构时 NVDA 线程发生冻结。</li>
 </ul>
 <h3>版本 1.2.0 — 2026-06-03</h3>
-<p><em>最终发布。</em></p>
-<h4>新增功能</h4>
+<p><em>最终发布版本。</em></p>
+<h4>新功能</h4>
 <ul>
-<li><strong>应用程序启动缓存：</strong> 重大架构大修。核心模块现在在您聚焦 Office 应用程序时延迟加载，消除了启动延迟，彻底解决了重命名对话框上的"未知"对象焦点故障，并保留了多文件代码库结构。</li>
-<li><strong>增强的单元格跟踪器 (1D COM 数学)：</strong> 重写了隐藏单元格间隙检测逻辑，仅评估一维横截面（<code>current_col</code> 或 <code>current_row</code>）。这使得 COM 计算负载减少了超过 1600 万个单元格，瞬间消除了跳转隐藏区域时的导航冻结。</li>
-<li><strong>进程内存擦除：</strong> 实现了 Excel 窗口句柄 (<code>Hwnd</code>) 跟踪，以检测用户何时关闭并重新打开 Excel。这主动擦除了陈旧的全局状态内存，彻底解决了打开全新 "Book1" 时错误的"工作表已隐藏"播报。</li>
+<li><strong>App-Launch Caching：</strong> 重大架构重构。核心模块现在仅在您聚焦于 Office 应用程序时才会延迟加载，从而消除了启动延迟，彻底解决了重命名对话框中“未知”对象焦点故障，并保留了多文件代码库结构。</li>
+<li><strong>Enhanced Cell Tracker (1D COM Math)：</strong> 重写了隐藏单元格间隙检测逻辑，仅评估一维截面（<code>current_col</code> 或 <code>current_row</code>）。这使 COM 计算负荷减少了 1600 多万个单元格，瞬间消成了在跳转隐藏范围时的导航冻结。</li>
+<li><strong>Process Memory Wiping：</strong> 实现了 Excel 窗口句柄（<code>Hwnd</code>）跟踪，以检测用户何时关闭并重新打开 Excel。这会主动清除陈旧的全局状态内存，并彻底解决在打开新的“Book1”时错误的“Sheet hidden”播报。</li>
 </ul>
-<h4>修复错误</h4>
+<h4>Bug 修复</h4>
 <ul>
-<li><strong>双重选择播报：</strong> 摒弃了不可靠的异步 <code>winUser.getKeyState</code>，并实现了 <code>api.getLastInputGesture()</code>，从而在使用 Shift+方向键时完美抑制双重播报。</li>
-<li><strong>边界检测器停用：</strong> 主动边界检测器已停用，以保护 NVDA 原生导航的稳定性，完全回退到间隙跳过跟踪器。</li>
+<li><strong>双重选择播报：</strong> 摒弃了不可靠的异步 <code>winUser.getKeyState</code>，转而使用 <code>api.getLastInputGesture()</code>，以完美消除使用 Shift+方向键时的重复播报问题。</li>
+<li><strong>边界检测器停用：</strong> 主动式边界检测器已停用，以保护 NVDA 原生导航的稳定性，完全回退到跨越空隙跟踪器。</li>
 </ul>
 <h3>版本 1.1.0 — 2026-05-30</h3>
-<p><em>最终发布。</em></p>
-<h4>新增功能</h4>
+<p><em>最终发布版本。</em></p>
+<h4>新功能</h4>
 <ul>
-<li><strong>设置 GUI：</strong> 在 <code>NVDA -&gt; 首选项 -&gt; 设置</code> 中添加了原生的 BOA Office 增强功能面板，可轻松开启或关闭功能。</li>
-<li><strong>SafeRichEdit 挂钩：</strong> 防止在 Office 2024 中与 RichEdit 控件交互时发生静默 NVDA 崩溃。</li>
-<li><strong>可自定义快捷键：</strong> 所有 BOA 快捷键现已完全公开在 NVDA 的"输入手势"对话框的"Better Office Accessibility"类别下。</li>
-<li><strong>Excel：隐藏行/列跳过检测：</strong> 在导航经过隐藏行或列时主动播报，确保您绝不会错过经过过滤的数据。可以在设置中切换。</li>
+<li><strong>Settings GUI：</strong> 在 <code>NVDA -&gt; Preferences -&gt; Settings</code> 内添加了原生的 BOA Office 增强功能面板，以便轻松开启或关闭各功能。</li>
+<li><strong>SafeRichEdit Hook：</strong> 防止在 Office 2024 中与 RichEdit 控件交互时 NVDA 发生静默崩溃。</li>
+<li><strong>可自定义热键：</strong> 所有 BOA 热键现已完全公开在 NVDA 的“输入手势”对话框中，分类在“Better Office Accessibility”下。</li>
+<li><strong>Excel：隐藏行/列跳过检测：</strong> 在导航越过隐藏的行或列时主动进行播报，确保您不会遗漏被筛选的数据。可以在设置中切换。</li>
 </ul>
-<h4>修复错误</h4>
+<h4>Bug 修复</h4>
 <ul>
-<li><strong>线程安全：</strong> 移除了所有阻塞延迟 (<code>time.sleep</code>)，并替换为无阻塞的 NVDA 异步回调，以确保屏幕阅读器在后台操作期间绝不卡顿。</li>
+<li><strong>线程安全：</strong> 移除了所有阻塞延迟（<code>time.sleep</code>），并用非阻塞的 NVDA 异步回调替换它们，以确保屏幕阅读器在后台操作期间绝不卡顿。</li>
 </ul>
 <h3>版本 1.0.0 — 2026-05-24</h3>
-<p><em>初始公开发布。</em></p>
-<h4>新增功能</h4>
+<p><em>首次公开发布版本。</em></p>
+<h4>新功能</h4>
 <ul>
-<li><strong>Excel：批量工作表管理器：</strong> 使用完全无障碍的对话框一次性即时重新排序多个工作表。</li>
-<li><strong>Excel：快速工作表移动器：</strong> 通过键盘命令将活动工作表向左、向右、移动到最开头或最末尾。</li>
-<li><strong>Excel：无障碍的工作表重命名：</strong> 拦截无法访问的原生重命名字段，并用可靠的无障碍对话框替换它。</li>
-<li><strong>Excel：智能选择跟踪：</strong> 准确播报多单元格区域的选择和取消选择。</li>
-<li><strong>PowerPoint：无障碍的颜色选择器：</strong> 使 NVDA 能够准确读取"自定义颜色"对话框中的 RGB 和十六进制值。</li>
-<li><strong>PowerPoint：标准颜色网格支持：</strong> 拦截箭头键导航，从无法访问的颜色六边形网格中读取隐藏的十六进制代码。</li>
+<li><strong>Excel：批量工作表管理器：</strong> 使用完全无障碍的对话框一次性立即重新排序多个工作表。</li>
+<li><strong>Excel：快速工作表移动器：</strong> 通过键盘命令将当前工作表向左、向右移动，或移动到开头、结尾。</li>
+<li><strong>Excel：无障碍工作表重命名：</strong> 拦截不可访问的原生重命名输入框，并用可靠的无障碍对话框替换它。</li>
+<li><strong>Excel：智能选区跟踪：</strong> 准确播报多单元格范围的选择与取消选择。</li>
+<li><strong>PowerPoint：无障碍颜色选择器：</strong> 允许 NVDA 准确读取“自定义颜色”对话框中的 RGB 和十六进制值。</li>
+<li><strong>PowerPoint：标准颜色网格支持：</strong> 拦截方向键导航，从不可访问的彩色六边形网格中读取隐藏的十六进制代码。</li>
 </ul>
 </body>
 </html>

@@ -20,19 +20,19 @@ msgstr ""
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
 msgid "BOA Office Enhancements"
-msgstr ""
+msgstr "BOA Ofis Geliştirmeleri"
 
 #: addon\boa_lib\boa_gui.py:65 addon\boa_lib\boa_gui.py:85
 msgid "Off"
-msgstr ""
+msgstr "Kapalı"
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "One-time Announcement"
-msgstr ""
+msgstr "Tek Seferlik Duyuru"
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "Guided Announcement"
-msgstr ""
+msgstr "Rehberli Duyuru"
 
 #: addon\boa_lib\boa_gui.py:77
 msgid ""
@@ -44,23 +44,28 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:85
 msgid "Strict Memory Check (CountA)"
-msgstr ""
+msgstr "Sıkı Bellek Denetimi (Bağ_Değ_Dolu_Say)"
 
 #: addon\boa_lib\boa_gui.py:85
 msgid "Visible Data Only (Math Engine)"
-msgstr ""
+msgstr "Sadece Görünür Veri (Matematik Motoru)"
 
 #: addon\boa_lib\boa_gui.py:95
 msgid "Select the engine used to detect the end of data in a row or column."
 msgstr ""
+"Bir satır veya sütundaki verinin sonunu tespit etmek için kullanılan motoru "
+"seçin."
 
 #: addon\boa_lib\boa_gui.py:109
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
 msgstr ""
+"&Excel: Toplu Sayfa Düzenleyiciyi ve Hızlı Sayfa Taşıyıcıyı Etkinleştir"
 
 #: addon\boa_lib\boa_gui.py:110
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
 msgstr ""
+"Yerel düzenleme alanı yerine erişilebilir Sayfayı &Yeniden Adlandır iletişim"
+" kutusunu kullan"
 
 #: addon\boa_lib\boa_gui.py:111
 msgid "Prevent NVDA &crashes in Excel text fields"
@@ -68,50 +73,56 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:112
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
-msgstr ""
+msgstr "&Çoklu hücre seçimi beklenmedik bir şekilde kaybedildiğinde duyur"
 
 #: addon\boa_lib\boa_gui.py:113
 msgid "Proactively announce when navigating past &hidden rows or columns"
-msgstr ""
+msgstr "Gizli &satırları veya sütunları geçerken proaktif olarak duyur"
 
 #: addon\boa_lib\boa_gui.py:114
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
-msgstr ""
+msgstr "NVDA+E, L ile Sayfa Düzen &Çözümleyiciyi Etkinleştir"
 
 #: addon\boa_lib\boa_gui.py:115
 msgid "Sheet Layout Auto-Announce &Mode:"
-msgstr ""
+msgstr "Sayfa Düzeni Otomatik Duyuru &Modu:"
 
 #: addon\boa_lib\boa_gui.py:116
 msgid "Conditional &Formatting and color"
-msgstr ""
+msgstr "Koşullu &Biçimlendirme ve renk"
 
 #: addon\boa_lib\boa_gui.py:117
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
 msgstr ""
+"Hücre &İzleyiciyi etkinleştir (1-9 arası yuvalar ve sürekli arka plan "
+"izleme)"
 
 #: addon\boa_lib\boa_gui.py:118
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
-msgstr ""
+msgstr "Gezindiğiniz &yönde daha fazla veri olmadığında duyur"
 
 #: addon\boa_lib\boa_gui.py:120
 msgid "Excel Enhancements"
-msgstr ""
+msgstr "Excel Geliştirmeleri"
 
 #: addon\boa_lib\boa_gui.py:124
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
 msgstr ""
+"&PowerPoint: Standart Renk altıgen kılavuzunda gezinirken gizli Hex "
+"kodlarını oku"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
 msgstr ""
+"He&x Renk düzenleme alanının düzgün bir şekilde etiketlendiğinden emin ol"
 
 #: addon\boa_lib\boa_gui.py:126
 msgid "Ensure the R&GB Color edit fields are properly labeled"
 msgstr ""
+"R&GB Renk düzenleme alanlarının düzgün bir şekilde etiketlendiğinden emin ol"
 
 #: addon\boa_lib\boa_gui.py:127
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
@@ -119,7 +130,7 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:129
 msgid "PowerPoint Enhancements"
-msgstr ""
+msgstr "PowerPoint Geliştirmeleri"
 
 #: addon\boa_lib\boa_gui.py:133
 msgid "&Word: Prevent NVDA crashes in Word text fields"
@@ -127,7 +138,7 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:135
 msgid "Word Enhancements"
-msgstr ""
+msgstr "Word Geliştirmeleri"
 
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:59
 msgid "Enter new sheet name:"
@@ -140,7 +151,7 @@ msgstr "Sayfayı Yeniden Adlandır"
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:85
 #, python-brace-format
 msgid "Renaming to {name}"
-msgstr ""
+msgstr "{name} olarak yeniden adlandırılıyor"
 
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:174
 msgid "Rename sheet"
@@ -148,30 +159,30 @@ msgstr "Sayfayı yeniden adlandır"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
 msgid "Bulk arrangement complete"
-msgstr ""
+msgstr "Toplu düzenleme tamamlandı"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:108
 #, python-brace-format
 msgid "Error during bulk move: {error}"
-msgstr ""
+msgstr "Toplu taşıma sırasında hata: {error}"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:150
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:60
 msgid "Could not find Excel grid."
-msgstr ""
+msgstr "Excel kılavuzu bulunamadı."
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:158
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:75
 msgid "Failed to hook Excel."
-msgstr ""
+msgstr "Excel'e bağlanılamadı."
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:165
 msgid "No active workbook."
-msgstr ""
+msgstr "Etkin bir çalışma kitabı yok."
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
 msgid "Error opening organizer"
-msgstr ""
+msgstr "Düzenleyici açılırken hata oluştu"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:189
 msgid "Bulk Sheet Organizer"
@@ -209,35 +220,35 @@ msgstr "&İptal"
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
 #, python-brace-format
 msgid "Scheduled: {sheet} to position {pos}"
-msgstr ""
+msgstr "Planlandı: {sheet} sayfası {pos} konumuna"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:289
 msgid "Move removed"
-msgstr ""
+msgstr "Taşıma kaldırıldı"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:119
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:231
 msgid "Error: Could not read Excel cell."
-msgstr ""
+msgstr "Hata: Excel hücresi okunamadı."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:144
 #, python-brace-format
 msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
-msgstr ""
+msgstr "{old_cell}, {slot_str} yuvası için {address} ile değiştirildi"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:147
 #, python-brace-format
 msgid "{address} set to slot {slot_str}"
-msgstr ""
+msgstr "{address}, {slot_str} yuvasına ayarlandı"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:159
 #, python-brace-format
 msgid "Slot {slot_str} is empty."
-msgstr ""
+msgstr "{slot_str} yuvası boş."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:169
 msgid "Error: Excel not accessible."
-msgstr ""
+msgstr "Hata: Excel erişilebilir değil."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:176
 #, python-brace-format
@@ -248,6 +259,8 @@ msgstr ""
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
 msgstr ""
+"{slot_str} yuvası kaybedildi. '{sheet}' sayfası yeniden adlandırıldı veya "
+"silindi."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:210
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:357
@@ -269,113 +282,115 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:217
 #, python-brace-format
 msgid "Cannot read slot {slot_str}. Excel may be busy."
-msgstr ""
+msgstr "{slot_str} yuvası okunamıyor. Excel meşgul olabilir."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:238
 #, python-brace-format
 msgid "Continuous monitor OFF for {address}"
-msgstr ""
+msgstr "{address} için sürekli izleyici KAPALI"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:244
 #, python-brace-format
 msgid "Continuous monitor ON for {address}"
-msgstr ""
+msgstr "{address} için sürekli izleyici AÇIK"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:258
 msgid "All monitored and slotted cells cleared."
-msgstr ""
+msgstr "Tüm izlenen ve yuvalanan hücreler temizlendi."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:361
 #, python-brace-format
 msgid "{cell_addr} updated: {current_val}{location_str}"
-msgstr ""
+msgstr "{cell_addr} güncellendi: {current_val}{location_str}"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
 msgstr ""
+"{slot_cleared} yuvası için izleyici, ad değişikliği veya kapanma nedeniyle "
+"kaybedildi."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
 msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
-msgstr ""
+msgstr "İzleyici temizlendi: {wb_closed} içindeki {sheet_closed} kaybedildi."
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
 msgid "unselected"
-msgstr ""
+msgstr "seçim kaldırıldı"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:210
 #, python-brace-format
 msgid "{address} selected"
-msgstr ""
+msgstr "{address} seçildi"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:336
 #, python-brace-format
 msgid "Row {row_num} hidden"
-msgstr ""
+msgstr "{row_num} satırı gizli"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:339
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:341
 #, python-brace-format
 msgid "Rows {start} through {end} hidden"
-msgstr ""
+msgstr "{start} ile {end} arasındaki satırlar gizli"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:343
 msgid "Crossed heavily fragmented hidden rows"
-msgstr ""
+msgstr "Aşırı parçalanmış gizli satırlar geçildi"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:406
 #, python-brace-format
 msgid "Column {col_letter} hidden"
-msgstr ""
+msgstr "{col_letter} sütunu gizli"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:409
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:411
 #, python-brace-format
 msgid "Columns {start} through {end} hidden"
-msgstr ""
+msgstr "{start} ile {end} arasındaki sütunlar gizli"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:413
 msgid "Crossed heavily fragmented hidden columns"
-msgstr ""
+msgstr "Aşırı parçalanmış gizli sütunlar geçildi"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:468
 msgid "No more data below"
-msgstr ""
+msgstr "Aşağıda başka veri yok"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:475
 msgid "No more data above"
-msgstr ""
+msgstr "Yukarıda başka veri yok"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:482
 msgid "No more data to the right"
-msgstr ""
+msgstr "Sağda başka veri yok"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:489
 msgid "No more data to the left"
-msgstr ""
+msgstr "Solda başka veri yok"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:552
 msgid "Panes frozen"
-msgstr ""
+msgstr "Bölmeler dondurulmuş"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:554
 msgid "Panes unfrozen"
-msgstr ""
+msgstr "Bölmeler çözülmüş"
 
 #. -1 is xlSheetVisible
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:577
 #, python-brace-format
 msgid "{sheet} hidden"
-msgstr ""
+msgstr "{sheet} sayfası gizli"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:589
 msgid "Sheet hidden"
-msgstr ""
+msgstr "Sayfa gizli"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:591
 msgid "Sheet unhidden"
-msgstr ""
+msgstr "Sayfa gösterildi"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:749
 #, python-brace-format
@@ -408,7 +423,7 @@ msgstr "görünür"
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
 #, python-brace-format
 msgid "{address} {state}"
-msgstr ""
+msgstr "{address} {state}"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:34
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:39
@@ -469,15 +484,15 @@ msgstr ": {color_name} Metin"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
 msgid "No active cell found."
-msgstr ""
+msgstr "Etkin hücre bulunamadı."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
 msgid "No conditional formatting rules applied to this cell."
-msgstr ""
+msgstr "Bu hücreye uygulanan hiçbir koşullu biçimlendirme kuralı yok."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
 msgid "Failed to read format conditions."
-msgstr ""
+msgstr "Biçim koşulları okunamadı."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:158
 #, python-brace-format
@@ -722,30 +737,30 @@ msgstr "Koşullu Biçimlendirme Analizi"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
 msgid "Failed to analyze conditional formatting."
-msgstr ""
+msgstr "Koşullu biçimlendirme analiz edilemedi."
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:88
 msgid "Only one sheet in workbook"
-msgstr ""
+msgstr "Çalışma kitabında sadece bir sayfa var"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:93
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:106
 msgid "Already at beginning"
-msgstr ""
+msgstr "Zaten başta"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:99
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:112
 msgid "Already at end"
-msgstr ""
+msgstr "Zaten sonda"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:127
 #, python-brace-format
 msgid "Moved {sheet} to position {new_idx} of {total}"
-msgstr ""
+msgstr "{sheet} sayfası {total} sayfa içinde {new_idx} konumuna taşındı"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:130
 msgid "Failed to move sheet"
-msgstr ""
+msgstr "Sayfa taşınamadı"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:48
 msgid "Copy (Ctrl+Shift+C)"
@@ -762,7 +777,7 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
 msgid "Analyzing layout..."
-msgstr ""
+msgstr "Düzen analiz ediliyor..."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:188
 msgid "Sheet appears to be empty."
@@ -804,12 +819,12 @@ msgstr "Sayfa Düzeni Genel Bakış"
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
 #, python-brace-format
 msgid "Empty cell. Nearest data at {col}{row}."
-msgstr ""
+msgstr "Boş hücre. En yakın veri {col}{row} konumunda."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
 #, python-brace-format
 msgid "Nearest data at {col}{row}"
-msgstr ""
+msgstr "En yakın veri {col}{row} konumunda"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:364
 msgid "Filter Mode: Active"
@@ -977,30 +992,31 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
 msgstr ""
+"Düzen önbelleği boş. Önce sayfayı taramak için NVDA+E, L tuşlarına basın."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
 msgid "No data blocks found in cache."
-msgstr ""
+msgstr "Önbellekte hiçbir veri bloğu bulunamadı."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:545
 msgid "Already on a data cell."
-msgstr ""
+msgstr "Zaten bir veri hücresinde."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:562
 #, python-brace-format
 msgid "Jumped to {col}{row}"
-msgstr ""
+msgstr "{col}{row} konumuna atlandı"
 
 #. Announce the color cleanly to the user.
 #: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:52
 #, python-brace-format
 msgid "Color {text}"
-msgstr ""
+msgstr "Renk {text}"
 
 #: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:101
 #, python-brace-format
 msgid "Color {hex_val}"
-msgstr ""
+msgstr "Renk {hex_val}"
 
 #. Add-on description
 #: buildVars.py:15
@@ -1015,6 +1031,15 @@ msgid ""
 "    \n"
 "    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
+"NVDA kullanıcıları için ekran okuyucu deneyimini büyük ölçüde geliştirmek üzere tasarlanmış, Microsoft Office için güçlü bir erişilebilirlik geliştirmeleri paketi. \n"
+"    \n"
+"    Temel Özellikler:\n"
+"    - Hücre İzleyici: Dinamik Excel hücrelerini kaydedin ve sürekli izleyin.\n"
+"    - Sayfa Düzen Çözümleyici: Çalışma sayfalarını gizli sekmeler, korumalı durumlar ve veri blokları açısından anında tarayın.\n"
+"    - Toplu Sayfa Düzenleyici ve Hızlı Taşıyıcı: Erişilebilir iletişim kutularını kullanarak birden fazla sayfayı anında taşıyın veya yeniden sıralayın.\n"
+"    - PowerPoint Renk Seçiciler: Standart renk kılavuzları içindeki gizli Hex ve RGB kodlarını okuyun.\n"
+"    \n"
+"    Özelliklerin ve kısayolların tam listesi için lütfen eklenti yardım belgelerine bakın."
 
 #. Changelog URL or None
 #: buildVars.py:40
@@ -1028,3 +1053,993 @@ msgstr ""
 "* **Derin Dosya Yerelleştirmesi**: %100 yerelleştirme kapsamı sağlamak için Excel geliştirme modüllerinin (Sayfa Düzeni Analizörü ve Hızlı Sayfa Taşıyıcı gibi) derinlerindeki eksik dize çevirileri düzeltildi.\n"
 "* **Genişletilmiş Çeviri Desteği**: Sisteme 7 yeni dil eklendi (Türkçe, Lehçe, Korece, Ukraynaca, Çekçe, Urduca ve Pencapça).\n"
 "  *(Not: Bu çeviriler yapay zeka tarafından oluşturulduğundan bazı küçük çeviri hataları veya yanlışlıklar olabilir.)*"
+
+msgid "BOA (Better Office Accessibility)"
+msgstr "BOA (Daha İyi Ofis Erişilebilirliği)"
+
+msgid ""
+"Triggers the BOA command prefix. Press this, followed by a specific command "
+"key."
+msgstr ""
+"BOA komut önekini tetikler. Buna ve ardından belirli bir komut tuşuna basın."
+
+msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
+msgstr ""
+"Sayfaları yeniden sıralamak için Toplu Sayfa Düzenleyici iletişim kutusunu "
+"başlatır."
+
+msgid "Analyzes and announces the layout structure of the current sheet."
+msgstr "Geçerli sayfanın düzen yapısını analiz eder ve duyurur."
+
+msgid "Jumps the focus to the nearest cell block."
+msgstr "Odağı en yakın hücre bloğuna atlatır."
+
+msgid "Announces conditional formatting details for the current cell."
+msgstr "Geçerli hücre için koşullu biçimlendirme ayrıntılarını duyurur."
+
+msgid "Toggles monitoring on the active cell."
+msgstr "Etkin hücrede izlemeyi açar/kapatır."
+
+msgid "Clears all monitored cells."
+msgstr "İzlenen tüm hücreleri temizler."
+
+msgid ""
+"Traces precedents and opens a dialog to jump to cells that provide data to "
+"the active cell."
+msgstr ""
+"Etkileyenleri izler ve etkin hücreye veri sağlayan hücrelere atlamak için "
+"bir iletişim kutusu açar."
+
+msgid ""
+"Traces dependents and opens a dialog to jump to cells that depend on the "
+"active cell."
+msgstr ""
+"Etkilenenleri izler ve etkin hücreye bağlı olan hücrelere atlamak için bir "
+"iletişim kutusu açar."
+
+msgid "Announces the raw formula of the active cell."
+msgstr "Etkin hücrenin ham formülünü duyurur."
+
+msgid ""
+"Opens the accessible Power Editor dialog to edit the active cell's contents."
+msgstr ""
+"Etkin hücrenin içeriğini düzenlemek için erişilebilir Güçlü Düzenleyici "
+"iletişim kutusunu açar."
+
+msgid ""
+"Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
+msgstr ""
+"İzlenen hücreleri yönetmek ve onlara atlamak için Etkin Hücre İzleyicileri "
+"iletişim kutusunu açar."
+
+msgid ""
+"Jumps focus back to the cell you were working on before navigating away."
+msgstr "Odağı, uzaklaşmadan önce üzerinde çalıştığınız hücreye geri atlatır."
+
+msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
+msgstr ""
+"Slaytları yeniden sıralamak için Toplu Slayt Düzenleyici iletişim kutusunu "
+"başlatır."
+
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr "Geçerli slaydın düzen yapısını analiz eder ve duyurur."
+
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr ""
+"Geçerli PowerPoint sunusunu analiz eder ve kapsamlı bir düzen ve sağlık "
+"raporu görüntüler."
+
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr ""
+"Geçerli Word belgesini analiz eder ve kapsamlı bir düzen ve sağlık raporu "
+"görüntüler."
+
+msgid ""
+"Audits the current Word document for visual formatting inconsistencies."
+msgstr ""
+"Geçerli Word belgesini görsel biçimlendirme tutarsızlıkları açısından "
+"denetler."
+
+msgid "Analysis cancelled."
+msgstr "Analiz iptal edildi."
+
+msgid "An error occurred during analysis."
+msgstr "Analiz sırasında bir hata oluştu."
+
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr "Varsayılan NVDA Davranışı (Sadece Referans)"
+
+msgid "Read Note Content Inline"
+msgstr "Not İçeriğini Satır İçi Oku"
+
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr ""
+"NVDA'nın dipnotların ve sonnotların metnini belge metniyle aynı hizada "
+"otomatik olarak okuyup okumayacağını seçin."
+
+msgid "Default NVDA Behavior"
+msgstr "Varsayılan NVDA Davranışı"
+
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr "Varsayılan Davranış + 3B Uzamsal Ses (Deneysel)"
+
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr ""
+"NVDA'nın PowerPoint'te şekil hareketini nasıl duyuracağını denetler. Tuval "
+"modları, ham matematik koordinatlarını 'Sol-Üst Çeyrek' gibi insan "
+"tarafından okunabilen konumlara dönüştürür."
+
+msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
+msgstr "Excel metin alanlarında NVDA &çökmelerini önle (SafeRichEdit)"
+
+msgid "Enable Formula Auditor &features"
+msgstr "Formül Denetçisi &özelliklerini etkinleştir"
+
+msgid "Explicitly announce m&erged cells"
+msgstr "Birleştirilmiş h&ücreleri açıkça duyur"
+
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr "PowerPoint metin alanlarında NVDA &çökmelerini önle (SafeRichEdit)"
+
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr "Toplu Slayt &Düzenleyici iletişim kutusunu etkinleştir (Önek + X)"
+
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
+msgstr "S&layt Düzen Çözümleyiciyi Etkinleştir (Önek + L)"
+
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr "PowerPoint &Belge Çözümleyiciyi Etkinleştir (Önek + D)"
+
+msgid "Shape Movement Audio Mode:"
+msgstr "Şekil Hareketi Ses Modu:"
+
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+msgstr "&Word: Word metin alanlarında NVDA çökmelerini önle (SafeRichEdit)"
+
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr "Paragraf gezinmesi sırasında liste öğelerinin &çift okunmasını önle"
+
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr "NVDA+E, D ile Belge &Çözümleyiciyi Etkinleştir"
+
+msgid "Enable Format &Auditor via NVDA+E, F"
+msgstr "NVDA+E, F ile Biçim &Denetçisini Etkinleştir"
+
+msgid "Footnotes and Endnotes reading &mode:"
+msgstr "Dipnotlar ve Sonnotlar okuma &modu:"
+
+msgid "No formula"
+msgstr "Formül yok"
+
+msgid "BOA Power Editor"
+msgstr "BOA Güçlü Düzenleyici"
+
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr ""
+"Hücre içeriğini &düzenle (kaydetmek için Ctrl+Enter, iptal etmek için Esc "
+"tuşuna basın):"
+
+msgid "&Save"
+msgstr "&Kaydet"
+
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+"Formül kaydedildi, ancak Excel bunu bir hata olarak değerlendirdi: {error}\n"
+"\n"
+"Düzenlemeye devam etmek istiyor musunuz?"
+
+msgid "Calculation Error"
+msgstr "Hesaplama Hatası"
+
+msgid "Done"
+msgstr "Bitti"
+
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr ""
+"Excel bu formülü reddetti. Lütfen sözdizimi hatalarını veya eksik "
+"parantezleri kontrol edin."
+
+msgid "Invalid Formula"
+msgstr "Geçersiz Formül"
+
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
+msgstr ""
+"{slot_str} yuvası kaybedildi. '{wb}' çalışma kitabı kapalı veya erişilemez "
+"durumda."
+
+msgid "Empty cell"
+msgstr "Boş hücre"
+
+msgid "Cannot jump. The workbook '{wb}' is closed."
+msgstr "Atlanamıyor. '{wb}' çalışma kitabı kapalı."
+
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
+msgstr "Atlanamıyor. '{sheet}' sayfası yeniden adlandırıldı veya silindi."
+
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
+msgstr "Atlanamıyor. Hücre adresi geçersiz veya Excel meşgul."
+
+msgid "No cell assigned to slot {slot_num}"
+msgstr "{slot_num} yuvasına hiçbir hücre atanmadı"
+
+msgid "No previous cell to jump back to."
+msgstr "Geri atlanacak önceki bir hücre yok."
+
+msgid "Active Cell Monitors"
+msgstr "Etkin Hücre İzleyicileri"
+
+msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
+msgstr ""
+"Üzerine atlamak için bir hücre seçin. İzleyicilerden kaldırmak için Sil "
+"tuşuna basın."
+
+msgid "&Jump"
+msgstr "&Atla"
+
+msgid "No cells are currently being monitored."
+msgstr "Şu anda hiçbir hücre izlenmiyor."
+
+msgid "Slot {slot} deleted"
+msgstr "{slot} yuvası silindi"
+
+msgid "Monitor deleted"
+msgstr "İzleyici silindi"
+
+msgid "Merged cell, {address}"
+msgstr "Birleştirilmiş hücre, {address}"
+
+msgid "{sheet_name} deleted"
+msgstr "{sheet_name} sayfası silindi"
+
+msgid "Rules Summary"
+msgstr "Kurallar Özeti"
+
+msgid "Analyzed Results"
+msgstr "Analiz Edilmiş Sonuçlar"
+
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr "&Bir başvuru seçin ve üzerine atlamak için Enter'a basın:"
+
+msgid "Cannot jump to a closed external workbook."
+msgstr "Kapalı bir dış çalışma kitabına atlanamıyor."
+
+msgid "(External) {}"
+msgstr "(Dış) {}"
+
+msgid "No precedents found."
+msgstr "Hiçbir etkileyen bulunamadı."
+
+msgid "No dependents found."
+msgstr "Hiçbir etkilenen bulunamadı."
+
+msgid "Precedents"
+msgstr "Etkileyenler"
+
+msgid "Dependents"
+msgstr "Etkilenenler"
+
+msgid ""
+"Clicks the button and dynamically announces formula evaluation changes."
+msgstr ""
+"Düğmeye tıklar ve formül değerlendirme değişikliklerini dinamik olarak "
+"duyurur."
+
+msgid "{old_diff} evaluated to {new_diff}"
+msgstr "{old_diff}, {new_diff} olarak değerlendirildi"
+
+msgid "Data Blocks Summary"
+msgstr "Veri Blokları Özeti"
+
+msgid "Found {count} data blocks in this sheet."
+msgstr "Bu sayfada {count} veri bloğu bulundu."
+
+msgid "Sheet Properties"
+msgstr "Sayfa Özellikleri"
+
+msgid ""
+"No special properties detected (No active filters, protection, frozen panes,"
+" or hidden borders)."
+msgstr ""
+"Hiçbir özel özellik saptanmadı (Etkin filtre, koruma, dondurulmuş bölme veya"
+" gizli kenarlık yok)."
+
+msgid "Failed to connect to PowerPoint."
+msgstr "PowerPoint'e bağlanılamadı."
+
+msgid "No active presentation."
+msgstr "Etkin bir sunu yok."
+
+msgid "Not enough slides to move."
+msgstr "Taşımak için yeterli slayt yok."
+
+msgid "Successfully reorganized slides."
+msgstr "Slaytlar başarıyla yeniden düzenlendi."
+
+msgid "Failed to move slides. See log for details."
+msgstr "Slaytlar taşınamadı. Ayrıntılar için günlüğe bakın."
+
+msgid "Loading slides, please wait..."
+msgstr "Slaytlar yükleniyor, lütfen bekleyin..."
+
+msgid "Failed to hook PowerPoint."
+msgstr "PowerPoint'e bağlanılamadı."
+
+msgid "Slide {index} - {title}"
+msgstr "Slayt {index} - {title}"
+
+msgid "Slide {index} - (No Title)"
+msgstr "Slayt {index} - (Başlıksız)"
+
+msgid "Bulk Slide Organizer"
+msgstr "Toplu Slayt Düzenleyici"
+
+msgid "Slide Name:"
+msgstr "Slayt Adı:"
+
+msgid "Slide"
+msgstr "Slayt"
+
+msgid "Scheduled: {slide} to position {pos}"
+msgstr "Planlandı: {slide} slaydını {pos} konumuna"
+
+msgid "No active presentation detected."
+msgstr "Etkin bir sunu saptanmadı."
+
+msgid "Analyzing document layout in background..."
+msgstr "Arka planda belge düzeni analiz ediliyor..."
+
+msgid "Error starting document analysis."
+msgstr "Belge analizi başlatılırken hata oluştu."
+
+msgid "Untitled Slide"
+msgstr "Başlıksız Slayt"
+
+msgid "Document Analysis: {name}"
+msgstr "Belge Analizi: {name}"
+
+msgid "Overview"
+msgstr "Genel Bakış"
+
+msgid "Total Slides: {n}"
+msgstr "Toplam Slayt: {n}"
+
+msgid "Hidden Slides: {n}"
+msgstr "Gizli Slaytlar: {n}"
+
+msgid "Table of Contents"
+msgstr "İçindekiler"
+
+msgid "Slide {num}: {title}"
+msgstr "Slayt {num}: {title}"
+
+msgid "Accessibility Health"
+msgstr "Erişilebilirlik Sağlığı"
+
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr "Okuma Sırası Uyuşmazlığı (Z Sırasına Karşı Görsel)"
+
+msgid "Slide {num}"
+msgstr "Slayt {num}"
+
+msgid "Missing Alt-Text"
+msgstr "Eksik Alternatif Metin"
+
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr "Slayt {num}: {count} resimde alternatif metin eksik"
+
+msgid "Off-Canvas Elements"
+msgstr "Tuval Dışı Öğeler"
+
+msgid "No major accessibility issues detected."
+msgstr "Önemli bir erişilebilirlik sorunu saptanmadı."
+
+msgid "Density & Complexity"
+msgstr "Yoğunluk ve Karmaşıklık"
+
+msgid "High Text Density (Wall of Text)"
+msgstr "Yüksek Metin Yoğunluğu (Metin Duvarı)"
+
+msgid "Slide {num}: {words} words"
+msgstr "Slayt {num}: {words} kelime"
+
+msgid "Complex Objects"
+msgstr "Karmaşık Nesneler"
+
+msgid "Tables: {n}"
+msgstr "Tablolar: {n}"
+
+msgid "Grouped Objects: {n}"
+msgstr "Gruplandırılmış Nesneler: {n}"
+
+msgid "Media: {n}"
+msgstr "Medya: {n}"
+
+msgid "Charts: {n}"
+msgstr "Grafikler: {n}"
+
+msgid "Embedded Documents: {n}"
+msgstr "Gömülü Belgeler: {n}"
+
+msgid "No active slide detected."
+msgstr "Etkin bir slayt saptanmadı."
+
+msgid "Analyzing slide layout..."
+msgstr "Slayt düzeni analiz ediliyor..."
+
+msgid "Error analyzing slide layout."
+msgstr "Slayt düzeni analiz edilirken hata oluştu."
+
+msgid "Slide {num} Layout Analysis"
+msgstr "Slayt {num} Düzen Analizi"
+
+msgid "Structure & Density"
+msgstr "Yapı ve Yoğunluk"
+
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr "Yer Tutucular ve Özel Şekiller Karşılaştırması: {p} / {c}"
+
+msgid "Total Word Count: {w}"
+msgstr "Toplam Kelime Sayısı: {w}"
+
+msgid "Warning: High text density (Wall of Text)"
+msgstr "Uyarı: Yüksek metin yoğunluğu (Metin Duvarı)"
+
+msgid "Warning: Missing standard Title Placeholder"
+msgstr "Uyarı: Eksik standart Başlık Yer Tutucusu"
+
+msgid "Accessibility Warnings"
+msgstr "Erişilebilirlik Uyarıları"
+
+msgid "Off-Canvas Shapes"
+msgstr "Tuval Dışı Şekiller"
+
+msgid "Reading Order Mismatch"
+msgstr "Okuma Sırası Uyuşmazlığı"
+
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr "'{s}' şekli görsel olarak üstte ancak mantıksal olarak altta."
+
+msgid "Missing Alt-Text: {n} images"
+msgstr "Eksik Alternatif Metin: {n} resim"
+
+msgid "No major spatial accessibility warnings detected."
+msgstr "Önemli bir uzamsal erişilebilirlik uyarısı saptanmadı."
+
+msgid "Complex Objects & Media"
+msgstr "Karmaşık Nesneler ve Medya"
+
+msgid "Media (Audio/Video): {n}"
+msgstr "Medya (Ses/Görüntü): {n}"
+
+msgid "Charts/Graphs: {n}"
+msgstr "Grafikler/Çizelgeler: {n}"
+
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr "Gömülü Belgeler (Excel/PDF): {n}"
+
+msgid "Tables"
+msgstr "Tablolar"
+
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr "'{name}' tablosu: {c} sütuna {r} satır"
+
+msgid "No complex tables, groups, or media."
+msgstr "Karmaşık tablo, grup veya medya yok."
+
+msgid "Analyzing document, please wait..."
+msgstr "Belge analiz ediliyor, lütfen bekleyin..."
+
+msgid "Cannot access Word application."
+msgstr "Word uygulamasına erişilemiyor."
+
+msgid "Failed to start document analyzer."
+msgstr "Belge çözümleyici başlatılamadı."
+
+msgid "Word Document Analyzer Report"
+msgstr "Word Belge Çözümleyici Raporu"
+
+msgid "1. Cursor Context"
+msgstr "1. İmleç Bağlamı"
+
+msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
+msgstr ""
+"{sec}. Bölümde, {page}. Sayfada, Tablo Hücresinde ({row}. Satır, {col}. "
+"Sütun)"
+
+msgid "In Section {sec}, Page {page} (Inside a Table)"
+msgstr "{sec}. Bölümde, {page}. Sayfada (Bir Tablonun İçinde)"
+
+msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
+msgstr "{sec}. Bölümde, {page}. Sayfada, {line}. Satır, {col}. Sütun"
+
+msgid "Could not retrieve cursor position."
+msgstr "İmleç konumu alınamadı."
+
+msgid "Error retrieving cursor context."
+msgstr "İmleç bağlamı alınırken hata oluştu."
+
+msgid "2. Document Properties & Options"
+msgstr "2. Belge Özellikleri ve Seçenekleri"
+
+msgid "Unprotected"
+msgstr "Korumasız"
+
+msgid "Allow Only Revisions (Tracked Changes)"
+msgstr "Sadece Düzeltmelere İzin Ver (İzlenen Değişiklikler)"
+
+msgid "Allow Only Comments"
+msgstr "Sadece Açıklamalara İzin Ver"
+
+msgid "Allow Only Form Fields"
+msgstr "Sadece Form Alanlarına İzin Ver"
+
+msgid "Unknown Protection"
+msgstr "Bilinmeyen Koruma"
+
+msgid "Document Protection: {status}"
+msgstr "Belge Koruması: {status}"
+
+msgid "File Name: {name}"
+msgstr "Dosya Adı: {name}"
+
+msgid "Author"
+msgstr "Yazar"
+
+msgid "Creation Date"
+msgstr "Oluşturulma Tarihi"
+
+msgid "Revision Number"
+msgstr "Düzeltme Numarası"
+
+msgid "Title"
+msgstr "Başlık"
+
+msgid "Subject"
+msgstr "Konu"
+
+msgid "Company"
+msgstr "Şirket"
+
+msgid "Enabled"
+msgstr "Etkin"
+
+msgid "Disabled"
+msgstr "Devre Dışı"
+
+msgid "Check spelling as you type: {status}"
+msgstr "Yazarken yazımı denetle: {status}"
+
+msgid "Check grammar as you type: {status}"
+msgstr "Yazarken dilbilgisini denetle: {status}"
+
+msgid "Check grammar with spelling: {status}"
+msgstr "Yazımla birlikte dilbilgisini denetle: {status}"
+
+msgid "Track Revisions (Recording): {status}"
+msgstr "Düzeltmeleri İzle (Kayıt): {status}"
+
+msgid "Visible"
+msgstr "Görünür"
+
+msgid "Hidden"
+msgstr "Gizli"
+
+msgid "Display hidden text on screen: {status}"
+msgstr "Gizli metni ekranda görüntüle: {status}"
+
+msgid "Could not retrieve document properties."
+msgstr "Belge özellikleri alınamadı."
+
+msgid "3. Overall Statistics"
+msgstr "3. Genel İstatistikler"
+
+msgid "Pages: {pages}"
+msgstr "Sayfalar: {pages}"
+
+msgid "Words (including footnotes): {words}"
+msgstr "Kelimeler (dipnotlar dahil): {words}"
+
+msgid "Characters (including footnotes): {chars}"
+msgstr "Karakterler (dipnotlar dahil): {chars}"
+
+msgid "Text Paragraphs: {paras}"
+msgstr "Metin Paragrafları: {paras}"
+
+msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
+msgstr "Yapısal Paragraflar (boş satırlar ve tablolar dahil): {paras}"
+
+msgid "Lines: {lines}"
+msgstr "Satırlar: {lines}"
+
+msgid "Lists: {lists}"
+msgstr "Listeler: {lists}"
+
+msgid "Spelling errors: {errors}"
+msgstr "Yazım hataları: {errors}"
+
+msgid "Could not retrieve structural statistics."
+msgstr "Yapısal istatistikler alınamadı."
+
+msgid "4. Collaboration Status"
+msgstr "4. İşbirliği Durumu"
+
+msgid "Comments: {count}"
+msgstr "Açıklamalar: {count}"
+
+msgid "Unresolved Tracked Changes: {count}"
+msgstr "Çözümlenmemiş İzlenen Değişiklikler: {count}"
+
+msgid "Unresolved Tracked Changes: 0"
+msgstr "Çözümlenmemiş İzlenen Değişiklikler: 0"
+
+msgid "Footnotes: {count}"
+msgstr "Dipnotlar: {count}"
+
+msgid "Endnotes: {count}"
+msgstr "Sonnotlar: {count}"
+
+msgid "Could not retrieve collaboration statistics."
+msgstr "İşbirliği istatistikleri alınamadı."
+
+msgid "5. Accessibility Audit Summary"
+msgstr "5. Erişilebilirlik Denetimi Özeti"
+
+msgid "Images (Inline): {count}"
+msgstr "Resimler (Satır İçi): {count}"
+
+msgid "Warning: {count} images are missing alternative text!"
+msgstr "Uyarı: {count} resimde alternatif metin eksik!"
+
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr ""
+"Uyarı: {count} kayan şekil saptandı. Bunlar genellikle erişilemez "
+"durumdadır."
+
+msgid "Hyperlinks: {count}"
+msgstr "Köprüler: {count}"
+
+msgid "Could not retrieve accessibility statistics."
+msgstr "Erişilebilirlik istatistikleri alınamadı."
+
+msgid "6. Layout & Structural Breakdown"
+msgstr "6. Düzen ve Yapısal Kırılım"
+
+msgid "Sections"
+msgstr "Bölümler"
+
+msgid "No sections found."
+msgstr "Hiçbir bölüm bulunamadı."
+
+msgid "Section {num}"
+msgstr "Bölüm {num}"
+
+msgid "Portrait"
+msgstr "Dikey"
+
+msgid "Landscape"
+msgstr "Yatay"
+
+msgid "Orientation: {orient}"
+msgstr "Yönlendirme: {orient}"
+
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr "Üst: {t:.2f}cm, Alt: {b:.2f}cm, Sol: {l:.2f}cm, Sağ: {r:.2f}cm"
+
+msgid "Margins: {margins}"
+msgstr "Kenar Boşlukları: {margins}"
+
+msgid "Warning: Different first page header/footer."
+msgstr "Uyarı: Farklı ilk sayfa üstbilgisi/altbilgisi."
+
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr "Uyarı: Tek ve çift sayfalar farklı üstbilgilere/altbilgilere sahip."
+
+msgid "Continuous"
+msgstr "Sürekli"
+
+msgid "New Column"
+msgstr "Yeni Sütun"
+
+msgid "New Page"
+msgstr "Yeni Sayfa"
+
+msgid "Even Page"
+msgstr "Çift Sayfa"
+
+msgid "Odd Page"
+msgstr "Tek Sayfa"
+
+msgid "Section start: {start}"
+msgstr "Bölüm başlangıcı: {start}"
+
+msgid "Top"
+msgstr "Üst"
+
+msgid "Center"
+msgstr "Orta"
+
+msgid "Justify"
+msgstr "İki Yana Yasla"
+
+msgid "Bottom"
+msgstr "Alt"
+
+msgid "Vertical alignment: {align}"
+msgstr "Dikey hizalama: {align}"
+
+msgid "Distance from top to header: {d:.2f}cm"
+msgstr "Üstten üstbilgiye uzaklık: {d:.2f}cm"
+
+msgid "Distance from bottom to footer: {d:.2f}cm"
+msgstr "Alttan altbilgiye uzaklık: {d:.2f}cm"
+
+msgid "Yes"
+msgstr "Evet"
+
+msgid "No"
+msgstr "Hayır"
+
+msgid "Text modification only in form fields: {status}"
+msgstr "Sadece form alanlarında metin değişikliği: {status}"
+
+msgid "Custom"
+msgstr "Özel"
+
+msgid "Standard/Other"
+msgstr "Standart/Diğer"
+
+msgid "Paper size: {size}"
+msgstr "Kağıt boyutu: {size}"
+
+msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
+msgstr "Sayfa boyutları: {w:.2f}cm genişlik, {h:.2f}cm yükseklik"
+
+msgid "Print two pages per sheet: {status}"
+msgstr "Yaprak başına iki sayfa yazdır: {status}"
+
+msgid "Right-to-Left (RTL)"
+msgstr "Sağdan Sola (RTL)"
+
+msgid "Left-to-Right (LTR)"
+msgstr "Soldan Sağa (LTR)"
+
+msgid "Reading direction: {dir}"
+msgstr "Okuma yönü: {dir}"
+
+msgid "No tables found."
+msgstr "Hiçbir tablo bulunamadı."
+
+msgid "Table {num}"
+msgstr "Tablo {num}"
+
+msgid "uniform"
+msgstr "tek tip"
+
+msgid "non-uniform"
+msgstr "tek tip olmayan"
+
+msgid "nested "
+msgstr "iç içe "
+
+msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
+msgstr "Boyutlar: {rows} Satır, {cols} Sütundan oluşan {nest}tablo ({uni})"
+
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr ""
+"Boyutlar: Karmaşık (Satır sayımını engelleyen birleştirilmiş/bölünmüş "
+"hücreler içeriyor)"
+
+msgid "Localized at page {page}, line {line}"
+msgstr "{page}. sayfa, {line}. satırda yer alıyor"
+
+msgid "Title: {t}"
+msgstr "Başlık: {t}"
+
+msgid "Description: {d}"
+msgstr "Açıklama: {d}"
+
+msgid "Automatic resize to fit content: {status}"
+msgstr "İçeriğe sığacak şekilde otomatik yeniden boyutlandır: {status}"
+
+msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
+msgstr "Üst dolgu: {pad:.4f}cm, Alt dolgu: {bpad:.4f}cm"
+
+msgid "Spacing between cells: {sp:.4f}cm"
+msgstr "Hücreler arası boşluk: {sp:.4f}cm"
+
+msgid "Borders Enabled: {status}"
+msgstr "Kenarlıklar Etkin: {status}"
+
+msgid "Word Document Analyzer"
+msgstr "Word Belge Çözümleyici"
+
+msgid "Auditing document formatting, please wait..."
+msgstr "Belge biçimlendirmesi denetleniyor, lütfen bekleyin..."
+
+msgid "Failed to start formatting audit."
+msgstr "Biçimlendirme denetimi başlatılamadı."
+
+msgid "<b>Page {page}, Line {line}</b> (Para {num})"
+msgstr "<b>{page}. Sayfa, {line}. Satır</b> (Paragraf {num})"
+
+msgid "<b>Page {page}</b> (Para {num})"
+msgstr "<b>{page}. Sayfa</b> (Paragraf {num})"
+
+msgid "<b>Paragraph {num}</b>"
+msgstr "<b>Paragraf {num}</b>"
+
+msgid "<b>Page {page}</b> (Table {num})"
+msgstr "<b>{page}. Sayfa</b> (Tablo {num})"
+
+msgid "<b>Table {num}</b>"
+msgstr "<b>Tablo {num}</b>"
+
+msgid ""
+"{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
+msgstr ""
+"{loc}: Ardışık 3 veya daha fazla boş satır saptandı. Bunun yerine Sayfa Sonu"
+" kullanın."
+
+msgid "{loc}: Empty heading detected."
+msgstr "{loc}: Boş başlık saptandı."
+
+msgid ""
+"{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
+"breaks screen reader flow."
+msgstr ""
+"{loc}: Paragraf içinde el ile satır sonu (Shift+Enter) saptandı. Bu, ekran "
+"okuyucu akışını bozar."
+
+msgid ""
+"{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
+msgstr ""
+"{loc}: Boşluk çubuğu girintisi saptandı (4+ boşluk). Sekme veya Paragraf "
+"Girintisi kullanın."
+
+msgid ""
+"{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
+"alignment or Ruler Indents."
+msgstr ""
+"{loc}: Ardışık birden fazla Sekme karakteri saptandı. Orta/Sağ hizalama veya"
+" Cetvel Girintilerini kullanın."
+
+msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
+msgstr "{loc}: Aynı paragraf içinde tutarsız yazı tipi boyutları saptandı."
+
+msgid "{loc}: Inconsistent font types detected within the same paragraph."
+msgstr "{loc}: Aynı paragraf içinde tutarsız yazı tipleri saptandı."
+
+msgid "{loc}: Highlighted text detected."
+msgstr "{loc}: Vurgulanmış metin saptandı."
+
+msgid ""
+"{loc}: Fake list detected. Manual numbering used instead of built-in list."
+msgstr ""
+"{loc}: Sahte liste saptandı. Yerleşik liste yerine el ile numaralandırma "
+"kullanılmış."
+
+msgid ""
+"{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
+"{new})."
+msgstr ""
+"{loc}: Atlanan başlık düzeyi ({old} Düzeyinden doğrudan {new} Düzeyine "
+"atlanmış)."
+
+msgid ""
+"{loc}: Table contains merged or split cells. This breaks screen reader grid "
+"navigation."
+msgstr ""
+"{loc}: Tablo birleştirilmiş veya bölünmüş hücreler içeriyor. Bu, ekran "
+"okuyucu kılavuz gezinmesini bozar."
+
+msgid ""
+"{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
+"subsequent pages."
+msgstr ""
+"{loc}: Tabloda 'Başlık Satırlarını Yinele' eksik. Veriler sonraki sayfalarda"
+" okunamayacak."
+
+msgid ""
+"<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
+"inconsistencies found! The document looks clean.</p>"
+msgstr ""
+"<h2>Biçim ve Erişilebilirlik Denetimi Tamamlandı</h2><p>Hiçbir biçimlendirme"
+" tutarsızlığı bulunamadı! Belge temiz görünüyor.</p>"
+
+msgid "Format Audit Results"
+msgstr "Biçim Denetimi Sonuçları"
+
+msgid "Format & Accessibility Audit Report"
+msgstr "Biçim ve Erişilebilirlik Denetimi Raporu"
+
+msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
+msgstr "Toplam Paragraf: {paras} | Bulunan Toplam Hata: {total}"
+
+msgid "1. Structural Accessibility Blockers (WCAG)"
+msgstr "1. Yapısal Erişilebilirlik Engelleri (WCAG)"
+
+msgid "2. Visual Layout & Spacing Issues"
+msgstr "2. Görsel Düzen ve Boşluk Sorunları"
+
+msgid "3. Font & Style Inconsistencies"
+msgstr "3. Yazı Tipi ve Stil Tutarsızlıkları"
+
+msgid "bottom"
+msgstr "alt"
+
+msgid "top"
+msgstr "üst"
+
+msgid ""
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. as mentioned this is experemental and waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a structural overview of your Word document. *(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant \"Word Access\" add-on. We are deeply grateful for his foundational work in this space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. *(Note: Support for endnotes and comments is planned for a future release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native `Enter` adds line breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts (`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking bugs caused by the recent translation localization updates."
+msgstr ""
+"### Sürüm 2.0.0\n"
+"#### Yeni Özellikler\n"
+"* **PowerPoint: Tam Belge Çözümleyici (Deneysel) (`NVDA+E`, ardından `D`):** NVDA'nın konuşma motorunu dondurmadan tüm bir sununun haritasını çıkaran son derece gelişmiş, arka planda işlenen bir erişilebilirlik aracıdır. Derinlemesine gezilebilir bir Sanal İçindekiler Tablosu sağlar, Okuma Sırası Uyuşmazlıklarını (Görsel Sıraya Karşı Z Sırası) saptar, \"Metin Duvarı\" slaytlarını işaretler ve SmartArt ile Veri Tabloları gibi karmaşık nesnelerin haritasını çıkarır.\n"
+"* **PowerPoint: Slayt Düzen Çözümleyici (Deneysel) (`NVDA+E`, ardından `L`):** Uzamsal düzenini ve erişilebilirlik kısıtlamalarını anlamak için geçerli etkin slaydınızı anında tarar ve tamamen sorunsuz ve duyarlı bir ekran okuyucu deneyimi sağlar. Yani, burada Excel'in sayfa düzen çözümleyicisine benzer şekilde geçerli slayt hakkında ayrıntılar alacaksınız.\n"
+"* **PowerPoint: Toplu Slayt Düzenleyici (Deneysel) (`NVDA+E`, ardından `X`):** Excel özelliğine benzer şekilde, artık tam erişilebilir bir iletişim kutusu kullanarak birden fazla PowerPoint slaydını anında yeniden sıralayabilir, taşıyabilir ve düzenleyebilirsiniz.\n"
+"* **PowerPoint: Şekil Hareketi Ses Modu (Deneysel):** PowerPoint tuvaline 3B Uzamsal Ses ipuçları getirir. Bir nesneyi hareket ettirirken yönünü ve sınır limitlerini gösteren işitsel geri bildirim sağlayarak uzamsal farkındalığı büyük ölçüde artırır. Belirtildiği gibi, bu deneyseldir ve geliştirmek veya kaldırmak için geri bildirim bekliyor.\n"
+"* **Word: Biçimlendirme Denetçisi (`NVDA+E`, ardından `F`):** Görsel standartları sağlamak için Word belgenizi biçimlendirme tutarsızlıkları açısından denetler.\n"
+"* **Word: Belge Çözümleyici (`NVDA+E`, ardından `D`):** Word belgenizin yapısal bir genel bakışını anında ekrana getirir. *(Paul'e özel bir teşekkür ve kredi notu: Bu özellik, onun harika \"Word Access\" eklentisinden doğrudan ilham almıştır. Bu alandaki temel çalışması için ona derinden minnettarız!)*\n"
+"* **Word: Otomatik Dipnot Duyurucusu:** Özel BOA ayarlarınıza bağlı olarak dipnotlar artık okurken satır içi olarak otomatik olarak duyurulacaktır. *(Not: Sonnotlar ve açıklamalar için destek gelecekteki bir sürümde planlanmaktadır).*\n"
+"* **Excel: Güçlü Düzenleyici (Erişilebilir Formül Düzenleyici):** Devasa formülleri değiştirmek için kuralları değiştiren bir özellik.\n"
+"  - **Tek Dokunuş `NVDA+E`, ardından `F2`:** Etkin hücrenin ham formül dizesini anında duyurur (veya \"Formül yok\" diye duyurur).\n"
+"  - **Çift Dokunuş `NVDA+E`, ardından `F2`:** Devasa, iç içe geçmiş formülleri güvenle değiştirmek için tam erişilebilir, çok satırlı bir düzenleyici açar. Yerel `Enter`, kolay okuma için satır sonları ekler ve `Ctrl+Enter` bunu Excel'e geri kaydeder.\n"
+"  - *Güvenlik Denetimleri:* Sayfanızı bozmadan önce sözdizimi hatalarını güvenle yakalar ve bir formül bozulduğunda sizi anında uyarmak için hesaplama sonrası hataları (`#AD?` veya `#SAYI/0!` gibi) saptar.\n"
+"* **Excel: Formül Denetimi ve Değerlendirme:** Etkileyenleri ve Etkilenenleri güvenilir bir şekilde izlemek için özel kısayollar (`NVDA+E`, ardından `Shift+P` ve `NVDA+E`, ardından `Shift+D`) eklendi. Ayrıca, Excel'in yerel \"Formülü Değerlendir\" iletişim kutusu artık tam erişilebilirdir; siz hesaplama adım adım ilerlerken NVDA değerlendirilen sonuçları otomatik olarak okur!\n"
+"* **Excel: Hücre İzleyici Pro Yükseltmeleri:** \n"
+"  - **Yuva Yöneticisi İletişim Kutusu (`NVDA+E`, ardından `Alt+M`):** Etkin olarak izlenen tüm hücrelerinizi listeleyen bir iletişim kutusu açar. Birine anında atlamak için `Enter`a basın.\n"
+"  - **Geri Atla (`NVDA+E`, ardından `\\`):** Bir yuvayı denetledikten sonra sizi anında önceki çalışma hücrenize geri ışınlar.\n"
+"  - **Doğrudan Yuvaya Atlama (`Alt` + `Yuva Numarası`):** Öneki tamamen atlayın ve atanmış bir hücre yuvasına anında atlayın.\n"
+"* **Girdi Hareketleri Özelleştirmesi:** Tüm Office uygulamalarındaki tüm özellikler, her klavye kısayolunu özelleştirme konusunda size tam özgürlük tanıyan yerel NVDA Girdi Hareketleri iletişim kutusuna açıkça sunulmuştur.\n"
+"\n"
+"#### UX/UI Geliştirmeleri\n"
+"* **Birleşik Gözatılabilir Raporlar:** Eklenti genelinde birleşik bir HTML raporlama sistemi benimsedik. Excel Koşullu Biçimlendirme Duyurucusu, Düzen Çözümleyiciler ve Belge Çözümleyiciler gibi özellikler artık sadece devasa metin blokları konuşmuyor; sonuçları artık verileri kendi hızınızda incelemenize olanak tanıyan yerel, gezilebilir bir HTML penceresinde açılıyor.\n"
+"* **Excel: Geliştirilmiş Etkilenenler/Etkileyenler İzlemesi:** Excel'in yerel formül izleme kısayolları için konuşma çıktısı büyük ölçüde geliştirildi (Doğrudan Etkileyenler için `Ctrl+[` ve Doğrudan Etkilenenler için `Ctrl+]`). NVDA artık tam olarak hangi hücrelerin seçildiğini açıkça duyuracak.\n"
+"* **Excel: Birleştirilmiş Hücre Desteği:** Birleştirilmiş hücreler artık boşluk atlayan hücre izleyici tarafından doğru bir şekilde saptanıyor ve açıkça duyuruluyor.\n"
+"\n"
+"#### Hata Düzeltmeleri\n"
+"* **Word: Liste Öğelerinin Çift Okunması:** Belirli Word görünümlerinde NVDA'nın paragraf liste öğelerini çift okuması hatasını düzeltmek için geçici bir yama uygulandı.\n"
+"* **Excel: Hücre İzleyici Yerelleştirme Hatası:** Son çeviri yerelleştirme güncellemelerinin neden olduğu altta yatan izleme hataları giderildi."

@@ -37,6 +37,11 @@ Treat the following terms as strict NVDA technical jargon. Use their accepted lo
 2. **The Formatting Anti-Pattern (CRITICAL):** Never wrap pure Python structural formatting strings (e.g., `_("{val} - {cell}{location}")`) in `gettext _()`. Only wrap actual human-readable text. Translators will inevitably break the braces, causing silent Python KeyErrors.
 3. **STRICT UTF-8 ENCODING:** You MUST write all output in strict, pure UTF-8 encoding. Do NOT hallucinate corrupted fallback bytes.
 4. **"Source of Truth" Readme Rule:** All 24 languages MUST translate their readmes exclusively from the master English manual (`addon/doc/en/readme.md`). Translating from secondary languages is strictly prohibited.
+5. **No Underscore Throwaway Variables (CRITICAL):** During script automation or translation updates, agents must never assign data to the single underscore `_` variable (e.g., `_, val = result`). Because `addonHandler.initTranslation()` makes `_` a global callable, shadowing it locally causes fatal translation formatting crashes downstream.
+
+**D. No External Translation Libraries (CRITICAL)**
+* The use of external Python translation libraries (such as `deep-translator`, `googletrans`, `translate`, etc.) is strictly forbidden. 
+* All translation tasks must be performed directly by LLM agents/subagents. Local libraries lack screen-reader context and fail to adhere to the Mega-Glossary.
 
 ### 4. PO File Generation via Scripted JSON Injection (CRITICAL)
 **DO NOT allow subagents to physically edit `.po` files directly.** Direct editing causes GNU formatting corruption and trailing-newline crashes.
@@ -47,7 +52,9 @@ Treat the following terms as strict NVDA technical jargon. Use their accepted lo
 ### 5. Documentation Translation via Subagents
 Translating 24 readmes synchronously will crash the Main Agent's context limit.
 1. Use the `invoke_subagent` tool to spawn a dedicated subagent for each target language.
-2. **Batching Restriction:** Spawn a maximum of **5 subagents at a time**. Wait for all 5 to report success via `send_message` before launching the next batch.
+2. **Batching & Concurrency Limits:** 
+   * For large files (like readmes), spawn a maximum of **3 to 4 subagents at a time** to prevent `RESOURCE_EXHAUSTED` (429) rate limit errors. Wait for the batch to finish before starting the next one.
+   * For large translation JSON files (e.g., over 200 keys), split them into chunks of ~100 keys, translate them individually using separate subagents, and merge them back to prevent timeout or output truncations.
 3. **Task:** Each subagent must read `addon/doc/en/readme.md`, create `addon/doc/<lang>/` if missing, and output the translated Markdown identically into `addon/doc/<lang>/readme.md`.
 4. Optionally use `scripts/fix_readmes.py` to programmatically enforce structural layouts across all 24 translated Markdown files simultaneously.
 

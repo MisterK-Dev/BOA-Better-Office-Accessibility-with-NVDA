@@ -20,19 +20,19 @@ msgstr ""
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
 msgid "BOA Office Enhancements"
-msgstr ""
+msgstr "BOA Office Enhancements"
 
 #: addon\boa_lib\boa_gui.py:65 addon\boa_lib\boa_gui.py:85
 msgid "Off"
-msgstr ""
+msgstr "끄기"
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "One-time Announcement"
-msgstr ""
+msgstr "일회성 알림"
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "Guided Announcement"
-msgstr ""
+msgstr "가이드 알림"
 
 #: addon\boa_lib\boa_gui.py:77
 msgid ""
@@ -43,23 +43,23 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:85
 msgid "Strict Memory Check (CountA)"
-msgstr ""
+msgstr "엄격한 메모리 검사 (CountA)"
 
 #: addon\boa_lib\boa_gui.py:85
 msgid "Visible Data Only (Math Engine)"
-msgstr ""
+msgstr "표시되는 데이터만 (수학 엔진)"
 
 #: addon\boa_lib\boa_gui.py:95
 msgid "Select the engine used to detect the end of data in a row or column."
-msgstr ""
+msgstr "행 또는 열에서 데이터의 끝을 감지하는 데 사용되는 엔진을 선택합니다."
 
 #: addon\boa_lib\boa_gui.py:109
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
-msgstr ""
+msgstr "Excel(&E): 대량 시트 오거나이저 및 빠른 시트 이동기 활성화"
 
 #: addon\boa_lib\boa_gui.py:110
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
-msgstr ""
+msgstr "기본 편집 필드 대신 접근 가능한 시트 이름 바꾸기 대화 상자 사용(&R)"
 
 #: addon\boa_lib\boa_gui.py:111
 msgid "Prevent NVDA &crashes in Excel text fields"
@@ -67,50 +67,50 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:112
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
-msgstr ""
+msgstr "다중 셀 선택이 예기치 않게 손실되었을 때 알림(&U)"
 
 #: addon\boa_lib\boa_gui.py:113
 msgid "Proactively announce when navigating past &hidden rows or columns"
-msgstr ""
+msgstr "숨겨진 행 또는 열을 지나갈 때 선제적으로 알림(&H)"
 
 #: addon\boa_lib\boa_gui.py:114
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
-msgstr ""
+msgstr "NVDA+E, L을 통해 시트 레이아웃 분석기 활성화(&L)"
 
 #: addon\boa_lib\boa_gui.py:115
 msgid "Sheet Layout Auto-Announce &Mode:"
-msgstr ""
+msgstr "시트 레이아웃 자동 알림 모드(&M):"
 
 #: addon\boa_lib\boa_gui.py:116
 msgid "Conditional &Formatting and color"
-msgstr ""
+msgstr "조건부 서식 및 색상(&F)"
 
 #: addon\boa_lib\boa_gui.py:117
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
-msgstr ""
+msgstr "셀 모니터 활성화(슬롯 1-9 및 지속적인 백그라운드 모니터링)(&T)"
 
 #: addon\boa_lib\boa_gui.py:118
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
-msgstr ""
+msgstr "탐색 중인 방향에 데이터가 더 이상 없을 때 알림(&N)"
 
 #: addon\boa_lib\boa_gui.py:120
 msgid "Excel Enhancements"
-msgstr ""
+msgstr "Excel Enhancements"
 
 #: addon\boa_lib\boa_gui.py:124
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
-msgstr ""
+msgstr "PowerPoint(&P): 표준 색상 육각형 그리드를 탐색할 때 숨겨진 16진수 코드 읽기"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
-msgstr ""
+msgstr "16진수 색상 편집 필드가 올바르게 레이블 지정되도록 보장(&X)"
 
 #: addon\boa_lib\boa_gui.py:126
 msgid "Ensure the R&GB Color edit fields are properly labeled"
-msgstr ""
+msgstr "RGB 색상 편집 필드가 올바르게 레이블 지정되도록 보장(&G)"
 
 #: addon\boa_lib\boa_gui.py:127
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:129
 msgid "PowerPoint Enhancements"
-msgstr ""
+msgstr "PowerPoint Enhancements"
 
 #: addon\boa_lib\boa_gui.py:133
 msgid "&Word: Prevent NVDA crashes in Word text fields"
@@ -126,7 +126,7 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:135
 msgid "Word Enhancements"
-msgstr ""
+msgstr "Word Enhancements"
 
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:59
 msgid "Enter new sheet name:"
@@ -139,7 +139,7 @@ msgstr "시트 이름 바꾸기"
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:85
 #, python-brace-format
 msgid "Renaming to {name}"
-msgstr ""
+msgstr "{name}(으)로 이름 바꾸기"
 
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:174
 msgid "Rename sheet"
@@ -147,30 +147,30 @@ msgstr "시트 이름 바꾸기"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
 msgid "Bulk arrangement complete"
-msgstr ""
+msgstr "대량 정렬 완료"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:108
 #, python-brace-format
 msgid "Error during bulk move: {error}"
-msgstr ""
+msgstr "대량 이동 중 오류 발생: {error}"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:150
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:60
 msgid "Could not find Excel grid."
-msgstr ""
+msgstr "Excel 그리드를 찾을 수 없습니다."
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:158
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:75
 msgid "Failed to hook Excel."
-msgstr ""
+msgstr "Excel에 연결하지 못했습니다."
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:165
 msgid "No active workbook."
-msgstr ""
+msgstr "활성 통합 문서가 없습니다."
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
 msgid "Error opening organizer"
-msgstr ""
+msgstr "오거나이저를 여는 중 오류 발생"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:189
 msgid "Bulk Sheet Organizer"
@@ -208,35 +208,35 @@ msgstr "취소(&C)"
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
 #, python-brace-format
 msgid "Scheduled: {sheet} to position {pos}"
-msgstr ""
+msgstr "예약됨: {sheet}을(를) {pos} 위치로"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:289
 msgid "Move removed"
-msgstr ""
+msgstr "이동 제거됨"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:119
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:231
 msgid "Error: Could not read Excel cell."
-msgstr ""
+msgstr "오류: Excel 셀을 읽을 수 없습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:144
 #, python-brace-format
 msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
-msgstr ""
+msgstr "{old_cell}이(가) 슬롯 {slot_str}의 {address}(으)로 교체되었습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:147
 #, python-brace-format
 msgid "{address} set to slot {slot_str}"
-msgstr ""
+msgstr "{address}이(가) 슬롯 {slot_str}에 설정되었습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:159
 #, python-brace-format
 msgid "Slot {slot_str} is empty."
-msgstr ""
+msgstr "슬롯 {slot_str}이(가) 비어 있습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:169
 msgid "Error: Excel not accessible."
-msgstr ""
+msgstr "오류: Excel에 액세스할 수 없습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:176
 #, python-brace-format
@@ -246,7 +246,7 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:189
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
-msgstr ""
+msgstr "슬롯 {slot_str} 손실됨. 시트 '{sheet}'의 이름이 변경되었거나 삭제되었습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:210
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:357
@@ -268,113 +268,113 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:217
 #, python-brace-format
 msgid "Cannot read slot {slot_str}. Excel may be busy."
-msgstr ""
+msgstr "슬롯 {slot_str}을(를) 읽을 수 없습니다. Excel이 사용 중일 수 있습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:238
 #, python-brace-format
 msgid "Continuous monitor OFF for {address}"
-msgstr ""
+msgstr "{address}에 대한 지속적인 모니터링 끄기"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:244
 #, python-brace-format
 msgid "Continuous monitor ON for {address}"
-msgstr ""
+msgstr "{address}에 대한 지속적인 모니터링 켜기"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:258
 msgid "All monitored and slotted cells cleared."
-msgstr ""
+msgstr "모니터링되고 슬롯에 할당된 모든 셀이 지워졌습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:361
 #, python-brace-format
 msgid "{cell_addr} updated: {current_val}{location_str}"
-msgstr ""
+msgstr "{cell_addr} 업데이트됨: {current_val}{location_str}"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
-msgstr ""
+msgstr "이름 변경 또는 닫힘으로 인해 슬롯 {slot_cleared}에 대한 모니터 손실됨."
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
 msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
-msgstr ""
+msgstr "모니터 지워짐: {wb_closed}의 {sheet_closed}이(가) 손실되었습니다."
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
 msgid "unselected"
-msgstr ""
+msgstr "선택 해제됨"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:210
 #, python-brace-format
 msgid "{address} selected"
-msgstr ""
+msgstr "{address} 선택됨"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:336
 #, python-brace-format
 msgid "Row {row_num} hidden"
-msgstr ""
+msgstr "행 {row_num} 숨김"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:339
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:341
 #, python-brace-format
 msgid "Rows {start} through {end} hidden"
-msgstr ""
+msgstr "행 {start}에서 {end}까지 숨김"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:343
 msgid "Crossed heavily fragmented hidden rows"
-msgstr ""
+msgstr "심하게 단편화된 숨겨진 행을 가로지름"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:406
 #, python-brace-format
 msgid "Column {col_letter} hidden"
-msgstr ""
+msgstr "열 {col_letter} 숨김"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:409
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:411
 #, python-brace-format
 msgid "Columns {start} through {end} hidden"
-msgstr ""
+msgstr "열 {start}에서 {end}까지 숨김"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:413
 msgid "Crossed heavily fragmented hidden columns"
-msgstr ""
+msgstr "심하게 단편화된 숨겨진 열을 가로지름"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:468
 msgid "No more data below"
-msgstr ""
+msgstr "아래에 데이터가 더 이상 없습니다"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:475
 msgid "No more data above"
-msgstr ""
+msgstr "위에 데이터가 더 이상 없습니다"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:482
 msgid "No more data to the right"
-msgstr ""
+msgstr "오른쪽에 데이터가 더 이상 없습니다"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:489
 msgid "No more data to the left"
-msgstr ""
+msgstr "왼쪽에 데이터가 더 이상 없습니다"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:552
 msgid "Panes frozen"
-msgstr ""
+msgstr "틀 고정됨"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:554
 msgid "Panes unfrozen"
-msgstr ""
+msgstr "틀 고정 취소됨"
 
 #. -1 is xlSheetVisible
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:577
 #, python-brace-format
 msgid "{sheet} hidden"
-msgstr ""
+msgstr "{sheet} 숨김"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:589
 msgid "Sheet hidden"
-msgstr ""
+msgstr "시트 숨김"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:591
 msgid "Sheet unhidden"
-msgstr ""
+msgstr "시트 숨김 취소됨"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:749
 #, python-brace-format
@@ -407,7 +407,7 @@ msgstr "숨기지 않음"
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
 #, python-brace-format
 msgid "{address} {state}"
-msgstr ""
+msgstr "{address} {state}"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:34
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:39
@@ -468,15 +468,15 @@ msgstr ": {color_name} 텍스트"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
 msgid "No active cell found."
-msgstr ""
+msgstr "활성 셀을 찾을 수 없습니다."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
 msgid "No conditional formatting rules applied to this cell."
-msgstr ""
+msgstr "이 셀에 적용된 조건부 서식 규칙이 없습니다."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
 msgid "Failed to read format conditions."
-msgstr ""
+msgstr "서식 조건을 읽지 못했습니다."
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:158
 #, python-brace-format
@@ -720,30 +720,30 @@ msgstr "조건부 서식 분석"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
 msgid "Failed to analyze conditional formatting."
-msgstr ""
+msgstr "조건부 서식을 분석하지 못했습니다."
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:88
 msgid "Only one sheet in workbook"
-msgstr ""
+msgstr "통합 문서에 시트가 하나뿐입니다."
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:93
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:106
 msgid "Already at beginning"
-msgstr ""
+msgstr "이미 처음에 있습니다"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:99
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:112
 msgid "Already at end"
-msgstr ""
+msgstr "이미 끝에 있습니다"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:127
 #, python-brace-format
 msgid "Moved {sheet} to position {new_idx} of {total}"
-msgstr ""
+msgstr "{sheet}을(를) {total}의 {new_idx} 위치로 이동함"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:130
 msgid "Failed to move sheet"
-msgstr ""
+msgstr "시트를 이동하지 못했습니다"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:48
 msgid "Copy (Ctrl+Shift+C)"
@@ -760,7 +760,7 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
 msgid "Analyzing layout..."
-msgstr ""
+msgstr "레이아웃 분석 중..."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:188
 msgid "Sheet appears to be empty."
@@ -802,12 +802,12 @@ msgstr "시트 레이아웃 개요"
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
 #, python-brace-format
 msgid "Empty cell. Nearest data at {col}{row}."
-msgstr ""
+msgstr "빈 셀. 가장 가까운 데이터는 {col}{row}에 있습니다."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
 #, python-brace-format
 msgid "Nearest data at {col}{row}"
-msgstr ""
+msgstr "가장 가까운 데이터는 {col}{row}에 있습니다"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:364
 msgid "Filter Mode: Active"
@@ -974,31 +974,31 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
-msgstr ""
+msgstr "레이아웃 캐시가 비어 있습니다. 먼저 시트를 검사하려면 NVDA+E, L을 누르십시오."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
 msgid "No data blocks found in cache."
-msgstr ""
+msgstr "캐시에서 데이터 블록을 찾을 수 없습니다."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:545
 msgid "Already on a data cell."
-msgstr ""
+msgstr "이미 데이터 셀에 있습니다."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:562
 #, python-brace-format
 msgid "Jumped to {col}{row}"
-msgstr ""
+msgstr "{col}{row}(으)로 이동함"
 
 #. Announce the color cleanly to the user.
 #: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:52
 #, python-brace-format
 msgid "Color {text}"
-msgstr ""
+msgstr "색상 {text}"
 
 #: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:101
 #, python-brace-format
 msgid "Color {hex_val}"
-msgstr ""
+msgstr "색상 {hex_val}"
 
 #. Add-on description
 #: buildVars.py:15
@@ -1013,6 +1013,15 @@ msgid ""
 "    \n"
 "    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
+"NVDA 사용자의 화면 읽기 프로그램 경험을 크게 향상하도록 설계된 Microsoft Office용 강력한 접근성 향상 도구 제품군입니다. \n"
+"    \n"
+"    주요 기능:\n"
+"    - 셀 모니터: 동적 Excel 셀을 저장하고 지속적으로 추적합니다.\n"
+"    - 시트 레이아웃 분석기: 숨겨진 탭, 보호된 상태 및 데이터 블록에 대해 워크시트를 즉시 검사합니다.\n"
+"    - 대량 시트 오거나이저 및 빠른 이동기: 접근 가능한 대화 상자를 사용하여 여러 시트를 즉시 이동하거나 순서를 변경합니다.\n"
+"    - PowerPoint 색상 선택기: 표준 색상 그리드 내에서 숨겨진 16진수 및 RGB 코드를 읽습니다.\n"
+"    \n"
+"    기능 및 단축키의 전체 목록은 애드온 도움말 문서를 참조하십시오."
 
 #. Changelog URL or None
 #: buildVars.py:40
@@ -1026,3 +1035,936 @@ msgstr ""
 "* **심층 파일 현지화**: 100% 현지화 커버리지를 보장하기 위해 Excel 기능 향상 모듈(예: 시트 레이아웃 분석기 및 빠른 시트 이동) 내 깊숙한 곳에서 누락된 문자열 번역을 수정했습니다.\n"
 "* **번역 지원 확대**: 시스템에 7가지 새 언어(터키어, 폴란드어, 한국어, 우크라이나어, 체코어, 우르두어, 펀자브어)를 추가했습니다.\n"
 "  *(참고: 이 번역은 AI에 의해 생성되었으므로 약간의 번역 오류나 부정확성이 있을 수 있습니다.)*"
+
+msgid "BOA (Better Office Accessibility)"
+msgstr "BOA (Better Office Accessibility)"
+
+msgid ""
+"Triggers the BOA command prefix. Press this, followed by a specific command "
+"key."
+msgstr "BOA 명령 접두사를 트리거합니다. 이것을 누른 다음 특정 명령 키를 누르십시오."
+
+msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
+msgstr "시트 순서를 바꾸기 위해 대량 시트 오거나이저 대화 상자를 실행합니다."
+
+msgid "Analyzes and announces the layout structure of the current sheet."
+msgstr "현재 시트의 레이아웃 구조를 분석하고 알려줍니다."
+
+msgid "Jumps the focus to the nearest cell block."
+msgstr "가장 가까운 셀 블록으로 포커스를 이동합니다."
+
+msgid "Announces conditional formatting details for the current cell."
+msgstr "현재 셀의 조건부 서식 세부 정보를 알려줍니다."
+
+msgid "Toggles monitoring on the active cell."
+msgstr "활성 셀의 모니터링을 토글합니다."
+
+msgid "Clears all monitored cells."
+msgstr "모든 모니터링된 셀을 지웁니다."
+
+msgid ""
+"Traces precedents and opens a dialog to jump to cells that provide data to "
+"the active cell."
+msgstr "참조하는 셀을 추적하고 활성 셀에 데이터를 제공하는 셀로 이동하는 대화 상자를 엽니다."
+
+msgid ""
+"Traces dependents and opens a dialog to jump to cells that depend on the "
+"active cell."
+msgstr "참조되는 셀을 추적하고 활성 셀에 종속된 셀로 이동하는 대화 상자를 엽니다."
+
+msgid "Announces the raw formula of the active cell."
+msgstr "활성 셀의 원본 수식을 알려줍니다."
+
+msgid ""
+"Opens the accessible Power Editor dialog to edit the active cell's contents."
+msgstr "활성 셀의 내용을 편집하기 위해 접근 가능한 파워 에디터 대화 상자를 엽니다."
+
+msgid ""
+"Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
+msgstr "모니터링되는 셀을 관리하고 이동하기 위해 활성 셀 모니터 대화 상자를 엽니다."
+
+msgid ""
+"Jumps focus back to the cell you were working on before navigating away."
+msgstr "이동하기 전에 작업하던 셀로 포커스를 다시 이동합니다."
+
+msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
+msgstr "슬라이드 순서를 바꾸기 위해 대량 슬라이드 오거나이저 대화 상자를 실행합니다."
+
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr "현재 슬라이드의 레이아웃 구조를 분석하고 알려줍니다."
+
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr "현재 PowerPoint 프레젠테이션을 분석하고 종합적인 레이아웃 및 상태 보고서를 표시합니다."
+
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr "현재 Word 문서를 분석하고 종합적인 레이아웃 및 상태 보고서를 표시합니다."
+
+msgid ""
+"Audits the current Word document for visual formatting inconsistencies."
+msgstr "현재 Word 문서에서 시각적 서식 불일치를 감사합니다."
+
+msgid "Analysis cancelled."
+msgstr "분석이 취소되었습니다."
+
+msgid "An error occurred during analysis."
+msgstr "분석 중 오류가 발생했습니다."
+
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr "기본 NVDA 동작 (참고용)"
+
+msgid "Read Note Content Inline"
+msgstr "노트 내용 인라인 읽기"
+
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr "NVDA가 문서 텍스트와 함께 각주 및 미주 텍스트를 인라인으로 자동 읽을지 여부를 선택합니다."
+
+msgid "Default NVDA Behavior"
+msgstr "기본 NVDA 동작"
+
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr "기본 동작 + 3D 공간 오디오 (실험적)"
+
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr ""
+"NVDA가 PowerPoint에서 도형 이동을 알리는 방식을 제어합니다. 캔버스 모드는 원시 수학 좌표를 '왼쪽 위 사분면'과 같이 "
+"사람이 읽을 수 있는 위치로 변환합니다."
+
+msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
+msgstr "Excel 텍스트 필드에서 NVDA 충돌 방지 (SafeRichEdit)(&C)"
+
+msgid "Enable Formula Auditor &features"
+msgstr "수식 검사기 기능 활성화(&F)"
+
+msgid "Explicitly announce m&erged cells"
+msgstr "병합된 셀을 명시적으로 알림(&E)"
+
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr "PowerPoint 텍스트 필드에서 NVDA 충돌 방지 (SafeRichEdit)(&A)"
+
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr "대량 슬라이드 오거나이저 대화 상자 활성화 (접두사 + X)(&Z)"
+
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
+msgstr "슬라이드 레이아웃 분석기 활성화 (접두사 + L)(&L)"
+
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr "PowerPoint 문서 분석기 활성화 (접두사 + D)(&D)"
+
+msgid "Shape Movement Audio Mode:"
+msgstr "도형 이동 오디오 모드:"
+
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+msgstr "Word(&W): Word 텍스트 필드에서 NVDA 충돌 방지 (SafeRichEdit)"
+
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr "단락 탐색 중 목록 항목의 이중 읽기 방지(&D)"
+
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr "NVDA+E, D를 통해 문서 분석기 활성화(&A)"
+
+msgid "Enable Format &Auditor via NVDA+E, F"
+msgstr "NVDA+E, F를 통해 서식 감사기 활성화(&A)"
+
+msgid "Footnotes and Endnotes reading &mode:"
+msgstr "각주 및 미주 읽기 모드(&M):"
+
+msgid "No formula"
+msgstr "수식 없음"
+
+msgid "BOA Power Editor"
+msgstr "BOA 파워 에디터"
+
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr "셀 내용 편집 (저장하려면 Ctrl+Enter, 취소하려면 Esc)(&E):"
+
+msgid "&Save"
+msgstr "저장(&S)"
+
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+"수식이 저장되었지만, Excel에서 오류로 평가했습니다: {error}\n"
+"\n"
+"계속 편집하시겠습니까?"
+
+msgid "Calculation Error"
+msgstr "계산 오류"
+
+msgid "Done"
+msgstr "완료"
+
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr "Excel에서 이 수식을 거부했습니다. 구문 오류나 누락된 괄호가 있는지 확인하십시오."
+
+msgid "Invalid Formula"
+msgstr "잘못된 수식"
+
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
+msgstr "슬롯 {slot_str} 손실됨. 통합 문서 '{wb}'이(가) 닫혀 있거나 액세스할 수 없습니다."
+
+msgid "Empty cell"
+msgstr "빈 셀"
+
+msgid "Cannot jump. The workbook '{wb}' is closed."
+msgstr "이동할 수 없습니다. 통합 문서 '{wb}'이(가) 닫혀 있습니다."
+
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
+msgstr "이동할 수 없습니다. 시트 '{sheet}'의 이름이 변경되었거나 삭제되었습니다."
+
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
+msgstr "이동할 수 없습니다. 셀 주소가 잘못되었거나 Excel이 사용 중입니다."
+
+msgid "No cell assigned to slot {slot_num}"
+msgstr "슬롯 {slot_num}에 할당된 셀이 없습니다."
+
+msgid "No previous cell to jump back to."
+msgstr "돌아갈 이전 셀이 없습니다."
+
+msgid "Active Cell Monitors"
+msgstr "활성 셀 모니터"
+
+msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
+msgstr "이동할 셀을 선택합니다. 모니터에서 제거하려면 Delete를 누르십시오."
+
+msgid "&Jump"
+msgstr "이동(&J)"
+
+msgid "No cells are currently being monitored."
+msgstr "현재 모니터링되는 셀이 없습니다."
+
+msgid "Slot {slot} deleted"
+msgstr "슬롯 {slot} 삭제됨"
+
+msgid "Monitor deleted"
+msgstr "모니터 삭제됨"
+
+msgid "Merged cell, {address}"
+msgstr "병합된 셀, {address}"
+
+msgid "{sheet_name} deleted"
+msgstr "{sheet_name} 삭제됨"
+
+msgid "Rules Summary"
+msgstr "규칙 요약"
+
+msgid "Analyzed Results"
+msgstr "분석된 결과"
+
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr "참조를 선택하고 Enter 키를 눌러 이동하십시오(&S):"
+
+msgid "Cannot jump to a closed external workbook."
+msgstr "닫힌 외부 통합 문서로 이동할 수 없습니다."
+
+msgid "(External) {}"
+msgstr "(외부) {}"
+
+msgid "No precedents found."
+msgstr "참조하는 셀을 찾을 수 없습니다."
+
+msgid "No dependents found."
+msgstr "참조되는 셀을 찾을 수 없습니다."
+
+msgid "Precedents"
+msgstr "참조하는 셀"
+
+msgid "Dependents"
+msgstr "참조되는 셀"
+
+msgid ""
+"Clicks the button and dynamically announces formula evaluation changes."
+msgstr "버튼을 클릭하고 수식 평가 변경 사항을 동적으로 알려줍니다."
+
+msgid "{old_diff} evaluated to {new_diff}"
+msgstr "{old_diff}이(가) {new_diff}(으)로 평가됨"
+
+msgid "Data Blocks Summary"
+msgstr "데이터 블록 요약"
+
+msgid "Found {count} data blocks in this sheet."
+msgstr "이 시트에서 {count}개의 데이터 블록을 찾았습니다."
+
+msgid "Sheet Properties"
+msgstr "시트 속성"
+
+msgid ""
+"No special properties detected (No active filters, protection, frozen panes,"
+" or hidden borders)."
+msgstr "감지된 특수 속성이 없습니다 (활성 필터, 보호, 틀 고정 또는 숨겨진 테두리 없음)."
+
+msgid "Failed to connect to PowerPoint."
+msgstr "PowerPoint에 연결하지 못했습니다."
+
+msgid "No active presentation."
+msgstr "활성 프레젠테이션이 없습니다."
+
+msgid "Not enough slides to move."
+msgstr "이동할 슬라이드가 부족합니다."
+
+msgid "Successfully reorganized slides."
+msgstr "슬라이드를 성공적으로 재구성했습니다."
+
+msgid "Failed to move slides. See log for details."
+msgstr "슬라이드를 이동하지 못했습니다. 자세한 내용은 로그를 참조하십시오."
+
+msgid "Loading slides, please wait..."
+msgstr "슬라이드 로드 중, 잠시 기다려 주십시오..."
+
+msgid "Failed to hook PowerPoint."
+msgstr "PowerPoint에 연결하지 못했습니다."
+
+msgid "Slide {index} - {title}"
+msgstr "슬라이드 {index} - {title}"
+
+msgid "Slide {index} - (No Title)"
+msgstr "슬라이드 {index} - (제목 없음)"
+
+msgid "Bulk Slide Organizer"
+msgstr "대량 슬라이드 오거나이저"
+
+msgid "Slide Name:"
+msgstr "슬라이드 이름:"
+
+msgid "Slide"
+msgstr "슬라이드"
+
+msgid "Scheduled: {slide} to position {pos}"
+msgstr "예약됨: {slide}을(를) {pos} 위치로"
+
+msgid "No active presentation detected."
+msgstr "활성 프레젠테이션이 감지되지 않았습니다."
+
+msgid "Analyzing document layout in background..."
+msgstr "백그라운드에서 문서 레이아웃 분석 중..."
+
+msgid "Error starting document analysis."
+msgstr "문서 분석을 시작하는 중 오류가 발생했습니다."
+
+msgid "Untitled Slide"
+msgstr "제목 없는 슬라이드"
+
+msgid "Document Analysis: {name}"
+msgstr "문서 분석: {name}"
+
+msgid "Overview"
+msgstr "개요"
+
+msgid "Total Slides: {n}"
+msgstr "전체 슬라이드: {n}"
+
+msgid "Hidden Slides: {n}"
+msgstr "숨겨진 슬라이드: {n}"
+
+msgid "Table of Contents"
+msgstr "목차"
+
+msgid "Slide {num}: {title}"
+msgstr "슬라이드 {num}: {title}"
+
+msgid "Accessibility Health"
+msgstr "접근성 상태"
+
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr "읽기 순서 불일치 (Z-순서 대 시각적)"
+
+msgid "Slide {num}"
+msgstr "슬라이드 {num}"
+
+msgid "Missing Alt-Text"
+msgstr "대체 텍스트 누락"
+
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr "슬라이드 {num}: 대체 텍스트가 누락된 {count}개의 이미지"
+
+msgid "Off-Canvas Elements"
+msgstr "오프 캔버스 요소"
+
+msgid "No major accessibility issues detected."
+msgstr "주요 접근성 문제가 감지되지 않았습니다."
+
+msgid "Density & Complexity"
+msgstr "밀도 및 복잡성"
+
+msgid "High Text Density (Wall of Text)"
+msgstr "높은 텍스트 밀도 (텍스트 벽)"
+
+msgid "Slide {num}: {words} words"
+msgstr "슬라이드 {num}: {words} 단어"
+
+msgid "Complex Objects"
+msgstr "복잡한 객체"
+
+msgid "Tables: {n}"
+msgstr "표: {n}"
+
+msgid "Grouped Objects: {n}"
+msgstr "그룹화된 객체: {n}"
+
+msgid "Media: {n}"
+msgstr "미디어: {n}"
+
+msgid "Charts: {n}"
+msgstr "차트: {n}"
+
+msgid "Embedded Documents: {n}"
+msgstr "포함된 문서: {n}"
+
+msgid "No active slide detected."
+msgstr "활성 슬라이드가 감지되지 않았습니다."
+
+msgid "Analyzing slide layout..."
+msgstr "슬라이드 레이아웃 분석 중..."
+
+msgid "Error analyzing slide layout."
+msgstr "슬라이드 레이아웃 분석 중 오류가 발생했습니다."
+
+msgid "Slide {num} Layout Analysis"
+msgstr "슬라이드 {num} 레이아웃 분석"
+
+msgid "Structure & Density"
+msgstr "구조 및 밀도"
+
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr "개체 틀 대 사용자 지정 도형: {p} / {c}"
+
+msgid "Total Word Count: {w}"
+msgstr "총 단어 수: {w}"
+
+msgid "Warning: High text density (Wall of Text)"
+msgstr "경고: 높은 텍스트 밀도 (텍스트 벽)"
+
+msgid "Warning: Missing standard Title Placeholder"
+msgstr "경고: 표준 제목 개체 틀 누락"
+
+msgid "Accessibility Warnings"
+msgstr "접근성 경고"
+
+msgid "Off-Canvas Shapes"
+msgstr "오프 캔버스 도형"
+
+msgid "Reading Order Mismatch"
+msgstr "읽기 순서 불일치"
+
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr "도형 '{s}'은(는) 시각적으로 맨 위에 있지만 논리적으로는 맨 아래에 있습니다."
+
+msgid "Missing Alt-Text: {n} images"
+msgstr "대체 텍스트 누락: {n}개의 이미지"
+
+msgid "No major spatial accessibility warnings detected."
+msgstr "주요 공간 접근성 경고가 감지되지 않았습니다."
+
+msgid "Complex Objects & Media"
+msgstr "복잡한 객체 및 미디어"
+
+msgid "Media (Audio/Video): {n}"
+msgstr "미디어 (오디오/비디오): {n}"
+
+msgid "Charts/Graphs: {n}"
+msgstr "차트/그래프: {n}"
+
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr "포함된 문서 (Excel/PDF): {n}"
+
+msgid "Tables"
+msgstr "표"
+
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr "표 '{name}': {c} 열 {r} 행"
+
+msgid "No complex tables, groups, or media."
+msgstr "복잡한 표, 그룹 또는 미디어가 없습니다."
+
+msgid "Analyzing document, please wait..."
+msgstr "문서 분석 중, 잠시 기다려 주십시오..."
+
+msgid "Cannot access Word application."
+msgstr "Word 애플리케이션에 액세스할 수 없습니다."
+
+msgid "Failed to start document analyzer."
+msgstr "문서 분석기를 시작하지 못했습니다."
+
+msgid "Word Document Analyzer Report"
+msgstr "Word 문서 분석기 보고서"
+
+msgid "1. Cursor Context"
+msgstr "1. 커서 컨텍스트"
+
+msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
+msgstr "섹션 {sec}, 페이지 {page}, 표 셀 (행 {row}, 열 {col})"
+
+msgid "In Section {sec}, Page {page} (Inside a Table)"
+msgstr "섹션 {sec}, 페이지 {page} (표 내부)"
+
+msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
+msgstr "섹션 {sec}, 페이지 {page}, 줄 {line}, 열 {col}"
+
+msgid "Could not retrieve cursor position."
+msgstr "커서 위치를 검색할 수 없습니다."
+
+msgid "Error retrieving cursor context."
+msgstr "커서 컨텍스트 검색 중 오류 발생."
+
+msgid "2. Document Properties & Options"
+msgstr "2. 문서 속성 및 옵션"
+
+msgid "Unprotected"
+msgstr "보호되지 않음"
+
+msgid "Allow Only Revisions (Tracked Changes)"
+msgstr "변경 내용만 허용 (변경 내용 추적)"
+
+msgid "Allow Only Comments"
+msgstr "메모만 허용"
+
+msgid "Allow Only Form Fields"
+msgstr "양식 필드만 허용"
+
+msgid "Unknown Protection"
+msgstr "알 수 없는 보호"
+
+msgid "Document Protection: {status}"
+msgstr "문서 보호: {status}"
+
+msgid "File Name: {name}"
+msgstr "파일 이름: {name}"
+
+msgid "Author"
+msgstr "작성자"
+
+msgid "Creation Date"
+msgstr "만든 날짜"
+
+msgid "Revision Number"
+msgstr "수정 번호"
+
+msgid "Title"
+msgstr "제목"
+
+msgid "Subject"
+msgstr "주제"
+
+msgid "Company"
+msgstr "회사"
+
+msgid "Enabled"
+msgstr "활성화됨"
+
+msgid "Disabled"
+msgstr "비활성화됨"
+
+msgid "Check spelling as you type: {status}"
+msgstr "입력할 때 맞춤법 검사: {status}"
+
+msgid "Check grammar as you type: {status}"
+msgstr "입력할 때 문법 검사: {status}"
+
+msgid "Check grammar with spelling: {status}"
+msgstr "맞춤법 및 문법 검사: {status}"
+
+msgid "Track Revisions (Recording): {status}"
+msgstr "변경 내용 추적 (기록 중): {status}"
+
+msgid "Visible"
+msgstr "표시"
+
+msgid "Hidden"
+msgstr "숨김"
+
+msgid "Display hidden text on screen: {status}"
+msgstr "화면에 숨겨진 텍스트 표시: {status}"
+
+msgid "Could not retrieve document properties."
+msgstr "문서 속성을 검색할 수 없습니다."
+
+msgid "3. Overall Statistics"
+msgstr "3. 전체 통계"
+
+msgid "Pages: {pages}"
+msgstr "페이지: {pages}"
+
+msgid "Words (including footnotes): {words}"
+msgstr "단어 (각주 포함): {words}"
+
+msgid "Characters (including footnotes): {chars}"
+msgstr "문자 (각주 포함): {chars}"
+
+msgid "Text Paragraphs: {paras}"
+msgstr "텍스트 단락: {paras}"
+
+msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
+msgstr "구조적 단락 (빈 줄 및 표 포함): {paras}"
+
+msgid "Lines: {lines}"
+msgstr "줄: {lines}"
+
+msgid "Lists: {lists}"
+msgstr "목록: {lists}"
+
+msgid "Spelling errors: {errors}"
+msgstr "맞춤법 오류: {errors}"
+
+msgid "Could not retrieve structural statistics."
+msgstr "구조적 통계를 검색할 수 없습니다."
+
+msgid "4. Collaboration Status"
+msgstr "4. 협업 상태"
+
+msgid "Comments: {count}"
+msgstr "메모: {count}"
+
+msgid "Unresolved Tracked Changes: {count}"
+msgstr "해결되지 않은 추적된 변경 내용: {count}"
+
+msgid "Unresolved Tracked Changes: 0"
+msgstr "해결되지 않은 추적된 변경 내용: 0"
+
+msgid "Footnotes: {count}"
+msgstr "각주: {count}"
+
+msgid "Endnotes: {count}"
+msgstr "미주: {count}"
+
+msgid "Could not retrieve collaboration statistics."
+msgstr "협업 통계를 검색할 수 없습니다."
+
+msgid "5. Accessibility Audit Summary"
+msgstr "5. 접근성 감사 요약"
+
+msgid "Images (Inline): {count}"
+msgstr "이미지 (인라인): {count}"
+
+msgid "Warning: {count} images are missing alternative text!"
+msgstr "경고: {count}개의 이미지에 대체 텍스트가 없습니다!"
+
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr "경고: {count}개의 부동 도형이 감지되었습니다. 이들은 종종 액세스할 수 없습니다."
+
+msgid "Hyperlinks: {count}"
+msgstr "하이퍼링크: {count}"
+
+msgid "Could not retrieve accessibility statistics."
+msgstr "접근성 통계를 검색할 수 없습니다."
+
+msgid "6. Layout & Structural Breakdown"
+msgstr "6. 레이아웃 및 구조적 분류"
+
+msgid "Sections"
+msgstr "섹션"
+
+msgid "No sections found."
+msgstr "섹션을 찾을 수 없습니다."
+
+msgid "Section {num}"
+msgstr "섹션 {num}"
+
+msgid "Portrait"
+msgstr "세로"
+
+msgid "Landscape"
+msgstr "가로"
+
+msgid "Orientation: {orient}"
+msgstr "방향: {orient}"
+
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr "위쪽: {t:.2f}cm, 아래쪽: {b:.2f}cm, 왼쪽: {l:.2f}cm, 오른쪽: {r:.2f}cm"
+
+msgid "Margins: {margins}"
+msgstr "여백: {margins}"
+
+msgid "Warning: Different first page header/footer."
+msgstr "경고: 첫 페이지 머리글/바닥글 다름."
+
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr "경고: 홀수 및 짝수 페이지의 머리글/바닥글 다름."
+
+msgid "Continuous"
+msgstr "이어서"
+
+msgid "New Column"
+msgstr "단"
+
+msgid "New Page"
+msgstr "새 페이지"
+
+msgid "Even Page"
+msgstr "짝수 페이지"
+
+msgid "Odd Page"
+msgstr "홀수 페이지"
+
+msgid "Section start: {start}"
+msgstr "섹션 시작: {start}"
+
+msgid "Top"
+msgstr "위쪽"
+
+msgid "Center"
+msgstr "가운데"
+
+msgid "Justify"
+msgstr "양쪽 맞춤"
+
+msgid "Bottom"
+msgstr "아래쪽"
+
+msgid "Vertical alignment: {align}"
+msgstr "세로 맞춤: {align}"
+
+msgid "Distance from top to header: {d:.2f}cm"
+msgstr "위쪽에서 머리글까지의 거리: {d:.2f}cm"
+
+msgid "Distance from bottom to footer: {d:.2f}cm"
+msgstr "아래쪽에서 바닥글까지의 거리: {d:.2f}cm"
+
+msgid "Yes"
+msgstr "예"
+
+msgid "No"
+msgstr "아니요"
+
+msgid "Text modification only in form fields: {status}"
+msgstr "양식 필드에서만 텍스트 수정: {status}"
+
+msgid "Custom"
+msgstr "사용자 지정"
+
+msgid "Standard/Other"
+msgstr "표준/기타"
+
+msgid "Paper size: {size}"
+msgstr "용지 크기: {size}"
+
+msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
+msgstr "페이지 치수: 너비 {w:.2f}cm, 높이 {h:.2f}cm"
+
+msgid "Print two pages per sheet: {status}"
+msgstr "한 장에 두 페이지 인쇄: {status}"
+
+msgid "Right-to-Left (RTL)"
+msgstr "오른쪽에서 왼쪽 (RTL)"
+
+msgid "Left-to-Right (LTR)"
+msgstr "왼쪽에서 오른쪽 (LTR)"
+
+msgid "Reading direction: {dir}"
+msgstr "읽기 방향: {dir}"
+
+msgid "No tables found."
+msgstr "표를 찾을 수 없습니다."
+
+msgid "Table {num}"
+msgstr "표 {num}"
+
+msgid "uniform"
+msgstr "일정한"
+
+msgid "non-uniform"
+msgstr "일정하지 않은"
+
+msgid "nested "
+msgstr "중첩된 "
+
+msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
+msgstr "치수: {rows}행, {cols}열의 {nest}표 ({uni})"
+
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr "치수: 복잡함 (행 수를 계산할 수 없게 하는 병합/분할된 셀 포함)"
+
+msgid "Localized at page {page}, line {line}"
+msgstr "페이지 {page}, 줄 {line}에 위치됨"
+
+msgid "Title: {t}"
+msgstr "제목: {t}"
+
+msgid "Description: {d}"
+msgstr "설명: {d}"
+
+msgid "Automatic resize to fit content: {status}"
+msgstr "내용에 맞게 자동 크기 조정: {status}"
+
+msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
+msgstr "위쪽 안여백: {pad:.4f}cm, 아래쪽 안여백: {bpad:.4f}cm"
+
+msgid "Spacing between cells: {sp:.4f}cm"
+msgstr "셀 사이의 간격: {sp:.4f}cm"
+
+msgid "Borders Enabled: {status}"
+msgstr "테두리 활성화됨: {status}"
+
+msgid "Word Document Analyzer"
+msgstr "Word 문서 분석기"
+
+msgid "Auditing document formatting, please wait..."
+msgstr "문서 서식 감사 중, 잠시 기다려 주십시오..."
+
+msgid "Failed to start formatting audit."
+msgstr "서식 감사를 시작하지 못했습니다."
+
+msgid "<b>Page {page}, Line {line}</b> (Para {num})"
+msgstr "<b>페이지 {page}, 줄 {line}</b> (단락 {num})"
+
+msgid "<b>Page {page}</b> (Para {num})"
+msgstr "<b>페이지 {page}</b> (단락 {num})"
+
+msgid "<b>Paragraph {num}</b>"
+msgstr "<b>단락 {num}</b>"
+
+msgid "<b>Page {page}</b> (Table {num})"
+msgstr "<b>페이지 {page}</b> (표 {num})"
+
+msgid "<b>Table {num}</b>"
+msgstr "<b>표 {num}</b>"
+
+msgid ""
+"{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
+msgstr "{loc}: 3개 이상의 연속된 빈 줄이 감지되었습니다. 대신 페이지 나누기를 사용하십시오."
+
+msgid "{loc}: Empty heading detected."
+msgstr "{loc}: 빈 제목이 감지되었습니다."
+
+msgid ""
+"{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
+"breaks screen reader flow."
+msgstr ""
+"{loc}: 단락 내에 수동 줄 바꿈 (Shift+Enter)이 감지되었습니다. 이는 화면 읽기 프로그램의 흐름을 방해합니다."
+
+msgid ""
+"{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
+msgstr "{loc}: 스페이스바 들여쓰기 감지됨 (4개 이상의 공백). Tab 또는 단락 들여쓰기를 사용하십시오."
+
+msgid ""
+"{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
+"alignment or Ruler Indents."
+msgstr "{loc}: 여러 개의 연속된 Tab 문자가 감지되었습니다. 가운데/오른쪽 맞춤 또는 눈금자 들여쓰기를 사용하십시오."
+
+msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
+msgstr "{loc}: 동일한 단락 내에서 일치하지 않는 글꼴 크기가 감지되었습니다."
+
+msgid "{loc}: Inconsistent font types detected within the same paragraph."
+msgstr "{loc}: 동일한 단락 내에서 일치하지 않는 글꼴 유형이 감지되었습니다."
+
+msgid "{loc}: Highlighted text detected."
+msgstr "{loc}: 강조 표시된 텍스트가 감지되었습니다."
+
+msgid ""
+"{loc}: Fake list detected. Manual numbering used instead of built-in list."
+msgstr "{loc}: 가짜 목록 감지됨. 기본 목록 대신 수동 번호 매기기가 사용되었습니다."
+
+msgid ""
+"{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
+"{new})."
+msgstr "{loc}: 건너뛴 제목 수준 (수준 {old}에서 수준 {new}(으)로 직접 이동함)."
+
+msgid ""
+"{loc}: Table contains merged or split cells. This breaks screen reader grid "
+"navigation."
+msgstr "{loc}: 표에 병합되거나 분할된 셀이 있습니다. 이는 화면 읽기 프로그램의 그리드 탐색을 방해합니다."
+
+msgid ""
+"{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
+"subsequent pages."
+msgstr "{loc}: 표에 '머리글 행 반복'이 누락되었습니다. 다음 페이지부터 데이터를 읽을 수 없게 됩니다."
+
+msgid ""
+"<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
+"inconsistencies found! The document looks clean.</p>"
+msgstr "<h2>서식 및 접근성 감사 완료</h2><p>서식 불일치가 발견되지 않았습니다! 문서가 깔끔합니다.</p>"
+
+msgid "Format Audit Results"
+msgstr "서식 감사 결과"
+
+msgid "Format & Accessibility Audit Report"
+msgstr "서식 및 접근성 감사 보고서"
+
+msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
+msgstr "총 단락: {paras} | 발견된 총 오류: {total}"
+
+msgid "1. Structural Accessibility Blockers (WCAG)"
+msgstr "1. 구조적 접근성 차단 요소 (WCAG)"
+
+msgid "2. Visual Layout & Spacing Issues"
+msgstr "2. 시각적 레이아웃 및 간격 문제"
+
+msgid "3. Font & Style Inconsistencies"
+msgstr "3. 글꼴 및 스타일 불일치"
+
+msgid "bottom"
+msgstr "아래쪽"
+
+msgid "top"
+msgstr "위쪽"
+
+msgid ""
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. as mentioned this is experemental and waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a structural overview of your Word document. *(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant \"Word Access\" add-on. We are deeply grateful for his foundational work in this space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. *(Note: Support for endnotes and comments is planned for a future release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native `Enter` adds line breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts (`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking bugs caused by the recent translation localization updates."
+msgstr ""
+"### 버전 2.0.0\n"
+"#### 새로운 기능\n"
+"* **PowerPoint: 전체 문서 분석기 (실험적) (`NVDA+E`, 그런 다음 `D`):** NVDA의 음성 엔진을 멈추지 않고 전체 프레젠테이션을 매핑하는 매우 진보된 백그라운드 처리 접근성 도구입니다. 탐색 가능한 가상 목차를 제공하고, 읽기 순서 불일치(시각적 순서 대 Z-순서)를 감지하며, \"텍스트 벽\" 슬라이드에 플래그를 지정하고, SmartArt 및 데이터 표와 같은 복잡한 객체를 매핑합니다.\n"
+"* **PowerPoint: 슬라이드 레이아웃 분석기 (실험적) (`NVDA+E`, 그런 다음 `L`):** 현재 활성화된 슬라이드를 즉시 스캔하여 공간 레이아웃과 접근성 제약 조건을 파악하여 완전히 원활하고 반응성이 뛰어난 화면 읽기 프로그램 경험을 보장합니다. 즉, 여기에서 Excel의 시트 레이아웃 분석기와 유사하게 현재 슬라이드에 대한 세부 정보를 얻을 수 있습니다.\n"
+"* **PowerPoint: 대량 슬라이드 오거나이저 (실험적) (`NVDA+E`, 그런 다음 `X`):** Excel 기능과 유사하게, 이제 완전히 접근 가능한 대화 상자를 사용하여 여러 PowerPoint 슬라이드를 즉시 재정렬, 이동 및 배열할 수 있습니다.\n"
+"* **PowerPoint: 도형 이동 오디오 모드 (실험적):** PowerPoint 캔버스에 3D 공간 오디오 신호를 도입합니다. 개체를 이동할 때 방향 및 경계 제한을 나타내는 청각적 피드백을 제공하여 공간 인식을 크게 향상시킵니다. 언급했듯이 이것은 실험적이며 개선하거나 제거하기 위해 피드백을 기다리고 있습니다.\n"
+"* **Word: 서식 감사기 (`NVDA+E`, 그런 다음 `F`):** 시각적 표준을 보장하기 위해 서식 불일치에 대해 Word 문서를 검사합니다.\n"
+"* **Word: 문서 분석기 (`NVDA+E`, 그런 다음 `D`):** Word 문서의 구조적 개요를 즉시 불러옵니다. *(Paul에게 특별한 감사의 말을 전합니다. 이 기능은 그의 훌륭한 \"Word Access\" 애드온에서 직접적인 영감을 받았습니다. 이 분야에서 그의 기초적인 작업에 깊은 감사를 드립니다!)*\n"
+"* **Word: 자동 각주 알림기:** 이제 사용자 지정 BOA 설정에 따라 읽을 때 각주가 자동으로 인라인으로 알려집니다. *(참고: 미주 및 메모에 대한 지원은 향후 릴리스에서 계획되어 있습니다).*\n"
+"* **Excel: 파워 에디터 (접근 가능한 수식 에디터):** 거대한 수식을 수정하기 위한 절대적인 게임 체인저입니다.\n"
+"  - **한 번 누르기 `NVDA+E`, 그런 다음 `F2`:** 활성 셀의 원시 수식 문자열을 즉시 알려줍니다(또는 \"수식 없음\" 알림).\n"
+"  - **두 번 누르기 `NVDA+E`, 그런 다음 `F2`:** 거대하고 중첩된 수식을 안전하게 수정하기 위해 완전히 접근 가능한 여러 줄 에디터를 엽니다. 기본 `Enter` 키는 쉽게 읽을 수 있도록 줄 바꿈을 추가하고, `Ctrl+Enter`는 이를 다시 Excel에 저장합니다.\n"
+"  - *안전 검사:* 시트를 손상시키기 전에 구문 오류를 안전하게 잡아내고, 수식이 깨진 경우 즉시 경고하기 위해 계산 후 오류(예: `#NAME?` 또는 `#DIV/0!`)를 감지합니다.\n"
+"* **Excel: 수식 검사 및 평가:** 참조하는 셀 및 참조되는 셀을 안정적으로 추적하기 위한 사용자 지정 단축키(`NVDA+E`, 그런 다음 `Shift+P` 및 `NVDA+E`, 그런 다음 `Shift+D`)가 추가되었습니다. 또한 Excel의 기본 \"수식 평가\" 대화 상자에 이제 완전히 접근할 수 있습니다. NVDA는 계산을 단계별로 진행할 때 평가된 결과를 자동으로 읽어줍니다!\n"
+"* **Excel: 셀 모니터 프로 업그레이드:**\n"
+"  - **슬롯 관리자 대화 상자 (`NVDA+E`, 그런 다음 `Alt+M`):** 현재 모니터링 중인 모든 셀을 나열하는 대화 상자를 나열합니다. 즉시 이동하려면 `Enter`를 누르십시오.\n"
+"  - **돌아가기 (`NVDA+E`, 그런 다음 `\\`):** 슬롯을 확인한 후 이전 작업 셀로 즉시 다시 이동합니다.\n"
+"  - **직접 슬롯 이동 (`Alt` + `슬롯 번호`):** 접두사를 완전히 우회하고 할당된 셀 슬롯으로 즉시 이동합니다.\n"
+"* **입력 제스처 사용자 지정:** 모든 Office 앱의 모든 기능이 기본 NVDA 입력 제스처 대화 상자에 명시적으로 노출되어 모든 키보드 단축키를 사용자 지정할 수 있는 완전한 자유를 제공합니다.\n"
+"\n"
+"#### UX/UI 향상\n"
+"* **통합 검색 가능한 보고서:** 애드온 전체에 통합 HTML 보고 시스템을 채택했습니다. Excel 조건부 서식 알림기, 레이아웃 분석기 및 문서 분석기와 같은 기능은 더 이상 방대한 텍스트 블록만 말하지 않습니다. 이제 결과가 기본 탐색 가능한 HTML 창에 열리므로 원하는 속도로 데이터를 검토할 수 있습니다.\n"
+"* **Excel: 향상된 참조되는 셀/참조하는 셀 추적:** Excel의 기본 수식 추적 단축키 (직접 참조하는 셀의 경우 `Ctrl+[`, 직접 참조되는 셀의 경우 `Ctrl+]`)에 대한 음성 출력이 크게 향상되었습니다. 이제 NVDA는 선택된 셀이 무엇인지 명시적으로 알려줍니다.\n"
+"* **Excel: 병합된 셀 지원:** 이제 병합된 셀이 간격 건너뛰기 셀 추적기에 의해 올바르게 감지되고 명시적으로 알려집니다.\n"
+"\n"
+"#### 버그 수정\n"
+"* **Word: 목록 항목 이중 읽기:** 특정 Word 보기에서 NVDA가 단락 목록 항목을 이중으로 읽는 버그를 수정하기 위한 임시 패치를 구현했습니다.\n"
+"* **Excel: 셀 모니터 지역화 버그:** 최근 번역 지역화 업데이트로 인해 발생한 기본 추적 버그를 해결했습니다."

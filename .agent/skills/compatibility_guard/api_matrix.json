@@ -1,0 +1,26 @@
+{
+  "versionInfo": {
+    "status": "removed",
+    "version": "2026.1",
+    "alternative": "buildVersion",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.1/nvda_2026.1_changes.html"
+  },
+  "versionInfo.version_year": {
+    "status": "removed",
+    "version": "2026.1",
+    "alternative": "buildVersion.version_year",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.1/nvda_2026.1_changes.html"
+  },
+  "versionInfo.version_major": {
+    "status": "removed",
+    "version": "2026.1",
+    "alternative": "buildVersion.version_major",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.1/nvda_2026.1_changes.html"
+  },
+  "versionInfo.version_minor": {
+    "status": "removed",
+    "version": "2026.1",
+    "alternative": "buildVersion.version_minor",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.1/nvda_2026.1_changes.html"
+  }
+}

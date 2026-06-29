@@ -868,3 +868,1018 @@ msgstr ""
 "* **Localización profunda**: Se han corregido las traducciones de cadenas que faltaban en el interior de los módulos de mejora de Excel (como el Analizador de diseño de hoja y el Movedor rápido de hoja) para garantizar una cobertura de localización del 100%.\n"
 "* **Soporte de traducción ampliado**: Se han añadido 7 nuevos idiomas al sistema (turco, polaco, coreano, ucraniano, checo, urdu y punjabi).\n"
 "  *(Nota: Estas traducciones fueron generadas por IA, por lo que podrían estar presentes errores menores de traducción o imprecisiones.)*"
+
+msgid "BOA (Better Office Accessibility)"
+msgstr "BOA (Mejor Accesibilidad de Office)"
+
+msgid ""
+"Triggers the BOA command prefix. Press this, followed by a specific command "
+"key."
+msgstr ""
+"Activa el prefijo de comandos de BOA. Pulse esta tecla, seguida de una tecla"
+" de comando específica."
+
+msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
+msgstr ""
+"Abre el cuadro de diálogo del Organizador de hojas en masa para reordenar "
+"las hojas."
+
+msgid "Analyzes and announces the layout structure of the current sheet."
+msgstr "Analiza y anuncia la estructura de diseño de la hoja actual."
+
+msgid "Jumps the focus to the nearest cell block."
+msgstr "Salta el foco al bloque de celdas más cercano."
+
+msgid "Announces conditional formatting details for the current cell."
+msgstr "Anuncia los detalles del formato condicional para la celda actual."
+
+msgid "Toggles monitoring on the active cell."
+msgstr "Alterna la monitorización en la celda activa."
+
+msgid "Clears all monitored cells."
+msgstr "Borra todas las celdas monitorizadas."
+
+msgid ""
+"Traces precedents and opens a dialog to jump to cells that provide data to "
+"the active cell."
+msgstr ""
+"Rastrea precedentes y abre un cuadro de diálogo para saltar a las celdas que"
+" proporcionan datos a la celda activa."
+
+msgid ""
+"Traces dependents and opens a dialog to jump to cells that depend on the "
+"active cell."
+msgstr ""
+"Rastrea dependientes y abre un cuadro de diálogo para saltar a las celdas "
+"que dependen de la celda activa."
+
+msgid "Announces the raw formula of the active cell."
+msgstr "Anuncia la fórmula sin formato de la celda activa."
+
+msgid ""
+"Opens the accessible Power Editor dialog to edit the active cell's contents."
+msgstr ""
+"Abre el cuadro de diálogo accesible de Power Editor para editar el contenido"
+" de la celda activa."
+
+msgid ""
+"Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
+msgstr ""
+"Abre el cuadro de diálogo Monitores de celdas activas para gestionar y "
+"saltar a las celdas monitorizadas."
+
+msgid ""
+"Jumps focus back to the cell you were working on before navigating away."
+msgstr ""
+"Vuelve a enfocar la celda en la que estaba trabajando antes de alejarse."
+
+msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
+msgstr ""
+"Abre el cuadro de diálogo Organizador de diapositivas en masa para reordenar"
+" las diapositivas."
+
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr "Analiza y anuncia la estructura de diseño de la diapositiva actual."
+
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr ""
+"Analiza la presentación de PowerPoint actual y muestra un informe completo "
+"de diseño y estado."
+
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr ""
+"Analiza el documento de Word actual y muestra un informe completo de diseño "
+"y estado."
+
+msgid ""
+"Audits the current Word document for visual formatting inconsistencies."
+msgstr ""
+"Audita el documento de Word actual para detectar inconsistencias de formato "
+"visual."
+
+msgid "Analysis cancelled."
+msgstr "Análisis cancelado."
+
+msgid "An error occurred during analysis."
+msgstr "Se ha producido un error durante el análisis."
+
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr "Comportamiento predeterminado de NVDA (Solo referencia)"
+
+msgid "Read Note Content Inline"
+msgstr "Leer el contenido de la nota en línea"
+
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr ""
+"Elija si NVDA debe leer automáticamente el texto de las notas al pie y al "
+"final en línea con el texto del documento."
+
+msgid "Default NVDA Behavior"
+msgstr "Comportamiento predeterminado de NVDA"
+
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr "Comportamiento predeterminado + Audio espacial 3D (Experimental)"
+
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr ""
+"Controla cómo NVDA anuncia el movimiento de formas en PowerPoint. Los modos "
+"de lienzo traducen coordenadas matemáticas sin procesar en ubicaciones "
+"legibles para humanos como 'Cuadrante superior izquierdo'."
+
+msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
+msgstr ""
+"Prevenir bloq&ueos de NVDA en los campos de texto de Excel (SafeRichEdit)"
+
+msgid "Enable Formula Auditor &features"
+msgstr "Habilitar las caracterís&ticas del Auditor de fórmulas"
+
+msgid "Explicitly announce m&erged cells"
+msgstr "Anunciar explícitamente las c&eldas combinadas"
+
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr ""
+"Prevenir bloqu&eos de NVDA en los campos de texto de PowerPoint "
+"(SafeRichEdit)"
+
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr ""
+"Habilitar el cuadro de diálogo Organi&zador de diapositivas en masa (Prefijo"
+" + X)"
+
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
+msgstr "Hab&ilitar el Analizador de diseño de diapositiva (Prefijo + L)"
+
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr "Habilitar el Anali&zador de documentos de PowerPoint (Prefijo + D)"
+
+msgid "Shape Movement Audio Mode:"
+msgstr "Modo de audio de movimiento de formas:"
+
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+msgstr ""
+"&Word: Prevenir bloqueos de NVDA en los campos de texto de Word "
+"(SafeRichEdit)"
+
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr ""
+"Prevenir la lectura &doble de los elementos de la lista durante la "
+"navegación de párrafos"
+
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr "Habilitar &Analizador de documentos a través de NVDA+E, D"
+
+msgid "Enable Format &Auditor via NVDA+E, F"
+msgstr "Habilitar A&uditor de formato a través de NVDA+E, F"
+
+msgid "Footnotes and Endnotes reading &mode:"
+msgstr "&Modo de lectura de notas al pie y notas al final:"
+
+msgid "No formula"
+msgstr "No hay fórmula"
+
+msgid "BOA Power Editor"
+msgstr "BOA Power Editor"
+
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr ""
+"&Editar el contenido de la celda (pulse Ctrl+Enter para guardar, Esc para "
+"cancelar):"
+
+msgid "&Save"
+msgstr "G&uardar"
+
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+"La fórmula se guardó, pero Excel la evaluó como un error: {error}\n"
+"\n"
+"¿Desea continuar editando?"
+
+msgid "Calculation Error"
+msgstr "Error de cálculo"
+
+msgid "Done"
+msgstr "Hecho"
+
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr ""
+"Excel rechazó esta fórmula. Compruebe si hay errores de sintaxis o faltan "
+"paréntesis."
+
+msgid "Invalid Formula"
+msgstr "Fórmula no válida"
+
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
+msgstr ""
+"Ranura {slot_str} perdida. El libro de trabajo '{wb}' está cerrado o es "
+"inaccesible."
+
+msgid "Empty cell"
+msgstr "Celda vacía"
+
+msgid "Cannot jump. The workbook '{wb}' is closed."
+msgstr "No se puede saltar. El libro de trabajo '{wb}' está cerrado."
+
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
+msgstr "No se puede saltar. La hoja '{sheet}' fue renombrada o eliminada."
+
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
+msgstr ""
+"No se puede saltar. La dirección de la celda no es válida o Excel está "
+"ocupado."
+
+msgid "No cell assigned to slot {slot_num}"
+msgstr "No hay ninguna celda asignada a la ranura {slot_num}"
+
+msgid "No previous cell to jump back to."
+msgstr "No hay celda anterior a la que saltar."
+
+msgid "Active Cell Monitors"
+msgstr "Monitores de celdas activas"
+
+msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
+msgstr ""
+"Seleccione una celda para saltar a ella. Pulse Suprimir para eliminarla de "
+"los monitores."
+
+msgid "&Jump"
+msgstr "&Saltar"
+
+msgid "No cells are currently being monitored."
+msgstr "Actualmente no se están monitorizando celdas."
+
+msgid "Slot {slot} deleted"
+msgstr "Ranura {slot} eliminada"
+
+msgid "Monitor deleted"
+msgstr "Monitor eliminado"
+
+msgid "Merged cell, {address}"
+msgstr "Celda combinada, {address}"
+
+msgid "{sheet_name} deleted"
+msgstr "{sheet_name} eliminada"
+
+msgid "Rules Summary"
+msgstr "Resumen de reglas"
+
+msgid "Analyzed Results"
+msgstr "Resultados analizados"
+
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr "&Seleccione una referencia y pulse Enter para saltar a ella:"
+
+msgid "Cannot jump to a closed external workbook."
+msgstr "No se puede saltar a un libro de trabajo externo cerrado."
+
+msgid "(External) {}"
+msgstr "(Externo) {}"
+
+msgid "No precedents found."
+msgstr "No se encontraron precedentes."
+
+msgid "No dependents found."
+msgstr "No se encontraron dependientes."
+
+msgid "Precedents"
+msgstr "Precedentes"
+
+msgid "Dependents"
+msgstr "Dependientes"
+
+msgid ""
+"Clicks the button and dynamically announces formula evaluation changes."
+msgstr ""
+"Hace clic en el botón y anuncia dinámicamente los cambios en la evaluación "
+"de la fórmula."
+
+msgid "{old_diff} evaluated to {new_diff}"
+msgstr "{old_diff} evaluado como {new_diff}"
+
+msgid "Data Blocks Summary"
+msgstr "Resumen de bloques de datos"
+
+msgid "Found {count} data blocks in this sheet."
+msgstr "Se encontraron {count} bloques de datos en esta hoja."
+
+msgid "Sheet Properties"
+msgstr "Propiedades de la hoja"
+
+msgid ""
+"No special properties detected (No active filters, protection, frozen panes,"
+" or hidden borders)."
+msgstr ""
+"No se detectaron propiedades especiales (sin filtros activos, protección, "
+"paneles inmovilizados o bordes ocultos)."
+
+msgid "Failed to connect to PowerPoint."
+msgstr "No se pudo conectar a PowerPoint."
+
+msgid "No active presentation."
+msgstr "No hay ninguna presentación activa."
+
+msgid "Not enough slides to move."
+msgstr "No hay suficientes diapositivas para mover."
+
+msgid "Successfully reorganized slides."
+msgstr "Diapositivas reorganizadas con éxito."
+
+msgid "Failed to move slides. See log for details."
+msgstr ""
+"No se pudieron mover las diapositivas. Consulte el registro para obtener más"
+" detalles."
+
+msgid "Loading slides, please wait..."
+msgstr "Cargando diapositivas, por favor espere..."
+
+msgid "Failed to hook PowerPoint."
+msgstr "Error al conectar con PowerPoint."
+
+msgid "Slide {index} - {title}"
+msgstr "Diapositiva {index} - {title}"
+
+msgid "Slide {index} - (No Title)"
+msgstr "Diapositiva {index} - (Sin título)"
+
+msgid "Bulk Slide Organizer"
+msgstr "Organizador de diapositivas en masa"
+
+msgid "Slide Name:"
+msgstr "Nombre de la diapositiva:"
+
+msgid "Slide"
+msgstr "Diapositiva"
+
+msgid "Scheduled: {slide} to position {pos}"
+msgstr "Programado: {slide} a la posición {pos}"
+
+msgid "No active presentation detected."
+msgstr "No se detectó ninguna presentación activa."
+
+msgid "Analyzing document layout in background..."
+msgstr "Analizando el diseño del documento en segundo plano..."
+
+msgid "Error starting document analysis."
+msgstr "Error al iniciar el análisis del documento."
+
+msgid "Untitled Slide"
+msgstr "Diapositiva sin título"
+
+msgid "Document Analysis: {name}"
+msgstr "Análisis de documento: {name}"
+
+msgid "Overview"
+msgstr "Visión general"
+
+msgid "Total Slides: {n}"
+msgstr "Total de diapositivas: {n}"
+
+msgid "Hidden Slides: {n}"
+msgstr "Diapositivas ocultas: {n}"
+
+msgid "Table of Contents"
+msgstr "Tabla de contenido"
+
+msgid "Slide {num}: {title}"
+msgstr "Diapositiva {num}: {title}"
+
+msgid "Accessibility Health"
+msgstr "Estado de accesibilidad"
+
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr "Desajuste en el orden de lectura (Orden Z frente a Visual)"
+
+msgid "Slide {num}"
+msgstr "Diapositiva {num}"
+
+msgid "Missing Alt-Text"
+msgstr "Texto alternativo faltante"
+
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr "Diapositiva {num}: a {count} imágenes les falta el texto alternativo"
+
+msgid "Off-Canvas Elements"
+msgstr "Elementos fuera del lienzo"
+
+msgid "No major accessibility issues detected."
+msgstr "No se detectaron problemas importantes de accesibilidad."
+
+msgid "Density & Complexity"
+msgstr "Densidad y complejidad"
+
+msgid "High Text Density (Wall of Text)"
+msgstr "Alta densidad de texto (Muro de texto)"
+
+msgid "Slide {num}: {words} words"
+msgstr "Diapositiva {num}: {words} palabras"
+
+msgid "Complex Objects"
+msgstr "Objetos complejos"
+
+msgid "Tables: {n}"
+msgstr "Tablas: {n}"
+
+msgid "Grouped Objects: {n}"
+msgstr "Objetos agrupados: {n}"
+
+msgid "Media: {n}"
+msgstr "Multimedia: {n}"
+
+msgid "Charts: {n}"
+msgstr "Gráficos: {n}"
+
+msgid "Embedded Documents: {n}"
+msgstr "Documentos incrustados: {n}"
+
+msgid "No active slide detected."
+msgstr "No se detectó ninguna diapositiva activa."
+
+msgid "Analyzing slide layout..."
+msgstr "Analizando el diseño de la diapositiva..."
+
+msgid "Error analyzing slide layout."
+msgstr "Error al analizar el diseño de la diapositiva."
+
+msgid "Slide {num} Layout Analysis"
+msgstr "Análisis de diseño de la diapositiva {num}"
+
+msgid "Structure & Density"
+msgstr "Estructura y densidad"
+
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr "Marcadores de posición frente a Formas personalizadas: {p} / {c}"
+
+msgid "Total Word Count: {w}"
+msgstr "Recuento total de palabras: {w}"
+
+msgid "Warning: High text density (Wall of Text)"
+msgstr "Advertencia: Alta densidad de texto (Muro de texto)"
+
+msgid "Warning: Missing standard Title Placeholder"
+msgstr "Advertencia: Falta el marcador de posición de título estándar"
+
+msgid "Accessibility Warnings"
+msgstr "Advertencias de accesibilidad"
+
+msgid "Off-Canvas Shapes"
+msgstr "Formas fuera del lienzo"
+
+msgid "Reading Order Mismatch"
+msgstr "Desajuste en el orden de lectura"
+
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr ""
+"La forma '{s}' se encuentra visualmente en la parte superior pero "
+"lógicamente en la parte inferior."
+
+msgid "Missing Alt-Text: {n} images"
+msgstr "Texto alternativo faltante: {n} imágenes"
+
+msgid "No major spatial accessibility warnings detected."
+msgstr "No se detectaron advertencias importantes de accesibilidad espacial."
+
+msgid "Complex Objects & Media"
+msgstr "Objetos complejos y multimedia"
+
+msgid "Media (Audio/Video): {n}"
+msgstr "Multimedia (Audio/Vídeo): {n}"
+
+msgid "Charts/Graphs: {n}"
+msgstr "Gráficos: {n}"
+
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr "Documentos incrustados (Excel/PDF): {n}"
+
+msgid "Tables"
+msgstr "Tablas"
+
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr "Tabla '{name}': {c} columnas por {r} filas"
+
+msgid "No complex tables, groups, or media."
+msgstr "No hay tablas complejas, grupos ni multimedia."
+
+msgid "Analyzing document, please wait..."
+msgstr "Analizando el documento, por favor espere..."
+
+msgid "Cannot access Word application."
+msgstr "No se puede acceder a la aplicación Word."
+
+msgid "Failed to start document analyzer."
+msgstr "Error al iniciar el analizador de documentos."
+
+msgid "Word Document Analyzer Report"
+msgstr "Informe del analizador de documentos de Word"
+
+msgid "1. Cursor Context"
+msgstr "1. Contexto del cursor"
+
+msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
+msgstr ""
+"En la sección {sec}, página {page}, celda de tabla (fila {row}, columna "
+"{col})"
+
+msgid "In Section {sec}, Page {page} (Inside a Table)"
+msgstr "En la sección {sec}, página {page} (dentro de una tabla)"
+
+msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
+msgstr "En la sección {sec}, página {page}, línea {line}, columna {col}"
+
+msgid "Could not retrieve cursor position."
+msgstr "No se pudo obtener la posición del cursor."
+
+msgid "Error retrieving cursor context."
+msgstr "Error al obtener el contexto del cursor."
+
+msgid "2. Document Properties & Options"
+msgstr "2. Propiedades y opciones del documento"
+
+msgid "Unprotected"
+msgstr "Sin protección"
+
+msgid "Allow Only Revisions (Tracked Changes)"
+msgstr "Permitir solo revisiones (Control de cambios)"
+
+msgid "Allow Only Comments"
+msgstr "Permitir solo comentarios"
+
+msgid "Allow Only Form Fields"
+msgstr "Permitir solo campos de formulario"
+
+msgid "Unknown Protection"
+msgstr "Protección desconocida"
+
+msgid "Document Protection: {status}"
+msgstr "Protección del documento: {status}"
+
+msgid "File Name: {name}"
+msgstr "Nombre de archivo: {name}"
+
+msgid "Author"
+msgstr "Autor"
+
+msgid "Creation Date"
+msgstr "Fecha de creación"
+
+msgid "Revision Number"
+msgstr "Número de revisión"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Subject"
+msgstr "Asunto"
+
+msgid "Company"
+msgstr "Compañía"
+
+msgid "Enabled"
+msgstr "Habilitado"
+
+msgid "Disabled"
+msgstr "Deshabilitado"
+
+msgid "Check spelling as you type: {status}"
+msgstr "Revisar la ortografía mientras se escribe: {status}"
+
+msgid "Check grammar as you type: {status}"
+msgstr "Revisar la gramática mientras se escribe: {status}"
+
+msgid "Check grammar with spelling: {status}"
+msgstr "Revisar la gramática con la ortografía: {status}"
+
+msgid "Track Revisions (Recording): {status}"
+msgstr "Control de cambios (Grabando): {status}"
+
+msgid "Visible"
+msgstr "Visible"
+
+msgid "Hidden"
+msgstr "Oculto"
+
+msgid "Display hidden text on screen: {status}"
+msgstr "Mostrar texto oculto en pantalla: {status}"
+
+msgid "Could not retrieve document properties."
+msgstr "No se pudieron obtener las propiedades del documento."
+
+msgid "3. Overall Statistics"
+msgstr "3. Estadísticas generales"
+
+msgid "Pages: {pages}"
+msgstr "Páginas: {pages}"
+
+msgid "Words (including footnotes): {words}"
+msgstr "Palabras (incluyendo notas al pie): {words}"
+
+msgid "Characters (including footnotes): {chars}"
+msgstr "Caracteres (incluyendo notas al pie): {chars}"
+
+msgid "Text Paragraphs: {paras}"
+msgstr "Párrafos de texto: {paras}"
+
+msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
+msgstr "Párrafos estructurales (incl. líneas en blanco y tablas): {paras}"
+
+msgid "Lines: {lines}"
+msgstr "Líneas: {lines}"
+
+msgid "Lists: {lists}"
+msgstr "Listas: {lists}"
+
+msgid "Spelling errors: {errors}"
+msgstr "Errores ortográficos: {errors}"
+
+msgid "Could not retrieve structural statistics."
+msgstr "No se pudieron obtener las estadísticas estructurales."
+
+msgid "4. Collaboration Status"
+msgstr "4. Estado de colaboración"
+
+msgid "Comments: {count}"
+msgstr "Comentarios: {count}"
+
+msgid "Unresolved Tracked Changes: {count}"
+msgstr "Cambios controlados sin resolver: {count}"
+
+msgid "Unresolved Tracked Changes: 0"
+msgstr "Cambios controlados sin resolver: 0"
+
+msgid "Footnotes: {count}"
+msgstr "Notas al pie: {count}"
+
+msgid "Endnotes: {count}"
+msgstr "Notas al final: {count}"
+
+msgid "Could not retrieve collaboration statistics."
+msgstr "No se pudieron obtener las estadísticas de colaboración."
+
+msgid "5. Accessibility Audit Summary"
+msgstr "5. Resumen de auditoría de accesibilidad"
+
+msgid "Images (Inline): {count}"
+msgstr "Imágenes (En línea): {count}"
+
+msgid "Warning: {count} images are missing alternative text!"
+msgstr "Advertencia: ¡A {count} imágenes les falta texto alternativo!"
+
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr ""
+"Advertencia: Se detectaron {count} formas flotantes. Estas a menudo son "
+"inaccesibles."
+
+msgid "Hyperlinks: {count}"
+msgstr "Hipervínculos: {count}"
+
+msgid "Could not retrieve accessibility statistics."
+msgstr "No se pudieron obtener las estadísticas de accesibilidad."
+
+msgid "6. Layout & Structural Breakdown"
+msgstr "6. Desglose estructural y de diseño"
+
+msgid "Sections"
+msgstr "Secciones"
+
+msgid "No sections found."
+msgstr "No se encontraron secciones."
+
+msgid "Section {num}"
+msgstr "Sección {num}"
+
+msgid "Portrait"
+msgstr "Vertical"
+
+msgid "Landscape"
+msgstr "Horizontal"
+
+msgid "Orientation: {orient}"
+msgstr "Orientación: {orient}"
+
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr ""
+"Superior: {t:.2f}cm, Inferior: {b:.2f}cm, Izquierda: {l:.2f}cm, Derecha: "
+"{r:.2f}cm"
+
+msgid "Margins: {margins}"
+msgstr "Márgenes: {margins}"
+
+msgid "Warning: Different first page header/footer."
+msgstr "Advertencia: Encabezado/pie de página diferente en la primera página."
+
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr ""
+"Advertencia: Las páginas pares e impares tienen encabezados/pies de página "
+"diferentes."
+
+msgid "Continuous"
+msgstr "Continuo"
+
+msgid "New Column"
+msgstr "Nueva columna"
+
+msgid "New Page"
+msgstr "Nueva página"
+
+msgid "Even Page"
+msgstr "Página par"
+
+msgid "Odd Page"
+msgstr "Página impar"
+
+msgid "Section start: {start}"
+msgstr "Inicio de sección: {start}"
+
+msgid "Top"
+msgstr "Superior"
+
+msgid "Center"
+msgstr "Centro"
+
+msgid "Justify"
+msgstr "Justificado"
+
+msgid "Bottom"
+msgstr "Inferior"
+
+msgid "Vertical alignment: {align}"
+msgstr "Alineación vertical: {align}"
+
+msgid "Distance from top to header: {d:.2f}cm"
+msgstr "Distancia de la parte superior al encabezado: {d:.2f}cm"
+
+msgid "Distance from bottom to footer: {d:.2f}cm"
+msgstr "Distancia de la parte inferior al pie de página: {d:.2f}cm"
+
+msgid "Yes"
+msgstr "Sí"
+
+msgid "No"
+msgstr "No"
+
+msgid "Text modification only in form fields: {status}"
+msgstr "Modificación de texto solo en campos de formulario: {status}"
+
+msgid "Custom"
+msgstr "Personalizado"
+
+msgid "Standard/Other"
+msgstr "Estándar/Otro"
+
+msgid "Paper size: {size}"
+msgstr "Tamaño de papel: {size}"
+
+msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
+msgstr "Dimensiones de la página: {w:.2f}cm de ancho, {h:.2f}cm de alto"
+
+msgid "Print two pages per sheet: {status}"
+msgstr "Imprimir dos páginas por hoja: {status}"
+
+msgid "Right-to-Left (RTL)"
+msgstr "De derecha a izquierda (RTL)"
+
+msgid "Left-to-Right (LTR)"
+msgstr "De izquierda a derecha (LTR)"
+
+msgid "Reading direction: {dir}"
+msgstr "Dirección de lectura: {dir}"
+
+msgid "No tables found."
+msgstr "No se encontraron tablas."
+
+msgid "Table {num}"
+msgstr "Tabla {num}"
+
+msgid "uniform"
+msgstr "uniforme"
+
+msgid "non-uniform"
+msgstr "no uniforme"
+
+msgid "nested "
+msgstr "anidada "
+
+msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
+msgstr "Dimensiones: tabla {nest}({uni}) de {rows} filas, {cols} columnas"
+
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr ""
+"Dimensiones: Compleja (Contiene celdas combinadas/divididas que impiden el "
+"recuento de filas)"
+
+msgid "Localized at page {page}, line {line}"
+msgstr "Ubicado en la página {page}, línea {line}"
+
+msgid "Title: {t}"
+msgstr "Título: {t}"
+
+msgid "Description: {d}"
+msgstr "Descripción: {d}"
+
+msgid "Automatic resize to fit content: {status}"
+msgstr "Ajuste automático para adaptarse al contenido: {status}"
+
+msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
+msgstr "Relleno superior: {pad:.4f}cm, Relleno inferior: {bpad:.4f}cm"
+
+msgid "Spacing between cells: {sp:.4f}cm"
+msgstr "Espaciado entre celdas: {sp:.4f}cm"
+
+msgid "Borders Enabled: {status}"
+msgstr "Bordes habilitados: {status}"
+
+msgid "Word Document Analyzer"
+msgstr "Analizador de documentos de Word"
+
+msgid "Auditing document formatting, please wait..."
+msgstr "Auditando el formato del documento, por favor espere..."
+
+msgid "Failed to start formatting audit."
+msgstr "Error al iniciar la auditoría de formato."
+
+msgid "<b>Page {page}, Line {line}</b> (Para {num})"
+msgstr "<b>Página {page}, Línea {line}</b> (Párrafo {num})"
+
+msgid "<b>Page {page}</b> (Para {num})"
+msgstr "<b>Página {page}</b> (Párrafo {num})"
+
+msgid "<b>Paragraph {num}</b>"
+msgstr "<b>Párrafo {num}</b>"
+
+msgid "<b>Page {page}</b> (Table {num})"
+msgstr "<b>Página {page}</b> (Tabla {num})"
+
+msgid "<b>Table {num}</b>"
+msgstr "<b>Tabla {num}</b>"
+
+msgid ""
+"{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
+msgstr ""
+"{loc}: Se detectaron 3 o más líneas en blanco consecutivas. Utilice un Salto"
+" de página en su lugar."
+
+msgid "{loc}: Empty heading detected."
+msgstr "{loc}: Se detectó un encabezado vacío."
+
+msgid ""
+"{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
+"breaks screen reader flow."
+msgstr ""
+"{loc}: Se detectó un salto de línea manual (Shift+Enter) dentro del párrafo."
+" Esto rompe el flujo del lector de pantalla."
+
+msgid ""
+"{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
+msgstr ""
+"{loc}: Se detectó sangría con la barra espaciadora (4+ espacios). Utilice el"
+" tabulador o la sangría de párrafo."
+
+msgid ""
+"{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
+"alignment or Ruler Indents."
+msgstr ""
+"{loc}: Se detectaron múltiples caracteres de tabulación consecutivos. "
+"Utilice la alineación centrada/derecha o las sangrías de la regla."
+
+msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
+msgstr ""
+"{loc}: Se detectaron tamaños de fuente inconsistentes dentro del mismo "
+"párrafo."
+
+msgid "{loc}: Inconsistent font types detected within the same paragraph."
+msgstr ""
+"{loc}: Se detectaron tipos de fuente inconsistentes dentro del mismo "
+"párrafo."
+
+msgid "{loc}: Highlighted text detected."
+msgstr "{loc}: Se detectó texto resaltado."
+
+msgid ""
+"{loc}: Fake list detected. Manual numbering used instead of built-in list."
+msgstr ""
+"{loc}: Se detectó una lista falsa. Se usó numeración manual en lugar de una "
+"lista incorporada."
+
+msgid ""
+"{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
+"{new})."
+msgstr ""
+"{loc}: Nivel de encabezado omitido (Saltó del nivel {old} directamente al "
+"nivel {new})."
+
+msgid ""
+"{loc}: Table contains merged or split cells. This breaks screen reader grid "
+"navigation."
+msgstr ""
+"{loc}: La tabla contiene celdas combinadas o divididas. Esto rompe la "
+"navegación en cuadrícula del lector de pantalla."
+
+msgid ""
+"{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
+"subsequent pages."
+msgstr ""
+"{loc}: A la tabla le falta 'Repetir filas de encabezado'. Los datos serán "
+"ilegibles en las páginas siguientes."
+
+msgid ""
+"<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
+"inconsistencies found! The document looks clean.</p>"
+msgstr ""
+"<h2>Auditoría de formato y accesibilidad completada</h2><p>¡No se "
+"encontraron inconsistencias de formato! El documento se ve limpio.</p>"
+
+msgid "Format Audit Results"
+msgstr "Resultados de la auditoría de formato"
+
+msgid "Format & Accessibility Audit Report"
+msgstr "Informe de auditoría de formato y accesibilidad"
+
+msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
+msgstr "Total de párrafos: {paras} | Total de errores encontrados: {total}"
+
+msgid "1. Structural Accessibility Blockers (WCAG)"
+msgstr "1. Bloqueadores estructurales de accesibilidad (WCAG)"
+
+msgid "2. Visual Layout & Spacing Issues"
+msgstr "2. Problemas de diseño visual y espaciado"
+
+msgid "3. Font & Style Inconsistencies"
+msgstr "3. Inconsistencias de fuente y estilo"
+
+msgid "bottom"
+msgstr "inferior"
+
+msgid "top"
+msgstr "superior"
+
+msgid ""
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. as mentioned this is experemental and waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a structural overview of your Word document. *(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant \"Word Access\" add-on. We are deeply grateful for his foundational work in this space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. *(Note: Support for endnotes and comments is planned for a future release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native `Enter` adds line breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts (`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking bugs caused by the recent translation localization updates."
+msgstr ""
+"### Versión 2.0.0\n"
+"#### Nuevas características\n"
+"* **PowerPoint: Analizador de documentos completo (Experimental) (`NVDA+E`, luego `D`):** Una herramienta de accesibilidad altamente avanzada, procesada en segundo plano, que mapea una presentación completa sin congelar el motor de voz de NVDA. Proporciona una tabla de contenido virtual profundamente navegable, detecta desajustes en el orden de lectura (Orden visual frente a Orden Z), marca diapositivas con \"Muro de texto\" y mapea objetos complejos como SmartArt y tablas de datos.\n"
+"* **PowerPoint: Analizador de diseño de diapositiva (Experimental) (`NVDA+E`, luego `L`):** Escanea instantáneamente su diapositiva activa actual para comprender su diseño espacial y las limitaciones de accesibilidad, garantizando una experiencia de lector de pantalla completamente fluida y receptiva. Esto significa que aquí obtendrá detalles sobre la diapositiva actual similares al analizador de diseño de hoja de Excel.\n"
+"* **PowerPoint: Organizador de diapositivas en masa (Experimental) (`NVDA+E`, luego `X`):** Similar a la función de Excel, ahora puede reordenar, mover y organizar instantáneamente múltiples diapositivas de PowerPoint a la vez usando un cuadro de diálogo completamente accesible.\n"
+"* **PowerPoint: Modo de audio de movimiento de formas (Experimental):** Introduce señales de audio espacial 3D al lienzo de PowerPoint. Proporciona información auditiva que indica la dirección y los límites de contorno de un objeto a medida que lo mueve, mejorando enormemente la conciencia espacial. Como se mencionó, esto es experimental y está a la espera de comentarios para mejorar o eliminar.\n"
+"* **Word: Auditor de formato (`NVDA+E`, luego `F`):** Escanea su documento de Word en busca de inconsistencias de formato para garantizar los estándares visuales.\n"
+"* **Word: Analizador de documentos (`NVDA+E`, luego `D`):** Muestra instantáneamente una descripción estructural de su documento de Word. *(Una nota especial de crédito y agradecimiento a Paul: ¡Esta característica se inspiró directamente en su brillante complemento \"Word Access\"! ¡Estamos profundamente agradecidos por su trabajo fundamental en este espacio!)*\n"
+"* **Word: Anunciador automatizado de notas al pie:** Las notas al pie ahora se anunciarán automáticamente en línea a medida que lea, según su configuración personalizada de BOA. *(Nota: El soporte para notas al final y comentarios está planeado para una futura versión).*\n"
+"* **Excel: The Power Editor (Editor de fórmulas accesible):** Un cambio absoluto en las reglas del juego para modificar fórmulas masivas.\n"
+"  - **Toque único `NVDA+E`, luego `F2`:** Anuncia instantáneamente la cadena de la fórmula sin formato de la celda activa (o anuncia \"No hay fórmula\").\n"
+"  - **Doble toque `NVDA+E`, luego `F2`:** Abre un editor de varias líneas completamente accesible para modificar de forma segura fórmulas masivas y anidadas. `Enter` nativo agrega saltos de línea para facilitar la lectura, y `Ctrl+Enter` lo guarda en Excel.\n"
+"  - *Comprobaciones de seguridad:* Atrapa de forma segura los errores de sintaxis antes de que corrompan su hoja de cálculo, y detecta errores posteriores al cálculo (como `#¿NOMBRE?` o `#¡DIV/0!`) para advertirle al instante si una fórmula se rompió.\n"
+"* **Excel: Auditoría y evaluación de fórmulas:** Se agregaron atajos de teclado personalizados (`NVDA+E`, luego `Shift+P` y `NVDA+E`, luego `Shift+D`) para rastrear de forma fiable precedentes y dependientes. Además, el cuadro de diálogo nativo de Excel \"Evaluar fórmula\" ahora es completamente accesible; ¡NVDA lee automáticamente los resultados evaluados a medida que avanza por el cálculo!\n"
+"* **Excel: Actualizaciones de Cell Monitor Pro:**\n"
+"  - **Cuadro de diálogo Administrador de ranuras (`NVDA+E`, luego `Alt+M`):** Abre un cuadro de diálogo que enumera todas las celdas monitoreadas activamente. Pulse `Enter` para saltar instantáneamente a una.\n"
+"  - **Warp Back (Regresar) (`NVDA+E`, luego `\\`):** Lo teletransporta instantáneamente de regreso a su celda de trabajo anterior después de verificar una ranura.\n"
+"  - **Salto de ranura directo (`Alt` + `Número de ranura`):** Omita el prefijo por completo y salte instantáneamente a una ranura de celda asignada.\n"
+"* **Personalización de gestos de entrada:** Todas las características de todas las aplicaciones de Office han sido expuestas explícitamente en el cuadro de diálogo nativo de Gestos de entrada de NVDA, otorgándole total libertad para personalizar cada atajo de teclado.\n"
+"\n"
+"#### Mejoras de UX/UI\n"
+"* **Informes explorables unificados:** Hemos adoptado un sistema de informes HTML unificado en todo el complemento. Características como el Anunciador de formato condicional de Excel, los Analizadores de diseño y los Analizadores de documentos ya no solo leen bloques masivos de texto; sus resultados ahora se abren en una ventana HTML nativa y navegable, lo que le permite revisar los datos a su propio ritmo.\n"
+"* **Excel: Rastreo mejorado de dependientes/precedentes:** Se mejoró enormemente la salida de voz para los atajos nativos de rastreo de fórmulas de Excel (`Ctrl+[` para precedentes directos y `Ctrl+]` para dependientes directos). NVDA ahora anunciará explícitamente exactamente qué celdas se seleccionaron.\n"
+"* **Excel: Soporte para celdas combinadas:** Las celdas combinadas ahora son detectadas y anunciadas explícitamente por el rastreador de celdas que omite espacios en blanco.\n"
+"\n"
+"#### Corrección de errores\n"
+"* **Word: Lectura doble de elementos de lista:** Se implementó un parche temporal para solucionar el error por el cual NVDA leía dos veces los elementos de la lista de párrafos en ciertas vistas de Word.\n"
+"* **Excel: Error de localización de Cell Monitor:** Se resolvieron los errores de rastreo subyacentes causados por las recientes actualizaciones de localización de traducción."

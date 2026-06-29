@@ -1,0 +1,100 @@
+# -*- coding: UTF-8 -*-
+# Copyright (C) 2026 KIRAN G T {MisterK} and Antigravity 2
+# This file is covered by the GNU General Public License (GPL), version 2.
+# See the file COPYING.txt for more details.
+
+import addonHandler
+addonHandler.initTranslation()
+
+"""
+PowerPoint Enhancement Manager
+
+This module acts as the central dispatcher for all PowerPoint-specific accessibility enhancements.
+Architectural Intent:
+Instead of dumping all PowerPoint logic into a single monolithic file (like `globalPlugins`), 
+this manager cleanly injects independent, feature-specific classes into the NVDA object resolution chain.
+This strictly adheres to `rules.mdc` modular isolation constraints.
+"""
+
+from appModules.boa_enhancements import boa_config  # noqa: E402
+from .hex_edit import PowerPointHexEdit  # noqa: E402
+from .rgb_edit import PowerPointRGBEdit  # noqa: E402
+from .standard_color_grid import PowerPointStandardColorGrid  # noqa: E402
+from .bulk_slide_organizer import BulkSlideOrganizer  # noqa: E402
+from .slide_layout_analyzer import SlideLayoutAnalyzer  # noqa: E402
+from .document_analyzer import PowerPointDocumentAnalyzer  # noqa: E402
+from . import shape_movement_enhancer  # noqa: E402
+
+def init_enhancements():
+	"""
+	Initializes global PowerPoint enhancements like monkey-patches that must happen on startup.
+	"""
+	shape_movement_enhancer.init_shape_movement_enhancer()
+
+def inject_ppt_hex_edit(clsList):
+	"""
+	Injects the PowerPointHexEdit class into the resolution chain.
+	
+	Architectural Intent:
+	Provides a dynamic hook for NVDA to override behavior for specific objects. 
+	This function checks if the user has enabled the hex edit feature in the addon configuration.
+	If enabled, it prepends `PowerPointHexEdit` to the method resolution order (MRO) class list,
+	ensuring our custom logic takes precedence over NVDA's default Edit behaviors.
+	"""
+	# Check the global addon configuration state for this specific feature.
+	if boa_config.get_feature_state("powerpoint", "hex_edit"):
+		# Insert at the top (index 0) of the MRO so it overrides the default Edit behaviors.
+		clsList.insert(0, PowerPointHexEdit)
+
+def inject_ppt_rgb_edit(clsList):
+	"""
+	Injects the PowerPointRGBEdit class into the resolution chain.
+	
+	Architectural Intent:
+	Similar to hex edit injection, this dynamically overrides the UIA behavior 
+	for RGB inputs, but only if the user explicitly enabled it in the config.
+	"""
+	# Check if the RGB edit feature is enabled.
+	if boa_config.get_feature_state("powerpoint", "rgb_edit"):
+		# Insert at the top of the MRO to ensure UIA name overriding succeeds.
+		clsList.insert(0, PowerPointRGBEdit)
+
+def inject_ppt_color_grid(clsList):
+	"""
+	Injects the PowerPointStandardColorGrid class into the resolution chain.
+	
+	Architectural Intent:
+	Dynamically applies our custom keystroke interception logic for the standard color grid, 
+	but conditionally based on the user's preference settings.
+	"""
+	# Check if the standard color grid reading feature is enabled.
+	if boa_config.get_feature_state("powerpoint", "standard_color_grid"):
+		# Insert at the top of the MRO to ensure arrow keys are intercepted by our scripts.
+		clsList.insert(0, PowerPointStandardColorGrid)
+
+def handle_prefix_command(command_key, obj):
+	"""
+	Routes a secondary key (pressed after NVDA+E) to the appropriate PPT feature.
+	
+	Architectural Intent:
+	Provides an extension point for multi-key shortcuts specific to PowerPoint.
+	If a user presses a prefix key (like NVDA+E), this dispatcher determines 
+	how the next key press should be handled within the PPT context.
+	Returns True if handled, False if invalid, allowing the key to pass through if not recognized.
+	"""
+	if command_key == "x":
+		if boa_config.get_feature_state("powerpoint", "bulk_slide_organizer"):
+			BulkSlideOrganizer.launch_dialog(obj)
+		return True
+		
+	if command_key == "l":
+		if boa_config.get_feature_state("powerpoint", "slide_layout_analyzer"):
+			SlideLayoutAnalyzer.analyze(obj)
+		return True
+		
+	if command_key == "d":
+		if boa_config.get_feature_state("powerpoint", "document_analyzer"):
+			PowerPointDocumentAnalyzer.analyze(obj)
+		return True
+		
+	return False

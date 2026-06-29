@@ -4,251 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 1.6.1</title>
+<title>BOA: Better Office Accessibility 2.0.0</title>
 </head>
 <body>
-<h1>BOA: Better Office Accessibility</h1>
-<p>BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.</p>
+<h1>BOA: ਬਿਹਤਰ ਆਫ਼ਿਸ ਐਕਸੈਸਬਿਲਟੀ (Better Office Accessibility)</h1>
+<p>BOA ਮਾਈਕ੍ਰੋਸਾਫਟ ਆਫ਼ਿਸ (Microsoft Office) ਲਈ ਐਕਸੈਸਬਿਲਟੀ ਸੁਧਾਰਾਂ ਦਾ ਇੱਕ ਸ਼ਕਤੀਸ਼ਾਲੀ ਸੂਟ ਹੈ, ਜਿਸਨੂੰ NVDA ਵਰਤੋਂਕਾਰਾਂ ਲਈ ਸਕ੍ਰੀਨ ਰੀਡਰ ਦੇ ਅਨੁਭਵ ਨੂੰ ਬਹੁਤ ਜ਼ਿਆਦਾ ਬਿਹਤਰ ਬਣਾਉਣ ਲਈ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਹ ਸਿੱਧੇ ਤੌਰ 'ਤੇ ਗੈਰ-ਐਕਸੈਸਬਲ UI ਹਿੱਸਿਆਂ ਨੂੰ ਪੈਚ ਕਰਦਾ ਹੈ ਅਤੇ ਐਕਸਲ (Excel) ਅਤੇ ਪਾਵਰਪੁਆਇੰਟ (PowerPoint) ਲਈ ਤੇਜ਼ ਨੇਵੀਗੇਸ਼ਨ ਟੂਲਸ ਪੇਸ਼ ਕਰਦਾ ਹੈ।</p>
 <hr />
-<h2>⌨️ Hotkey Reference</h2>
+<h2>⌨️ ਹੌਟਕੀ ਹਵਾਲਾ (Hotkey Reference)</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Key Combination</th>
-<th style="text-align: left;">Context / Notes</th>
+<th style="text-align: left;">ਵਿਸ਼ੇਸ਼ਤਾ</th>
+<th style="text-align: left;">ਕੁੰਜੀ ਸੁਮੇਲ</th>
+<th style="text-align: left;">ਪ੍ਰਸੰਗ / ਨੋਟਸ</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Enter Command Mode</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code></td>
-<td style="text-align: left;">Activates Command Prefix Mode (triggers a high-pitched beep)</td>
+<td style="text-align: left;"><strong>ਕਮਾਂਡ ਮੋਡ ਵਿੱਚ ਦਾਖਲ ਹੋਵੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code> (ਡਿਫੌਲਟ: <code>NVDA+E</code>)</td>
+<td style="text-align: left;">ਕਮਾਂਡ ਪ੍ਰੀਫਿਕਸ ਮੋਡ ਨੂੰ ਸਰਗਰਮ ਕਰਦਾ ਹੈ (ਇੱਕ ਉੱਚੀ ਬੀਪ ਦੀ ਅਵਾਜ਼ ਆਉਂਦੀ ਹੈ)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Analyze Sheet Layout</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>L</code></td>
-<td style="text-align: left;">Run within Excel before navigating data blocks</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Jump to Nearest Data Block</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>J</code> /</td>
-<td style="text-align: left;">Requires Layout Analysis first</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Open Bulk Sheet Organizer</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>X</code></td>
-<td style="text-align: left;">Opens the accessible sheet reordering dialog</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Move Active Sheet Left</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
-<td style="text-align: left;">Shifts the active sheet one position up</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Move Active Sheet Right</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
-<td style="text-align: left;">Shifts the active worksheet one position down</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Move Sheet to Start/End</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
-<td style="text-align: left;">Sends worksheet to the absolute absolute boundaries</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Detailed Conditional Formatting</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>F</code></td>
-<td style="text-align: left;">Announces complete formatting details of focused cell</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Map Cell to Memory Slot</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>Shift+1</code> to <code>Shift+9</code></td>
-<td style="text-align: left;">Assigns current cell to a background monitor slot</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Read Monitored Cell Slot</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>1</code> to <code>9</code></td>
-<td style="text-align: left;">Recalls and reads the value of the assigned slot</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Toggle Background Monitoring</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>M</code></td>
-<td style="text-align: left;">Manually toggles background calculation tracking</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Clear All Memory Slots</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>Backspace</code></td>
-<td style="text-align: left;">Purges all saved background cell monitors</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cancel Command Mode</strong></td>
+<td style="text-align: left;"><strong>ਕਮਾਂਡ ਮੋਡ ਰੱਦ ਕਰੋ</strong></td>
 <td style="text-align: left;"><code>Escape</code></td>
-<td style="text-align: left;">Exits Command Prefix Mode</td>
+<td style="text-align: left;">ਕਮਾਂਡ ਪ੍ਰੀਫਿਕਸ ਮੋਡ ਤੋਂ ਬਾਹਰ ਆਉਂਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਐਕਸਲ ਸੁਧਾਰ</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸ਼ੀਟ ਲੇਆਉਟ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>L</code></td>
+<td style="text-align: left;">ਡੇਟਾ ਬਲਾਕਾਂ ਨੂੰ ਨੇਵੀਗੇਟ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਕਸਲ ਦੇ ਅੰਦਰ ਚਲਾਓ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸਭ ਤੋਂ ਨਜ਼ਦੀਕੀ ਡੇਟਾ ਬਲਾਕ 'ਤੇ ਜਾਓ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>J</code></td>
+<td style="text-align: left;">ਪਹਿਲਾਂ ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਣ ਦੀ ਲੋੜ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਬਲਕ ਸ਼ੀਟ ਆਰਗੇਨਾਈਜ਼ਰ ਖੋਲ੍ਹੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>X</code></td>
+<td style="text-align: left;">ਐਕਸੈਸਬਲ ਸ਼ੀਟ ਰੀਆਰਡਰਿੰਗ ਡਾਇਲਾਗ ਖੋਲ੍ਹਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਰਾਅ ਫਾਰਮੂਲਾ ਘੋਸ਼ਣਾਕਾਰ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>F2</code></td>
+<td style="text-align: left;">ਰਾਅ ਫਾਰਮੂਲਾ ਸਟ੍ਰਿੰਗ ਸੁਣਨ ਲਈ ਇੱਕ ਵਾਰ ਦਬਾਓ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਪਾਵਰ ਫਾਰਮੂਲਾ ਐਡੀਟਰ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ ਦੋ ਵਾਰ <code>F2</code></td>
+<td style="text-align: left;">ਐਕਸੈਸਬਲ ਮਲਟੀ-ਲਾਈਨ ਫਾਰਮੂਲਾ ਐਡੀਟਰ ਖੋਲ੍ਹਣ ਲਈ ਦੋ ਵਾਰ ਦਬਾਓ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਪੂਰਵਗਾਮੀ ਲੱਭੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>Shift+P</code></td>
+<td style="text-align: left;">ਐਕਸੈਸਬਲ ਤਰੀਕੇ ਨਾਲ ਪੂਰਵਗਾਮੀਆਂ ਨੂੰ ਟ੍ਰੇਸ ਕਰਨ ਦੀ ਵਿਸ਼ੇਸ਼ਤਾ।</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਨਿਰਭਰਤਾਵਾਂ ਲੱਭੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>Shift+D</code></td>
+<td style="text-align: left;">ਐਕਸੈਸਬਲ ਤਰੀਕੇ ਨਾਲ ਨਿਰਭਰਤਾਵਾਂ ਨੂੰ ਟ੍ਰੇਸ ਕਰਨ ਦੀ ਵਿਸ਼ੇਸ਼ਤਾ, ਸੈੱਲ 'ਤੇ ਐਂਟਰ ਦਬਾਉਣ ਨਾਲ ਤੁਸੀਂ ਉੱਥੇ ਪਹੁੰਚ ਜਾਓਗੇ।</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਵਿਸਤ੍ਰਿਤ ਕੰਡੀਸ਼ਨਲ ਫਾਰਮੈਟਿੰਗ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>F</code></td>
+<td style="text-align: left;">ਫੋਕਸ ਕੀਤੇ ਸੈੱਲ ਦੇ ਪੂਰੇ ਫਾਰਮੈਟਿੰਗ ਵੇਰਵਿਆਂ ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਐਕਟਿਵ ਸ਼ੀਟ ਨੂੰ ਖੱਬੇ ਪਾਸੇ ਭੇਜੋ</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
+<td style="text-align: left;">ਐਕਟਿਵ ਸ਼ੀਟ ਨੂੰ ਇੱਕ ਸਥਾਨ ਉੱਪਰ ਭੇਜਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਐਕਟਿਵ ਸ਼ੀਟ ਨੂੰ ਸੱਜੇ ਪਾਸੇ ਭੇਜੋ</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
+<td style="text-align: left;">ਐਕਟਿਵ ਵਰਕਸ਼ੀਟ ਨੂੰ ਇੱਕ ਸਥਾਨ ਹੇਠਾਂ ਭੇਜਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸ਼ੀਟ ਨੂੰ ਸ਼ੁਰੂ/ਅਖੀਰ 'ਤੇ ਭੇਜੋ</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
+<td style="text-align: left;">ਵਰਕਸ਼ੀਟ ਨੂੰ ਬਿਲਕੁਲ ਸ਼ੁਰੂਆਤੀ ਜਾਂ ਆਖਰੀ ਸੀਮਾ 'ਤੇ ਭੇਜਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਰੋਅ ਲੁਕਾਓ / ਦਿਖਾਓ</strong></td>
+<td style="text-align: left;"><code>Ctrl+9</code> / <code>Ctrl+Shift+9</code></td>
+<td style="text-align: left;">ਮੂਲ ਸ਼ਾਰਟਕੱਟ; BOA ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਦਿਖਣਯੋਗਤਾ ਵਿੱਚ ਬਦਲਾਅ ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਕਾਲਮ ਲੁਕਾਓ / ਦਿਖਾਓ</strong></td>
+<td style="text-align: left;"><code>Ctrl+0</code> / <code>Ctrl+Shift+0</code></td>
+<td style="text-align: left;">ਮੂਲ ਸ਼ਾਰਟਕੱਟ; BOA ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਦਿਖਣਯੋਗਤਾ ਵਿੱਚ ਬਦਲਾਅ ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਕਾਲਮ ਦਿਖਾਓ (ਬਦਲਵਾਂ ਤਰੀਕਾ)</strong></td>
+<td style="text-align: left;"><code>NVDA+Ctrl+Shift+0</code></td>
+<td style="text-align: left;">ਵਿੰਡੋਜ਼ ਇਨਪੁਟ ਭਾਸ਼ਾ ਸ਼ਾਰਟਕੱਟ ਦੇ ਟਕਰਾਅ ਨੂੰ ਬਾਈਪਾਸ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸੈੱਲ ਨੂੰ ਮੈਮੋਰੀ ਸਲਾਟ ਨਾਲ ਮੈਪ ਕਰੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>Shift+1</code> ਤੋਂ <code>Shift+9</code></td>
+<td style="text-align: left;">ਮੌਜੂਦਾ ਸੈੱਲ ਨੂੰ ਇੱਕ ਬੈਕਗ੍ਰาਊਂਡ ਮਾਨੀਟਰ ਸਲਾਟ ਵਿੱਚ ਸੈੱਟ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਮਾਨੀਟਰ ਕੀਤੇ ਸੈੱਲ ਸਲਾਟ ਨੂੰ ਪੜ੍ਹੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>1</code> ਤੋਂ <code>9</code></td>
+<td style="text-align: left;">ਨਿਰਧਾਰਤ ਕੀਤੇ ਸਲਾਟ ਦੇ ਮੁੱਲ ਨੂੰ ਯਾਦ ਰੱਖਦਾ ਅਤੇ ਪੜ੍ਹਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸਿੱਧਾ ਸਲਾਟ 'ਤੇ ਜਾਓ</strong></td>
+<td style="text-align: left;"><code>Alt</code> + <code>1</code> ਤੋਂ <code>9</code></td>
+<td style="text-align: left;">ਆਪਣੇ ਕਰਸਰ ਨੂੰ ਤੁਰੰਤ ਇੱਕ ਮਾਨੀਟਰ ਕੀਤੇ ਸਲਾਟ 'ਤੇ ਲੈ ਕੇ ਜਾਓ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਪਿਛਲੇ ਸੈੱਲ 'ਤੇ ਵਾਪਸ ਜਾਓ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>\</code></td>
+<td style="text-align: left;">ਕਿਸੇ ਸਲਾਟ ਦੀ ਜਾਂਚ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਤੁਰੰਤ ਵਾਪਸ ਭੇਜਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸਲਾਟ ਮੈਨੇਜਰ ਡਾਇਲਾਗ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>Alt+M</code></td>
+<td style="text-align: left;">ਸਾਰੇ ਸਰਗਰਮ ਮਾਨੀਟਰਾਂ ਨੂੰ ਦੇਖਣ ਅਤੇ ਪ੍ਰਬੰਧਿਤ ਕਰਨ ਲਈ ਇੱਕ ਡਾਇਲਾਗ ਖੋਲ੍ਹਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਬੈਕਗ੍ਰਾਊਂਡ ਨਿਗਰਾਨੀ ਚਾਲੂ/ਬੰਦ ਕਰੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>M</code></td>
+<td style="text-align: left;">ਬੈਕਗ੍ਰਾਊਂਡ ਗਣਨਾ ਟ੍ਰੈਕਿੰਗ ਨੂੰ ਖੁਦ ਚਾਲੂ/ਬੰਦ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸਾਰੇ ਮੈਮੋਰੀ ਸਲਾਟ ਸਾਫ਼ ਕਰੋ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>Backspace</code></td>
+<td style="text-align: left;">ਸਾਰੇ ਸੁਰੱਖਿਅਤ ਕੀਤੇ ਬੈਕਗ੍ਰਾਊਂਡ ਸੈੱਲ ਮਾਨੀਟਰਾਂ ਨੂੰ ਮਿਟਾ ਦਿੰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਪਾਵਰਪੁਆਇੰਟ ਸੁਧਾਰ</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਸਲਾਈਡ ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਣ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>L</code></td>
+<td style="text-align: left;">ਮੌਜੂਦਾ ਸਲਾਈਡ ਦੇ ਸਥਾਨਿਕ ਲੇਆਉਟ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਅਤੇ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਦਸਤਾਵੇਜ਼ ਵਿਸ਼ਲੇਸ਼ਕ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>D</code></td>
+<td style="text-align: left;">ਇੱਕ ਵਿਆਪਕ ਸਮੱਗਰੀ-ਸੂਚੀ ਅਤੇ ਸਿਹਤ ਰਿਪੋਰਟ ਤਿਆਰ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਬਲਕ ਸਲਾਈਡ ਆਰਗੇਨਾਈਜ਼ਰ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>X</code></td>
+<td style="text-align: left;">ਕਈ ਸਲਾਈਡਾਂ ਨੂੰ ਮੁੜ ਵਿਵਸਥਿਤ ਕਰਨ ਲਈ ਐਕਸੈਸਬਲ ਡਾਇਲਾਗ ਖੋਲ੍ਹਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਵਰਡ ਸੁਧਾਰ</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਫਾਰਮੈਟਿੰਗ ਆਡੀਟਰ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>F</code></td>
+<td style="text-align: left;">ਫਾਰਮੈਟਿੰਗ ਦੀਆਂ ਅਸੰਗਤੀਆਂ ਲਈ ਮੌਜੂਦਾ ਦਸਤਾਵੇਜ਼ ਦਾ ਆਡਿਟ ਕਰਦਾ ਹੈ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ਦਸਤਾਵੇਜ਼ ਵਿਸ਼ਲੇਸ਼ਕ</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, ਫਿਰ <code>D</code></td>
+<td style="text-align: left;">ਮੌਜੂਦਾ ਵਰਡ ਦਸਤਾਵੇਜ਼ ਦੇ ਲੇਆਉਟ ਅਤੇ ਬਣਤਰ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰਦਾ ਹੈ</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>🚀 Features</h2>
-<h3>Excel Enhancements</h3>
-<h4>1. Sheet Layout Analyzer &amp; Caching</h4>
-<p>Instantly scan any Excel worksheet to understand its structure, hidden elements, and data blocks.
-* <strong>How it works:</strong> BOA quickly scans the sheet and announces active data blocks. It also warns you about <strong>Hidden Worksheet Tabs</strong>, active <strong>Filters</strong>, <strong>Protected Modes</strong>, and <strong>Hidden Outer Boundaries</strong> (e.g., if columns near the right edge of the sheet are hidden, preventing you from missing off-screen data).
-* <strong>Data Navigation:</strong> After scanning, you can use the data block jump hotkeys to instantly warp your cursor between discovered data blocks, effortlessly bypassing thousands of empty cells.</p>
-<h4>2. Bulk Sheet Organizer</h4>
-<p>Instantly reorder and arrange multiple sheets at once using a fully accessible dialog .
-* <strong>How it works:</strong> Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press <code>Del</code> to remove a mistake). Click <code>OK</code> and your workbook is rearranged instantly.</p>
-<h4>3. Quick Sheet Mover</h4>
-<p>Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard shortcuts.</p>
-<h4>4. Accessible Sheet Renaming</h4>
+<h2>🚀 ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ (Features)</h2>
+<h3>ਐਕਸਲ ਸੁਧਾਰ (Excel Enhancements)</h3>
+<h4>1. ਸ਼ੀਟ ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਕ ਅਤੇ ਕੈਸ਼ਿੰਗ (Sheet Layout Analyzer &amp; Caching)</h4>
+<p>ਕਿਸੇ ਵੀ ਐਕਸਲ ਵਰਕਸ਼ੀਟ ਨੂੰ ਇਸਦੀ ਬਣਤਰ, ਲੁਕਵੇਂ ਤੱਤਾਂ ਅਤੇ ਡੇਟਾ ਬਲਾਕਾਂ ਨੂੰ ਸਮਝਣ ਲਈ ਤੁਰੰਤ ਸਕੈਨ ਕਰੋ।
+* <strong>ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ:</strong> BOA ਤੇਜ਼ੀ ਨਾਲ ਸ਼ੀਟ ਨੂੰ ਸਕੈਨ ਕਰਦਾ ਹੈ ਅਤੇ ਸਰਗਰਮ ਡੇਟਾ ਬਲਾਕਾਂ ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ। ਇਹ ਤੁਹਾਨੂੰ <strong>ਲੁਕਵੇਂ ਵਰਕਸ਼ੀਟ ਟੈਬਸ (Hidden Worksheet Tabs)</strong>, ਸਰਗਰਮ <strong>ਫਿਲਟਰ (Filters)</strong>, <strong>ਸੁਰੱਖਿਅਤ ਮੋਡ (Protected Modes)</strong>, ਅਤੇ <strong>ਲੁਕਵੀਆਂ ਬਾਹਰੀ ਸੀਮਾਵਾਂ (Hidden Outer Boundaries)</strong> (ਉਦਾਹਰਨ ਲਈ, ਜੇ ਸ਼ੀਟ ਦੇ ਸੱਜੇ ਕਿਨਾਰੇ ਦੇ ਨੇੜੇ ਦੇ ਕਾਲਮ ਲੁਕੇ ਹੋਏ ਹਨ, ਤਾਂ ਜੋ ਤੁਸੀਂ ਸਕ੍ਰੀਨ ਤੋਂ ਬਾਹਰ ਦੇ ਡੇਟਾ ਨੂੰ ਖੁੰਝਾਉਣ ਤੋਂ ਬਚ ਸਕੋ) ਬਾਰੇ ਵੀ ਸੁਚੇਤ ਕਰਦਾ ਹੈ।
+* <strong>ਡੇਟਾ ਨੇਵੀਗੇਸ਼ਨ:</strong> ਸਕੈਨ ਕਰਨ ਤੋਂ ਬਾਅਦ, ਤੁਸੀਂ ਖੋਜੇ ਗਏ ਡੇਟਾ ਬਲਾਕਾਂ ਵਿਚਕਾਰ ਆਪਣੇ ਕਰਸਰ ਨੂੰ ਤੁਰੰਤ ਲਿਜਾਣ ਲਈ ਡੇਟਾ ਬਲਾਕ ਜੰਪ ਸ਼ਾਰਟਕੱਟ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ, ਜਿਸ ਨਾਲ ਹਜ਼ਾਰਾਂ ਖਾਲੀ ਸੈੱਲਾਂ ਨੂੰ ਆਸਾਨੀ ਨਾਲ ਬਾਈਪਾਸ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</p>
+<h4>2. ਬਲਕ ਸ਼ੀਟ ਆਰਗੇਨਾਈਜ਼ਰ (Bulk Sheet Organizer)</h4>
+<p>ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ ਡਾਇਲਾਗ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਇੱਕੋ ਵਾਰ ਵਿੱਚ ਕਈ ਸ਼ੀਟਾਂ ਨੂੰ ਤੁਰੰਤ ਮੁੜ-ਵਿਵਸਥਿਤ ਅਤੇ ਸੰਗਠਿਤ ਕਰੋ।
+* <strong>ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ:</strong> ਇੱਕ ਡਾਇਲਾਗ ਖੋਲ੍ਹਦਾ ਹੈ ਜਿੱਥੇ ਤੁਸੀਂ ਇੱਕ ਸ਼ੀਟ ਦੀ ਚੋਣ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਇਸਨੂੰ ਇੱਕ ਨਵੀਂ ਸਥਿਤੀ 'ਤੇ ਸੈੱਟ ਕਰ ਸਕਦੇ ਹੋ। ਨਿਰਧਾਰਤ ਕੀਤੀਆਂ ਗਈਆਂ ਹਰਕਤਾਂ ਇੱਕ ਡੇਟਾ ਟੇਬਲ ਵਿੱਚ ਸੂਚੀਬੱਧ ਹੁੰਦੀਆਂ ਹਨ (ਕਿਸੇ ਗਲਤੀ ਨੂੰ ਹਟਾਉਣ ਲਈ <code>Del</code> ਦਬਾਓ)। <code>OK</code> 'ਤੇ ਕਲਿੱਕ ਕਰੋ ਅਤੇ ਤੁਹਾਡੀ ਵਰਕਬੁੱਕ ਤੁਰੰਤ ਮੁੜ-ਵਿਵਸਥਿਤ ਹੋ ਜਾਵੇਗੀ।</p>
+<h4>3. ਕੁਇੱਕ ਸ਼ੀਟ ਮੂਵਰ (Quick Sheet Mover)</h4>
+<p>ਆਪਣੇ ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਐਕਟਿਵ ਸ਼ੀਟ ਨੂੰ ਤੁਰੰਤ ਖੱਬੇ, ਸੱਜੇ, ਬਿਲਕੁਲ ਸ਼ੁਰੂਆਤ ਜਾਂ ਬਿਲਕੁਲ ਅਖੀਰ 'ਤੇ ਭੇਜੋ।</p>
+<h4>4. ਐਕਸੈਸਬਲ ਸ਼ੀਟ ਦਾ ਨਾਮ ਬਦਲਣਾ (Accessible Sheet Renaming)</h4>
 <ul>
-<li>When renaming a sheet, NVDA natively struggles to read the characters you are typing.</li>
-<li>BOA injects a custom <code>ExcelSheetRenameEdit</code> class that uses the <code>SafeRichEdit</code> engine, meaning you can precisely read by character, word, or line while renaming. This serves as an enhancement to the existing default renaming behavior.</li>
+<li>ਸ਼ੀਟ ਦਾ ਨਾਮ ਬਦਲਦੇ ਸਮੇਂ, NVDA ਨੂੰ ਮੂਲ ਰੂਪ ਵਿੱਚ ਤੁਹਾਡੇ ਦੁਆਰਾ ਟਾਈਪ ਕੀਤੇ ਜਾ ਰਹੇ ਅੱਖਰਾਂ ਨੂੰ ਪੜ੍ਹਨ ਵਿੱਚ ਮੁਸ਼ਕਲ ਆਉਂਦੀ ਹੈ।</li>
+<li>BOA ਇੱਕ ਕਸਟਮ <code>ExcelSheetRenameEdit</code> ਕਲਾਸ ਇੰਜੈਕਟ ਕਰਦਾ ਹੈ ਜੋ <code>SafeRichEdit</code> ਇੰਜਣ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ, ਜਿਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਤੁਸੀਂ ਨਾਮ ਬਦਲਦੇ ਸਮੇਂ ਅੱਖਰ, ਸ਼ਬਦ ਜਾਂ ਲਾਈਨ ਦੁਆਰਾ ਸਹੀ ਢੰਗ ਨਾਲ ਪੜ੍ਹ ਸਕਦੇ ਹੋ। ਇਹ ਮੌਜੂਦਾ ਡਿਫੌਲਟ ਨਾਮ ਬਦਲਣ ਦੇ ਵਿਵਹਾਰ ਵਿੱਚ ਇੱਕ ਸੁਧਾਰ ਵਜੋਂ ਕੰਮ ਕਰਦਾ ਹੈ।</li>
 </ul>
-<h4>5. Hidden Row/Column Tracker</h4>
+<h4>5. ਲੁਕਵੀਂ ਰੋਅ/ਕਾਲਮ ਟ੍ਰੈਕਰ (Hidden Row/Column Tracker)</h4>
 <ul>
-<li>Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.</li>
-<li><strong>Crossed Fragmented Cells:</strong> If you jump across a heavily fragmented or hidden section of the grid (e.g., moving from Row 3 to Row 10 because Rows 4–9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure.</li>
+<li>ਲੁਕਵੇਂ ਜਾਂ ਫਿਲਟਰ ਕੀਤੇ ਡੇਟਾ ਨੂੰ ਖੁੰਝਾਉਣ ਤੋਂ ਬਚਾਉਣ ਲਈ ਗਰਿੱਡ ਵਿੱਚ ਤੁਹਾਡੀ ਹਰਕਤ ਨੂੰ ਸਰਗਰਮੀ ਨਾਲ ਟ੍ਰੈਕ ਕਰਦਾ ਹੈ।</li>
+<li><strong>ਖੰਡਿਤ ਸੈੱਲਾਂ ਨੂੰ ਪਾਰ ਕਰਨਾ (Crossed Fragmented Cells):</strong> ਜੇਕਰ ਤੁਸੀਂ ਗਰਿੱਡ ਦੇ ਬਹੁਤ ਜ਼ਿਆਦਾ ਖੰਡਿਤ ਜਾਂ ਲੁਕਵੇਂ ਹਿੱਸੇ ਨੂੰ ਪਾਰ ਕਰਦੇ ਹੋ (ਉਦਾਹਰਨ ਲਈ, ਰੋਅ 3 ਤੋਂ ਰੋਅ 10 'ਤੇ ਜਾਣਾ ਕਿਉਂਕਿ ਰੋਅ 4–9 ਲੁਕਵੇਂ ਹਨ), ਤਾਂ BOA ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ "Rows 4 through 9 hidden"। ਇਹ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ ਹਮੇਸ਼ਾ ਪਤਾ ਹੋਵੇ ਕਿ ਬਣਤਰ ਵਿੱਚ ਕਦੋਂ ਡੇਟਾ ਛੱਡਿਆ ਗਿਆ ਹੈ।</li>
 </ul>
-<h4>6. Conditional Formatting Announcer</h4>
+<h4>6. ਕੰਡੀਸ਼ਨਲ ਫਾਰਮੈਟਿੰਗ ਘੋਸ਼ਣਾਕਾਰ (Conditional Formatting Announcer)</h4>
 <ul>
-<li>Automatically reads the color, font style, and background shade of cells that have been dynamically changed by Excel's Conditional Formatting rules.</li>
-<li>Gives you the true visual state of the cell rather than just the raw underlying value. Initially, when focusing on the cell, it announces "has conditional formatting, and some other minor details". For comprehensive info, use the detailed hotkey configuration which is NVDA E and F.</li>
+<li>ਉਹਨਾਂ ਸੈੱਲਾਂ ਦੇ ਰੰਗ, ਫੋਂਟ ਸ਼ੈਲੀ ਅਤੇ ਬੈਕਗ੍ਰਾਊਂਡ ਸ਼ੇਡ ਨੂੰ ਆਟੋਮੈਟਿਕਲੀ ਪੜ੍ਹਦਾ ਹੈ ਜੋ ਐਕਸਲ ਦੇ ਕੰਡੀਸ਼ਨਲ ਫਾਰਮੈਟਿੰਗ ਨਿਯਮਾਂ ਦੁਆਰਾ ਗਤੀਸ਼ੀਲ ਤੌਰ 'ਤੇ ਬਦਲੇ ਗਏ ਹਨ।</li>
+<li>ਤੁਹਾਨੂੰ ਸਿਰਫ਼ ਰਾਅ ਅੰਡਰਲਾਈੰਗ ਵੈਲਯੂ ਦੇਣ ਦੀ ਬਜਾਏ ਸੈੱਲ ਦੀ ਅਸਲ ਵਿਜ਼ੂਅਲ ਸਥਿਤੀ ਦੱਸਦਾ ਹੈ। ਸ਼ੁਰੂ ਵਿੱਚ, ਸੈੱਲ 'ਤੇ ਫੋਕਸ ਕਰਨ ਵੇਲੇ, ਇਹ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ "has conditional formatting, and some other minor details"। ਵਿਆਪਕ ਜਾਣਕਾਰੀ ਲਈ, ਵਿਸਤ੍ਰਿਤ ਹੌਟਕੀ ਕੌਂਫਿਗਰੇਸ਼ਨ ਦੀ ਵਰਤੋਂ ਕਰੋ ਜੋ ਕਿ <code>NVDA+E</code> ਅਤੇ <code>F</code> ਹੈ।</li>
 </ul>
-<h4>7. Better selection announcement</h4>
-<p>reads if cell or range selected or unselected.</p>
+<h4>7. ਬਿਹਤਰ ਚੋਣ ਘੋਸ਼ਣਾ (Better selection announcement)</h4>
+<p>ਪੜ੍ਹਦਾ ਹੈ ਕਿ ਸੈੱਲ ਜਾਂ ਰੇਂਜ ਚੁਣੀ ਗਈ ਹੈ ਜਾਂ ਅਣਚੁਣੀ ਕੀਤੀ ਗਈ ਹੈ।</p>
 <h4>8 Cell monitor:</h4>
 <ul>
-<li><strong>Cell Monitor:</strong> Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.</li>
-<li><strong>Continuous Monitoring:</strong> Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.</li>
+<li><strong>Cell Monitor:</strong> ਖਾਸ ਸੈੱਲਾਂ ਨੂੰ ਮੈਮੋਰੀ ਸਲਾਟਾਂ ਨਾਲ ਮੈਪ ਕਰਨ ਲਈ ਕਮਾਂਡ ਪਾਥ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਤੁਸੀਂ ਨਿਰਧਾਰਤ ਕੀਤੇ ਸੰਖਿਆਤਮਕ ਸਲਾਟ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕਿਸੇ ਵੀ ਸਮੇਂ ਵਾਪਸ ਜਾ ਸਕਦੇ ਹੋ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਪੜ੍ਹ ਸਕਦੇ ਹੋ।</li>
+<li><strong>Continuous Monitoring:</strong> ਸਲਾਟ ਕੀਤੇ ਸੈੱਲਾਂ ਦੀ ਬੈਕਗ੍ਰาਊਂਡ ਵਿੱਚ ਆਪਣੇ ਆਪ ਨਿਗਰਾਨੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਜੇਕਰ ਐਕਸਲ ਇੱਕ ਰੀ-ਕੈਲਕੂਲੇਸ਼ਨ ਜਾਂ ਸੈੱਲ ਸੰਪਾਦਨ ਨੂੰ ਟ੍ਰਿਗਰ ਕਰਦਾ ਹੈ, ਤਾਂ BOA ਤੁਰੰਤ ਨਵੇਂ ਮੁੱਲ ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ। ਕਮਾਂਡ ਸਲਾਟਾਂ ਰਾਹੀਂ ਖੁਦ ਚਾਲੂ/ਬੰਦ ਕਰੋ ਜਾਂ ਸਾਰੇ ਸਾਫ਼ ਕਰੋ।</li>
+<li><strong>Excel: Cell Monitor Pro Upgrades:</strong> </li>
+<li><strong>Slot Manager Dialog (<code>NVDA+E</code>, then <code>Alt+M</code>):</strong> ਇੱਕ ਡਾਇਲਾਗ ਖੋਲ੍ਹਦਾ ਹੈ ਜੋ ਤੁਹਾਡੇ ਸਾਰੇ ਸਰਗਰਮੀ ਨਾਲ ਮਾਨੀਟਰ ਕੀਤੇ ਸੈੱਲਾਂ ਨੂੰ ਸੂਚੀਬੱਧ ਕਰਦਾ ਹੈ। ਕਿਸੇ ਇੱਕ 'ਤੇ ਤੁਰੰਤ ਜਾਣ ਲਈ <code>Enter</code> ਦਬਾਓ।</li>
+<li><strong>Warp Back (<code>NVDA+E</code>, then <code>\</code>):</strong> ਕਿਸੇ ਸਲਾਟ ਦੀ ਜਾਂਚ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਤੁਰੰਤ ਤੁਹਾਡੇ ਪਿਛਲੇ ਕਾਰਜਸ਼ੀਲ ਸੈੱਲ 'ਤੇ ਵਾਪਸ ਲੈ ਜਾਂਦਾ ਹੈ।</li>
+<li><strong>Direct Slot Jump (<code>Prefix + Alt</code> + <code>Slot Number</code>):</strong> ਪ੍ਰੀਫਿਕਸ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬਾਈਪਾਸ ਕਰੋ ਅਤੇ ਇੱਕ ਨਿਰਧਾਰਤ ਸੈੱਲ ਸਲਾਟ 'ਤੇ ਤੁਰੰਤ ਜਾਓ।</li>
+</ul>
+<h4>9 Power editor</h4>
+<ul>
+<li><strong>Excel: The Power Editor (Accessible Formula Editor):</strong> ਵੱਡੇ ਫਾਰਮੂਲਿਆਂ ਨੂੰ ਸੋਧਣ ਲਈ ਇੱਕ ਬਿਲਕੁਲ ਕ੍ਰਾਂਤੀਕਾਰੀ ਵਿਸ਼ੇਸ਼ਤਾ।</li>
+<li><strong>Single-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> ਐਕਟਿਵ ਸੈੱਲ ਦੀ ਰਾਅ ਫਾਰਮੂਲਾ ਸਟ੍ਰਿੰਗ ਦੀ ਤੁਰੰਤ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ (ਜਾਂ "No formula" ਘੋਸ਼ਿਤ ਕਰਦਾ ਹੈ)।</li>
+<li><strong>Double-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> ਵੱਡੇ, ਨੈਸਟਡ (nested) ਫਾਰਮੂਲਿਆਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਸੋਧਣ ਲਈ ਇੱਕ ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ, ਮਲਟੀ-ਲਾਈਨ ਐਡੀਟਰ ਖੋਲ੍ਹਦਾ ਹੈ। ਮੂਲ <code>Enter</code> ਆਸਾਨੀ ਨਾਲ ਪੜ੍ਹਨ ਲਈ ਲਾਈਨ ਬ੍ਰੇਕ ਜੋੜਦਾ ਹੈ, ਅਤੇ <code>Ctrl+Enter</code> ਇਸਨੂੰ ਵਾਪਸ ਐਕਸਲ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕਰਦਾ ਹੈ।</li>
+<li><em>Safety Checks:</em> ਸਿੰਟੈਕਸ ਗਲਤੀਆਂ (syntax errors) ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੀਟ ਨੂੰ ਖਰਾਬ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰੋਕਦਾ ਹੈ, ਅਤੇ ਗਣਨਾ ਤੋਂ ਬਾਅਦ ਦੀਆਂ ਗਲਤੀਆਂ (ਜਿਵੇਂ ਕਿ <code>#NAME?</code> ਜਾਂ <code>#DIV/0!</code>) ਦਾ ਪਤਾ ਲਗਾਉਂਦਾ ਹੈ ਤਾਂ ਜੋ ਫਾਰਮੂਲਾ ਟੁੱਟਣ 'ਤੇ ਤੁਹਾਨੂੰ ਤੁਰੰਤ ਚੇਤਾਵਨੀ ਦਿੱਤੀ ਜਾ ਸਕੇ।</li>
+</ul>
+<h4>10 Formula auditing and evaluation enhancements:</h4>
+<ul>
+<li><strong>Excel: Formula Auditing &amp; Evaluation:</strong> ਪੂਰਵਗਾਮੀ (Precedents) ਅਤੇ ਨਿਰਭਰਤਾਵਾਂ (Dependents) ਨੂੰ ਭਰੋਸੇਯੋਗ ਤਰੀਕੇ ਨਾਲ ਟ੍ਰੇਸ ਕਰਨ ਲਈ ਕਸਟਮ ਸ਼ਾਰਟਕੱਟ (<code>NVDA+E</code>, ਫਿਰ <code>Shift+P</code> ਅਤੇ <code>NVDA+E</code>, ਫਿਰ <code>Shift+D</code>) ਜੋੜੇ ਗਏ ਹਨ। ਇਸ ਤੋਂ ਇਲਾਵਾ, ਐਕਸਲ ਦਾ ਮੂਲ "Evaluate Formula" ਡਾਇਲਾਗ ਹੁਣ ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ ਹੈ; ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ ਗਣਨਾ ਦੇ ਪੜਾਵਾਂ ਵਿੱਚੋਂ ਲੰਘਦੇ ਹੋ, NVDA ਆਪਣੇ ਆਪ ਮੁਲਾਂਕਣ ਕੀਤੇ ਨਤੀਜਿਆਂ ਨੂੰ ਪੜ੍ਹਦਾ ਹੈ!</li>
 </ul>
 <h3>PowerPoint Enhancements</h3>
 <h4>1. Accessible Color Pickers</h4>
 <ul>
-<li>Unlocks the Custom Color dialog in PowerPoint.</li>
-<li>Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding <code>PowerPointRGBEdit</code>).</li>
-<li>Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.</li>
+<li>ਪਾਵਰਪੁਆਇੰਟ ਵਿੱਚ ਕਸਟਮ ਕਲਰ (Custom Color) ਡਾਇਲਾਗ ਨੂੰ ਅਨਲੌਕ ਕਰਦਾ ਹੈ।</li>
+<li>"Red", "Green", ਅਤੇ "Blue" ਐਡਿਟ ਬਾਕਸਾਂ ਦੀ ਸਹੀ ਪਛਾਣ ਕਰਦਾ ਹੈ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਪੜ੍ਹਦਾ ਹੈ (<code>PowerPointRGBEdit</code> ਨੂੰ ਓਵਰਰਾਈਡ ਕਰਕੇ)।</li>
+<li>ਪਹਿਲਾਂ ਅਦਿੱਖ ਹੈਕਸ (Hex) ਇਨਪੁਟ ਫੀਲਡ ਨੂੰ ਮੈਪ ਕਰਦਾ ਹੈ ਤਾਂ ਜੋ NVDA ਪੂਰੇ ਹੈਕਸ ਰੰਗ ਦੇ ਮੁੱਲ ਨੂੰ ਸਾਫ਼-ਸਾਫ਼ ਪੜ੍ਹ ਸਕੇ।</li>
 </ul>
 <h4>2. Standard Color Grid Support</h4>
 <ul>
-<li>Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.</li>
-<li>BOA tracks your arrow keys across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g., "Color #FF0000").</li>
+<li>ਪਾਵਰਪੁਆਇੰਟ "Standard" ਕਲਰ ਹੈਕਸਾਗਨ ਗਰਿੱਡ ਨੂੰ ਨੇਵੀਗੇਟ ਕਰਨਾ ਆਮ ਤੌਰ 'ਤੇ "Graphic" ਜਾਂ ਚੁੱਪ ਵਜੋਂ ਪੜ੍ਹਿਆ ਜਾਂਦਾ ਹੈ।</li>
+<li>BOA ਹੈਕਸਾਗਨ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਐਰੋ ਕੁੰਜੀਆਂ ਨੂੰ ਟ੍ਰੈਕ ਕਰਦਾ ਹੈ ਅਤੇ ਚੁੱਪਚਾਪ ਲੁਕਵੇਂ ਰੰਗ ਦੇ ਮੁੱਲ ਨੂੰ ਪ੍ਰਾਪਤ ਕਰਦਾ ਹੈ, ਰੀਅਲ-ਟਾਈਮ ਵਿੱਚ ਤੁਹਾਡੇ ਲਈ ਇਸਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ (ਉਦਾਹਰਨ ਲਈ, "Color #FF0000")।</li>
+</ul>
+<h4>3 Bulk Slide Organizer:</h4>
+<ul>
+<li><strong>PowerPoint: Bulk Slide Organizer (Experimental) (<code>NVDA+E</code>, then <code>X</code>):</strong> ਐਕਸਲ ਦੀ ਵਿਸ਼ੇਸ਼ਤਾ ਦੇ ਸਮਾਨ, ਤੁਸੀਂ ਹੁਣ ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ ਡਾਇਲਾਗ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਇੱਕੋ ਵਾਰ ਵਿੱਚ ਕਈ ਪਾਵਰਪੁਆਇੰਟ ਸਲਾਈਡਾਂ ਨੂੰ ਤੁਰੰਤ ਮੁੜ-ਵਿਵਸਥਿਤ, ਮੂਵ ਅਤੇ ਵਿਵਸਥਿਤ ਕਰ ਸਕਦੇ ਹੋ।</li>
+</ul>
+<h4>4 Slide lay out analyzer</h4>
+<ul>
+<li><strong>PowerPoint: Slide Layout Analyzer (Experimental) (<code>NVDA+E</code>, then <code>L</code>):</strong> ਇੱਕ ਸੁਚਾਰੂ ਅਤੇ ਜਵਾਬਦੇਹ ਸਕ੍ਰੀਨ ਰੀਡਰ ਅਨੁਭਵ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਇਸਦੇ ਸਥਾਨਿਕ ਲੇਆਉਟ ਅਤੇ ਐਕਸੈਸਬਲ ਰੁਕਾਵਟਾਂ ਨੂੰ ਸਮਝਣ ਲਈ ਤੁਹਾਡੀ ਮੌਜੂਦਾ ਸਰਗਰਮ ਸਲਾਈਡ ਨੂੰ ਤੁਰੰਤ ਸਕੈਨ ਕਰਦਾ ਹੈ। ਮਤਲਬ, ਇੱਥੇ ਤੁਹਾਨੂੰ ਐਕਸਲ ਦੇ ਸ਼ੀਟ ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਕ ਦੇ ਸਮਾਨ ਮੌਜੂਦਾ ਸਲਾਈਡ ਬਾਰੇ ਵੇਰਵੇ ਮਿਲਣਗੇ।</li>
+</ul>
+<h4>5 Complete Document [PPT] analyzer</h4>
+<ul>
+<li><strong>PowerPoint: Complete Document Analyzer (Experimental) (<code>NVDA+E</code>, then <code>D</code>):</strong> ਇੱਕ ਬਹੁਤ ਹੀ ਉੱਨਤ, ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਪ੍ਰੋਸੈਸ ਕੀਤਾ ਜਾਣ ਵਾਲਾ ਐਕਸੈਸਬਲ ਟੂਲ ਜੋ NVDA ਦੇ ਸਪੀਚ ਇੰਜਣ ਨੂੰ ਫ੍ਰੀਜ਼ ਕੀਤੇ ਬਿਨਾਂ ਪੂਰੀ ਪੇਸ਼ਕਾਰੀ ਨੂੰ ਮੈਪ ਕਰਦਾ ਹੈ। ਇਹ ਇੱਕ ਡੂੰਘਾਈ ਨਾਲ ਨੇਵੀਗੇਬਲ ਵਰਚੁਅਲ ਸਮੱਗਰੀ-ਸੂਚੀ (Virtual Table of Contents) ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ, ਰੀਡਿੰਗ ਆਰਡਰ ਦੇ ਮੇਲ ਨਾ ਖਾਣ (ਵਿਜ਼ੂਅਲ ਆਰਡਰ ਬਨਾਮ Z-ਆਰਡਰ) ਦਾ ਪਤਾ ਲਗਾਉਂਦਾ ਹੈ, "ਵਾਲ ਆਫ ਟੈਕਸਟ" (Wall of Text) ਸਲਾਈਡਾਂ ਨੂੰ ਫਲੈਗ ਕਰਦਾ ਹੈ, ਅਤੇ SmartArt ਅਤੇ ਡੇਟਾ ਟੇਬਲ ਵਰਗੀਆਂ ਗੁੰਝਲਦਾਰ ਵਸਤੂਆਂ ਨੂੰ ਮੈਪ ਕਰਦਾ ਹੈ।</li>
+</ul>
+<h4>6 shape movement [adjustment] enhancements:</h4>
+<ul>
+<li><strong>PowerPoint: Shape Movement Audio Mode (Experimental):</strong> ਪਾਵਰਪੁਆਇੰਟ ਕੈਨਵਸ ਵਿੱਚ 3D ਸਥਾਨਿਕ ਆਡੀਓ (Spatial Audio) ਸੰਕੇਤ ਪੇਸ਼ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਵਸਤੂ (object) ਨੂੰ ਮੂਵ ਕਰਦੇ ਹੋ ਤਾਂ ਉਸਦੀ ਦਿਸ਼ਾ ਅਤੇ ਸੀਮਾਵਾਂ ਨੂੰ ਦਰਸਾਉਂਦੀ ਆਡੀਓ ਫੀਡਬੈਕ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਸਥਾਨਿਕ ਜਾਗਰੂਕਤਾ ਵਿੱਚ ਬਹੁਤ ਸੁਧਾਰ ਹੁੰਦਾ ਹੈ।</li>
+</ul>
+<h3>Word Enhancements:</h3>
+<h4>1. Document Analyzer inspired and derived from Paul's word access addon:</h4>
+<ul>
+<li><strong>Word: Document Analyzer (<code>NVDA+E</code>, then <code>D</code>):</strong> ਆਪਣੇ ਵਰਡ ਦਸਤਾਵੇਜ਼ ਦੀ ਬਣਤਰ ਦੀ ਇੱਕ ਸੰਖੇਪ ਜਾਣਕਾਰੀ ਤੁਰੰਤ ਪ੍ਰਾਪਤ ਕਰੋ। <em>(ਪਾਲ ਲਈ ਇੱਕ ਵਿਸ਼ੇਸ਼ ਕ੍ਰੈਡਿਟ ਅਤੇ ਧੰਨਵਾਦ: ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਸਿੱਧੇ ਤੌਰ 'ਤੇ ਉਸਦੇ ਸ਼ਾਨਦਾਰ "Word Access" ਐਡ-ਆਨ ਤੋਂ ਪ੍ਰੇਰਿਤ ਸੀ। ਅਸੀਂ ਇਸ ਖੇਤਰ ਵਿੱਚ ਉਹਨਾਂ ਦੇ ਬੁਨਿਆਦੀ ਕੰਮ ਲਈ ਬਹੁਤ ਧੰਨਵਾਦੀ ਹਾਂ!)</em></li>
+</ul>
+<h4>2 Formatting Auditor</h4>
+<ul>
+<li><strong>Word: Formatting Auditor (<code>NVDA+E</code>, then <code>F</code>):</strong> ਵਿਜ਼ੂਅਲ ਮਾਪਦੰਡਾਂ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਫਾਰਮੈਟਿੰਗ ਅਸੰਗਤੀਆਂ ਲਈ ਤੁਹਾਡੇ ਵਰਡ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਸਕੈਨ ਕਰਦਾ ਹੈ।</li>
+</ul>
+<h4>3 Foot note reader:</h4>
+<ul>
+<li><strong>Word: Automated Footnote Announcer:</strong> ਤੁਹਾਡੀਆਂ ਕਸਟਮ BOA ਸੈਟਿੰਗਾਂ ਦੇ ਅਧਾਰ 'ਤੇ, ਜਦੋਂ ਤੁਸੀਂ ਪੜ੍ਹਦੇ ਹੋ ਤਾਂ ਫੁੱਟਨੋਟ ਹੁਣ ਆਟੋਮੈਟਿਕਲੀ ਇਨਲਾਈਨ ਘੋਸ਼ਿਤ ਕੀਤੇ ਜਾਣਗੇ। <em>(ਨੋਟ: ਐਂਡਨੋਟਸ ਅਤੇ ਟਿੱਪਣੀਆਂ ਲਈ ਸਹਾਇਤਾ ਭਵਿੱਖ ਦੇ ਰੀਲੀਜ਼ ਵਿੱਚ ਯੋਜਨਾਬੱਧ ਹੈ)।</em></li>
 </ul>
 <h3>Infrastructure &amp; Technical Mechanisms</h3>
 <h4>The Command Prefix Mode</h4>
-<p>To prevent keystroke conflicts with other NVDA plugins, BOA uses a <strong>Command Prefix Mode</strong>:
-1. Press the activation hotkey to enter Command Mode. You will hear a high-pitched beep.
-2. Press a secondary key to trigger a specific feature.
-3. If you press an invalid key, you will hear an error beep.</p>
+<p>ਹੋਰ NVDA ਪਲੱਗਇਨਾਂ ਨਾਲ ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟਾਂ ਦੇ ਟਕਰਾਅ ਨੂੰ ਰੋਕਣ ਲਈ, BOA ਇੱਕ <strong>ਕਮਾਂਡ ਪ੍ਰੀਫਿਕਸ ਮੋਡ</strong> ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ:
+1. ਕਮਾਂਡ ਮੋਡ ਵਿੱਚ ਦਾਖਲ ਹੋਣ ਲਈ ਐਕਟੀਵੇਸ਼ਨ ਸ਼ਾਰਟਕੱਟ ਦਬਾਓ। ਤੁਹਾਨੂੰ ਇੱਕ ਉੱਚੀ ਬੀਪ ਸੁਣਾਈ ਦੇਵੇਗੀ। ਡਿਫੌਲਟ <code>NVDA+E</code> ਹੈ।
+2. ਕਿਸੇ ਖਾਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਦੂਜੀ ਕੁੰਜੀ ਦਬਾਓ।
+3. ਜੇਕਰ ਤੁਸੀਂ ਕੋਈ ਗਲਤ ਕੁੰਜੀ ਦਬਾਉਂਦੇ ਹੋ, ਤਾਂ ਤੁਹਾਨੂੰ ਇੱਕ ਗਲਤੀ ਦੀ ਬੀਪ ਸੁਣਾਈ ਦੇਵੇਗੀ।</p>
 <h4>Customization &amp; Settings Panel</h4>
 <ul>
-<li>BOA features are fully modular and can be enabled or disabled at any time. Go to <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> to toggle individual features on or off.</li>
-<li><strong>Intelligent Accelerator Keys:</strong> Every single setting features a mathematically unique <code>Alt+Key</code> accelerator shortcut within the panel. For example, press <code>Alt+E</code> to instantly jump to the Excel group, <code>Alt+P</code> for PowerPoint, and <code>Alt+W</code> for Word.</li>
-<li>Settings are saved securely to a standalone JSON file (<code>boa_settings.json</code>), ensuring your core NVDA configuration is never corrupted.</li>
-<li>If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality.</li>
+<li>BOA ਦੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਾਡਿਊਲਰ ਹਨ ਅਤੇ ਕਿਸੇ ਵੀ ਸਮੇਂ ਚਾਲੂ ਜਾਂ ਬੰਦ ਕੀਤੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ। ਵਿਅਕਤੀਗਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਚਾਲੂ ਜਾਂ ਬੰਦ ਕਰਨ ਲਈ <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> 'ਤੇ ਜਾਓ।</li>
+<li><strong>Intelligent Accelerator Keys:</strong> ਪੈਨਲ ਦੇ ਅੰਦਰ ਹਰੇਕ ਸੈਟਿੰਗ ਵਿੱਚ ਇੱਕ ਵਿਲੱਖਣ <code>Alt+Key</code> ਐਕਸਲੇਟਰ ਸ਼ਾਰਟਕੱਟ ਹੁੰਦਾ ਹੈ। ਉਦਾਹਰਨ ਲਈ, ਐਕਸਲ ਗਰੁੱਪ 'ਤੇ ਤੁਰੰਤ ਜਾਣ ਲਈ <code>Alt+E</code> ਦਬਾਓ, ਪਾਵਰਪੁਆਇੰਟ ਲਈ <code>Alt+P</code> ਅਤੇ ਵਰਡ ਲਈ <code>Alt+W</code> ਦਬਾਓ।</li>
+<li>ਸੈਟਿੰਗਾਂ ਇੱਕ ਵੱਖਰੀ JSON ਫਾਈਲ (<code>boa_settings.json</code>) ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ, ਜੋ ਇਹ ਯਕਨੀ ਬਣਾਉਂਦੀਆਂ ਹਨ ਕਿ ਤੁਹਾਡੀ ਮੁੱਖ NVDA ਕੌਂਫਿਗਰੇਸ਼ਨ ਕਦੇ ਵੀ ਖਰਾਬ ਨਾ ਹੋਵੇ।</li>
+<li>ਜੇਕਰ ਮਾਈਕ੍ਰੋਸਾਫਟ ਆਫ਼ਿਸ ਭਵਿੱਖ ਵਿੱਚ ਕਿਸੇ ਐਕਸੈਸਬਿਲਟੀ ਬੱਗ ਨੂੰ ਅਧਿਕਾਰਤ ਤੌਰ 'ਤੇ ਠੀਕ ਕਰਦਾ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਐਡ-ਆਨ ਦੀ ਬਾਕੀ ਕਾਰਜਕੁਸ਼ਲਤਾ ਨੂੰ ਗੁਆਏ ਬਿਨਾਂ BOA ਦੇ ਖਾਸ ਓਵਰਰਾਈਡ ਹੁੱਕ ਨੂੰ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਬੰਦ ਕਰ ਸਕਦੇ ਹੋ।</li>
+<li><strong>Input Gestures Customization:</strong> ਸਾਰੀਆਂ ਆਫ਼ਿਸ ਐਪਾਂ ਦੀਆਂ ਸਾਰੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਮੂਲ NVDA ਇਨਪੁਟ ਜੈਸਚਰ (Input Gestures) ਡਾਇਲਾਗ ਵਿੱਚ ਉਪਲਬਧ ਕਰਵਾਇਆ ਗਿਆ ਹੈ, ਜੋ ਤੁਹਾਨੂੰ ਹਰੇਕ ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਨ ਦੀ ਪੂਰੀ ਆਜ਼ਾਦੀ ਦਿੰਦਾ ਹੈ।</li>
 </ul>
 <h4>Security &amp; Integration Boundaries</h4>
 <ul>
-<li>Clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.</li>
-<li>some Custom hotkeys are fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.</li>
+<li>ਕਲਿੱਪਬੋਰਡ ਇੰਜੈਕਸ਼ਨ ਵਿੰਡੋ ਦੇ ਫੋਰਗਰਾਊਂਡ ਪ੍ਰੋਸੈਸ IDs ਦੀ ਸਖਤੀ ਨਾਲ ਜਾਂਚ ਕਰਦੇ ਹਨ ਤਾਂ ਜੋ ਦੂਜੀਆਂ ਐਪਲੀਕੇਸ਼ਨਾਂ ਵਿੱਚ ਡੇਟਾ ਦੇ ਲੀਕ ਹੋਣ ਨੂੰ ਰੋਕਿਆ ਜਾ ਸਕੇ।</li>
+<li>ਕੁਝ ਕਸਟਮ ਸ਼ਾਰਟਕੱਟ NVDA ਦੇ ਇਨਪੁਟ ਜੈਸਚਰ ਡਾਇਲਾਗ ਵਿੱਚ "Better Office Accessibility" ਸ਼੍ਰੇਣੀ ਦੇ ਅਧੀਨ ਪੂਰੀ ਤਰ੍ਹਾਂ ਉਪਲਬਧ ਹਨ।</li>
 </ul>
 <hr />
 <h2>📋 Requirements</h2>
 <ul>
-<li><strong>NVDA:</strong> Version 2026.1.0 or later.</li>
+<li><strong>NVDA:</strong> ਸੰਸਕਰਣ 2026.1.0 ਜਾਂ ਇਸ ਤੋਂ ਨਵਾਂ।</li>
 <li><strong>Applications:</strong> Microsoft Excel &amp; Microsoft PowerPoint.</li>
 </ul>
 <hr />
 <h2>💾 Installation</h2>
 <ol>
-<li>Download the latest <code>.nvda-addon</code> release file, or locate it within the native NVDA Add-on Store.</li>
-<li>if installing from file, Open the file or use <code>NVDA's Add-on Store -&gt; Install from external file</code>.</li>
+<li>ਨਵੀਨਤਮ <code>.nvda-addon</code> ਰੀਲੀਜ਼ ਫਾਈਲ ਡਾਊਨਲੋਡ ਕਰੋ, ਜਾਂ ਇਸਨੂੰ ਮੂਲ NVDA ਐਡ-ਆਨ ਸਟੋਰ ਦੇ ਅੰਦਰ ਲੱਭੋ।</li>
+<li>ਜੇਕਰ ਫਾਈਲ ਤੋਂ ਇੰਸਟਾਲ ਕਰ ਰਹੇ ਹੋ, ਤਾਂ ਫਾਈਲ ਨੂੰ ਖੋਲ੍ਹੋ ਜਾਂ <code>NVDA's Add-on Store -&gt; Install from external file</code> ਦੀ ਵਰਤੋਂ ਕਰੋ।</li>
 <li>Restart NVDA.</li>
 </ol>
 <hr />
 <h2>🛠️ Changelog</h2>
-<h3>v1.6.1 ਵਿੱਚ ਨਵਾਂ ਕੀ ਹੈ</h3>
+<h3>Version 2.0.0</h3>
+<h4>New Features</h4>
 <ul>
-<li><strong>ਡੀਪ ਫਾਈਲ ਲੋਕਲਾਈਜ਼ੇਸ਼ਨ</strong>: 100% ਲੋਕਲਾਈਜ਼ੇਸ਼ਨ ਕਵਰੇਜ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਐਕਸਲ ਇਨਹਾਂਸਮੈਂਟ ਮੋਡਿਊਲਾਂ (ਜਿਵੇਂ ਕਿ ਸ਼ੀਟ ਲੇਆਉਟ ਐਨਾਲਾਈਜ਼ਰ ਅਤੇ ਕਵਿੱਕ ਸ਼ੀਟ ਮੂਵਰ) ਦੇ ਅੰਦਰ ਡੂੰਘੇ ਗੁੰਮ ਹੋਏ ਸਟ੍ਰਿੰਗ ਅਨੁਵਾਦਾਂ ਨੂੰ ਠੀਕ ਕੀਤਾ ਗਿਆ।</li>
-<li><strong>ਵਿਸਤ੍ਰਿਤ ਅਨੁਵਾਦ ਸਮਰਥਨ</strong>: ਸਿਸਟਮ ਵਿੱਚ 7 ਨਵੀਆਂ ਭਾਸ਼ਾਵਾਂ (ਤੁਰਕੀ, ਪੋਲਿਸ਼, ਕੋਰੀਅਨ, ਯੂਕਰੇਨੀ, ਚੈੱਕ, ਉਰਦੂ ਅਤੇ ਪੰਜਾਬੀ) ਸ਼ਾਮਲ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ।
-  <em>(ਨੋਟ: ਇਹ ਅਨੁਵਾਦ AI ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਸਨ, ਇਸਲਈ ਕੁਝ ਮਾਮੂਲੀ ਅਨੁਵਾਦ ਗਲਤੀਆਂ ਜਾਂ ਅਸ਼ੁੱਧੀਆਂ ਮੌਜੂਦ ਹੋ ਸਕਦੀਆਂ ਹਨ।)</em></li>
+<li><strong>PowerPoint: Complete Document Analyzer (Experimental) (<code>NVDA+E</code>, then <code>D</code>):</strong> ਇੱਕ ਬਹੁਤ ਹੀ ਉੱਨਤ, ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਪ੍ਰੋਸੈਸ ਕੀਤਾ ਜਾਣ ਵਾਲਾ ਐਕਸੈਸਬਲ ਟੂਲ ਜੋ NVDA ਦੇ ਸਪੀਚ ਇੰਜਣ ਨੂੰ ਫ੍ਰੀਜ਼ ਕੀਤੇ ਬਿਨਾਂ ਪੂਰੀ ਪੇਸ਼ਕਾਰੀ ਨੂੰ ਮੈਪ ਕਰਦਾ ਹੈ। ਇਹ ਇੱਕ ਡੂੰਘਾਈ ਨਾਲ ਨੇਵੀਗੇਬਲ ਵਰਚੁਅਲ ਸਮੱਗਰੀ-ਸੂਚੀ (Virtual Table of Contents) ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ, ਰੀਡਿੰਗ ਆਰਡਰ ਦੇ ਮੇਲ ਨਾ ਖਾਣ (ਵਿਜ਼ੂਅਲ ਆਰਡਰ ਬਨਾਮ Z-ਆਰਡਰ) ਦਾ ਪਤਾ ਲਗਾਉਂਦਾ ਹੈ, "ਵਾਲ ਆਫ ਟੈਕਸਟ" (Wall of Text) ਸਲਾਈਡਾਂ ਨੂੰ ਫਲੈਗ ਕਰਦਾ ਹੈ, ਅਤੇ SmartArt ਅਤੇ ਡੇਟਾ ਟੇਬਲ ਵਰਗੀਆਂ ਗੁੰਝਲਦਾਰ ਵਸਤੂਆਂ ਨੂੰ ਮੈਪ ਕਰਦਾ ਹੈ।</li>
+<li><strong>PowerPoint: Slide Layout Analyzer (Experimental) (<code>NVDA+E</code>, then <code>L</code>):</strong> ਇੱਕ ਸੁਚਾਰੂ ਅਤੇ ਜਵਾਬਦੇਹ ਸਕ੍ਰੀਨ ਰੀਡਰ ਅਨੁਭਵ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਇਸਦੇ ਸਥਾਨਿਕ ਲੇਆਉਟ ਅਤੇ ਐਕਸੈਸਬਲ ਰੁਕਾਵਟਾਂ ਨੂੰ ਸਮਝਣ ਲਈ ਤੁਹਾਡੀ ਮੌਜੂਦਾ ਸਰਗਰਮ ਸਲਾਈਡ ਨੂੰ ਤੁਰੰਤ ਸਕੈਨ ਕਰਦਾ ਹੈ। ਮਤਲਬ, ਇੱਥੇ ਤੁਹਾਨੂੰ ਐਕਸਲ ਦੇ ਸ਼ੀਟ ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਕ ਦੇ ਸਮਾਨ ਮੌਜੂਦਾ ਸਲਾਈਡ ਬਾਰੇ ਵੇਰਵੇ ਮਿਲਣਗੇ।</li>
+<li><strong>PowerPoint: Bulk Slide Organizer (Experimental) (<code>NVDA+E</code>, then <code>X</code>):</strong> ਐਕਸਲ ਦੀ ਵਿਸ਼ੇਸ਼ਤਾ ਦੇ ਸਮਾਨ, ਤੁਸੀਂ ਹੁਣ ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ ਡਾਇਲਾਗ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਇੱਕੋ ਵਾਰ ਵਿੱਚ ਕਈ ਪਾਵਰਪੁਆਇੰਟ ਸਲਾਈਡਾਂ ਨੂੰ ਤੁਰੰਤ ਮੁੜ-ਵਿਵਸਥਿਤ, ਮੂਵ ਅਤੇ ਵਿਵਸਥਿਤ ਕਰ ਸਕਦੇ ਹੋ।</li>
+<li><strong>PowerPoint: Shape Movement Audio Mode (Experimental):</strong> ਪਾਵਰਪੁਆਇੰਟ ਕੈਨਵਸ ਵਿੱਚ 3D ਸਥਾਨਿਕ ਆਡੀਓ (Spatial Audio) ਸੰਕੇਤ ਪੇਸ਼ ਕਰਦਾ ਹੈ। ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਵਸਤੂ (object) ਨੂੰ ਮੂਵ ਕਰਦੇ ਹੋ ਤਾਂ ਉਸਦੀ ਦਿਸ਼ਾ ਅਤੇ ਸੀਮਾਵਾਂ ਨੂੰ ਦਰਸਾਉਂਦੀ ਆਡੀਓ ਫੀਡਬੈਕ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਸਥਾਨਿਕ ਜਾਗਰੂਕਤਾ ਵਿੱਚ ਬਹੁਤ ਸੁਧਾਰ ਹੁੰਦਾ ਹੈ। ਜਿਵੇਂ ਕਿ ਦੱਸਿਆ ਗਿਆ ਹੈ ਕਿ ਇਹ ਪ੍ਰਯੋਗਾਤਮਕ ਹੈ, ਇਸ ਵਿੱਚ ਸੁਧਾਰ ਕਰਨ ਲਈ ਫੀਡਬੈਕ ਦੀ ਉਡੀਕ ਹੈ।</li>
+<li><strong>Word: Formatting Auditor (<code>NVDA+E</code>, then <code>F</code>):</strong> ਵਿਜ਼ੂਅਲ ਮਾਪਦੰਡਾਂ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਫਾਰਮੈਟਿੰਗ ਅਸੰਗਤੀਆਂ ਲਈ ਤੁਹਾਡੇ ਵਰਡ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਸਕੈਨ ਕਰਦਾ ਹੈ।</li>
+<li><strong>Word: Document Analyzer (<code>NVDA+E</code>, then <code>D</code>):</strong> ਆਪਣੇ ਵਰਡ ਦਸਤਾਵੇਜ਼ ਦੀ ਬਣਤਰ ਦੀ ਇੱਕ ਸੰਖੇਪ ਜਾਣਕਾਰੀ ਤੁਰੰਤ ਪ੍ਰਾਪਤ ਕਰੋ। <em>(ਪਾਲ ਲਈ ਇੱਕ ਵਿਸ਼ੇਸ਼ ਕ੍ਰੈਡਿਟ ਅਤੇ ਧੰਨਵਾਦ: ਇਹ ਵਿਸ਼ੇਸ਼ਤਾ ਸਿੱਧੇ ਤੌਰ 'ਤੇ ਉਸਦੇ ਸ਼ਾਨਦਾਰ "Word Access" ਐਡ-ਆਨ ਤੋਂ ਪ੍ਰੇਰਿਤ ਸੀ। ਅਸੀਂ ਇਸ ਖੇਤਰ ਵਿੱਚ ਉਹਨਾਂ ਦੇ ਬੁਨਿਆਦੀ ਕੰਮ ਲਈ ਬਹੁਤ ਧੰਨਵਾਦੀ ਹਾਂ!)</em></li>
+<li><strong>Word: Automated Footnote Announcer:</strong> ਤੁਹਾਡੀਆਂ ਕਸਟਮ BOA ਸੈਟਿੰਗਾਂ ਦੇ ਅਧਾਰ 'ਤੇ, ਜਦੋਂ ਤੁਸੀਂ ਪੜ੍ਹਦੇ ਹੋ ਤਾਂ ਫੁੱਟਨੋਟ ਹੁਣ ਆਟੋਮੈਟਿਕਲੀ ਇਨਲਾਈਨ ਘੋਸ਼ਿਤ ਕੀਤੇ ਜਾਣਗੇ। <em>(ਨੋਟ: ਐਂਡਨੋਟਸ ਅਤੇ ਟਿੱਪਣੀਆਂ ਲਈ ਸਹਾਇਤਾ ਭਵਿੱਖ ਦੇ ਰੀਲੀਜ਼ ਵਿੱਚ ਯੋਜਨਾਬੱਧ ਹੈ)।</em></li>
+<li><strong>Excel: The Power Editor (Accessible Formula Editor):</strong> ਵੱਡੇ ਫਾਰਮੂਲਿਆਂ ਨੂੰ ਸੋਧਣ ਲਈ ਇੱਕ ਬਿਲਕੁਲ ਕ੍ਰਾਂਤੀਕਾਰੀ ਵਿਸ਼ੇਸ਼ਤਾ।</li>
+<li><strong>Single-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> ਐਕਟਿਵ ਸੈੱਲ ਦੀ ਰਾਅ ਫਾਰਮੂਲਾ ਸਟ੍ਰਿੰਗ ਦੀ ਤੁਰੰਤ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ (ਜਾਂ "No formula" ਘੋਸ਼ਿਤ ਕਰਦਾ ਹੈ)।</li>
+<li><strong>Double-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> ਵੱਡੇ, ਨੈਸਟਡ (nested) ਫਾਰਮੂਲਿਆਂ ਨੂੰ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਸੋਧਣ ਲਈ ਇੱਕ ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ, ਮਲਟੀ-ਲਾਈਨ ਐਡੀਟਰ ਖੋਲ੍ਹਦਾ ਹੈ। ਮੂਲ <code>Enter</code> ਆਸਾਨੀ ਨਾਲ ਪੜ੍ਹਨ ਲਈ ਲਾਈਨ ਬ੍ਰੇਕ ਜੋੜਦਾ ਹੈ, ਅਤੇ <code>Ctrl+Enter</code> ਇਸਨੂੰ ਵਾਪਸ ਐਕਸਲ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਕਰਦਾ ਹੈ।</li>
+<li><em>Safety Checks:</em> ਸਿੰਟੈਕਸ ਗਲਤੀਆਂ (syntax errors) ਨੂੰ ਤੁਹਾਡੀ ਸ਼ੀਟ ਨੂੰ ਖਰਾਬ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਰੋਕਦਾ ਹੈ, ਅਤੇ ਗਣਨਾ ਤੋਂ ਬਾਅਦ ਦੀਆਂ ਗਲਤੀਆਂ (ਜਿਵੇਂ ਕਿ <code>#NAME?</code> ਜਾਂ <code>#DIV/0!</code>) ਦਾ ਪਤਾ ਲਗਾਉਂਦਾ ਹੈ ਤਾਂ ਜੋ ਫਾਰਮੂਲਾ ਟੁੱਟਣ 'ਤੇ ਤੁਹਾਨੂੰ ਤੁਰੰਤ ਚੇਤਾਵਨੀ ਦਿੱਤੀ ਜਾ ਸਕੇ।</li>
+<li><strong>Excel: Formula Auditing &amp; Evaluation:</strong> ਪੂਰਵਗਾਮੀ (Precedents) ਅਤੇ ਨਿਰਭਰਤਾਵਾਂ (Dependents) ਨੂੰ ਭਰੋਸੇਯੋਗ ਤਰੀਕੇ ਨਾਲ ਟ੍ਰੇਸ ਕਰਨ ਲਈ ਕਸਟਮ ਸ਼ਾਰਟਕੱਟ (<code>NVDA+E</code>, ਫਿਰ <code>Shift+P</code> ਅਤੇ <code>NVDA+E</code>, ਫਿਰ <code>Shift+D</code>) ਜੋੜੇ ਗਏ ਹਨ। ਇਸ ਤੋਂ ਇਲਾਵਾ, ਐਕਸਲ ਦਾ ਮੂਲ "Evaluate Formula" ਡਾਇਲਾਗ ਹੁਣ ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ ਹੈ; ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ ਗਣਨਾ ਦੇ ਪੜਾਵਾਂ ਵਿੱਚੋਂ ਲੰਘਦੇ ਹੋ, NVDA ਆਪਣੇ ਆਪ ਮੁਲਾਂਕਣ ਕੀਤੇ ਨਤੀਜਿਆਂ ਨੂੰ ਪੜ੍ਹਦਾ ਹੈ!</li>
+<li><strong>Excel: Cell Monitor Pro Upgrades:</strong> </li>
+<li><strong>Slot Manager Dialog (<code>NVDA+E</code>, then <code>Alt+M</code>):</strong> ਇੱਕ ਡਾਇਲਾਗ ਖੋਲ੍ਹਦਾ ਹੈ ਜੋ ਤੁਹਾਡੇ ਸਾਰੇ ਸਰਗਰਮੀ ਨਾਲ ਮਾਨੀਟਰ ਕੀਤੇ ਸੈੱਲਾਂ ਨੂੰ ਸੂਚੀਬੱਧ ਕਰਦਾ ਹੈ। ਕਿਸੇ ਇੱਕ 'ਤੇ ਤੁਰੰਤ ਜਾਣ ਲਈ <code>Enter</code> ਦਬਾਓ।</li>
+<li><strong>Warp Back (<code>NVDA+E</code>, then <code>\</code>):</strong> ਕਿਸੇ ਸਲਾਟ ਦੀ ਜਾਂਚ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਹਾਨੂੰ ਤੁਰੰਤ ਤੁਹਾਡੇ ਪਿਛਲੇ ਕਾਰਜਸ਼ੀਲ ਸੈੱਲ 'ਤੇ ਵਾਪਸ ਲੈ ਜਾਂਦਾ ਹੈ।</li>
+<li><strong>Direct Slot Jump (<code>Alt</code> + <code>Slot Number</code>):</strong> ਪ੍ਰੀਫਿਕਸ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬਾਈਪਾਸ ਕਰੋ ਅਤੇ ਇੱਕ ਨਿਰਧਾਰਤ ਸੈੱਲ ਸਲਾਟ 'ਤੇ ਤੁਰੰਤ ਜਾਓ।</li>
+<li><strong>Input Gestures Customization:</strong> ਸਾਰੀਆਂ ਆਫ਼ਿਸ ਐਪਾਂ ਦੀਆਂ ਸਾਰੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਮੂਲ NVDA ਇਨਪੁਟ ਜੈਸਚਰ (Input Gestures) ਡਾਇਲਾਗ ਵਿੱਚ ਉਪਲਬਧ ਕਰਵਾਇਆ ਗਿਆ ਹੈ, ਜੋ ਤੁਹਾਨੂੰ ਹਰੇਕ ਕੀ-ਬੋਰਡ ਸ਼ਾਰਟਕੱਟ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰਨ ਦੀ ਪੂਰੀ ਆਜ਼ਾਦੀ ਦਿੰਦਾ ਹੈ।</li>
+</ul>
+<h4>UX/UI Enhancements</h4>
+<ul>
+<li><strong>Unified Browseable Reports:</strong> ਅਸੀਂ ਐਡ-ਆਨ ਵਿੱਚ ਇੱਕ ਯੂਨੀਫਾਈਡ HTML ਰਿਪੋਰਟਿੰਗ ਸਿਸਟਮ ਅਪਣਾਇਆ ਹੈ। ਐਕਸਲ ਕੰਡੀਸ਼ਨਲ ਫਾਰਮੈਟਿੰਗ ਘੋਸ਼ਣਾਕਾਰ, ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਕ, ਅਤੇ ਦਸਤਾਵੇਜ਼ ਵਿਸ਼ਲੇਸ਼ਕ ਵਰਗੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਹੁਣ ਸਿਰਫ਼ ਵੱਡੇ ਟੈਕਸਟ ਬਲਾਕਾਂ ਨੂੰ ਨਹੀਂ ਬੋਲਦੀਆਂ; ਉਹਨਾਂ ਦੇ ਨਤੀਜੇ ਹੁਣ ਇੱਕ ਮੂਲ, ਨੇਵੀਗੇਬਲ HTML ਵਿੰਡੋ ਵਿੱਚ ਖੁੱਲ੍ਹਦੇ ਹਨ, ਜਿਸ ਨਾਲ ਤੁਸੀਂ ਆਪਣੀ ਰਫ਼ਤਾਰ ਨਾਲ ਡੇਟਾ ਦੀ ਸਮੀਖਿਆ ਕਰ ਸਕਦੇ ਹੋ।</li>
+<li><strong>Excel: Enhanced Dependents/Precedents Tracking:</strong> ਐਕਸਲ ਦੇ ਮੂਲ ਫਾਰਮੂਲਾ ਟ੍ਰੇਸਿੰਗ ਸ਼ਾਰਟਕੱਟਾਂ (<code>Ctrl+[</code> ਸਿੱਧੇ ਪੂਰਵਗਾਮੀਆਂ ਲਈ, ਅਤੇ <code>Ctrl+]</code> ਸਿੱਧੇ ਨਿਰਭਰਤਾਵਾਂ ਲਈ) ਲਈ ਸਪੀਚ ਆਉਟਪੁੱਟ ਵਿੱਚ ਬਹੁਤ ਸੁਧਾਰ ਕੀਤਾ ਗਿਆ ਹੈ। NVDA ਹੁਣ ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਘੋਸ਼ਣਾ ਕਰੇਗਾ ਕਿ ਕਿਹੜੇ ਸੈੱਲ ਚੁਣੇ ਗਏ ਸਨ।</li>
+<li><strong>Excel: Merge Cell Support:</strong> ਮਰਜ ਕੀਤੇ ਸੈੱਲ (Merged cells) ਹੁਣ ਸਹੀ ਢੰਗ ਨਾਲ ਖੋਜੇ ਜਾਂਦੇ ਹਨ ਅਤੇ ਗੈਪ-ਸਕਿਪਿੰਗ ਸੈੱਲ ਟ੍ਰੈਕਰ ਦੁਆਰਾ ਸਪੱਸ਼ਟ ਤੌਰ 'ਤੇ ਘੋਸ਼ਿਤ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li><strong>Word: List Item Double Reading:</strong> ਵਰਡ ਦੇ ਕੁਝ ਵਿਯੂਜ਼ ਵਿੱਚ NVDA ਦੁਆਰਾ ਪੈਰਾਗ੍ਰਾਫ ਲਿਸਟ ਆਈਟਮਾਂ ਨੂੰ ਦੋ ਵਾਰ ਪੜ੍ਹਨ ਦੇ ਬੱਗ ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਇੱਕ ਅਸਥਾਈ ਪੈਚ ਲਾਗੂ ਕੀਤਾ ਗਿਆ ਹੈ।</li>
+<li><strong>Excel: Cell Monitor Localization Bug:</strong> ਹਾਲ ਹੀ ਦੇ ਅਨੁਵਾਦ ਲੋਕਲਾਈਜ਼ੇਸ਼ਨ ਅੱਪਡੇਟਾਂ ਕਾਰਨ ਪੈਦਾ ਹੋਈਆਂ ਅੰਦਰੂਨੀ ਟ੍ਰੈਕਿੰਗ ਗਲਤੀਆਂ ਨੂੰ ਹੱਲ ਕੀਤਾ ਗਿਆ ਹੈ।</li>
+</ul>
+<h3>What's New in v1.6.1</h3>
+<ul>
+<li><strong>Deep File Localization</strong>: 100% ਲੋਕਲਾਈਜ਼ੇਸ਼ਨ ਕਵਰੇਜ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਐਕਸਲ ਸੁਧਾਰ ਮਾਡਿਊਲਾਂ (ਜਿਵੇਂ ਕਿ ਸ਼ੀਟ ਲੇਆਉਟ ਵਿਸ਼ਲੇਸ਼ਕ ਅਤੇ ਕੁਇੱਕ ਸ਼ੀਟ ਮੂਵਰ) ਦੇ ਅੰਦਰ ਗੁੰਮ ਹੋਏ ਅਨੁਵਾਦਾਂ ਨੂੰ ਠੀਕ ਕੀਤਾ ਗਿਆ।</li>
+<li><strong>Expanded Translation Support</strong>: ਸਿਸਟਮ ਵਿੱਚ 7 ਨਵੀਆਂ ਭਾਸ਼ਾਵਾਂ (ਤੁਰਕੀ, ਪੋਲਿਸ਼, ਕੋਰੀਅਨ, ਯੂਕਰੇਨੀ, ਚੈੱਕ, ਉਰਦੂ ਅਤੇ ਪੰਜਾਬੀ) ਸ਼ਾਮਲ ਕੀਤੀਆਂ ਗਈਆਂ।
+  <em>(ਨੋਟ: ਇਹ ਅਨੁਵਾਦ AI ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਸਨ, ਇਸ ਲਈ ਕੁਝ ਮਾਮੂਲੀ ਅਨੁਵਾਦ ਗਲਤੀਆਂ ਜਾਂ ਅਸ਼ੁੱਧੀਆਂ ਹੋ ਸਕਦੀਆਂ ਹਨ।)</em></li>
 </ul>
 <h3>v1.6.0</h3>
 <ul>
-<li><strong>Comprehensive Translation Support</strong>: The add-on is now fully localized with support for 17 global languages. 
-  <em>(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)</em></li>
-<li><strong>Strict Code Governance</strong>: Applied GPL-2.0 copyright headers across the entire codebase."""),</li>
+<li><strong>Comprehensive Translation Support</strong>: ਐਡ-ਆਨ ਹੁਣ 17 ਗਲੋਬਲ ਭਾਸ਼ਾਵਾਂ ਦੇ ਸਮਰਥਨ ਨਾਲ ਪੂਰੀ ਤਰ੍ਹਾਂ ਲੋਕਲਾਈਜ਼ਡ ਹੈ।
+  <em>(ਨੋਟ: ਇਹ ਅਨੁਵਾਦ AI ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਸਨ, ਇਸ ਲਈ ਕੁਝ ਮਾਮੂਲੀ ਅਨੁਵਾਦ ਗਲਤੀਆਂ ਜਾਂ ਅਸ਼ੁੱਧੀਆਂ ਹੋ ਸਕਦੀਆਂ ਹਨ।)</em></li>
+<li><strong>Strict Code Governance</strong>: ਪੂਰੇ ਕੋਡਬੇਸ ਵਿੱਚ GPL-2.0 ਕਾਪੀਰਾਈਟ ਹੈਡਰ ਲਾਗੂ ਕੀਤੇ ਗਏ।"""),</li>
 </ul>
 <h3>Version 1.5.0</h3>
 <h4>New Features</h4>
 <h5>End of Data Radar</h5>
-<p>When navigating through large spreadsheets, it can be difficult to tell if an empty cell means you've reached the end of a list, or if there is simply a gap in the data. The <strong>End of Data Radar</strong> acts as a smart perimeter check to save you from blindly arrowing through empty space.
-Whenever you navigate into an empty cell, BOA instantly scans the remaining cells in your direction of travel. If there is absolutely no data left, it will proactively announce:
-* <em>"No more data below"</em>
-* <em>"No more data above"</em>
-* <em>"No more data to the right"</em>
-* <em>"No more data to the left"</em>
+<p>ਵੱਡੀਆਂ ਸਪ੍ਰੈਡਸ਼ੀਟਾਂ ਵਿੱਚ ਨੇਵੀਗੇਟ ਕਰਦੇ ਸਮੇਂ, ਇਹ ਦੱਸਣਾ ਮੁਸ਼ਕਲ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਕੀ ਇੱਕ ਖਾਲੀ ਸੈੱਲ ਦਾ ਮਤਲਬ ਹੈ ਕਿ ਤੁਸੀਂ ਸੂਚੀ ਦੇ ਅਖੀਰ 'ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ, ਜਾਂ ਕੀ ਡੇਟਾ ਵਿੱਚ ਸਿਰਫ਼ ਇੱਕ ਖਾਲੀ ਥਾਂ ਹੈ। <strong>ਡੇਟਾ ਖਤਮ ਹੋਣ ਦਾ ਰਾਡਾਰ (End of Data Radar)</strong> ਇੱਕ ਸਮਾਰਟ ਪੈਰੀਮੀਟਰ ਚੈੱਕ ਵਜੋਂ ਕੰਮ ਕਰਦਾ ਹੈ ਤਾਂ ਜੋ ਤੁਹਾਨੂੰ ਅੰਨ੍ਹੇਵਾਹ ਖਾਲੀ ਥਾਂ 'ਤੇ ਜਾਣ ਤੋਂ ਬਚਾਇਆ ਜਾ ਸਕੇ।
+ਜਦੋਂ ਵੀ ਤੁਸੀਂ ਕਿਸੇ ਖਾਲੀ ਸੈੱਲ ਵਿੱਚ ਜਾਂਦੇ ਹੋ, BOA ਤੁਰੰਤ ਤੁਹਾਡੀ ਯਾਤਰਾ ਦੀ ਦਿਸ਼ਾ ਵਿੱਚ ਬਾਕੀ ਸੈੱਲਾਂ ਨੂੰ ਸਕੈਨ ਕਰਦਾ ਹੈ। ਜੇਕਰ ਬਿਲਕੁਲ ਕੋਈ ਡੇਟਾ ਨਹੀਂ ਬਚਿਆ ਹੈ, ਤਾਂ ਇਹ ਸਰਗਰਮੀ ਨਾਲ ਘੋਸ਼ਣਾ ਕਰੇਗਾ:
+* <em>"ਹੇਠਾਂ ਹੋਰ ਕੋਈ ਡੇਟਾ ਨਹੀਂ ਹੈ"</em>
+* <em>"ਉੱਪਰ ਹੋਰ ਕੋਈ ਡੇਟਾ ਨਹੀਂ ਹੈ"</em>
+* <em>"ਸੱਜੇ ਪਾਸੇ ਹੋਰ ਕੋਈ ਡੇਟਾ ਨਹੀਂ ਹੈ"</em>
+* <em>"ਖੱਬੇ ਪਾਸੇ ਹੋਰ ਕੋਈ ਡੇਟਾ ਨਹੀਂ ਹੈ"</em>
 <strong>Configuration Options:</strong>
-You can configure this feature via <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code>. Because spreadsheets can contain hidden complexities (like invisible formulas or collapsed rows), the radar provides three operating modes:
-1. <strong>Off</strong>: Disables the radar entirely.
-2. <strong>Strict Memory Check (CountA) [Default]</strong>: The safest and fastest approach. It checks the raw memory of the spreadsheet. If it detects <em>anything</em> below you (including hidden rows, text, numbers, or invisible formulas), it stays completely silent to prevent false alarms. It only announces "No more data" when the remainder of the sheet is 100% mathematically blank.
-3. <strong>Visible Data Only (Math Engine)</strong>: A highly advanced engine designed for complex sheets. It intelligently filters out hidden rows and invisible formulas (e.g., <code>=""</code>). It will only stay silent if there are actual, visible numbers or text left in your path.</p>
+ਤੁਸੀਂ ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> ਰਾਹੀਂ ਕੌਂਫਿਗਰ ਕਰ ਸਕਦੇ ਹੋ। ਕਿਉਂਕਿ ਸਪ੍ਰੈਡਸ਼ੀਟਾਂ ਵਿੱਚ ਲੁਕੀਆਂ ਹੋਈਆਂ ਗੁੰਝਲਤਾਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ (ਜਿਵੇਂ ਕਿ ਅਦਿੱਖ ਫਾਰਮੂਲੇ ਜਾਂ ਸੁੰਗੜੀਆਂ ਹੋਈਆਂ ਰੋਜ਼), ਰਾਡਾਰ ਤਿੰਨ ਓਪਰੇਟਿੰਗ ਮੋਡ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ:
+1. <strong>Off</strong>: ਰਾਡਾਰ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੰਦ ਕਰਦਾ ਹੈ।
+2. <strong>Strict Memory Check (CountA) [Default]</strong>: ਸਭ ਤੋਂ ਸੁਰੱਖਿਅਤ ਅਤੇ ਤੇਜ਼ ਤਰੀਕਾ। ਇਹ ਸਪ੍ਰੈਡਸ਼ੀਟ ਦੀ ਰਾਅ ਮੈਮੋਰੀ ਦੀ ਜਾਂਚ ਕਰਦਾ ਹੈ। ਜੇਕਰ ਇਹ ਤੁਹਾਡੇ ਹੇਠਾਂ <em>ਕੁਝ ਵੀ</em> ਲੱਭਦਾ ਹੈ (ਲੁਕਵੀਆਂ ਰੋਜ਼, ਟੈਕਸਟ, ਨੰਬਰ, ਜਾਂ ਅਦਿੱਖ ਫਾਰਮੂਲਿਆਂ ਸਮੇਤ), ਤਾਂ ਇਹ ਗਲਤ ਅਲਾਰਮਾਂ ਨੂੰ ਰੋਕਣ ਲਈ ਪੂਰੀ ਤਰ੍ਹਾਂ ਚੁੱਪ ਰਹਿੰਦਾ ਹੈ। ਇਹ ਕੇਵਲ ਉਦੋਂ ਹੀ "No more data" ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ ਜਦੋਂ ਸ਼ੀਟ ਦਾ ਬਾਕੀ ਹਿੱਸਾ 100% ਗਣਿਤਿਕ ਤੌਰ 'ਤੇ ਖਾਲੀ ਹੁੰਦਾ ਹੈ।
+3. <strong>Visible Data Only (Math Engine)</strong>: ਇੱਕ ਬਹੁਤ ਹੀ ਉੱਨਤ ਇੰਜਣ ਜੋ ਗੁੰਝਲਦਾਰ ਸ਼ੀਟਾਂ ਲਈ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਹੈ। ਇਹ ਲੁਕਵੀਆਂ ਰੋਜ਼ ਅਤੇ ਅਦਿੱਖ ਫਾਰਮੂਲਿਆਂ (ਉਦਾਹਰਨ ਲਈ, <code>=""</code>) ਨੂੰ ਸਮਝਦਾਰੀ ਨਾਲ ਫਿਲਟਰ ਕਰਦਾ ਹੈ। ਇਹ ਕੇਵਲ ਉਦੋਂ ਹੀ ਚੁੱਪ ਰਹੇਗਾ ਜੇਕਰ ਤੁਹਾਡੇ ਮਾਰਗ ਵਿੱਚ ਅਸਲ, ਦਿਖਣਯੋਗ ਨੰਬਰ ਜਾਂ ਟੈਕਸਟ ਬਾਕੀ ਹੋਣ।</p>
 <h3>Version 1.4 - 2026-06-12</h3>
 <h4>New Features</h4>
 <ul>
-<li><strong>Cell Monitor:</strong> Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.</li>
-<li><strong>Continuous Monitoring:</strong> Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.</li>
+<li><strong>Cell Monitor:</strong> ਖਾਸ ਸੈੱਲਾਂ ਨੂੰ ਮੈਮੋਰੀ ਸਲਾਟਾਂ ਨਾਲ ਮੈਪ ਕਰਨ ਲਈ ਕਮਾਂਡ ਪਾਥ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਤੁਸੀਂ ਨਿਰਧਾਰਤ ਕੀਤੇ ਸੰਖਿਆਤਮਕ ਸਲਾਟ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕਿਸੇ ਵੀ ਸਮੇਂ ਵਾਪਸ ਜਾ ਸਕਦੇ ਹੋ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਪੜ੍ਹ ਸਕਦੇ ਹੋ।</li>
+<li><strong>Continuous Monitoring:</strong> ਸਲਾਟ ਕੀਤੇ ਸੈੱਲਾਂ ਦੀ ਬੈਕਗ੍ਰਾਊਂਡ ਵਿੱਚ ਆਪਣੇ ਆਪ ਨਿਗਰਾਨੀ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਜੇਕਰ ਐਕਸਲ ਇੱਕ ਰੀ-ਕੈਲਕੂਲੇਸ਼ਨ ਜਾਂ ਸੈੱਲ ਸੰਪਾਦਨ ਨੂੰ ਟ੍ਰਿਗਰ ਕਰਦਾ ਹੈ, ਤਾਂ BOA ਤੁਰੰਤ ਨਵੇਂ ਮੁੱਲ ਦੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ। ਕਮਾਂਡ ਸਲਾਟਾਂ ਰਾਹੀਂ ਖੁਦ ਚਾਲੂ/ਬੰਦ ਕਰੋ ਜਾਂ ਸਾਰੇ ਸਾਫ਼ ਕਰੋ।</li>
 </ul>
 <h4>Bug Fixes</h4>
 <h3>Version 1.3.0 — 2026-06-05</h3>
 <p><em>Final release.</em></p>
 <h4>New Features</h4>
 <ul>
-<li><strong>Sheet Layout Analyzer:</strong> Added powerful layout scanning infrastructure. Instantly detects Worksheet Protection, active Column Filters, Hidden Worksheet Tabs, and hidden absolute borders while caching discovered data blocks.</li>
-<li><strong>Guided Data Block Navigation:</strong> Post-analysis navigation allows immediate cursor warps between major clusters of data, bypassing empty cells seamlessly.</li>
-<li><strong>Conditional Formatting Announcer:</strong> Automatically detects and reads the dynamic color, font style, and background shade of cells altered by Excel's Conditional Formatting rules.</li>
-<li><strong>Explicit Settings Accelerators:</strong> Completely overhauled the BOA Settings GUI to strictly comply with NVDA architecture. Every feature checkbox now possesses a globally unique <code>Alt+Letter</code> shortcut, preventing keyboard cycling and eliminating first-letter navigation failures.</li>
+<li><strong>Sheet Layout Analyzer:</strong> ਸ਼ਕਤੀਸ਼ਾਲੀ ਲੇਆਉਟ ਸਕੈਨਿੰਗ ਬੁਨਿਆਦੀ ਢਾਂਚਾ ਜੋੜਿਆ ਗਿਆ। ਖੋਜੇ ਗਏ ਡੇਟਾ ਬਲਾਕਾਂ ਨੂੰ ਕੈਸ਼ ਕਰਨ ਦੇ ਨਾਲ-ਨਾਲ ਵਰਕਸ਼ੀਟ ਸੁਰੱਖਿਆ (Worksheet Protection), ਸਰਗਰਮ ਕਾਲਮ ਫਿਲਟਰ (Column Filters), ਲੁਕਵੇਂ ਵਰਕਸ਼ੀਟ ਟੈਬਸ (Hidden Worksheet Tabs) ਅਤੇ ਲੁਕਵੇਂ ਨਿਰਪੱਖ ਬਾਰਡਰਾਂ ਦਾ ਤੁਰੰਤ ਪਤਾ ਲਗਾਉਂਦਾ ਹੈ।</li>
+<li><strong>Guided Data Block Navigation:</strong> ਵਿਸ਼ਲੇਸ਼ਣ ਤੋਂ ਬਾਅਦ ਦੀ ਨੇਵੀਗੇਬਲ ਡੇਟਾ ਦੇ ਵੱਡੇ ਸਮੂਹਾਂ ਵਿਚਕਾਰ ਤੁਰੰਤ ਕਰਸਰ ਲਿਜਾਣ ਦੀ ਆਗਿਆ ਦਿੰਦੀ ਹੈ, ਜਿਸ ਨਾਲ ਖਾਲੀ ਸੈੱਲਾਂ ਨੂੰ ਬਿਨਾਂ ਕਿਸੇ ਰੁਕਾਵਟ ਦੇ ਬਾਈਪਾਸ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</li>
+<li><strong>Conditional Formatting Announcer:</strong> ਐਕਸਲ ਦੇ ਕੰਡੀਸ਼ਨਲ ਫਾਰਮੈਟਿੰਗ ਨਿਯਮਾਂ ਦੁਆਰਾ ਬਦਲੇ ਗਏ ਸੈੱਲਾਂ ਦੇ ਗਤੀਸ਼ੀਲ ਰੰਗ, ਫੋਂਟ ਸ਼ੈਲੀ ਅਤੇ ਬੈਕਗ੍ਰਾਊਂਡ ਸ਼ੇਡ ਦਾ ਆਪਣੇ ਆਪ ਪਤਾ ਲਗਾਉਂਦਾ ਹੈ ਅਤੇ ਪੜ੍ਹਦਾ ਹੈ।</li>
+<li><strong>Explicit Settings Accelerators:</strong> NVDA ਆਰਕੀਟੈਕਚਰ ਦੀ ਸਖਤੀ ਨਾਲ ਪਾਲਣਾ ਕਰਨ ਲਈ BOA ਸੈਟਿੰਗਜ਼ GUI ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹਰੇਕ ਵਿਸ਼ੇਸ਼ਤਾ ਚੈੱਕਬਾਕਸ ਵਿੱਚ ਹੁਣ ਇੱਕ ਵਿਲੱਖਣ <code>Alt+Letter</code> ਸ਼ਾਰਟਕੱਟ ਹੈ, ਜੋ ਕੀ-ਬੋਰਡ ਸਾਈਕਲਿੰਗ ਨੂੰ ਰੋਕਦਾ ਹੈ ਅਤੇ ਪਹਿਲੇ ਅੱਖਰ ਦੀ ਨੇਵੀਗੇਸ਼ਨ ਅਸਫਲਤਾਵਾਂ ਨੂੰ ਖਤਮ ਕਰਦਾ ਹੈ।</li>
 </ul>
 <h4>Bug Fixes</h4>
 <ul>
-<li><strong>Absolute Edge Boundary Detection:</strong> Replaced native COM <code>UsedRange</code> edge checks with absolute 1D mathematical boundary checks (<code>Row 1048576</code> and <code>Column 16384</code>) to guarantee detection of hidden rows/columns even if they lie far outside the active data block.</li>
-<li><strong>Lazy COM Property Safe Bailouts:</strong> Hardened COM property loops to prevent NVDA thread freezes when evaluating millions of contiguous hidden structures.</li>
+<li><strong>Absolute Edge Boundary Detection:</strong> ਲੁਕਵੀਂ ਰੋਅ/ਕਾਲਮ ਦਾ ਪਤਾ ਲਗਾਉਣ ਦੀ ਗਰੰਟੀ ਲਈ ਮੂਲ COM <code>UsedRange</code> ਕਿਨਾਰਿਆਂ ਦੀ ਜਾਂਚ ਨੂੰ ਨਿਰਪੱਖ 1D ਗਣਿਤਿਕ ਸੀਮਾ ਜਾਂਚਾਂ (<code>Row 1048576</code> ਅਤੇ <code>Column 16384</code>) ਨਾਲ ਬਦਲਿਆ ਗਿਆ, ਭਾਵੇਂ ਉਹ ਸਰਗਰਮ ਡੇਟਾ ਬਲਾਕ ਤੋਂ ਬਹੁਤ ਬਾਹਰ ਹੋਣ।</li>
+<li><strong>Lazy COM Property Safe Bailouts:</strong> ਲੱਖਾਂ ਲਗਾਤਾਰ ਲੁਕਵੇਂ ਢਾਂਚਿਆਂ ਦਾ ਮੁਲਾਂਕਣ ਕਰਦੇ ਸਮੇਂ NVDA ਥ੍ਰੈਡ ਨੂੰ ਫ੍ਰੀਜ਼ ਹੋਣ ਤੋਂ ਰੋਕਣ ਲਈ COM ਪ੍ਰਾਪਰਟੀ ਲੂਪਸ ਨੂੰ ਮਜ਼ਬੂਤ ਕੀਤਾ ਗਿਆ ਹੈ।</li>
 </ul>
 <h3>Version 1.2.0 — 2026-06-03</h3>
 <p><em>Final release.</em></p>
 <h4>New Features</h4>
 <ul>
-<li><strong>App-Launch Caching:</strong> Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.</li>
-<li><strong>Enhanced Cell Tracker (1D COM Math):</strong> Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (<code>current_col</code> or <code>current_row</code>). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.</li>
-<li><strong>Process Memory Wiping:</strong> Implemented Excel Window Handle (<code>Hwnd</code>) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".</li>
+<li><strong>App-Launch Caching:</strong> ਵੱਡਾ ਸੰਗਠਨਾਤਮਕ ਸੁਧਾਰ। ਜਦੋਂ ਤੁਸੀਂ ਆਫ਼ਿਸ ਐਪਲੀਕੇਸ਼ਨਾਂ 'ਤੇ ਫੋਕਸ ਕਰਦੇ ਹੋ, ਤਾਂ ਮੁੱਖ ਮਾਡਿਊਲ ਬਿਲਕੁਲ ਉਸੇ ਸਮੇਂ ਲੋਡ ਹੁੰਦੇ ਹਨ, ਜਿਸ ਨਾਲ ਬੂਟ ਲੈਗ (boot lag) ਖਤਮ ਹੁੰਦਾ ਹੈ, ਨਾਮ ਬਦਲਣ ਵਾਲੇ ਡਾਇਲਾਗਾਂ 'ਤੇ 'unknown' ਆਬਜੈਕਟ ਫੋਕਸ ਦੀ ਸਮੱਸਿਆ ਪੂਰੀ ਤਰ੍ਹਾਂ ਹੱਲ ਹੁੰਦੀ ਹੈ, ਅਤੇ ਮਲਟੀ-ਫਾਈਲ ਕੋਡਬੇਸ ਬਣਤਰ ਸੁਰੱਖਿਅਤ ਰਹਿੰਦੀ ਹੈ।</li>
+<li><strong>Enhanced Cell Tracker (1D COM Math):</strong> ਲੁਕਵੇਂ ਸੈੱਲ ਗੈਪ ਖੋਜਣ ਦੇ ਤਰਕ ਨੂੰ ਸਿਰਫ਼ ਇੱਕ-ਪਾਸੜ ਕਰਾਸ-ਸੈਕਸ਼ਨਾਂ (<code>current_col</code> ਜਾਂ <code>current_row</code>) ਦਾ ਮੁਲਾਂਕਣ ਕਰਨ ਲਈ ਦੁਬਾਰਾ ਲਿਖਿਆ ਗਿਆ ਹੈ। ਇਹ COM ਗਣਨਾ ਦੇ ਲੋਡ ਨੂੰ 1.6 ਕਰੋੜ ਤੋਂ ਵੱਧ ਸੈੱਲਾਂ ਤੱਕ ਘਟਾਉਂਦਾ ਹੈ, ਜਿਸ ਨਾਲ ਲੁਕਵੀਆਂ ਰੇਂਜਾਂ ਨੂੰ ਪਾਰ ਕਰਦੇ ਸਮੇਂ ਨੇਵੀਗੇਸ਼ਨ ਫ੍ਰੀਜ਼ ਤੁਰੰਤ ਖਤਮ ਹੋ ਜਾਂਦਾ ਹੈ।</li>
+<li><strong>Process Memory Wiping:</strong> ਜਦੋਂ ਵਰਤੋਂਕਾਰ ਐਕਸਲ ਨੂੰ ਬੰਦ ਕਰਦਾ ਹੈ ਅਤੇ ਦੁਬਾਰਾ ਖੋਲ੍ਹਦਾ ਹੈ, ਤਾਂ ਇਸਦਾ ਪਤਾ ਲਗਾਉਣ ਲਈ ਐਕਸਲ ਵਿੰਡੋ ਹੈਂਡਲ (<code>Hwnd</code>) ਟ੍ਰੈਕਿੰਗ ਲਾਗੂ ਕੀਤੀ ਗਈ ਹੈ। ਇਹ ਪੁਰਾਣੀ ਗਲੋਬਲ ਸਟੇਟ ਮੈਮੋਰੀ ਨੂੰ ਸਰਗਰਮੀ ਨਾਲ ਸਾਫ਼ ਕਰਦਾ ਹੈ ਅਤੇ ਨਵਾਂ "Book1" ਖੋਲ੍ਹਣ ਵੇਲੇ ਝੂਠੀ "Sheet hidden" ਘੋਸ਼ਣਾ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਹੱਲ ਕਰਦਾ ਹੈ।</li>
 </ul>
 <h4>Bug Fixes</h4>
 <ul>
-<li><strong>Double Selection Announcement:</strong> Migrated away from unreliable asynchronous <code>winUser.getKeyState</code> and implemented <code>api.getLastInputGesture()</code> to perfectly suppress double announcements when using Shift+Arrow keys.</li>
-<li><strong>Boundary Detector Deactivation:</strong> The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.</li>
+<li><strong>Double Selection Announcement:</strong> ਗੈਰ-ਭਰੋਸੇਯੋਗ ਅਸਿੰਕਰੋਨਸ <code>winUser.getKeyState</code> ਤੋਂ ਹਟ ਕੇ <code>api.getLastInputGesture()</code> ਨੂੰ ਲਾਗੂ ਕੀਤਾ ਗਿਆ ਤਾਂ ਜੋ Shift+Arrow ਕੁੰਜੀਆਂ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਸਮੇਂ ਦੋਹਰੀ ਘੋਸ਼ਣਾਵਾਂ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਰੋਕਿਆ ਜਾ ਸਕੇ।</li>
+<li><strong>Boundary Detector Deactivation:</strong> NVDA ਦੀ ਮੂਲ ਨੇਵੀਗੇਸ਼ਨ ਸਥਿਰਤਾ ਦੀ ਰੱਖਿਆ ਕਰਨ ਲਈ ਪ੍ਰੋਐਕਟਿਵ ਬਾਊਂਡਰੀ ਡਿਟੈਕਟਰ ਨੂੰ ਅਯੋਗ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ, ਅਤੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਗੈਪ-ਸਕਿਪਿੰਗ ਟ੍ਰੈਕਰ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਗਈ ਹੈ।</li>
 </ul>
 <h3>Version 1.1.0 — 2026-05-30</h3>
 <p><em>Final release.</em></p>
 <h4>New Features</h4>
 <ul>
-<li><strong>Settings GUI:</strong> Added a native BOA Office Enhancements panel inside <code>NVDA -&gt; Preferences -&gt; Settings</code> to easily toggle features on or off.</li>
-<li><strong>SafeRichEdit Hook:</strong> Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.</li>
-<li><strong>Customizable Hotkeys:</strong> All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.</li>
-<li><strong>Excel: Hidden Row/Column Skip Detection:</strong> Proactively announces when navigating past hidden rows or columns, ensuring you never miss filtered data. Can be toggled in settings.</li>
+<li><strong>Settings GUI:</strong> ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਆਸਾਨੀ ਨਾਲ ਚਾਲੂ ਜਾਂ ਬੰਦ ਕਰਨ ਲਈ <code>NVDA -&gt; Preferences -&gt; Settings</code> ਦੇ ਅੰਦਰ ਇੱਕ ਮੂਲ BOA ਆਫ਼ਿਸ ਇਨਹਾਂਸਮੈਂਟਸ ਪੈਨਲ ਜੋੜਿਆ ਗਿਆ।</li>
+<li><strong>SafeRichEdit Hook:</strong> ਆਫ਼ਿਸ 2024 ਵਿੱਚ ਰਿਚਐਡਿਟ (RichEdit) ਕੰਟਰੋਲਾਂ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰਦੇ ਸਮੇਂ NVDA ਨੂੰ ਕ੍ਰੈਸ਼ ਹੋਣ ਤੋਂ ਰੋਕਦਾ ਹੈ।</li>
+<li><strong>Customizable Hotkeys:</strong> ਸਾਰੇ BOA ਸ਼ਾਰਟਕੱਟ ਹੁਣ NVDA ਦੇ ਇਨਪੁਟ ਜੈਸਚਰ ਡਾਇਲਾਗ ਵਿੱਚ "Better Office Accessibility" ਸ਼੍ਰੇਣੀ ਦੇ ਅਧੀਨ ਪੂਰੀ ਤਰ੍ਹਾਂ ਉਪਲਬਧ ਹਨ।</li>
+<li><strong>Excel: Hidden Row/Column Skip Detection:</strong> ਲੁਕਵੀਆਂ ਰੋਜ਼ ਜਾਂ ਕਾਲਮਾਂ ਤੋਂ ਅੱਗੇ ਲੰਘਣ ਵੇਲੇ ਸਰਗਰਮੀ ਨਾਲ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ, ਇਹ ਯਕਨੀ ਬਣਾਉਂਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਕਦੇ ਵੀ ਫਿਲਟਰ ਕੀਤੇ ਡੇਟਾ ਨੂੰ ਨਾ ਖੁੰਝਾਓ। ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਚਾਲੂ/ਬੰਦ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</li>
 </ul>
 <h4>Bug Fixes</h4>
 <ul>
-<li><strong>Thread Safety:</strong> Removed all blocking delays (<code>time.sleep</code>) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.</li>
+<li><strong>Thread Safety:</strong> ਸਾਰੇ ਬਲੌਕਿੰਗ ਦੇਰੀਆਂ (<code>time.sleep</code>) ਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਅਤੇ ਉਹਨਾਂ ਨੂੰ ਗੈਰ-ਬਲੌਕਿੰਗ NVDA ਅਸਿੰਕਰੋਨਸ ਕਾਲਬੈਕਸ ਨਾਲ ਬਦਲ ਦਿੱਤਾ ਗਿਆ ਤਾਂ ਜੋ ਇਹ ਯਕੀਨੀ ਬਣਾਇਆ ਜਾ ਸਕੇ ਕਿ ਬੈਕਗ੍ਰਾਊਂਡ ਓਪਰੇਸ਼ਨਾਂ ਦੌਰਾਨ ਸਕ੍ਰੀਨ ਰੀਡਰ ਕਦੇ ਵੀ ਨਾ ਰੁਕੇ।</li>
 </ul>
 <h3>Version 1.0.0 — 2026-05-24</h3>
 <p><em>Initial public release.</em></p>
 <h4>New Features</h4>
 <ul>
-<li><strong>Excel: Bulk Sheet Organizer:</strong> Instantly reorder multiple sheets at once using a fully accessible dialog.</li>
-<li><strong>Excel: Quick Sheet Mover:</strong> Move the active sheet left, right, to start, or to end via keyboard commands.</li>
-<li><strong>Excel: Accessible Sheet Renaming:</strong> Intercepts the inaccessible native rename field and replaces it with a reliable accessible dialog.</li>
-<li><strong>Excel: Smart Selection Tracking:</strong> Accurately announces multi-cell range selections and deselections.</li>
-<li><strong>PowerPoint: Accessible Color Pickers:</strong> Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.</li>
-<li><strong>PowerPoint: Standard Color Grid Support:</strong> Intercepts arrow key navigation to read hidden Hex codes from the inaccessible color hexagon grid.</li>
+<li><strong>Excel: Bulk Sheet Organizer:</strong> ਪੂਰੀ ਤਰ੍ਹਾਂ ਐਕਸੈਸਬਲ ਡਾਇਲਾਗ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਇੱਕੋ ਵਾਰ ਵਿੱਚ ਕਈ ਸ਼ੀਟਾਂ ਨੂੰ ਤੁਰੰਤ ਮੁੜ-ਵਿਵਸਥਿਤ ਕਰੋ।</li>
+<li><strong>Excel: Quick Sheet Mover:</strong> ਕੀ-ਬੋਰਡ ਕਮਾਂਡਾਂ ਰਾਹੀਂ ਐਕਟਿਵ ਸ਼ੀਟ ਨੂੰ ਖੱਬੇ, ਸੱਜੇ, ਸ਼ੁਰੂਆਤ ਜਾਂ ਅਖੀਰ 'ਤੇ ਭੇਜੋ।</li>
+<li><strong>Excel: Accessible Sheet Renaming:</strong> ਗੈਰ-ਐਕਸੈਸਬਲ ਮੂਲ ਰੀਨੇਮ ਫੀਲਡ ਨੂੰ ਰੋਕਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਇੱਕ ਭਰੋਸੇਯੋਗ ਐਕਸੈਸਬਲ ਡਾਇਲਾਗ ਨਾਲ ਬਦਲਦਾ ਹੈ।</li>
+<li><strong>Excel: Smart Selection Tracking:</strong> ਕਈ ਸੈੱਲਾਂ ਦੀ ਰੇਂਜ ਦੀ ਚੋਣ (selections) ਅਤੇ ਅਣਚੋਣ (deselections) ਦੀ ਸਹੀ ਘੋਸ਼ਣਾ ਕਰਦਾ ਹੈ।</li>
+<li><strong>PowerPoint: Accessible Color Pickers:</strong> NVDA ਨੂੰ ਕਸਟਮ ਕਲਰ (Custom Color) ਡਾਇਲਾਗ ਦੇ ਅੰਦਰ RGB ਅਤੇ ਹੈਕਸ (Hex) ਮੁੱਲਾਂ ਨੂੰ ਸਹੀ ਢੰਗ ਨਾਲ ਪੜ੍ਹਨ ਦੇ ਯੋਗ ਬਣਾਉਂਦਾ ਹੈ।</li>
+<li><strong>PowerPoint: Standard Color Grid Support:</strong> ਗੈਰ-ਐਕਸੈਸਬਲ ਰੰਗ ਹੈਕਸਾਗਨ ਗਰਿੱਡ ਤੋਂ ਲੁਕਵੇਂ ਹੈਕਸ ਕੋਡ ਪੜ੍ਹਨ ਲਈ ਐਰੋ ਕੁੰਜੀ ਨੇਵੀਗੇਸ਼ਨ ਨੂੰ ਰੋਕਦਾ ਹੈ।</li>
 </ul>
 </body>
 </html>

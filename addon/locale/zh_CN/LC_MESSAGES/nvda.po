@@ -841,3 +841,933 @@ msgstr ""
 "* **深度文件本地化**：修复了 Excel 增强模块（例如工作表布局分析器和快速工作表移动器）深处缺失的字符串翻译，确保 100% 的本地化覆盖率。\n"
 "* **扩展的翻译支持**：系统中添加了 7 种新语言（土耳其语、波兰语、韩语、乌克兰语、捷克语、乌尔都语和旁遮普语）。\n"
 "  *(注意：这些翻译由人工智能生成，因此可能存在少许翻译错误或不准确之处。)*"
+
+msgid "BOA (Better Office Accessibility)"
+msgstr "BOA (Better Office Accessibility)"
+
+msgid ""
+"Triggers the BOA command prefix. Press this, followed by a specific command "
+"key."
+msgstr "触发 BOA 命令前缀。按下此键，然后按特定的命令键。"
+
+msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
+msgstr "启动批量工作表管理器对话框以重新排序工作表。"
+
+msgid "Analyzes and announces the layout structure of the current sheet."
+msgstr "分析并播报当前工作表的布局结构。"
+
+msgid "Jumps the focus to the nearest cell block."
+msgstr "将焦点跳转到最近的单元格数据块。"
+
+msgid "Announces conditional formatting details for the current cell."
+msgstr "播报当前单元格的条件格式详细信息。"
+
+msgid "Toggles monitoring on the active cell."
+msgstr "切换对活动单元格的监视。"
+
+msgid "Clears all monitored cells."
+msgstr "清除所有被监视的单元格。"
+
+msgid ""
+"Traces precedents and opens a dialog to jump to cells that provide data to "
+"the active cell."
+msgstr "追踪引用单元格并打开对话框以跳转到为活动单元格提供数据的单元格。"
+
+msgid ""
+"Traces dependents and opens a dialog to jump to cells that depend on the "
+"active cell."
+msgstr "追踪从属单元格并打开对话框以跳转到依赖于活动单元格的单元格。"
+
+msgid "Announces the raw formula of the active cell."
+msgstr "播报活动单元格的原始公式。"
+
+msgid ""
+"Opens the accessible Power Editor dialog to edit the active cell's contents."
+msgstr "打开无障碍的高级编辑器对话框以编辑活动单元格的内容。"
+
+msgid ""
+"Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
+msgstr "打开活动单元格监视器对话框以管理并跳转到被监视的单元格。"
+
+msgid ""
+"Jumps focus back to the cell you were working on before navigating away."
+msgstr "将焦点跳回到导航离开之前正在处理的单元格。"
+
+msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
+msgstr "启动批量幻灯片管理器对话框以重新排序幻灯片。"
+
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr "分析并播报当前幻灯片的布局结构。"
+
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr "分析当前 PowerPoint 演示文稿并显示全面的布局和健康状况报告。"
+
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr "分析当前 Word 文档并显示全面的布局和健康状况报告。"
+
+msgid ""
+"Audits the current Word document for visual formatting inconsistencies."
+msgstr "审核当前 Word 文档中视觉格式的不一致之处。"
+
+msgid "Analysis cancelled."
+msgstr "分析已取消。"
+
+msgid "An error occurred during analysis."
+msgstr "分析期间发生错误。"
+
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr "默认 NVDA 行为（仅供参考）"
+
+msgid "Read Note Content Inline"
+msgstr "内联阅读注释内容"
+
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr "选择 NVDA 是否应在文档文本中内联自动阅读脚注和尾注的文本。"
+
+msgid "Default NVDA Behavior"
+msgstr "默认 NVDA 行为"
+
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr "默认行为 + 3D 空间音频（实验性）"
+
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr "控制 NVDA 如何播报 PowerPoint 中的形状移动。画布模式将原始数学坐标转换为人类可读的位置，例如“左上象限”。"
+
+msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
+msgstr "防止 NVDA 在 Excel 文本字段中崩溃(&C) (SafeRichEdit)"
+
+msgid "Enable Formula Auditor &features"
+msgstr "启用公式审核器功能(&F)"
+
+msgid "Explicitly announce m&erged cells"
+msgstr "显式播报合并单元格(&E)"
+
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr "防止 NVDA 在 PowerPoint 文本字段中崩溃(&A) (SafeRichEdit)"
+
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr "启用批量幻灯片管理器对话框(&Z) (前缀 + X)"
+
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
+msgstr "启用幻灯片布局分析器(&L) (前缀 + L)"
+
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr "启用 PowerPoint 文档分析器(&D) (前缀 + D)"
+
+msgid "Shape Movement Audio Mode:"
+msgstr "形状移动音频模式："
+
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+msgstr "&Word: 防止 NVDA 在 Word 文本字段中崩溃 (SafeRichEdit)"
+
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr "防止在段落导航期间重复阅读列表项(&D)"
+
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr "通过 NVDA+E, D 启用文档分析器(&A)"
+
+msgid "Enable Format &Auditor via NVDA+E, F"
+msgstr "通过 NVDA+E, F 启用格式审核器(&A)"
+
+msgid "Footnotes and Endnotes reading &mode:"
+msgstr "脚注和尾注阅读模式(&M)："
+
+msgid "No formula"
+msgstr "无公式"
+
+msgid "BOA Power Editor"
+msgstr "BOA 高级编辑器"
+
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr "编辑单元格内容 (按 Ctrl+Enter 保存，Esc 取消)(&E)："
+
+msgid "&Save"
+msgstr "保存(&S)"
+
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+"公式已保存，但 Excel 评估为错误：{error}\n"
+"\n"
+"您要继续编辑吗？"
+
+msgid "Calculation Error"
+msgstr "计算错误"
+
+msgid "Done"
+msgstr "完成"
+
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr "Excel 拒绝了此公式。请检查语法错误或是否缺少括号。"
+
+msgid "Invalid Formula"
+msgstr "无效的公式"
+
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
+msgstr "插槽 {slot_str} 丢失。工作簿 '{wb}' 已关闭或无法访问。"
+
+msgid "Empty cell"
+msgstr "空单元格"
+
+msgid "Cannot jump. The workbook '{wb}' is closed."
+msgstr "无法跳转。工作簿 '{wb}' 已关闭。"
+
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
+msgstr "无法跳转。工作表 '{sheet}' 已重命名或删除。"
+
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
+msgstr "无法跳转。单元格地址无效或 Excel 正忙。"
+
+msgid "No cell assigned to slot {slot_num}"
+msgstr "没有单元格分配给插槽 {slot_num}"
+
+msgid "No previous cell to jump back to."
+msgstr "没有先前的单元格可跳回。"
+
+msgid "Active Cell Monitors"
+msgstr "活动单元格监视器"
+
+msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
+msgstr "选择一个单元格以跳转到它。按 Delete 键将其从监视器中删除。"
+
+msgid "&Jump"
+msgstr "跳转(&J)"
+
+msgid "No cells are currently being monitored."
+msgstr "当前没有正在监视的单元格。"
+
+msgid "Slot {slot} deleted"
+msgstr "插槽 {slot} 已删除"
+
+msgid "Monitor deleted"
+msgstr "监视器已删除"
+
+msgid "Merged cell, {address}"
+msgstr "合并单元格，{address}"
+
+msgid "{sheet_name} deleted"
+msgstr "{sheet_name} 已删除"
+
+msgid "Rules Summary"
+msgstr "规则摘要"
+
+msgid "Analyzed Results"
+msgstr "分析结果"
+
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr "选择一个引用并按 Enter 键跳转到它(&S)："
+
+msgid "Cannot jump to a closed external workbook."
+msgstr "无法跳转到关闭的外部工作簿。"
+
+msgid "(External) {}"
+msgstr "(外部) {}"
+
+msgid "No precedents found."
+msgstr "未找到引用单元格。"
+
+msgid "No dependents found."
+msgstr "未找到从属单元格。"
+
+msgid "Precedents"
+msgstr "引用单元格"
+
+msgid "Dependents"
+msgstr "从属单元格"
+
+msgid ""
+"Clicks the button and dynamically announces formula evaluation changes."
+msgstr "单击按钮并动态播报公式评估更改。"
+
+msgid "{old_diff} evaluated to {new_diff}"
+msgstr "{old_diff} 评估为 {new_diff}"
+
+msgid "Data Blocks Summary"
+msgstr "数据块摘要"
+
+msgid "Found {count} data blocks in this sheet."
+msgstr "在此工作表中找到 {count} 个数据块。"
+
+msgid "Sheet Properties"
+msgstr "工作表属性"
+
+msgid ""
+"No special properties detected (No active filters, protection, frozen panes,"
+" or hidden borders)."
+msgstr "未检测到特殊属性（无活动筛选器、保护、冻结窗格或隐藏的边框）。"
+
+msgid "Failed to connect to PowerPoint."
+msgstr "无法连接到 PowerPoint。"
+
+msgid "No active presentation."
+msgstr "没有活动的演示文稿。"
+
+msgid "Not enough slides to move."
+msgstr "没有足够的幻灯片可供移动。"
+
+msgid "Successfully reorganized slides."
+msgstr "成功重新排序幻灯片。"
+
+msgid "Failed to move slides. See log for details."
+msgstr "移动幻灯片失败。有关详细信息，请参阅日志。"
+
+msgid "Loading slides, please wait..."
+msgstr "正在加载幻灯片，请稍候..."
+
+msgid "Failed to hook PowerPoint."
+msgstr "挂钩 PowerPoint 失败。"
+
+msgid "Slide {index} - {title}"
+msgstr "幻灯片 {index} - {title}"
+
+msgid "Slide {index} - (No Title)"
+msgstr "幻灯片 {index} - (无标题)"
+
+msgid "Bulk Slide Organizer"
+msgstr "批量幻灯片管理器"
+
+msgid "Slide Name:"
+msgstr "幻灯片名称："
+
+msgid "Slide"
+msgstr "幻灯片"
+
+msgid "Scheduled: {slide} to position {pos}"
+msgstr "已计划：将 {slide} 移至位置 {pos}"
+
+msgid "No active presentation detected."
+msgstr "未检测到活动的演示文稿。"
+
+msgid "Analyzing document layout in background..."
+msgstr "在后台分析文档布局..."
+
+msgid "Error starting document analysis."
+msgstr "启动文档分析时出错。"
+
+msgid "Untitled Slide"
+msgstr "无标题幻灯片"
+
+msgid "Document Analysis: {name}"
+msgstr "文档分析：{name}"
+
+msgid "Overview"
+msgstr "概览"
+
+msgid "Total Slides: {n}"
+msgstr "总幻灯片数：{n}"
+
+msgid "Hidden Slides: {n}"
+msgstr "隐藏幻灯片数：{n}"
+
+msgid "Table of Contents"
+msgstr "目录"
+
+msgid "Slide {num}: {title}"
+msgstr "幻灯片 {num}：{title}"
+
+msgid "Accessibility Health"
+msgstr "无障碍健康状况"
+
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr "阅读顺序不匹配（Z轴顺序对比视觉顺序）"
+
+msgid "Slide {num}"
+msgstr "幻灯片 {num}"
+
+msgid "Missing Alt-Text"
+msgstr "缺少替代文本"
+
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr "幻灯片 {num}：{count} 个图像缺少替代文本"
+
+msgid "Off-Canvas Elements"
+msgstr "画布外元素"
+
+msgid "No major accessibility issues detected."
+msgstr "未检测到重大的无障碍问题。"
+
+msgid "Density & Complexity"
+msgstr "密度与复杂性"
+
+msgid "High Text Density (Wall of Text)"
+msgstr "高文本密度（文本墙）"
+
+msgid "Slide {num}: {words} words"
+msgstr "幻灯片 {num}：{words} 个字/词"
+
+msgid "Complex Objects"
+msgstr "复杂对象"
+
+msgid "Tables: {n}"
+msgstr "表格：{n}"
+
+msgid "Grouped Objects: {n}"
+msgstr "组合对象：{n}"
+
+msgid "Media: {n}"
+msgstr "媒体：{n}"
+
+msgid "Charts: {n}"
+msgstr "图表：{n}"
+
+msgid "Embedded Documents: {n}"
+msgstr "嵌入文档：{n}"
+
+msgid "No active slide detected."
+msgstr "未检测到活动的幻灯片。"
+
+msgid "Analyzing slide layout..."
+msgstr "正在分析幻灯片布局..."
+
+msgid "Error analyzing slide layout."
+msgstr "分析幻灯片布局时出错。"
+
+msgid "Slide {num} Layout Analysis"
+msgstr "幻灯片 {num} 布局分析"
+
+msgid "Structure & Density"
+msgstr "结构与密度"
+
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr "占位符对比自定义形状：{p} / {c}"
+
+msgid "Total Word Count: {w}"
+msgstr "总字词数：{w}"
+
+msgid "Warning: High text density (Wall of Text)"
+msgstr "警告：高文本密度（文本墙）"
+
+msgid "Warning: Missing standard Title Placeholder"
+msgstr "警告：缺少标准标题占位符"
+
+msgid "Accessibility Warnings"
+msgstr "无障碍警告"
+
+msgid "Off-Canvas Shapes"
+msgstr "画布外形状"
+
+msgid "Reading Order Mismatch"
+msgstr "阅读顺序不匹配"
+
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr "形状 '{s}' 在视觉上位于顶部，但在逻辑上位于底部。"
+
+msgid "Missing Alt-Text: {n} images"
+msgstr "缺少替代文本：{n} 个图像"
+
+msgid "No major spatial accessibility warnings detected."
+msgstr "未检测到重大的空间无障碍警告。"
+
+msgid "Complex Objects & Media"
+msgstr "复杂对象与媒体"
+
+msgid "Media (Audio/Video): {n}"
+msgstr "媒体（音频/视频）：{n}"
+
+msgid "Charts/Graphs: {n}"
+msgstr "图表/图形：{n}"
+
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr "嵌入文档（Excel/PDF）：{n}"
+
+msgid "Tables"
+msgstr "表格"
+
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr "表格 '{name}'：{c} 列 x {r} 行"
+
+msgid "No complex tables, groups, or media."
+msgstr "没有复杂的表格、组合或媒体。"
+
+msgid "Analyzing document, please wait..."
+msgstr "正在分析文档，请稍候..."
+
+msgid "Cannot access Word application."
+msgstr "无法访问 Word 应用程序。"
+
+msgid "Failed to start document analyzer."
+msgstr "启动文档分析器失败。"
+
+msgid "Word Document Analyzer Report"
+msgstr "Word 文档分析器报告"
+
+msgid "1. Cursor Context"
+msgstr "1. 光标上下文"
+
+msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
+msgstr "在第 {sec} 节，第 {page} 页，表格单元格（第 {row} 行，第 {col} 列）"
+
+msgid "In Section {sec}, Page {page} (Inside a Table)"
+msgstr "在第 {sec} 节，第 {page} 页（在表格内）"
+
+msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
+msgstr "在第 {sec} 节，第 {page} 页，第 {line} 行，第 {col} 列"
+
+msgid "Could not retrieve cursor position."
+msgstr "无法获取光标位置。"
+
+msgid "Error retrieving cursor context."
+msgstr "获取光标上下文时出错。"
+
+msgid "2. Document Properties & Options"
+msgstr "2. 文档属性与选项"
+
+msgid "Unprotected"
+msgstr "未保护"
+
+msgid "Allow Only Revisions (Tracked Changes)"
+msgstr "仅允许修订（跟踪的更改）"
+
+msgid "Allow Only Comments"
+msgstr "仅允许批注"
+
+msgid "Allow Only Form Fields"
+msgstr "仅允许窗体域"
+
+msgid "Unknown Protection"
+msgstr "未知保护"
+
+msgid "Document Protection: {status}"
+msgstr "文档保护：{status}"
+
+msgid "File Name: {name}"
+msgstr "文件名：{name}"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Creation Date"
+msgstr "创建日期"
+
+msgid "Revision Number"
+msgstr "修订号"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Subject"
+msgstr "主题"
+
+msgid "Company"
+msgstr "公司"
+
+msgid "Enabled"
+msgstr "已启用"
+
+msgid "Disabled"
+msgstr "已禁用"
+
+msgid "Check spelling as you type: {status}"
+msgstr "键入时检查拼写：{status}"
+
+msgid "Check grammar as you type: {status}"
+msgstr "键入时检查语法：{status}"
+
+msgid "Check grammar with spelling: {status}"
+msgstr "随拼写检查语法：{status}"
+
+msgid "Track Revisions (Recording): {status}"
+msgstr "跟踪修订（记录）：{status}"
+
+msgid "Visible"
+msgstr "可见"
+
+msgid "Hidden"
+msgstr "隐藏"
+
+msgid "Display hidden text on screen: {status}"
+msgstr "在屏幕上显示隐藏文本：{status}"
+
+msgid "Could not retrieve document properties."
+msgstr "无法获取文档属性。"
+
+msgid "3. Overall Statistics"
+msgstr "3. 整体统计信息"
+
+msgid "Pages: {pages}"
+msgstr "页数：{pages}"
+
+msgid "Words (including footnotes): {words}"
+msgstr "字数（包括脚注）：{words}"
+
+msgid "Characters (including footnotes): {chars}"
+msgstr "字符数（包括脚注）：{chars}"
+
+msgid "Text Paragraphs: {paras}"
+msgstr "文本段落数：{paras}"
+
+msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
+msgstr "结构段落数（包括空行和表格）：{paras}"
+
+msgid "Lines: {lines}"
+msgstr "行数：{lines}"
+
+msgid "Lists: {lists}"
+msgstr "列表数：{lists}"
+
+msgid "Spelling errors: {errors}"
+msgstr "拼写错误：{errors}"
+
+msgid "Could not retrieve structural statistics."
+msgstr "无法获取结构统计信息。"
+
+msgid "4. Collaboration Status"
+msgstr "4. 协作状态"
+
+msgid "Comments: {count}"
+msgstr "批注：{count}"
+
+msgid "Unresolved Tracked Changes: {count}"
+msgstr "未解决的修订：{count}"
+
+msgid "Unresolved Tracked Changes: 0"
+msgstr "未解决的修订：0"
+
+msgid "Footnotes: {count}"
+msgstr "脚注：{count}"
+
+msgid "Endnotes: {count}"
+msgstr "尾注：{count}"
+
+msgid "Could not retrieve collaboration statistics."
+msgstr "无法获取协作统计信息。"
+
+msgid "5. Accessibility Audit Summary"
+msgstr "5. 无障碍审核摘要"
+
+msgid "Images (Inline): {count}"
+msgstr "图像（内联）：{count}"
+
+msgid "Warning: {count} images are missing alternative text!"
+msgstr "警告：{count} 个图像缺少替代文本！"
+
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr "警告：检测到 {count} 个浮动形状。这些通常无法无障碍访问。"
+
+msgid "Hyperlinks: {count}"
+msgstr "超链接：{count}"
+
+msgid "Could not retrieve accessibility statistics."
+msgstr "无法获取无障碍统计信息。"
+
+msgid "6. Layout & Structural Breakdown"
+msgstr "6. 布局与结构分解"
+
+msgid "Sections"
+msgstr "节"
+
+msgid "No sections found."
+msgstr "未找到节。"
+
+msgid "Section {num}"
+msgstr "第 {num} 节"
+
+msgid "Portrait"
+msgstr "纵向"
+
+msgid "Landscape"
+msgstr "横向"
+
+msgid "Orientation: {orient}"
+msgstr "方向：{orient}"
+
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr "上：{t:.2f}厘米，下：{b:.2f}厘米，左：{l:.2f}厘米，右：{r:.2f}厘米"
+
+msgid "Margins: {margins}"
+msgstr "边距：{margins}"
+
+msgid "Warning: Different first page header/footer."
+msgstr "警告：首页页眉/页脚不同。"
+
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr "警告：奇偶页有不同的页眉/页脚。"
+
+msgid "Continuous"
+msgstr "连续"
+
+msgid "New Column"
+msgstr "新列"
+
+msgid "New Page"
+msgstr "新页"
+
+msgid "Even Page"
+msgstr "偶数页"
+
+msgid "Odd Page"
+msgstr "奇数页"
+
+msgid "Section start: {start}"
+msgstr "节开始位置：{start}"
+
+msgid "Top"
+msgstr "顶端"
+
+msgid "Center"
+msgstr "居中"
+
+msgid "Justify"
+msgstr "两端对齐"
+
+msgid "Bottom"
+msgstr "底端"
+
+msgid "Vertical alignment: {align}"
+msgstr "垂直对齐方式：{align}"
+
+msgid "Distance from top to header: {d:.2f}cm"
+msgstr "距边界：页眉 {d:.2f}厘米"
+
+msgid "Distance from bottom to footer: {d:.2f}cm"
+msgstr "距边界：页脚 {d:.2f}厘米"
+
+msgid "Yes"
+msgstr "是"
+
+msgid "No"
+msgstr "否"
+
+msgid "Text modification only in form fields: {status}"
+msgstr "仅在窗体域中修改文本：{status}"
+
+msgid "Custom"
+msgstr "自定义"
+
+msgid "Standard/Other"
+msgstr "标准/其他"
+
+msgid "Paper size: {size}"
+msgstr "纸张大小：{size}"
+
+msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
+msgstr "页面尺寸：宽 {w:.2f}厘米，高 {h:.2f}厘米"
+
+msgid "Print two pages per sheet: {status}"
+msgstr "每页打印两版：{status}"
+
+msgid "Right-to-Left (RTL)"
+msgstr "从右到左 (RTL)"
+
+msgid "Left-to-Right (LTR)"
+msgstr "从左到右 (LTR)"
+
+msgid "Reading direction: {dir}"
+msgstr "阅读方向：{dir}"
+
+msgid "No tables found."
+msgstr "未找到表格。"
+
+msgid "Table {num}"
+msgstr "表格 {num}"
+
+msgid "uniform"
+msgstr "规则"
+
+msgid "non-uniform"
+msgstr "不规则"
+
+msgid "nested "
+msgstr "嵌套 "
+
+msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
+msgstr "维度：{nest}表格（{uni}），共 {rows} 行 {cols} 列"
+
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr "维度：复杂（包含合并/拆分单元格，无法计算行数）"
+
+msgid "Localized at page {page}, line {line}"
+msgstr "位于第 {page} 页，第 {line} 行"
+
+msgid "Title: {t}"
+msgstr "标题：{t}"
+
+msgid "Description: {d}"
+msgstr "描述：{d}"
+
+msgid "Automatic resize to fit content: {status}"
+msgstr "自动调整尺寸以适应内容：{status}"
+
+msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
+msgstr "上边距：{pad:.4f}厘米，下边距：{bpad:.4f}厘米"
+
+msgid "Spacing between cells: {sp:.4f}cm"
+msgstr "单元格间距：{sp:.4f}厘米"
+
+msgid "Borders Enabled: {status}"
+msgstr "边框已启用：{status}"
+
+msgid "Word Document Analyzer"
+msgstr "Word 文档分析器"
+
+msgid "Auditing document formatting, please wait..."
+msgstr "正在审核文档格式，请稍候..."
+
+msgid "Failed to start formatting audit."
+msgstr "启动格式审核失败。"
+
+msgid "<b>Page {page}, Line {line}</b> (Para {num})"
+msgstr "<b>第 {page} 页，第 {line} 行</b>（第 {num} 段）"
+
+msgid "<b>Page {page}</b> (Para {num})"
+msgstr "<b>第 {page} 页</b>（第 {num} 段）"
+
+msgid "<b>Paragraph {num}</b>"
+msgstr "<b>第 {num} 段</b>"
+
+msgid "<b>Page {page}</b> (Table {num})"
+msgstr "<b>第 {page} 页</b>（表格 {num}）"
+
+msgid "<b>Table {num}</b>"
+msgstr "<b>表格 {num}</b>"
+
+msgid ""
+"{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
+msgstr "{loc}：检测到3个或更多连续空行。请改用分页符。"
+
+msgid "{loc}: Empty heading detected."
+msgstr "{loc}：检测到空标题。"
+
+msgid ""
+"{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
+"breaks screen reader flow."
+msgstr "{loc}：在段落内检测到手动换行符（Shift+Enter）。这会破坏屏幕阅读器的朗读流。"
+
+msgid ""
+"{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
+msgstr "{loc}：检测到空格缩进（4个以上空格）。请使用 Tab 或段落缩进。"
+
+msgid ""
+"{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
+"alignment or Ruler Indents."
+msgstr "{loc}：检测到多个连续的 Tab 字符。请使用居中/右对齐或标尺缩进。"
+
+msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
+msgstr "{loc}：在同一段落中检测到不一致的字体大小。"
+
+msgid "{loc}: Inconsistent font types detected within the same paragraph."
+msgstr "{loc}：在同一段落中检测到不一致的字体类型。"
+
+msgid "{loc}: Highlighted text detected."
+msgstr "{loc}：检测到突出显示的文本。"
+
+msgid ""
+"{loc}: Fake list detected. Manual numbering used instead of built-in list."
+msgstr "{loc}：检测到伪列表。使用了手动编号，而不是内置列表。"
+
+msgid ""
+"{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
+"{new})."
+msgstr "{loc}：跳过了标题级别（从级别 {old} 直接跳到级别 {new}）。"
+
+msgid ""
+"{loc}: Table contains merged or split cells. This breaks screen reader grid "
+"navigation."
+msgstr "{loc}：表格包含合并或拆分单元格。这会破坏屏幕阅读器的网格导航。"
+
+msgid ""
+"{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
+"subsequent pages."
+msgstr "{loc}：表格缺少“重复标题行”。在后续页面上数据将难以阅读。"
+
+msgid ""
+"<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
+"inconsistencies found! The document looks clean.</p>"
+msgstr "<h2>格式和无障碍审核完成</h2><p>未发现格式不一致！文档看起来很干净。</p>"
+
+msgid "Format Audit Results"
+msgstr "格式审核结果"
+
+msgid "Format & Accessibility Audit Report"
+msgstr "格式和无障碍审核报告"
+
+msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
+msgstr "总段落数：{paras} | 发现的总错误数：{total}"
+
+msgid "1. Structural Accessibility Blockers (WCAG)"
+msgstr "1. 结构性无障碍阻碍 (WCAG)"
+
+msgid "2. Visual Layout & Spacing Issues"
+msgstr "2. 视觉布局与间距问题"
+
+msgid "3. Font & Style Inconsistencies"
+msgstr "3. 字体与样式不一致"
+
+msgid "bottom"
+msgstr "底部"
+
+msgid "top"
+msgstr "顶部"
+
+msgid ""
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. as mentioned this is experemental and waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a structural overview of your Word document. *(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant \"Word Access\" add-on. We are deeply grateful for his foundational work in this space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. *(Note: Support for endnotes and comments is planned for a future release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native `Enter` adds line breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts (`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking bugs caused by the recent translation localization updates."
+msgstr ""
+"### 版本 2.0.0\n"
+"#### 新功能\n"
+"* **PowerPoint：完整的文档分析器（实验性）（`NVDA+E`，然后按 `D`）：** 一个高度先进的、后台处理的无障碍工具，它可以映射整个演示文稿，而不会冻结 NVDA 的语音引擎。它提供了一个深度可导航的虚拟目录，检测阅读顺序不匹配（视觉顺序对比 Z轴顺序），标记“文本墙”幻灯片，并映射复杂的对象，如 SmartArt 和数据表。\n"
+"* **PowerPoint：幻灯片布局分析器（实验性）（`NVDA+E`，然后按 `L`）：** 即时扫描当前活动的幻灯片，以了解其空间布局和无障碍限制，确保完全顺畅和响应迅速的屏幕阅读器体验。这意味着，在这里您将获得有关当前幻灯片的详细信息，类似于 Excel 的工作表布局分析器。\n"
+"* **PowerPoint：批量幻灯片管理器（实验性）（`NVDA+E`，然后按 `X`）：** 类似于 Excel 功能，您现在可以使用完全无障碍的对话框同时即时重新排序、移动和排列多张 PowerPoint 幻灯片。\n"
+"* **PowerPoint：形状移动音频模式（实验性）：** 在 PowerPoint 画布中引入了 3D 空间音频提示。当您移动对象时，提供听觉反馈，指示对象的方向和边界限制，从而极大地改善空间意识。如前所述，这是实验性的，等待反馈以进行改进或删除。\n"
+"* **Word：格式审核器（`NVDA+E`，然后按 `F`）：** 扫描您的 Word 文档中的格式不一致，以确保视觉标准。\n"
+"* **Word：文档分析器（`NVDA+E`，然后按 `D`）：** 立即调出 Word 文档的结构概览。*（特别感谢 Paul：此功能的灵感直接来自他出色的“Word Access”附加组件。我们对他在此领域的基础工作深表感激！）*\n"
+"* **Word：自动脚注播报器：** 根据您的自定义 BOA 设置，现在将在您阅读时内联自动播报脚注。*（注意：计划在未来版本中支持尾注和批注）。*\n"
+"* **Excel：高级编辑器（无障碍公式编辑器）：** 修改大型公式的绝对游戏规则改变者。\n"
+"  - **单按 `NVDA+E`，然后按 `F2`：** 即时播报活动单元格的原始公式字符串（或播报“无公式”）。\n"
+"  - **双按 `NVDA+E`，然后按 `F2`：** 打开一个完全无障碍的多行编辑器，以安全地修改庞大的嵌套公式。原生 `Enter` 键可添加换行符，便于阅读，`Ctrl+Enter` 则将其保存回 Excel。\n"
+"  - *安全检查：* 在语法错误破坏您的工作表之前安全地捕获它们，并检测计算后的错误（如 `#NAME?` 或 `#DIV/0!`）以在公式破坏时立即向您发出警告。\n"
+"* **Excel：公式审核与评估：** 添加了自定义快捷键（`NVDA+E`，然后按 `Shift+P` 以及 `NVDA+E`，然后按 `Shift+D`）来可靠地追踪引用单元格和从属单元格。此外，Excel 原生的“评估公式”对话框现在完全无障碍；当您逐步执行计算时，NVDA 会自动播报评估结果！\n"
+"* **Excel：单元格监视器专业版升级：** \n"
+"  - **插槽管理器对话框（`NVDA+E`，然后按 `Alt+M`）：** 打开一个对话框，列出所有正在主动监视的单元格。按 `Enter` 键即可即时跳转到其中一个。\n"
+"  - **跳回（`NVDA+E`，然后按 `\\`）：** 在检查插槽后，即时将您传送回您之前工作的单元格。\n"
+"  - **直接插槽跳转（`Alt` + `插槽号`）：** 完全绕过前缀，即时跳转到分配的单元格插槽。\n"
+"* **输入手势自定义：** 所有 Office 应用程序的所有功能都已显式公开给原生的 NVDA 输入手势对话框，赋予您完全自由来自定义每个键盘快捷键。\n"
+"\n"
+"#### 用户体验/用户界面增强\n"
+"* **统一的可浏览报告：** 我们在整个附加组件中采用了统一的 HTML 报告系统。诸如 Excel 条件格式播报器、布局分析器和文档分析器之类的功能不再仅仅读出大段文本；它们的结果现在在一个原生的、可导航的 HTML 窗口中打开，允许您按自己的节奏查看数据。\n"
+"* **Excel：增强的从属单元格/引用单元格追踪：** 大大增强了 Excel 原生公式追踪快捷键（`Ctrl+[` 用于直接引用单元格，`Ctrl+]` 用于直接从属单元格）的语音输出。NVDA 现在将明确播报准确选择了哪些单元格。\n"
+"* **Excel：合并单元格支持：** 跳过间隙的单元格跟踪器现在能正确检测并明确播报合并单元格。\n"
+"\n"
+"#### 错误修复\n"
+"* **Word：列表项重复阅读：** 实施了一个临时补丁以修复在某些 Word 视图中 NVDA 重复阅读段落列表项的错误。\n"
+"* **Excel：单元格监视器本地化错误：** 解决了由最近的翻译本地化更新引起的底层跟踪错误。"
