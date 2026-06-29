@@ -4,251 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 2.0</title>
+<title>BOA: Better Office Accessibility 2.0.0</title>
 </head>
 <body>
-<h1>BOA : Better Office Accessibility (Meilleure Accessibilité Office)</h1>
-<p>BOA est une puissante suite d'améliorations d'accessibilité pour Microsoft Office, conçue pour améliorer considérablement l'expérience du lecteur d'écran pour les utilisateurs de NVDA. Elle corrige directement les composants d'interface utilisateur inaccessibles et introduit des outils de navigation rapide pour Excel et PowerPoint.</p>
+<h1>BOA: Better Office Accessibility</h1>
+<p>BOA est une suite puissante d'améliorations d'accessibilité pour Microsoft Office, conçue pour améliorer considérablement l'expérience des lecteurs d'écran pour les utilisateurs de NVDA. Elle corrige directement les composants d'interface utilisateur inaccessibles et introduit des outils de navigation rapide pour Excel et PowerPoint.</p>
 <hr />
-<h2>⌨️ Référence des raccourcis clavier</h2>
+<h2>⌨️ Hotkey Reference</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Fonctionnalité</th>
-<th style="text-align: left;">Combinaison de touches</th>
-<th style="text-align: left;">Contexte / Notes</th>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Key Combination</th>
+<th style="text-align: left;">Context / Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Entrer en Mode de commande</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code></td>
-<td style="text-align: left;">Active le Mode préfixe de commande (déclenche un bip aigu)</td>
+<td style="text-align: left;"><strong>Entrer en mode commande</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code> (Par défaut : <code>NVDA+E</code>)</td>
+<td style="text-align: left;">Active le mode de préfixe de commande (émet un bip aigu)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Analyser la disposition de la Feuille</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>L</code></td>
-<td style="text-align: left;">À exécuter dans Excel avant de naviguer dans les Blocs de données</td>
+<td style="text-align: left;"><strong>Annuler le mode commande</strong></td>
+<td style="text-align: left;"><code>Escape</code></td>
+<td style="text-align: left;">Quitte le mode de préfixe de commande</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Sauter au Bloc de données le plus proche</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>J</code> /</td>
+<td style="text-align: left;"><strong>AMÉLIORATIONS EXCEL</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyser la disposition de la feuille</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>L</code></td>
+<td style="text-align: left;">À exécuter dans Excel avant de naviguer dans les blocs de données</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Aller au bloc de données le plus proche</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>J</code></td>
 <td style="text-align: left;">Nécessite d'abord une analyse de la disposition</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Ouvrir l'organisateur de Feuille en masse</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>X</code></td>
-<td style="text-align: left;">Ouvre la boîte de dialogue accessible de réorganisation de Feuille</td>
+<td style="text-align: left;"><strong>Ouvrir l'organisateur de feuilles en masse</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>X</code></td>
+<td style="text-align: left;">Ouvre la boîte de dialogue accessible de réorganisation des feuilles</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Déplacer la Feuille active vers la gauche</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
-<td style="text-align: left;">Décale la Feuille active d'une position vers le haut</td>
+<td style="text-align: left;"><strong>Annonceur de formule brute</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>F2</code></td>
+<td style="text-align: left;">Appuyer une fois pour entendre la formule brute</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Déplacer la Feuille active vers la droite</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
-<td style="text-align: left;">Décale la Feuille de calcul active d'une position vers le bas</td>
+<td style="text-align: left;"><strong>Éditeur de formule puissant</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>F2</code> deux fois</td>
+<td style="text-align: left;">Double appui pour ouvrir l'éditeur de formule multiligne accessible</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Déplacer la Feuille au début/à la fin</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
-<td style="text-align: left;">Envoie la Feuille de calcul aux limites absolues</td>
+<td style="text-align: left;"><strong>Tracer les antécédents</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>Shift+P</code></td>
+<td style="text-align: left;">Fonctionnalité de traçage des antécédents de manière accessible.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tracer les dépendants</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>Shift+D</code></td>
+<td style="text-align: left;">Fonctionnalité de traçage des dépendants de manière accessible, appuyer sur Entrée sur une cellule vous y téléporte.</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Mise en forme conditionnelle détaillée</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>F</code></td>
-<td style="text-align: left;">Annonce les détails complets de la mise en forme de la Cellule avec le Focus</td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>F</code></td>
+<td style="text-align: left;">Annonce les détails complets de mise en forme de la cellule active</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Assigner la Cellule à un emplacement mémoire</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>Shift+1</code> à <code>Shift+9</code></td>
-<td style="text-align: left;">Assigne la Cellule actuelle à un emplacement de surveillance en arrière-plan</td>
+<td style="text-align: left;"><strong>Déplacer la feuille active vers la gauche</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
+<td style="text-align: left;">Déplace la feuille active d'une position vers le haut</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Lire l'emplacement de la Cellule surveillée</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>1</code> à <code>9</code></td>
+<td style="text-align: left;"><strong>Déplacer la feuille active vers la droite</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
+<td style="text-align: left;">Déplace la feuille active d'une position vers le bas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Déplacer la feuille au début/à la fin</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
+<td style="text-align: left;">Envoie la feuille de calcul aux limites absolues</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Masquer / Afficher la ligne</strong></td>
+<td style="text-align: left;"><code>Ctrl+9</code> / <code>Ctrl+Shift+9</code></td>
+<td style="text-align: left;">Raccourci natif ; BOA annonce explicitement le changement de visibilité</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Masquer / Afficher la colonne</strong></td>
+<td style="text-align: left;"><code>Ctrl+0</code> / <code>Ctrl+Shift+0</code></td>
+<td style="text-align: left;">Raccourci natif ; BOA annonce explicitement le changement de visibilité</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Afficher la colonne (secours)</strong></td>
+<td style="text-align: left;"><code>NVDA+Ctrl+Shift+0</code></td>
+<td style="text-align: left;">Contourne les conflits de raccourcis clavier de langue de saisie Windows</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Associer une cellule à un emplacement mémoire</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>Shift+1</code> à <code>Shift+9</code></td>
+<td style="text-align: left;">Assigne la cellule active à un emplacement de surveillance en arrière-plan</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lire l'emplacement de cellule surveillée</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>1</code> à <code>9</code></td>
 <td style="text-align: left;">Rappelle et lit la valeur de l'emplacement assigné</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Basculer la surveillance en arrière-plan</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>M</code></td>
-<td style="text-align: left;">Bascule manuellement le suivi des calculs en arrière-plan</td>
+<td style="text-align: left;"><strong>Saut direct vers un emplacement</strong></td>
+<td style="text-align: left;"><code>Alt</code> + <code>1</code> à <code>9</code></td>
+<td style="text-align: left;">Déplace instantanément votre curseur vers un emplacement surveillé</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Retourner à la cellule précédente</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>\</code></td>
+<td style="text-align: left;">Vous téléporte instantanément en arrière après avoir vérifié un emplacement</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Boîte de dialogue du gestionnaire d'emplacements</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>Alt+M</code></td>
+<td style="text-align: left;">Ouvre une boîte de dialogue pour afficher et gérer tous les surveillants actifs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Activer/désactiver la surveillance en arrière-plan</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>M</code></td>
+<td style="text-align: left;">Active ou désactive manuellement le suivi des calculs en arrière-plan</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Effacer tous les emplacements mémoire</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, puis <code>Backspace</code></td>
-<td style="text-align: left;">Purge tous les moniteurs de Cellule enregistrés en arrière-plan</td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>Backspace</code></td>
+<td style="text-align: left;">Purge toutes les cellules surveillées en arrière-plan enregistrées</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Annuler le Mode de commande</strong></td>
-<td style="text-align: left;"><code>Escape</code></td>
-<td style="text-align: left;">Quitte le Mode préfixe de commande</td>
+<td style="text-align: left;"><strong>AMÉLIORATIONS POWERPOINT</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyseur de disposition de diapositive</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>L</code></td>
+<td style="text-align: left;">Analyse et annonce la disposition spatiale de la diapositive actuelle</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyseur de document</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>D</code></td>
+<td style="text-align: left;">Génère une table des matières complète et un rapport d'état</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Organisateur de diapositives en masse</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>X</code></td>
+<td style="text-align: left;">Ouvre la boîte de dialogue accessible pour réorganiser plusieurs diapositives</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AMÉLIORATIONS WORD</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Auditeur de mise en forme</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>F</code></td>
+<td style="text-align: left;">Audite le document actuel pour détecter les incohérences de mise en forme</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyseur de document</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, puis <code>D</code></td>
+<td style="text-align: left;">Analyse la disposition et la structure du document Word actuel</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>🚀 Fonctionnalités</h2>
-<h3>Améliorations Excel</h3>
-<h4>1. Analyseur de disposition de Feuille et Mise en cache</h4>
-<p>Analysez instantanément n'importe quelle Feuille de calcul Excel pour comprendre sa structure, ses éléments masqués et ses Blocs de données.
-* <strong>Comment ça marche :</strong> BOA analyse rapidement la Feuille et annonce les Blocs de données actifs. Il vous avertit également des <strong>Onglets de Feuille masqués</strong>, des <strong>Filtres</strong> actifs, des <strong>Modes protégés</strong> et des <strong>Limites extérieures masquées</strong> (par exemple, si les Colonnes près du bord droit de la Feuille sont masquées, vous évitant de manquer des données hors écran).
-* <strong>Navigation dans les données :</strong> Après l'analyse, vous pouvez utiliser les raccourcis de saut de Bloc de données pour téléporter instantanément votre curseur entre les Blocs de données découverts, contournant ainsi sans effort des milliers de Cellules vides.</p>
-<h4>2. Organisateur de Feuille en masse</h4>
-<p>Réorganisez et arrangez instantanément plusieurs Feuilles à la fois à l'aide d'une boîte de dialogue entièrement accessible.
-* <strong>Comment ça marche :</strong> Ouvre une boîte de dialogue où vous pouvez sélectionner une Feuille et lui attribuer une nouvelle position. Les déplacements planifiés sont répertoriés dans un tableau de données (appuyez sur <code>Del</code> pour supprimer une erreur). Cliquez sur <code>OK</code> et votre Classeur est réorganisé instantanément.</p>
-<h4>3. Déplacement rapide de Feuille</h4>
-<p>Déplacez la Feuille active vers la gauche, la droite, tout au début ou tout à la fin instantanément à l'aide de vos raccourcis clavier.</p>
-<h4>4. Renommage accessible de Feuille</h4>
+<h2>🚀 Features</h2>
+<h3>Excel Enhancements</h3>
+<h4>1. Sheet Layout Analyzer &amp; Caching</h4>
+<p>Scannez instantanément n'importe quelle feuille de calcul Excel pour comprendre sa structure, ses éléments masqués et ses blocs de données.
+* <strong>Comment ça marche :</strong> BOA scanne rapidement la feuille et annonce les blocs de données actifs. Il vous avertit également des <strong>onglets de feuille masqués</strong>, des <strong>filtres</strong> actifs, des <strong>modes protégés</strong> et des <strong>limites externes masquées</strong> (par exemple, si des colonnes proches du bord droit de la feuille sont masquées, vous évitant de manquer des données hors écran).
+* <strong>Navigation dans les données :</strong> Après le scan, vous pouvez utiliser les raccourcis clavier de saut de bloc de données pour déplacer instantanément votre curseur d'un bloc à l'autre, évitant ainsi sans effort des milliers de cellules vides.</p>
+<h4>2. Bulk Sheet Organizer</h4>
+<p>Réorganisez et arrangez instantanément plusieurs feuilles à la fois à l'aide d'une boîte de dialogue entièrement accessible.
+* <strong>Comment ça marche :</strong> Ouvre une boîte de dialogue dans laquelle vous pouvez sélectionner une feuille et l'associer à une nouvelle position. Les déplacements planifiés sont répertoriés dans un tableau de données (appuyez sur <code>Del</code> pour corriger une erreur). Cliquez sur <code>OK</code> et votre classeur est réorganisé instantanément.</p>
+<h4>3. Quick Sheet Mover</h4>
+<p>Déplacez instantanément la feuille active vers la gauche, la droite, tout au début ou tout à la fin à l'aide de vos raccourcis clavier.</p>
+<h4>4. Accessible Sheet Renaming</h4>
 <ul>
-<li>Lors du renommage d'une Feuille, NVDA a nativement du mal à lire les caractères que vous tapez.</li>
-<li>BOA injecte une classe <code>ExcelSheetRenameEdit</code> personnalisée qui utilise le moteur <code>SafeRichEdit</code>, ce qui signifie que vous pouvez lire précisément par caractère, mot ou Ligne pendant le renommage. Cela sert d'amélioration au comportement de renommage par défaut existant.</li>
+<li>Lors du renommage d'une feuille, NVDA a nativement des difficultés à lire les caractères que vous tapez.</li>
+<li>BOA injecte une classe personnalisée <code>ExcelSheetRenameEdit</code> qui utilise le moteur <code>SafeRichEdit</code>, ce qui signifie que vous pouvez lire précisément par caractère, mot ou ligne tout en renommant. Cela sert d'amélioration au comportement de renommage par défaut existant.</li>
 </ul>
-<h4>5. Suivi des Lignes/Colonnes masquées</h4>
+<h4>5. Hidden Row/Column Tracker</h4>
 <ul>
 <li>Suit de manière proactive vos mouvements sur la grille pour vous éviter de manquer des données masquées ou filtrées.</li>
-<li><strong>Cellules fragmentées traversées :</strong> Si vous sautez à travers une section fortement fragmentée ou masquée de la grille (par exemple, en passant de la Ligne 3 à la Ligne 10 car les Lignes 4 à 9 sont masquées), BOA annonce explicitement "Lignes 4 à 9 masquées". Cela garantit que vous savez toujours quand des données ont été ignorées dans la structure.</li>
+<li><strong>Cellules fragmentées traversées :</strong> Si vous sautez à travers une section fortement fragmentée ou masquée de la grille (par exemple, passer de la ligne 3 à la ligne 10 parce que les lignes 4 à 9 sont masquées), BOA annonce explicitement "Rows 4 through 9 hidden". Cela garantit que vous savez toujours quand des données ont été sautées dans la structure.</li>
 </ul>
-<h4>6. Annonceur de mise en forme conditionnelle</h4>
+<h4>6. Conditional Formatting Announcer</h4>
 <ul>
-<li>Lit automatiquement la couleur, le style de police et la nuance d'arrière-plan des Cellules qui ont été modifiées dynamiquement par les règles de Mise en forme conditionnelle d'Excel.</li>
-<li>Vous donne le véritable état visuel de la Cellule plutôt que juste la valeur sous-jacente brute. Initialement, lors de la prise de Focus sur la Cellule, il annonce "a une mise en forme conditionnelle, et quelques autres détails mineurs". Pour des informations complètes, utilisez la configuration détaillée des raccourcis clavier qui est NVDA E puis F.</li>
+<li>Lit automatiquement la couleur, le style de police et la couleur d'arrière-plan des cellules qui ont été modifiées dynamiquement par les règles de mise en forme conditionnelle d'Excel.</li>
+<li>Vous donne le véritable état visuel de la cellule plutôt que la simple valeur brute sous-jacente. Initialement, lors de la mise au point sur la cellule, il annonce "has conditional formatting, and some other minor details" (contient une mise en forme conditionnelle, et d'autres détails mineurs). Pour des informations complètes, utilisez la configuration détaillée des raccourcis clavier qui est NVDA E et F.</li>
 </ul>
-<h4>7. Meilleure annonce de sélection</h4>
-<p>Lit si la Cellule ou la plage est sélectionnée ou désélectionnée.</p>
-<h4>8 Moniteur de Cellule :</h4>
+<h4>7. Better selection announcement</h4>
+<p>lit si la cellule ou la plage est sélectionnée ou désélectionnée.</p>
+<h4>8 Cell monitor:</h4>
 <ul>
-<li><strong>Moniteur de Cellule :</strong> Utilisez les chemins de commande pour assigner des Cellules spécifiques à des emplacements de mémoire. Vous pouvez y revenir et les lire à tout moment en utilisant l'emplacement numérique assigné.</li>
-<li><strong>Surveillance continue :</strong> Les Cellules assignées sont surveillées automatiquement en arrière-plan. Si Excel déclenche un recalcul ou une modification de Cellule, BOA annonce instantanément la nouvelle valeur. Basculez manuellement ou effacez tout via les emplacements de commande.</li>
+<li><strong>Cell Monitor :</strong> Utilisez les chemins de commande pour associer des cellules spécifiques à des emplacements mémoire. Vous pouvez y revenir et les lire à tout moment en utilisant l'emplacement numérique assigné.</li>
+<li><strong>Surveillance continue :</strong> Les cellules associées sont automatiquement surveillées en arrière-plan. Si Excel déclenche un recalcul ou une modification de cellule, BOA annonce instantanément la nouvelle valeur. Activez/désactivez manuellement ou effacez tout via les emplacements de commande.</li>
+<li><strong>Excel : Mises à niveau Cell Monitor Pro :</strong> </li>
+<li><strong>Boîte de dialogue du gestionnaire d'emplacements (<code>NVDA+E</code>, puis <code>Alt+M</code>) :</strong> Ouvre une boîte de dialogue répertoriant toutes vos cellules activement surveillées. Appuyez sur <code>Enter</code> pour accéder instantanément à l'une d'elles.</li>
+<li><strong>Retour rapide (<code>NVDA+E</code>, puis <code>\</code>) :</strong> Vous téléporte instantanément à votre cellule de travail précédente après avoir vérifié un emplacement.</li>
+<li><strong>Saut direct vers un emplacement (<code>Prefix + Alt</code> + <code>Slot Number</code>) :</strong> Contourne le préfixe pour sauter instantanément vers un emplacement de cellule assigné.</li>
 </ul>
-<h3>Améliorations PowerPoint</h3>
-<h4>1. Sélecteurs de couleurs accessibles</h4>
+<h4>9 Power editor</h4>
 <ul>
-<li>Déverrouille la boîte de dialogue Couleur personnalisée dans PowerPoint.</li>
-<li>Identifie et lit explicitement et correctement les zones d'édition "Rouge", "Vert" et "Bleu" (en remplaçant <code>PowerPointRGBEdit</code>).</li>
-<li>Mappe le champ de saisie Hexadécimal précédemment invisible afin que NVDA puisse lire proprement la valeur de couleur Hexadécimale complète.</li>
+<li><strong>Excel : L'éditeur puissant (Éditeur de formules accessible) :</strong> Un changement radical pour modifier des formules volumineuses.</li>
+<li><strong>Simple appui sur <code>NVDA+E</code>, puis <code>F2</code> :</strong> Annonce instantanément la chaîne de formule brute de la cellule active (ou annonce "No formula" - Pas de formule).</li>
+<li><strong>Double appui sur <code>NVDA+E</code>, puis <code>F2</code> :</strong> Ouvre un éditeur multiligne entièrement accessible pour modifier en toute sécurité des formules imbriquées et massives. La touche <code>Enter</code> native ajoute des sauts de ligne pour une lecture facile, et <code>Ctrl+Enter</code> enregistre les modifications dans Excel.</li>
+<li><em>Contrôles de sécurité :</em> Intercepte en toute sécurité les erreurs de syntaxe avant qu'elles ne corrompent votre feuille, et détecte les erreurs post-calcul (comme <code>#NAME?</code> ou <code>#DIV/0!</code>) pour vous avertir instantanément si une formule est erronée.</li>
 </ul>
-<h4>2. Prise en charge de la grille de couleurs standard</h4>
+<h4>10 Formula auditing and evaluation enhancements:</h4>
 <ul>
-<li>Naviguer dans la grille hexagonale de couleurs "Standard" de PowerPoint est normalement lu comme "Graphique" ou du silence.</li>
-<li>BOA suit vos touches fléchées à travers l'hexagone et récupère silencieusement la valeur de couleur masquée, en vous l'annonçant en temps réel (par exemple, "Couleur #FF0000").</li>
+<li><strong>Excel : Audit et évaluation des formules :</strong> Ajout de raccourcis personnalisés (<code>NVDA+E</code>, puis <code>Shift+P</code> et <code>NVDA+E</code>, puis <code>Shift+D</code>) pour tracer de manière fiable les antécédents et les dépendants. De plus, la boîte de dialogue native d'Excel « Évaluer la formule » est désormais entièrement accessible ; NVDA lit automatiquement les résultats évalués à chaque étape du calcul !</li>
 </ul>
-<h3>Infrastructure et Mécanismes techniques</h3>
-<h4>Le Mode préfixe de commande</h4>
-<p>Pour éviter les conflits de frappe avec d'autres plugins NVDA, BOA utilise un <strong>Mode préfixe de commande</strong> :
-1. Appuyez sur le raccourci d'activation pour entrer en Mode de commande. Vous entendrez un bip aigu.
+<h3>PowerPoint Enhancements</h3>
+<h4>1. Accessible Color Pickers</h4>
+<ul>
+<li>Déverrouille la boîte de dialogue de couleur personnalisée dans PowerPoint.</li>
+<li>Identifie et lit explicitement et correctement les zones d'édition "Red", "Green" et "Blue" (en remplaçant <code>PowerPointRGBEdit</code>).</li>
+<li>Associe le champ de saisie Hex (hexadécimal) auparavant invisible afin que NVDA puisse lire proprement la valeur de couleur hexadécimale complète.</li>
+</ul>
+<h4>2. Standard Color Grid Support</h4>
+<ul>
+<li>La navigation dans la grille hexagonale de couleurs « Standard » de PowerPoint lit normalement « Graphique » ou reste silencieuse.</li>
+<li>BOA suit vos touches fléchées à travers l'hexagone et récupère silencieusement la valeur de couleur masquée, vous l'annonçant en temps réel (par ex., "Color #FF0000").</li>
+</ul>
+<h4>3 Bulk Slide Organizer:</h4>
+<ul>
+<li><strong>PowerPoint : Organisateur de diapositives en masse (Expérimental) (<code>NVDA+E</code>, puis <code>X</code>) :</strong> Semblable à la fonctionnalité Excel, vous pouvez désormais réordonner, déplacer et organiser instantanément plusieurs diapositives PowerPoint à la fois à l'aide d'une boîte de dialogue entièrement accessible.</li>
+</ul>
+<h4>4 Slide lay out analyzer</h4>
+<ul>
+<li><strong>PowerPoint : Analyseur de disposition de diapositive (Expérimental) (<code>NVDA+E</code>, puis <code>L</code>) :</strong> Scanne instantanément votre diapositive actuellement active pour comprendre sa disposition spatiale et ses contraintes d'accessibilité, garantissant une expérience de lecture d'écran fluide et réactive. C'est-à-dire que vous obtiendrez ici des détails sur la diapositive actuelle similaires à l'analyseur de disposition de feuille d'Excel.</li>
+</ul>
+<h4>5 Complete Document [PPT] analyzer</h4>
+<ul>
+<li><strong>PowerPoint : Analyseur de document complet (Expérimental) (<code>NVDA+E</code>, puis <code>D</code>) :</strong> Un outil d'accessibilité très avancé, traité en arrière-plan, qui cartographie l'intégralité d'une présentation sans figer le moteur de parole de NVDA. Il fournit une table des matières virtuelle hautement navigable, détecte les discordances dans l'ordre de lecture (ordre visuel vs ordre Z), signale les diapositives de type « pavé de texte » (Wall of Text) et cartographie les objets complexes comme SmartArt et les tableaux de données.</li>
+</ul>
+<h4>6 shape movement [adjustment] enhancements:</h4>
+<ul>
+<li><strong>PowerPoint : Mode audio de déplacement de forme (Expérimental) :</strong> Introduit des repères audio spatiaux 3D sur le canevas de PowerPoint. Fournit un retour sonore indiquant la direction et les limites d'un objet au fur et à mesure que vous le déplacez, améliorant considérablement la conscience spatiale.</li>
+</ul>
+<h3>Word Enhancements:</h3>
+<h4>1. Document Analyzer inspired and derived from Paul's word access addon:</h4>
+<ul>
+<li><strong>Word : Analyseur de document (<code>NVDA+E</code>, puis <code>D</code>) :</strong> Affichez instantanément un aperçu structurel de votre document Word. <em>(Une note spéciale de crédit et de remerciements à Paul : cette fonctionnalité a été directement inspirée par son brillant module complémentaire « Word Access ». Nous lui sommes profondément reconnaissants pour son travail fondateur dans ce domaine !)</em></li>
+</ul>
+<h4>2 Formatting Auditor</h4>
+<ul>
+<li><strong>Word : Auditeur de mise en forme (<code>NVDA+E</code>, puis <code>F</code>) :</strong> Analyse votre document Word pour détecter les incohérences de mise en forme afin de garantir le respect des normes visuelles.</li>
+</ul>
+<h4>3 Foot note reader:</h4>
+<ul>
+<li><strong>Word : Annonceur automatique de notes de bas de page :</strong> Les notes de bas de page seront désormais annoncées automatiquement au fil de la lecture, en fonction de vos paramètres BOA personnalisés. <em>(Note : La prise en charge des notes de fin et des commentaires est prévue pour une version ultérieure).</em></li>
+</ul>
+<h3>Infrastructure &amp; Technical Mechanisms</h3>
+<h4>The Command Prefix Mode</h4>
+<p>Pour éviter les conflits de raccourcis clavier avec d'autres extensions NVDA, BOA utilise un <strong>mode de préfixe de commande</strong> :
+1. Appuyez sur le raccourci d'activation pour entrer en mode commande. Vous entendrez un bip aigu. Par défaut, il s'agit de NVDA plus E.
 2. Appuyez sur une touche secondaire pour déclencher une fonctionnalité spécifique.
-3. Si vous appuyez sur une touche non valide, vous entendrez un bip d'erreur.</p>
-<h4>Personnalisation et Panneau de paramètres</h4>
+3. Si vous appuyez sur une touche invalide, vous entendrez un bip d'erreur.</p>
+<h4>Customization &amp; Settings Panel</h4>
 <ul>
-<li>Les fonctionnalités de BOA sont entièrement modulaires et peuvent être activées ou désactivées à tout moment. Allez dans <code>Menu NVDA -&gt; Préférences -&gt; Paramètres -&gt; Améliorations Office BOA</code> pour activer ou désactiver les fonctionnalités individuelles.</li>
-<li><strong>Touches d'accélération intelligentes :</strong> Chaque paramètre possède un raccourci d'accélérateur <code>Alt+Touche</code> mathématiquement unique dans le panneau. Par exemple, appuyez sur <code>Alt+E</code> pour sauter instantanément au groupe Excel, <code>Alt+P</code> pour PowerPoint et <code>Alt+W</code> pour Word.</li>
-<li>Les paramètres sont enregistrés de manière sécurisée dans un fichier JSON autonome (<code>boa_settings.json</code>), garantissant que votre configuration NVDA principale n'est jamais corrompue.</li>
-<li>Si Microsoft Office corrige officiellement un bogue d'accessibilité à l'avenir, vous pouvez désactiver en toute sécurité le crochet de remplacement spécifique de BOA sans perdre le reste des fonctionnalités du Module complémentaire.</li>
+<li>Les fonctionnalités de BOA sont entièrement modulaires et peuvent être activées ou désactivées à tout moment. Allez dans <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> pour activer ou désactiver des fonctionnalités individuelles.</li>
+<li><strong>Touches de raccourci intelligentes :</strong> Chaque paramètre dispose d'un raccourci d'accélérateur <code>Alt+Touche</code> mathématiquement unique dans le panneau. Par exemple, appuyez sur <code>Alt+E</code> pour accéder instantanément au groupe Excel, <code>Alt+P</code> pour PowerPoint et <code>Alt+W</code> pour Word.</li>
+<li>Les paramètres sont enregistrés en toute sécurité dans un fichier JSON autonome (<code>boa_settings.json</code>), garantissant que votre configuration principale de NVDA n'est jamais corrompue.</li>
+<li>Si Microsoft Office corrige officiellement un bogue d'accessibilité à l'avenir, vous pouvez désactiver en toute sécurité le crochet de contournement spécifique de BOA sans perdre le reste des fonctionnalités du module complémentaire.</li>
+<li><strong>Personnalisation des raccourcis de saisie :</strong> Toutes les fonctionnalités de toutes les applications Office ont été explicitement exposées dans la boîte de dialogue native des raccourcis de saisie de NVDA, vous offrant une liberté totale pour personnaliser chaque raccourci clavier.</li>
 </ul>
-<h4>Sécurité et Limites d'intégration</h4>
+<h4>Security &amp; Integration Boundaries</h4>
 <ul>
-<li>Les injections dans le presse-papiers vérifient strictement les identifiants de processus de premier plan de la fenêtre pour éviter la fuite de données vers d'autres applications.</li>
-<li>Certains raccourcis clavier personnalisés sont entièrement exposés dans la boîte de dialogue Gestes de commande de NVDA sous la catégorie "Better Office Accessibility".</li>
+<li>Les injections de presse-papiers vérifient strictement les ID de processus au premier plan des fenêtres pour empêcher la fuite de données vers d'autres applications.</li>
+<li>Certains raccourcis personnalisés sont entièrement exposés dans la boîte de dialogue Raccourcis de saisie de NVDA sous la catégorie « Better Office Accessibility ».</li>
 </ul>
 <hr />
-<h2>📋 Prérequis</h2>
+<h2>📋 Requirements</h2>
 <ul>
 <li><strong>NVDA :</strong> Version 2026.1.0 ou ultérieure.</li>
-<li><strong>Applications :</strong> Microsoft Excel et Microsoft PowerPoint.</li>
+<li><strong>Applications :</strong> Microsoft Excel &amp; Microsoft PowerPoint.</li>
 </ul>
 <hr />
 <h2>💾 Installation</h2>
 <ol>
-<li>Téléchargez le dernier fichier de version <code>.nvda-addon</code>, ou trouvez-le dans la boutique native des modules complémentaires de NVDA.</li>
-<li>Si vous installez à partir d'un fichier, ouvrez le fichier ou utilisez <code>Boutique des modules complémentaires de NVDA -&gt; Installer à partir d'un fichier externe</code>.</li>
+<li>Téléchargez le dernier fichier de version <code>.nvda-addon</code>, ou recherchez-le dans la boutique d'extensions NVDA native.</li>
+<li>Si vous installez depuis un fichier, ouvrez le fichier ou utilisez <code>Boutique d'extensions NVDA -&gt; Installer depuis un fichier externe</code>.</li>
 <li>Redémarrez NVDA.</li>
 </ol>
 <hr />
-<h2>🛠️ Journal des modifications</h2>
-<h3>Nouveautés de la v1.6.1</h3>
+<h2>🛠️ Changelog</h2>
+<h3>Version 2.0.0</h3>
+<h4>Nouvelles fonctionnalités</h4>
 <ul>
-<li><strong>Localisation approfondie</strong> : Correction des traductions manquantes au cœur des modules d'amélioration d'Excel (tels que l'Analyseur de disposition de feuille et le Déplaceur rapide de feuille) pour garantir une couverture de localisation à 100 %.</li>
-<li><strong>Support de traduction élargi</strong> : Ajout de 7 nouvelles langues au système (Turc, Polonais, Coréen, Ukrainien, Tchèque, Ourdou et Pendjabi).
-  <em>(Note : Ces traductions ont été générées par une IA, de légères erreurs de traduction ou imprécisions peuvent donc être présentes.)</em></li>
+<li><strong>PowerPoint : Analyseur de document complet (Expérimental) (<code>NVDA+E</code>, puis <code>D</code>) :</strong> Un outil d'accessibilité très avancé, traité en arrière-plan, qui cartographie l'intégralité d'une présentation sans figer le moteur de parole de NVDA. Il fournit une table des matières virtuelle hautement navigable, détecte les discordances dans l'ordre de lecture (ordre visuel vs ordre Z), signale les diapositives de type « pavé de texte » (Wall of Text) et cartographie les objets complexes comme SmartArt et les tableaux de données.</li>
+<li><strong>PowerPoint : Analyseur de disposition de diapositive (Expérimental) (<code>NVDA+E</code>, puis <code>L</code>) :</strong> Scanne instantanément votre diapositive actuellement active pour comprendre sa disposition spatiale et ses contraintes d'accessibilité, garantissant une expérience de lecture d'écran fluide et réactive. C'est-à-dire que vous obtiendrez ici des détails sur la diapositive actuelle similaires à l'analyseur de disposition de feuille d'Excel.</li>
+<li><strong>PowerPoint : Organisateur de diapositives en masse (Expérimental) (<code>NVDA+E</code>, puis <code>X</code>) :</strong> Semblable à la fonctionnalité Excel, vous pouvez désormais réordonner, déplacer et organiser instantanément plusieurs diapositives PowerPoint à la fois à l'aide d'une boîte de dialogue entièrement accessible.</li>
+<li><strong>PowerPoint : Mode audio de déplacement de forme (Expérimental) :</strong> Introduit des repères audio spatiaux 3D sur le canevas de PowerPoint. Fournit un retour sonore indiquant la direction et les limites d'un objet au fur et à mesure que vous le déplacez, améliorant considérablement la conscience spatiale. Comme mentionné, ceci est expérimental, nous attendons vos retours pour l'améliorer.</li>
+<li><strong>Word : Auditeur de mise en forme (<code>NVDA+E</code>, puis <code>F</code>) :</strong> Analyse votre document Word pour détecter les incohérences de mise en forme afin de garantir le respect des normes visuelles.</li>
+<li><strong>Word : Analyseur de document (<code>NVDA+E</code>, puis <code>D</code>) :</strong> Affichez instantanément un aperçu structurel de votre document Word. <em>(Une note spéciale de crédit et de remerciements à Paul : cette fonctionnalité a été directement inspirée par son brillant module complémentaire « Word Access ». Nous lui sommes profondément reconnaissants pour son travail fondateur dans ce domaine !)</em></li>
+<li><strong>Word : Annonceur automatique de notes de bas de page :</strong> Les notes de bas de page seront désormais annoncées automatiquement au fil de la lecture, en fonction de vos paramètres BOA personnalisés. <em>(Note : La prise en charge des notes de fin et des commentaires est prévue pour une version ultérieure).</em></li>
+<li><strong>Excel : L'éditeur puissant (Éditeur de formules accessible) :</strong> Un changement radical pour modifier des formules volumineuses.</li>
+<li><strong>Simple appui sur <code>NVDA+E</code>, puis <code>F2</code> :</strong> Annonce instantanément la chaîne de formule brute de la cellule active (ou annonce "No formula" - Pas de formule).</li>
+<li><strong>Double appui sur <code>NVDA+E</code>, puis <code>F2</code> :</strong> Ouvre un éditeur multiligne entièrement accessible pour modifier en toute sécurité des formules imbriquées et massives. La touche <code>Enter</code> native ajoute des sauts de ligne pour une lecture facile, et <code>Ctrl+Enter</code> enregistre les modifications dans Excel.</li>
+<li><em>Contrôles de sécurité :</em> Intercepte en toute sécurité les erreurs de syntaxe avant qu'elles ne corrompent votre feuille, et détecte les erreurs post-calcul (comme <code>#NAME?</code> ou <code>#DIV/0!</code>) pour vous avertir instantanément si une formule est erronée.</li>
+<li><strong>Excel : Audit et évaluation des formules :</strong> Ajout de raccourcis personnalisés (<code>NVDA+E</code>, puis <code>Shift+P</code> et <code>NVDA+E</code>, puis <code>Shift+D</code>) pour tracer de manière fiable les antécédents et les dépendants. De plus, la boîte de dialogue native d'Excel « Évaluer la formule » est désormais entièrement accessible ; NVDA lit automatiquement les résultats évalués à chaque étape du calcul !</li>
+<li><strong>Excel : Mises à niveau Cell Monitor Pro :</strong> </li>
+<li><strong>Boîte de dialogue du gestionnaire d'emplacements (<code>NVDA+E</code>, puis <code>Alt+M</code>) :</strong> Ouvre une boîte de dialogue répertoriant toutes vos cellules activement surveillées. Appuyez sur <code>Enter</code> pour accéder instantanément à l'une d'elles.</li>
+<li><strong>Retour rapide (<code>NVDA+E</code>, puis <code>\</code>) :</strong> Vous téléporte instantanément à votre cellule de travail précédente après avoir vérifié un emplacement.</li>
+<li><strong>Saut direct vers un emplacement (<code>Alt</code> + <code>Slot Number</code>) :</strong> Contourne complètement le préfixe et saute instantanément vers un emplacement de cellule assigné.</li>
+<li><strong>Personnalisation des raccourcis de saisie :</strong> Toutes les fonctionnalités de toutes les applications Office ont été explicitement exposées dans la boîte de dialogue native des raccourcis de saisie de NVDA, vous offrant une liberté totale pour personnaliser chaque raccourci clavier.</li>
+</ul>
+<h4>Améliorations de l'expérience utilisateur et de l'interface graphique</h4>
+<ul>
+<li><strong>Rapports navigables unifiés :</strong> Nous avons adopté un système de rapports HTML unifié dans l'ensemble de l'extension. Les fonctionnalités telles que l'annonceur de mise en forme conditionnelle d'Excel, les analyseurs de disposition et les analyseurs de documents ne se contentent plus de lire de gros blocs de texte ; leurs résultats s'ouvrent désormais dans une fenêtre HTML native et navigable, vous permettant d'examiner les données à votre propre rythme.</li>
+<li><strong>Excel : Suivi amélioré des dépendants/antécédents :</strong> Amélioration considérable de la sortie vocale pour les raccourcis de traçage de formules natifs d'Excel (<code>Ctrl+[</code> pour les antécédents directs et <code>Ctrl+]</code> pour les dépendants directs). NVDA annonce désormais explicitement exactement quelles cellules ont été sélectionnées.</li>
+<li><strong>Excel : Prise en charge des cellules fusionnées :</strong> Les cellules fusionnées sont désormais correctement détectées et explicitement annoncées par le suivi de cellule avec saut d'espaces.</li>
+</ul>
+<h4>Corrections de bogues</h4>
+<ul>
+<li><strong>Word : Double lecture des éléments de liste :</strong> Implémentation d'un correctif temporaire pour résoudre le bogue où NVDA lit deux fois les éléments de liste de paragraphes dans certaines vues Word.</li>
+<li><strong>Excel : Bogue de localisation du surveillant de cellule :</strong> Résolution des bogues de suivi sous-jacents causés par les récentes mises à jour de localisation des traductions.</li>
+</ul>
+<h3>Quoi de neuf dans la v1.6.1</h3>
+<ul>
+<li><strong>Localisation approfondie des fichiers :</strong> Correction des traductions de chaînes manquantes au sein des modules d'amélioration Excel (tels que l'analyseur de disposition de feuille et le déplacement rapide de feuille) pour garantir une couverture de localisation de 100 %.</li>
+<li><strong>Prise en charge étendue des traductions :</strong> Ajout de 7 nouvelles langues au système (turc, polonais, coréen, ukrainien, tchèque, ourdou et pendjabi). 
+  <em>(Note : Ces traductions ont été générées par IA, de sorte que de légères erreurs ou inexactitudes de traduction peuvent être présentes.)</em></li>
 </ul>
 <h3>v1.6.0</h3>
 <ul>
-<li><strong>Prise en charge complète de la traduction</strong> : Le Module complémentaire est désormais entièrement localisé avec la prise en charge de 17 langues mondiales. 
-  <em>(Remarque : Ces traductions ont été générées par l'IA, de sorte que des erreurs de traduction mineures ou des inexactitudes peuvent être présentes.)</em></li>
-<li><strong>Gouvernance stricte du code</strong> : Application des en-têtes de droits d'auteur GPL-2.0 sur l'ensemble du code source.</li>
+<li><strong>Prise en charge complète des traductions :</strong> Le module complémentaire est désormais entièrement localisé avec la prise en charge de 17 langues mondiales. 
+  <em>(Note : Ces traductions ont été générées par IA, de sorte que de légères erreurs ou inexactitudes de traduction peuvent être présentes.)</em></li>
+<li><strong>Strict Code Governance</strong> : Application des en-têtes de droit d'auteur GPL-2.0 dans l'ensemble de la base de code.""",</li>
 </ul>
 <h3>Version 1.5.0</h3>
 <h4>Nouvelles fonctionnalités</h4>
-<h5>Radar de fin de données</h5>
-<p>Lors de la navigation dans de grandes Feuilles de calcul, il peut être difficile de savoir si une Cellule vide signifie que vous avez atteint la fin d'une liste, ou s'il y a simplement une lacune dans les données. Le <strong>Radar de fin de données</strong> agit comme une vérification intelligente du périmètre pour vous éviter de parcourir l'espace vide à l'aveugle.
-Chaque fois que vous naviguez vers une Cellule vide, BOA analyse instantanément les Cellules restantes dans votre direction de déplacement. S'il n'y a absolument aucune donnée restante, il annoncera de manière proactive :
+<h5>Radar de fin de données (End of Data Radar)</h5>
+<p>Lors de la navigation dans de grandes feuilles de calcul, il peut être difficile de savoir si une cellule vide signifie que vous avez atteint la fin d'une liste, ou s'il s'agit simplement d'un espace vide dans les données. Le <strong>Radar de fin de données</strong> agit comme un contrôle de périmètre intelligent pour vous éviter de naviguer à l'aveugle à l'aide des flèches dans un espace vide.
+Chaque fois que vous naviguez dans une cellule vide, BOA scanne instantanément les cellules restantes dans votre direction de déplacement. S'il ne reste absolument aucune donnée, il l'annoncera de manière proactive :
 * <em>"Plus de données en dessous"</em>
 * <em>"Plus de données au-dessus"</em>
 * <em>"Plus de données à droite"</em>
 * <em>"Plus de données à gauche"</em>
 <strong>Options de configuration :</strong>
-Vous pouvez configurer cette fonctionnalité via <code>Préférences NVDA -&gt; Paramètres -&gt; Améliorations Office BOA</code>. Parce que les Feuilles de calcul peuvent contenir des complexités masquées (comme des formules invisibles ou des Lignes réduites), le radar propose trois modes de fonctionnement :
+Vous pouvez configurer cette fonctionnalité via <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code>. Comme les feuilles de calcul peuvent contenir des complexités masquées (comme des formules invisibles ou des lignes réduites), le radar propose trois modes de fonctionnement :
 1. <strong>Désactivé</strong> : Désactive entièrement le radar.
-2. <strong>Vérification stricte de la mémoire (Nbval) [Par défaut]</strong> : L'approche la plus sûre et la plus rapide. Elle vérifie la mémoire brute de la Feuille de calcul. Si elle détecte <em>quoi que ce soit</em> en dessous de vous (y compris des Lignes masquées, du texte, des nombres ou des formules invisibles), elle reste complètement silencieuse pour éviter les fausses alarmes. Elle n'annonce "Plus de données" que lorsque le reste de la Feuille est 100 % mathématiquement vide.
-3. <strong>Données visibles uniquement (Moteur mathématique)</strong> : Un moteur très avancé conçu pour les Feuilles complexes. Il filtre intelligemment les Lignes masquées et les formules invisibles (par exemple, <code>=""</code>). Il ne restera silencieux que s'il reste de vrais nombres ou du texte visible sur votre chemin.</p>
+2. <strong>Contrôle strict de la mémoire (CountA) [Par défaut]</strong> : L'approche la plus sûre et la plus rapide. Elle vérifie la mémoire brute de la feuille de calcul. Si elle détecte <em>quoi que ce soit</em> en dessous de vous (y compris des lignes masquées, du texte, des chiffres ou des formules invisibles), elle reste complètement silencieuse pour éviter les fausses alertes. Elle annonce seulement "No more data" (Plus de données) lorsque le reste de la feuille est à 100 % mathématiquement vide.
+3. <strong>Données visibles uniquement (moteur mathématique)</strong> : Un moteur très avancé conçu pour les feuilles complexes. Il filtre intelligemment les lignes masquées et les formules invisibles (par exemple, <code>=""</code>). Il ne restera silencieux que s'il reste des chiffres ou du texte visibles sur votre chemin.</p>
 <h3>Version 1.4 - 2026-06-12</h3>
 <h4>Nouvelles fonctionnalités</h4>
 <ul>
-<li><strong>Moniteur de Cellule :</strong> Utilisez les chemins de commande pour assigner des Cellules spécifiques à des emplacements de mémoire. Vous pouvez y revenir et les lire à tout moment en utilisant l'emplacement numérique assigné.</li>
-<li><strong>Surveillance continue :</strong> Les Cellules assignées sont surveillées automatiquement en arrière-plan. Si Excel déclenche un recalcul ou une modification de Cellule, BOA annonce instantanément la nouvelle valeur. Basculez manuellement ou effacez tout via les emplacements de commande.</li>
+<li><strong>Cell Monitor :</strong> Utilisez les chemins de commande pour associer des cellules spécifiques à des emplacements mémoire. Vous pouvez y revenir et les lire à tout moment en utilisant l'emplacement numérique assigné.</li>
+<li><strong>Surveillance continue :</strong> Les cellules associées sont automatiquement surveillées en arrière-plan. Si Excel déclenche un recalcul ou une modification de cellule, BOA annonce instantanément la nouvelle valeur. Activez/désactivez manuellement ou effacez tout via les emplacements de commande.</li>
 </ul>
-<h4>Corrections de bogues</h4>
+<h4>Bug Fixes</h4>
 <h3>Version 1.3.0 — 2026-06-05</h3>
 <p><em>Version finale.</em></p>
 <h4>Nouvelles fonctionnalités</h4>
 <ul>
-<li><strong>Analyseur de disposition de Feuille :</strong> Ajout d'une puissante infrastructure d'analyse de disposition. Détecte instantanément la Protection de la Feuille de calcul, les Filtres de Colonne actifs, les Onglets de Feuille masqués et les bordures absolues masquées tout en mettant en cache les Blocs de données découverts.</li>
-<li><strong>Navigation guidée dans les Blocs de données :</strong> La navigation post-analyse permet des sauts de curseur immédiats entre les principaux groupes de données, en contournant les Cellules vides de manière transparente.</li>
-<li><strong>Annonceur de mise en forme conditionnelle :</strong> Détecte et lit automatiquement la couleur dynamique, le style de police et la nuance d'arrière-plan des Cellules modifiées par les règles de Mise en forme conditionnelle d'Excel.</li>
-<li><strong>Accélérateurs de paramètres explicites :</strong> Refonte complète de l'interface graphique des paramètres BOA pour se conformer strictement à l'architecture NVDA. Chaque case à cocher de fonctionnalité possède désormais un raccourci <code>Alt+Lettre</code> globalement unique, empêchant le cycle du clavier et éliminant les échecs de navigation de la première lettre.</li>
+<li><strong>Analyseur de disposition de feuille :</strong> Ajout d'une puissante infrastructure d'analyse de disposition. Détecte instantanément la protection des feuilles de calcul, les filtres de colonnes actifs, les onglets de feuilles masqués et les bordures absolues masquées tout en mettant en cache les blocs de données découverts.</li>
+<li><strong>Navigation guidée dans les blocs de données :</strong> La navigation post-analyse permet de déplacer immédiatement le curseur entre les principaux groupes de données, en contournant de manière transparente les cellules vides.</li>
+<li><strong>Annonceur de mise en forme conditionnelle :</strong> Détecte et lit automatiquement la couleur dynamique, le style de police et la couleur d'arrière-plan des cellules modifiées par les règles de mise en forme conditionnelle d'Excel.</li>
+<li><strong>Accélérateurs de paramètres explicites :</strong> Refonte complète de l'interface graphique des paramètres BOA pour se conformer strictement à l'architecture de NVDA. Chaque case à cocher de fonctionnalité possède désormais un raccourci <code>Alt+Lettre</code> unique au niveau mondial, empêchant le défilement clavier et éliminant les échecs de navigation par première lettre.</li>
 </ul>
 <h4>Corrections de bogues</h4>
 <ul>
-<li><strong>Détection des limites des bords absolus :</strong> Remplacement des vérifications de bord <code>UsedRange</code> natives de COM par des vérifications de limites mathématiques 1D absolues (<code>Ligne 1048576</code> et <code>Colonne 16384</code>) pour garantir la détection des Lignes/Colonnes masquées même si elles se trouvent loin en dehors du Bloc de données actif.</li>
-<li><strong>Sauvegardes sécurisées des propriétés COM paresseuses :</strong> Renforcement des boucles de propriétés COM pour éviter les blocages de threads NVDA lors de l'évaluation de millions de structures masquées contiguës.</li>
+<li><strong>Détection absolue des limites extérieures :</strong> Remplacement des vérifications de limites natives COM <code>UsedRange</code> par des vérifications de limites mathématiques 1D absolues (<code>Row 1048576</code> et <code>Column 16384</code>) pour garantir la détection des lignes/colonnes masquées même si elles se situent bien en dehors du bloc de données actif.</li>
+<li><strong>Sorties sécurisées pour les propriétés COM à chargement différé :</strong> Renforcement des boucles de propriétés COM pour éviter les blocages de thread NVDA lors de l'évaluation de millions de structures masquées contiguës.</li>
 </ul>
 <h3>Version 1.2.0 — 2026-06-03</h3>
 <p><em>Version finale.</em></p>
 <h4>Nouvelles fonctionnalités</h4>
 <ul>
-<li><strong>Mise en cache au lancement de l'application :</strong> Refonte architecturale majeure. Les modules de base sont désormais chargés de manière asynchrone exactement lorsque vous vous concentrez sur les applications Office, éliminant ainsi le décalage de démarrage, résolvant complètement le problème de Focus de l'objet "inconnu" sur les boîtes de dialogue de renommage et préservant la structure du code multi-fichiers.</li>
-<li><strong>Suivi amélioré des Cellules (Mathématiques COM 1D) :</strong> Réécriture de la logique de détection des espaces de Cellules masquées pour évaluer uniquement les sections transversales unidimensionnelles (<code>current_col</code> ou <code>current_row</code>). Cela réduit la charge de calcul COM de plus de 16 millions de Cellules, éliminant instantanément les blocages de navigation lors du saut de plages masquées.</li>
-<li><strong>Nettoyage de la mémoire de processus :</strong> Implémentation du suivi des descripteurs de fenêtre Excel (<code>Hwnd</code>) pour détecter lorsque l'utilisateur ferme et rouvre Excel. Cela efface activement la mémoire d'état global obsolète et résout complètement la fausse annonce "Feuille masquée" lors de l'ouverture d'un nouveau "Classeur1".</li>
+<li><strong>Mise en cache au lancement de l'application :</strong> Refonte architecturale majeure. Les modules de base sont désormais chargés à la demande (lazy-loaded) exactement lorsque vous mettez au point sur les applications Office, éliminant le délai de démarrage, résolvant complètement le problème de mise au point d'objet « inconnu » sur les boîtes de dialogue de renommage, et préservant la structure du code multi-fichiers.</li>
+<li><strong>Suivi de cellule amélioré (calculs mathématiques COM 1D) :</strong> Réécriture de la logique de détection des espaces de cellules masquées pour évaluer uniquement les coupes unidimensionnelles (<code>current_col</code> or <code>current_row</code>). Cela réduit la charge de calcul COM de plus de 16 millions de cellules, éliminant instantanément les blocages de navigation lors des sauts de plages masquées.</li>
+<li><strong>Nettoyage de la mémoire du processus :</strong> Implémentation du suivi de la poignée de fenêtre Excel (<code>Hwnd</code>) pour détecter quand l'utilisateur ferme et rouvre Excel. Cela efface activement la mémoire globale d'état obsolète et résout complètement la fausse annonce « Feuille masquée » lors de l'ouverture d'un nouveau classeur « Classeur1 ».</li>
 </ul>
 <h4>Corrections de bogues</h4>
 <ul>
-<li><strong>Double annonce de sélection :</strong> Migration de l'imprévisible et asynchrone <code>winUser.getKeyState</code> vers l'implémentation de <code>api.getLastInputGesture()</code> pour supprimer parfaitement les doubles annonces lors de l'utilisation des touches Maj+Flèche.</li>
-<li><strong>Désactivation du détecteur de limites :</strong> Le détecteur proactif de limites a été désactivé pour protéger la stabilité de la navigation native de NVDA, s'appuyant entièrement sur le système de suivi de saut d'espace.</li>
+<li><strong>Annonce de double sélection :</strong> Abandon de l'utilisation peu fiable d'asynchrones <code>winUser.getKeyState</code> et implémentation de <code>api.getLastInputGesture()</code> pour supprimer parfaitement les doubles annonces lors de l'utilisation des touches Shift+Flèches.</li>
+<li><strong>Désactivation du détecteur de limites :</strong> Le détecteur de limites proactif a été désactivé pour protéger la stabilité de la navigation native de NVDA, se rabattant entièrement sur le suivi avec saut d'espaces.</li>
 </ul>
 <h3>Version 1.1.0 — 2026-05-30</h3>
 <p><em>Version finale.</em></p>
 <h4>Nouvelles fonctionnalités</h4>
 <ul>
-<li><strong>Interface graphique de paramètres :</strong> Ajout d'un panneau natif Améliorations Office BOA dans <code>NVDA -&gt; Préférences -&gt; Paramètres</code> pour activer ou désactiver facilement les fonctionnalités.</li>
+<li><strong>Interface graphique des paramètres :</strong> Ajout d'un panneau BOA Office Enhancements natif dans <code>NVDA -&gt; Préférences -&gt; Paramètres</code> pour activer ou désactiver facilement les fonctionnalités.</li>
 <li><strong>Crochet SafeRichEdit :</strong> Empêche les plantages silencieux de NVDA lors de l'interaction avec les contrôles RichEdit dans Office 2024.</li>
-<li><strong>Raccourcis clavier personnalisables :</strong> Tous les raccourcis clavier de BOA sont désormais entièrement exposés dans la boîte de dialogue Gestes de commande de NVDA sous la catégorie "Better Office Accessibility".</li>
-<li><strong>Excel : Détection de saut de Ligne/Colonne masquée :</strong> Annonce de manière proactive la navigation au-delà de Lignes ou de Colonnes masquées, garantissant que vous ne manquez jamais les données filtrées. Peut être désactivé dans les paramètres.</li>
+<li><strong>Raccourcis personnalisables :</strong> Tous les raccourcis BOA sont désormais entièrement exposés dans la boîte de dialogue Raccourcis de saisie de NVDA sous la catégorie « Better Office Accessibility ».</li>
+<li><strong>Excel : Détection de saut de lignes/colonnes masquées :</strong> Annonce de manière proactive lorsque vous passez des lignes ou colonnes masquées, garantissant que vous ne manquez jamais de données filtrées. Peut être activé/désactivé dans les paramètres.</li>
 </ul>
 <h4>Corrections de bogues</h4>
 <ul>
-<li><strong>Sécurité des threads :</strong> Suppression de tous les délais de blocage (<code>time.sleep</code>) et remplacement par des rappels asynchrones non bloquants NVDA pour garantir que le lecteur d'écran ne bégaie jamais pendant les opérations en arrière-plan.</li>
+<li><strong>Sécurité des threads :</strong> Suppression de tous les délais bloquants (<code>time.sleep</code>) et remplacement par des rappels asynchrones NVDA non bloquants pour garantir que le lecteur d'écran ne bégaie jamais pendant les opérations en arrière-plan.</li>
 </ul>
 <h3>Version 1.0.0 — 2026-05-24</h3>
-<p><em>Sortie publique initiale.</em></p>
+<p><em>Première version publique.</em></p>
 <h4>Nouvelles fonctionnalités</h4>
 <ul>
-<li><strong>Excel : Organisateur de Feuille en masse :</strong> Réorganisez instantanément plusieurs Feuilles à la fois à l'aide d'une boîte de dialogue entièrement accessible.</li>
-<li><strong>Excel : Déplacement rapide de Feuille :</strong> Déplacez la Feuille active vers la gauche, la droite, au début ou à la fin via des commandes au clavier.</li>
-<li><strong>Excel : Renommage accessible de Feuille :</strong> Intercepte le champ de renommage natif inaccessible et le remplace par une boîte de dialogue accessible et fiable.</li>
-<li><strong>Excel : Suivi intelligent de la sélection :</strong> Annonce avec précision les sélections et désélections de plages multi-Cellules.</li>
-<li><strong>PowerPoint : Sélecteurs de couleurs accessibles :</strong> Permet à NVDA de lire avec précision les valeurs RVB et Hexadécimales à l'intérieur de la boîte de dialogue Couleur personnalisée.</li>
-<li><strong>PowerPoint : Prise en charge de la grille de couleurs standard :</strong> Intercepte la navigation avec les touches fléchées pour lire les codes Hexadécimaux masqués depuis la grille hexagonale de couleurs inaccessible.</li>
+<li><strong>Excel : Organisateur de feuilles en masse :</strong> Réorganisez instantanément plusieurs feuilles à la fois à l'aide d'une boîte de dialogue entièrement accessible.</li>
+<li><strong>Excel : Déplacement rapide de feuille :</strong> Déplacez la feuille active vers la gauche, la droite, le début ou la fin via des raccourcis clavier.</li>
+<li><strong>Excel : Renommage de feuille accessible :</strong> Intercepte le champ de renommage natif inaccessible et le remplace par une boîte de dialogue accessible et fiable.</li>
+<li><strong>Excel : Suivi intelligent de la sélection :</strong> Annonce avec précision les sélections et désélection de plages multicellulaires.</li>
+<li><strong>PowerPoint : Sélecteurs de couleurs accessibles :</strong> Permet à NVDA de lire avec précision les valeurs RVB et Hexadécimales dans la boîte de dialogue de couleur personnalisée.</li>
+<li><strong>PowerPoint : Prise en charge de la grille de couleurs standard :</strong> Intercepte la navigation avec les touches fléchées pour lire les codes hexadécimaux masqués de la grille hexagonale de couleurs inaccessible.</li>
 </ul>
 </body>
 </html>

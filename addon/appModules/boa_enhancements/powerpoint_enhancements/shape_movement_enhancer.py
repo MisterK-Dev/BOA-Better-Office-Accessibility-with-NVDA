@@ -1,11 +1,8 @@
 # -*- coding: UTF-8 -*-
 import tones
-import wx
-import core
 from appModules.boa_enhancements import boa_config
 import nvdaBuiltin.appModules.powerpnt as core_powerpnt
 import math
-import time
 
 # Keep a reference to the original scripts so we can pass through
 _original_moveHorizontal = None

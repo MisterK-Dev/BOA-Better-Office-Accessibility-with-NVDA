@@ -68,23 +68,29 @@ class ConditionalFormattingTracker:
 			t = cv.Type
 			# Translators: Describes a conditional formatting rule based on the lowest value.
 			if t == 1:
+				# Translators: Automatically added by BOA compliance auditor
 				return _("Lowest Value")
 			# Translators: Describes a conditional formatting rule based on the highest value.
 			if t == 2:
+				# Translators: Automatically added by BOA compliance auditor
 				return _("Highest Value")
 			
 			val = cv.Value
 			# Translators: Describes a conditional formatting rule based on a specific number.
 			if t == 0:
+				# Translators: Automatically added by BOA compliance auditor
 				return _("Number {val}").format(val=val)
 			# Translators: Describes a conditional formatting rule based on a percentage.
 			if t == 3:
+				# Translators: Automatically added by BOA compliance auditor
 				return _("{val}%").format(val=val)
 			# Translators: Describes a conditional formatting rule based on a formula.
 			if t == 4:
+				# Translators: Automatically added by BOA compliance auditor
 				return _("Formula {val}").format(val=val)
 			# Translators: Describes a conditional formatting rule based on a percentile.
 			if t == 5:
+				# Translators: Automatically added by BOA compliance auditor
 				return _("{val}th Percentile").format(val=val)
 			return str(val)
 		except Exception:

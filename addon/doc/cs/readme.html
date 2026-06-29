@@ -4,251 +4,418 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 2.0</title>
+<title>BOA: Better Office Accessibility 2.0.0</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
-<p>BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.</p>
+<p>BOA je výkonná sada vylepšení přístupnosti pro Microsoft Office, která je navržena tak, aby výrazně zlepšila práci s odečítačem obrazovky pro uživatele NVDA. Přímo opravuje nepřístupné součásti uživatelského rozhraní a přináší nástroje pro rychlou navigaci v aplikacích Excel a PowerPoint.</p>
 <hr />
-<h2>⌨️ Hotkey Reference</h2>
+<h2>⌨️ Přehled klávesových zkratek</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Key Combination</th>
-<th style="text-align: left;">Context / Notes</th>
+<th style="text-align: left;">Funkce</th>
+<th style="text-align: left;">Klávesová zkratka</th>
+<th style="text-align: left;">Kontext / Poznámky</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><strong>Enter Command Mode</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code></td>
-<td style="text-align: left;">Activates Command Prefix Mode (triggers a high-pitched beep)</td>
+<td style="text-align: left;"><strong>Vstup do příkazového režimu</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code> (Výchozí: <code>NVDA+E</code>)</td>
+<td style="text-align: left;">Aktivuje režim předpony příkazů (spustí vysoké pípnutí)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Analyze Sheet Layout</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>L</code></td>
-<td style="text-align: left;">Run within Excel before navigating data blocks</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Jump to Nearest Data Block</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>J</code> /</td>
-<td style="text-align: left;">Requires Layout Analysis first</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Open Bulk Sheet Organizer</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>X</code></td>
-<td style="text-align: left;">Opens the accessible sheet reordering dialog</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Move Active Sheet Left</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
-<td style="text-align: left;">Shifts the active sheet one position up</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Move Active Sheet Right</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
-<td style="text-align: left;">Shifts the active worksheet one position down</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Move Sheet to Start/End</strong></td>
-<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
-<td style="text-align: left;">Sends worksheet to the absolute absolute boundaries</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Detailed Conditional Formatting</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>F</code></td>
-<td style="text-align: left;">Announces complete formatting details of focused cell</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Map Cell to Memory Slot</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>Shift+1</code> to <code>Shift+9</code></td>
-<td style="text-align: left;">Assigns current cell to a background monitor slot</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Read Monitored Cell Slot</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>1</code> to <code>9</code></td>
-<td style="text-align: left;">Recalls and reads the value of the assigned slot</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Toggle Background Monitoring</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>M</code></td>
-<td style="text-align: left;">Manually toggles background calculation tracking</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Clear All Memory Slots</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>Backspace</code></td>
-<td style="text-align: left;">Purges all saved background cell monitors</td>
-</tr>
-<tr>
-<td style="text-align: left;"><strong>Cancel Command Mode</strong></td>
+<td style="text-align: left;"><strong>Zrušit příkazový režim</strong></td>
 <td style="text-align: left;"><code>Escape</code></td>
-<td style="text-align: left;">Exits Command Prefix Mode</td>
+<td style="text-align: left;">Ukončí režim předpony příkazů</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VYLEPŠENÍ EXCELU</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyzovat rozložení listu</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>L</code></td>
+<td style="text-align: left;">Spustit v Excelu před procházením datových bloků</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přejít na nejbližší datový blok</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>J</code></td>
+<td style="text-align: left;">Vyžaduje nejprve provedení analýzy rozložení</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Otevřít hromadný organizér listů</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>X</code></td>
+<td style="text-align: left;">Otevře přístupný dialog pro změnu pořadí listů</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Oznámení čistého vzorce</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>F2</code></td>
+<td style="text-align: left;">Jedním stisknutím si poslechnete čistý řetězec vzorce</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pokročilý editor vzorců</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak dvakrát <code>F2</code></td>
+<td style="text-align: left;">Dvojitým stisknutím otevřete přístupný víceřádkový editor vzorců</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sledování předchůdců</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>Shift+P</code></td>
+<td style="text-align: left;">Funkce sledování předchůdců v přístupné podobě.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sledování závislostí</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>Shift+D</code></td>
+<td style="text-align: left;">Funkce sledování závislostí v přístupné podobě; stisknutím Enter na buňce se tam přemístíte.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Podrobné podmíněné formátování</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>F</code></td>
+<td style="text-align: left;">Oznámí kompletní podrobnosti o formátování zaměřené buňky</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přesunout aktivní list vlevo</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+LeftArrow</code></td>
+<td style="text-align: left;">Posune aktivní list o jednu pozici nahoru</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přesunout aktivní list vpravo</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+RightArrow</code></td>
+<td style="text-align: left;">Posune aktivní list o jednu pozici dolů</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přesunout list na začátek/konec</strong></td>
+<td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
+<td style="text-align: left;">Odešle list na absolutní hranice</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Skrýt / Zobrazit řádek</strong></td>
+<td style="text-align: left;"><code>Ctrl+9</code> / <code>Ctrl+Shift+9</code></td>
+<td style="text-align: left;">Výchozí zkratka; BOA explicitně oznamuje změnu viditelnosti</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Skrýt / Zobrazit sloupec</strong></td>
+<td style="text-align: left;"><code>Ctrl+0</code> / <code>Ctrl+Shift+0</code></td>
+<td style="text-align: left;">Výchozí zkratka; BOA explicitně oznamuje změnu viditelnosti</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zobrazit sloupec (náhradní)</strong></td>
+<td style="text-align: left;"><code>NVDA+Ctrl+Shift+0</code></td>
+<td style="text-align: left;">Obchází konflikty klávesových zkratek s jazykem vstupu ve Windows</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přiřadit buňku do paměťového slotu</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>Shift+1</code> až <code>Shift+9</code></td>
+<td style="text-align: left;">Přiřadí aktuální buňku do slotu pro sledování na pozadí</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přečíst sledovaný paměťový slot</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>1</code> až <code>9</code></td>
+<td style="text-align: left;">Vyvolá a přečte hodnotu přiřazeného slotu</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přímý skok na slot</strong></td>
+<td style="text-align: left;"><code>Alt</code> + <code>1</code> až <code>9</code></td>
+<td style="text-align: left;">Okamžitě přemístí kurzor na sledovaný slot</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Návrat na předchozí buňku</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>\</code></td>
+<td style="text-align: left;">Okamžitě vás přenese zpět po kontrole slotu</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Dialog Správce slotů</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>Alt+M</code></td>
+<td style="text-align: left;">Otevře dialog pro zobrazení a správu všech aktivních sledování</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Přepnout sledování na pozadí</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>M</code></td>
+<td style="text-align: left;">Ručně přepíná sledování výpočtů na pozadí</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vymazat všechny paměťové sloty</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>Backspace</code></td>
+<td style="text-align: left;">Vymaže všechny uložené sledované buňky na pozadí</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VYLEPŠENÍ POWERPOINTU</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyzátor rozložení snímku</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>L</code></td>
+<td style="text-align: left;">Analyzuje a oznámí prostorové rozložení aktuálního snímku</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyzátor dokumentu</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>D</code></td>
+<td style="text-align: left;">Generuje komplexní obsah a zprávu o stavu</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hromadný organizér snímků</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>X</code></td>
+<td style="text-align: left;">Otevře přístupný dialog pro změnu pořadí více snímků</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>VYLEPŠENÍ WORDU</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Auditor formátování</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>F</code></td>
+<td style="text-align: left;">Prověří aktuální dokument na nesrovnalosti ve formátování</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Analyzátor dokumentu</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, pak <code>D</code></td>
+<td style="text-align: left;">Analyzuje strukturu a rozložení aktuálního dokumentu Word</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2>🚀 Features</h2>
-<h3>Excel Enhancements</h3>
-<h4>1. Sheet Layout Analyzer &amp; Caching</h4>
-<p>Instantly scan any Excel worksheet to understand its structure, hidden elements, and data blocks.
-* <strong>How it works:</strong> BOA quickly scans the sheet and announces active data blocks. It also warns you about <strong>Hidden Worksheet Tabs</strong>, active <strong>Filters</strong>, <strong>Protected Modes</strong>, and <strong>Hidden Outer Boundaries</strong> (e.g., if columns near the right edge of the sheet are hidden, preventing you from missing off-screen data).
-* <strong>Data Navigation:</strong> After scanning, you can use the data block jump hotkeys to instantly warp your cursor between discovered data blocks, effortlessly bypassing thousands of empty cells.</p>
-<h4>2. Bulk Sheet Organizer</h4>
-<p>Instantly reorder and arrange multiple sheets at once using a fully accessible dialog .
-* <strong>How it works:</strong> Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press <code>Del</code> to remove a mistake). Click <code>OK</code> and your workbook is rearranged instantly.</p>
-<h4>3. Quick Sheet Mover</h4>
-<p>Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard shortcuts.</p>
-<h4>4. Accessible Sheet Renaming</h4>
+<h2>🚀 Funkce</h2>
+<h3>Vylepšení Excelu</h3>
+<h4>1. Analyzátor rozložení listu a mezipaměť</h4>
+<p>Okamžitě naskenuje jakýkoli list v Excelu, abyste porozuměli jeho struktuře, skrytým prvkům a datovým blokům.
+* <strong>Jak to funguje:</strong> BOA rychle naskenuje list a oznámí aktivní datové bloky. Upozorní vás také na <strong>Skryté záložky listů</strong>, aktivní <strong>Filtry</strong>, <strong>Chráněné režimy</strong> a <strong>Skryté vnější hranice</strong> (např. pokud jsou skryté sloupce poblíž pravého okraje listu, což vám zabrání v přehlédnutí dat mimo obrazovku).
+* <strong>Navigace v datech:</strong> Po naskenování můžete použít klávesové zkratky pro skok na datový blok a okamžitě přemístit kurzor mezi nalezenými datovými bloky, čímž bez námahy přeskočíte tisíce prázdných buněk.</p>
+<h4>2. Hromadný organizér listů</h4>
+<p>Okamžitě změní pořadí a uspořádá více listů najednou pomocí plně přístupného dialogu.
+* <strong>Jak to funguje:</strong> Otevře dialog, kde můžete vybrat list a přiřadit mu novou pozici. Naplánované přesuny jsou vypsány v datové tabulce (stisknutím <code>Del</code> odstraníte chybu). Klikněte na <code>OK</code> a váš sešit se okamžitě přeorganizuje.</p>
+<h4>3. Rychlé přesunutí listu</h4>
+<p>Přesuňte aktivní list vlevo, vpravo, na úplný začátek nebo na úplný konec okamžitě pomocí klávesových zkratek.</p>
+<h4>4. Přístupné přejmenování listu</h4>
 <ul>
-<li>When renaming a sheet, NVDA natively struggles to read the characters you are typing.</li>
-<li>BOA injects a custom <code>ExcelSheetRenameEdit</code> class that uses the <code>SafeRichEdit</code> engine, meaning you can precisely read by character, word, or line while renaming. This serves as an enhancement to the existing default renaming behavior.</li>
+<li>Při přejmenování listu má NVDA nativně potíže se čtením znaků, které píšete.</li>
+<li>BOA vkládá vlastní třídu <code>ExcelSheetRenameEdit</code>, která používá modul <code>SafeRichEdit</code>, což znamená, že při přejmenování můžete přesně číst po znacích, slovech nebo řádcích. To slouží jako vylepšení stávajícího výchozího chování při přejmenování.</li>
 </ul>
-<h4>5. Hidden Row/Column Tracker</h4>
+<h4>5. Sledování skrytých řádků/sloupců</h4>
 <ul>
-<li>Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.</li>
-<li><strong>Crossed Fragmented Cells:</strong> If you jump across a heavily fragmented or hidden section of the grid (e.g., moving from Row 3 to Row 10 because Rows 4–9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure.</li>
+<li>Proaktivně sleduje váš pohyb po mřížce, aby vám zabránil přehlédnout skrytá nebo filtrovaná data.</li>
+<li><strong>Přechod přes fragmentované buňky:</strong> Pokud přeskočíte silně fragmentovanou nebo skrytou část mřížky (např. přesun z řádku 3 na řádek 10, protože řádky 4–9 jsou skryté), BOA explicitně oznámí „Řádky 4 až 9 jsou skryté“. To zajišťuje, že vždy víte, kdy byla data ve struktuře přeskočena.</li>
 </ul>
-<h4>6. Conditional Formatting Announcer</h4>
+<h4>6. Oznamování podmíněného formátování</h4>
 <ul>
-<li>Automatically reads the color, font style, and background shade of cells that have been dynamically changed by Excel's Conditional Formatting rules.</li>
-<li>Gives you the true visual state of the cell rather than just the raw underlying value. Initially, when focusing on the cell, it announces "has conditional formatting, and some other minor details". For comprehensive info, use the detailed hotkey configuration which is NVDA E and F.</li>
+<li>Automaticky čte barvu, styl písma a stínování pozadí buněk, které byly dynamicky změněny pravidly podmíněného formátování aplikace Excel.</li>
+<li>Poskytuje vám skutečný vizuální stav buňky namísto pouhé hrubé podkladové hodnoty. Na začátku, když se zaměříte na buňku, oznámí „má podmíněné formátování a některé další drobné podrobnosti“. Pro získání úplných informací použijte podrobnou konfiguraci klávesových zkratek, což je NVDA E a F.</li>
 </ul>
-<h4>7. Better selection announcement</h4>
-<p>reads if cell or range selected or unselected.</p>
-<h4>8 Cell monitor:</h4>
+<h4>7. Lepší oznamování výběru</h4>
+<p>čte, zda je vybrána nebo zrušena volba buňky nebo rozsahu.</p>
+<h4>8 Sledování buněk:</h4>
 <ul>
-<li><strong>Cell Monitor:</strong> Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.</li>
-<li><strong>Continuous Monitoring:</strong> Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.</li>
+<li><strong>Sledování buněk (Cell Monitor):</strong> Použijte příkazové cesty k přiřazení konkrétních buněk do paměťových slotů. Můžete se k nim kdykoli vrátit a přečíst je pomocí přiřazeného číselného slotu.</li>
+<li><strong>Nepřetržité sledování:</strong> Buňky ve slotech jsou automaticky sledovány na pozadí. Pokud Excel spustí přepočet nebo úpravu buňky, BOA okamžitě oznámí novou hodnotu. Sledování můžete přepnout ručně nebo vymazat vše pomocí příkazových slotů.</li>
+<li><strong>Excel: Vylepšení Sledování buněk Pro:</strong> </li>
+<li><strong>Dialog Správce slotů (<code>NVDA+E</code>, pak <code>Alt+M</code>):</strong> Otevře dialog se seznamem všech aktivně sledovaných buněk. Stisknutím <code>Enter</code> na jednu z nich okamžitě přejdete.</li>
+<li><strong>Rychlý návrat (<code>NVDA+E</code>, pak <code>\</code>):</strong> Okamžitě vás přenese zpět na předchozí pracovní buňku po kontrole slotu.</li>
+<li><strong>Přímý skok na slot (<code>Prefix + Alt</code> + <code>Slot Number</code>):</strong> Obchází prefix a okamžitě skočí na přiřazenou buňku.</li>
 </ul>
-<h3>PowerPoint Enhancements</h3>
-<h4>1. Accessible Color Pickers</h4>
+<h4>9 Pokročilý editor</h4>
 <ul>
-<li>Unlocks the Custom Color dialog in PowerPoint.</li>
-<li>Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding <code>PowerPointRGBEdit</code>).</li>
-<li>Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.</li>
+<li><strong>Excel: Pokročilý editor (přístupný editor vzorců):</strong> Naprostá revoluce pro úpravu rozsáhlých vzorců.</li>
+<li><strong>Jedno stisknutí <code>NVDA+E</code>, pak <code>F2</code>:</strong> Okamžitě oznámí čistý řetězec vzorce aktivní buňky (nebo oznámí „Žádný vzorec“).</li>
+<li><strong>Dvojité stisknutí <code>NVDA+E</code>, pak <code>F2</code>:</strong> Otevře plně přístupný, víceřádkový editor pro bezpečnou úpravu masivních, vnořených vzorců. Klávesa <code>Enter</code> přidává zalomení řádků pro snadné čtení a <code>Ctrl+Enter</code> jej uloží zpět do Excelu.</li>
+<li><em>Bezpečnostní kontroly:</em> Bezpečně zachycuje syntaktické chyby dříve, než poškodí váš list, a detekuje chyby po výpočtu (jako <code>#NAME?</code> nebo <code>#DIV/0!</code>), aby vás okamžitě varoval, pokud se vzorec porušil.</li>
 </ul>
-<h4>2. Standard Color Grid Support</h4>
+<h4>10 Vylepšení auditu a vyhodnocování vzorců:</h4>
 <ul>
-<li>Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.</li>
-<li>BOA tracks your arrow keys across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g., "Color #FF0000").</li>
+<li><strong>Excel: Audit a vyhodnocování vzorců:</strong> Byly přidány vlastní klávesové zkratky (<code>NVDA+E</code>, pak <code>Shift+P</code> a <code>NVDA+E</code>, pak <code>Shift+D</code>) pro spolehlivé sledování předchůdců a závislostí. Nativní dialogové okno aplikace Excel „Vyhodnocení vzorce“ je navíc nyní plně přístupné; NVDA automaticky čte vyhodnocené výsledky při procházení výpočtu!</li>
 </ul>
-<h3>Infrastructure &amp; Technical Mechanisms</h3>
-<h4>The Command Prefix Mode</h4>
-<p>To prevent keystroke conflicts with other NVDA plugins, BOA uses a <strong>Command Prefix Mode</strong>:
-1. Press the activation hotkey to enter Command Mode. You will hear a high-pitched beep.
-2. Press a secondary key to trigger a specific feature.
-3. If you press an invalid key, you will hear an error beep.</p>
-<h4>Customization &amp; Settings Panel</h4>
+<h3>Vylepšení PowerPointu</h3>
+<h4>1. Přístupné výběry barev</h4>
 <ul>
-<li>BOA features are fully modular and can be enabled or disabled at any time. Go to <code>NVDA Menu -&gt; Preferences -&gt; Settings -&gt; BOA Office Enhancements</code> to toggle individual features on or off.</li>
-<li><strong>Intelligent Accelerator Keys:</strong> Every single setting features a mathematically unique <code>Alt+Key</code> accelerator shortcut within the panel. For example, press <code>Alt+E</code> to instantly jump to the Excel group, <code>Alt+P</code> for PowerPoint, and <code>Alt+W</code> for Word.</li>
-<li>Settings are saved securely to a standalone JSON file (<code>boa_settings.json</code>), ensuring your core NVDA configuration is never corrupted.</li>
-<li>If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality.</li>
+<li>Zpřístupňuje dialog Vlastní barva v PowerPointu.</li>
+<li>Správně identifikuje a explicitně čte editační pole „Červená“, „Zelená“ a „Modrá“ (přepsáním <code>PowerPointRGBEdit</code>).</li>
+<li>Mapuje dříve neviditelné pole pro zadání Hex hodnoty, takže NVDA může čistě přečíst celou Hex hodnotu barvy.</li>
 </ul>
-<h4>Security &amp; Integration Boundaries</h4>
+<h4>2. Podpora standardní mřížky barev</h4>
 <ul>
-<li>Clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.</li>
-<li>some Custom hotkeys are fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.</li>
+<li>Navigace v mřížce „Standardních“ barev v PowerPointu běžně čte pouze „grafika“ nebo je ticho.</li>
+<li>BOA sleduje vaše šipky po hexagonu a tiše načítá skrytou hodnotu barvy, kterou vám oznamuje v reálném čase (např. „Barva #FF0000“).</li>
+</ul>
+<h4>3 Hromadný organizér snímků:</h4>
+<ul>
+<li><strong>PowerPoint: Hromadný organizér snímků (experimentální) (<code>NVDA+E</code>, pak <code>X</code>):</strong> Podobně jako u funkce v Excelu nyní můžete okamžitě měnit pořadí, přesouvat a uspořádávat více snímků PowerPoint najednou pomocí plně přístupného dialogového okna.</li>
+</ul>
+<h4>4 Analyzátor rozložení snímku</h4>
+<ul>
+<li><strong>PowerPoint: Analyzátor rozložení snímku (experimentální) (<code>NVDA+E</code>, pak <code>L</code>):</strong> Okamžitě naskenuje váš aktuálně aktivní snímek, aby porozuměl jeho prostorovému rozložení a omezením přístupnosti, což zajišťuje zcela plynulou a responzivní práci s odečítačem. To znamená, že zde získáte podrobnosti o aktuálním snímku podobně jako u analyzátoru rozložení listu v Excelu.</li>
+</ul>
+<h4>5 Komplexní analyzátor dokumentu [PPT]</h4>
+<ul>
+<li><strong>PowerPoint: Komplexní analyzátor dokumentu (experimentální) (<code>NVDA+E</code>, pak <code>D</code>):</strong> Velmi pokročilý nástroj přístupnosti běžící na pozadí, který zmapuje celou prezentaci bez zamrznutí řečového syntetizéru NVDA. Poskytuje snadno procházelný virtuální obsah, detekuje nesrovnalosti v pořadí čtení (vizuální pořadí versus pořadí vykreslování Z-Order), označuje snímky s velkým množstvím textu a mapuje složité objekty jako SmartArt a datové tabulky.</li>
+</ul>
+<h4>6 Vylepšení pohybu [úprav] tvarů:</h4>
+<ul>
+<li><strong>PowerPoint: Zvukový režim pohybu tvarů (experimentální):</strong> Zavádí 3D prostorové zvukové signály na plátno PowerPointu. Poskytuje sluchovou zpětnou vazbu indikující směr a limity ohraničení objektu při jeho přesouvání, čímž výrazně zlepšuje prostorovou orientaci.</li>
+</ul>
+<h3>Vylepšení Wordu:</h3>
+<h4>1. Analyzátor dokumentu inspirovaný a odvozený od doplňku Word Access od Paula:</h4>
+<ul>
+<li><strong>Word: Analyzátor dokumentu (<code>NVDA+E</code>, pak <code>D</code>):</strong> Okamžitě zobrazí strukturální přehled vašeho dokumentu ve Wordu. <em>(Zvláštní poděkování a uznání Paulovi: Tato funkce byla přímo inspirována jeho skvělým doplňkem „Word Access“. Jsme hluboce vděční za jeho základní práci v této oblasti!)</em></li>
+</ul>
+<h4>2 Auditor formátování</h4>
+<ul>
+<li><strong>Word: Auditor formátování (<code>NVDA+E</code>, pak <code>F</code>):</strong> Prohledá váš dokument Word na nesrovnalosti ve formátování, aby zajistil dodržení vizuálních standardů.</li>
+</ul>
+<h4>3 Čtečka poznámek pod čarou:</h4>
+<ul>
+<li><strong>Word: Automatické oznamování poznámek pod čarou:</strong> Poznámky pod čarou budou nyní automaticky oznamovány přímo během čtení v závislosti na vašem vlastním nastavení BOA. <em>(Poznámka: Podpora pro vysvětlivky a komentáře je plánována pro budoucí verzi).</em></li>
+</ul>
+<h3>Infrastruktura a technické mechanismy</h3>
+<h4>Režim předpony příkazů</h4>
+<p>Aby se zabránilo konfliktům klávesových zkratek s jinými doplňky NVDA, používá BOA <strong>režim předpony příkazů</strong>:
+1. Stisknutím aktivační klávesové zkratky vstoupíte do příkazového režimu. Uslyšíte vysoké pípnutí. Výchozí je NVDA plus E.
+2. Stisknutím druhé klávesy spustíte konkrétní funkci.
+3. Pokud stisknete neplatnou klávesu, uslyšíte chybové pípnutí.</p>
+<h4>Panel přizpůsobení a nastavení</h4>
+<ul>
+<li>Funkce BOA jsou plně modulární a lze je kdykoli povolit nebo zakázat. Přejděte do <code>Nabídka NVDA -&gt; Možnosti -&gt; Nastavení -&gt; BOA Office Enhancements</code> pro zapnutí nebo vypnutí jednotlivých funkcí.</li>
+<li><strong>Inteligentní klávesové zkratky (akcelerátory):</strong> Každé jednotlivé nastavení má v panelu matematicky unikátní klávesovou zkratku <code>Alt+Klávesa</code>. Stisknutím <code>Alt+E</code> například okamžitě přejdete na skupinu Excel, <code>Alt+P</code> na PowerPoint a <code>Alt+W</code> na Word.</li>
+<li>Nastavení se bezpečně ukládají do samostatného souboru JSON (<code>boa_settings.json</code>), což zajišťuje, že vaše hlavní konfigurace NVDA nebude nikdy poškozena.</li>
+<li>Pokud Microsoft Office v budoucnu oficiálně opraví nějakou chybu přístupnosti, můžete bezpečně zakázat konkrétní přepsání (override hook) v BOA, aniž byste přišli o zbytek funkcí doplňku.</li>
+<li><strong>Přizpůsobení vstupních gest:</strong> Všechny funkce ve všech aplikacích Office byly explicitně zpřístupněny v nativním dialogu Vstupní gesta NVDA, což vám dává plnou svobodu přizpůsobit si každou klávesovou zkratku.</li>
+</ul>
+<h4>Zabezpečení a hranice integrace</h4>
+<ul>
+<li>Vkládání do schránky přísně ověřuje ID procesů v popředí okna, aby se zabránilo úniku dat do jiných aplikací.</li>
+<li>Některé uživatelské klávesové zkratky jsou plně vystaveny v dialogu Vstupní gesta NVDA pod kategorií „Better Office Accessibility“.</li>
 </ul>
 <hr />
-<h2>📋 Requirements</h2>
+<h2>📋 Požadavky</h2>
 <ul>
-<li><strong>NVDA:</strong> Version 2026.1.0 or later.</li>
-<li><strong>Applications:</strong> Microsoft Excel &amp; Microsoft PowerPoint.</li>
+<li><strong>NVDA:</strong> Verze 2026.1.0 nebo novější.</li>
+<li><strong>Aplikace:</strong> Microsoft Excel &amp; Microsoft PowerPoint.</li>
 </ul>
 <hr />
-<h2>💾 Installation</h2>
+<h2>💾 Instalace</h2>
 <ol>
-<li>Download the latest <code>.nvda-addon</code> release file, or locate it within the native NVDA Add-on Store.</li>
-<li>if installing from file, Open the file or use <code>NVDA's Add-on Store -&gt; Install from external file</code>.</li>
-<li>Restart NVDA.</li>
+<li>Stáhněte si nejnovější vydaný soubor <code>.nvda-addon</code> nebo jej vyhledejte v nativním Obchodě s doplňky NVDA.</li>
+<li>Pokud instalujete ze souboru, otevřete soubor nebo použijte <code>Obchod s doplňky NVDA -&gt; Instalovat z externího souboru</code>.</li>
+<li>Restartujte NVDA.</li>
 </ol>
 <hr />
-<h2>🛠️ Changelog</h2>
+<h2>🛠️ Seznam změn</h2>
+<h3>Verze 2.0.0</h3>
+<h4>Nové funkce</h4>
+<ul>
+<li><strong>PowerPoint: Komplexní analyzátor dokumentu (experimentální) (<code>NVDA+E</code>, pak <code>D</code>):</strong> Velmi pokročilý nástroj přístupnosti běžící na pozadí, který zmapuje celou prezentaci bez zamrznutí řečového syntetizéru NVDA. Poskytuje snadno procházelný virtuální obsah, detekuje nesrovnalosti v pořadí čtení (vizuální pořadí versus pořadí vykreslování Z-Order), označuje snímky s velkým množstvím textu a mapuje složité objekty jako SmartArt a datové tabulky.</li>
+<li><strong>PowerPoint: Analyzátor rozložení snímku (experimentální) (<code>NVDA+E</code>, pak <code>L</code>):</strong> Okamžitě naskenuje váš aktuálně aktivní snímek, aby porozuměl jeho prostorovému rozložení a omezením přístupnosti, což zajišťuje zcela plynulou a responzivní práci s odečítačem. To znamená, že zde získáte podrobnosti o aktuálním snímku podobně jako u analyzátoru rozložení listu v Excelu.</li>
+<li><strong>PowerPoint: Hromadný organizér snímků (experimentální) (<code>NVDA+E</code>, pak <code>X</code>):</strong> Podobně jako u funkce v Excelu nyní můžete okamžitě měnit pořadí, přesouvat a uspořádávat více snímků PowerPoint najednou pomocí plně přístupného dialogového okna.</li>
+<li><strong>PowerPoint: Zvukový režim pohybu tvarů (experimentální):</strong> Zavádí 3D prostorové zvukové signály na plátno PowerPointu. Poskytuje sluchovou zpětnou vazbu indikující směr a limity ohraničení objektu při jeho přesouvání, čímž výrazně zlepšuje prostorovou orientaci. Jak již bylo zmíněno, jedná se o experimentální funkci a čekáme na zpětnou vazbu pro její vylepšení.</li>
+<li><strong>Word: Auditor formátování (<code>NVDA+E</code>, pak <code>F</code>):</strong> Prohledá váš dokument Word na nesrovnalosti ve formátování, aby zajistil dodržení vizuálních standardů.</li>
+<li><strong>Word: Analyzátor dokumentu (<code>NVDA+E</code>, pak <code>D</code>):</strong> Okamžitě zobrazí strukturální přehled vašeho dokumentu ve Wordu. <em>(Zvláštní poděkování a uznání Paulovi: Tato funkce byla přímo inspirována jeho skvělým doplňkem „Word Access“. Jsme hluboce vděční za jeho základní práci v této oblasti!)</em></li>
+<li><strong>Word: Automatické oznamování poznámek pod čarou:</strong> Poznámky pod čarou budou nyní automaticky oznamovány přímo během čtení v závislosti na vašem vlastním nastavení BOA. <em>(Poznámka: Podpora pro vysvětlivky a komentáře je plánována pro budoucí verzi).</em></li>
+<li><strong>Excel: Pokročilý editor (přístupný editor vzorců):</strong> Naprostá revoluce pro úpravu rozsáhlých vzorců.</li>
+<li><strong>Jedno stisknutí <code>NVDA+E</code>, pak <code>F2</code>:</strong> Okamžitě oznámí čistý řetězec vzorce aktivní buňky (nebo oznámí „Žádný vzorec“).</li>
+<li><strong>Dvojité stisknutí <code>NVDA+E</code>, pak <code>F2</code>:</strong> Otevře plně přístupný, víceřádkový editor pro bezpečnou úpravu masivních, vnořených vzorců. Klávesa <code>Enter</code> přidává zalomení řádků pro snadné čtení a <code>Ctrl+Enter</code> jej uloží zpět do Excelu.</li>
+<li><em>Bezpečnostní kontroly:</em> Bezpečně zachycuje syntaktické chyby dříve, než poškodí váš list, a detekuje chyby po výpočtu (jako <code>#NAME?</code> nebo <code>#DIV/0!</code>), aby vás okamžitě varoval, pokud se vzorec porušil.</li>
+<li><strong>Excel: Audit a vyhodnocování vzorců:</strong> Byly přidány vlastní klávesové zkratky (<code>NVDA+E</code>, pak <code>Shift+P</code> a <code>NVDA+E</code>, pak <code>Shift+D</code>) pro spolehlivé sledování předchůdců a závislostí. Nativní dialogové okno aplikace Excel „Vyhodnocení vzorce“ je navíc nyní plně přístupné; NVDA automaticky čte vyhodnocené výsledky při procházení výpočtu!</li>
+<li><strong>Excel: Vylepšení Sledování buněk Pro:</strong> </li>
+<li><strong>Dialog Správce slotů (<code>NVDA+E</code>, pak <code>Alt+M</code>):</strong> Otevře dialog se seznamem všech aktivně sledovaných buněk. Stisknutím <code>Enter</code> na jednu z nich okamžitě přejdete.</li>
+<li><strong>Rychlý návrat (<code>NVDA+E</code>, pak <code>\</code>):</strong> Okamžitě vás přenese zpět na předchozí pracovní buňku po kontrole slotu.</li>
+<li><strong>Přímý skok na slot (<code>Alt</code> + <code>Slot Number</code>):</strong> Zcela obchází prefix a okamžitě skočí na přiřazenou buňku.</li>
+<li><strong>Přizpůsobení vstupních gest:</strong> Všechny funkce ve všech aplikacích Office byly explicitně zpřístupněny v nativním dialogu Vstupní gesta NVDA, což vám dává plnou svobodu přizpůsobit si každou klávesovou zkratku.</li>
+</ul>
+<h4>Vylepšení UX/UI</h4>
+<ul>
+<li><strong>Sjednocené prohlížitelné zprávy:</strong> V celém doplňku jsme zavedli sjednocený systém HTML reportů. Funkce jako oznamování podmíněného formátování v Excelu, analyzátory rozložení a analyzátory dokumentů již nečtou pouze masivní bloky textu; jejich výsledky se nyní otevírají v nativním, procházelném HTML okně, což vám umožňuje procházet data vlastním tempem.</li>
+<li><strong>Excel: Vylepšené sledování závislostí/předchůdců:</strong> Výrazně se zlepšil hlasový výstup pro nativní zkratky sledování vzorců v Excelu (<code>Ctrl+[</code> pro přímé předchůdce a <code>Ctrl+]</code> pro přímé závislosti). NVDA nyní bude explicitně oznamovat, které přesné buňky byly vybrány.</li>
+<li><strong>Excel: Podpora sloučených buněk:</strong> Sloučené buňky jsou nyní správně detekovány a explicitně oznamovány sledováním buněk s přeskakováním mezer.</li>
+</ul>
+<h4>Opravy chyb</h4>
+<ul>
+<li><strong>Word: Dvojité čtení položek seznamu:</strong> Byl implementován dočasný patch pro opravu chyby, kdy NVDA v některých zobrazeních Wordu četl položky seznamu odstavců dvakrát.</li>
+<li><strong>Excel: Chyba lokalizace sledování buněk:</strong> Byly vyřešeny interní chyby sledování způsobené nedávnými aktualizacemi překladů a lokalizace.</li>
+</ul>
 <h3>Co je nového ve v1.6.1</h3>
 <ul>
 <li><strong>Hluboká lokalizace souborů</strong>: Byly opraveny chybějící překlady řetězců hluboko v modulech pro vylepšení Excelu (jako je Analyzátor rozložení listu a Rychlé přesunutí listu), aby se zajistilo 100% pokrytí lokalizace.</li>
-<li><strong>Rozšířená podpora překladů</strong>: Do systému bylo přidáno 7 nových jazyků (turečtina, polština, korejština, ukrajinština, čeština, urdština a pandžábština).
+<li><strong>Rozšířená podpora překladů</strong>: Do systému bylo přidáno 7 nových jazyků (turečtina, polština, korejština, ukrajinština, čeština, urdština a pandžábština). 
   <em>(Poznámka: Tyto překlady byly vytvořeny umělou inteligencí, proto se mohou vyskytnout drobné chyby nebo nepřesnosti v překladu.)</em></li>
 </ul>
 <h3>v1.6.0</h3>
 <ul>
-<li><strong>Comprehensive Translation Support</strong>: The add-on is now fully localized with support for 17 global languages. 
-  <em>(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)</em></li>
-<li><strong>Strict Code Governance</strong>: Applied GPL-2.0 copyright headers across the entire codebase."""),</li>
+<li><strong>Komplexní podpora překladů</strong>: Doplněk je nyní plně lokalizován s podporou 17 globálních jazyků. 
+  <em>(Poznámka: Tyto překlady byly vytvořeny umělou inteligencí, proto se mohou vyskytnout drobné chyby nebo nepřesnosti v překladu.)</em></li>
+<li><strong>Přísná správa kódu</strong>: V celé codebase byly aplikovány hlavičky autorských práv GPL-2.0."""),</li>
 </ul>
-<h3>Version 1.5.0</h3>
-<h4>New Features</h4>
-<h5>End of Data Radar</h5>
-<p>When navigating through large spreadsheets, it can be difficult to tell if an empty cell means you've reached the end of a list, or if there is simply a gap in the data. The <strong>End of Data Radar</strong> acts as a smart perimeter check to save you from blindly arrowing through empty space.
-Whenever you navigate into an empty cell, BOA instantly scans the remaining cells in your direction of travel. If there is absolutely no data left, it will proactively announce:
-* <em>"No more data below"</em>
-* <em>"No more data above"</em>
-* <em>"No more data to the right"</em>
-* <em>"No more data to the left"</em>
-<strong>Configuration Options:</strong>
-You can configure this feature via <code>NVDA Preferences -&gt; Settings -&gt; BOA Office Enhancements</code>. Because spreadsheets can contain hidden complexities (like invisible formulas or collapsed rows), the radar provides three operating modes:
-1. <strong>Off</strong>: Disables the radar entirely.
-2. <strong>Strict Memory Check (CountA) [Default]</strong>: The safest and fastest approach. It checks the raw memory of the spreadsheet. If it detects <em>anything</em> below you (including hidden rows, text, numbers, or invisible formulas), it stays completely silent to prevent false alarms. It only announces "No more data" when the remainder of the sheet is 100% mathematically blank.
-3. <strong>Visible Data Only (Math Engine)</strong>: A highly advanced engine designed for complex sheets. It intelligently filters out hidden rows and invisible formulas (e.g., <code>=""</code>). It will only stay silent if there are actual, visible numbers or text left in your path.</p>
-<h3>Version 1.4 - 2026-06-12</h3>
-<h4>New Features</h4>
+<h3>Verze 1.5.0</h3>
+<h4>Nové funkce</h4>
+<h5>Radar konce dat (End of Data Radar)</h5>
+<p>Při procházení velkých tabulek může být obtížné zjistit, zda prázdná buňka znamená, že jste dosáhli konce seznamu, nebo zda se jedná o pouhou mezeru v datech. <strong>Radar konce dat</strong> funguje jako chytrá kontrola perimetru, která vás zachrání před slepým procházením prázdného prostoru.
+Kdykoli přejdete do prázdné buňky, BOA okamžitě naskenuje zbývající buňky ve vašem směru pohybu. Pokud již nezbývají vůbec žádná data, proaktivně oznámí:
+* <em>"Žáda další data pod"</em>
+* <em>"Žáda další data nad"</em>
+* <em>"Žáda další data vpravo"</em>
+* <em>"Žáda další data vlevo"</em>
+<strong>Možnosti konfigurace:</strong>
+Tuto funkci můžete konfigurovat v <code>Možnosti NVDA -&gt; Nastavení -&gt; BOA Office Enhancements</code>. Vzhledem k tomu, že tabulky mohou obsahovat skryté složitosti (jako jsou neviditelné vzorce nebo sbalené řádky), radar nabízí tři provozní režimy:
+1. <strong>Vypnuto (Off)</strong>: Zcela zakáže radar.
+2. <strong>Přísná kontrola paměti (CountA) [Výchozí]</strong>: Nejbezpečnější a nejrychlejší přístup. Kontroluje čistou paměť tabulky. Pokud pod vámi detekuje <em>cokoli</em> (včetně skrytých řádků, textu, čísel nebo neviditelných vzorců), zůstane zcela potichu, aby se zabránilo falešným poplachům. Oznámí „Žádná další data“ pouze tehdy, když je zbytek listu 100% matematicky prázdný.
+3. <strong>Pouze viditelná data (Math Engine)</strong>: Vysoce pokročilý systém navržený pro složité listy. Inteligentně odfiltruje skryté řádky a neviditelné vzorce (např. <code>=""</code>). Zůstane potichu pouze tehdy, pokud ve vaší cestě zůstanou skutečná, viditelná čísla nebo text.</p>
+<h3>Verze 1.4 – 2026-06-12</h3>
+<h4>Nové funkce</h4>
 <ul>
-<li><strong>Cell Monitor:</strong> Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.</li>
-<li><strong>Continuous Monitoring:</strong> Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.</li>
+<li><strong>Sledování buněk (Cell Monitor):</strong> Použijte příkazové cesty k přiřazení konkrétních buněk do paměťových slotů. Můžete se k nim kdykoli vrátit a přečíst je pomocí přiřazeného číselného slotu.</li>
+<li><strong>Nepřetržité sledování:</strong> Buňky ve slotech jsou automaticky sledovány na pozadí. Pokud Excel spustí přepočet nebo úpravu buňky, BOA okamžitě oznámí novou hodnotu. Sledování můžete přepnout ručně nebo vymazat vše pomocí příkazových slotů.</li>
 </ul>
-<h4>Bug Fixes</h4>
-<h3>Version 1.3.0 — 2026-06-05</h3>
-<p><em>Final release.</em></p>
-<h4>New Features</h4>
+<h4>Opravy chyb</h4>
+<h3>Verze 1.3.0 — 2026-06-05</h3>
+<p><em>Finální verze.</em></p>
+<h4>Nové funkce</h4>
 <ul>
-<li><strong>Sheet Layout Analyzer:</strong> Added powerful layout scanning infrastructure. Instantly detects Worksheet Protection, active Column Filters, Hidden Worksheet Tabs, and hidden absolute borders while caching discovered data blocks.</li>
-<li><strong>Guided Data Block Navigation:</strong> Post-analysis navigation allows immediate cursor warps between major clusters of data, bypassing empty cells seamlessly.</li>
-<li><strong>Conditional Formatting Announcer:</strong> Automatically detects and reads the dynamic color, font style, and background shade of cells altered by Excel's Conditional Formatting rules.</li>
-<li><strong>Explicit Settings Accelerators:</strong> Completely overhauled the BOA Settings GUI to strictly comply with NVDA architecture. Every feature checkbox now possesses a globally unique <code>Alt+Letter</code> shortcut, preventing keyboard cycling and eliminating first-letter navigation failures.</li>
+<li><strong>Analyzátor rozložení listu:</strong> Byla přidána výkonná infrastruktura pro skenování rozložení. Okamžitě detekuje zámek listu, aktivní filtry sloupců, skryté záložky listů a skrytá absolutní ohraničení při ukládání nalezených datových bloků do mezipaměti.</li>
+<li><strong>Řízená navigace po datových blocích:</strong> Navigace po provedení analýzy umožňuje okamžité přesuny kurzoru mezi hlavními shluky dat, čímž hladce přeskakuje prázdné buňky.</li>
+<li><strong>Oznamování podmíněného formátování:</strong> Automaticky detekuje a čte dynamickou barvu, styl písma a stín pozadí buněk změněných pravidly podmíněného formátování aplikace Excel.</li>
+<li><strong>Explicitní klávesové zkratky v nastavení:</strong> Kompletně přepracováno grafické uživatelské rozhraní nastavení BOA, aby striktně splňovalo architekturu NVDA. Každé zaškrtávací políčko funkce nyní disponuje globálně unikátní zkratkou <code>Alt+Písmeno</code>, což zabraňuje cyklení klávesnice a odstraňuje selhání navigace podle prvního písmene.</li>
 </ul>
-<h4>Bug Fixes</h4>
+<h4>Opravy chyb</h4>
 <ul>
-<li><strong>Absolute Edge Boundary Detection:</strong> Replaced native COM <code>UsedRange</code> edge checks with absolute 1D mathematical boundary checks (<code>Row 1048576</code> and <code>Column 16384</code>) to guarantee detection of hidden rows/columns even if they lie far outside the active data block.</li>
-<li><strong>Lazy COM Property Safe Bailouts:</strong> Hardened COM property loops to prevent NVDA thread freezes when evaluating millions of contiguous hidden structures.</li>
+<li><strong>Detekce absolutních okrajů hranic:</strong> Nahrazeny nativní kontroly okrajů COM <code>UsedRange</code> za absolutní jednorozměrné matematické kontroly hranic (<code>Řádek 1048576</code> a <code>Sloupec 16384</code>), aby byla zaručena detekce skrytých řádků/sloupců, i když leží daleko mimo aktivní datový blok.</li>
+<li><strong>Bezpečné opuštění líných COM vlastností:</strong> Zodolněny smyčky vlastností COM, aby se zabránilo zamrznutí vlákna NVDA při vyhodnocování milionů souvislých skrytých struktur.</li>
 </ul>
-<h3>Version 1.2.0 — 2026-06-03</h3>
-<p><em>Final release.</em></p>
-<h4>New Features</h4>
+<h3>Verze 1.2.0 — 2026-06-03</h3>
+<p><em>Finální verze.</em></p>
+<h4>Nové funkce</h4>
 <ul>
-<li><strong>App-Launch Caching:</strong> Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.</li>
-<li><strong>Enhanced Cell Tracker (1D COM Math):</strong> Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (<code>current_col</code> or <code>current_row</code>). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.</li>
-<li><strong>Process Memory Wiping:</strong> Implemented Excel Window Handle (<code>Hwnd</code>) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".</li>
+<li><strong>Mezipaměť při spuštění aplikace:</strong> Velká architektonická úprava. Jádrové moduly se nyní načítají líně (lazy-load) přesně ve chvíli, kdy se zaměříte na aplikace Office, což eliminuje zpoždění při spouštění, zcela řeší chybu zaměření na „neznámý“ objekt v dialozích přejmenování a zachovává strukturu codebase s více soubory.</li>
+<li><strong>Vylepšené sledování buněk (1D COM Math):</strong> Přepsána logika detekce mezer skrytých buněk, aby vyhodnocovala pouze jednorozměrné průřezy (<code>current_col</code> nebo <code>current_row</code>). To snižuje zátěž výpočtů COM o více než 16 milionů buněk, čímž se okamžitě eliminuje zamrzání navigace při přeskakování skrytých rozsahů.</li>
+<li><strong>Mazání paměti procesu:</strong> Implementováno sledování popisovače okna Excelu (<code>Hwnd</code>), které detekuje, kdy uživatel zavře a znovu otevře Excel. Tím se aktivně vymaže zastaralá globální paměť stavu a zcela se vyřeší falešné oznámení „List je skrytý“ při otevření nového sešitu „Sešit1“.</li>
 </ul>
-<h4>Bug Fixes</h4>
+<h4>Opravy chyb</h4>
 <ul>
-<li><strong>Double Selection Announcement:</strong> Migrated away from unreliable asynchronous <code>winUser.getKeyState</code> and implemented <code>api.getLastInputGesture()</code> to perfectly suppress double announcements when using Shift+Arrow keys.</li>
-<li><strong>Boundary Detector Deactivation:</strong> The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.</li>
+<li><strong>Dvojité oznamování výběru:</strong> Převedeno z nespolehlivého asynchronního <code>winUser.getKeyState</code> na implementaci <code>api.getLastInputGesture()</code>, aby se dokonale potlačilo dvojité oznamování při použití šipek se Shiftem.</li>
+<li><strong>Deaktivace proaktivního detektoru hranic:</strong> Proaktivní detektor hranic byl deaktivován z důvodu ochrany stability nativní navigace NVDA a plně se spoléhá na sledování s přeskakováním mezer.</li>
 </ul>
-<h3>Version 1.1.0 — 2026-05-30</h3>
-<p><em>Final release.</em></p>
-<h4>New Features</h4>
+<h3>Verze 1.1.0 — 2026-05-30</h3>
+<p><em>Finální verze.</em></p>
+<h4>Nové funkce</h4>
 <ul>
-<li><strong>Settings GUI:</strong> Added a native BOA Office Enhancements panel inside <code>NVDA -&gt; Preferences -&gt; Settings</code> to easily toggle features on or off.</li>
-<li><strong>SafeRichEdit Hook:</strong> Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.</li>
-<li><strong>Customizable Hotkeys:</strong> All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.</li>
-<li><strong>Excel: Hidden Row/Column Skip Detection:</strong> Proactively announces when navigating past hidden rows or columns, ensuring you never miss filtered data. Can be toggled in settings.</li>
+<li><strong>Uživatelské rozhraní nastavení:</strong> Přidán nativní panel BOA Office Enhancements uvnitř <code>Nabídka NVDA -&gt; Možnosti -&gt; Nastavení</code> pro snadné zapnutí nebo vypnutí funkcí.</li>
+<li><strong>SafeRichEdit Hook:</strong> Zabraňuje tichým pádům NVDA při interakci s ovládacími prvky RichEdit v Office 2024.</li>
+<li><strong>Přizpůsobitelné klávesové zkratky:</strong> Všechny klávesové zkratky BOA jsou nyní plně vystaveny v dialogu Vstupní gesta NVDA pod kategorií „Better Office Accessibility“.</li>
+<li><strong>Excel: Detekce přeskočení skrytých řádků/sloupců:</strong> Proaktivně oznamuje, když přejdete přes skryté řádky nebo sloupce, čímž zajišťuje, že nikdy nepřehlédnete filtrovaná data. Lze přepnout v nastavení.</li>
 </ul>
-<h4>Bug Fixes</h4>
+<h4>Opravy chyb</h4>
 <ul>
-<li><strong>Thread Safety:</strong> Removed all blocking delays (<code>time.sleep</code>) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.</li>
+<li><strong>Bezpečnost vláken:</strong> Odstraněna všechna blokující zpoždění (<code>time.sleep</code>) a nahrazena neblokujícími asynchronními zpětnými voláními (callbacks) NVDA, aby se zajistilo, že se odečítač obrazovky nikdy nezadrhne při operacích na pozadí.</li>
 </ul>
-<h3>Version 1.0.0 — 2026-05-24</h3>
-<p><em>Initial public release.</em></p>
-<h4>New Features</h4>
+<h3>Verze 1.0.0 — 2026-05-24</h3>
+<p><em>První veřejná verze.</em></p>
+<h4>Nové funkce</h4>
 <ul>
-<li><strong>Excel: Bulk Sheet Organizer:</strong> Instantly reorder multiple sheets at once using a fully accessible dialog.</li>
-<li><strong>Excel: Quick Sheet Mover:</strong> Move the active sheet left, right, to start, or to end via keyboard commands.</li>
-<li><strong>Excel: Accessible Sheet Renaming:</strong> Intercepts the inaccessible native rename field and replaces it with a reliable accessible dialog.</li>
-<li><strong>Excel: Smart Selection Tracking:</strong> Accurately announces multi-cell range selections and deselections.</li>
-<li><strong>PowerPoint: Accessible Color Pickers:</strong> Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.</li>
-<li><strong>PowerPoint: Standard Color Grid Support:</strong> Intercepts arrow key navigation to read hidden Hex codes from the inaccessible color hexagon grid.</li>
+<li><strong>Excel: Hromadný organizér listů:</strong> Okamžitě změní pořadí více listů najednou pomocí plně přístupného dialogu.</li>
+<li><strong>Excel: Rychlé přesunutí listu:</strong> Přesuňte aktivní list vlevo, vpravo, na začátek nebo na konec pomocí klávesových příkazů.</li>
+<li><strong>Excel: Přístupné přejmenování listu:</strong> Zachytí nepřístupné nativní pole pro přejmenování a nahradí jej spolehlivým přístupným dialogem.</li>
+<li><strong>Excel: Chytré sledování výběru:</strong> Přesně oznamuje výběr a zrušení výběru vícebuněčného rozsahu.</li>
+<li><strong>PowerPoint: Přístupné výběry barev:</strong> Umožňuje NVDA přesně číst hodnoty RGB a Hex uvnitř dialogu Vlastní barva.</li>
+<li><strong>PowerPoint: Podpora standardní mřížky barev:</strong> Zachytává navigaci směrovými šipkami za účelem čtení skrytých Hex kódů z nepřístupné šestiúhelníkové mřížky barev.</li>
 </ul>
 </body>
 </html>

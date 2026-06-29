@@ -230,6 +230,7 @@ class CellMonitorManager:
 				
 			spoken_val = val
 			if not spoken_val:
+				# Translators: Automatically added by BOA compliance auditor
 				spoken_val = _("Empty cell")
 				
 			if current_wb == info['wb'] and current_sheet == info['sheet']:

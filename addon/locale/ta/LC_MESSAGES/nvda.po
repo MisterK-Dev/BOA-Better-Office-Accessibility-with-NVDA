@@ -869,3 +869,1015 @@ msgstr ""
 "* **ஆழமான கோப்பு உள்ளூர்மயமாக்கல்**: 100% உள்ளூர்மயமாக்கலை உறுதிசெய்ய, எக்செல் மேம்படுத்தல் தொகுதிகளில் (தாள் தளவமைப்பு பகுப்பாய்வி மற்றும் விரைவு தாள் நகர்த்தி போன்ற) காணாமல் போன சர மொழிபெயர்ப்புகள் சரிசெய்யப்பட்டன.\n"
 "* **விரிவாக்கப்பட்ட மொழிபெயர்ப்பு ஆதரவு**: கணினியில் 7 புதிய மொழிகள் (துருக்கியம், போலிஷ், கொரியன், உக்ரைனியன், செக், உருது மற்றும் பஞ்சாபி) சேர்க்கப்பட்டன.\n"
 "  *(குறிப்பு: இந்த மொழிபெயர்ப்புகள் AI ஆல் உருவாக்கப்பட்டவை, எனவே சில சிறிய மொழிபெயர்ப்பு பிழைகள் அல்லது தவறுகள் இருக்கலாம்.)*"
+
+msgid "BOA (Better Office Accessibility)"
+msgstr "BOA (Better Office Accessibility)"
+
+msgid ""
+"Triggers the BOA command prefix. Press this, followed by a specific command "
+"key."
+msgstr ""
+"BOA கட்டளை முன்னொட்டைத் தூண்டுகிறது. இதை அழுத்தி, அதைத் தொடர்ந்து ஒரு "
+"குறிப்பிட்ட கட்டளை விசையை அழுத்தவும்."
+
+msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
+msgstr ""
+"தாள்களை மறுவரிசைப்படுத்த மொத்த தாள் அமைப்பாளர் (Bulk Sheet Organizer) "
+"உரையாடலைத் திறக்கிறது."
+
+msgid "Analyzes and announces the layout structure of the current sheet."
+msgstr "தற்போதைய தாளின் தளவமைப்பு கட்டமைப்பை பகுப்பாய்வு செய்து அறிவிக்கிறது."
+
+msgid "Jumps the focus to the nearest cell block."
+msgstr "ஃபோகஸை அருகிலுள்ள செல் தொகுதிக்கு (cell block) மாற்றுகிறது."
+
+msgid "Announces conditional formatting details for the current cell."
+msgstr "தற்போதைய செல்லின் நிபந்தனை வடிவமைப்பு விவரங்களை அறிவிக்கிறது."
+
+msgid "Toggles monitoring on the active cell."
+msgstr "செயலில் உள்ள செல்லில் கண்காணிப்பை மாற்றுகிறது."
+
+msgid "Clears all monitored cells."
+msgstr "கண்காணிக்கப்படும் அனைத்து செல்களையும் அழிக்கிறது."
+
+msgid ""
+"Traces precedents and opens a dialog to jump to cells that provide data to "
+"the active cell."
+msgstr ""
+"முன்னுதாரணங்களைக் (precedents) கண்காணித்து, செயலில் உள்ள செல்லுக்குத் தரவை "
+"வழங்கும் செல்களுக்குச் செல்ல ஒரு உரையாடலைத் திறக்கிறது."
+
+msgid ""
+"Traces dependents and opens a dialog to jump to cells that depend on the "
+"active cell."
+msgstr ""
+"சார்ந்துள்ளவைகளைக் (dependents) கண்காணித்து, செயலில் உள்ள செல்லைச் "
+"சார்ந்திருக்கும் செல்களுக்குச் செல்ல ஒரு உரையாடலைத் திறக்கிறது."
+
+msgid "Announces the raw formula of the active cell."
+msgstr "செயலில் உள்ள செல்லின் மூல சூத்திரத்தை அறிவிக்கிறது."
+
+msgid ""
+"Opens the accessible Power Editor dialog to edit the active cell's contents."
+msgstr ""
+"செயலில் உள்ள செல்லின் உள்ளடக்கங்களைத் திருத்த அணுகக்கூடிய பவர் எடிட்டர் "
+"(Power Editor) உரையாடலைத் திறக்கிறது."
+
+msgid ""
+"Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
+msgstr ""
+"கண்காணிக்கப்படும் செல்களை நிர்வகிக்கவும், அவற்றுக்குச் செல்லவும் ஆக்டிவ் "
+"செல் மானிட்டர்ஸ் (Active Cell Monitors) உரையாடலைத் திறக்கிறது."
+
+msgid ""
+"Jumps focus back to the cell you were working on before navigating away."
+msgstr ""
+"நீங்கள் விலகிச் செல்வதற்கு முன் வேலை செய்து கொண்டிருந்த செல்லுக்கு ஃபோகஸை "
+"மீண்டும் தாவச் செய்கிறது."
+
+msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
+msgstr ""
+"ஸ்லைடுகளை மறுவரிசைப்படுத்த மொத்த ஸ்லைடு அமைப்பாளர் (Bulk Slide Organizer) "
+"உரையாடலைத் திறக்கிறது."
+
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr ""
+"தற்போதைய ஸ்லைடின் தளவமைப்பு கட்டமைப்பை பகுப்பாய்வு செய்து அறிவிக்கிறது."
+
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr ""
+"தற்போதைய பவர்பாயிண்ட் விளக்கக்காட்சியை பகுப்பாய்வு செய்து, விரிவான தளவமைப்பு"
+" மற்றும் நிலை அறிக்கையைக் காட்டுகிறது."
+
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr ""
+"தற்போதைய வேர்டு ஆவணத்தை பகுப்பாய்வு செய்து விரிவான தளவமைப்பு மற்றும் நிலை "
+"அறிக்கையைக் காட்டுகிறது."
+
+msgid ""
+"Audits the current Word document for visual formatting inconsistencies."
+msgstr ""
+"காட்சி வடிவமைப்பில் உள்ள முரண்பாடுகளுக்கு தற்போதைய வேர்டு ஆவணத்தை தணிக்கை "
+"செய்கிறது."
+
+msgid "Analysis cancelled."
+msgstr "பகுப்பாய்வு ரத்து செய்யப்பட்டது."
+
+msgid "An error occurred during analysis."
+msgstr "பகுப்பாய்வின் போது பிழை ஏற்பட்டது."
+
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr "இயல்புநிலை NVDA நடத்தை (குறிப்புக்கு மட்டும்)"
+
+msgid "Read Note Content Inline"
+msgstr "குறிப்பு உள்ளடக்கத்தை உள்ளீட்டில் (Inline) படிக்கவும்"
+
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr ""
+"ஆவண உரையுடன், அடிக்குறிப்புகள் (footnotes) மற்றும் முடிவு குறிப்புகளின் "
+"(endnotes) உரையை NVDA தானாகவே படிக்க வேண்டுமா என்பதைத் தேர்வுசெய்யவும்."
+
+msgid "Default NVDA Behavior"
+msgstr "இயல்புநிலை NVDA நடத்தை"
+
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr "இயல்புநிலை நடத்தை + 3D ஸ்பேஷியல் ஆடியோ (சோதனைமுறை)"
+
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr ""
+"பவர்பாயிண்ட்டில் வடிவ நகர்வை NVDA எவ்வாறு அறிவிக்கிறது என்பதைக் "
+"கட்டுப்படுத்துகிறது. கேன்வாஸ் முறைகள் மூல கணித ஆயங்களை 'மேல்-இடது காற்பகுதி'"
+" போன்ற மனிதர்கள் படிக்கக்கூடிய இடங்களாக மொழிபெயர்க்கின்றன."
+
+msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
+msgstr ""
+"எக்செல் உரை புலங்களில் NVDA செயலிழப்பதைத் தடுக்கவும் (&C) (SafeRichEdit)"
+
+msgid "Enable Formula Auditor &features"
+msgstr "ஃபார்முலா ஆடிட்டர் அம்சங்களை இயக்கு (&F)"
+
+msgid "Explicitly announce m&erged cells"
+msgstr "ஒன்றிணைக்கப்பட்ட செல்களை வெளிப்படையாக அறிவிக்கவும் (&e)"
+
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr ""
+"பவர்பாயிண்ட் உரை புலங்களில் NVDA செயலிழப்பதைத் தடுக்கவும் (&a) "
+"(SafeRichEdit)"
+
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr "மொத்த ஸ்லைடு அமைப்பாளர் உரையாடலை இயக்கு (&z) (முன்னொட்டு + X)"
+
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
+msgstr "ஸ்லைடு லேஅவுட் அனலைசரை இயக்கு (&l) (முன்னொட்டு + L)"
+
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr "பவர்பாயிண்ட் டாக்குமெண்ட் அனலைசரை இயக்கு (&D) (முன்னொட்டு + D)"
+
+msgid "Shape Movement Audio Mode:"
+msgstr "வடிவ நகர்வு ஆடியோ முறை:"
+
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+msgstr ""
+"&Word: வேர்டு உரை புலங்களில் NVDA செயலிழப்பதைத் தடுக்கவும் (SafeRichEdit)"
+
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr ""
+"பத்தி வழிசெலுத்தலின் போது பட்டியல் உருப்படிகளை மீண்டும் மீண்டும் (double-"
+"reading) படிப்பதைத் தடுக்கவும் (&d)"
+
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr "NVDA+E, D மூலம் ஆவணப் பகுப்பாய்வியை இயக்கு (&A)"
+
+msgid "Enable Format &Auditor via NVDA+E, F"
+msgstr "NVDA+E, F மூலம் ஃபார்மேட் ஆடிட்டரை இயக்கு (&A)"
+
+msgid "Footnotes and Endnotes reading &mode:"
+msgstr "அடிக்குறிப்புகள் மற்றும் முடிவு குறிப்புகள் வாசிப்பு முறை (&m):"
+
+msgid "No formula"
+msgstr "சூத்திரம் இல்லை"
+
+msgid "BOA Power Editor"
+msgstr "BOA பவர் எடிட்டர்"
+
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr ""
+"செல் உள்ளடக்கத்தைத் திருத்தவும் (சேமிக்க Ctrl+Enter ஐ அழுத்தவும், ரத்துசெய்ய"
+" Esc) (&E):"
+
+msgid "&Save"
+msgstr "சேமி (&S)"
+
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+"சூத்திரம் சேமிக்கப்பட்டது, ஆனால் எக்செல் அதை ஒரு பிழையாக மதிப்பிட்டது: {error}\n"
+"\n"
+"நீங்கள் திருத்துவதைத் தொடர விரும்புகிறீர்களா?"
+
+msgid "Calculation Error"
+msgstr "கணக்கீட்டு பிழை"
+
+msgid "Done"
+msgstr "முடிந்தது"
+
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr ""
+"எக்செல் இந்த சூத்திரத்தை நிராகரித்தது. தயவுசெய்து தொடரியல் பிழைகள் (syntax "
+"errors) அல்லது விடுபட்ட அடைப்புக்குறிகளை சரிபார்க்கவும்."
+
+msgid "Invalid Formula"
+msgstr "தவறான சூத்திரம்"
+
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
+msgstr ""
+"ஸ்லாட் {slot_str} இழக்கப்பட்டது. பணிப்புத்தகம் '{wb}' மூடப்பட்டுள்ளது அல்லது"
+" அணுக முடியாததாக உள்ளது."
+
+msgid "Empty cell"
+msgstr "காலி செல்"
+
+msgid "Cannot jump. The workbook '{wb}' is closed."
+msgstr "தாவ முடியவில்லை. பணிப்புத்தகம் '{wb}' மூடப்பட்டுள்ளது."
+
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
+msgstr ""
+"தாவ முடியவில்லை. தாள் '{sheet}' மறுபெயரிடப்பட்டது அல்லது நீக்கப்பட்டது."
+
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
+msgstr "தாவ முடியவில்லை. செல் முகவரி செல்லாது அல்லது எக்செல் பிஸியாக உள்ளது."
+
+msgid "No cell assigned to slot {slot_num}"
+msgstr "ஸ்லாட் {slot_num}-க்கு எந்த செல்லும் ஒதுக்கப்படவில்லை"
+
+msgid "No previous cell to jump back to."
+msgstr "திரும்பிச் செல்ல முந்தைய செல் எதுவும் இல்லை."
+
+msgid "Active Cell Monitors"
+msgstr "ஆக்டிவ் செல் மானிட்டர்கள்"
+
+msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
+msgstr ""
+"அதற்குச் செல்ல ஒரு செல்லைத் தேர்ந்தெடுக்கவும். மானிட்டர்களிலிருந்து அதை "
+"அகற்ற Delete ஐ அழுத்தவும்."
+
+msgid "&Jump"
+msgstr "தாவு (&J)"
+
+msgid "No cells are currently being monitored."
+msgstr "தற்போது எந்த செல்களும் கண்காணிக்கப்படவில்லை."
+
+msgid "Slot {slot} deleted"
+msgstr "ஸ்லாட் {slot} நீக்கப்பட்டது"
+
+msgid "Monitor deleted"
+msgstr "மானிட்டர் நீக்கப்பட்டது"
+
+msgid "Merged cell, {address}"
+msgstr "ஒன்றிணைக்கப்பட்ட செல், {address}"
+
+msgid "{sheet_name} deleted"
+msgstr "{sheet_name} நீக்கப்பட்டது"
+
+msgid "Rules Summary"
+msgstr "விதிகள் சுருக்கம்"
+
+msgid "Analyzed Results"
+msgstr "பகுப்பாய்வு செய்யப்பட்ட முடிவுகள்"
+
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr ""
+"ஒரு குறிப்பைத் தேர்ந்தெடுத்து, அதற்குச் செல்ல Enter ஐ அழுத்தவும் (&S):"
+
+msgid "Cannot jump to a closed external workbook."
+msgstr "மூடப்பட்ட வெளிப்புற பணிப்புத்தகத்திற்குச் செல்ல முடியாது."
+
+msgid "(External) {}"
+msgstr "(வெளிப்புறம்) {}"
+
+msgid "No precedents found."
+msgstr "முன்னுதாரணங்கள் எதுவும் காணப்படவில்லை."
+
+msgid "No dependents found."
+msgstr "சார்ந்துள்ளவைகள் எதுவும் காணப்படவில்லை."
+
+msgid "Precedents"
+msgstr "முன்னுதாரணங்கள் (Precedents)"
+
+msgid "Dependents"
+msgstr "சார்ந்துள்ளவைகள் (Dependents)"
+
+msgid ""
+"Clicks the button and dynamically announces formula evaluation changes."
+msgstr ""
+"பொத்தானைக் கிளிக் செய்து, சூத்திர மதிப்பீட்டு மாற்றங்களை மாறும் வகையில் "
+"அறிவிக்கிறது."
+
+msgid "{old_diff} evaluated to {new_diff}"
+msgstr "{old_diff} {new_diff} என மதிப்பிடப்பட்டது"
+
+msgid "Data Blocks Summary"
+msgstr "தரவுத் தொகுதிகளின் சுருக்கம்"
+
+msgid "Found {count} data blocks in this sheet."
+msgstr "இந்த தாளில் {count} தரவுத் தொகுதிகள் காணப்பட்டன."
+
+msgid "Sheet Properties"
+msgstr "தாளின் பண்புகள்"
+
+msgid ""
+"No special properties detected (No active filters, protection, frozen panes,"
+" or hidden borders)."
+msgstr ""
+"சிறப்புப் பண்புகள் எதுவும் கண்டறியப்படவில்லை (செயலில் உள்ள வடிப்பான்கள், "
+"பாதுகாப்பு, உறைந்த பேன்கள் அல்லது மறைக்கப்பட்ட எல்லைகள் எதுவும் இல்லை)."
+
+msgid "Failed to connect to PowerPoint."
+msgstr "பவர்பாயிண்ட்டுடன் இணைக்க முடியவில்லை."
+
+msgid "No active presentation."
+msgstr "செயலில் உள்ள விளக்கக்காட்சி எதுவும் இல்லை."
+
+msgid "Not enough slides to move."
+msgstr "நகர்த்துவதற்குப் போதுமான ஸ்லைடுகள் இல்லை."
+
+msgid "Successfully reorganized slides."
+msgstr "ஸ்லைடுகள் வெற்றிகரமாக மறுசீரமைக்கப்பட்டன."
+
+msgid "Failed to move slides. See log for details."
+msgstr "ஸ்லைடுகளை நகர்த்த முடியவில்லை. விவரங்களுக்குப் பதிவைப் பார்க்கவும்."
+
+msgid "Loading slides, please wait..."
+msgstr "ஸ்லைடுகள் ஏற்றப்படுகின்றன, தயவுசெய்து காத்திருக்கவும்..."
+
+msgid "Failed to hook PowerPoint."
+msgstr "பவர்பாயிண்ட்டை இணைக்க முடியவில்லை."
+
+msgid "Slide {index} - {title}"
+msgstr "ஸ்லைடு {index} - {title}"
+
+msgid "Slide {index} - (No Title)"
+msgstr "ஸ்லைடு {index} - (தலைப்பு இல்லை)"
+
+msgid "Bulk Slide Organizer"
+msgstr "மொத்த ஸ்லைடு அமைப்பாளர்"
+
+msgid "Slide Name:"
+msgstr "ஸ்லைடின் பெயர்:"
+
+msgid "Slide"
+msgstr "ஸ்லைடு"
+
+msgid "Scheduled: {slide} to position {pos}"
+msgstr "திட்டமிடப்பட்டது: {slide} இலிருந்து {pos} நிலைக்கு"
+
+msgid "No active presentation detected."
+msgstr "செயலில் உள்ள விளக்கக்காட்சி எதுவும் கண்டறியப்படவில்லை."
+
+msgid "Analyzing document layout in background..."
+msgstr "பின்னணியில் ஆவணத்தின் தளவமைப்பு பகுப்பாய்வு செய்யப்படுகிறது..."
+
+msgid "Error starting document analysis."
+msgstr "ஆவணப் பகுப்பாய்வைத் தொடங்குவதில் பிழை."
+
+msgid "Untitled Slide"
+msgstr "தலைப்பிடப்படாத ஸ்லைடு"
+
+msgid "Document Analysis: {name}"
+msgstr "ஆவணப் பகுப்பாய்வு: {name}"
+
+msgid "Overview"
+msgstr "கண்ணோட்டம்"
+
+msgid "Total Slides: {n}"
+msgstr "மொத்த ஸ்லைடுகள்: {n}"
+
+msgid "Hidden Slides: {n}"
+msgstr "மறைக்கப்பட்ட ஸ்லைடுகள்: {n}"
+
+msgid "Table of Contents"
+msgstr "உள்ளடக்கங்கள்"
+
+msgid "Slide {num}: {title}"
+msgstr "ஸ்லைடு {num}: {title}"
+
+msgid "Accessibility Health"
+msgstr "அணுகல்தன்மை நிலை"
+
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr "வாசிப்பு வரிசை பொருத்தம் இல்லை (Z-Order vs காட்சி)"
+
+msgid "Slide {num}"
+msgstr "ஸ்லைடு {num}"
+
+msgid "Missing Alt-Text"
+msgstr "விடுபட்ட மாற்று உரை (Alt-Text)"
+
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr "ஸ்லைடு {num}: {count} படங்களுக்கு மாற்று உரை இல்லை"
+
+msgid "Off-Canvas Elements"
+msgstr "கேன்வாஸுக்கு வெளியே உள்ள கூறுகள்"
+
+msgid "No major accessibility issues detected."
+msgstr "பெரிய அணுகல்தன்மை சிக்கல்கள் எதுவும் கண்டறியப்படவில்லை."
+
+msgid "Density & Complexity"
+msgstr "அடர்த்தி மற்றும் சிக்கல்தன்மை"
+
+msgid "High Text Density (Wall of Text)"
+msgstr "அதிக உரை அடர்த்தி (உரையின் சுவர்)"
+
+msgid "Slide {num}: {words} words"
+msgstr "ஸ்லைடு {num}: {words} சொற்கள்"
+
+msgid "Complex Objects"
+msgstr "சிக்கலான பொருள்கள்"
+
+msgid "Tables: {n}"
+msgstr "அட்டவணைகள்: {n}"
+
+msgid "Grouped Objects: {n}"
+msgstr "குழுவாக்கப்பட்ட பொருள்கள்: {n}"
+
+msgid "Media: {n}"
+msgstr "ஊடகம்: {n}"
+
+msgid "Charts: {n}"
+msgstr "விளக்கப்படங்கள்: {n}"
+
+msgid "Embedded Documents: {n}"
+msgstr "உட்பொதிக்கப்பட்ட ஆவணங்கள்: {n}"
+
+msgid "No active slide detected."
+msgstr "செயலில் உள்ள ஸ்லைடு எதுவும் கண்டறியப்படவில்லை."
+
+msgid "Analyzing slide layout..."
+msgstr "ஸ்லைடின் தளவமைப்பு பகுப்பாய்வு செய்யப்படுகிறது..."
+
+msgid "Error analyzing slide layout."
+msgstr "ஸ்லைடின் தளவமைப்பைப் பகுப்பாய்வு செய்வதில் பிழை."
+
+msgid "Slide {num} Layout Analysis"
+msgstr "ஸ்லைடு {num} தளவமைப்பு பகுப்பாய்வு"
+
+msgid "Structure & Density"
+msgstr "கட்டமைப்பு மற்றும் அடர்த்தி"
+
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr "பிளேஸ்ஹோல்டர்கள் மற்றும் தனிப்பயன் வடிவங்கள்: {p} / {c}"
+
+msgid "Total Word Count: {w}"
+msgstr "மொத்த சொற்களின் எண்ணிக்கை: {w}"
+
+msgid "Warning: High text density (Wall of Text)"
+msgstr "எச்சரிக்கை: அதிக உரை அடர்த்தி (உரையின் சுவர்)"
+
+msgid "Warning: Missing standard Title Placeholder"
+msgstr "எச்சரிக்கை: நிலையான தலைப்பு பிளேஸ்ஹோல்டர் இல்லை"
+
+msgid "Accessibility Warnings"
+msgstr "அணுகல்தன்மை எச்சரிக்கைகள்"
+
+msgid "Off-Canvas Shapes"
+msgstr "கேன்வாஸுக்கு வெளியே உள்ள வடிவங்கள்"
+
+msgid "Reading Order Mismatch"
+msgstr "வாசிப்பு வரிசை பொருத்தம் இல்லை"
+
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr ""
+"வடிவம் '{s}' காட்சிப்படி மேலேயும், ஆனால் தர்க்கரீதியாக கீழேயும் உள்ளது."
+
+msgid "Missing Alt-Text: {n} images"
+msgstr "விடுபட்ட மாற்று உரை: {n} படங்கள்"
+
+msgid "No major spatial accessibility warnings detected."
+msgstr ""
+"பெரிய இடஞ்சார்ந்த அணுகல்தன்மை எச்சரிக்கைகள் எதுவும் கண்டறியப்படவில்லை."
+
+msgid "Complex Objects & Media"
+msgstr "சிக்கலான பொருள்கள் மற்றும் ஊடகம்"
+
+msgid "Media (Audio/Video): {n}"
+msgstr "ஊடகம் (ஆடியோ/வீடியோ): {n}"
+
+msgid "Charts/Graphs: {n}"
+msgstr "விளக்கப்படங்கள்/வரைபடங்கள்: {n}"
+
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr "உட்பொதிக்கப்பட்ட ஆவணங்கள் (எக்செல்/பிடிஎஃப்): {n}"
+
+msgid "Tables"
+msgstr "அட்டவணைகள்"
+
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr "அட்டவணை '{name}': {c} நெடுவரிசைகள் மற்றும் {r} வரிசைகள்"
+
+msgid "No complex tables, groups, or media."
+msgstr "சிக்கலான அட்டவணைகள், குழுக்கள் அல்லது ஊடகங்கள் எதுவும் இல்லை."
+
+msgid "Analyzing document, please wait..."
+msgstr "ஆவணம் பகுப்பாய்வு செய்யப்படுகிறது, தயவுசெய்து காத்திருக்கவும்..."
+
+msgid "Cannot access Word application."
+msgstr "வேர்டு பயன்பாட்டை அணுக முடியவில்லை."
+
+msgid "Failed to start document analyzer."
+msgstr "ஆவணப் பகுப்பாய்வியைத் தொடங்குவதில் தோல்வி."
+
+msgid "Word Document Analyzer Report"
+msgstr "வேர்டு ஆவணப் பகுப்பாய்வி அறிக்கை"
+
+msgid "1. Cursor Context"
+msgstr "1. கர்சர் சூழல்"
+
+msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
+msgstr ""
+"பிரிவு {sec}-இல், பக்கம் {page}, அட்டவணை செல் (வரிசை {row}, நெடுவரிசை {col})"
+
+msgid "In Section {sec}, Page {page} (Inside a Table)"
+msgstr "பிரிவு {sec}-இல், பக்கம் {page} (ஒரு அட்டவணைக்குள்)"
+
+msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
+msgstr "பிரிவு {sec}-இல், பக்கம் {page}, வரி {line}, நெடுவரிசை {col}"
+
+msgid "Could not retrieve cursor position."
+msgstr "கர்சரின் நிலையைப் பெற முடியவில்லை."
+
+msgid "Error retrieving cursor context."
+msgstr "கர்சரின் சூழலைப் பெறுவதில் பிழை."
+
+msgid "2. Document Properties & Options"
+msgstr "2. ஆவணப் பண்புகள் மற்றும் விருப்பங்கள்"
+
+msgid "Unprotected"
+msgstr "பாதுகாக்கப்படாதது"
+
+msgid "Allow Only Revisions (Tracked Changes)"
+msgstr "திருத்தங்களை மட்டும் அனுமதி (கண்காணிக்கப்பட்ட மாற்றங்கள்)"
+
+msgid "Allow Only Comments"
+msgstr "கருத்துகளை மட்டும் அனுமதி"
+
+msgid "Allow Only Form Fields"
+msgstr "படிவப் புலங்களை மட்டும் அனுமதி"
+
+msgid "Unknown Protection"
+msgstr "தெரியாத பாதுகாப்பு"
+
+msgid "Document Protection: {status}"
+msgstr "ஆவணப் பாதுகாப்பு: {status}"
+
+msgid "File Name: {name}"
+msgstr "கோப்புப் பெயர்: {name}"
+
+msgid "Author"
+msgstr "ஆசிரியர்"
+
+msgid "Creation Date"
+msgstr "உருவாக்கப்பட்ட தேதி"
+
+msgid "Revision Number"
+msgstr "திருத்த எண்"
+
+msgid "Title"
+msgstr "தலைப்பு"
+
+msgid "Subject"
+msgstr "பொருள்"
+
+msgid "Company"
+msgstr "நிறுவனம்"
+
+msgid "Enabled"
+msgstr "இயக்கப்பட்டது"
+
+msgid "Disabled"
+msgstr "முடக்கப்பட்டது"
+
+msgid "Check spelling as you type: {status}"
+msgstr "தட்டச்சு செய்யும்போது எழுத்துப்பிழையைச் சரிபார்க்கவும்: {status}"
+
+msgid "Check grammar as you type: {status}"
+msgstr "தட்டச்சு செய்யும்போது இலக்கணத்தை சரிபார்க்கவும்: {status}"
+
+msgid "Check grammar with spelling: {status}"
+msgstr "எழுத்துப்பிழையுடன் இலக்கணத்தை சரிபார்க்கவும்: {status}"
+
+msgid "Track Revisions (Recording): {status}"
+msgstr "திருத்தங்களைக் கண்காணி (பதிவுசெய்தல்): {status}"
+
+msgid "Visible"
+msgstr "தெரியக்கூடியது"
+
+msgid "Hidden"
+msgstr "மறைக்கப்பட்டது"
+
+msgid "Display hidden text on screen: {status}"
+msgstr "திரையில் மறைக்கப்பட்ட உரையைக் காண்பி: {status}"
+
+msgid "Could not retrieve document properties."
+msgstr "ஆவணப் பண்புகளைப் பெற முடியவில்லை."
+
+msgid "3. Overall Statistics"
+msgstr "3. ஒட்டுமொத்த புள்ளிவிவரங்கள்"
+
+msgid "Pages: {pages}"
+msgstr "பக்கங்கள்: {pages}"
+
+msgid "Words (including footnotes): {words}"
+msgstr "சொற்கள் (அடிக்குறிப்புகள் உட்பட): {words}"
+
+msgid "Characters (including footnotes): {chars}"
+msgstr "எழுத்துக்கள் (அடிக்குறிப்புகள் உட்பட): {chars}"
+
+msgid "Text Paragraphs: {paras}"
+msgstr "உரைப் பத்திகள்: {paras}"
+
+msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
+msgstr ""
+"கட்டமைப்புப் பத்திகள் (வெற்று வரிகள் மற்றும் அட்டவணைகள் உட்பட): {paras}"
+
+msgid "Lines: {lines}"
+msgstr "வரிகள்: {lines}"
+
+msgid "Lists: {lists}"
+msgstr "பட்டியல்கள்: {lists}"
+
+msgid "Spelling errors: {errors}"
+msgstr "எழுத்துப்பிழைகள்: {errors}"
+
+msgid "Could not retrieve structural statistics."
+msgstr "கட்டமைப்புப் புள்ளிவிவரங்களைப் பெற முடியவில்லை."
+
+msgid "4. Collaboration Status"
+msgstr "4. கூட்டுப்பணி நிலை"
+
+msgid "Comments: {count}"
+msgstr "கருத்துகள்: {count}"
+
+msgid "Unresolved Tracked Changes: {count}"
+msgstr "தீர்க்கப்படாத கண்காணிக்கப்பட்ட மாற்றங்கள்: {count}"
+
+msgid "Unresolved Tracked Changes: 0"
+msgstr "தீர்க்கப்படாத கண்காணிக்கப்பட்ட மாற்றங்கள்: 0"
+
+msgid "Footnotes: {count}"
+msgstr "அடிக்குறிப்புகள்: {count}"
+
+msgid "Endnotes: {count}"
+msgstr "முடிவு குறிப்புகள்: {count}"
+
+msgid "Could not retrieve collaboration statistics."
+msgstr "கூட்டுப்பணிப் புள்ளிவிவரங்களைப் பெற முடியவில்லை."
+
+msgid "5. Accessibility Audit Summary"
+msgstr "5. அணுகல்தன்மை தணிக்கை சுருக்கம்"
+
+msgid "Images (Inline): {count}"
+msgstr "படங்கள் (உள்ளீடு): {count}"
+
+msgid "Warning: {count} images are missing alternative text!"
+msgstr "எச்சரிக்கை: {count} படங்களுக்கு மாற்று உரை இல்லை!"
+
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr ""
+"எச்சரிக்கை: {count} மிதக்கும் வடிவங்கள் கண்டறியப்பட்டன. இவை பெரும்பாலும் "
+"அணுக முடியாதவை."
+
+msgid "Hyperlinks: {count}"
+msgstr "ஹைப்பர்லிங்குகள்: {count}"
+
+msgid "Could not retrieve accessibility statistics."
+msgstr "அணுகல்தன்மைப் புள்ளிவிவரங்களைப் பெற முடியவில்லை."
+
+msgid "6. Layout & Structural Breakdown"
+msgstr "6. தளவமைப்பு மற்றும் கட்டமைப்பு முறிவு"
+
+msgid "Sections"
+msgstr "பிரிவுகள்"
+
+msgid "No sections found."
+msgstr "பிரிவுகள் எதுவும் காணப்படவில்லை."
+
+msgid "Section {num}"
+msgstr "பிரிவு {num}"
+
+msgid "Portrait"
+msgstr "போர்ட்ரெய்ட்"
+
+msgid "Landscape"
+msgstr "லேண்ட்ஸ்கேப்"
+
+msgid "Orientation: {orient}"
+msgstr "நோக்குநிலை: {orient}"
+
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr ""
+"மேலே: {t:.2f}செ.மீ, கீழே: {b:.2f}செ.மீ, இடது: {l:.2f}செ.மீ, வலது: "
+"{r:.2f}செ.மீ"
+
+msgid "Margins: {margins}"
+msgstr "விளிம்புகள்: {margins}"
+
+msgid "Warning: Different first page header/footer."
+msgstr "எச்சரிக்கை: முதல் பக்க தலைப்பு/அடிக்குறிப்பு வித்தியாசமானது."
+
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr ""
+"எச்சரிக்கை: ஒற்றை மற்றும் இரட்டைப் பக்கங்கள் வேறுபட்ட "
+"தலைப்பு/அடிக்குறிப்புகளைக் கொண்டுள்ளன."
+
+msgid "Continuous"
+msgstr "தொடர்ச்சியானது"
+
+msgid "New Column"
+msgstr "புதிய நெடுவரிசை"
+
+msgid "New Page"
+msgstr "புதிய பக்கம்"
+
+msgid "Even Page"
+msgstr "இரட்டைப் பக்கம்"
+
+msgid "Odd Page"
+msgstr "ஒற்றைப் பக்கம்"
+
+msgid "Section start: {start}"
+msgstr "பிரிவு தொடக்கம்: {start}"
+
+msgid "Top"
+msgstr "மேலே"
+
+msgid "Center"
+msgstr "மையம்"
+
+msgid "Justify"
+msgstr "நிரப்பு"
+
+msgid "Bottom"
+msgstr "கீழே"
+
+msgid "Vertical alignment: {align}"
+msgstr "செங்குத்து சீரமைப்பு: {align}"
+
+msgid "Distance from top to header: {d:.2f}cm"
+msgstr "மேலிருந்து தலைப்பிற்கான தூரம்: {d:.2f}செ.மீ"
+
+msgid "Distance from bottom to footer: {d:.2f}cm"
+msgstr "கீழிருந்து அடிக்குறிப்பிற்கான தூரம்: {d:.2f}செ.மீ"
+
+msgid "Yes"
+msgstr "ஆம்"
+
+msgid "No"
+msgstr "இல்லை"
+
+msgid "Text modification only in form fields: {status}"
+msgstr "படிவப் புலங்களில் மட்டுமே உரை மாற்றம்: {status}"
+
+msgid "Custom"
+msgstr "தனிப்பயன்"
+
+msgid "Standard/Other"
+msgstr "நிலையான/பிற"
+
+msgid "Paper size: {size}"
+msgstr "காகித அளவு: {size}"
+
+msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
+msgstr "பக்க பரிமாணங்கள்: {w:.2f}செ.மீ அகலம், {h:.2f}செ.மீ உயரம்"
+
+msgid "Print two pages per sheet: {status}"
+msgstr "ஒரு தாளில் இரண்டு பக்கங்களை அச்சிடு: {status}"
+
+msgid "Right-to-Left (RTL)"
+msgstr "வலமிருந்து இடமாக (RTL)"
+
+msgid "Left-to-Right (LTR)"
+msgstr "இடமிருந்து வலமாக (LTR)"
+
+msgid "Reading direction: {dir}"
+msgstr "வாசிப்பு திசை: {dir}"
+
+msgid "No tables found."
+msgstr "அட்டவணைகள் எதுவும் காணப்படவில்லை."
+
+msgid "Table {num}"
+msgstr "அட்டவணை {num}"
+
+msgid "uniform"
+msgstr "சீரான"
+
+msgid "non-uniform"
+msgstr "சீரற்ற"
+
+msgid "nested "
+msgstr "பின்னப்பட்ட (nested) "
+
+msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
+msgstr ""
+"பரிமாணங்கள்: {rows} வரிசைகள், {cols} நெடுவரிசைகள் கொண்ட {nest}அட்டவணை "
+"({uni})"
+
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr ""
+"பரிமாணங்கள்: சிக்கலானது (வரிசைகளின் எண்ணிக்கையைத் தடுக்கும் "
+"ஒன்றிணைக்கப்பட்ட/பிரிக்கப்பட்ட செல்களைக் கொண்டுள்ளது)"
+
+msgid "Localized at page {page}, line {line}"
+msgstr "பக்கம் {page}, வரி {line}-இல் அமைந்துள்ளது"
+
+msgid "Title: {t}"
+msgstr "தலைப்பு: {t}"
+
+msgid "Description: {d}"
+msgstr "விளக்கம்: {d}"
+
+msgid "Automatic resize to fit content: {status}"
+msgstr "உள்ளடக்கத்திற்கு ஏற்ப தானாகவே அளவை மாற்றவும்: {status}"
+
+msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
+msgstr ""
+"மேல் திணிப்பு (padding): {pad:.4f}செ.மீ, கீழ் திணிப்பு: {bpad:.4f}செ.மீ"
+
+msgid "Spacing between cells: {sp:.4f}cm"
+msgstr "செல்களுக்கு இடையிலான இடைவெளி: {sp:.4f}செ.மீ"
+
+msgid "Borders Enabled: {status}"
+msgstr "எல்லைகள் இயக்கப்பட்டது: {status}"
+
+msgid "Word Document Analyzer"
+msgstr "வேர்டு ஆவணப் பகுப்பாய்வி"
+
+msgid "Auditing document formatting, please wait..."
+msgstr ""
+"ஆவணத்தின் வடிவமைப்பைத் தணிக்கை செய்கிறது, தயவுசெய்து காத்திருக்கவும்..."
+
+msgid "Failed to start formatting audit."
+msgstr "வடிவமைப்புத் தணிக்கையைத் தொடங்குவதில் தோல்வி."
+
+msgid "<b>Page {page}, Line {line}</b> (Para {num})"
+msgstr "<b>பக்கம் {page}, வரி {line}</b> (பத்தி {num})"
+
+msgid "<b>Page {page}</b> (Para {num})"
+msgstr "<b>பக்கம் {page}</b> (பத்தி {num})"
+
+msgid "<b>Paragraph {num}</b>"
+msgstr "<b>பத்தி {num}</b>"
+
+msgid "<b>Page {page}</b> (Table {num})"
+msgstr "<b>பக்கம் {page}</b> (அட்டவணை {num})"
+
+msgid "<b>Table {num}</b>"
+msgstr "<b>அட்டவணை {num}</b>"
+
+msgid ""
+"{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
+msgstr ""
+"{loc}: 3 அல்லது அதற்கு மேற்பட்ட தொடர்ச்சியான வெற்று வரிகள் கண்டறியப்பட்டன. "
+"அதற்குப் பதிலாக பேஜ் பிரேக் (Page Break) ஐப் பயன்படுத்தவும்."
+
+msgid "{loc}: Empty heading detected."
+msgstr "{loc}: வெற்று தலைப்பு கண்டறியப்பட்டது."
+
+msgid ""
+"{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
+"breaks screen reader flow."
+msgstr ""
+"{loc}: பத்திக்குள் கைமுறை வரி முறிவு (Shift+Enter) கண்டறியப்பட்டது. இது "
+"ஸ்கிரீன் ரீடர் ஓட்டத்தை உடைக்கிறது."
+
+msgid ""
+"{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
+msgstr ""
+"{loc}: ஸ்பேஸ்பார் உள்தள்ளல் (indent) கண்டறியப்பட்டது (4+ இடைவெளிகள்). Tab "
+"அல்லது பத்தி உள்தள்ளலைப் பயன்படுத்தவும்."
+
+msgid ""
+"{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
+"alignment or Ruler Indents."
+msgstr ""
+"{loc}: பல தொடர்ச்சியான Tab எழுத்துக்கள் கண்டறியப்பட்டன. மையம்/வலது சீரமைப்பு"
+" அல்லது ரூலர் உள்தள்ளல்களைப் பயன்படுத்தவும்."
+
+msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
+msgstr "{loc}: அதே பத்திக்குள் சீரற்ற எழுத்துரு அளவுகள் கண்டறியப்பட்டன."
+
+msgid "{loc}: Inconsistent font types detected within the same paragraph."
+msgstr "{loc}: அதே பத்திக்குள் சீரற்ற எழுத்துரு வகைகள் கண்டறியப்பட்டன."
+
+msgid "{loc}: Highlighted text detected."
+msgstr "{loc}: முன்னிலைப்படுத்தப்பட்ட (Highlighted) உரை கண்டறியப்பட்டது."
+
+msgid ""
+"{loc}: Fake list detected. Manual numbering used instead of built-in list."
+msgstr ""
+"{loc}: போலி பட்டியல் கண்டறியப்பட்டது. உள்ளமைக்கப்பட்ட பட்டியலுக்குப் பதிலாக "
+"கைமுறையான எண் பயன்படுத்தப்பட்டுள்ளது."
+
+msgid ""
+"{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
+"{new})."
+msgstr ""
+"{loc}: தலைப்பு நிலை தவிர்க்கப்பட்டது (நிலை {old}-லிருந்து நேராக நிலை "
+"{new}-க்குத் தாவியது)."
+
+msgid ""
+"{loc}: Table contains merged or split cells. This breaks screen reader grid "
+"navigation."
+msgstr ""
+"{loc}: அட்டவணையில் ஒன்றிணைக்கப்பட்ட அல்லது பிரிக்கப்பட்ட செல்கள் உள்ளன. இது "
+"ஸ்கிரீன் ரீடரின் கிரிட் வழிசெலுத்தலை உடைக்கிறது."
+
+msgid ""
+"{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
+"subsequent pages."
+msgstr ""
+"{loc}: அட்டவணையில் 'தலைப்பு வரிசைகளைத் திரும்பத் திரும்பச் செய்' இல்லை. "
+"அடுத்தடுத்த பக்கங்களில் தரவைப் படிக்க முடியாது."
+
+msgid ""
+"<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
+"inconsistencies found! The document looks clean.</p>"
+msgstr ""
+"<h2>வடிவமைப்பு மற்றும் அணுகல்தன்மை தணிக்கை முடிந்தது</h2><p>வடிவமைப்பு "
+"முரண்பாடுகள் எதுவும் காணப்படவில்லை! ஆவணம் சுத்தமாக இருக்கிறது.</p>"
+
+msgid "Format Audit Results"
+msgstr "வடிவமைப்புத் தணிக்கை முடிவுகள்"
+
+msgid "Format & Accessibility Audit Report"
+msgstr "வடிவமைப்பு மற்றும் அணுகல்தன்மை தணிக்கை அறிக்கை"
+
+msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
+msgstr "மொத்த பத்திகள்: {paras} | கண்டறியப்பட்ட மொத்த பிழைகள்: {total}"
+
+msgid "1. Structural Accessibility Blockers (WCAG)"
+msgstr "1. கட்டமைப்பு அணுகல்தன்மை தடுப்பிகள் (WCAG)"
+
+msgid "2. Visual Layout & Spacing Issues"
+msgstr "2. காட்சி தளவமைப்பு மற்றும் இடைவெளி சிக்கல்கள்"
+
+msgid "3. Font & Style Inconsistencies"
+msgstr "3. எழுத்துரு மற்றும் நடை முரண்பாடுகள்"
+
+msgid "bottom"
+msgstr "கீழே"
+
+msgid "top"
+msgstr "மேலே"
+
+msgid ""
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. as mentioned this is experemental and waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a structural overview of your Word document. *(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant \"Word Access\" add-on. We are deeply grateful for his foundational work in this space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. *(Note: Support for endnotes and comments is planned for a future release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native `Enter` adds line breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts (`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking bugs caused by the recent translation localization updates."
+msgstr ""
+"### பதிப்பு 2.0.0\n"
+"#### புதிய அம்சங்கள்\n"
+"* **PowerPoint: முழுமையான ஆவண பகுப்பாய்வி (சோதனை முறை) (`NVDA+E`, பின்னர் `D`):** NVDA-இன் பேச்சு இயந்திரத்தை முடக்காமல் முழு விளக்கக்காட்சியையும் வரைபடமாக்கும் ஒரு மிக மேம்பட்ட, பின்னணியில் செயலாக்கப்படும் அணுகல் கருவி. இது ஆழமாக உலாவக்கூடிய மெய்நிகர் உள்ளடக்க அட்டவணையை வழங்குகிறது, வாசிப்பு வரிசை முரண்பாடுகளைக் கண்டறிகிறது (காட்சி வரிசை மற்றும் Z-வரிசை), \"அதிக உரை கொண்ட\" ஸ்லைடுகளைக் கொடியிடுகிறது, மேலும் SmartArt மற்றும் தரவு அட்டவணைகள் போன்ற சிக்கலான பொருட்களை வரைபடமாக்குகிறது.\n"
+"* **PowerPoint: ஸ்லைடு தளவமைப்பு பகுப்பாய்வி (சோதனை முறை) (`NVDA+E`, பின்னர் `L`):** தற்போதைய செயலில் உள்ள ஸ்லைடை உடனடியாக ஸ்கேன் செய்து அதன் இடஞ்சார்ந்த தளவமைப்பு மற்றும் அணுகல் கட்டுப்பாடுகளைப் புரிந்துகொள்கிறது, இது முற்றிலும் மென்மையான மற்றும் பதிலளிக்கக்கூடிய திரை வாசகர் அனுபவத்தை உறுதி செய்கிறது. அதாவது, எக்செல் தாள் தளவமைப்பு பகுப்பாய்வியைப் போன்ற தற்போதைய ஸ்லைடு பற்றிய விவரங்களை இங்கே பெறுவீர்கள்.\n"
+"* **PowerPoint: மொத்த ஸ்லைடு ஒழுங்கமைப்பாளர் (சோதனை முறை) (`NVDA+E`, பின்னர் `X`):** எக்செல் அம்சத்தைப் போலவே, இப்போது முற்றிலும் அணுகக்கூடிய உரையாடல் பெட்டியைப் பயன்படுத்தி ஒரே நேரத்தில் பல பவர்பாயிண்ட் ஸ்லைடுகளை உடனடியாக மறுவரிசைப்படுத்தலாம், நகர்த்தலாம் மற்றும் ஒழுங்கமைக்கலாம்.\n"
+"* **PowerPoint: வடிவ நகர்வு ஒலி முறை (சோதனை முறை):** பவர்பாயிண்ட் கேன்வாஸில் முப்பரிமாண (3D) இடஞ்சார்ந்த ஆடியோ குறிப்புகளை அறிமுகப்படுத்துகிறது. நீங்கள் ஒரு பொருளை நகர்த்தும்போது அதன் திசை மற்றும் எல்லை வரம்புகளைக் குறிக்கும் ஒலி பின்னூட்டத்தை வழங்குகிறது, இது இடஞ்சார்ந்த விழிப்புணர்வை கணிசமாக மேம்படுத்துகிறது. குறிப்பிட்டுள்ளபடி இது சோதனைக்குரியது மற்றும் மேம்படுத்த அல்லது அகற்ற பின்னூட்டங்களுக்காக காத்திருக்கிறது.\n"
+"* **Word: வடிவமைப்பு தணிக்கையாளர் (`NVDA+E`, பின்னர் `F`):** காட்சித் தரங்களை உறுதிப்படுத்த வடிவமைப்பு முரண்பாடுகளுக்காக உங்கள் வேர்ட் ஆவணத்தை ஸ்கேன் செய்கிறது.\n"
+"* **Word: ஆவண பகுப்பாய்வி (`NVDA+E`, பின்னர் `D`):** உங்கள் வேர்ட் ஆவணத்தின் கட்டமைப்புக் கண்ணோட்டத்தை உடனடியாகப் பெறலாம். *(பாலுக்கு ஒரு சிறப்பு பாராட்டு மற்றும் நன்றிகள்: இந்த அம்சம் அவரது சிறந்த \"வேர்ட் அக்சஸ்\" செருகுநிரலால் நேரடியாக ஈர்க்கப்பட்டது. இந்த இடத்தில் அவரது அடிப்படை பணிக்காக நாங்கள் பெரிதும் கடமைப்பட்டுள்ளோம்!)*\n"
+"* **Word: தானியங்கி அடிக்குறிப்பு அறிவிப்பாளர்:** உங்கள் தனிப்பயன் BOA அமைப்புகளைப் பொறுத்து, நீங்கள் படிக்கும்போது அடிக்குறிப்புகள் இப்போது தானாகவே வரியிலேயே அறிவிக்கப்படும். *(குறிப்பு: இறுதிக்குறிப்புகள் மற்றும் கருத்துகளுக்கான ஆதரவு எதிர்கால வெளியீட்டில் திட்டமிடப்பட்டுள்ளது).*\n"
+"* **Excel: பவர் எடிட்டர் (அணுகக்கூடிய ஃபார்முலா எடிட்டர்):** பிரம்மாண்டமான ஃபார்முலாக்களை மாற்றுவதற்கான ஒரு முழுமையான கேம்-சேஞ்சர்.\n"
+"  - **ஒற்றைத் தட்டல் `NVDA+E`, பின்னர் `F2`:** செயலில் உள்ள செல்லின் மூல ஃபார்முலா சரத்தை உடனடியாக அறிவிக்கிறது (அல்லது \"ஃபார்முலா இல்லை\" என்று அறிவிக்கிறது).\n"
+"  - **இரட்டைத் தட்டல் `NVDA+E`, பின்னர் `F2`:** பெரிய, உள்ளமைக்கப்பட்ட ஃபார்முலாக்களைப் பாதுகாப்பாக மாற்ற முழுமையாக அணுகக்கூடிய, பல வரி எடிட்டரைத் திறக்கிறது. எளிதாகப் படிக்க உள் `Enter` வரி இடைவெளிகளைச் சேர்க்கிறது, மேலும் `Ctrl+Enter` அதை மீண்டும் எக்செல் இல் சேமிக்கிறது.\n"
+"  - *பாதுகாப்பு சோதனைகள்:* ஃபார்முலாக்கள் உங்கள் தாளைப் பாதிக்கும் முன் தொடரியல் பிழைகளைப் பாதுகாப்பாகப் பிடிக்கிறது, மேலும் ஃபார்முலா உடைந்தால் உடனடியாக எச்சரிக்கக் கணக்கீட்டுக்குப் பிந்தைய பிழைகளைக் (`#NAME?` அல்லது `#DIV/0!` போன்றவை) கண்டறிகிறது.\n"
+"* **Excel: ஃபார்முலா தணிக்கை மற்றும் மதிப்பீடு:** முன்னோடிகள் மற்றும் சார்ந்திருப்பவைகளை நம்பகத்தன்மையுடன் கண்டறிய தனிப்பயன் குறுக்குவழிகளை (`NVDA+E`, பின்னர் `Shift+P` மற்றும் `NVDA+E`, பின்னர் `Shift+D`) சேர்த்துள்ளது. மேலும், எக்செல்-இன் சொந்த \"ஃபார்முலாவை மதிப்பிடு\" உரையாடல் இப்போது முழுமையாக அணுகக்கூடியது; நீங்கள் கணக்கீட்டின் மூலம் செல்லும்போது NVDA தானாகவே மதிப்பிடப்பட்ட முடிவுகளைப் படிக்கிறது!\n"
+"* **Excel: செல் மானிட்டர் புரோ மேம்பாடுகள்:** \n"
+"  - **ஸ்லாட் மேலாளர் உரையாடல் (`NVDA+E`, பின்னர் `Alt+M`):** உங்கள் செயலில் கண்காணிக்கப்படும் அனைத்து செல்களின் பட்டியலையும் கொண்ட உரையாடலைத் திறக்கிறது. அவற்றில் ஒன்றிற்கு உடனடியாகச் செல்ல `Enter` அழுத்தவும்.\n"
+"  - **வார்ப் பேக் (`NVDA+E`, பின்னர் `\\`):** ஒரு ஸ்லாட்டைச் சரிபார்த்த பிறகு, உடனடியாக உங்களை முந்தைய வேலை செல்லுக்குத் திருப்புகிறது.\n"
+"  - **நேரடி ஸ்லாட் ஜம்ப் (`Alt` + `ஸ்லாட் எண்`):** பிரீஃபிக்ஸை முழுமையாகத் தவிர்த்து, ஒதுக்கப்பட்ட செல் ஸ்லாட்டிற்கு உடனடியாகச் செல்லலாம்.\n"
+"* **உள்ளீட்டு சைகைகள் தனிப்பயனாக்கம்:** அனைத்து ஆபிஸ் பயன்பாடுகளிலும் உள்ள அனைத்து அம்சங்களும் சொந்த என்விடிஏ உள்ளீட்டு சைகைகள் உரையாடலுக்கு வெளிப்படையாகக் காட்டப்பட்டுள்ளன, இது ஒவ்வொரு விசைப்பலகை குறுக்குவழியையும் தனிப்பயனாக்க உங்களுக்கு முழு சுதந்திரத்தை வழங்குகிறது.\n"
+"\n"
+"#### UX/UI மேம்பாடுகள்\n"
+"* **ஒருங்கிணைந்த உலாவக்கூடிய அறிக்கைகள்:** செருகுநிரல் முழுவதும் ஒருங்கிணைந்த HTML அறிக்கையிடல் முறையை நாங்கள் ஏற்றுக்கொண்டுள்ளோம். எக்செல் நிபந்தனை வடிவமைப்பு அறிவிப்பாளர், தளவமைப்பு பகுப்பாய்விகள் மற்றும் ஆவண பகுப்பாய்விகள் போன்ற அம்சங்கள் இனி வெறும் உரைத் தொகுதிகளை மட்டும் பேசாது; அவற்றின் முடிவுகள் இப்போது ஒரு சொந்த, உலாவக்கூடிய HTML சாளரத்தில் திறக்கப்படுகின்றன, இது உங்கள் சொந்த வேகத்தில் தரவை மதிப்பாய்வு செய்ய அனுமதிக்கிறது.\n"
+"* **Excel: மேம்படுத்தப்பட்ட சார்ந்திருப்பவை/முன்னோடிகள் கண்காணிப்பு:** எக்செல்-இன் சொந்த ஃபார்முலா கண்டறிதல் குறுக்குவழிகளுக்கான (`நேரடி முன்னொடிகளுக்கு `Ctrl+[` மற்றும் `நேரடி சார்ந்திருப்பவைகளுக்கு `Ctrl+]`) பேச்சு வெளியீட்டை பெருமளவில் மேம்படுத்தியுள்ளது. எந்த செல்கள் தேர்ந்தெடுக்கப்பட்டன என்பதை NVDA இப்போது வெளிப்படையாக அறிவிக்கும்.\n"
+"* **Excel: இணைக்கப்பட்ட செல் ஆதரவு:** இணைக்கப்பட்ட செல்கள் இப்போது சரியாகக் கண்டறியப்பட்டு, இடைவெளி-தவிர்க்கும் செல் டிராக்கரால் வெளிப்படையாக அறிவிக்கப்படுகின்றன.\n"
+"\n"
+"#### பிழை திருத்தங்கள்\n"
+"* **Word: பட்டியல் உருப்படி இரட்டை வாசிப்பு:** குறிப்பிட்ட வேர்ட் காட்சிகளில் என்விடிஏ பத்தி பட்டியல் உருப்படிகளை இரட்டை வாசிப்பு செய்யும் பிழையைச் சரிசெய்ய தற்காலிகத் திருத்தம் செயல்படுத்தப்பட்டது.\n"
+"* **Excel: செல் மானிட்டர் உள்ளூர்மயமாக்கல் பிழை:** சமீபத்திய மொழிபெயர்ப்பு உள்ளூர்மயமாக்கல் புதுப்பிப்புகளால் ஏற்பட்ட அடிப்படை கண்காணிப்பு பிழைகள் தீர்க்கப்பட்டன."

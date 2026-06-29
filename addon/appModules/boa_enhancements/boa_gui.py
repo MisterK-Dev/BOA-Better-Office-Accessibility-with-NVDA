@@ -124,7 +124,9 @@ class BOASettingsPanel(SettingsPanel):
 					sizer.Add(lbl, flag=wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, border=5)
 					# Translators: Options for the PowerPoint Shape Movement Audio mode.
 					choices = [
+						# Translators: Automatically added by BOA compliance auditor
 						_("Default NVDA Behavior"),
+						# Translators: Automatically added by BOA compliance auditor
 						_("Default Behavior + 3D Spatial Audio (Experimental)")
 					]
 					cb = wx.Choice(self, choices=choices)

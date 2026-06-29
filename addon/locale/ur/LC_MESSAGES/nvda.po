@@ -20,19 +20,19 @@ msgstr ""
 #. Title for the NVDA settings dialog list and the panel title
 #: addon\boa_lib\boa_gui.py:33
 msgid "BOA Office Enhancements"
-msgstr ""
+msgstr "BOA آفس کی بہتری"
 
 #: addon\boa_lib\boa_gui.py:65 addon\boa_lib\boa_gui.py:85
 msgid "Off"
-msgstr ""
+msgstr "بند"
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "One-time Announcement"
-msgstr ""
+msgstr "ایک بار کا اعلان"
 
 #: addon\boa_lib\boa_gui.py:65
 msgid "Guided Announcement"
-msgstr ""
+msgstr "رہنمائی شدہ اعلان"
 
 #: addon\boa_lib\boa_gui.py:77
 msgid ""
@@ -44,23 +44,27 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:85
 msgid "Strict Memory Check (CountA)"
-msgstr ""
+msgstr "سخت میموری چیک (CountA)"
 
 #: addon\boa_lib\boa_gui.py:85
 msgid "Visible Data Only (Math Engine)"
-msgstr ""
+msgstr "صرف نظر آنے والا ڈیٹا (ریاضی انجن)"
 
 #: addon\boa_lib\boa_gui.py:95
 msgid "Select the engine used to detect the end of data in a row or column."
 msgstr ""
+"قطار یا کالم میں ڈیٹا کے اختتام کا پتہ لگانے کے لیے استعمال ہونے والا انجن "
+"منتخب کریں۔"
 
 #: addon\boa_lib\boa_gui.py:109
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
-msgstr ""
+msgstr "&Excel: بلک شیٹ آرگنائزر اور کوئیک شیٹ موور کو فعال کریں"
 
 #: addon\boa_lib\boa_gui.py:110
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
 msgstr ""
+"مقامی ترمیم فیلڈ کے بجائے قابل رسائی شیٹ کا نام تبدیل کرنے والا ڈائیلاگ "
+"استعمال کریں"
 
 #: addon\boa_lib\boa_gui.py:111
 msgid "Prevent NVDA &crashes in Excel text fields"
@@ -68,50 +72,52 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:112
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
-msgstr ""
+msgstr "اعلان کریں جب ایک ملٹی سیل انتخاب غیر متوقع طور پر ختم ہو جائے"
 
 #: addon\boa_lib\boa_gui.py:113
 msgid "Proactively announce when navigating past &hidden rows or columns"
-msgstr ""
+msgstr "چھپی ہوئی قطاروں یا کالمز سے گزرتے وقت فعال طور پر اعلان کریں"
 
 #: addon\boa_lib\boa_gui.py:114
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
-msgstr ""
+msgstr "NVDA+E, L کے ذریعے شیٹ لے آؤٹ اینالائزر کو فعال کریں"
 
 #: addon\boa_lib\boa_gui.py:115
 msgid "Sheet Layout Auto-Announce &Mode:"
-msgstr ""
+msgstr "شیٹ لے آؤٹ آٹو-اعلان موڈ:"
 
 #: addon\boa_lib\boa_gui.py:116
 msgid "Conditional &Formatting and color"
-msgstr ""
+msgstr "مشروط فارمیٹنگ اور رنگ"
 
 #: addon\boa_lib\boa_gui.py:117
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
-msgstr ""
+msgstr "سیل مانیٹر کو فعال کریں (سلاٹس 1-9 اور مسلسل پس منظر کی نگرانی)"
 
 #: addon\boa_lib\boa_gui.py:118
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
-msgstr ""
+msgstr "اعلان کریں جب آپ کی نیویگیٹ کرنے والی سمت میں مزید کوئی ڈیٹا نہ ہو"
 
 #: addon\boa_lib\boa_gui.py:120
 msgid "Excel Enhancements"
-msgstr ""
+msgstr "ایکسل کی بہتری"
 
 #: addon\boa_lib\boa_gui.py:124
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
 msgstr ""
+"&PowerPoint: معیاری رنگ ہیکساگون گرڈ کو نیویگیٹ کرتے وقت چھپے ہوئے ہیکس کوڈز"
+" پڑھیں"
 
 #: addon\boa_lib\boa_gui.py:125
 msgid "Ensure the He&x Color edit field is properly labeled"
-msgstr ""
+msgstr "یقینی بنائیں کہ ہیکس کلر ایڈٹ فیلڈ کو مناسب طریقے سے لیبل کیا گیا ہے"
 
 #: addon\boa_lib\boa_gui.py:126
 msgid "Ensure the R&GB Color edit fields are properly labeled"
-msgstr ""
+msgstr "یقینی بنائیں کہ RGB کلر ایڈٹ فیلڈز کو مناسب طریقے سے لیبل کیا گیا ہے"
 
 #: addon\boa_lib\boa_gui.py:127
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields"
@@ -119,7 +125,7 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:129
 msgid "PowerPoint Enhancements"
-msgstr ""
+msgstr "پاورپوائنٹ کی بہتری"
 
 #: addon\boa_lib\boa_gui.py:133
 msgid "&Word: Prevent NVDA crashes in Word text fields"
@@ -127,7 +133,7 @@ msgstr ""
 
 #: addon\boa_lib\boa_gui.py:135
 msgid "Word Enhancements"
-msgstr ""
+msgstr "ورڈ کی بہتری"
 
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:59
 msgid "Enter new sheet name:"
@@ -140,7 +146,7 @@ msgstr "شیٹ کا نام تبدیل کریں"
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:85
 #, python-brace-format
 msgid "Renaming to {name}"
-msgstr ""
+msgstr "{name} کا نام تبدیل کیا جا رہا ہے"
 
 #: addon\boa_lib\excel_enhancements\accessible_rename.py:174
 msgid "Rename sheet"
@@ -148,30 +154,30 @@ msgstr "شیٹ کا نام تبدیل کریں"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:106
 msgid "Bulk arrangement complete"
-msgstr ""
+msgstr "بلک انتظام مکمل ہو گیا"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:108
 #, python-brace-format
 msgid "Error during bulk move: {error}"
-msgstr ""
+msgstr "بلک منتقلی کے دوران خرابی: {error}"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:150
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:60
 msgid "Could not find Excel grid."
-msgstr ""
+msgstr "ایکسل گرڈ نہیں مل سکا۔"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:158
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:75
 msgid "Failed to hook Excel."
-msgstr ""
+msgstr "ایکسل کو ہک کرنے میں ناکام رہا۔"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:165
 msgid "No active workbook."
-msgstr ""
+msgstr "کوئی فعال ورک بک نہیں۔"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:175
 msgid "Error opening organizer"
-msgstr ""
+msgstr "آرگنائزر کھولنے میں خرابی"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:189
 msgid "Bulk Sheet Organizer"
@@ -209,35 +215,35 @@ msgstr "&منسوخ کریں"
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:271
 #, python-brace-format
 msgid "Scheduled: {sheet} to position {pos}"
-msgstr ""
+msgstr "شیڈول شدہ: {sheet} پوزیشن {pos} پر"
 
 #: addon\boa_lib\excel_enhancements\bulk_sheet_organizer.py:289
 msgid "Move removed"
-msgstr ""
+msgstr "منتقلی ہٹا دی گئی"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:119
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:231
 msgid "Error: Could not read Excel cell."
-msgstr ""
+msgstr "خرابی: ایکسل سیل نہیں پڑھ سکا۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:144
 #, python-brace-format
 msgid "{old_cell} has been replaced by {address} for slot {slot_str}"
-msgstr ""
+msgstr "سلاٹ {slot_str} کے لیے {old_cell} کو {address} سے تبدیل کر دیا گیا ہے"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:147
 #, python-brace-format
 msgid "{address} set to slot {slot_str}"
-msgstr ""
+msgstr "سلاٹ {slot_str} پر {address} سیٹ کیا گیا"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:159
 #, python-brace-format
 msgid "Slot {slot_str} is empty."
-msgstr ""
+msgstr "سلاٹ {slot_str} خالی ہے۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:169
 msgid "Error: Excel not accessible."
-msgstr ""
+msgstr "خرابی: ایکسل تک رسائی ممکن نہیں۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:176
 #, python-brace-format
@@ -248,6 +254,8 @@ msgstr ""
 #, python-brace-format
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
 msgstr ""
+"سلاٹ {slot_str} کھو گیا۔ شیٹ '{sheet}' کا نام تبدیل کر دیا گیا یا حذف کر دی "
+"گئی۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:210
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:357
@@ -269,113 +277,114 @@ msgstr ""
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:217
 #, python-brace-format
 msgid "Cannot read slot {slot_str}. Excel may be busy."
-msgstr ""
+msgstr "سلاٹ {slot_str} نہیں پڑھا جا سکتا۔ ایکسل مصروف ہو سکتا ہے۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:238
 #, python-brace-format
 msgid "Continuous monitor OFF for {address}"
-msgstr ""
+msgstr "{address} کے لیے مسلسل مانیٹر بند"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:244
 #, python-brace-format
 msgid "Continuous monitor ON for {address}"
-msgstr ""
+msgstr "{address} کے لیے مسلسل مانیٹر آن"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:258
 msgid "All monitored and slotted cells cleared."
-msgstr ""
+msgstr "تمام مانیٹر کیے گئے اور سلاٹ کیے گئے سیلز صاف ہو گئے۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:361
 #, python-brace-format
 msgid "{cell_addr} updated: {current_val}{location_str}"
-msgstr ""
+msgstr "{cell_addr} اپ ڈیٹ کیا گیا: {current_val}{location_str}"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:379
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
 msgstr ""
+"نام کی تبدیلی یا بندش کی وجہ سے سلاٹ {slot_cleared} کے لیے مانیٹر کھو گیا۔"
 
 #: addon\boa_lib\excel_enhancements\cell_monitor.py:382
 #, python-brace-format
 msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
-msgstr ""
+msgstr "مانیٹر صاف کیا گیا: {wb_closed} میں {sheet_closed} کھو گئی۔"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:116
 msgid "unselected"
-msgstr ""
+msgstr "غیر منتخب"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:210
 #, python-brace-format
 msgid "{address} selected"
-msgstr ""
+msgstr "{address} منتخب کیا گیا"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:336
 #, python-brace-format
 msgid "Row {row_num} hidden"
-msgstr ""
+msgstr "قطار {row_num} چھپی ہوئی"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:339
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:341
 #, python-brace-format
 msgid "Rows {start} through {end} hidden"
-msgstr ""
+msgstr "قطاریں {start} سے {end} تک چھپی ہوئی"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:343
 msgid "Crossed heavily fragmented hidden rows"
-msgstr ""
+msgstr "بہت زیادہ بکھری ہوئی چھپی ہوئی قطاروں کو عبور کیا"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:406
 #, python-brace-format
 msgid "Column {col_letter} hidden"
-msgstr ""
+msgstr "کالم {col_letter} چھپا ہوا"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:409
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:411
 #, python-brace-format
 msgid "Columns {start} through {end} hidden"
-msgstr ""
+msgstr "کالمز {start} سے {end} تک چھپے ہوئے"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:413
 msgid "Crossed heavily fragmented hidden columns"
-msgstr ""
+msgstr "بہت زیادہ بکھرے ہوئے چھپے ہوئے کالمز کو عبور کیا"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:468
 msgid "No more data below"
-msgstr ""
+msgstr "نیچے مزید کوئی ڈیٹا نہیں"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:475
 msgid "No more data above"
-msgstr ""
+msgstr "اوپر مزید کوئی ڈیٹا نہیں"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:482
 msgid "No more data to the right"
-msgstr ""
+msgstr "دائیں مزید کوئی ڈیٹا نہیں"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:489
 msgid "No more data to the left"
-msgstr ""
+msgstr "بائیں مزید کوئی ڈیٹا نہیں"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:552
 msgid "Panes frozen"
-msgstr ""
+msgstr "پینز فریز ہو گئے"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:554
 msgid "Panes unfrozen"
-msgstr ""
+msgstr "پینز ان فریز ہو گئے"
 
 #. -1 is xlSheetVisible
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:577
 #, python-brace-format
 msgid "{sheet} hidden"
-msgstr ""
+msgstr "{sheet} چھپی ہوئی"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:589
 msgid "Sheet hidden"
-msgstr ""
+msgstr "شیٹ چھپی ہوئی"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:591
 msgid "Sheet unhidden"
-msgstr ""
+msgstr "شیٹ نظر آ رہی ہے"
 
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:749
 #, python-brace-format
@@ -408,7 +417,7 @@ msgstr "ظاہر"
 #: addon\boa_lib\excel_enhancements\cell_navigation_tracker.py:774
 #, python-brace-format
 msgid "{address} {state}"
-msgstr ""
+msgstr "{address} {state}"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:34
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:39
@@ -469,15 +478,15 @@ msgstr ": {color_name} متن"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:145
 msgid "No active cell found."
-msgstr ""
+msgstr "کوئی فعال سیل نہیں ملا۔"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:151
 msgid "No conditional formatting rules applied to this cell."
-msgstr ""
+msgstr "اس سیل پر کوئی مشروط فارمیٹنگ کے اصول لاگو نہیں ہیں۔"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:154
 msgid "Failed to read format conditions."
-msgstr ""
+msgstr "فارمیٹ کی شرائط پڑھنے میں ناکام۔"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:158
 #, python-brace-format
@@ -721,30 +730,30 @@ msgstr "مشروط فارمیٹنگ کا تجزیہ"
 
 #: addon\boa_lib\excel_enhancements\conditional_formatting.py:296
 msgid "Failed to analyze conditional formatting."
-msgstr ""
+msgstr "مشروط فارمیٹنگ کا تجزیہ کرنے میں ناکام۔"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:88
 msgid "Only one sheet in workbook"
-msgstr ""
+msgstr "ورک بک میں صرف ایک شیٹ"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:93
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:106
 msgid "Already at beginning"
-msgstr ""
+msgstr "پہلے ہی شروع میں"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:99
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:112
 msgid "Already at end"
-msgstr ""
+msgstr "پہلے ہی آخر میں"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:127
 #, python-brace-format
 msgid "Moved {sheet} to position {new_idx} of {total}"
-msgstr ""
+msgstr "{sheet} کو پوزیشن {new_idx} از {total} پر منتقل کر دیا گیا"
 
 #: addon\boa_lib\excel_enhancements\quick_sheet_mover.py:130
 msgid "Failed to move sheet"
-msgstr ""
+msgstr "شیٹ کو منتقل کرنے میں ناکام"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:48
 msgid "Copy (Ctrl+Shift+C)"
@@ -761,7 +770,7 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:179
 msgid "Analyzing layout..."
-msgstr ""
+msgstr "لے آؤٹ کا تجزیہ کیا جا رہا ہے..."
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:188
 msgid "Sheet appears to be empty."
@@ -803,12 +812,12 @@ msgstr "شیٹ لے آؤٹ کا جائزہ"
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:259
 #, python-brace-format
 msgid "Empty cell. Nearest data at {col}{row}."
-msgstr ""
+msgstr "خالی سیل۔ قریب ترین ڈیٹا {col}{row} پر۔"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:311
 #, python-brace-format
 msgid "Nearest data at {col}{row}"
-msgstr ""
+msgstr "قریب ترین ڈیٹا {col}{row} پر"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:364
 msgid "Filter Mode: Active"
@@ -975,31 +984,31 @@ msgstr ""
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:521
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
-msgstr ""
+msgstr "لے آؤٹ کیشے خالی ہے۔ پہلے شیٹ کو اسکین کرنے کے لیے NVDA+E, L دبائیں۔"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:526
 msgid "No data blocks found in cache."
-msgstr ""
+msgstr "کیشے میں کوئی ڈیٹا بلاکس نہیں ملے۔"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:545
 msgid "Already on a data cell."
-msgstr ""
+msgstr "پہلے ہی ڈیٹا سیل پر۔"
 
 #: addon\boa_lib\excel_enhancements\sheet_layout_analyzer.py:562
 #, python-brace-format
 msgid "Jumped to {col}{row}"
-msgstr ""
+msgstr "{col}{row} پر گیا"
 
 #. Announce the color cleanly to the user.
 #: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:52
 #, python-brace-format
 msgid "Color {text}"
-msgstr ""
+msgstr "رنگ {text}"
 
 #: addon\boa_lib\powerpoint_enhancements\standard_color_grid.py:101
 #, python-brace-format
 msgid "Color {hex_val}"
-msgstr ""
+msgstr "رنگ {hex_val}"
 
 #. Add-on description
 #: buildVars.py:15
@@ -1014,6 +1023,15 @@ msgid ""
 "    \n"
 "    Please refer to the add-on help documentation for a complete list of features and shortcuts."
 msgstr ""
+"مائیکروسافٹ آفس کے لیے رسائی میں بہتری کا ایک طاقتور مجموعہ، جو NVDA صارفین کے لیے اسکرین ریڈر کے تجربے کو نمایاں طور پر بہتر بنانے کے لیے ڈیزائن کیا گیا ہے۔\n"
+"\n"
+"    اہم خصوصیات:\n"
+"    - سیل مانیٹر: متحرک ایکسل سیلز کو محفوظ کریں اور مسلسل ٹریک کریں۔\n"
+"    - شیٹ لے آؤٹ اینالائزر: چھپے ہوئے ٹیبز، محفوظ حالتوں، اور ڈیٹا بلاکس کے لیے فوری طور پر ورک شیٹس کو اسکین کریں۔\n"
+"    - بلک شیٹ آرگنائزر اور کوئیک موور: قابل رسائی ڈائیلاگز کا استعمال کرتے ہوئے متعدد شیٹس کو فوری طور پر منتقل یا دوبارہ ترتیب دیں۔\n"
+"    - پاورپوائنٹ کلر پکرز: معیاری رنگوں کے گرڈز کے اندر چھپے ہوئے ہیکس اور آر جی بی کوڈز پڑھیں۔\n"
+"\n"
+"    خصوصیات اور شارٹ کٹس کی مکمل فہرست کے لیے براہ کرم ایڈ آن ہیلپ دستاویزات دیکھیں۔"
 
 #. Changelog URL or None
 #: buildVars.py:40
@@ -1027,3 +1045,985 @@ msgstr ""
 "* **ڈیپ فائل لوکلائزیشن**: 100% لوکلائزیشن کوریج کو یقینی بنانے کے لیے ایکسل اینہانسمنٹ ماڈیولز (جیسے شیٹ لے آؤٹ اینالائزر اور کوئیک شیٹ موور) کے اندر گہرے گمشدہ سٹرنگ ترجمہ کو درست کیا۔\n"
 "* **توسیع شدہ ترجمے کی معاونت**: سسٹم میں 7 نئی زبانیں (ترکی، پولش، کوریائی، یوکرائنی، چیک، اردو، اور پنجابی) شامل کی گئیں۔\n"
 "  *(نوٹ: یہ تراجم AI کے ذریعے تیار کیے گئے تھے، اس لیے کچھ معمولی ترجمے کی غلطیاں یا غلطیاں موجود ہو سکتی ہیں۔)*"
+
+msgid "BOA (Better Office Accessibility)"
+msgstr "BOA (Better Office Accessibility)"
+
+msgid ""
+"Triggers the BOA command prefix. Press this, followed by a specific command "
+"key."
+msgstr ""
+"BOA کمانڈ پریفکس کو ٹرگر کرتا ہے۔ اسے دبائیں، اور پھر ایک مخصوص کمانڈ کلید "
+"دبائیں۔"
+
+msgid "Launches the Bulk Sheet Organizer dialog to reorder sheets."
+msgstr ""
+"شیٹس کو دوبارہ ترتیب دینے کے لیے بلک شیٹ آرگنائزر ڈائیلاگ شروع کرتا ہے۔"
+
+msgid "Analyzes and announces the layout structure of the current sheet."
+msgstr "موجودہ شیٹ کی لے آؤٹ ساخت کا تجزیہ کرتا ہے اور اعلان کرتا ہے۔"
+
+msgid "Jumps the focus to the nearest cell block."
+msgstr "فوکس کو قریب ترین سیل بلاک پر لے جاتا ہے۔"
+
+msgid "Announces conditional formatting details for the current cell."
+msgstr "موجودہ سیل کے لیے مشروط فارمیٹنگ کی تفصیلات کا اعلان کرتا ہے۔"
+
+msgid "Toggles monitoring on the active cell."
+msgstr "فعال سیل پر مانیٹرنگ کو ٹوگل کرتا ہے۔"
+
+msgid "Clears all monitored cells."
+msgstr "تمام مانیٹر کیے گئے سیلز کو صاف کرتا ہے۔"
+
+msgid ""
+"Traces precedents and opens a dialog to jump to cells that provide data to "
+"the active cell."
+msgstr ""
+"محرکات کا سراغ لگاتا ہے اور ان سیلز پر جانے کے لیے ایک ڈائیلاگ کھولتا ہے جو "
+"فعال سیل کو ڈیٹا فراہم کرتے ہیں۔"
+
+msgid ""
+"Traces dependents and opens a dialog to jump to cells that depend on the "
+"active cell."
+msgstr ""
+"انحصار کرنے والوں کا سراغ لگاتا ہے اور ان سیلز پر جانے کے لیے ایک ڈائیلاگ "
+"کھولتا ہے جو فعال سیل پر انحصار کرتے ہیں۔"
+
+msgid "Announces the raw formula of the active cell."
+msgstr "فعال سیل کے خام فارمولے کا اعلان کرتا ہے۔"
+
+msgid ""
+"Opens the accessible Power Editor dialog to edit the active cell's contents."
+msgstr ""
+"فعال سیل کے مواد میں ترمیم کرنے کے لیے قابل رسائی پاور ایڈیٹر ڈائیلاگ کھولتا"
+" ہے۔"
+
+msgid ""
+"Opens the Active Cell Monitors dialog to manage and jump to monitored cells."
+msgstr ""
+"مانیٹر کیے گئے سیلز کو منظم کرنے اور ان پر جانے کے لیے ایکٹو سیل مانیٹرز "
+"ڈائیلاگ کھولتا ہے۔"
+
+msgid ""
+"Jumps focus back to the cell you were working on before navigating away."
+msgstr ""
+"فوکس کو واپس اس سیل پر لے جاتا ہے جس پر آپ دور جانے سے پہلے کام کر رہے تھے۔"
+
+msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
+msgstr ""
+"سلائیڈز کو دوبارہ ترتیب دینے کے لیے بلک سلائیڈ آرگنائزر ڈائیلاگ شروع کرتا "
+"ہے۔"
+
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr "موجودہ سلائیڈ کی لے آؤٹ ساخت کا تجزیہ کرتا ہے اور اعلان کرتا ہے۔"
+
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr ""
+"موجودہ پاورپوائنٹ پریزنٹیشن کا تجزیہ کرتا ہے اور ایک جامع لے آؤٹ اور ہیلتھ "
+"رپورٹ دکھاتا ہے۔"
+
+msgid ""
+"Analyzes the current Word document and displays a comprehensive layout and "
+"health report."
+msgstr ""
+"موجودہ ورڈ دستاویز کا تجزیہ کرتا ہے اور ایک جامع لے آؤٹ اور ہیلتھ رپورٹ "
+"دکھاتا ہے۔"
+
+msgid ""
+"Audits the current Word document for visual formatting inconsistencies."
+msgstr "بصری فارمیٹنگ کی عدم مطابقت کے لیے موجودہ ورڈ دستاویز کا آڈٹ کرتا ہے۔"
+
+msgid "Analysis cancelled."
+msgstr "تجزیہ منسوخ کر دیا گیا۔"
+
+msgid "An error occurred during analysis."
+msgstr "تجزیہ کے دوران ایک خرابی پیش آئی۔"
+
+msgid "Default NVDA Behavior (Reference Only)"
+msgstr "طے شدہ NVDA رویہ (صرف حوالہ کے لیے)"
+
+msgid "Read Note Content Inline"
+msgstr "نوٹ کا مواد ان لائن پڑھیں"
+
+msgid ""
+"Choose whether NVDA should automatically read the text of footnotes and "
+"endnotes inline with the document text."
+msgstr ""
+"انتخاب کریں کہ آیا NVDA کو دستاویز کے متن کے ساتھ ان لائن فوٹ نوٹس اور اینڈ "
+"نوٹس کا متن خود بخود پڑھنا چاہیے۔"
+
+msgid "Default NVDA Behavior"
+msgstr "طے شدہ NVDA رویہ"
+
+msgid "Default Behavior + 3D Spatial Audio (Experimental)"
+msgstr "طے شدہ رویہ + 3D اسپیشل آڈیو (تجرباتی)"
+
+msgid ""
+"Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
+"translate raw math coordinates into human-readable locations like 'Top-Left "
+"Quadrant'."
+msgstr ""
+"کنٹرول کرتا ہے کہ NVDA پاورپوائنٹ میں شکل کی حرکت کا اعلان کیسے کرتا ہے۔ "
+"کینوس موڈز خام ریاضی کے نقاط کو انسان کے پڑھنے کے قابل مقامات جیسے 'اوپر-"
+"بائیں کواڈرینٹ' میں ترجمہ کرتے ہیں۔"
+
+msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
+msgstr "ایکسل ٹیکسٹ فیلڈز میں NVDA کریشز کو روکیں (SafeRichEdit)"
+
+msgid "Enable Formula Auditor &features"
+msgstr "فارمولہ آڈیٹر کی خصوصیات کو فعال کریں"
+
+msgid "Explicitly announce m&erged cells"
+msgstr "ضم شدہ سیلز کا واضح طور پر اعلان کریں"
+
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr "پاورپوائنٹ ٹیکسٹ فیلڈز میں NVDA کریشز کو روکیں (SafeRichEdit)"
+
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr "بلک سلائیڈ آرگنائزر ڈائیلاگ کو فعال کریں (پریفکس + X)"
+
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
+msgstr "سلائیڈ لے آؤٹ اینالائزر کو فعال کریں (پریفکس + L)"
+
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr "پاورپوائنٹ دستاویز اینالائزر کو فعال کریں (پریفکس + D)"
+
+msgid "Shape Movement Audio Mode:"
+msgstr "شکل کی حرکت کا آڈیو موڈ:"
+
+msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+msgstr "&Word: ورڈ ٹیکسٹ فیلڈز میں NVDA کریشز کو روکیں (SafeRichEdit)"
+
+msgid "Prevent &double-reading of list items during paragraph navigation"
+msgstr "پیراگراف نیویگیشن کے دوران فہرست کے آئٹمز کو دو بار پڑھنے سے روکیں"
+
+msgid "Enable Document &Analyzer via NVDA+E, D"
+msgstr "NVDA+E, D کے ذریعے دستاویز اینالائزر کو فعال کریں"
+
+msgid "Enable Format &Auditor via NVDA+E, F"
+msgstr "NVDA+E, F کے ذریعے فارمیٹ آڈیٹر کو فعال کریں"
+
+msgid "Footnotes and Endnotes reading &mode:"
+msgstr "فوٹ نوٹس اور اینڈ نوٹس پڑھنے کا موڈ:"
+
+msgid "No formula"
+msgstr "کوئی فارمولہ نہیں"
+
+msgid "BOA Power Editor"
+msgstr "BOA پاور ایڈیٹر"
+
+msgid "&Edit cell content (press Ctrl+Enter to save, Esc to cancel):"
+msgstr ""
+"سیل کے مواد میں ترمیم کریں (محفوظ کرنے کے لیے Ctrl+Enter، منسوخ کرنے کے لیے "
+"Esc دبائیں):"
+
+msgid "&Save"
+msgstr "محفوظ کریں"
+
+msgid ""
+"The formula was saved, but Excel evaluated it to an error: {error}\n"
+"\n"
+"Would you like to continue editing?"
+msgstr ""
+"فارمولہ محفوظ ہو گیا تھا، لیکن ایکسل نے اسے ایک خرابی کے طور پر جانچا: {error}\n"
+"\n"
+"کیا آپ ترمیم جاری رکھنا چاہیں گے؟"
+
+msgid "Calculation Error"
+msgstr "حساب کی خرابی"
+
+msgid "Done"
+msgstr "مکمل"
+
+msgid ""
+"Excel rejected this formula. Please check for syntax errors or missing "
+"parentheses."
+msgstr ""
+"ایکسل نے اس فارمولے کو مسترد کر دیا۔ براہ کرم نحو کی غلطیوں یا غائب قوسین کی"
+" جانچ کریں۔"
+
+msgid "Invalid Formula"
+msgstr "غلط فارمولہ"
+
+msgid "Slot {slot_str} lost. Workbook '{wb}' is closed or inaccessible."
+msgstr "سلاٹ {slot_str} کھو گیا۔ ورک بک '{wb}' بند ہے یا قابل رسائی نہیں ہے۔"
+
+msgid "Empty cell"
+msgstr "خالی سیل"
+
+msgid "Cannot jump. The workbook '{wb}' is closed."
+msgstr "نہیں جا سکتا۔ ورک بک '{wb}' بند ہے۔"
+
+msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
+msgstr "نہیں جا سکتا۔ شیٹ '{sheet}' کا نام تبدیل کر دیا گیا یا حذف کر دی گئی۔"
+
+msgid "Cannot jump. The cell address is invalid or Excel is busy."
+msgstr "نہیں جا سکتا۔ سیل کا پتہ غلط ہے یا ایکسل مصروف ہے۔"
+
+msgid "No cell assigned to slot {slot_num}"
+msgstr "سلاٹ {slot_num} کے لیے کوئی سیل تفویض نہیں کیا گیا"
+
+msgid "No previous cell to jump back to."
+msgstr "واپس جانے کے لیے کوئی پچھلا سیل نہیں۔"
+
+msgid "Active Cell Monitors"
+msgstr "ایکٹو سیل مانیٹرز"
+
+msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
+msgstr ""
+"اس پر جانے کے لیے سیل منتخب کریں۔ اسے مانیٹرز سے ہٹانے کے لیے ڈیلیٹ دبائیں۔"
+
+msgid "&Jump"
+msgstr "جائیں"
+
+msgid "No cells are currently being monitored."
+msgstr "فی الحال کسی سیلز کی نگرانی نہیں کی جا رہی ہے۔"
+
+msgid "Slot {slot} deleted"
+msgstr "سلاٹ {slot} حذف کر دیا گیا"
+
+msgid "Monitor deleted"
+msgstr "مانیٹر حذف کر دیا گیا"
+
+msgid "Merged cell, {address}"
+msgstr "ضم شدہ سیل، {address}"
+
+msgid "{sheet_name} deleted"
+msgstr "{sheet_name} حذف کر دی گئی"
+
+msgid "Rules Summary"
+msgstr "قواعد کا خلاصہ"
+
+msgid "Analyzed Results"
+msgstr "تجزیہ شدہ نتائج"
+
+msgid "&Select a reference and press Enter to jump to it:"
+msgstr "حوالہ منتخب کریں اور اس پر جانے کے لیے انٹر دبائیں:"
+
+msgid "Cannot jump to a closed external workbook."
+msgstr "بند بیرونی ورک بک پر نہیں جا سکتا۔"
+
+msgid "(External) {}"
+msgstr "(بیرونی) {}"
+
+msgid "No precedents found."
+msgstr "کوئی محرکات نہیں ملے۔"
+
+msgid "No dependents found."
+msgstr "کوئی انحصار کرنے والے نہیں ملے۔"
+
+msgid "Precedents"
+msgstr "محرکات"
+
+msgid "Dependents"
+msgstr "انحصار کرنے والے"
+
+msgid ""
+"Clicks the button and dynamically announces formula evaluation changes."
+msgstr ""
+"بٹن پر کلک کرتا ہے اور متحرک طور پر فارمولے کی جانچ کی تبدیلیوں کا اعلان "
+"کرتا ہے۔"
+
+msgid "{old_diff} evaluated to {new_diff}"
+msgstr "{old_diff} کو {new_diff} جانچا گیا"
+
+msgid "Data Blocks Summary"
+msgstr "ڈیٹا بلاکس کا خلاصہ"
+
+msgid "Found {count} data blocks in this sheet."
+msgstr "اس شیٹ میں {count} ڈیٹا بلاکس ملے۔"
+
+msgid "Sheet Properties"
+msgstr "شیٹ کی خصوصیات"
+
+msgid ""
+"No special properties detected (No active filters, protection, frozen panes,"
+" or hidden borders)."
+msgstr ""
+"کسی خاص خصوصیات کا پتہ نہیں چلا (کوئی فعال فلٹرز، تحفظ، منجمد پینز، یا چھپے "
+"ہوئے بارڈرز نہیں)۔"
+
+msgid "Failed to connect to PowerPoint."
+msgstr "پاورپوائنٹ سے جڑنے میں ناکام۔"
+
+msgid "No active presentation."
+msgstr "کوئی فعال پریزنٹیشن نہیں۔"
+
+msgid "Not enough slides to move."
+msgstr "منتقل کرنے کے لیے کافی سلائیڈز نہیں ہیں۔"
+
+msgid "Successfully reorganized slides."
+msgstr "سلائیڈز کو کامیابی سے دوبارہ ترتیب دیا گیا۔"
+
+msgid "Failed to move slides. See log for details."
+msgstr "سلائیڈز کو منتقل کرنے میں ناکام۔ تفصیلات کے لیے لاگ دیکھیں۔"
+
+msgid "Loading slides, please wait..."
+msgstr "سلائیڈز لوڈ ہو رہی ہیں، براہ کرم انتظار کریں..."
+
+msgid "Failed to hook PowerPoint."
+msgstr "پاورپوائنٹ کو ہک کرنے میں ناکام۔"
+
+msgid "Slide {index} - {title}"
+msgstr "سلائیڈ {index} - {title}"
+
+msgid "Slide {index} - (No Title)"
+msgstr "سلائیڈ {index} - (کوئی عنوان نہیں)"
+
+msgid "Bulk Slide Organizer"
+msgstr "بلک سلائیڈ آرگنائزر"
+
+msgid "Slide Name:"
+msgstr "سلائیڈ کا نام:"
+
+msgid "Slide"
+msgstr "سلائیڈ"
+
+msgid "Scheduled: {slide} to position {pos}"
+msgstr "شیڈول شدہ: {slide} پوزیشن {pos} پر"
+
+msgid "No active presentation detected."
+msgstr "کوئی فعال پریزنٹیشن نہیں ملی۔"
+
+msgid "Analyzing document layout in background..."
+msgstr "پس منظر میں دستاویز لے آؤٹ کا تجزیہ کیا جا رہا ہے..."
+
+msgid "Error starting document analysis."
+msgstr "دستاویز کا تجزیہ شروع کرنے میں خرابی۔"
+
+msgid "Untitled Slide"
+msgstr "بے عنوان سلائیڈ"
+
+msgid "Document Analysis: {name}"
+msgstr "دستاویز کا تجزیہ: {name}"
+
+msgid "Overview"
+msgstr "جائزہ"
+
+msgid "Total Slides: {n}"
+msgstr "کل سلائیڈز: {n}"
+
+msgid "Hidden Slides: {n}"
+msgstr "چھپی ہوئی سلائیڈز: {n}"
+
+msgid "Table of Contents"
+msgstr "فہرست مضامین"
+
+msgid "Slide {num}: {title}"
+msgstr "سلائیڈ {num}: {title}"
+
+msgid "Accessibility Health"
+msgstr "رسائی کی صحت"
+
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr "پڑھنے کی ترتیب کا عدم تطابق (Z-ترتیب بمقابلہ بصری)"
+
+msgid "Slide {num}"
+msgstr "سلائیڈ {num}"
+
+msgid "Missing Alt-Text"
+msgstr "غائب Alt-متن"
+
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr "سلائیڈ {num}: {count} تصاویر میں alt-متن غائب ہے"
+
+msgid "Off-Canvas Elements"
+msgstr "آف کینوس عناصر"
+
+msgid "No major accessibility issues detected."
+msgstr "رسائی کے حوالے سے کوئی بڑے مسائل نہیں پائے گئے۔"
+
+msgid "Density & Complexity"
+msgstr "کثافت اور پیچیدگی"
+
+msgid "High Text Density (Wall of Text)"
+msgstr "متن کی زیادہ کثافت (متن کی دیوار)"
+
+msgid "Slide {num}: {words} words"
+msgstr "سلائیڈ {num}: {words} الفاظ"
+
+msgid "Complex Objects"
+msgstr "پیچیدہ آبجیکٹس"
+
+msgid "Tables: {n}"
+msgstr "ٹیبلز: {n}"
+
+msgid "Grouped Objects: {n}"
+msgstr "گروپ شدہ آبجیکٹس: {n}"
+
+msgid "Media: {n}"
+msgstr "میڈیا: {n}"
+
+msgid "Charts: {n}"
+msgstr "چارٹس: {n}"
+
+msgid "Embedded Documents: {n}"
+msgstr "ایمبیڈ شدہ دستاویزات: {n}"
+
+msgid "No active slide detected."
+msgstr "کوئی فعال سلائیڈ نہیں ملی۔"
+
+msgid "Analyzing slide layout..."
+msgstr "سلائیڈ لے آؤٹ کا تجزیہ کیا جا رہا ہے..."
+
+msgid "Error analyzing slide layout."
+msgstr "سلائیڈ لے آؤٹ کا تجزیہ کرنے میں خرابی۔"
+
+msgid "Slide {num} Layout Analysis"
+msgstr "سلائیڈ {num} کا لے آؤٹ تجزیہ"
+
+msgid "Structure & Density"
+msgstr "ساخت اور کثافت"
+
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr "پلیس ہولڈرز بمقابلہ کسٹم شکلیں: {p} / {c}"
+
+msgid "Total Word Count: {w}"
+msgstr "کل الفاظ کی گنتی: {w}"
+
+msgid "Warning: High text density (Wall of Text)"
+msgstr "انتباہ: متن کی زیادہ کثافت (متن کی دیوار)"
+
+msgid "Warning: Missing standard Title Placeholder"
+msgstr "انتباہ: معیاری ٹائٹل پلیس ہولڈر غائب ہے"
+
+msgid "Accessibility Warnings"
+msgstr "رسائی کی انتباہات"
+
+msgid "Off-Canvas Shapes"
+msgstr "آف کینوس شکلیں"
+
+msgid "Reading Order Mismatch"
+msgstr "پڑھنے کی ترتیب کا عدم تطابق"
+
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr "شکل '{s}' بصری طور پر اوپر ہے لیکن منطقی طور پر نیچے ہے۔"
+
+msgid "Missing Alt-Text: {n} images"
+msgstr "غائب Alt-متن: {n} تصاویر"
+
+msgid "No major spatial accessibility warnings detected."
+msgstr "جگہ سے متعلق رسائی کی کوئی بڑی انتباہات نہیں ملیں۔"
+
+msgid "Complex Objects & Media"
+msgstr "پیچیدہ آبجیکٹس اور میڈیا"
+
+msgid "Media (Audio/Video): {n}"
+msgstr "میڈیا (آڈیو/ویڈیو): {n}"
+
+msgid "Charts/Graphs: {n}"
+msgstr "چارٹس/گرافس: {n}"
+
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr "ایمبیڈ شدہ دستاویزات (Excel/PDF): {n}"
+
+msgid "Tables"
+msgstr "ٹیبلز"
+
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr "ٹیبل '{name}': {c} کالمز بائی {r} قطاریں"
+
+msgid "No complex tables, groups, or media."
+msgstr "کوئی پیچیدہ ٹیبلز، گروپس، یا میڈیا نہیں۔"
+
+msgid "Analyzing document, please wait..."
+msgstr "دستاویز کا تجزیہ کیا جا رہا ہے، براہ کرم انتظار کریں..."
+
+msgid "Cannot access Word application."
+msgstr "ورڈ ایپلیکیشن تک رسائی حاصل نہیں کی جا سکتی۔"
+
+msgid "Failed to start document analyzer."
+msgstr "دستاویز اینالائزر شروع کرنے میں ناکام۔"
+
+msgid "Word Document Analyzer Report"
+msgstr "ورڈ دستاویز اینالائزر رپورٹ"
+
+msgid "1. Cursor Context"
+msgstr "1. کرسر کا سیاق و سباق"
+
+msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
+msgstr "سیکشن {sec}، صفحہ {page}، ٹیبل سیل (قطار {row}، کالم {col}) میں"
+
+msgid "In Section {sec}, Page {page} (Inside a Table)"
+msgstr "سیکشن {sec}، صفحہ {page} میں (ٹیبل کے اندر)"
+
+msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
+msgstr "سیکشن {sec}، صفحہ {page}، لائن {line}، کالم {col} میں"
+
+msgid "Could not retrieve cursor position."
+msgstr "کرسر کی پوزیشن حاصل نہیں کی جا سکی۔"
+
+msgid "Error retrieving cursor context."
+msgstr "کرسر کا سیاق و سباق حاصل کرنے میں خرابی۔"
+
+msgid "2. Document Properties & Options"
+msgstr "2. دستاویز کی خصوصیات اور اختیارات"
+
+msgid "Unprotected"
+msgstr "غیر محفوظ شدہ"
+
+msgid "Allow Only Revisions (Tracked Changes)"
+msgstr "صرف نظر ثانی کی اجازت دیں (ٹریک کی گئی تبدیلیاں)"
+
+msgid "Allow Only Comments"
+msgstr "صرف تبصروں کی اجازت دیں"
+
+msgid "Allow Only Form Fields"
+msgstr "صرف فارم فیلڈز کی اجازت دیں"
+
+msgid "Unknown Protection"
+msgstr "نامعلوم تحفظ"
+
+msgid "Document Protection: {status}"
+msgstr "دستاویز کا تحفظ: {status}"
+
+msgid "File Name: {name}"
+msgstr "فائل کا نام: {name}"
+
+msgid "Author"
+msgstr "مصنف"
+
+msgid "Creation Date"
+msgstr "تخلیق کی تاریخ"
+
+msgid "Revision Number"
+msgstr "نظر ثانی کا نمبر"
+
+msgid "Title"
+msgstr "عنوان"
+
+msgid "Subject"
+msgstr "موضوع"
+
+msgid "Company"
+msgstr "کمپنی"
+
+msgid "Enabled"
+msgstr "فعال"
+
+msgid "Disabled"
+msgstr "غیر فعال"
+
+msgid "Check spelling as you type: {status}"
+msgstr "ٹائپ کرتے وقت ہجے چیک کریں: {status}"
+
+msgid "Check grammar as you type: {status}"
+msgstr "ٹائپ کرتے وقت گرامر چیک کریں: {status}"
+
+msgid "Check grammar with spelling: {status}"
+msgstr "ہجے کے ساتھ گرامر چیک کریں: {status}"
+
+msgid "Track Revisions (Recording): {status}"
+msgstr "نظر ثانی کو ٹریک کریں (ریکارڈنگ): {status}"
+
+msgid "Visible"
+msgstr "ظاہر"
+
+msgid "Hidden"
+msgstr "چھپا ہوا"
+
+msgid "Display hidden text on screen: {status}"
+msgstr "اسکرین پر چھپا ہوا متن دکھائیں: {status}"
+
+msgid "Could not retrieve document properties."
+msgstr "دستاویز کی خصوصیات حاصل نہیں کی جا سکیں۔"
+
+msgid "3. Overall Statistics"
+msgstr "3. مجموعی اعداد و شمار"
+
+msgid "Pages: {pages}"
+msgstr "صفحات: {pages}"
+
+msgid "Words (including footnotes): {words}"
+msgstr "الفاظ (بشمول فوٹ نوٹس): {words}"
+
+msgid "Characters (including footnotes): {chars}"
+msgstr "حروف (بشمول فوٹ نوٹس): {chars}"
+
+msgid "Text Paragraphs: {paras}"
+msgstr "متنی پیراگرافس: {paras}"
+
+msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
+msgstr "ساختی پیراگرافس (بشمول خالی لائنیں اور ٹیبلز): {paras}"
+
+msgid "Lines: {lines}"
+msgstr "لائنیں: {lines}"
+
+msgid "Lists: {lists}"
+msgstr "فہرستیں: {lists}"
+
+msgid "Spelling errors: {errors}"
+msgstr "ہجے کی غلطیاں: {errors}"
+
+msgid "Could not retrieve structural statistics."
+msgstr "ساختی اعداد و شمار حاصل نہیں کیے جا سکے۔"
+
+msgid "4. Collaboration Status"
+msgstr "4. تعاون کی حیثیت"
+
+msgid "Comments: {count}"
+msgstr "تبصرے: {count}"
+
+msgid "Unresolved Tracked Changes: {count}"
+msgstr "غیر حل شدہ ٹریک کی گئی تبدیلیاں: {count}"
+
+msgid "Unresolved Tracked Changes: 0"
+msgstr "غیر حل شدہ ٹریک کی گئی تبدیلیاں: 0"
+
+msgid "Footnotes: {count}"
+msgstr "فوٹ نوٹس: {count}"
+
+msgid "Endnotes: {count}"
+msgstr "اینڈ نوٹس: {count}"
+
+msgid "Could not retrieve collaboration statistics."
+msgstr "تعاون کے اعداد و شمار حاصل نہیں کیے جا سکے۔"
+
+msgid "5. Accessibility Audit Summary"
+msgstr "5. رسائی کے آڈٹ کا خلاصہ"
+
+msgid "Images (Inline): {count}"
+msgstr "تصاویر (ان لائن): {count}"
+
+msgid "Warning: {count} images are missing alternative text!"
+msgstr "انتباہ: {count} تصاویر میں متبادل متن غائب ہے!"
+
+msgid ""
+"Warning: {count} floating shapes detected. These are often inaccessible."
+msgstr ""
+"انتباہ: {count} فلوٹنگ شکلیں پائی گئیں۔ یہ اکثر ناقابل رسائی ہوتی ہیں۔"
+
+msgid "Hyperlinks: {count}"
+msgstr "ہائپر لنکس: {count}"
+
+msgid "Could not retrieve accessibility statistics."
+msgstr "رسائی کے اعداد و شمار حاصل نہیں کیے جا سکے۔"
+
+msgid "6. Layout & Structural Breakdown"
+msgstr "6. لے آؤٹ اور ساختی خرابی"
+
+msgid "Sections"
+msgstr "سیکشنز"
+
+msgid "No sections found."
+msgstr "کوئی سیکشنز نہیں ملے۔"
+
+msgid "Section {num}"
+msgstr "سیکشن {num}"
+
+msgid "Portrait"
+msgstr "پورٹریٹ"
+
+msgid "Landscape"
+msgstr "لینڈ اسکیپ"
+
+msgid "Orientation: {orient}"
+msgstr "سمت: {orient}"
+
+msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
+msgstr "اوپر: {t:.2f}cm، نیچے: {b:.2f}cm، بائیں: {l:.2f}cm، دائیں: {r:.2f}cm"
+
+msgid "Margins: {margins}"
+msgstr "مارجنز: {margins}"
+
+msgid "Warning: Different first page header/footer."
+msgstr "انتباہ: مختلف پہلے صفحے کا ہیڈر/فوٹر۔"
+
+msgid "Warning: Odd and even pages have different headers/footers."
+msgstr "انتباہ: طاق اور جفت صفحات کے ہیڈرز/فوٹرز مختلف ہیں۔"
+
+msgid "Continuous"
+msgstr "مسلسل"
+
+msgid "New Column"
+msgstr "نیا کالم"
+
+msgid "New Page"
+msgstr "نیا صفحہ"
+
+msgid "Even Page"
+msgstr "جفت صفحہ"
+
+msgid "Odd Page"
+msgstr "طاق صفحہ"
+
+msgid "Section start: {start}"
+msgstr "سیکشن کا آغاز: {start}"
+
+msgid "Top"
+msgstr "اوپر"
+
+msgid "Center"
+msgstr "مرکز"
+
+msgid "Justify"
+msgstr "جسٹفائی"
+
+msgid "Bottom"
+msgstr "نیچے"
+
+msgid "Vertical alignment: {align}"
+msgstr "عمودی سیدھ: {align}"
+
+msgid "Distance from top to header: {d:.2f}cm"
+msgstr "اوپر سے ہیڈر تک کا فاصلہ: {d:.2f}cm"
+
+msgid "Distance from bottom to footer: {d:.2f}cm"
+msgstr "نیچے سے فوٹر تک کا فاصلہ: {d:.2f}cm"
+
+msgid "Yes"
+msgstr "ہاں"
+
+msgid "No"
+msgstr "نہیں"
+
+msgid "Text modification only in form fields: {status}"
+msgstr "صرف فارم فیلڈز میں متن کی ترمیم: {status}"
+
+msgid "Custom"
+msgstr "کسٹم"
+
+msgid "Standard/Other"
+msgstr "معیاری/دیگر"
+
+msgid "Paper size: {size}"
+msgstr "کاغذ کا سائز: {size}"
+
+msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
+msgstr "صفحے کے طول و عرض: {w:.2f}cm چوڑائی، {h:.2f}cm اونچائی"
+
+msgid "Print two pages per sheet: {status}"
+msgstr "فی شیٹ دو صفحات پرنٹ کریں: {status}"
+
+msgid "Right-to-Left (RTL)"
+msgstr "دائیں سے بائیں (RTL)"
+
+msgid "Left-to-Right (LTR)"
+msgstr "بائیں سے دائیں (LTR)"
+
+msgid "Reading direction: {dir}"
+msgstr "پڑھنے کی سمت: {dir}"
+
+msgid "No tables found."
+msgstr "کوئی ٹیبلز نہیں ملے۔"
+
+msgid "Table {num}"
+msgstr "ٹیبل {num}"
+
+msgid "uniform"
+msgstr "یکساں"
+
+msgid "non-uniform"
+msgstr "غیر یکساں"
+
+msgid "nested "
+msgstr "نیسٹڈ "
+
+msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
+msgstr "طول و عرض: {rows} قطاروں، {cols} کالمز کا {nest}ٹیبل ({uni})"
+
+msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
+msgstr ""
+"طول و عرض: پیچیدہ (ضم/تقسیم شدہ سیلز پر مشتمل ہے جو قطاروں کی گنتی کو روکتے "
+"ہیں)"
+
+msgid "Localized at page {page}, line {line}"
+msgstr "صفحہ {page}، لائن {line} پر مقامی کیا گیا"
+
+msgid "Title: {t}"
+msgstr "عنوان: {t}"
+
+msgid "Description: {d}"
+msgstr "تفصیل: {d}"
+
+msgid "Automatic resize to fit content: {status}"
+msgstr "مواد کے مطابق خودکار سائز تبدیل کریں: {status}"
+
+msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
+msgstr "اوپر کی پیڈنگ: {pad:.4f}cm، نیچے کی پیڈنگ: {bpad:.4f}cm"
+
+msgid "Spacing between cells: {sp:.4f}cm"
+msgstr "سیلز کے درمیان فاصلہ: {sp:.4f}cm"
+
+msgid "Borders Enabled: {status}"
+msgstr "بارڈرز فعال ہیں: {status}"
+
+msgid "Word Document Analyzer"
+msgstr "ورڈ دستاویز اینالائزر"
+
+msgid "Auditing document formatting, please wait..."
+msgstr "دستاویز کی فارمیٹنگ کا آڈٹ کیا جا رہا ہے، براہ کرم انتظار کریں..."
+
+msgid "Failed to start formatting audit."
+msgstr "فارمیٹنگ آڈٹ شروع کرنے میں ناکام۔"
+
+msgid "<b>Page {page}, Line {line}</b> (Para {num})"
+msgstr "<b>صفحہ {page}، لائن {line}</b> (پیراگراف {num})"
+
+msgid "<b>Page {page}</b> (Para {num})"
+msgstr "<b>صفحہ {page}</b> (پیراگراف {num})"
+
+msgid "<b>Paragraph {num}</b>"
+msgstr "<b>پیراگراف {num}</b>"
+
+msgid "<b>Page {page}</b> (Table {num})"
+msgstr "<b>صفحہ {page}</b> (ٹیبل {num})"
+
+msgid "<b>Table {num}</b>"
+msgstr "<b>ٹیبل {num}</b>"
+
+msgid ""
+"{loc}: 3 or more consecutive blank lines detected. Use a Page Break instead."
+msgstr ""
+"{loc}: 3 یا اس سے زیادہ مسلسل خالی لائنیں پائی گئیں۔ اس کے بجائے پیج بریک "
+"استعمال کریں۔"
+
+msgid "{loc}: Empty heading detected."
+msgstr "{loc}: خالی ہیڈنگ ملی۔"
+
+msgid ""
+"{loc}: Manual line break (Shift+Enter) detected inside paragraph. This "
+"breaks screen reader flow."
+msgstr ""
+"{loc}: پیراگراف کے اندر دستی لائن بریک (Shift+Enter) پایا گیا۔ یہ اسکرین "
+"ریڈر کے بہاؤ کو توڑتا ہے۔"
+
+msgid ""
+"{loc}: Spacebar indent detected (4+ spaces). Use Tab or Paragraph Indent."
+msgstr ""
+"{loc}: اسپیس بار انڈینٹ پایا گیا (4+ اسپیسز)۔ ٹیب یا پیراگراف انڈینٹ استعمال"
+" کریں۔"
+
+msgid ""
+"{loc}: Multiple consecutive Tab characters detected. Use Center/Right "
+"alignment or Ruler Indents."
+msgstr ""
+"{loc}: متعدد مسلسل ٹیب حروف پائے گئے۔ مرکز/دائیں سیدھ یا رولر انڈینٹس "
+"استعمال کریں۔"
+
+msgid "{loc}: Inconsistent font sizes detected within the same paragraph."
+msgstr "{loc}: ایک ہی پیراگراف میں متضاد فونٹ سائز پائے گئے۔"
+
+msgid "{loc}: Inconsistent font types detected within the same paragraph."
+msgstr "{loc}: ایک ہی پیراگراف میں متضاد فونٹ کی قسمیں پائی گئیں۔"
+
+msgid "{loc}: Highlighted text detected."
+msgstr "{loc}: نمایاں کردہ متن پایا گیا۔"
+
+msgid ""
+"{loc}: Fake list detected. Manual numbering used instead of built-in list."
+msgstr ""
+"{loc}: جعلی فہرست ملی۔ بلٹ ان فہرست کے بجائے دستی نمبرنگ استعمال کی گئی ہے۔"
+
+msgid ""
+"{loc}: Skipped heading level (Jumped from Level {old} directly to Level "
+"{new})."
+msgstr ""
+"{loc}: ہیڈنگ لیول کو چھوڑ دیا گیا (لیول {old} سے براہ راست لیول {new} پر چلا"
+" گیا)۔"
+
+msgid ""
+"{loc}: Table contains merged or split cells. This breaks screen reader grid "
+"navigation."
+msgstr ""
+"{loc}: ٹیبل میں ضم شدہ یا تقسیم شدہ سیلز شامل ہیں۔ یہ اسکرین ریڈر گرڈ "
+"نیویگیشن کو توڑتا ہے۔"
+
+msgid ""
+"{loc}: Table is missing 'Repeat Header Rows'. Data will be unreadable on "
+"subsequent pages."
+msgstr ""
+"{loc}: ٹیبل میں 'Repeat Header Rows' غائب ہے۔ بعد کے صفحات پر ڈیٹا پڑھنے کے "
+"قابل نہیں ہوگا۔"
+
+msgid ""
+"<h2>Format & Accessibility Audit Complete</h2><p>No formatting "
+"inconsistencies found! The document looks clean.</p>"
+msgstr ""
+"<h2>فارمیٹ اور رسائی کا آڈٹ مکمل</h2><p>فارمیٹنگ کی کوئی عدم مطابقت نہیں "
+"ملی! دستاویز صاف لگتی ہے۔</p>"
+
+msgid "Format Audit Results"
+msgstr "فارمیٹ آڈٹ کے نتائج"
+
+msgid "Format & Accessibility Audit Report"
+msgstr "فارمیٹ اور رسائی کی آڈٹ رپورٹ"
+
+msgid "Total Paragraphs: {paras} | Total Errors Found: {total}"
+msgstr "کل پیراگرافس: {paras} | کل غلطیاں ملیں: {total}"
+
+msgid "1. Structural Accessibility Blockers (WCAG)"
+msgstr "1. ساختی رسائی میں رکاوٹیں (WCAG)"
+
+msgid "2. Visual Layout & Spacing Issues"
+msgstr "2. بصری لے آؤٹ اور جگہ کے مسائل"
+
+msgid "3. Font & Style Inconsistencies"
+msgstr "3. فونٹ اور اسٹائل کی عدم مطابقت"
+
+msgid "bottom"
+msgstr "نیچے"
+
+msgid "top"
+msgstr "اوپر"
+
+msgid ""
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. as mentioned this is experemental and waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a structural overview of your Word document. *(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant \"Word Access\" add-on. We are deeply grateful for his foundational work in this space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. *(Note: Support for endnotes and comments is planned for a future release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native `Enter` adds line breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts (`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking bugs caused by the recent translation localization updates."
+msgstr ""
+"### ورژن 2.0.0\n"
+"#### نئی خصوصیات\n"
+"* **پاورپوائنٹ: مکمل دستاویز اینالائزر (تجرباتی) (`NVDA+E`، پھر `D`):** ایک انتہائی جدید، پس منظر میں پروسیس ہونے والا رسائی کا ٹول جو NVDA کے اسپیچ انجن کو فریز کیے بغیر پوری پریزنٹیشن کا نقشہ بناتا ہے۔ یہ ایک گہرائی سے قابل رسائی ورچوئل ٹیبل آف کنٹینٹس فراہم کرتا ہے، پڑھنے کی ترتیب کے عدم تطابق (بصری ترتیب بمقابلہ Z-ترتیب) کا پتہ لگاتا ہے، \"متن کی دیوار\" والی سلائیڈز کو نشان زد کرتا ہے، اور اسمارٹ آرٹ اور ڈیٹا ٹیبلز جیسے پیچیدہ آبجیکٹس کا نقشہ بناتا ہے۔\n"
+"* **پاورپوائنٹ: سلائیڈ لے آؤٹ اینالائزر (تجرباتی) (`NVDA+E`، پھر `L`):** فوری طور پر آپ کی موجودہ فعال سلائیڈ کو اسکین کرتا ہے تاکہ اس کی مقامی لے آؤٹ اور رسائی کی رکاوٹوں کو سمجھا جا سکے، جس سے اسکرین ریڈر کا ایک مکمل ہموار اور جوابدہ تجربہ یقینی ہوتا ہے۔ اس کا مطلب ہے، یہاں آپ کو موجودہ سلائیڈ کے بارے میں ایکسل کے شیٹ لے آؤٹ اینالائزر جیسی تفصیلات ملیں گی۔\n"
+"* **پاورپوائنٹ: بلک سلائیڈ آرگنائزر (تجرباتی) (`NVDA+E`، پھر `X`):** ایکسل کی خصوصیت کی طرح، اب آپ مکمل طور پر قابل رسائی ڈائیلاگ کا استعمال کرتے ہوئے ایک ساتھ متعدد پاورپوائنٹ سلائیڈز کو فوری طور پر دوبارہ ترتیب دے سکتے ہیں، منتقل کر سکتے ہیں اور ترتیب دے سکتے ہیں۔\n"
+"* **پاورپوائنٹ: شکل کی حرکت کا آڈیو موڈ (تجرباتی):** پاورپوائنٹ کینوس میں 3D اسپیشل آڈیو اشارے متعارف کراتا ہے۔ آڈیو فیڈ بیک فراہم کرتا ہے جو کسی آبجیکٹ کی سمت اور حد کی نشاندہی کرتا ہے جب آپ اسے منتقل کرتے ہیں، جس سے مقامی آگاہی میں بہت بہتری آتی ہے۔ جیسا کہ ذکر کیا گیا ہے یہ تجرباتی ہے اور بہتر بنانے یا ہٹانے کے لیے فیڈ بیکس کا انتظار کر رہا ہے۔\n"
+"* **ورڈ: فارمیٹنگ آڈیٹر (`NVDA+E`، پھر `F`):** بصری معیارات کو یقینی بنانے کے لیے فارمیٹنگ کی عدم مطابقت کے لیے آپ کی ورڈ دستاویز کو اسکین کرتا ہے۔\n"
+"* **ورڈ: دستاویز اینالائزر (`NVDA+E`، پھر `D`):** فوری طور پر آپ کی ورڈ دستاویز کا ساختی جائزہ سامنے لاتا ہے۔ *(پال کے لیے کریڈٹ کا ایک خاص نوٹ اور شکریہ: یہ خصوصیت براہ راست ان کے شاندار \"Word Access\" ایڈ آن سے متاثر تھی۔ ہم اس خلا میں ان کے بنیادی کام کے لیے ان کے دل سے مشکور ہیں!)*\n"
+"* **ورڈ: خودکار فوٹ نوٹ اناؤنسر:** آپ کی حسب ضرورت BOA سیٹنگز کے لحاظ سے، جب آپ پڑھیں گے تو فوٹ نوٹس اب خود بخود ان لائن اعلان کیے جائیں گے۔ *(نوٹ: اینڈ نوٹس اور تبصروں کے لیے تعاون مستقبل کے اجراء کے لیے منصوبہ بند ہے)۔*\n"
+"* **ایکسل: پاور ایڈیٹر (قابل رسائی فارمولہ ایڈیٹر):** بڑے فارمولوں میں ترمیم کرنے کے لیے ایک مکمل گیم چینجر۔\n"
+"  - **سنگل-ٹیپ `NVDA+E`، پھر `F2`:** فوری طور پر فعال سیل کے خام فارمولہ اسٹرنگ کا اعلان کرتا ہے (یا \"کوئی فارمولہ نہیں\" کا اعلان کرتا ہے)۔\n"
+"  - **ڈبل-ٹیپ `NVDA+E`، پھر `F2`:** بڑے، نیسٹڈ فارمولوں کو محفوظ طریقے سے تبدیل کرنے کے لیے ایک مکمل طور پر قابل رسائی، ملٹی لائن ایڈیٹر کھولتا ہے۔ مقامی `Enter` آسانی سے پڑھنے کے لیے لائن بریکس کا اضافہ کرتا ہے، اور `Ctrl+Enter` اسے واپس ایکسل میں محفوظ کرتا ہے۔\n"
+"  - *حفاظتی چیکس:* آپ کی شیٹ کو کرپٹ کرنے سے پہلے نحو کی غلطیوں کو محفوظ طریقے سے پکڑتا ہے، اور حساب کے بعد کی غلطیوں (جیسے `#NAME?` یا `#DIV/0!`) کا پتہ لگاتا ہے تاکہ فارمولہ ٹوٹنے کی صورت میں آپ کو فوری خبردار کیا جا سکے۔\n"
+"* **ایکسل: فارمولہ آڈیٹنگ اور جانچ:** محرکات اور انحصار کرنے والوں کا قابل اعتماد طریقے سے سراغ لگانے کے لیے حسب ضرورت شارٹ کٹس (`NVDA+E`، پھر `Shift+P` اور `NVDA+E`، پھر `Shift+D`) شامل کیے گئے۔ مزید برآں، ایکسل کا مقامی \"فارمولے کا جائزہ لیں\" ڈائیلاگ اب پوری طرح سے قابل رسائی ہے۔ جب آپ حساب کتاب کے عمل سے گزرتے ہیں تو NVDA خود بخود جانچے گئے نتائج پڑھتا ہے!\n"
+"* **ایکسل: سیل مانیٹر پرو اپ گریڈز:** \n"
+"  - **سلاٹ مینیجر ڈائیلاگ (`NVDA+E`، پھر `Alt+M`):** ایک ڈائیلاگ کھولتا ہے جس میں آپ کے فعال طور پر مانیٹر کیے گئے تمام سیلز درج ہوتے ہیں۔ فوری طور پر کسی پر جانے کے لیے `Enter` دبائیں۔\n"
+"  - **واپس جائیں (`NVDA+E`، پھر `\\`):** ایک سلاٹ چیک کرنے کے بعد فوری طور پر آپ کو آپ کے پچھلے کام کرنے والے سیل پر واپس لے جاتا ہے۔\n"
+"  - **براہ راست سلاٹ جمپ (`Alt` + `سلاٹ نمبر`):** پریفکس کو مکمل طور پر بائی پاس کریں اور فوری طور پر کسی تفویض کردہ سیل سلاٹ پر جائیں۔\n"
+"* **ان پٹ اشاروں کی تخصیص:** تمام آفس ایپس میں تمام خصوصیات واضح طور پر مقامی NVDA ان پٹ اشاروں کے ڈائیلاگ میں ظاہر کی گئی ہیں، جو آپ کو ہر کی بورڈ شارٹ کٹ کو اپنی مرضی کے مطابق بنانے کی مکمل آزادی دیتی ہیں۔\n"
+"\n"
+"#### UX/UI بہتری\n"
+"* **متحد براؤز ایبل رپورٹس:** ہم نے ایڈ آن میں ایک متحد HTML رپورٹنگ سسٹم اپنایا ہے۔ ایکسل کنڈیشنل فارمیٹنگ اناؤنسر، لے آؤٹ اینالائزر، اور دستاویز اینالائزر جیسی خصوصیات اب صرف متن کے بڑے بلاکس نہیں بولتی ہیں۔ ان کے نتائج اب ایک مقامی، قابل رسائی HTML ونڈو میں کھلتے ہیں، جس سے آپ اپنی رفتار سے ڈیٹا کا جائزہ لے سکتے ہیں۔\n"
+"* **ایکسل: بہتر انحصار کرنے والوں/محرکات کی ٹریکنگ:** ایکسل کے مقامی فارمولہ ٹریسنگ شارٹ کٹس (براہ راست محرکات کے لیے `Ctrl+[`، اور براہ راست انحصار کرنے والوں کے لیے `Ctrl+]`) کے لیے اسپیچ آؤٹ پٹ کو نمایاں طور پر بہتر بنایا گیا۔ NVDA اب واضح طور پر اعلان کرے گا کہ کون سے سیلز منتخب کیے گئے تھے۔\n"
+"* **ایکسل: مرج سیل سپورٹ:** گیپ-اسکیپنگ سیل ٹریکر کے ذریعے اب ضم شدہ سیلز کا صحیح طریقے سے پتہ لگایا اور واضح طور پر اعلان کیا جاتا ہے۔\n"
+"\n"
+"#### بگ فکسز\n"
+"* **ورڈ: فہرست آئٹم کا دو بار پڑھنا:** اس بگ کو ٹھیک کرنے کے لیے ایک عارضی پیچ لاگو کیا گیا ہے جہاں NVDA بعض ورڈ ویوز میں پیراگراف کی فہرست کے آئٹمز کو دو بار پڑھتا ہے۔\n"
+"* **ایکسل: سیل مانیٹر لوکلائزیشن بگ:** حالیہ ترجمہ لوکلائزیشن اپ ڈیٹس کی وجہ سے پیدا ہونے والے ٹریکنگ کے بنیادی بگز کو حل کیا۔"

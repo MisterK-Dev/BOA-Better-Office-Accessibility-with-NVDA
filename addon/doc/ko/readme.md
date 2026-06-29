@@ -1,188 +1,272 @@
 # BOA: Better Office Accessibility
 
-BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
+BOA는 NVDA 사용자의 스크린 리더 경험을 크게 향상시키기 위해 설계된 Microsoft Office용 강력한 접근성 개선 도구 모음입니다. 접근성이 떨어지는 UI 구성 요소를 직접 수정하고 Excel 및 PowerPoint를 위한 빠른 탐색 도구를 제공합니다.
 
 ---
 
-## ⌨️ Hotkey Reference
+## ⌨️ 단축키 참조
 
-| Feature | Key Combination | Context / Notes |
+| 기능 | 키 조합 | 컨텍스트 / 참고 사항 |
 | :--- | :--- | :--- |
-| **Enter Command Mode** | `NVDA+E` | Activates Command Prefix Mode (triggers a high-pitched beep) |
-| **Analyze Sheet Layout** | `NVDA+E`, then `L` | Run within Excel before navigating data blocks |
-| **Jump to Nearest Data Block** | `NVDA+E`, then `J` /  | Requires Layout Analysis first |
-| **Open Bulk Sheet Organizer** | `NVDA+E`, then `X` | Opens the accessible sheet reordering dialog |
-| **Move Active Sheet Left** | `NVDA+Shift+LeftArrow` | Shifts the active sheet one position up|
-| **Move Active Sheet Right** | `NVDA+Shift+RightArrow` | Shifts the active worksheet one position down|
-| **Move Sheet to Start/End** | `NVDA+Shift+Home` / `End` | Sends worksheet to the absolute absolute boundaries |
-| **Detailed Conditional Formatting**| `NVDA+E`, then `F` | Announces complete formatting details of focused cell |
-| **Map Cell to Memory Slot** | `NVDA+E`, then `Shift+1` to `Shift+9` | Assigns current cell to a background monitor slot |
-| **Read Monitored Cell Slot** | `NVDA+E`, then `1` to `9` | Recalls and reads the value of the assigned slot |
-| **Toggle Background Monitoring** | `NVDA+E`, then `M` | Manually toggles background calculation tracking |
-| **Clear All Memory Slots** | `NVDA+E`, then `Backspace` | Purges all saved background cell monitors |
-| **Cancel Command Mode** | `Escape` | Exits Command Prefix Mode |
+| **명령 모드 진입** | `[Prefix]` (기본값: `NVDA+E`) | 명령 접두사 모드를 활성화합니다 (높은 음의 신호음이 울림) |
+| **명령 모드 취소** | `Escape` | 명령 접두사 모드를 종료합니다 |
+| **EXCEL 기능 개선** | | |
+| **시트 레이아웃 분석** | `[Prefix]` 누른 후 `L` | 데이터 블록을 탐색하기 전에 Excel 내에서 실행합니다 |
+| **가장 가까운 데이터 블록으로 이동** | `[Prefix]` 누른 후 `J` | 먼저 레이아웃 분석이 필요합니다 |
+| **일괄 시트 정리 도구 열기** | `[Prefix]` 누른 후 `X` | 접근 가능한 시트 순서 재정렬 대화 상자를 엽니다 |
+| **원시 수식 안내기** | `[Prefix]` 누른 후 `F2` | 한 번 누르면 원시 수식 문자열을 읽어줍니다 |
+| **파워 수식 편집기** | `[Prefix]` 누른 후 `F2` 두 번 | 두 번 누르면 접근 가능한 다중 행 수식 편집기를 엽니다 |
+| **참조하는 셀 추적** | `[Prefix]` 누른 후 `Shift+P` | 접근 가능한 방식으로 참조하는 셀 추적 기능을 수행합니다.|
+| **참조되는 셀 추적** | `[Prefix]` 누른 후 `Shift+D` | 접근 가능한 방식으로 참조되는 셀 추적 기능을 수행하며, 셀에서 Enter 키를 누르면 해당 위치로 즉시 이동합니다.|
+| **상세 조건부 서식**| `[Prefix]` 누른 후 `F` | 포커스된 셀의 전체 서식 세부 정보를 안내합니다 |
+| **활성 시트를 왼쪽으로 이동** | `NVDA+Shift+LeftArrow` | 활성 시트를 한 위치 위로 이동합니다 |
+| **활성 시트를 오른쪽으로 이동** | `NVDA+Shift+RightArrow` | 활성 워크시트를 한 위치 아래로 이동합니다 |
+| **시트를 시작/끝으로 이동** | `NVDA+Shift+Home` / `End` | 워크시트를 절대 경계의 끝으로 보냅니다 |
+| **행 숨기기 / 숨기기 취소** | `Ctrl+9` / `Ctrl+Shift+9` | 내장 단축키; BOA가 명시적으로 가시성 변경을 안내합니다 |
+| **열 숨기기 / 숨기기 취소** | `Ctrl+0` / `Ctrl+Shift+0` | 내장 단축키; BOA가 명시적으로 가시성 변경을 안내합니다 |
+| **열 숨기기 취소 (대체 키)** | `NVDA+Ctrl+Shift+0` | Windows 입력 언어 단축키 충돌을 우회합니다 |
+| **셀을 메모리 슬롯에 매핑** | `[Prefix]` 누른 후 `Shift+1` ~ `Shift+9` | 현재 셀을 백그라운드 모니터 슬롯에 할당합니다 |
+| **모니터링되는 셀 슬롯 읽기** | `[Prefix]` 누른 후 `1` ~ `9` | 할당된 슬롯의 값을 불러와 읽습니다 |
+| **슬롯 즉시 이동** | `Alt` + `1` ~ `9` | 모니터링되는 슬롯으로 커서를 즉시 이동시킵니다 |
+| **이전 셀로 복귀** | `[Prefix]` 누른 후 `\` | 슬롯을 확인한 후 이전으로 즉시 복귀합니다 |
+| **슬롯 관리자 대화 상자** | `[Prefix]` 누른 후 `Alt+M` | 활성화된 모든 모니터를 확인하고 관리하는 대화 상자를 엽니다 |
+| **백그라운드 모니터링 토글** | `[Prefix]` 누른 후 `M` | 백그라운드 계산 추적을 수동으로 토글합니다 |
+| **모든 메모리 슬롯 지우기** | `[Prefix]` 누른 후 `Backspace` | 저장된 모든 백그라운드 셀 모니터를 제거합니다 |
+| **POWERPOINT 기능 개선** | | |
+| **슬라이드 레이아웃 분석** | `[Prefix]` 누른 후 `L` | 현재 슬라이드의 공간적 레이아웃을 분석하고 안내합니다 |
+| **문서 분석기** | `[Prefix]` 누른 후 `D` | 종합적인 목차 및 상태 보고서를 생성합니다 |
+| **일괄 슬라이드 정리 도구** | `[Prefix]` 누른 후 `X` | 여러 슬라이드의 순서를 재정렬할 수 있는 접근 가능한 대화 상자를 엽니다 |
+| **WORD 기능 개선** | | |
+| **서식 검사기** | `[Prefix]` 누른 후 `F` | 현재 문서의 서식 불일치 사항을 검사합니다 |
+| **문서 분석기** | `[Prefix]` 누른 후 `D` | 현재 Word 문서의 레이아웃과 구조를 분석합니다 |
 
 ---
 
-## 🚀 Features
+## 🚀 기능
 
-### Excel Enhancements
+### Excel 기능 개선
 
-#### 1. Sheet Layout Analyzer & Caching
-Instantly scan any Excel worksheet to understand its structure, hidden elements, and data blocks.
-* **How it works:** BOA quickly scans the sheet and announces active data blocks. It also warns you about **Hidden Worksheet Tabs**, active **Filters**, **Protected Modes**, and **Hidden Outer Boundaries** (e.g., if columns near the right edge of the sheet are hidden, preventing you from missing off-screen data).
-* **Data Navigation:** After scanning, you can use the data block jump hotkeys to instantly warp your cursor between discovered data blocks, effortlessly bypassing thousands of empty cells.
+#### 1. 시트 레이아웃 분석 및 캐싱
+Excel 워크시트를 즉시 스캔하여 구조, 숨겨진 요소 및 데이터 블록을 파악합니다.
+* **작동 방식:** BOA는 시트를 빠르게 스캔하고 활성 데이터 블록을 안내합니다. 또한 **숨겨진 워크시트 탭**, 활성화된 **필터**, **보호 모드** 및 **숨겨진 바깥쪽 경계**(예: 시트 오른쪽 가장자리 근처의 열이 숨겨져 있는 경우, 화면 밖에 있는 데이터를 놓치지 않도록 방지)에 대해 경고합니다.
+* **데이터 탐색:** 스캔 후 데이터 블록 이동 단축키를 사용하여 탐색된 데이터 블록 간에 커서를 즉시 이동시킬 수 있으며, 수천 개의 빈 셀을 간편하게 건너뛸 수 있습니다.
 
-#### 2. Bulk Sheet Organizer
-Instantly reorder and arrange multiple sheets at once using a fully accessible dialog .
-* **How it works:** Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press `Del` to remove a mistake). Click `OK` and your workbook is rearranged instantly.
+#### 2. 일괄 시트 정리 도구
+접근성이 완전히 보장된 대화 상자를 사용하여 한 번에 여러 시트의 순서를 즉시 바꾸고 정리합니다.
+* **작동 방식:** 시트를 선택하고 새 위치로 설정할 수 있는 대화 상자를 엽니다. 예약된 이동 항목은 데이터 표에 나열됩니다(잘못된 항목은 `Del` 키를 눌러 제거). `OK`를 클릭하면 통합 문서가 즉시 재정렬됩니다.
 
-#### 3. Quick Sheet Mover
-Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard shortcuts.
+#### 3. 빠른 시트 이동 도구
+키보드 단축키를 사용하여 활성 시트를 왼쪽, 오른쪽, 맨 처음 또는 맨 끝으로 즉시 이동합니다.
 
-#### 4. Accessible Sheet Renaming
-* When renaming a sheet, NVDA natively struggles to read the characters you are typing.
-* BOA injects a custom `ExcelSheetRenameEdit` class that uses the `SafeRichEdit` engine, meaning you can precisely read by character, word, or line while renaming. This serves as an enhancement to the existing default renaming behavior.
+#### 4. 접근 가능한 시트 이름 변경
+* 시트 이름을 변경할 때, NVDA는 기본적으로 입력 중인 글자를 읽는 데 어려움이 있습니다.
+* BOA는 `SafeRichEdit` 엔진을 사용하는 사용자 정의 `ExcelSheetRenameEdit` 클래스를 삽입하여 이름 변경 시 문자, 단어 또는 행 단위로 정확하게 읽을 수 있도록 합니다. 이는 기존의 기본 이름 변경 동작을 보완하는 역할을 합니다.
 
-#### 5. Hidden Row/Column Tracker
-* Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.
-* **Crossed Fragmented Cells:** If you jump across a heavily fragmented or hidden section of the grid (e.g., moving from Row 3 to Row 10 because Rows 4–9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure.
+#### 5. 숨겨진 행/열 추적기
+* 그리드에서의 움직임을 사전에 추적하여 숨겨지거나 필터링된 데이터를 놓치지 않도록 방지합니다.
+* **교차된 분할 셀:** 그리드의 심하게 분할되거나 숨겨진 구역을 가로질러 이동할 때(예: 행 4~9가 숨겨져 있어서 행 3에서 행 10으로 이동하는 경우), BOA는 명시적으로 "4행부터 9행까지 숨겨짐"이라고 안내합니다. 이를 통해 구조 내에서 데이터를 건너뛰었음을 언제나 인지할 수 있습니다.
 
-#### 6. Conditional Formatting Announcer
-* Automatically reads the color, font style, and background shade of cells that have been dynamically changed by Excel's Conditional Formatting rules.
-* Gives you the true visual state of the cell rather than just the raw underlying value. Initially, when focusing on the cell, it announces "has conditional formatting, and some other minor details". For comprehensive info, use the detailed hotkey configuration which is NVDA E and F.
+#### 6. 조건부 서식 안내기
+* Excel의 조건부 서식 규칙에 의해 동적으로 변경된 셀의 색상, 글꼴 스타일, 배경 음영을 자동으로 읽어줍니다.
+* 단순히 원래 셀의 값뿐만 아니라 셀의 실제 시각적 상태를 제공합니다. 처음 셀에 포커스가 갈 때 "조건부 서식 있음 및 기타 세부 정보"를 안내합니다. 종합적인 정보를 보려면 NVDA+E 입력 후 F인 상세 단축키 구성을 사용하십시오.
 
-#### 7. Better selection announcement
-reads if cell or range selected or unselected.
+#### 7. 개선된 선택 영역 안내
+셀 또는 범위의 선택 여부나 선택 해제 여부를 읽어줍니다.
 
-#### 8 Cell monitor:
-* **Cell Monitor:** Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.
-* **Continuous Monitoring:** Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.
+#### 8 셀 모니터:
+* **셀 모니터:** 명령 경로를 사용하여 특정 셀을 메모리 슬롯에 매핑할 수 있습니다. 할당된 숫자 슬롯을 사용하여 언제든지 다시 이동하여 읽을 수 있습니다.
+* **지속적인 모니터링:** 슬롯에 할당된 셀은 백그라운드에서 자동으로 모니터링됩니다. Excel에서 재계산이나 셀 편집이 실행되면 BOA가 즉시 새 값을 안내합니다. 수동으로 토글하거나 명령 슬롯을 통해 모두 지울 수 있습니다.
+* **Excel: 셀 모니터 Pro 업그레이드:** 
+  - **슬롯 관리자 대화 상자 (`NVDA+E`, `Alt+M`):** 활발하게 모니터링 중인 모든 셀을 나열하는 대화 상자를 엽니다. `Enter` 키를 누르면 해당 셀로 즉시 이동합니다.
+  - **이전 셀로 복귀 (`NVDA+E`, `\`):** 슬롯을 확인한 후 이전에 작업하던 셀로 즉시 복귀합니다.
+  - **슬롯 즉시 이동 (`Prefix + Alt` + `슬롯 번호`):** 접두사 단계를 건너뛰고 할당된 셀 슬롯으로 즉시 이동합니다.
 
-### PowerPoint Enhancements
+#### 9 파워 편집기
+* **Excel: 파워 편집기 (접근 가능한 수식 편집기):** 거대한 수식을 수정할 때 혁신적인 편의를 제공하는 기능입니다.
+  - **한 번 누르기 (`NVDA+E`, `F2`):** 활성 셀의 원시 수식 문자열을 즉시 안내합니다(수식이 없는 경우 "수식 없음" 안내).
+  - **두 번 누르기 (`NVDA+E`, `F2`):** 대규모 중첩 수식을 안전하게 수정할 수 있도록 접근성이 완전히 보장된 다중 행 편집기를 엽니다. 일반 `Enter` 키로 줄바꿈을 하여 쉽게 읽을 수 있고, `Ctrl+Enter`로 이를 Excel에 다시 저장합니다.
+  - *안전 검사:* 시트가 손상되기 전에 구문 오류를 안전하게 잡아내고, 계산 후 오류(예: `#NAME?` 또는 `#DIV/0!`)를 감지하여 수식에 문제가 발생하면 즉시 경고합니다.
 
-#### 1. Accessible Color Pickers
-* Unlocks the Custom Color dialog in PowerPoint.
-* Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding `PowerPointRGBEdit`).
-* Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.
+#### 10 수식 감사 및 평가 개선:
+* **Excel: 수식 감사 및 평가:** 참조하는 셀과 참조되는 셀을 안정적으로 추적할 수 있도록 사용자 정의 단축키(`NVDA+E`, `Shift+P` 및 `NVDA+E`, `Shift+D`)를 추가했습니다. 또한 Excel의 기본 "수식 평가" 대화 상자의 접근성이 완벽히 보장됩니다. 이제 계산 단계를 진행함에 따라 NVDA가 평가된 결과를 자동으로 읽어줍니다!
 
-#### 2. Standard Color Grid Support
-* Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.
-* BOA tracks your arrow keys across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g., "Color #FF0000").
+### PowerPoint 기능 개선
 
-### Infrastructure & Technical Mechanisms
+#### 1. 접근 가능한 색 선택기
+* PowerPoint의 사용자 지정 색 대화 상자의 접근성을 제공합니다.
+* `PowerPointRGBEdit`를 재정의하여 "빨강", "녹색", "파랑" 편집 상자를 정확하게 식별하고 명시적으로 읽어줍니다.
+* 기존에는 인식되지 않던 Hex 입력 필드를 매핑하여 NVDA가 전체 Hex 색상 값을 깔끔하게 읽을 수 있도록 합니다.
 
-#### The Command Prefix Mode
-To prevent keystroke conflicts with other NVDA plugins, BOA uses a **Command Prefix Mode**:
-1. Press the activation hotkey to enter Command Mode. You will hear a high-pitched beep.
-2. Press a secondary key to trigger a specific feature.
-3. If you press an invalid key, you will hear an error beep.
+#### 2. 표준 색 그리드 지원
+* PowerPoint의 "표준" 색 육각형 그리드를 탐색할 때 보통 "그래픽"으로 읽어주거나 아무 소리도 나지 않습니다.
+* BOA는 육각형을 가로지르는 방향키 입력을 추적하여 숨겨진 색상 값을 자동으로 가져와 실시간으로 안내합니다(예: "Color #FF0000").
 
-#### Customization & Settings Panel
-* BOA features are fully modular and can be enabled or disabled at any time. Go to `NVDA Menu -> Preferences -> Settings -> BOA Office Enhancements` to toggle individual features on or off.
-* **Intelligent Accelerator Keys:** Every single setting features a mathematically unique `Alt+Key` accelerator shortcut within the panel. For example, press `Alt+E` to instantly jump to the Excel group, `Alt+P` for PowerPoint, and `Alt+W` for Word.
-* Settings are saved securely to a standalone JSON file (`boa_settings.json`), ensuring your core NVDA configuration is never corrupted.
-* If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality.
+#### 3 일괄 슬라이드 정리 도구:
+* **PowerPoint: 일괄 슬라이드 정리 도구 (실험적 기능) (`NVDA+E`, `X`):** Excel 기능과 마찬가지로 접근성이 완전히 보장된 대화 상자를 사용하여 한 번에 여러 PowerPoint 슬라이드의 순서를 즉시 바꾸고, 이동하며, 정리할 수 있습니다.
 
-#### Security & Integration Boundaries
-* Clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.
-* some Custom hotkeys are fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.
+#### 4 슬라이드 레이아웃 분석기
+* **PowerPoint: 슬라이드 레이아웃 분석기 (실험적 기능) (`NVDA+E`, `L`):** 현재 활성 슬라이드를 즉시 스캔하여 공간적 레이아웃과 접근성 제약 요소를 파악함으로써, 완전히 매끄럽고 반응성 있는 스크린 리더 경험을 보장합니다. 즉, Excel의 시트 레이아웃 분석기와 유사하게 현재 슬라이드에 대한 세부 정보를 여기서 얻을 수 있습니다.
+
+
+#### 5 전체 문서 [PPT] 분석기
+* **PowerPoint: 전체 문서 분석기 (실험적 기능) (`NVDA+E`, `D`):** NVDA의 음성 엔진이 중단되지 않도록 백그라운드에서 처리되는 매우 향상된 접근성 도구로, 프레젠테이션 전체를 분석합니다. 상세 탐색이 가능한 가상 목차를 제공하고, 읽기 순서 불일치(시각적 순서 vs. Z-순서)를 감지하며, "텍스트로 가득 찬" 슬라이드를 표시하고, SmartArt 및 데이터 표와 같은 복잡한 개체를 매핑합니다.
+
+#### 6 도형 이동 [조정] 개선:
+* **PowerPoint: 도형 이동 오디오 모드 (실험적 기능):** PowerPoint 캔버스에 3D 입체 음향 힌트를 도입합니다. 개체를 이동할 때 개체의 방향과 경계 한계를 나타내는 청각적 피드백을 제공하여 공간 인지 능력을 대폭 개선합니다.
+
+### Word 기능 개선:
+#### 1. Paul의 Word Access 부가 기능에서 영감을 받고 파생된 문서 분석기:
+* **Word: 문서 분석기 (`NVDA+E`, `D`):** Word 문서의 구조적 개요를 즉시 불러옵니다. *(Paul 개발자님께 특별한 크레딧과 감사의 말씀을 전합니다. 이 기능은 그의 훌륭한 "Word Access" 부가 기능에서 직접 영감을 받았습니다. 이 분야에서 기초적인 토대를 마련해 주신 그의 노고에 깊이 감사드립니다!)*
+
+#### 2 서식 검사기
+* **Word: 서식 검사기 (`NVDA+E`, `F`):** 시각적 표준을 보장하기 위해 Word 문서에서 서식의 불일치 사항을 검사합니다.
+
+#### 3 각주 판독기:
+* **Word: 자동 각주 안내기:** 사용자의 사용자 지정 BOA 설정에 따라, 글을 읽는 동안 각주가 본문 흐름에 맞추어 자동으로 안내됩니다. *(참고: 미주 및 메모 지원은 향후 릴리스에 예정되어 있습니다).*
+
+### 인프라 및 기술 메커니즘
+
+#### 명령 접두사 모드
+다른 NVDA 플러그인과의 키 입력 충돌을 방지하기 위해 BOA는 **명령 접두사 모드**를 사용합니다:
+1. 활성화 단축키를 눌러 명령 모드로 진입합니다. 높은 음의 신호음이 울립니다. 기본값은 NVDA와 E를 누르는 것입니다.
+2. 보조 키를 눌러 특정 기능을 작동시킵니다.
+3. 올바르지 않은 키를 누르면 오류 신호음이 울립니다.
+
+#### 사용자 지정 및 설정 패널
+* BOA 기능들은 완전히 모듈화되어 있어 언제든지 활성화하거나 비활성화할 수 있습니다. 각 기능을 개별적으로 설정하려면 `NVDA 메뉴 -> 기본 설정 -> 설정 -> BOA Office Enhancements`로 이동하십시오.
+* **지능형 바로 가기 키:** 설정 패널 내의 모든 설정 항목은 수학적으로 고유한 `Alt+키` 조합의 바로 가기 단축키를 가지고 있습니다. 예를 들어, `Alt+E`를 누르면 Excel 그룹으로, `Alt+P`는 PowerPoint로, `Alt+W`는 Word 그룹으로 즉시 이동합니다.
+* 설정은 독립된 JSON 파일(`boa_settings.json`)에 안전하게 저장되므로, 핵심 NVDA 구성이 손상될 염려가 없습니다.
+* 향후 Microsoft Office가 접근성 오류를 공식적으로 수정하는 경우, 부가 기능의 다른 기능을 잃지 않으면서 BOA의 특정 재정의 훅만 안전하게 비활성화할 수 있습니다.
+* **입력 동작 사용자 지정:** 모든 Office 앱에 걸친 모든 기능이 NVDA 기본 '입력 동작' 대화 상자에 명시적으로 노출되어 있어, 모든 키보드 단축키를 완전히 자유롭게 변경할 수 있습니다.
+
+#### 보안 및 통합 경계
+* 클립보드 삽입은 다른 애플리케이션으로 데이터가 유출되는 것을 방지하기 위해 윈도우 포그라운드 프로세스 ID를 엄격히 확인합니다.
+* 일부 사용자 정의 단축키는 NVDA의 '입력 동작' 대화 상자 내의 "Better Office Accessibility" 범주 아래에 완전히 노출되어 있습니다.
 
 ---
 
-## 📋 Requirements
+## 📋 요구 사항
 
-* **NVDA:** Version 2026.1.0 or later.
-* **Applications:** Microsoft Excel & Microsoft PowerPoint.
-
----
-
-## 💾 Installation
-
-1. Download the latest `.nvda-addon` release file, or locate it within the native NVDA Add-on Store.
-2. if installing from file, Open the file or use `NVDA's Add-on Store -> Install from external file`.
-3. Restart NVDA.
+* **NVDA:** Version 2026.1.0 이상.
+* **애플리케이션:** Microsoft Excel 및 Microsoft PowerPoint.
 
 ---
 
-## 🛠️ Changelog
+## 💾 설치
 
-### v1.6.1의 새로운 기능
-* **심층 파일 현지화**: 100% 현지화 커버리지를 보장하기 위해 Excel 기능 향상 모듈(예: 시트 레이아웃 분석기 및 빠른 시트 이동) 내 깊숙한 곳에서 누락된 문자열 번역을 수정했습니다.
-* **번역 지원 확대**: 시스템에 7가지 새 언어(터키어, 폴란드어, 한국어, 우크라이나어, 체코어, 우르두어, 펀자브어)를 추가했습니다.
-  *(참고: 이 번역은 AI에 의해 생성되었으므로 약간의 번역 오류나 부정확성이 있을 수 있습니다.)*
+1. 최신 `.nvda-addon` 릴리스 파일을 다운로드하거나, NVDA 기본 '부가 기능 스토어'에서 검색합니다.
+2. 파일에서 설치하는 경우, 파일을 실행하거나 `NVDA 부가 기능 스토어 -> 외부 파일에서 설치`를 이용하십시오.
+3. NVDA를 다시 시작합니다.
+
+---
+
+## 🛠️ 변경 이력
+
+### Version 2.0.0
+#### 새로운 기능
+* **PowerPoint: 전체 문서 분석기 (실험적 기능) (`NVDA+E`, `D`):** NVDA의 음성 엔진이 중단되지 않도록 백그라운드에서 처리되는 매우 향상된 접근성 도구로, 프레젠테이션 전체를 분석합니다. 상세 탐색이 가능한 가상 목차를 제공하고, 읽기 순서 불일치(시각적 순서 vs. Z-순서)를 감지하며, "텍스트로 가득 찬" 슬라이드를 표시하고, SmartArt 및 데이터 표와 같은 복잡한 개체를 매핑합니다.
+* **PowerPoint: 슬라이드 레이아웃 분석기 (실험적 기능) (`NVDA+E`, `L`):** 현재 활성 슬라이드를 즉시 스캔하여 공간적 레이아웃과 접근성 제약 요소를 파악함으로써, 완전히 매끄럽고 반응성 있는 스크린 리더 경험을 보장합니다. 즉, Excel의 시트 레이아웃 분석기와 유사하게 현재 슬라이드에 대한 세부 정보를 여기서 얻을 수 있습니다.
+* **PowerPoint: 일괄 슬라이드 정리 도구 (실험적 기능) (`NVDA+E`, `X`):** Excel 기능과 마찬가지로 접근성이 완전히 보장된 대화 상자를 사용하여 한 번에 여러 PowerPoint 슬라이드의 순서를 즉시 바꾸고, 이동하며, 정리할 수 있습니다.
+* **PowerPoint: 도형 이동 오디오 모드 (실험적 기능):** PowerPoint 캔버스에 3D 입체 음향 힌트를 도입합니다. 개체를 이동할 때 개체의 방향과 경계 한계를 나타내는 청각적 피드백을 제공하여 공간 인지 능력을 대폭 개선합니다. 언급된 바와 같이 이 기능은 실험적 기능이며, 개선을 위한 피드백을 기다리고 있습니다.
+* **Word: 서식 검사기 (`NVDA+E`, `F`):** 시각적 표준을 보장하기 위해 Word 문서에서 서식의 불일치 사항을 검사합니다.
+* **Word: 문서 분석기 (`NVDA+E`, `D`):** Word 문서의 구조적 개요를 즉시 불러옵니다. *(Paul 개발자님께 특별한 크레딧과 감사의 말씀을 전합니다. 이 기능은 그의 훌륭한 "Word Access" 부가 기능에서 직접 영감을 받았습니다. 이 분야에서 기초적인 토대를 마련해 주신 그의 노고에 깊이 감사드립니다!)*
+* **Word: 자동 각주 안내기:** 사용자의 사용자 지정 BOA 설정에 따라, 글을 읽는 동안 각주가 본문 흐름에 맞추어 자동으로 안내됩니다. *(참고: 미주 및 메모 지원은 향후 릴리스에 예정되어 있습니다).*
+* **Excel: 파워 편집기 (접근 가능한 수식 편집기):** 거대한 수식을 수정할 때 혁신적인 편의를 제공하는 기능입니다.
+  - **한 번 누르기 (`NVDA+E`, `F2`):** 활성 셀의 원시 수식 문자열을 즉시 안내합니다(수식이 없는 경우 "수식 없음" 안내).
+  - **두 번 누르기 (`NVDA+E`, `F2`):** 대규모 중첩 수식을 안전하게 수정할 수 있도록 접근성이 완전히 보장된 다중 행 편집기를 엽니다. 일반 `Enter` 키로 줄바꿈을 하여 쉽게 읽을 수 있고, `Ctrl+Enter`로 이를 Excel에 다시 저장합니다.
+  - *안전 검사:* 시트가 손상되기 전에 구문 오류를 안전하게 잡아내고, 계산 후 오류(예: `#NAME?` 또는 `#DIV/0!`)를 감지하여 수식에 문제가 발생하면 즉시 경고합니다.
+* **Excel: 수식 감사 및 평가:** 참조하는 셀과 참조되는 셀을 안정적으로 추적할 수 있도록 사용자 정의 단축키(`NVDA+E`, `Shift+P` 및 `NVDA+E`, `Shift+D`)를 추가했습니다. 또한 Excel의 기본 "수식 평가" 대화 상자의 접근성이 완벽히 보장됩니다. 이제 계산 단계를 진행함에 따라 NVDA가 평가된 결과를 자동으로 읽어줍니다!
+* **Excel: 셀 모니터 Pro 업그레이드:** 
+  - **슬롯 관리자 대화 상자 (`NVDA+E`, `Alt+M`):** 활발하게 모니터링 중인 모든 셀을 나열하는 대화 상자를 엽니다. `Enter` 키를 누르면 해당 셀로 즉시 이동합니다.
+  - **이전 셀로 복귀 (`NVDA+E`, `\`):** 슬롯을 확인한 후 이전에 작업하던 셀로 즉시 복귀합니다.
+  - **슬롯 즉시 이동 (`Alt` + `슬롯 번호`):** 접두사를 거치지 않고 할당된 셀 슬롯으로 즉시 이동합니다.
+* **입력 동작 사용자 지정:** 모든 Office 앱에 걸친 모든 기능이 NVDA 기본 '입력 동작' 대화 상자에 명시적으로 노출되어 있어, 모든 키보드 단축키를 완전히 자유롭게 변경할 수 있습니다.
+
+#### UX/UI 개선
+* **통합형 탐색 보고서:** 부가 기능 전반에 통합 HTML 보고 시스템을 채택했습니다. Excel 조건부 서식 안내기, 레이아웃 분석기 및 문서 분석기 등의 결과가 이제 방대한 양의 텍스트로 단순히 말해지지 않고, 탐색 가능한 기본 HTML 창에서 열립니다. 이를 통해 사용자 편의에 맞춰 차분하게 데이터를 검토할 수 있습니다.
+* **Excel: 개선된 참조되는/참조하는 셀 추적:** Excel의 기본 수식 추적 단축키(바로 참조하는 셀은 `Ctrl+[`, 바로 참조되는 셀은 `Ctrl+]`)의 음성 출력이 크게 개선되었습니다. 이제 NVDA가 선택된 셀이 무엇인지 명시적으로 안내합니다.
+* **Excel: 병합된 셀 지원:** 간격을 건너뛰는 셀 추적기에서 병합된 셀을 올바르게 감지하고 명시적으로 안내합니다.
+
+#### 버그 수정
+* **Word: 목록 항목 중복 낭독:** 특정 Word 보기 모드에서 NVDA가 단락 목록 항목을 이중으로 읽는 버그를 해결하기 위해 임시 패치를 구현했습니다.
+* **Excel: 셀 모니터 로컬라이제이션 버그:** 최근 번역 로컬라이제이션 업데이트로 인해 발생했던 잠재적인 추적 버그를 해결했습니다.
+
+### v1.6.1 변경 사항
+* **심층 파일 로컬라이제이션**: 100% 로컬라이제이션 커버리지를 보장하기 위해 Excel 기능 개선 모듈(예: 시트 레이아웃 분석기 및 빠른 시트 이동 도구) 내부에 누락된 문자열 번역을 수정했습니다.
+* **번역 지원 확대**: 7개의 새로운 언어(터키어, 폴란드어, 한국어, 우크라이나어, 체코어, 우르두어 및 펀잡어)가 시스템에 추가되었습니다. 
+  *(참고: 이 번역들은 AI에 의해 생성되었으므로 일부 사소한 번역 오류나 부정확한 표현이 포함되어 있을 수 있습니다.)*
 
 ### v1.6.0
-* **Comprehensive Translation Support**: The add-on is now fully localized with support for 17 global languages. 
-  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*
-* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the entire codebase."""),
+* **포괄적인 번역 지원**: 부가 기능은 이제 17개 글로벌 언어를 지원하도록 완전히 로컬라이제이션되었습니다. 
+  *(참고: 이 번역들은 AI에 의해 생성되었으므로 일부 사소한 번역 오류나 부정확한 표현이 포함되어 있을 수 있습니다.)*
+* **엄격한 코드 거버넌스**: 전체 코드베이스에 GPL-2.0 저작권 헤더를 적용했습니다.""",
 
 ### Version 1.5.0 
-#### New Features
-##### End of Data Radar
-When navigating through large spreadsheets, it can be difficult to tell if an empty cell means you've reached the end of a list, or if there is simply a gap in the data. The **End of Data Radar** acts as a smart perimeter check to save you from blindly arrowing through empty space.
-Whenever you navigate into an empty cell, BOA instantly scans the remaining cells in your direction of travel. If there is absolutely no data left, it will proactively announce:
-* *"No more data below"*
-* *"No more data above"*
-* *"No more data to the right"*
-* *"No more data to the left"*
-**Configuration Options:**
-You can configure this feature via `NVDA Preferences -> Settings -> BOA Office Enhancements`. Because spreadsheets can contain hidden complexities (like invisible formulas or collapsed rows), the radar provides three operating modes:
-1. **Off**: Disables the radar entirely.
-2. **Strict Memory Check (CountA) [Default]**: The safest and fastest approach. It checks the raw memory of the spreadsheet. If it detects *anything* below you (including hidden rows, text, numbers, or invisible formulas), it stays completely silent to prevent false alarms. It only announces "No more data" when the remainder of the sheet is 100% mathematically blank.
-3. **Visible Data Only (Math Engine)**: A highly advanced engine designed for complex sheets. It intelligently filters out hidden rows and invisible formulas (e.g., `=""`). It will only stay silent if there are actual, visible numbers or text left in your path.
+#### 새로운 기능
+##### 데이터 끝 알림 레이더
+방대한 스프레드시트를 탐색할 때, 빈 셀이 목록의 끝을 의미하는지 아니면 단지 데이터 사이의 빈 간격인지 구별하기 어려울 수 있습니다. **데이터 끝 알림 레이더**는 빈 공간을 무작정 방향키로 탐색하지 않도록 돕는 지능적인 경계 검사 역할을 수행합니다.
+빈 셀로 이동할 때마다 BOA는 진행 방향에 남아 있는 셀들을 즉시 스캔합니다. 만약 더 이상 데이터가 남아 있지 않다면, 다음과 같이 사전에 안내해 줍니다:
+* *"아래에 더 이상 데이터가 없음"*
+* *"위에 더 이상 데이터가 없음"*
+* *"오른쪽에 더 이상 데이터가 없음"*
+* *"왼쪽에 더 이상 데이터가 없음"*
+**구성 옵션:**
+이 기능은 `NVDA 기본 설정 -> 설정 -> BOA Office Enhancements`를 통해 구성할 수 있습니다. 스프레드시트에는 숨겨진 복잡성(보이지 않는 수식이나 숨겨진 행 등)이 존재할 수 있으므로, 레이더는 세 가지 작동 모드를 제공합니다:
+1. **끄기**: 레이더를 완전히 비활성화합니다.
+2. **엄격한 메모리 확인 (CountA) [기본값]**: 가장 안전하고 빠른 방식입니다. 스프레드시트의 원시 메모리를 확인합니다. 사용자 진행 방향 아래에 아주 작은 요소(숨겨진 행, 텍스트, 숫자 또는 보이지 않는 수식 포함)라도 감지되면 거짓 경보를 방지하기 위해 완전히 무음으로 유지됩니다. 시트의 나머지 부분이 수학적으로 100% 공백일 때만 "더 이상 데이터가 없음"을 안내합니다.
+3. **보이는 데이터만 (수학 엔진)**: 복잡한 시트를 위해 설계된 매우 진보된 엔진입니다. 숨겨진 행과 보이지 않는 수식(예: `=""`)을 지능적으로 필터링합니다. 진행 경로에 실제 시각적으로 보이는 숫자나 텍스트가 남아 있는 경우에만 무음으로 유지됩니다.
 
 ### Version 1.4 - 2026-06-12
-#### New Features
-* **Cell Monitor:** Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.
-* **Continuous Monitoring:** Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.
+#### 새로운 기능
+* **셀 모니터:** 명령 경로를 사용하여 특정 셀을 메모리 슬롯에 매핑할 수 있습니다. 할당된 숫자 슬롯을 사용하여 언제든지 다시 이동하여 읽을 수 있습니다.
+* **지속적인 모니터링:** 슬롯에 할당된 셀은 백그라운드에서 자동으로 모니터링됩니다. Excel에서 재계산이나 셀 편집이 실행되면 BOA가 즉시 새 값을 안내합니다. 수동으로 토글하거나 명령 슬롯을 통해 모두 지울 수 있습니다.
 
-#### Bug Fixes
+#### 버그 수정
 
 ### Version 1.3.0 — 2026-06-05
-*Final release.*
+*최종 릴리스.*
 
-#### New Features
-* **Sheet Layout Analyzer:** Added powerful layout scanning infrastructure. Instantly detects Worksheet Protection, active Column Filters, Hidden Worksheet Tabs, and hidden absolute borders while caching discovered data blocks.
-* **Guided Data Block Navigation:** Post-analysis navigation allows immediate cursor warps between major clusters of data, bypassing empty cells seamlessly.
-* **Conditional Formatting Announcer:** Automatically detects and reads the dynamic color, font style, and background shade of cells altered by Excel's Conditional Formatting rules.
-* **Explicit Settings Accelerators:** Completely overhauled the BOA Settings GUI to strictly comply with NVDA architecture. Every feature checkbox now possesses a globally unique `Alt+Letter` shortcut, preventing keyboard cycling and eliminating first-letter navigation failures.
+#### 새로운 기능
+* **시트 레이아웃 분석기:** 강력한 레이아웃 스캔 인프라가 추가되었습니다. 발견된 데이터 블록을 캐싱하면서 워크시트 보호, 활성 열 필터, 숨겨진 워크시트 탭 및 숨겨진 절대 경계를 즉시 감지합니다.
+* **안내형 데이터 블록 탐색:** 분석 후 탐색을 통해 주요 데이터 클러스터 간의 커서 이동이 즉시 가능해져, 빈 셀을 자연스럽게 건너뛸 수 있습니다.
+* **조건부 서식 안내기:** Excel의 조건부 서식 규칙에 의해 변경된 셀의 동적 색상, 글꼴 스타일, 배경 음영을 자동으로 감지하고 읽어줍니다.
+* **명시적인 설정 바로 가기 키:** NVDA 아키텍처를 엄격하게 준수하도록 BOA 설정 GUI를 완전히 재구성했습니다. 모든 기능 확인란에 이제 전역적으로 고유한 `Alt+문자` 단축키가 부여되어 키보드 순환을 방지하고 첫 글자 탐색 실패를 제거합니다.
 
-#### Bug Fixes
-* **Absolute Edge Boundary Detection:** Replaced native COM `UsedRange` edge checks with absolute 1D mathematical boundary checks (`Row 1048576` and `Column 16384`) to guarantee detection of hidden rows/columns even if they lie far outside the active data block.
-* **Lazy COM Property Safe Bailouts:** Hardened COM property loops to prevent NVDA thread freezes when evaluating millions of contiguous hidden structures.
+#### 버그 수정
+* **절대 가장자리 경계 감지:** 활성 데이터 블록의 훨씬 바깥쪽에 있더라도 숨겨진 행/열을 확실히 감지할 수 있도록, 기존의 기본 COM `UsedRange` 가장자리 확인을 절대 1차원 수학적 경계 확인(`1048576행` 및 `16384열`)으로 대체했습니다.
+* **안전한 지연 COM 속성 탈출:** 수백만 개의 연속적인 숨겨진 구조를 평가할 때 NVDA 스레드 동결이 발생하지 않도록 COM 속성 루프를 강화했습니다.
 
 ### Version 1.2.0 — 2026-06-03
-*Final release.*
+*최종 릴리스.*
 
-#### New Features
-* **App-Launch Caching:** Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.
-* **Enhanced Cell Tracker (1D COM Math):** Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (`current_col` or `current_row`). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.
-* **Process Memory Wiping:** Implemented Excel Window Handle (`Hwnd`) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".
+#### 새로운 기능
+* **앱 실행 시 캐싱:** 주요 아키텍처 재구성을 거쳤습니다. 이제 Office 애플리케이션에 포커스가 갈 때만 핵심 모듈이 지연 로드되므로, 부팅 지연이 제거되고 이름 변경 대화 상자에서의 '알 수 없음(unknown)' 개체 포커스 오류가 완벽히 해결되었으며, 다중 파일 코드베이스 구조가 잘 유지됩니다.
+* **개선된 셀 추적기 (1차원 COM 수학):** 숨겨진 셀 간격 감지 로직을 1차원 단면(`current_col` 또는 `current_row`)만 평가하도록 재작성했습니다. 이로 인해 COM 계산 부하가 1,600만 개 이상의 셀만큼 감소하여, 숨겨진 범위를 이동할 때 탐색이 동결되는 현상이 즉시 해결되었습니다.
+* **프로세스 메모리 초기화:** 사용자가 Excel을 닫고 다시 여는 시점을 감지하기 위해 Excel 윈도우 핸들(`Hwnd`) 추적을 구현했습니다. 이를 통해 오래된 전역 상태 메모리를 적극적으로 지우고, 완전히 새로운 "Book1"을 열 때 발생하던 잘못된 "시트 숨겨짐" 안내 버그를 완전히 해결했습니다.
 
-#### Bug Fixes
-* **Double Selection Announcement:** Migrated away from unreliable asynchronous `winUser.getKeyState` and implemented `api.getLastInputGesture()` to perfectly suppress double announcements when using Shift+Arrow keys.
-* **Boundary Detector Deactivation:** The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.
+#### 버그 수정
+* **이중 선택 안내:** 안정적이지 않은 비동기 `winUser.getKeyState` 사용을 중단하고 `api.getLastInputGesture()`를 구현하여 Shift+방향키를 사용할 때 이중으로 안내되던 현상을 완벽하게 억제했습니다.
+* **경계 감지기 비활성화:** NVDA 기본 탐색의 안정성을 보호하기 위해 사전 경계 감지기(Proactive Boundary Detector)를 비활성화하고, 간격을 건너뛰는 추적기로 완전히 롤백했습니다.
 
 ### Version 1.1.0 — 2026-05-30
-*Final release.*
+*최종 릴리스.*
 
-#### New Features
-* **Settings GUI:** Added a native BOA Office Enhancements panel inside `NVDA -> Preferences -> Settings` to easily toggle features on or off.
-* **SafeRichEdit Hook:** Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.
-* **Customizable Hotkeys:** All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.
-* **Excel: Hidden Row/Column Skip Detection:** Proactively announces when navigating past hidden rows or columns, ensuring you never miss filtered data. Can be toggled in settings.
+#### 새로운 기능
+* **설정 GUI:** 기능을 쉽게 켜고 끌 수 있도록 `NVDA -> 기본 설정 -> 설정` 내부에 네이티브 BOA Office Enhancements 패널을 추가했습니다.
+* **SafeRichEdit 훅:** Office 2024의 RichEdit 컨트롤과 상호작용할 때 NVDA가 소리 없이 충돌하는 현상을 방지합니다.
+* **사용자 정의 가능한 단축키:** 모든 BOA 단축키가 이제 NVDA의 '입력 동작' 대화 상자 내 "Better Office Accessibility" 범주 아래에 완전히 노출됩니다.
+* **Excel: 숨겨진 행/열 건너뛰기 감지:** 숨겨진 행이나 열을 건너뛰며 이동할 때 사전에 안내를 제공하여 필터링된 데이터를 놓치지 않도록 방지합니다. 설정에서 켜고 끌 수 있습니다.
 
-#### Bug Fixes
-* **Thread Safety:** Removed all blocking delays (`time.sleep`) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.
+#### 버그 수정
+* **스레드 안정성:** 백그라운드 작업 중에 스크린 리더가 버벅거리지 않도록 모든 차단 지연(`time.sleep`)을 제거하고 비차단 NVDA 비동기 콜백으로 대체했습니다.
 
 ### Version 1.0.0 — 2026-05-24
-*Initial public release.*
+*최초 공개 릴리스.*
 
-#### New Features
-* **Excel: Bulk Sheet Organizer:** Instantly reorder multiple sheets at once using a fully accessible dialog.
-* **Excel: Quick Sheet Mover:** Move the active sheet left, right, to start, or to end via keyboard commands.
-* **Excel: Accessible Sheet Renaming:** Intercepts the inaccessible native rename field and replaces it with a reliable accessible dialog.
-* **Excel: Smart Selection Tracking:** Accurately announces multi-cell range selections and deselections.
-* **PowerPoint: Accessible Color Pickers:** Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
-* **PowerPoint: Standard Color Grid Support:** Intercepts arrow key navigation to read hidden Hex codes from the inaccessible color hexagon grid.
+#### 새로운 기능
+* **Excel: 일괄 시트 정리 도구:** 접근성이 완전히 보장된 대화 상자를 사용하여 한 번에 여러 시트의 순서를 즉시 재정렬합니다.
+* **Excel: 빠른 시트 이동 도구:** 키보드 명령을 통해 활성 시트를 왼쪽, 오른쪽, 시작 또는 끝으로 이동합니다.
+* **Excel: 접근 가능한 시트 이름 변경:** 접근성이 결여된 기본 이름 변경 필드를 가로채서 안정적이고 접근 가능한 대화 상자로 대체합니다.
+* **Excel: 스마트 선택 추적:** 여러 셀 범위를 선택하거나 선택 해제할 때 정확하게 안내합니다.
+* **PowerPoint: 접근 가능한 색 선택기:** NVDA가 사용자 지정 색 대화 상자 내부의 RGB 및 Hex 값을 정확하게 읽을 수 있도록 지원합니다.
+* **PowerPoint: 표준 색 그리드 지원:** 접근성이 결여된 색 육각형 그리드에서 화살표 키 탐색을 가로채서 숨겨진 Hex 코드를 읽어줍니다.

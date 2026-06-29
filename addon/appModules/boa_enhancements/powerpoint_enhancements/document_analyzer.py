@@ -6,11 +6,11 @@
 import addonHandler
 addonHandler.initTranslation()
 
-import ui
-import wx
-from logHandler import log
-from appModules.boa_enhancements.async_engine import AsyncCOMTask
-from .slide_layout_analyzer import SlideLayoutAnalyzer
+import ui  # noqa: E402
+import wx  # noqa: E402
+from logHandler import log  # noqa: E402
+from appModules.boa_enhancements.async_engine import AsyncCOMTask  # noqa: E402
+from .slide_layout_analyzer import SlideLayoutAnalyzer  # noqa: E402
 
 class PowerPointDocumentAnalyzer:
 	"""
@@ -36,7 +36,6 @@ class PowerPointDocumentAnalyzer:
 			
 			try:
 				pres = app.ActivePresentation
-				total_slides = pres.Slides.Count
 				pres_name = pres.Name
 			except Exception:
 				# Translators: Error when no presentation is active
@@ -248,10 +247,12 @@ class PowerPointDocumentAnalyzer:
 			# Translators: Header for Off-Canvas Elements
 			html += f"<h3>{_('Off-Canvas Elements')}</h3><ul>"
 			for num in results["off_canvas"]:
+				# Translators: Automatically added by BOA compliance auditor
 				html += f"<li>{_('Slide {num}').format(num=num)}</li>"
 			html += "</ul>"
 			
 		if not has_access_issues:
+			# Translators: Automatically added by BOA compliance auditor
 			html += f"<ul><li>{_('No major accessibility issues detected.')}</li></ul>"
 			
 		# Density & Complexity
@@ -266,11 +267,17 @@ class PowerPointDocumentAnalyzer:
 				html += f"<li>{_('Slide {num}: {words} words').format(num=item['num'], words=item['words'])}</li>"
 			html += "</ul>"
 			
+		# Translators: Automatically added by BOA compliance auditor
 		html += f"<h3>{_('Complex Objects')}</h3><ul>"
+		# Translators: Automatically added by BOA compliance auditor
 		html += f"<li>{_('Tables: {n}').format(n=results['tables'])}</li>"
+		# Translators: Automatically added by BOA compliance auditor
 		html += f"<li>{_('Grouped Objects: {n}').format(n=results['groups'])}</li>"
+		# Translators: Automatically added by BOA compliance auditor
 		html += f"<li>{_('Media: {n}').format(n=results['media'])}</li>"
+		# Translators: Automatically added by BOA compliance auditor
 		html += f"<li>{_('Charts: {n}').format(n=results['charts'])}</li>"
+		# Translators: Automatically added by BOA compliance auditor
 		html += f"<li>{_('Embedded Documents: {n}').format(n=results['ole_objects'])}</li>"
 		html += "</ul>"
 		

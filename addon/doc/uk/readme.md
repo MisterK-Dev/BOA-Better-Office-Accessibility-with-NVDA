@@ -1,188 +1,271 @@
-# BOA: Better Office Accessibility
+# BOA: Покращена доступність Office
 
-BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
+BOA — це потужний набір покращень доступності для Microsoft Office, розроблений для значного покращення роботи з екранним читцем для користувачів NVDA. Він безпосередньо виправляє недоступні компоненти інтерфейсу користувача та впроваджує інструменти швидкої навігації для Excel та PowerPoint.
 
 ---
 
-## ⌨️ Hotkey Reference
+## ⌨️ Довідник гарячих клавіш
 
-| Feature | Key Combination | Context / Notes |
+| Функція | Комбінація клавіш | Контекст / Примітки |
 | :--- | :--- | :--- |
-| **Enter Command Mode** | `NVDA+E` | Activates Command Prefix Mode (triggers a high-pitched beep) |
-| **Analyze Sheet Layout** | `NVDA+E`, then `L` | Run within Excel before navigating data blocks |
-| **Jump to Nearest Data Block** | `NVDA+E`, then `J` /  | Requires Layout Analysis first |
-| **Open Bulk Sheet Organizer** | `NVDA+E`, then `X` | Opens the accessible sheet reordering dialog |
-| **Move Active Sheet Left** | `NVDA+Shift+LeftArrow` | Shifts the active sheet one position up|
-| **Move Active Sheet Right** | `NVDA+Shift+RightArrow` | Shifts the active worksheet one position down|
-| **Move Sheet to Start/End** | `NVDA+Shift+Home` / `End` | Sends worksheet to the absolute absolute boundaries |
-| **Detailed Conditional Formatting**| `NVDA+E`, then `F` | Announces complete formatting details of focused cell |
-| **Map Cell to Memory Slot** | `NVDA+E`, then `Shift+1` to `Shift+9` | Assigns current cell to a background monitor slot |
-| **Read Monitored Cell Slot** | `NVDA+E`, then `1` to `9` | Recalls and reads the value of the assigned slot |
-| **Toggle Background Monitoring** | `NVDA+E`, then `M` | Manually toggles background calculation tracking |
-| **Clear All Memory Slots** | `NVDA+E`, then `Backspace` | Purges all saved background cell monitors |
-| **Cancel Command Mode** | `Escape` | Exits Command Prefix Mode |
+| **Вхід у командний режим** | `[Prefix]` (за замовчуванням: `NVDA+E`) | Активує режим префікса команд (лунає високий звуковий сигнал) |
+| **Скасування командного режиму** | `Escape` | Виходить із режиму префікса команд |
+| **ПОКРАЩЕННЯ EXCEL** | | |
+| **Аналіз макета аркуша** | `[Prefix]`, далі `L` | Запустіть в Excel перед навігацією блоками даних |
+| **Перехід до найближчого блоку даних** | `[Prefix]`, далі `J` | Спочатку потрібен аналіз макета |
+| **Відкрити інструмент масового впорядкування аркушів** | `[Prefix]`, далі `X` | Відкриває доступне діалогове вікно перевпорядкування аркушів |
+| **Озвучення вихідної формули** | `[Prefix]`, далі `F2` | Одне натискання, щоб почути рядок вихідної формули |
+| **Потужний редактор формул** | `[Prefix]`, далі двічі `F2` | Подвійне натискання для відкриття доступного багаторядкового редактора формул |
+| **Відстеження впливаючих комірок** | `[Prefix]`, далі `Shift+P` | Доступний аналог функції відстеження впливаючих комірок.|
+| **Відстеження залежних комірок** | `[Prefix]`, далі `Shift+D` | Доступний аналог функції відстеження залежних комірок; натискання Enter на комірці перемістить вас туди.|
+| **Деталі умовного форматування** | `[Prefix]`, далі `F` | Озвучує повні деталі форматування поточної комірки |
+| **Перемістити активний аркуш ліворуч** | `NVDA+Shift+LeftArrow` | Зсуває активний аркуш на одну позицію вгору |
+| **Перемістити активний аркуш праворуч** | `NVDA+Shift+RightArrow` | Зсуває активний аркуш на одну позицію вниз |
+| **Перемістити аркуш на початок/кінець** | `NVDA+Shift+Home` / `End` | Відправляє аркуш на абсолютні межі |
+| **Приховати / Показати рядок** | `Ctrl+9` / `Ctrl+Shift+9` | Стандартне сполучення клавіш; BOA явно повідомляє про зміну видимості |
+| **Приховати / Показати стовпець** | `Ctrl+0` / `Ctrl+Shift+0` | Стандартне сполучення клавіш; BOA явно повідомляє про зміну видимості |
+| **Показати стовпець (резервний варіант)** | `NVDA+Ctrl+Shift+0` | Дозволяє обійти конфлікти гарячих клавіш із мовою введення Windows |
+| **Прив'язати комірку до комірки пам'яті** | `[Prefix]`, далі від `Shift+1` до `Shift+9` | Призначає поточну комірку для фонового моніторингу |
+| **Прочитати значення відстежуваної комірки** | `[Prefix]`, далі від `1` до `9` | Зчитує та озвучує значення призначеної комірки пам'яті |
+| **Прямий перехід до комірки пам'яті** | `Alt` + від `1` до `9` | Миттєво переміщує курсор до відстежуваної комірки |
+| **Повернутися до попередньої комірки** | `[Prefix]`, далі `\` | Миттєво повертає вас назад після перевірки відстежуваної комірки |
+| **Діалогове вікно диспетчера комірок** | `[Prefix]`, далі `Alt+M` | Відкриває діалогове вікно для перегляду та керування всіма активними відстежуваними комірками |
+| **Увімкнути/вимкнути фоновий моніторинг** | `[Prefix]`, далі `M` | Вручну перемикає фонове відстеження обчислень |
+| **Очистити всі комірки пам'яті** | `[Prefix]`, далі `Backspace` | Видаляє всі збережені фонові відстежувані комірки |
+| **ПОКРАЩЕННЯ POWERPOINT** | | |
+| **Аналізатор макета слайда** | `[Prefix]`, далі `L` | Аналізує та озвучує просторове розташування елементів на поточному слайді |
+| **Аналізатор документа** | `[Prefix]`, далі `D` | Створює детальний зміст та звіт про стан доступності |
+| **Масове впорядкування слайдів** | `[Prefix]`, далі `X` | Відкриває доступне діалогове вікно перевпорядкування кількох слайдів |
+| **ПОКРАЩЕННЯ WORD** | | |
+| **Аудитор форматування** | `[Prefix]`, далі `F` | Перевіряє поточний документ на наявність невідповідностей у форматуванні |
+| **Аналізатор документа** | `[Prefix]`, далі `D` | Аналізує макет і структуру поточного документа Word |
 
 ---
 
-## 🚀 Features
+## 🚀 Можливості
 
-### Excel Enhancements
+### Покращення Excel
 
-#### 1. Sheet Layout Analyzer & Caching
-Instantly scan any Excel worksheet to understand its structure, hidden elements, and data blocks.
-* **How it works:** BOA quickly scans the sheet and announces active data blocks. It also warns you about **Hidden Worksheet Tabs**, active **Filters**, **Protected Modes**, and **Hidden Outer Boundaries** (e.g., if columns near the right edge of the sheet are hidden, preventing you from missing off-screen data).
-* **Data Navigation:** After scanning, you can use the data block jump hotkeys to instantly warp your cursor between discovered data blocks, effortlessly bypassing thousands of empty cells.
+#### 1. Аналізатор макета аркуша та кешування
+Миттєво скануйте будь-який аркуш Excel, щоб зрозуміти його структуру, приховані елементи та блоки даних.
+* **Як це працює:** BOA швидко сканує аркуш і оголошує активні блоки даних. Він також попереджає вас про **приховані вкладки аркушів**, активні **фільтри**, **захищені режими** та **приховані зовнішні межі** (наприклад, якщо приховані стовпці біля правого краю аркуша, щоб ви не пропустили дані за межами екрана).
+* **Навігація даними:** Після сканування ви можете використовувати гарячі клавіші переходу до блоків даних, щоб миттєво переміщувати курсор між знайденими блоками даних, легко обходячи тисячі порожніх комірок.
 
-#### 2. Bulk Sheet Organizer
-Instantly reorder and arrange multiple sheets at once using a fully accessible dialog .
-* **How it works:** Opens a dialog where you can select a sheet and map it to a new position. Scheduled moves are listed in a data table (press `Del` to remove a mistake). Click `OK` and your workbook is rearranged instantly.
+#### 2. Масове впорядкування аркушів
+Миттєво перевпорядковуйте та розміщуйте кілька аркушів одночасно за допомогою повністю доступного діалогового вікна.
+* **Як це працює:** Відкривається діалогове вікно, де можна вибрати аркуш і призначити йому нове розташування. Заплановані переміщення відображаються у таблиці даних (натисніть `Del`, щоб видалити помилкове переміщення). Натисніть `OK`, і вашу книгу буде миттєво впорядковано.
 
-#### 3. Quick Sheet Mover
-Move the active sheet left, right, to the very beginning, or to the very end instantly using your keyboard shortcuts.
+#### 3. Швидке переміщення аркуша
+Миттєво переміщуйте активний аркуш ліворуч, праворуч, на самий початок або в самий кінець за допомогою сполучень клавіш.
 
-#### 4. Accessible Sheet Renaming
-* When renaming a sheet, NVDA natively struggles to read the characters you are typing.
-* BOA injects a custom `ExcelSheetRenameEdit` class that uses the `SafeRichEdit` engine, meaning you can precisely read by character, word, or line while renaming. This serves as an enhancement to the existing default renaming behavior.
+#### 4. Доступне перейменування аркушів
+* При перейменуванні аркуша NVDA зазвичай має проблеми із читанням символів, які ви вводите.
+* BOA інтегрує власний клас `ExcelSheetRenameEdit`, який використовує рушій `SafeRichEdit`. Це означає, що ви можете точно читати за символами, словами або рядками під час перейменування. Це працює як покращення стандартної поведінки при перейменуванні.
 
-#### 5. Hidden Row/Column Tracker
-* Proactively tracks your movement across the grid to prevent you from missing hidden or filtered data.
-* **Crossed Fragmented Cells:** If you jump across a heavily fragmented or hidden section of the grid (e.g., moving from Row 3 to Row 10 because Rows 4–9 are hidden), BOA explicitly announces "Rows 4 through 9 hidden". This ensures you always know when data has been skipped in the structure.
+#### 5. Відстеження прихованих рядків та стовпців
+* Проактивно відстежує ваше переміщення сіткою, щоб ви не пропустили приховані або відфільтровані дані.
+* **Перетин фрагментованих комірок:** Якщо ви переходите через сильно фрагментований або прихований сегмент сітки (наприклад, переходите з рядка 3 до рядка 10, оскільки рядки 4–9 приховані), BOA явно оголосить "Рядки з 4 по 9 приховані". Це гарантує, що ви завжди знатимете, коли в структурі пропущено дані.
 
-#### 6. Conditional Formatting Announcer
-* Automatically reads the color, font style, and background shade of cells that have been dynamically changed by Excel's Conditional Formatting rules.
-* Gives you the true visual state of the cell rather than just the raw underlying value. Initially, when focusing on the cell, it announces "has conditional formatting, and some other minor details". For comprehensive info, use the detailed hotkey configuration which is NVDA E and F.
+#### 6. Озвучення умовного форматування
+* Автоматично зчитує колір, стиль шрифту та колір тла комірок, які динамічно змінилися за правилами умовного форматування Excel.
+* Надає вам реальний візуальний стан комірки, а не лише вихідне значення під нею. Спочатку, при фокусуванні на комірці, звучить оголошення "has conditional formatting, and some other minor details" (має умовне форматування та деякі інші деталі). Для отримання повної інформації використовуйте детальну комбінацію гарячих клавіш `NVDA+E` та `F`.
 
-#### 7. Better selection announcement
-reads if cell or range selected or unselected.
+#### 7. Покращене озвучення виділення
+Озвучує, коли комірку чи діапазон виділено або знято виділення.
 
-#### 8 Cell monitor:
-* **Cell Monitor:** Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.
-* **Continuous Monitoring:** Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.
+#### 8. Моніторинг комірок:
+* **Моніторинг комірок:** Використовуйте командні шляхи для прив'язки конкретних комірок до комірок пам'яті. Ви можете повернутися і прочитати їх у будь-який час за допомогою призначеної цифрової комірки.
+* **Безперервний моніторинг:** Прив'язані комірки автоматично відстежуються у фоновому режимі. Якщо Excel запускає переобчислення або редагування комірки, BOA миттєво оголошує нове значення. Вмикайте/вимикайте фонове відстеження вручну або очищайте все за допомогою командних клавіш.
+* **Excel: Оновлення Cell Monitor Pro:** 
+  - **Діалогове вікно диспетчера комірок (`NVDA+E`, далі `Alt+M`):** Відкриває діалогове вікно зі списком усіх ваших активно відстежуваних комірок. Натисніть `Enter`, щоб миттєво перейти до однієї з них.
+  - **Швидке повернення (`NVDA+E`, далі `\`):** Миттєво переносить вас назад до вашої попередньої робочої комірки після перевірки відстежуваної комірки.
+  - **Прямий перехід до комірки пам'яті (`Prefix + Alt` + `Номер комірки`):** Дозволяє обійти префікс і миттєво перейти до призначеної комірки.
 
-### PowerPoint Enhancements
+#### 9. Потужний редактор
+* **Excel: Потужний редактор (доступний редактор формул):** Справжній прорив для модифікації величезних формул.
+  - **Одне натискання `NVDA+E`, далі `F2`:** Миттєво озвучує рядок вихідної формули активної комірки (або оголошує "Немає формули").
+  - **Подвійне натискання `NVDA+E`, далі `F2`:** Відкриває повністю доступний багаторядковий редактор для безпечного редагування величезних вкладених формул. Стандартне натискання `Enter` додає розриви рядків для зручного читання, а `Ctrl+Enter` зберігає зміни назад в Excel.
+  - *Перевірки безпеки:* Надійно перехоплює синтаксичні помилки до того, як вони пошкодять ваш аркуш, та виявляє помилки після обчислень (наприклад, `#NAME?` або `#DIV/0!`), щоб негайно попередити вас у разі збою у формулі.
 
-#### 1. Accessible Color Pickers
-* Unlocks the Custom Color dialog in PowerPoint.
-* Identifies and explicitly reads out the "Red", "Green", and "Blue" edit boxes correctly (by overriding `PowerPointRGBEdit`).
-* Maps the previously invisible Hex input field so NVDA can read the full Hex color value cleanly.
+#### 10. Покращення аудиту та оцінки формул:
+* **Excel: Аудит та оцінка формул:** Додано власні комбінації клавіш (`NVDA+E`, далі `Shift+P` та `NVDA+E`, далі `Shift+D`) для надійного відстеження впливаючих та залежних комірок. Крім того, стандартне діалогове вікно Excel "Обчислити формулу" тепер повністю доступне; NVDA автоматично зчитує оцінені результати під час покрокового виконання обчислень!
 
-#### 2. Standard Color Grid Support
-* Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.
-* BOA tracks your arrow keys across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g., "Color #FF0000").
+### Покращення PowerPoint
 
-### Infrastructure & Technical Mechanisms
+#### 1. Доступний вибір кольорів
+* Розблоковує діалогове вікно "Інші кольори" в PowerPoint.
+* Ідентифікує та правильно озвучує поля введення "Червоний", "Зелений" та "Синій" (шляхом перевизначення `PowerPointRGBEdit`).
+* Зіставляє раніше невидиме поле введення Hex, щоб NVDA міг чітко зчитувати повне значення кольору в шістнадцятковому форматі.
 
-#### The Command Prefix Mode
-To prevent keystroke conflicts with other NVDA plugins, BOA uses a **Command Prefix Mode**:
-1. Press the activation hotkey to enter Command Mode. You will hear a high-pitched beep.
-2. Press a secondary key to trigger a specific feature.
-3. If you press an invalid key, you will hear an error beep.
+#### 2. Підтримка стандартної сітки кольорів
+* Навігація стандартною шестикутною сіткою кольорів у PowerPoint зазвичай озвучується як "Графіка" або взагалі мовчить.
+* BOA відстежує натискання клавіш зі стрілками по шестикутнику і непомітно отримує приховане значення кольору, озвучуючи його вам у режимі реального часу (наприклад, "Колір #FF0000").
 
-#### Customization & Settings Panel
-* BOA features are fully modular and can be enabled or disabled at any time. Go to `NVDA Menu -> Preferences -> Settings -> BOA Office Enhancements` to toggle individual features on or off.
-* **Intelligent Accelerator Keys:** Every single setting features a mathematically unique `Alt+Key` accelerator shortcut within the panel. For example, press `Alt+E` to instantly jump to the Excel group, `Alt+P` for PowerPoint, and `Alt+W` for Word.
-* Settings are saved securely to a standalone JSON file (`boa_settings.json`), ensuring your core NVDA configuration is never corrupted.
-* If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality.
+#### 3. Масове впорядкування слайдів:
+* **PowerPoint: Масове впорядкування слайдів (експериментально) (`NVDA+E`, далі `X`):** Подібно до функції в Excel, тепер ви можете миттєво перевпорядковувати, переміщувати та розміщувати кілька слайдів PowerPoint одночасно за допомогою повністю доступного діалогового вікна.
 
-#### Security & Integration Boundaries
-* Clipboard injections strictly verify window foreground process IDs to prevent leakage of data into other applications.
-* some Custom hotkeys are fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.
+#### 4. Аналізатор макета слайда
+* **PowerPoint: Аналізатор макета слайда (експериментально) (`NVDA+E`, далі `L`):** Миттєво сканує поточний активний слайд, щоб зрозуміти його просторове розташування та обмеження доступності, забезпечуючи плавну та швидку роботу екранного читця. Це означає, що тут ви отримаєте детальну інформацію про поточний слайд подібно до аналізатора макета аркуша в Excel.
+
+#### 5. Повний аналізатор документа [PPT]
+* **PowerPoint: Повний аналізатор документа (експериментально) (`NVDA+E`, далі `D`):** Високотехнологічний інструмент доступності з фоновою обробкою, який створює карту всієї презентації без зависання синтезатора мовлення NVDA. Він надає віртуальний зміст із можливості детальної навігації, виявляє невідповідності порядку читання (візуальний порядок порівняно із Z-порядком), позначає слайди з надлишковим текстом ("стіна тексту") та відображає складні об'єкти, такі як SmartArt та таблиці даних.
+
+#### 6. Покращення переміщення [коригування] фігур:
+* **PowerPoint: Аудіорежим переміщення фігур (експериментально):** Додає просторові 3D-аудіосигнали на полотно PowerPoint. Забезпечує звуковий зворотний зв'язок, що вказує напрямок та межі об'єкта під час його переміщення, значно покращуючи орієнтацію у просторі.
+
+### Покращення Word:
+#### 1. Аналізатор документа, натхненний і розроблений на основі додатка Word Access від Paul:
+* **Word: Аналізатор документа (`NVDA+E`, далі `D`):** Миттєво відкриває структурний огляд вашого документа Word. *(Особлива подяка Полу (Paul): ця функція була безпосередньо натхненна його чудовим додатком "Word Access". Ми щиро вдячні за його фундаментальну роботу в цій галузі!)*
+
+#### 2. Аудитор форматування
+* **Word: Аудитор форматування (`NVDA+E`, далі `F`):** Сканує ваш документ Word на наявність невідповідностей у форматуванні, щоб забезпечити дотримання візуальних стандартів.
+
+#### 3. Читання виносок:
+* **Word: Автоматичне озвучення виносок:** Тепер виноски будуть автоматично озвучуватися під час читання, залежно від ваших користувацьких налаштувань BOA. *(Примітка: підтримка кінцевих виносок та приміток планується в наступних випусках).*
+
+### Інфраструктура та технічні механізми
+
+#### Режим префікса команд
+Щоб уникнути конфліктів сполучень клавіш з іншими додатками NVDA, BOA використовує **Режим префікса команд**:
+1. Натисніть гарячу клавішу активації, щоб увійти в командний режим. Ви почуєте високий звуковий сигнал. За замовчуванням це NVDA плюс E.
+2. Натисніть додаткову клавішу, щоб активувати певну функцію.
+3. Якщо ви натиснете недійсну клавішу, ви почуєте сигнал про помилку.
+
+#### Панель налаштувань та персоналізації
+* Функції BOA є повністю модульними, і їх можна вмикати або вимикати в будь-який час. Перейдіть у `Меню NVDA -> Параметри -> Налаштування -> BOA Office Enhancements`, щоб увімкнути чи вимкнути окремі функції.
+* **Розумні клавіші швидкого доступу:** Кожне налаштування на панелі має математично унікальну гарячу клавішу швидкого доступу `Alt+Key`. Наприклад, натисніть `Alt+E`, щоб миттєво перейти до групи Excel, `Alt+P` — для PowerPoint та `Alt+W` — для Word.
+* Налаштування надійно зберігаються в окремому файлі JSON (`boa_settings.json`), що гарантує збереження вашої основної конфігурації NVDA від пошкоджень.
+* Якщо Microsoft Office у майбутньому офіційно виправить якусь помилку доступності, ви зможете безпечно вимкнути конкретний перехоплювач BOA, не втрачаючи функціональності решти додатка.
+* **Налаштування жестів введення:** Усі функції для всіх офісних програм були явно додані до стандартного діалогового вікна жестів введення NVDA, що дає вам повну свободу налаштування кожного сполучення клавіш.
+
+#### Межі безпеки та інтеграції
+* Вставлення в буфер обміну суворо перевіряє ідентифікатори процесів активного вікна (PID), щоб запобігти витоку даних в інші програми.
+* Деякі користувацькі гарячі клавіші повністю представлені в діалоговому вікні жестів введення NVDA у категорії "Better Office Accessibility".
 
 ---
 
-## 📋 Requirements
+## 📋 Системні вимоги
 
-* **NVDA:** Version 2026.1.0 or later.
-* **Applications:** Microsoft Excel & Microsoft PowerPoint.
-
----
-
-## 💾 Installation
-
-1. Download the latest `.nvda-addon` release file, or locate it within the native NVDA Add-on Store.
-2. if installing from file, Open the file or use `NVDA's Add-on Store -> Install from external file`.
-3. Restart NVDA.
+* **NVDA:** версія 2026.1.0 або новіша.
+* **Програми:** Microsoft Excel та Microsoft PowerPoint.
 
 ---
 
-## 🛠️ Changelog
+## 💾 Встановлення
 
-### Що нового у v1.6.1
-* **Глибока локалізація файлів**: Виправлено відсутні переклади рядків глибоко в модулях покращення Excel (таких як Аналізатор макета аркуша та Швидке переміщення аркушів), щоб забезпечити 100% покриття локалізації.
-* **Розширена підтримка перекладу**: До системи додано 7 нових мов (турецька, польська, корейська, українська, чеська, урду та пенджабі).
-  *(Примітка: Ці переклади були згенеровані штучним інтелектом, тому можливі незначні помилки або неточності.)*
+1. Завантажте останній файл випуску `.nvda-addon` або знайдіть його у вбудованому Магазині додатків NVDA.
+2. Якщо ви встановлюєте з файлу, відкрийте цей файл або скористайтеся меню `Магазин додатків NVDA -> Встановити із зовнішнього файлу`.
+3. Перезапустіть NVDA.
 
-### v1.6.0
-* **Comprehensive Translation Support**: The add-on is now fully localized with support for 17 global languages. 
-  *(Note: These translations were generated by AI, so some minor translation errors or inaccuracies may be present.)*
-* **Strict Code Governance**: Applied GPL-2.0 copyright headers across the entire codebase."""),
+---
 
-### Version 1.5.0 
-#### New Features
-##### End of Data Radar
-When navigating through large spreadsheets, it can be difficult to tell if an empty cell means you've reached the end of a list, or if there is simply a gap in the data. The **End of Data Radar** acts as a smart perimeter check to save you from blindly arrowing through empty space.
-Whenever you navigate into an empty cell, BOA instantly scans the remaining cells in your direction of travel. If there is absolutely no data left, it will proactively announce:
-* *"No more data below"*
-* *"No more data above"*
-* *"No more data to the right"*
-* *"No more data to the left"*
-**Configuration Options:**
-You can configure this feature via `NVDA Preferences -> Settings -> BOA Office Enhancements`. Because spreadsheets can contain hidden complexities (like invisible formulas or collapsed rows), the radar provides three operating modes:
-1. **Off**: Disables the radar entirely.
-2. **Strict Memory Check (CountA) [Default]**: The safest and fastest approach. It checks the raw memory of the spreadsheet. If it detects *anything* below you (including hidden rows, text, numbers, or invisible formulas), it stays completely silent to prevent false alarms. It only announces "No more data" when the remainder of the sheet is 100% mathematically blank.
-3. **Visible Data Only (Math Engine)**: A highly advanced engine designed for complex sheets. It intelligently filters out hidden rows and invisible formulas (e.g., `=""`). It will only stay silent if there are actual, visible numbers or text left in your path.
+## 🛠️ Журнал змін
 
-### Version 1.4 - 2026-06-12
-#### New Features
-* **Cell Monitor:** Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.
-* **Continuous Monitoring:** Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.
+### Версія 2.0.0
+#### Нові функції
+* **PowerPoint: Повний аналізатор документа (експериментально) (`NVDA+E`, далі `D`):** Високотехнологічний інструмент доступності з фоновою обробкою, який створює карту всієї презентації без зависання синтезатора мовлення NVDA. Він надає віртуальний зміст із можливості детальної навігації, виявляє невідповідності порядку читання (візуальний порядок порівняно із Z-порядком), позначає слайди з надлишковим текстом ("стіна тексту") та відображає складні об'єкти, такі як SmartArt та таблиці даних.
+* **PowerPoint: Аналізатор макета слайда (експериментально) (`NVDA+E`, далі `L`):** Миттєво сканує поточний активний слайд, щоб зрозуміти його просторове розташування та обмеження доступності, забезпечуючи плавну та швидку роботу екранного читця. Це означає, що тут ви отримаєте детальну інформацію про поточний слайд подібно до аналізатора макета аркуша в Excel.
+* **PowerPoint: Масове впорядкування слайдів (експериментально) (`NVDA+E`, далі `X`):** Подібно до функції в Excel, тепер ви можете миттєво перевпорядковувати, переміщувати та розміщувати кілька слайдів PowerPoint одночасно за допомогою повністю доступного діалогового вікна.
+* **PowerPoint: Аудіорежим переміщення фігур (експериментально):** Додає просторові 3D-аудіосигнали на полотно PowerPoint. Забезпечує звуковий зворотний зв'язок, що вказує напрямок та межі об'єкта під час його переміщення, значно покращуючи орієнтацію у просторі. Як уже згадувалося, ця функция є експериментальною, очікуємо на ваші відгуки для її покращення.
+* **Word: Аудитор форматування (`NVDA+E`, далі `F`):** Сканує ваш документ Word на наявність невідповідностей у форматуванні, щоб забезпечити дотримання візуальних стандартів.
+* **Word: Аналізатор документа (`NVDA+E`, далі `D`):** Миттєво відкриває структурний огляд вашого документа Word. *(Особлива подяка Полу (Paul): ця функція була безпосередньо натхненна його чудовим додатком "Word Access". Ми щиро вдячні за його фундаментальну роботу в цій галузі!)*
+* **Word: Автоматичне озвучення виносок:** Тепер виноски будуть автоматично озвучуватися під час читання, залежно від ваших користувацьких налаштувань BOA. *(Примітка: підтримка кінцевих виносок та приміток планується в наступних випусках).*
+* **Excel: Потужний редактор (доступний редактор формул):** Справжній прорив для модифікації величезних формул.
+  - **Одне натискання `NVDA+E`, далі `F2`:** Миттєво озвучує рядок вихідної формули активної комірки (або оголошує "Немає формули").
+  - **Подвійне натискання `NVDA+E`, далі `F2`:** Відкриває повністю доступний багаторядковий редактор для безпечного редагування величезних вкладених формул. Стандартне натискання `Enter` додає розриви рядків для зручного читання, а `Ctrl+Enter` зберігає зміни назад в Excel.
+  - *Перевірки безпеки:* Надійно перехоплює синтаксичні помилки до того, як вони пошкодять ваш аркуш, та виявляє помилки після обчислень (наприклад, `#NAME?` або `#DIV/0!`), щоб негайно попередити вас у разі збою у формулі.
+* **Excel: Аудит та оцінка формул:** Додано власні комбінації клавіш (`NVDA+E`, далі `Shift+P` та `NVDA+E`, далі `Shift+D`) для надійного відстеження впливаючих та залежних комірок. Крім того, стандартне діалогове вікно Excel "Обчислити формулу" тепер повністю доступне; NVDA автоматично зчитує оцінені результати під час покрокового виконання обчислень!
+* **Excel: Оновлення Cell Monitor Pro:** 
+  - **Діалогове вікно диспетчера комірок (`NVDA+E`, далі `Alt+M`):** Відкриває діалогове вікно зі списком усіх ваших активно відстежуваних комірок. Натисніть `Enter`, щоб миттєво перейти до однієї з них.
+  - **Швидке повернення (`NVDA+E`, далі `\`):** Миттєво переносить вас назад до вашої попередньої робочої комірки після перевірки відстежуваної комірки.
+  - **Прямий перехід до комірки пам'яті (`Alt` + `Номер комірки`):** Дозволяє обійти префікс і миттєво перейти до призначеної комірки.
+* **Налаштування жестів введення:** Усі функції для всіх офісних програм були явно додані до стандартного діалогового вікна жестів введення NVDA, що дає вам повну свободу налаштування кожного сполучення клавіш.
 
-#### Bug Fixes
+#### Покращення інтерфейсу та взаємодії (UX/UI)
+* **Єдина система звітів для перегляду:** Ми впровадили єдину систему звітів HTML у всьому додатку. Такі функції, як оголошення умовного форматування в Excel, аналізатори макета та аналізатори документів, тепер не просто озвучують величезні блоки тексту; їхні результати тепер відкриваються у стандартному вікні HTML із можливістю зручної навігації, що дозволяє вивчати дані у вашому власному темпі.
+* **Excel: Покращене відстеження залежних/впливаючих комірок:** Значно покращено мовленнєвий вивід для вбудованих у Excel сполучень клавіш трасування формул (`Ctrl+[` для безпосередньо впливаючих комірок та `Ctrl+]` для безпосередньо залежних комірок). Тепер NVDA буде чітко оголошувати, які саме комірки було виділено.
+* **Excel: Підтримка об'єднаних комірок:** Об'єднані комірки тепер коректно розпізнаються та чітко озвучуються відстежувачем комірок, який пропускає порожні проміжки.
 
-### Version 1.3.0 — 2026-06-05
-*Final release.*
+#### Виправлення помилок
+* **Word: Подвійне читання елементів списку:** Додано тимчасове виправлення для усунення помилки, через яку NVDA двічі озвучує елементи списків абзаців у деяких режимах перегляду Word.
+* **Excel: Помилка локалізації моніторингу комірок:** Виправлено внутрішні помилки відстеження, викликані нещодавніми оновленнями локалізації перекладів.
 
-#### New Features
-* **Sheet Layout Analyzer:** Added powerful layout scanning infrastructure. Instantly detects Worksheet Protection, active Column Filters, Hidden Worksheet Tabs, and hidden absolute borders while caching discovered data blocks.
-* **Guided Data Block Navigation:** Post-analysis navigation allows immediate cursor warps between major clusters of data, bypassing empty cells seamlessly.
-* **Conditional Formatting Announcer:** Automatically detects and reads the dynamic color, font style, and background shade of cells altered by Excel's Conditional Formatting rules.
-* **Explicit Settings Accelerators:** Completely overhauled the BOA Settings GUI to strictly comply with NVDA architecture. Every feature checkbox now possesses a globally unique `Alt+Letter` shortcut, preventing keyboard cycling and eliminating first-letter navigation failures.
+### Що нового у версії v1.6.1
+* **Глибока локалізація файлів**: Виправлено відсутні переклади рядків глибоко всередині модулів покращення Excel (таких як аналізатор макета аркуша та швидке переміщення аркуша), щоб забезпечити 100% покриття локалізації.
+* **Розширена підтримка перекладів**: Додано 7 нових мов до системи (турецька, польська, корейська, українська, чеська, урду та панджабі). 
+  *(Примітка: ці переклади були створені штучним інтелектом, тому можливі деякі незначні помилки або неточності перекладу).*
 
-#### Bug Fixes
-* **Absolute Edge Boundary Detection:** Replaced native COM `UsedRange` edge checks with absolute 1D mathematical boundary checks (`Row 1048576` and `Column 16384`) to guarantee detection of hidden rows/columns even if they lie far outside the active data block.
-* **Lazy COM Property Safe Bailouts:** Hardened COM property loops to prevent NVDA thread freezes when evaluating millions of contiguous hidden structures.
+### Версія v1.6.0
+* **Комплексна підтримка перекладів**: Тепер додаток повністю локалізовано з підтримкою 17 світових мов. 
+  *(Примітка: ці переклади були створені штучним інтелектом, тому можливі деякі незначні помилки або неточності перекладу).*
+* **Суворе керування кодом**: Додано заголовки авторських прав GPL-2.0 по всій базі коду."",
 
-### Version 1.2.0 — 2026-06-03
-*Final release.*
+### Версія 1.5.0 
+#### Нові функції
+##### Радар завершення даних
+Під час навігації великими електронними таблицями буває важко визначити, чи означає порожня комірка кінець списку, чи це просто пропуск у даних. **Радар завершення даних** працює як розумна перевірка периметра, щоб врятувати вас від наосліп натискання стрілок по порожньому простору.
+Щоразу, коли ви переходите в порожню комірку, BOA миттєво сканує решту комірок у напрямку вашого руху. Якщо даних більше взагалі немає, він проактивно оголосить:
+* *"Нижче даних більше немає"*
+* *"Вище даних більше немає"*
+* *"Праворуч даних більше немає"*
+* *"Ліворуч даних більше немає"*
+**Параметри налаштування:**
+Ви можете налаштувати цю функцію у меню `Параметри NVDA -> Налаштування -> BOA Office Enhancements`. Оскільки електронні таблиці можуть містити приховані складнощі (наприклад, невидимі формули або згорнуті рядки), радар пропонує три режими роботи:
+1. **Вимкнено**: Повністю вимикає радар.
+2. **Строга перевірка пам'яті (CountA) [За замовчуванням]**: Найбезпечніший і найшвидший підхід. Він перевіряє фізичну пам'ять таблиці. Якщо він виявляє *будь-що* під вами (включаючи приховані рядки, текст, числа або невидимі формули), він повністю мовчить, щоб уникнути помилкових спрацьовувань. Він оголошує "Даних більше немає" лише тоді, коли решта аркуша на 100% математично порожня.
+3. **Лише видимі дані (Математичний рушій)**: Високотехнологічний рушій, розроблений для складних аркушів. Він інтелектуально відфільтровує приховані рядки та невидимі формули (наприклад, `=""`). Він мовчатиме лише в тому випадку, якщо на вашому шляху залишилися реальні, видимі числа або текст.
 
-#### New Features
-* **App-Launch Caching:** Major architectural overhaul. Core modules are now lazy-loaded exactly when you focus on Office applications, eliminating boot lag, completely solving the 'unknown' object focus glitch on rename dialogs, and preserving multi-file codebase structure.
-* **Enhanced Cell Tracker (1D COM Math):** Rewrote the hidden cell gap detection logic to only evaluate one-dimensional cross-sections (`current_col` or `current_row`). This reduces the COM calculation payload by over 16 million cells, instantly eliminating navigation freezes when jumping hidden ranges.
-* **Process Memory Wiping:** Implemented Excel Window Handle (`Hwnd`) tracking to detect when the user closes and reopens Excel. This actively wipes out stale global state memory and completely solves the false "Sheet hidden" announcement when opening a fresh "Book1".
+### Версія 1.4 — 2026-06-12
+#### Нові функції
+* **Моніторинг комірок:** Використовуйте командні шляхи для прив'язки конкретних комірок до комірок пам'яті. Ви можете повернутися і прочитати їх у будь-який час за допомогою призначеної цифрової комірки.
+* **Безперервний моніторинг:** Прив'язані комірки автоматично відстежуються у фоновому режимі. Якщо Excel запускає переобчислення або редагування комірки, BOA миттєво оголошує нове значення. Вмикайте/вимикайте фонове відстеження вручну або очищайте все за допомогою командних клавіш.
 
-#### Bug Fixes
-* **Double Selection Announcement:** Migrated away from unreliable asynchronous `winUser.getKeyState` and implemented `api.getLastInputGesture()` to perfectly suppress double announcements when using Shift+Arrow keys.
-* **Boundary Detector Deactivation:** The Proactive Boundary Detector has been deactivated to protect NVDA native navigation stability, falling back entirely to the gap-skipping tracker.
+#### Виправлення помилок
 
-### Version 1.1.0 — 2026-05-30
-*Final release.*
+### Версія 1.3.0 — 2026-06-05
+*Фінальний випуск.*
 
-#### New Features
-* **Settings GUI:** Added a native BOA Office Enhancements panel inside `NVDA -> Preferences -> Settings` to easily toggle features on or off.
-* **SafeRichEdit Hook:** Prevents silent NVDA crashes when interacting with RichEdit controls in Office 2024.
-* **Customizable Hotkeys:** All BOA hotkeys are now fully exposed in NVDA's Input Gestures dialog under the "Better Office Accessibility" category.
-* **Excel: Hidden Row/Column Skip Detection:** Proactively announces when navigating past hidden rows or columns, ensuring you never miss filtered data. Can be toggled in settings.
+#### Нові функції
+* **Аналізатор макета аркуша:** Додано потужну інфраструктуру сканування макета. Миттєво виявляє захист аркуша, активні фільтри стовпців, приховані вкладки аркуша та приховані абсолютні межі, одночасно кешуючи знайдені блоки даних.
+* **Спрямована навігація блоками даних:** Навігація після аналізу дозволяє миттєво переміщувати курсор між основними скупченнями даних, легко обходячи порожні комірки.
+* **Озвучення умовного форматування:** Автоматично виявляє та зчитує динамічний колір, стиль шрифту та колір тла комірок, змінених правилами умовного форматування Excel.
+* **Явні клавіші швидкого доступу до налаштувань:** Повністю перероблено графічний інтерфейс налаштувань BOA для суворої відповідності архітектурі NVDA. Кожен прапорець функції тепер має глобально унікальне сполучення клавіш `Alt+Буква`, що запобігає перебору клавіш і усуває збої навігації за першою літерою.
 
-#### Bug Fixes
-* **Thread Safety:** Removed all blocking delays (`time.sleep`) and replaced them with non-blocking NVDA asynchronous callbacks to ensure the screen reader never stutters during background operations.
+#### Виправлення помилок
+* **Виявлення абсолютних крайових меж:** Замінено вбудовані перевірки меж COM `UsedRange` абсолютними одновимірними математичними перевірками меж (`Рядок 1048576` та `Стовпець 16384`), щоб гарантувати виявлення прихованих рядків/стовпців, навіть якщо вони лежать далеко за межами активного блоку даних.
+* **Безпечний вихід із лінивих властивостей COM:** Зміцнено цикли властивостей COM, щоб запобігти зависанню потоку NVDA під час оцінки мільйонів послідовних прихованих структур.
 
-### Version 1.0.0 — 2026-05-24
-*Initial public release.*
+### Версія 1.2.0 — 2026-06-03
+*Фінальний випуск.*
 
-#### New Features
-* **Excel: Bulk Sheet Organizer:** Instantly reorder multiple sheets at once using a fully accessible dialog.
-* **Excel: Quick Sheet Mover:** Move the active sheet left, right, to start, or to end via keyboard commands.
-* **Excel: Accessible Sheet Renaming:** Intercepts the inaccessible native rename field and replaces it with a reliable accessible dialog.
-* **Excel: Smart Selection Tracking:** Accurately announces multi-cell range selections and deselections.
-* **PowerPoint: Accessible Color Pickers:** Enables NVDA to accurately read RGB and Hex values inside the Custom Color dialog.
-* **PowerPoint: Standard Color Grid Support:** Intercepts arrow key navigation to read hidden Hex codes from the inaccessible color hexagon grid.
+#### Нові функції
+* **Кешування під час запуску програми:** Серйозна зміна архітектури. Основні модулі тепер завантажуються лише тоді, коли ви фокусуєтеся на програмах Office. Це усуває затримку завантаження, повністю вирішує збій фокусування на "невідомому" об'єкті у діалогових вікнах перейменування та зберігає багатофайлову структуру бази коду.
+* **Покращений відстежувач комірок (1D COM математика):** Переписано логіку виявлення пропусків прихованих комірок, щоб оцінювати лише одновимірні зрізи (`current_col` або `current_row`). Це зменшує навантаження на обчислення COM більш ніж на 16 мільйонів комірок, миттєво усуваючи зависання навігації при переході через приховані діапазони.
+* **Очищення оперативної пам'яті процесу:** Впроваджено відстеження дескриптора вікна Excel (`Hwnd`) для визначення моменту, коли користувач закриває та знову відкриває Excel. Це активно очищає застарілу пам'ять глобального стану та повністю вирішує проблему помилкового оголошення "Sheet hidden" при відкритті нового документа "Book1".
+
+#### Виправлення помилок
+* **Подвійне оголошення виділення:** Здійснено перехід від ненадійного асинхронного `winUser.getKeyState` та впроваджено `api.getLastInputGesture()`, щоб ідеально придушувати подвійні оголошення при використанні клавіш Shift+Стрілки.
+* **Деактивація проактивного детектора меж:** Проактивний детектор меж був вимкнений для захисту стабільності стандартної навігації NVDA, повністю перейшовши на відстежувач пропуску порожніх проміжків.
+
+### Версія 1.1.0 — 2026-05-30
+*Фінальний випуск.*
+
+#### Нові функції
+* **Графічний інтерфейс налаштувань:** Додано стандартну панель BOA Office Enhancements у `NVDA -> Параметри -> Налаштування` для легкого ввімкнення та вимкнення функцій.
+* **Перехоплювач SafeRichEdit:** Запобігає раптовим збоям NVDA під час взаємодії з елементами керування RichEdit в Office 2024.
+* **Користувацькі гарячі клавіші:** Усі гарячі клавіші BOA тепер повністю представлені в діалоговому вікні жестів введення NVDA у категорії "Better Office Accessibility".
+* **Excel: Виявлення пропуску прихованих рядків/стовпців:** Проактивно оголошує про перехід через приховані рядки або стовпці, гарантуючи, що ви ніколи не пропустите відфільтровані дані. Можна увімкнути/вимкнути в налаштуваннях.
+
+#### Виправлення помилок
+* **Безпека потоків:** Вилучено всі блокуючі затримки (`time.sleep`) та замінено їх неблокуючими асинхронними зворотними викликами NVDA, щоб екранний читець ніколи не запинався під час фонових операцій.
+
+### Версія 1.0.0 — 2026-05-24
+*Перший публічний випуск.*
+
+#### Нові функції
+* **Excel: Масове впорядкування аркушів:** Миттєво перевпорядковуйте кілька аркушів одночасно за допомогою повністю доступного діалогового вікна.
+* **Excel: Швидке переміщення аркуша:** Переміщуйте активний аркуш ліворуч, праворуч, на початок або в кінець за допомогою клавіатурних команд.
+* **Excel: Доступне перейменування аркушів:** Перехоплює недоступне стандартне поле перейменування та замінює його надійним доступним діалоговим вікном.
+* **Excel: Розумне відстеження виділення:** Точно озвучує виділення та зняття виділення з багатокоміркових діапазонів.
+* **PowerPoint: Доступний вибір кольорів:** Дозволяє NVDA точно зчитувати значення RGB та Hex всередині діалогового вікна вибору кольору.
+* **PowerPoint: Підтримка стандартної сітки кольорів:** Перехоплює навігацію клавішами зі стрілками для зчитування прихованих шістнадцяткових кодів із недоступної шестикутної сітки кольорів.

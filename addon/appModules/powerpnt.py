@@ -99,6 +99,18 @@ class AppModule(CorePowerpntAppModule):
 	# Translators: Describes the script that launches the Bulk Slide Organizer.
 	script_bulkSlideOrganizer.__doc__ = _("Launches the Bulk Slide Organizer dialog to reorder slides.")
 
+	def script_announceSlideLayout(self, gesture):
+		obj = api.getFocusObject()
+		ppt_manager.SlideLayoutAnalyzer.analyze(obj)
+	# Translators: Describes the script that analyzes and announces the PowerPoint slide layout.
+	script_announceSlideLayout.__doc__ = _("Analyzes and announces the layout structure of the current slide.")
+
+	def script_analyzeDocument(self, gesture):
+		obj = api.getFocusObject()
+		ppt_manager.PowerPointDocumentAnalyzer.analyze(obj)
+	# Translators: Describes the script that analyzes the current PowerPoint presentation.
+	script_analyzeDocument.__doc__ = _("Analyzes the current PowerPoint presentation and displays a comprehensive layout and health report.")
+
 	__gestures = {
 		"kb:NVDA+e": "triggerCommandPrefix"
 	}

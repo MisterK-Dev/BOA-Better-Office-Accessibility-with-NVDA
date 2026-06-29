@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="../style.css" media="screen">
-<title>BOA: Better Office Accessibility 2.0</title>
+<title>BOA: Better Office Accessibility 2.0.0</title>
 </head>
 <body>
 <h1>BOA: Better Office Accessibility</h1>
@@ -22,23 +22,58 @@
 <tbody>
 <tr>
 <td style="text-align: left;"><strong>Enter Command Mode</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code></td>
+<td style="text-align: left;"><code>[Prefix]</code> (Default: <code>NVDA+E</code>)</td>
 <td style="text-align: left;">Activates Command Prefix Mode (triggers a high-pitched beep)</td>
 </tr>
 <tr>
+<td style="text-align: left;"><strong>Cancel Command Mode</strong></td>
+<td style="text-align: left;"><code>Escape</code></td>
+<td style="text-align: left;">Exits Command Prefix Mode</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>EXCEL ENHANCEMENTS</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
 <td style="text-align: left;"><strong>Analyze Sheet Layout</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>L</code></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>L</code></td>
 <td style="text-align: left;">Run within Excel before navigating data blocks</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Jump to Nearest Data Block</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>J</code> /</td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>J</code></td>
 <td style="text-align: left;">Requires Layout Analysis first</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Open Bulk Sheet Organizer</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>X</code></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>X</code></td>
 <td style="text-align: left;">Opens the accessible sheet reordering dialog</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Raw Formula Announcer</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>F2</code></td>
+<td style="text-align: left;">Single tap to hear the raw formula string</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Power Formula Editor</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>F2</code> twice</td>
+<td style="text-align: left;">Double tap to open the accessible multi-line formula editor</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trace Precedents</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>Shift+P</code></td>
+<td style="text-align: left;">Trace Precedents same feature in accessible manner.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Trace Dependents</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>Shift+D</code></td>
+<td style="text-align: left;">Trace Dependents same feature in acesible manner, pressing enter on a cell will teleport you there.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Detailed Conditional Formatting</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>F</code></td>
+<td style="text-align: left;">Announces complete formatting details of focused cell</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Move Active Sheet Left</strong></td>
@@ -53,37 +88,92 @@
 <tr>
 <td style="text-align: left;"><strong>Move Sheet to Start/End</strong></td>
 <td style="text-align: left;"><code>NVDA+Shift+Home</code> / <code>End</code></td>
-<td style="text-align: left;">Sends worksheet to the absolute absolute boundaries</td>
+<td style="text-align: left;">Sends worksheet to the absolute boundaries</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Detailed Conditional Formatting</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>F</code></td>
-<td style="text-align: left;">Announces complete formatting details of focused cell</td>
+<td style="text-align: left;"><strong>Hide / Unhide Row</strong></td>
+<td style="text-align: left;"><code>Ctrl+9</code> / <code>Ctrl+Shift+9</code></td>
+<td style="text-align: left;">Native shortcut; BOA explicitly announces the visibility change</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hide / Unhide Column</strong></td>
+<td style="text-align: left;"><code>Ctrl+0</code> / <code>Ctrl+Shift+0</code></td>
+<td style="text-align: left;">Native shortcut; BOA explicitly announces the visibility change</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Unhide Column (Fallback)</strong></td>
+<td style="text-align: left;"><code>NVDA+Ctrl+Shift+0</code></td>
+<td style="text-align: left;">Bypasses Windows input language hotkey conflicts</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Map Cell to Memory Slot</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>Shift+1</code> to <code>Shift+9</code></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>Shift+1</code> to <code>Shift+9</code></td>
 <td style="text-align: left;">Assigns current cell to a background monitor slot</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Read Monitored Cell Slot</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>1</code> to <code>9</code></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>1</code> to <code>9</code></td>
 <td style="text-align: left;">Recalls and reads the value of the assigned slot</td>
 </tr>
 <tr>
+<td style="text-align: left;"><strong>Direct Slot Jump</strong></td>
+<td style="text-align: left;"><code>Alt</code> + <code>1</code> to <code>9</code></td>
+<td style="text-align: left;">Instantly jump your cursor to a monitored slot</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Warp Back to Previous Cell</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>\</code></td>
+<td style="text-align: left;">Instantly teleports you back after checking a slot</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Slot Manager Dialog</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>Alt+M</code></td>
+<td style="text-align: left;">Opens a dialog to view and manage all active monitors</td>
+</tr>
+<tr>
 <td style="text-align: left;"><strong>Toggle Background Monitoring</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>M</code></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>M</code></td>
 <td style="text-align: left;">Manually toggles background calculation tracking</td>
 </tr>
 <tr>
 <td style="text-align: left;"><strong>Clear All Memory Slots</strong></td>
-<td style="text-align: left;"><code>NVDA+E</code>, then <code>Backspace</code></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>Backspace</code></td>
 <td style="text-align: left;">Purges all saved background cell monitors</td>
 </tr>
 <tr>
-<td style="text-align: left;"><strong>Cancel Command Mode</strong></td>
-<td style="text-align: left;"><code>Escape</code></td>
-<td style="text-align: left;">Exits Command Prefix Mode</td>
+<td style="text-align: left;"><strong>POWERPOINT ENHANCEMENTS</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Slide Layout Analyzer</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>L</code></td>
+<td style="text-align: left;">Analyzes and announces the spatial layout of the current slide</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Document Analyzer</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>D</code></td>
+<td style="text-align: left;">Generates a comprehensive Table of Contents and health report</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bulk Slide Organizer</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>X</code></td>
+<td style="text-align: left;">Opens the accessible dialog to reorder multiple slides</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>WORD ENHANCEMENTS</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Formatting Auditor</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>F</code></td>
+<td style="text-align: left;">Audits the current document for formatting inconsistencies</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Document Analyzer</strong></td>
+<td style="text-align: left;"><code>[Prefix]</code>, then <code>D</code></td>
+<td style="text-align: left;">Analyzes the current Word document layout and structure</td>
 </tr>
 </tbody>
 </table>
@@ -120,6 +210,21 @@
 <ul>
 <li><strong>Cell Monitor:</strong> Use command paths to map specific cells to memory slots. You can jump back and read them anytime using the assigned numerical slot.</li>
 <li><strong>Continuous Monitoring:</strong> Slotted cells are automatically monitored in the background. If Excel triggers a recalculation or cell edit, BOA instantly announces the new value. Toggle manually or clear all via command slots.</li>
+<li><strong>Excel: Cell Monitor Pro Upgrades:</strong> </li>
+<li><strong>Slot Manager Dialog (<code>NVDA+E</code>, then <code>Alt+M</code>):</strong> Opens a dialog listing all your actively monitored cells. Press <code>Enter</code> to instantly jump to one.</li>
+<li><strong>Warp Back (<code>NVDA+E</code>, then <code>\</code>):</strong> Instantly teleports you back to your previous working cell after checking a slot.</li>
+<li><strong>Direct Slot Jump (<code>Prefix + Alt</code> + <code>Slot Number</code>):</strong> Bypass the instantly jump to an assigned cell slot.</li>
+</ul>
+<h4>9 Power editor</h4>
+<ul>
+<li><strong>Excel: The Power Editor (Accessible Formula Editor):</strong> An absolute game-changer for modifying massive formulas.</li>
+<li><strong>Single-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> Instantly announces the raw formula string of the active cell (or announces "No formula").</li>
+<li><strong>Double-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native <code>Enter</code> adds line breaks for easy reading, and <code>Ctrl+Enter</code> saves it back to Excel.</li>
+<li><em>Safety Checks:</em> Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like <code>#NAME?</code> or <code>#DIV/0!</code>) to instantly warn you if a formula broke.</li>
+</ul>
+<h4>10 Formula auditing and evaluation enhancements:</h4>
+<ul>
+<li><strong>Excel: Formula Auditing &amp; Evaluation:</strong> Added custom shortcuts (<code>NVDA+E</code>, then <code>Shift+P</code> and <code>NVDA+E</code>, then <code>Shift+D</code>) to reliably trace Precedents and Dependents. Furthermore, Excel's native "Evaluate Formula" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!</li>
 </ul>
 <h3>PowerPoint Enhancements</h3>
 <h4>1. Accessible Color Pickers</h4>
@@ -133,10 +238,39 @@
 <li>Navigating the PowerPoint "Standard" color hexagon grid normally reads as "Graphic" or silence.</li>
 <li>BOA tracks your arrow keys across the hexagon and silently fetches the hidden color value, announcing it to you in real-time (e.g., "Color #FF0000").</li>
 </ul>
+<h4>3 Bulk Slide Organizer:</h4>
+<ul>
+<li><strong>PowerPoint: Bulk Slide Organizer (Experimental) (<code>NVDA+E</code>, then <code>X</code>):</strong> Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.</li>
+</ul>
+<h4>4 Slide lay out analyzer</h4>
+<ul>
+<li><strong>PowerPoint: Slide Layout Analyzer (Experimental) (<code>NVDA+E</code>, then <code>L</code>):</strong> Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.</li>
+</ul>
+<h4>5 Complete Document [PPT] analyzer</h4>
+<ul>
+<li><strong>PowerPoint: Complete Document Analyzer (Experimental) (<code>NVDA+E</code>, then <code>D</code>):</strong> A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags "Wall of Text" slides, and maps complex objects like SmartArt and Data Tables.</li>
+</ul>
+<h4>6 shape movement [adjustment] enhancements:</h4>
+<ul>
+<li><strong>PowerPoint: Shape Movement Audio Mode (Experimental):</strong> Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness.</li>
+</ul>
+<h3>Word Enhancements:</h3>
+<h4>1. Document Analyzer inspired and derived from Paul's word access addon:</h4>
+<ul>
+<li><strong>Word: Document Analyzer (<code>NVDA+E</code>, then <code>D</code>):</strong> Instantly pull up a structural overview of your Word document. <em>(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant "Word Access" add-on. We are deeply grateful for his foundational work in this space!)</em></li>
+</ul>
+<h4>2 Formatting Auditor</h4>
+<ul>
+<li><strong>Word: Formatting Auditor (<code>NVDA+E</code>, then <code>F</code>):</strong> Scans your Word document for formatting inconsistencies to ensure visual standards.</li>
+</ul>
+<h4>3 Foot note reader:</h4>
+<ul>
+<li><strong>Word: Automated Footnote Announcer:</strong> Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. <em>(Note: Support for endnotes and comments is planned for a future release).</em></li>
+</ul>
 <h3>Infrastructure &amp; Technical Mechanisms</h3>
 <h4>The Command Prefix Mode</h4>
 <p>To prevent keystroke conflicts with other NVDA plugins, BOA uses a <strong>Command Prefix Mode</strong>:
-1. Press the activation hotkey to enter Command Mode. You will hear a high-pitched beep.
+1. Press the activation hotkey to enter Command Mode. You will hear a high-pitched beep. Default is NVDA plus E.
 2. Press a secondary key to trigger a specific feature.
 3. If you press an invalid key, you will hear an error beep.</p>
 <h4>Customization &amp; Settings Panel</h4>
@@ -145,6 +279,7 @@
 <li><strong>Intelligent Accelerator Keys:</strong> Every single setting features a mathematically unique <code>Alt+Key</code> accelerator shortcut within the panel. For example, press <code>Alt+E</code> to instantly jump to the Excel group, <code>Alt+P</code> for PowerPoint, and <code>Alt+W</code> for Word.</li>
 <li>Settings are saved securely to a standalone JSON file (<code>boa_settings.json</code>), ensuring your core NVDA configuration is never corrupted.</li>
 <li>If Microsoft Office officially fixes an accessibility bug in the future, you can safely disable BOA's specific override hook without losing the rest of the addon's functionality.</li>
+<li><strong>Input Gestures Customization:</strong> All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.</li>
 </ul>
 <h4>Security &amp; Integration Boundaries</h4>
 <ul>
@@ -166,6 +301,38 @@
 </ol>
 <hr />
 <h2>🛠️ Changelog</h2>
+<h3>Version 2.0.0</h3>
+<h4>New Features</h4>
+<ul>
+<li><strong>PowerPoint: Complete Document Analyzer (Experimental) (<code>NVDA+E</code>, then <code>D</code>):</strong> A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags "Wall of Text" slides, and maps complex objects like SmartArt and Data Tables.</li>
+<li><strong>PowerPoint: Slide Layout Analyzer (Experimental) (<code>NVDA+E</code>, then <code>L</code>):</strong> Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.</li>
+<li><strong>PowerPoint: Bulk Slide Organizer (Experimental) (<code>NVDA+E</code>, then <code>X</code>):</strong> Similar to the Excel feature, you can now instantly reorder, move, and arrange multiple PowerPoint slides at once using a fully accessible dialog.</li>
+<li><strong>PowerPoint: Shape Movement Audio Mode (Experimental):</strong> Introduces 3D Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback indicating the direction and boundary limits of an object as you move it, vastly improving spatial awareness. well as mentioned this is experimental, waiting for feed backs to improve it.</li>
+<li><strong>Word: Formatting Auditor (<code>NVDA+E</code>, then <code>F</code>):</strong> Scans your Word document for formatting inconsistencies to ensure visual standards.</li>
+<li><strong>Word: Document Analyzer (<code>NVDA+E</code>, then <code>D</code>):</strong> Instantly pull up a structural overview of your Word document. <em>(A special note of credit and thanks to Paul: This feature was directly inspired by his brilliant "Word Access" add-on. We are deeply grateful for his foundational work in this space!)</em></li>
+<li><strong>Word: Automated Footnote Announcer:</strong> Footnotes will now be automatically announced inline as you read, depending on your custom BOA settings. <em>(Note: Support for endnotes and comments is planned for a future release).</em></li>
+<li><strong>Excel: The Power Editor (Accessible Formula Editor):</strong> An absolute game-changer for modifying massive formulas.</li>
+<li><strong>Single-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> Instantly announces the raw formula string of the active cell (or announces "No formula").</li>
+<li><strong>Double-Tap <code>NVDA+E</code>, then <code>F2</code>:</strong> Opens a fully accessible, multi-line editor to safely modify massive, nested formulas. Native <code>Enter</code> adds line breaks for easy reading, and <code>Ctrl+Enter</code> saves it back to Excel.</li>
+<li><em>Safety Checks:</em> Safely traps syntax errors before they corrupt your sheet, and detects post-calculation errors (like <code>#NAME?</code> or <code>#DIV/0!</code>) to instantly warn you if a formula broke.</li>
+<li><strong>Excel: Formula Auditing &amp; Evaluation:</strong> Added custom shortcuts (<code>NVDA+E</code>, then <code>Shift+P</code> and <code>NVDA+E</code>, then <code>Shift+D</code>) to reliably trace Precedents and Dependents. Furthermore, Excel's native "Evaluate Formula" dialog is now fully accessible; NVDA automatically reads the evaluated results as you step through the calculation!</li>
+<li><strong>Excel: Cell Monitor Pro Upgrades:</strong> </li>
+<li><strong>Slot Manager Dialog (<code>NVDA+E</code>, then <code>Alt+M</code>):</strong> Opens a dialog listing all your actively monitored cells. Press <code>Enter</code> to instantly jump to one.</li>
+<li><strong>Warp Back (<code>NVDA+E</code>, then <code>\</code>):</strong> Instantly teleports you back to your previous working cell after checking a slot.</li>
+<li><strong>Direct Slot Jump (<code>Alt</code> + <code>Slot Number</code>):</strong> Bypass the prefix entirely and instantly jump to an assigned cell slot.</li>
+<li><strong>Input Gestures Customization:</strong> All features across all Office apps have been explicitly exposed to the native NVDA Input Gestures dialog, granting you complete freedom to customize every keyboard shortcut.</li>
+</ul>
+<h4>UX/UI Enhancements</h4>
+<ul>
+<li><strong>Unified Browseable Reports:</strong> We have adopted a unified HTML reporting system across the add-on. Features like the Excel Conditional Formatting Announcer, Layout Analyzers, and Document Analyzers no longer just speak massive blocks of text; their results now open in a native, navigable HTML window, allowing you to review the data at your own pace.</li>
+<li><strong>Excel: Enhanced Dependents/Precedents Tracking:</strong> Vastly enhanced the speech output for Excel's native formula tracing shortcuts (<code>Ctrl+[</code> for Direct Precedents, and <code>Ctrl+]</code> for Direct Dependents). NVDA will now explicitly announce exactly what cells were selected.</li>
+<li><strong>Excel: Merge Cell Support:</strong> Merged cells are now correctly detected and explicitly announced by the gap-skipping cell tracker.</li>
+</ul>
+<h4>Bug Fixes</h4>
+<ul>
+<li><strong>Word: List Item Double Reading:</strong> Implemented a temporary patch to fix the bug where NVDA double-reads paragraph list items in certain Word views.</li>
+<li><strong>Excel: Cell Monitor Localization Bug:</strong> Resolved underlying tracking bugs caused by the recent translation localization updates.</li>
+</ul>
 <h3>What's New in v1.6.1</h3>
 <ul>
 <li><strong>Deep File Localization</strong>: Fixed missing string translations deep within the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick Sheet Mover) to ensure 100% localization coverage.</li>

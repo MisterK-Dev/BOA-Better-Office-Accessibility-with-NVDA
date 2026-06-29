@@ -1,5 +1,4 @@
 import textInfos
-import controlTypes
 from appModules.boa_enhancements import boa_config
 import addonHandler
 from NVDAObjects.UIA.wordDocument import getReferenceFromPosition

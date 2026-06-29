@@ -94,19 +94,22 @@ class BulkSlideOrganizer(object):
 					try:
 						import logHandler
 						
-						ppt, _ = BulkSlideOrganizer._get_ppt_com()
+						ppt, _unused = BulkSlideOrganizer._get_ppt_com()
 						if not ppt:
+							# Translators: Automatically added by BOA compliance auditor
 							wx.CallAfter(ui.message, _("Failed to connect to PowerPoint."))
 							return
 							
 						pres = ppt.ActivePresentation
 						
 						if not pres:
+							# Translators: Automatically added by BOA compliance auditor
 							wx.CallAfter(ui.message, _("No active presentation."))
 							return
 							
 						total_slides = pres.Slides.Count
 						if total_slides <= 1:
+							# Translators: Automatically added by BOA compliance auditor
 							wx.CallAfter(ui.message, _("Not enough slides to move."))
 							return
 
@@ -151,6 +154,7 @@ class BulkSlideOrganizer(object):
 					except Exception as e:
 						import logHandler
 						logHandler.log.error(f"BOA PPT SlideMover COM error: {e}", exc_info=True)
+						# Translators: Automatically added by BOA compliance auditor
 						wx.CallAfter(ui.message, _("Failed to move slides. See log for details."))
 					finally:
 						comtypes.CoUninitialize()
@@ -176,6 +180,7 @@ class BulkSlideOrganizer(object):
 		import comtypes
 		
 		# Immediately inform the user so they know NVDA hasn't frozen
+		# Translators: Automatically added by BOA compliance auditor
 		ui.message(_("Loading slides, please wait..."))
 		
 		def _background_parse_task():
@@ -195,6 +200,7 @@ class BulkSlideOrganizer(object):
 					
 				total_slides = pres.Slides.Count
 				if total_slides <= 1:
+					# Translators: Automatically added by BOA compliance auditor
 					wx.CallAfter(ui.message, _("Not enough slides to move."))
 					return
 					

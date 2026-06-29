@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'BOA' '2.0'\n"
+"Project-Id-Version: 'BOA' '2.0.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-29 15:34+0530\n"
+"POT-Creation-Date: 2026-06-29 17:40+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -118,6 +118,18 @@ msgstr ""
 msgid "Launches the Bulk Slide Organizer dialog to reorder slides."
 msgstr ""
 
+#. Translators: Describes the script that analyzes and announces the PowerPoint slide layout.
+#: addon\appModules\powerpnt.py:106
+msgid "Analyzes and announces the layout structure of the current slide."
+msgstr ""
+
+#. Translators: Describes the script that analyzes the current PowerPoint presentation.
+#: addon\appModules\powerpnt.py:112
+msgid ""
+"Analyzes the current PowerPoint presentation and displays a comprehensive "
+"layout and health report."
+msgstr ""
+
 #. Translators: Description for the Input Gestures dialog.
 #: addon\appModules\winword.py:94
 msgid ""
@@ -197,16 +209,18 @@ msgid ""
 "endnotes inline with the document text."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:127
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\boa_gui.py:128
 msgid "Default NVDA Behavior"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:128
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\boa_gui.py:130
 msgid "Default Behavior + 3D Spatial Audio (Experimental)"
 msgstr ""
 
 #. Translators: Tooltip explaining the Audio Canvas mode setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:141
+#: addon\appModules\boa_enhancements\boa_gui.py:143
 msgid ""
 "Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
 "translate raw math coordinates into human-readable locations like 'Top-Left "
@@ -214,140 +228,145 @@ msgid ""
 msgstr ""
 
 #. Translators: Label for the Bulk Sheet Organizer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:156
+#: addon\appModules\boa_enhancements\boa_gui.py:158
 msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
 msgstr ""
 
 #. Translators: Label for the accessible Sheet Rename setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:158
+#: addon\appModules\boa_enhancements\boa_gui.py:160
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Excel setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:160
+#: addon\appModules\boa_enhancements\boa_gui.py:162
 msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the multi-cell selection tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:162
+#: addon\appModules\boa_enhancements\boa_gui.py:164
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
 msgstr ""
 
 #. Translators: Label for the hidden row skip announcement setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:164
+#: addon\appModules\boa_enhancements\boa_gui.py:166
 msgid "Proactively announce when navigating past &hidden rows or columns"
 msgstr ""
 
 #. Translators: Label for the Sheet Layout Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:166
+#: addon\appModules\boa_enhancements\boa_gui.py:168
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
 msgstr ""
 
 #. Translators: Label for the auto-announce mode dropdown setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:168
+#: addon\appModules\boa_enhancements\boa_gui.py:170
 msgid "Sheet Layout Auto-Announce &Mode:"
 msgstr ""
 
 #. Translators: Label for the conditional formatting tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:170
+#: addon\appModules\boa_enhancements\boa_gui.py:172
 msgid "Conditional &Formatting and color"
 msgstr ""
 
 #. Translators: Label for the Cell Monitor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:172
+#: addon\appModules\boa_enhancements\boa_gui.py:174
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
 msgstr ""
 
 #. Translators: Label for the End of Data Radar setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:174
+#: addon\appModules\boa_enhancements\boa_gui.py:176
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
 msgstr ""
 
 #. Translators: Label for the Formula Auditor features setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:176
+#: addon\appModules\boa_enhancements\boa_gui.py:178
 msgid "Enable Formula Auditor &features"
 msgstr ""
 
 #. Translators: Label for the merged cell tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:178
+#: addon\appModules\boa_enhancements\boa_gui.py:180
 msgid "Explicitly announce m&erged cells"
 msgstr ""
 
 #. Translators: Title of the group box containing Excel specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:181
+#: addon\appModules\boa_enhancements\boa_gui.py:183
 msgid "Excel Enhancements"
 msgstr ""
 
 #. Translators: Label for the PowerPoint color grid setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:186
+#: addon\appModules\boa_enhancements\boa_gui.py:188
 msgid ""
 "&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
 "hexagon grid"
 msgstr ""
 
 #. Translators: Label for the PowerPoint hex color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:188
+#: addon\appModules\boa_enhancements\boa_gui.py:190
 msgid "Ensure the He&x Color edit field is properly labeled"
 msgstr ""
 
 #. Translators: Label for the PowerPoint RGB color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:190
+#: addon\appModules\boa_enhancements\boa_gui.py:192
 msgid "Ensure the R&GB Color edit fields are properly labeled"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:192
+#: addon\appModules\boa_enhancements\boa_gui.py:194
 msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:194
+#: addon\appModules\boa_enhancements\boa_gui.py:196
 msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
 msgstr ""
 
 #. Translators: Label for the PowerPoint Slide Layout Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:196
+#: addon\appModules\boa_enhancements\boa_gui.py:198
 msgid "Enable S&lide Layout Analyzer (Prefix + L)"
 msgstr ""
 
+#. Translators: Label for the PowerPoint Document Analyzer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:200
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr ""
+
 #. Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
-#: addon\appModules\boa_enhancements\boa_gui.py:198
+#: addon\appModules\boa_enhancements\boa_gui.py:202
 msgid "Shape Movement Audio Mode:"
 msgstr ""
 
 #. Translators: Title of the group box containing PowerPoint specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:201
+#: addon\appModules\boa_enhancements\boa_gui.py:205
 msgid "PowerPoint Enhancements"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:205
+#: addon\appModules\boa_enhancements\boa_gui.py:209
 msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the list double-read fix in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:207
+#: addon\appModules\boa_enhancements\boa_gui.py:211
 msgid "Prevent &double-reading of list items during paragraph navigation"
 msgstr ""
 
 #. Translators: Label for the document analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:209
+#: addon\appModules\boa_enhancements\boa_gui.py:213
 msgid "Enable Document &Analyzer via NVDA+E, D"
 msgstr ""
 
 #. Translators: Label for the format auditor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:211
+#: addon\appModules\boa_enhancements\boa_gui.py:215
 msgid "Enable Format &Auditor via NVDA+E, F"
 msgstr ""
 
 #. Translators: Label for reading word notes inline setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:213
+#: addon\appModules\boa_enhancements\boa_gui.py:217
 msgid "Footnotes and Endnotes reading &mode:"
 msgstr ""
 
 #. Translators: Title of the group box containing Word specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:216
+#: addon\appModules\boa_enhancements\boa_gui.py:220
 msgid "Word Enhancements"
 msgstr ""
 
@@ -403,7 +422,7 @@ msgstr ""
 
 #. Translators: Error message when the organizer dialog fails to open.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:167
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:226
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:232
 msgid "Error opening organizer"
 msgstr ""
 
@@ -419,7 +438,7 @@ msgstr ""
 
 #. Translators: Label for the Target Position field.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:206
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:264
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:270
 msgid "Target Position:"
 msgstr ""
 
@@ -428,7 +447,7 @@ msgstr ""
 #. --- List of Scheduled Moves ---
 #. Translators: Label for the list of scheduled slide moves.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:220
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:277
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:283
 msgid "Scheduled Moves (Press Del to remove):"
 msgstr ""
 
@@ -439,13 +458,13 @@ msgstr ""
 
 #. Translators: Column header for the target position in the moves list.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:226
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:282
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:288
 msgid "Target Position"
 msgstr ""
 
 #. Translators: Label for the OK button.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:234
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:289
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:295
 msgid "&OK"
 msgstr ""
 
@@ -455,7 +474,7 @@ msgstr ""
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:236
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_editor.py:77
 #: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:46
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:291
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:297
 msgid "&Cancel"
 msgstr ""
 
@@ -468,7 +487,7 @@ msgstr ""
 #. Translators: Message announcing a scheduled move has been removed.
 #. Translators: Message announcing a scheduled slide move has been removed.
 #: addon\appModules\boa_enhancements\excel_enhancements\bulk_sheet_organizer.py:291
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:332
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:338
 msgid "Move removed"
 msgstr ""
 
@@ -526,7 +545,7 @@ msgstr ""
 
 #. Translators: Error when the add-on cannot read a cell.
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:126
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:263
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:264
 msgid "Error: Could not read Excel cell."
 msgstr ""
 
@@ -550,9 +569,9 @@ msgstr ""
 
 #. Translators: Error when Excel cannot be accessed.
 #: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:183
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:503
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:522
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:660
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:504
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:523
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:661
 msgid "Error: Excel not accessible."
 msgstr ""
 
@@ -568,130 +587,131 @@ msgstr ""
 msgid "Slot {slot_str} lost. Sheet '{sheet}' was renamed or deleted."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:233
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:234
 msgid "Empty cell"
 msgstr ""
 
 #. Translators: Describes the sheet location of a monitored cell.
 #. Translators: Describes the sheet location of a monitored cell that changed.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:239
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:411
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:240
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:412
 #, python-brace-format
 msgid " in {sheet}"
 msgstr ""
 
 #. Translators: Describes the sheet and workbook location of a monitored cell.
 #. Translators: Describes the sheet and workbook location of a monitored cell that changed.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:242
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:414
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:243
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:415
 #, python-brace-format
 msgid " in {sheet} of {wb}"
 msgstr ""
 
 #. Translators: Error when Excel is too busy to read the slot.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:248
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:249
 #, python-brace-format
 msgid "Cannot read slot {slot_str}. Excel may be busy."
 msgstr ""
 
 #. Translators: Message when continuous monitoring is turned off for a cell.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:271
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:272
 #, python-brace-format
 msgid "Continuous monitor OFF for {address}"
 msgstr ""
 
 #. Translators: Message when continuous monitoring is turned on for a cell.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:278
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:279
 #, python-brace-format
 msgid "Continuous monitor ON for {address}"
 msgstr ""
 
 #. Translators: Message when all cell monitors are cleared.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:293
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:294
 msgid "All monitored and slotted cells cleared."
 msgstr ""
 
 #. Translators: Announces that a continuously monitored cell has updated its value.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:417
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:418
 #, python-brace-format
 msgid "{cell_addr} updated: {current_val}{location_str}"
 msgstr ""
 
 #. Translators: Message when a monitored slot is cleared because the workbook or sheet was closed or renamed.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:436
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:437
 #, python-brace-format
 msgid "Monitor for Slot {slot_cleared} lost due to name change or closure."
 msgstr ""
 
 #. Translators: Message when a continuously monitored cell is cleared because the workbook or sheet was closed or renamed.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:440
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:441
 #, python-brace-format
 msgid "Monitor cleared: {sheet_closed} in {wb_closed} lost."
 msgstr ""
 
 #. Translators: Error when trying to jump to a slot in a closed workbook.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:472
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:473
 #, python-brace-format
 msgid "Cannot jump. The workbook '{wb}' is closed."
 msgstr ""
 
 #. Translators: Error when trying to jump to a slot in a deleted sheet.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:479
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:480
 #, python-brace-format
 msgid "Cannot jump. The sheet '{sheet}' was renamed or deleted."
 msgstr ""
 
 #. Translators: Error when trying to jump to a slot but the address is invalid.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:487
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:488
 msgid "Cannot jump. The cell address is invalid or Excel is busy."
 msgstr ""
 
 #. Translators: Error when trying to jump to an empty slot.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:493
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:494
 #, python-brace-format
 msgid "No cell assigned to slot {slot_num}"
 msgstr ""
 
 #. Translators: Error when trying to jump back but there is no history.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:512
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:513
 msgid "No previous cell to jump back to."
 msgstr ""
 
 #. Translators: Title of the active cell monitors dialog.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:532
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:533
 msgid "Active Cell Monitors"
 msgstr ""
 
 #. Translators: Instructions for the cell monitors dialog.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:540
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:541
 msgid "Select a cell to jump to it. Press Delete to remove it from monitors."
 msgstr ""
 
 #. Translators: Label for the Jump button.
 #. Translators: Label for the jump button in the dialog.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:551
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:552
 #: addon\appModules\boa_enhancements\excel_enhancements\formula_auditor.py:41
 msgid "&Jump"
 msgstr ""
 
 #. Translators: Label for the Close button.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:555
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:556
 msgid "&Close"
 msgstr ""
 
 #. Translators: Message in dialog when no cells are monitored
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:592
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:593
 msgid "No cells are currently being monitored."
 msgstr ""
 
 #. Translators: Message when a specific slotted cell is deleted.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:616
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:617
 #, python-brace-format
 msgid "Slot {slot} deleted"
 msgstr ""
 
 #. Translators: Message when a continuously monitored cell is deleted.
-#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:621
+#: addon\appModules\boa_enhancements\excel_enhancements\cell_monitor.py:622
 msgid "Monitor deleted"
 msgstr ""
 
@@ -845,7 +865,7 @@ msgstr ""
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:34
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:40
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:55
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:335
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:341
 msgid "Unknown Color"
 msgstr ""
 
@@ -854,85 +874,91 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:71
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:72
 msgid "Lowest Value"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:74
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:76
 msgid "Highest Value"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:79
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:82
 #, python-brace-format
 msgid "Number {val}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:82
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:86
 #, python-brace-format
 msgid "{val}%"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:85
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:90
 #, python-brace-format
 msgid "Formula {val}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:88
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:94
 #, python-brace-format
 msgid "{val}th Percentile"
 msgstr ""
 
 #. Translators: Fallback string for unknown conditional formatting criteria.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:92
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:98
 msgid "Unknown Criteria"
 msgstr ""
 
 #. Translators: Initial message indicating the cell has conditional formatting.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:119
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:125
 msgid "Has conditional formatting"
 msgstr ""
 
 #. Translators: Appended to indicate the background color of the formatted cell.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:131
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:137
 #, python-brace-format
 msgid ": {color_name} Background"
 msgstr ""
 
 #. Translators: Appended to indicate the text color of the formatted cell.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:139
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:145
 #, python-brace-format
 msgid ": {color_name} Text"
 msgstr ""
 
 #. Translators: Error message when analyzing a cell but no cell is active.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:165
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:171
 msgid "No active cell found."
 msgstr ""
 
 #. Translators: Message when the cell has no conditional formatting rules.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:172
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:178
 msgid "No conditional formatting rules applied to this cell."
 msgstr ""
 
 #. Translators: Error message when formatting rules cannot be read.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:176
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:182
 msgid "Failed to read format conditions."
 msgstr ""
 
 #. Translators: Summary of the number of conditional formatting rules found.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:181
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:187
 #, python-brace-format
 msgid "Found {count} conditional formatting rules."
 msgstr ""
 
 #. Stop if true and Applies To
 #. Translators: Indicates that rule evaluation stops if this rule is true.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:191
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:197
 msgid " (Stops if true)"
 msgstr ""
 
 #. Translators: Indicates the range of cells the rule applies to.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:194
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:200
 #, python-brace-format
 msgid " [Applies to {address}]"
 msgstr ""
@@ -942,265 +968,266 @@ msgstr ""
 #. uses `ColorScaleCriteria`, while `xlCellValue` uses `Operator` and `Formula1`).
 #. Mapping of common xlFormatConditionType values:
 #. Translators: Generic descriptor for a conditional formatting rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:203
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:209
 msgid "Rule"
 msgstr ""
 
 #. Translators: Operators used in conditional formatting rules.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Between"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Not Between"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Equal to"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Not Equal to"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Greater than"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Less than"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Greater than or equal to"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:207
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:213
 msgid "Less than or equal to"
 msgstr ""
 
 #. Translators: Fallback operator description.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:209
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:215
 #, python-brace-format
 msgid "Operator {op}"
 msgstr ""
 
 #. Translators: Fallback for an unknown formula value.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:215
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:411
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:221
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:427
 msgid "Unknown"
 msgstr ""
 
 #. Translators: Describes a rule based on two cell values (e.g. between).
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:221
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:227
 #, python-brace-format
 msgid "Cell Value is {op} {f1} and {f2}"
 msgstr ""
 
 #. Translators: Describes a rule based on a single cell value.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:224
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:227
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:230
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:233
 #, python-brace-format
 msgid "Cell Value is {op} {f1}"
 msgstr ""
 
 #. Translators: Describes a rule based on a formula.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:231
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:237
 #, python-brace-format
 msgid "Formula: {form}"
 msgstr ""
 
 #. Translators: Generic descriptor for a formula-based rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:234
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:240
 msgid "Formula rule"
 msgstr ""
 
 #. Translators: Describes a point in a color scale gradient.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:245
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:251
 #, python-brace-format
 msgid "Point {num} ({val}) is {color}"
 msgstr ""
 
 #. Translators: Describes a color scale gradient rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:247
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:253
 #, python-brace-format
 msgid "{count}-Color Scale gradient. {points}"
 msgstr ""
 
 #. Translators: Generic descriptor for a color scale gradient.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:250
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:256
 msgid "Color Scale gradient"
 msgstr ""
 
 #. Translators: Indicates that the cell value is hidden by the rule.
 #. Translators: Indicates that the cell value is hidden by the icon set rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:257
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:266
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:263
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:272
 msgid " (Note: Cell value is visually hidden)"
 msgstr ""
 
 #. Translators: Describes a data bar rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:259
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:265
 #, python-brace-format
 msgid "Data Bar gradient ({color}). From {min_val} to {max_val}{hide_str}"
 msgstr ""
 
 #. Translators: Generic descriptor for a data bar rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:262
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:268
 msgid "Data Bar"
 msgstr ""
 
 #. Translators: Describes an icon set rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:268
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:274
 #, python-brace-format
 msgid "Icon Set ({count} icons){hide_str}"
 msgstr ""
 
 #. Translators: Generic descriptor for an icon set rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:271
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:277
 msgid "Icon Set"
 msgstr ""
 
 #. xlUniqueValues
 #. Translators: Describes a rule formatting unique or duplicate values.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:274
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:280
 msgid "Unique or Duplicate Values"
 msgstr ""
 
 #. Translators: Describes a rule formatting cells that contain specific text.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:278
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:284
 #, python-brace-format
 msgid "Text contains: '{text}'"
 msgstr ""
 
 #. Translators: Generic descriptor for a text string rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:281
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:287
 msgid "Text String rule"
 msgstr ""
 
 #. xlBlanksCondition
 #. Translators: Describes a rule formatting blank cells.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:284
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:290
 msgid "Format Blank cells"
 msgstr ""
 
 #. xlErrorsCondition
 #. Translators: Describes a rule formatting error cells.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:287
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:293
 msgid "Format Error cells"
 msgstr ""
 
 #. xlTop10Top
 #. Translators: Describes a rule formatting the top ranked values.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:292
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:298
 #, python-brace-format
 msgid "Top {rank} values"
 msgstr ""
 
 #. Translators: Describes a rule formatting the bottom ranked values.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:295
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:301
 #, python-brace-format
 msgid "Bottom {rank} values"
 msgstr ""
 
 #. Translators: Generic descriptor for a top/bottom ranking rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:298
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:304
 msgid "Top/Bottom ranking rule"
 msgstr ""
 
 #. Translators: Fallback descriptor for an unknown rule type.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:301
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:307
 #, python-brace-format
 msgid "Formatting Rule Type {type}"
 msgstr ""
 
 #. Translators: Assembles the complete description of a rule.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:304
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:310
 #, python-brace-format
 msgid "Rule {num}{stop}: {type}.{applies}"
 msgstr ""
 
 #. Translators: Fallback when a rule cannot be parsed.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:307
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:313
 #, python-brace-format
 msgid "Rule {num}: Unknown type."
 msgstr ""
 
 #. Translators: Describes the background color result of formatting.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:318
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:324
 #, python-brace-format
 msgid "Background is {color}."
 msgstr ""
 
 #. Font
 #. Translators: Describes bold font style.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:322
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:328
 msgid "Bold"
 msgstr ""
 
 #. Translators: Describes italic font style.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:324
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:330
 msgid "Italic"
 msgstr ""
 
 #. Translators: Describes strikethrough font style.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:326
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:332
 msgid "Strikethrough"
 msgstr ""
 
 #. Translators: Describes the font styles result of formatting.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:331
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:337
 #, python-brace-format
 msgid "Font is {styles}."
 msgstr ""
 
 #. Translators: Condition checking for specific text colors.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:335
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:341
 msgid "Black"
 msgstr ""
 
 #. Translators: Describes the text color result of formatting.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:337
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:343
 #, python-brace-format
 msgid "Text is {color}."
 msgstr ""
 
 #. Translators: Describes a change in number format due to conditional formatting.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:342
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:348
 #, python-brace-format
 msgid "Number format changed to {format}."
 msgstr ""
 
 #. Translators: Error message when final display format cannot be determined.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:346
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:375
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:352
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:381
 msgid "Could not analyze final display format."
 msgstr ""
 
 #. Translators: Message when conditional formatting is active but doesn't change visuals.
 #. Translators: Condition checking for specific result states.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:350
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:375
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:356
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:381
 msgid "No active visual changes detected."
 msgstr ""
 
 #. Translators: Heading for the rules summary section in the analysis dialog.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:355
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:361
 msgid "Rules Summary"
 msgstr ""
 
 #. Translators: Heading for the analyzed results section in the analysis dialog.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:369
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:375
 msgid "Analyzed Results"
 msgstr ""
 
 #. Translators: Title of the conditional formatting analysis dialog.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:392
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:398
 msgid "Conditional Formatting Analysis"
 msgstr ""
 
 #. Translators: Error message when conditional formatting analysis fails.
-#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:397
+#: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:403
 msgid "Failed to analyze conditional formatting."
 msgstr ""
 
@@ -1346,398 +1373,423 @@ msgstr ""
 msgid "Filter Mode: Active"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:333
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:334
 msgid "Top 2000+ Rows are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:336
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:338
 msgid "Top Row 1 is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:339
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:342
 #, python-brace-format
 msgid "Top Rows 1 through {end_r} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:349
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:353
 msgid "Left 2000+ Columns are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:352
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:357
 msgid "Left Column A is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:355
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:361
 #, python-brace-format
 msgid "Left Columns A through {end_col} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:368
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:375
 msgid "Bottommost 2000+ Rows are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:371
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:379
 #, python-brace-format
 msgid "Bottom Row {max_r} is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:374
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:383
 #, python-brace-format
 msgid "Bottom Rows {start_r} through {max_r} are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:386
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:396
 msgid "Rightmost 2000+ Columns are hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:389
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:400
 #, python-brace-format
 msgid "Right Column {col} is hidden"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:392
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:404
 #, python-brace-format
 msgid "Right Columns {start_col} through {end_col} are hidden"
 msgstr ""
 
 #. Translators: Summarizes all the hidden borders (top, bottom, left, right).
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:398
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:410
 #, python-brace-format
 msgid "Hidden Borders: {borders}"
 msgstr ""
 
 #. Translators: Describes how many sheets are hidden at the start of the workbook.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:429
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:441
 #, python-brace-format
 msgid "Top sheets 1-{count}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:429
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:441
 msgid "Top sheet 1"
 msgstr ""
 
 #. Translators: Describes how many sheets are hidden at the end of the workbook.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:432
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:444
 #, python-brace-format
 msgid "Bottom sheets {start}-{end}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:432
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:444
 #, python-brace-format
 msgid "Bottom sheet {num}"
 msgstr ""
 
 #. Translators: Describes how many sheets are hidden in the middle of the workbook.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:437
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:449
 #, python-brace-format
 msgid "{count} middle sheets"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:437
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:449
 #, python-brace-format
 msgid "{count} middle sheet"
 msgstr ""
 
 #. Translators: Summarizes the hidden sheets in the workbook.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:441
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:453
 #, python-brace-format
 msgid "Hidden Sheets: {parts} hidden"
 msgstr ""
 
 #. Translators: Indicates that the current sheet is protected.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:449
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:461
 msgid "Sheet Protected: True"
 msgstr ""
 
 #. Translators: Describes which rows and columns are frozen.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:460
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:472
 #, python-brace-format
 msgid "Frozen Panes: Rows 1-{r}, Columns A-{c}"
 msgstr ""
 
 #. Translators: Describes which rows are frozen.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:463
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:475
 #, python-brace-format
 msgid "Frozen Panes: Rows 1-{r}"
 msgstr ""
 
 #. Translators: Describes which columns are frozen.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:466
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:478
 #, python-brace-format
 msgid "Frozen Panes: Columns A-{c}"
 msgstr ""
 
 #. Translators: Indicates that frozen panes are active but specifics could not be determined.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:469
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:481
 msgid "Frozen Panes: Active"
 msgstr ""
 
 #. Translators: Describes how many floating objects (shapes, charts) are in the sheet.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:478
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:490
 #, python-brace-format
 msgid "Floating Objects: Contains {count} Shape(s)/Chart(s)"
 msgstr ""
 
 #. Translators: Describes how many pivot tables are in the sheet.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:487
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:499
 #, python-brace-format
 msgid "Pivot Tables: Contains {count} Pivot Table(s)"
 msgstr ""
 
 #. Translators: Indicates the sheet is in Page Break Preview mode.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:496
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:508
 msgid "View Mode: Page Break Preview"
 msgstr ""
 
 #. Translators: Indicates the sheet is in Page Layout mode.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:499
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:511
 msgid "View Mode: Page Layout"
 msgstr ""
 
 #. Translators: Heading for the section summarizing overall sheet properties.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:508
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:520
 msgid "Sheet Properties"
 msgstr ""
 
 #. Translators: Message shown when the sheet has no special properties.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:520
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:532
 msgid ""
 "No special properties detected (No active filters, protection, frozen panes, "
 "or hidden borders)."
 msgstr ""
 
 #. Translators: Error message instructing the user to scan the sheet layout before navigating it.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:538
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:550
 msgid "Layout cache empty. Press NVDA+E, L to scan sheet first."
 msgstr ""
 
 #. Translators: Error message indicating the sheet has no data blocks to navigate to.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:544
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:556
 msgid "No data blocks found in cache."
 msgstr ""
 
 #. Translators: Message when trying to jump to nearest data, but already on a data cell.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:564
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:576
 msgid "Already on a data cell."
 msgstr ""
 
 #. Translators: Success message after jumping to a specific cell.
-#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:582
+#: addon\appModules\boa_enhancements\excel_enhancements\sheet_layout_analyzer.py:594
 #, python-brace-format
 msgid "Jumped to {col}{row}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:99
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:100
 msgid "Failed to connect to PowerPoint."
 msgstr ""
 
+#. Translators: Automatically added by BOA compliance auditor
 #. Translators: Error message when trying to organize slides but no presentation is active.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:105
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:193
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:107
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:198
 msgid "No active presentation."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:110
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:198
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:113
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:204
 msgid "Not enough slides to move."
 msgstr ""
 
 #. 3. Delayed Success Message: Give PowerPoint 500ms to settle its focus events
 #. Translators: Success message when slides have been reorganized
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:149
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:152
 msgid "Successfully reorganized slides."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:154
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:158
 msgid "Failed to move slides. See log for details."
 msgstr ""
 
 #. Immediately inform the user so they know NVDA hasn't frozen
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:179
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:184
 msgid "Loading slides, please wait..."
 msgstr ""
 
 #. Translators: Error message when trying to organize slides but no presentation is active.
 #. Translators: Error hooking PowerPoint COM
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:187
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:192
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:34
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:94
 msgid "Failed to hook PowerPoint."
 msgstr ""
 
 #. Translators: Slide item format with a title (e.g., Slide 1 - Welcome)
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:215
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:221
 #, python-brace-format
 msgid "Slide {index} - {title}"
 msgstr ""
 
 #. Translators: Slide item format without a title (e.g., Slide 1 - (No Title))
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:218
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:224
 #, python-brace-format
 msgid "Slide {index} - (No Title)"
 msgstr ""
 
 #. Translators: Title of the Bulk Slide Organizer dialog.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:242
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:248
 msgid "Bulk Slide Organizer"
 msgstr ""
 
 #. Translators: Label for the Slide Name field.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:254
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:260
 msgid "Slide Name:"
 msgstr ""
 
 #. Translators: Column header for the slide name in the moves list.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:280
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:286
 msgid "Slide"
 msgstr ""
 
 #. Translators: Message announcing a move has been scheduled.
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:316
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:322
 #, python-brace-format
 msgid "Scheduled: {slide} to position {pos}"
 msgstr ""
 
 #. Translators: Error when no presentation is active
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:43
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:42
 msgid "No active presentation detected."
 msgstr ""
 
 #. Translators: Announcement when starting document analysis
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:47
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:46
 msgid "Analyzing document layout in background..."
 msgstr ""
 
 #. Translators: Error during analysis
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:58
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:57
 msgid "Error starting document analysis."
 msgstr ""
 
 #. Translators: Fallback title for slides missing a Title placeholder
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:103
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:102
 msgid "Untitled Slide"
 msgstr ""
 
 #. Translators: Dialog title for Document Analyzer
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:201
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:200
 #, python-brace-format
 msgid "Document Analysis: {name}"
 msgstr ""
 
 #. Overview
 #. Translators: Header for Document Overview
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:207
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:206
 msgid "Overview"
 msgstr ""
 
 #. Translators: Total slides in the document
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:209
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:208
 #, python-brace-format
 msgid "Total Slides: {n}"
 msgstr ""
 
 #. Translators: Hidden slides in the document
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:212
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:211
 #, python-brace-format
 msgid "Hidden Slides: {n}"
 msgstr ""
 
 #. Virtual Table of Contents
 #. Translators: Header for Table of Contents
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:217
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:216
 msgid "Table of Contents"
 msgstr ""
 
 #. Translators: TOC entry
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:220
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:219
 #, python-brace-format
 msgid "Slide {num}: {title}"
 msgstr ""
 
 #. Accessibility Health
 #. Translators: Header for Accessibility Health
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:225
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:224
 msgid "Accessibility Health"
 msgstr ""
 
 #. Translators: Header for Reading Order Mismatch
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:231
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:230
 msgid "Reading Order Mismatch (Z-Order vs Visual)"
 msgstr ""
 
 #. Translators: Indicates a slide has reading order issues
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:234
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:233
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:251
 #, python-brace-format
 msgid "Slide {num}"
 msgstr ""
 
 #. Translators: Header for Missing Alt Text
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:240
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:239
 msgid "Missing Alt-Text"
 msgstr ""
 
 #. Translators: Missing alt text on a specific slide
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:243
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:242
 #, python-brace-format
 msgid "Slide {num}: {count} images missing alt-text"
 msgstr ""
 
 #. Translators: Header for Off-Canvas Elements
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:249
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:248
 msgid "Off-Canvas Elements"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:255
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:256
 msgid "No major accessibility issues detected."
 msgstr ""
 
 #. Density & Complexity
 #. Translators: Header for Density & Complexity
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:259
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:260
 msgid "Density & Complexity"
 msgstr ""
 
 #. Translators: Header for dense slides
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:263
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:264
 msgid "High Text Density (Wall of Text)"
 msgstr ""
 
 #. Translators: Dense slide word count
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:266
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:267
 #, python-brace-format
 msgid "Slide {num}: {words} words"
 msgstr ""
 
+#. Translators: Automatically added by BOA compliance auditor
 #. Translators: Section header for Complex Objects
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:269
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:271
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:346
 msgid "Complex Objects"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:270
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:273
 #, python-brace-format
 msgid "Tables: {n}"
 msgstr ""
 
+#. Translators: Automatically added by BOA compliance auditor
 #. Translators: Number of shape groups
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:271
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:275
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:358
 #, python-brace-format
 msgid "Grouped Objects: {n}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:272
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:277
 #, python-brace-format
 msgid "Media: {n}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:273
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:279
 #, python-brace-format
 msgid "Charts: {n}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:274
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:281
 #, python-brace-format
 msgid "Embedded Documents: {n}"
 msgstr ""
@@ -1849,7 +1901,7 @@ msgstr ""
 #. Tables
 #. Translators: Heading for Tables list
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:377
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:462
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:495
 msgid "Tables"
 msgstr ""
 
@@ -1878,559 +1930,597 @@ msgid "Color {hex_val}"
 msgstr ""
 
 #. Translators: Analyzing document, please wait...
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:51
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:49
 msgid "Analyzing document, please wait..."
 msgstr ""
 
 #. Translators: Cannot access Word application.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:57
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:55
 #: addon\appModules\boa_enhancements\word_enhancements\format_auditor.py:24
 msgid "Cannot access Word application."
 msgstr ""
 
 #. Translators: Message spoken when auditor fails to launch
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:67
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:65
 msgid "Failed to start document analyzer."
 msgstr ""
 
 #. Translators: Main title of the Document Analyzer report
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:126
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:124
 msgid "Word Document Analyzer Report"
 msgstr ""
 
 #. 1. Cursor Context
 #. Translators: Heading for cursor context
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:130
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:128
 msgid "1. Cursor Context"
 msgstr ""
 
 #. Translators: Context inside a table
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:156
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:154
 #, python-brace-format
 msgid "In Section {sec}, Page {page}, Table Cell (Row {row}, Column {col})"
 msgstr ""
 
 #. Translators: Context inside a table without exact cell
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:159
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:157
 #, python-brace-format
 msgid "In Section {sec}, Page {page} (Inside a Table)"
 msgstr ""
 
 #. Translators: Context in normal text
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:162
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:160
 #, python-brace-format
 msgid "In Section {sec}, Page {page}, Line {line}, Column {col}"
 msgstr ""
 
 #. Translators: Error when cursor position cannot be read
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:165
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:163
 msgid "Could not retrieve cursor position."
 msgstr ""
 
 #. Translators: General error retrieving cursor context
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:168
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:166
 msgid "Error retrieving cursor context."
 msgstr ""
 
 #. 2. Document Properties & Options
 #. Translators: Heading for document properties
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:175
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:173
 msgid "2. Document Properties & Options"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:180
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:179
 msgid "Unprotected"
 msgstr ""
 
+#. Translators: Automatically added by BOA compliance auditor
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:181
 msgid "Allow Only Revisions (Tracked Changes)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:182
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:183
 msgid "Allow Only Comments"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:183
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:185
 msgid "Allow Only Form Fields"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:185
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:188
 msgid "Unknown Protection"
 msgstr ""
 
 #. Translators: Document protection status
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:187
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:190
 #, python-brace-format
 msgid "Document Protection: {status}"
 msgstr ""
 
 #. Translators: File Name: {name}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:194
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:197
 #, python-brace-format
 msgid "File Name: {name}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:199
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:203
 msgid "Author"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:200
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:205
 msgid "Creation Date"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:201
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:207
 msgid "Revision Number"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:202
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:209
 msgid "Title"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:203
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:211
 msgid "Subject"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:204
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:213
 msgid "Company"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:222
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:223
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:224
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:233
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:232
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:234
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:236
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:246
 msgid "Enabled"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:222
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:223
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:224
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:233
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:232
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:234
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:236
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:246
 msgid "Disabled"
 msgstr ""
 
 #. Translators: Check spelling as you type: {status}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:227
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:239
 #, python-brace-format
 msgid "Check spelling as you type: {status}"
 msgstr ""
 
 #. Translators: Check grammar as you type: {status}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:229
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:241
 #, python-brace-format
 msgid "Check grammar as you type: {status}"
 msgstr ""
 
 #. Translators: Check grammar with spelling
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:231
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:243
 #, python-brace-format
 msgid "Check grammar with spelling: {status}"
 msgstr ""
 
 #. Translators: Track revisions status
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:235
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:248
 #, python-brace-format
 msgid "Track Revisions (Recording): {status}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:238
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:252
 msgid "Visible"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:238
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:252
 msgid "Hidden"
 msgstr ""
 
 #. Translators: Hidden text visibility
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:240
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:254
 #, python-brace-format
 msgid "Display hidden text on screen: {status}"
 msgstr ""
 
 #. Translators: Error when properties cannot be read
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:247
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:261
 msgid "Could not retrieve document properties."
 msgstr ""
 
 #. 3. Overall Statistics
 #. Translators: Heading for overall statistics
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:253
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:267
 msgid "3. Overall Statistics"
 msgstr ""
 
 #. Translators: Pages: {pages}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:281
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:295
 #, python-brace-format
 msgid "Pages: {pages}"
 msgstr ""
 
 #. Translators: Words (including footnotes): {words}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:283
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:297
 #, python-brace-format
 msgid "Words (including footnotes): {words}"
 msgstr ""
 
 #. Translators: Characters (including footnotes): {chars}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:285
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:299
 #, python-brace-format
 msgid "Characters (including footnotes): {chars}"
 msgstr ""
 
 #. Translators: Text Paragraphs: {paras}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:287
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:301
 #, python-brace-format
 msgid "Text Paragraphs: {paras}"
 msgstr ""
 
 #. Translators: Structural Paragraphs (incl. blank lines & tables): {paras}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:289
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:303
 #, python-brace-format
 msgid "Structural Paragraphs (incl. blank lines & tables): {paras}"
 msgstr ""
 
 #. Translators: Lines: {lines}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:291
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:305
 #, python-brace-format
 msgid "Lines: {lines}"
 msgstr ""
 
 #. Translators: Lists: {lists}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:293
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:307
 #, python-brace-format
 msgid "Lists: {lists}"
 msgstr ""
 
 #. Translators: Spelling errors: {errors}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:295
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:309
 #, python-brace-format
 msgid "Spelling errors: {errors}"
 msgstr ""
 
 #. Translators: Error when structural statistics cannot be read
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:298
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:312
 msgid "Could not retrieve structural statistics."
 msgstr ""
 
 #. 4. Collaboration Status
 #. Translators: Heading for collaboration status
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:304
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:318
 msgid "4. Collaboration Status"
 msgstr ""
 
 #. Translators: Comments: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:308
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:322
 #, python-brace-format
 msgid "Comments: {count}"
 msgstr ""
 
 #. Translators: Unresolved Tracked Changes: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:313
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:327
 #, python-brace-format
 msgid "Unresolved Tracked Changes: {count}"
 msgstr ""
 
 #. Translators: Unresolved Tracked Changes: 0
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:316
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:330
 msgid "Unresolved Tracked Changes: 0"
 msgstr ""
 
 #. Translators: Footnotes: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:320
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:334
 #, python-brace-format
 msgid "Footnotes: {count}"
 msgstr ""
 
 #. Translators: Endnotes: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:324
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:338
 #, python-brace-format
 msgid "Endnotes: {count}"
 msgstr ""
 
 #. Translators: Error when collaboration stats cannot be read
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:327
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:341
 msgid "Could not retrieve collaboration statistics."
 msgstr ""
 
 #. 5. Accessibility Audit Summary
 #. Translators: Heading for accessibility summary
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:333
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:347
 msgid "5. Accessibility Audit Summary"
 msgstr ""
 
 #. Async loop yield
 #. Translators: Images (Inline): {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:350
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:364
 #, python-brace-format
 msgid "Images (Inline): {count}"
 msgstr ""
 
 #. Translators: Warning: {count} images are missing alternative text!
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:353
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:367
 #, python-brace-format
 msgid "Warning: {count} images are missing alternative text!"
 msgstr ""
 
 #. Translators: Warning: {count} floating shapes detected. These are often inaccessible.
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:358
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:372
 #, python-brace-format
 msgid ""
 "Warning: {count} floating shapes detected. These are often inaccessible."
 msgstr ""
 
 #. Translators: Hyperlinks: {count}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:362
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:376
 #, python-brace-format
 msgid "Hyperlinks: {count}"
 msgstr ""
 
 #. Translators: Error when accessibility stats cannot be read
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:365
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:379
 msgid "Could not retrieve accessibility statistics."
 msgstr ""
 
 #. 6. Layout & Structural Breakdown
 #. Translators: Heading for layout breakdown
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:371
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:385
 msgid "6. Layout & Structural Breakdown"
 msgstr ""
 
 #. Sections
 #. Translators: Heading for Sections list
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:375
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:389
 msgid "Sections"
 msgstr ""
 
 #. Translators: No sections found message
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:380
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:394
 msgid "No sections found."
 msgstr ""
 
 #. Translators: Section heading number
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:383
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:397
 #, python-brace-format
 msgid "Section {num}"
 msgstr ""
 
 #. Translators: Portrait Orientation
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:389
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:403
 msgid "Portrait"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:389
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:403
 msgid "Landscape"
 msgstr ""
 
 #. Translators: Orientation info
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:391
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:405
 #, python-brace-format
 msgid "Orientation: {orient}"
 msgstr ""
 
 #. Translators: Margin dimensions string
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:398
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:412
 #, python-brace-format
 msgid "Top: {t:.2f}cm, Bottom: {b:.2f}cm, Left: {l:.2f}cm, Right: {r:.2f}cm"
 msgstr ""
 
 #. Translators: Margins info
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:400
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:414
 #, python-brace-format
 msgid "Margins: {margins}"
 msgstr ""
 
 #. Translators: Different first page header warning
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:404
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:418
 msgid "Warning: Different first page header/footer."
 msgstr ""
 
 #. Translators: Odd/Even header warning
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:407
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:421
 msgid "Warning: Odd and even pages have different headers/footers."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:410
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
 msgid "Continuous"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:410
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
 msgid "New Column"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:410
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
 msgid "New Page"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:410
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
 msgid "Even Page"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:410
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
 msgid "Odd Page"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:412
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:429
 #, python-brace-format
 msgid "Section start: {start}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:417
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:418
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:435
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:437
 msgid "Top"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:417
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:435
 msgid "Center"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:417
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:435
 msgid "Justify"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:417
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:435
 msgid "Bottom"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:419
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:439
 #, python-brace-format
 msgid "Vertical alignment: {align}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:426
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:447
 #, python-brace-format
 msgid "Distance from top to header: {d:.2f}cm"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:427
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:449
 #, python-brace-format
 msgid "Distance from bottom to footer: {d:.2f}cm"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:432
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:445
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:505
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:517
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:455
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:474
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:543
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:559
 msgid "Yes"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:432
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:445
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:505
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:517
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:455
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:474
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:543
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:559
 msgid "No"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:433
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:457
 #, python-brace-format
 msgid "Text modification only in form fields: {status}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:438
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:463
 msgid "Custom"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:439
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:465
 msgid "Standard/Other"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:442
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:469
 #, python-brace-format
 msgid "Paper size: {size}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:443
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:471
 #, python-brace-format
 msgid "Page dimensions: {w:.2f}cm width, {h:.2f}cm height"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:446
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:476
 #, python-brace-format
 msgid "Print two pages per sheet: {status}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:448
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:479
 msgid "Right-to-Left (RTL)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:448
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:449
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:479
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:481
 msgid "Left-to-Right (LTR)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:450
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:483
 #, python-brace-format
 msgid "Reading direction: {dir}"
 msgstr ""
 
 #. Translators: No tables found message
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:467
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:500
 msgid "No tables found."
 msgstr ""
 
 #. Translators: Table heading number
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:470
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:503
 #, python-brace-format
 msgid "Table {num}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:476
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:510
 msgid "uniform"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:476
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:510
 msgid "non-uniform"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:477
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:512
 msgid "nested "
 msgstr ""
 
 #. Translators: Table dimensions
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:479
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:514
 #, python-brace-format
 msgid "Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns"
 msgstr ""
 
 #. Translators: Error when table dimensions cannot be read due to merged cells
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:482
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:517
 msgid "Dimensions: Complex (Contains merged/split cells preventing row count)"
 msgstr ""
 
 #. Translators: Localized at page {page}, line {line}
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:490
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:525
 #, python-brace-format
 msgid "Localized at page {page}, line {line}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:497
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:533
 #, python-brace-format
 msgid "Title: {t}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:500
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:537
 #, python-brace-format
 msgid "Description: {d}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:506
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:545
 #, python-brace-format
 msgid "Automatic resize to fit content: {status}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:511
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:551
 #, python-brace-format
 msgid "Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:512
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:553
 #, python-brace-format
 msgid "Spacing between cells: {sp:.4f}cm"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:518
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:561
 #, python-brace-format
 msgid "Borders Enabled: {status}"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:533
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:577
 msgid "Word Document Analyzer"
 msgstr ""
 
@@ -2599,11 +2689,13 @@ msgstr ""
 msgid "3. Font & Style Inconsistencies"
 msgstr ""
 
+#. Translators: Automatically added by BOA compliance auditor
 #: addon\appModules\boa_enhancements\word_enhancements\list_navigator.py:71
 msgid "bottom"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\list_navigator.py:73
+#. Translators: Automatically added by BOA compliance auditor
+#: addon\appModules\boa_enhancements\word_enhancements\list_navigator.py:74
 msgid "top"
 msgstr ""
 
@@ -2629,12 +2721,80 @@ msgstr ""
 #. Changelog URL or None
 #: buildVars.py:43
 msgid ""
-"## What's New in v1.6.1\n"
-"* **Deep File Localization**: Fixed missing string translations deep within "
-"the Excel enhancement modules (such as the Sheet Layout Analyzer and Quick "
-"Sheet Mover) to ensure 100% localization coverage.\n"
-"* **Expanded Translation Support**: Added 7 new languages to the system "
-"(Turkish, Polish, Korean, Ukrainian, Czech, Urdu, and Punjabi). \n"
-"  *(Note: These translations were generated by AI, so some minor translation "
-"errors or inaccuracies may be present.)*"
+"### Version 2.0.0\n"
+"#### New Features\n"
+"* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then "
+"`D`):** A highly advanced, background-processed accessibility tool that maps "
+"out an entire presentation without freezing NVDA's speech engine. It "
+"provides a deeply navigable Virtual Table of Contents, detects Reading Order "
+"Mismatches (Visual Order vs. Z-Order), flags \"Wall of Text\" slides, and "
+"maps complex objects like SmartArt and Data Tables.\n"
+"* **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** "
+"Instantly scans your currently active slide to understand its spatial layout "
+"and accessibility constraints, ensuring a completely smooth and responsive "
+"screen reader experience. means, here you will get details about current "
+"slide similar to Excel's sheet lay out analyzer.\n"
+"* **PowerPoint: Bulk Slide Organizer (Experimental) (`NVDA+E`, then `X`):** "
+"Similar to the Excel feature, you can now instantly reorder, move, and "
+"arrange multiple PowerPoint slides at once using a fully accessible dialog.\n"
+"* **PowerPoint: Shape Movement Audio Mode (Experimental):** Introduces 3D "
+"Spatial Audio cues to the PowerPoint canvas. Provides auditory feedback "
+"indicating the direction and boundary limits of an object as you move it, "
+"vastly improving spatial awareness. as mentioned this is experemental and "
+"waiting for feedbacks to improve or remove.\n"
+"* **Word: Formatting Auditor (`NVDA+E`, then `F`):** Scans your Word "
+"document for formatting inconsistencies to ensure visual standards.\n"
+"* **Word: Document Analyzer (`NVDA+E`, then `D`):** Instantly pull up a "
+"structural overview of your Word document. *(A special note of credit and "
+"thanks to Paul: This feature was directly inspired by his brilliant \"Word "
+"Access\" add-on. We are deeply grateful for his foundational work in this "
+"space!)*\n"
+"* **Word: Automated Footnote Announcer:** Footnotes will now be "
+"automatically announced inline as you read, depending on your custom BOA "
+"settings. *(Note: Support for endnotes and comments is planned for a future "
+"release).*\n"
+"* **Excel: The Power Editor (Accessible Formula Editor):** An absolute game-"
+"changer for modifying massive formulas.\n"
+"  - **Single-Tap `NVDA+E`, then `F2`:** Instantly announces the raw formula "
+"string of the active cell (or announces \"No formula\").\n"
+"  - **Double-Tap `NVDA+E`, then `F2`:** Opens a fully accessible, multi-line "
+"editor to safely modify massive, nested formulas. Native `Enter` adds line "
+"breaks for easy reading, and `Ctrl+Enter` saves it back to Excel.\n"
+"  - *Safety Checks:* Safely traps syntax errors before they corrupt your "
+"sheet, and detects post-calculation errors (like `#NAME?` or `#DIV/0!`) to "
+"instantly warn you if a formula broke.\n"
+"* **Excel: Formula Auditing & Evaluation:** Added custom shortcuts "
+"(`NVDA+E`, then `Shift+P` and `NVDA+E`, then `Shift+D`) to reliably trace "
+"Precedents and Dependents. Furthermore, Excel's native \"Evaluate Formula\" "
+"dialog is now fully accessible; NVDA automatically reads the evaluated "
+"results as you step through the calculation!\n"
+"* **Excel: Cell Monitor Pro Upgrades:** \n"
+"  - **Slot Manager Dialog (`NVDA+E`, then `Alt+M`):** Opens a dialog listing "
+"all your actively monitored cells. Press `Enter` to instantly jump to one.\n"
+"  - **Warp Back (`NVDA+E`, then `\\`):** Instantly teleports you back to "
+"your previous working cell after checking a slot.\n"
+"  - **Direct Slot Jump (`Alt` + `Slot Number`):** Bypass the prefix entirely "
+"and instantly jump to an assigned cell slot.\n"
+"* **Input Gestures Customization:** All features across all Office apps have "
+"been explicitly exposed to the native NVDA Input Gestures dialog, granting "
+"you complete freedom to customize every keyboard shortcut.\n"
+"\n"
+"#### UX/UI Enhancements\n"
+"* **Unified Browseable Reports:** We have adopted a unified HTML reporting "
+"system across the add-on. Features like the Excel Conditional Formatting "
+"Announcer, Layout Analyzers, and Document Analyzers no longer just speak "
+"massive blocks of text; their results now open in a native, navigable HTML "
+"window, allowing you to review the data at your own pace.\n"
+"* **Excel: Enhanced Dependents/Precedents Tracking:** Vastly enhanced the "
+"speech output for Excel's native formula tracing shortcuts (`Ctrl+[` for "
+"Direct Precedents, and `Ctrl+]` for Direct Dependents). NVDA will now "
+"explicitly announce exactly what cells were selected.\n"
+"* **Excel: Merge Cell Support:** Merged cells are now correctly detected and "
+"explicitly announced by the gap-skipping cell tracker.\n"
+"\n"
+"#### Bug Fixes\n"
+"* **Word: List Item Double Reading:** Implemented a temporary patch to fix "
+"the bug where NVDA double-reads paragraph list items in certain Word views.\n"
+"* **Excel: Cell Monitor Localization Bug:** Resolved underlying tracking "
+"bugs caused by the recent translation localization updates."
 msgstr ""

@@ -1,11 +1,10 @@
 import textInfos
 import controlTypes
 import speech
-import api
 from appModules.boa_enhancements import boa_config
 import addonHandler
 addonHandler.initTranslation()
-from logHandler import log
+from logHandler import log  # noqa: E402
 
 class BOAWordDocumentOverlay(object):
 	"""
@@ -68,8 +67,10 @@ class BOAWordDocumentOverlay(object):
 				if next_info.isCollapsed:
 					from core import _
 					if direction == 1:
+						# Translators: Automatically added by BOA compliance auditor
 						speech.speakMessage(_("bottom"))
 					else:
+						# Translators: Automatically added by BOA compliance auditor
 						speech.speakMessage(_("top"))
 				else:
 					speech.speakTextInfo(next_info, reason=controlTypes.OutputReason.CARET)

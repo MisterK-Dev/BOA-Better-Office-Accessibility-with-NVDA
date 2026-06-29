@@ -8,8 +8,6 @@ import addonHandler
 import ui
 import wx
 from logHandler import log
-import core
-
 addonHandler.initTranslation()
 
 # Word COM Constants
@@ -177,11 +175,16 @@ class WordDocumentAnalyzer:
 			try:
 				prot = self.doc.ProtectionType
 				prot_map = {
+					# Translators: Automatically added by BOA compliance auditor
 					-1: _("Unprotected"),
+					# Translators: Automatically added by BOA compliance auditor
 					0: _("Allow Only Revisions (Tracked Changes)"),
+					# Translators: Automatically added by BOA compliance auditor
 					1: _("Allow Only Comments"),
+					# Translators: Automatically added by BOA compliance auditor
 					2: _("Allow Only Form Fields")
 				}
+				# Translators: Automatically added by BOA compliance auditor
 				prot_str = prot_map.get(prot, _("Unknown Protection"))
 				# Translators: Document protection status
 				html_parts.append(f"<li><strong>{_('Document Protection: {status}').format(status=prot_str)}</strong></li>")
@@ -196,11 +199,17 @@ class WordDocumentAnalyzer:
 				pass
 				
 			props = [
+				# Translators: Automatically added by BOA compliance auditor
 				("Author", _("Author")),
+				# Translators: Automatically added by BOA compliance auditor
 				("Creation Date", _("Creation Date")),
+				# Translators: Automatically added by BOA compliance auditor
 				("Revision Number", _("Revision Number")),
+				# Translators: Automatically added by BOA compliance auditor
 				("Title", _("Title")),
+				# Translators: Automatically added by BOA compliance auditor
 				("Subject", _("Subject")),
+				# Translators: Automatically added by BOA compliance auditor
 				("Company", _("Company"))
 			]
 			
@@ -219,8 +228,11 @@ class WordDocumentAnalyzer:
 			if self.app:
 				try:
 					opt_obj = self.app.Options
+					# Translators: Automatically added by BOA compliance auditor
 					spell = _("Enabled") if getattr(opt_obj, "CheckSpellingAsYouType", False) else _("Disabled")
+					# Translators: Automatically added by BOA compliance auditor
 					gramm = _("Enabled") if getattr(opt_obj, "CheckGrammarAsYouType", False) else _("Disabled")
+					# Translators: Automatically added by BOA compliance auditor
 					gramm_spell = _("Enabled") if getattr(opt_obj, "CheckGrammarWithSpelling", False) else _("Disabled")
 					
 					# Translators: Check spelling as you type: {status}
@@ -230,11 +242,13 @@ class WordDocumentAnalyzer:
 					# Translators: Check grammar with spelling
 					html_parts.append(f"<li>{_('Check grammar with spelling: {status}').format(status=gramm_spell)}</li>")
 					
+					# Translators: Automatically added by BOA compliance auditor
 					track = _("Enabled") if getattr(self.doc, "TrackRevisions", False) else _("Disabled")
 					# Translators: Track revisions status
 					html_parts.append(f"<li>{_('Track Revisions (Recording): {status}').format(status=track)}</li>")
 					
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						hidden = _("Visible") if self.doc.ActiveWindow.View.ShowHiddenText else _("Hidden")
 						# Translators: Hidden text visibility
 						html_parts.append(f"<li>{_('Display hidden text on screen: {status}').format(status=hidden)}</li>")
@@ -407,15 +421,21 @@ class WordDocumentAnalyzer:
 						html_parts.append(f"<li><strong>{_('Warning: Odd and even pages have different headers/footers.')}</strong></li>")
 						
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						sec_start_map = {0: _("Continuous"), 1: _("New Column"), 2: _("New Page"), 3: _("Even Page"), 4: _("Odd Page")}
+						# Translators: Automatically added by BOA compliance auditor
 						sec_start = sec_start_map.get(getattr(ps, "SectionStart", 2), _("Unknown"))
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Section start: {start}').format(start=sec_start)}</li>")
 					except Exception:
 						pass
 
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						valign_map = {0: _("Top"), 1: _("Center"), 2: _("Justify"), 3: _("Bottom")}
+						# Translators: Automatically added by BOA compliance auditor
 						valign = valign_map.get(getattr(ps, "VerticalAlignment", 0), _("Top"))
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Vertical alignment: {align}').format(align=valign)}</li>")
 					except Exception:
 						pass
@@ -423,30 +443,43 @@ class WordDocumentAnalyzer:
 					try:
 						h_dist = self._convert_points_to_cm(getattr(ps, "HeaderDistance", 0))
 						f_dist = self._convert_points_to_cm(getattr(ps, "FooterDistance", 0))
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Distance from top to header: {d:.2f}cm').format(d=h_dist)}</li>")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Distance from bottom to footer: {d:.2f}cm').format(d=f_dist)}</li>")
 					except Exception:
 						pass
 						
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						prot_forms = _("Yes") if getattr(sec, "ProtectedForForms", False) else _("No")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Text modification only in form fields: {status}').format(status=prot_forms)}</li>")
 					except Exception:
 						pass
 
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						paper_map = {7: "A4", 2: "Letter", 41: _("Custom"), 1: "11x17", 4: "Legal", 6: "A3", 9: "A5"}
+						# Translators: Automatically added by BOA compliance auditor
 						p_size = paper_map.get(getattr(ps, "PaperSize", 7), _("Standard/Other"))
 						p_w = self._convert_points_to_cm(getattr(ps, "PageWidth", 0))
 						p_h = self._convert_points_to_cm(getattr(ps, "PageHeight", 0))
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Paper size: {size}').format(size=p_size)}</li>")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Page dimensions: {w:.2f}cm width, {h:.2f}cm height').format(w=p_w, h=p_h)}</li>")
 						
+						# Translators: Automatically added by BOA compliance auditor
 						two_pages = _("Yes") if getattr(ps, "TwoPagesOnOne", False) else _("No")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Print two pages per sheet: {status}').format(status=two_pages)}</li>")
 						
+						# Translators: Automatically added by BOA compliance auditor
 						dir_map = {0: _("Right-to-Left (RTL)"), 1: _("Left-to-Right (LTR)")}
+						# Translators: Automatically added by BOA compliance auditor
 						direction = dir_map.get(getattr(ps, "SectionDirection", 1), _("Left-to-Right (LTR)"))
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Reading direction: {dir}').format(dir=direction)}</li>")
 					except Exception:
 						pass
@@ -473,7 +506,9 @@ class WordDocumentAnalyzer:
 					try:
 						rows = tb.Rows.Count
 						cols = tb.Columns.Count
+						# Translators: Automatically added by BOA compliance auditor
 						uniform = _("uniform") if getattr(tb, "Uniform", True) else _("non-uniform")
+						# Translators: Automatically added by BOA compliance auditor
 						nested = _("nested ") if getattr(tb, "NestingLevel", 1) > 1 else ""
 						# Translators: Table dimensions
 						html_parts.append(f"<li>{_('Dimensions: {nest}table ({uni}) of {rows} Rows, {cols} Columns').format(nest=nested, uni=uniform, rows=rows, cols=cols)}</li>")
@@ -494,27 +529,35 @@ class WordDocumentAnalyzer:
 					try:
 						title = getattr(tb, "Title", "")
 						if title:
+							# Translators: Automatically added by BOA compliance auditor
 							html_parts.append(f"<li>{_('Title: {t}').format(t=title)}</li>")
 						desc = getattr(tb, "Descr", "")
 						if desc:
+							# Translators: Automatically added by BOA compliance auditor
 							html_parts.append(f"<li>{_('Description: {d}').format(d=desc)}</li>")
 					except Exception:
 						pass
 					
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						autofit = _("Yes") if getattr(tb, "AllowAutoFit", False) else _("No")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Automatic resize to fit content: {status}').format(status=autofit)}</li>")
 						
 						t_pad = self._convert_points_to_cm(getattr(tb, "TopPadding", 0))
 						b_pad = self._convert_points_to_cm(getattr(tb, "BottomPadding", 0))
 						spacing = self._convert_points_to_cm(getattr(tb, "Spacing", 0))
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Top padding: {pad:.4f}cm, Bottom padding: {bpad:.4f}cm').format(pad=t_pad, bpad=b_pad)}</li>")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Spacing between cells: {sp:.4f}cm').format(sp=spacing)}</li>")
 					except Exception:
 						pass
 						
 					try:
+						# Translators: Automatically added by BOA compliance auditor
 						borders = _("Yes") if getattr(tb.Borders, "Enable", False) else _("No")
+						# Translators: Automatically added by BOA compliance auditor
 						html_parts.append(f"<li>{_('Borders Enabled: {status}').format(status=borders)}</li>")
 					except Exception:
 						pass
@@ -530,4 +573,5 @@ class WordDocumentAnalyzer:
 	def _on_complete(self, html_parts):
 		if html_parts:
 			html_content = "".join(html_parts)
+			# Translators: Automatically added by BOA compliance auditor
 			wx.CallAfter(ui.browseableMessage, html_content, title=_("Word Document Analyzer"), isHtml=True, closeButton=True, copyButton=True)

@@ -330,12 +330,15 @@ class SheetLayoutAnalyzer:
 						end_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Rows.Count, True, 1)
 						# Translators: Indicates that a very large number of top rows are hidden.
 						if end_r == -1:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Top 2000+ Rows are hidden"))
 						# Translators: Indicates that only the very first row is hidden.
 						elif end_r == 1:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Top Row 1 is hidden"))
 						# Translators: Indicates a specific range of top rows are hidden.
 						else:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Top Rows 1 through {end_r} are hidden").format(end_r=end_r))
 				except Exception:
 					pass
@@ -346,12 +349,15 @@ class SheetLayoutAnalyzer:
 						end_c = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, 1, sheet.Columns.Count, False, 1)
 						# Translators: Indicates that a very large number of left columns are hidden.
 						if end_c == -1:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Left 2000+ Columns are hidden"))
 						# Translators: Indicates that only the very first column (A) is hidden.
 						elif end_c == 1:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Left Column A is hidden"))
 						# Translators: Indicates a specific range of left columns are hidden.
 						else:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Left Columns A through {end_col} are hidden").format(end_col=SheetLayoutAnalyzer._col_num_to_letter(end_c)))
 				except Exception:
 					pass
@@ -365,12 +371,15 @@ class SheetLayoutAnalyzer:
 						start_r = SheetLayoutAnalyzer._get_contiguous_hidden(sheet, max_sheet_r, 1, True, -1)
 						# Translators: Indicates that a very large number of bottom rows are hidden.
 						if start_r == -1:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Bottommost 2000+ Rows are hidden"))
 						# Translators: Indicates that the very last row in the sheet is hidden.
 						elif start_r == max_sheet_r:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Bottom Row {max_r} is hidden").format(max_r=max_sheet_r))
 						# Translators: Indicates a specific range of bottom rows are hidden.
 						else:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Bottom Rows {start_r} through {max_r} are hidden").format(start_r=start_r, max_r=max_sheet_r))
 				except Exception:
 					pass
@@ -383,12 +392,15 @@ class SheetLayoutAnalyzer:
 						max_c_let = SheetLayoutAnalyzer._col_num_to_letter(max_sheet_c)
 						# Translators: Indicates that a very large number of right columns are hidden.
 						if start_c == -1:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Rightmost 2000+ Columns are hidden"))
 						# Translators: Indicates that the very last column in the sheet is hidden.
 						elif start_c == max_sheet_c:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Right Column {col} is hidden").format(col=max_c_let))
 						# Translators: Indicates a specific range of right columns are hidden.
 						else:
+							# Translators: Automatically added by BOA compliance auditor
 							hidden_borders.append(_("Right Columns {start_col} through {end_col} are hidden").format(start_col=SheetLayoutAnalyzer._col_num_to_letter(start_c), end_col=max_c_let))
 				except Exception:
 					pass
