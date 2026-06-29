@@ -191,7 +191,11 @@ class BOASettingsPanel(SettingsPanel):
 			# Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
 			"safe_rich_edit": _("Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"),
 			# Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
-			"bulk_slide_organizer": _("Enable Bulk Slide &Organizer via NVDA+E, X"),
+			"bulk_slide_organizer": _("Enable Bulk Slide Organi&zer dialog (Prefix + X)"),
+			# Translators: Label for the PowerPoint Slide Layout Analyzer setting checkbox.
+			"slide_layout_analyzer": _("Enable S&lide Layout Analyzer (Prefix + L)"),
+			# Translators: Label for the PowerPoint Document Analyzer setting checkbox.
+			"document_analyzer": _("Enable PowerPoint &Document Analyzer (Prefix + D)"),
 			# Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
 			"canvas_audio_mode": _("Shape Movement Audio Mode:")
 		}

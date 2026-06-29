@@ -21,6 +21,8 @@ from .hex_edit import PowerPointHexEdit  # noqa: E402
 from .rgb_edit import PowerPointRGBEdit  # noqa: E402
 from .standard_color_grid import PowerPointStandardColorGrid  # noqa: E402
 from .bulk_slide_organizer import BulkSlideOrganizer  # noqa: E402
+from .slide_layout_analyzer import SlideLayoutAnalyzer  # noqa: E402
+from .document_analyzer import PowerPointDocumentAnalyzer  # noqa: E402
 from . import shape_movement_enhancer  # noqa: E402
 
 def init_enhancements():
@@ -83,6 +85,16 @@ def handle_prefix_command(command_key, obj):
 	if command_key == "x":
 		if boa_config.get_feature_state("powerpoint", "bulk_slide_organizer"):
 			BulkSlideOrganizer.launch_dialog(obj)
+		return True
+		
+	if command_key == "l":
+		if boa_config.get_feature_state("powerpoint", "slide_layout_analyzer"):
+			SlideLayoutAnalyzer.analyze(obj)
+		return True
+		
+	if command_key == "d":
+		if boa_config.get_feature_state("powerpoint", "document_analyzer"):
+			PowerPointDocumentAnalyzer.analyze(obj)
 		return True
 		
 	return False

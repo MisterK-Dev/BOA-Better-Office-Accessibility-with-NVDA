@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '2.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-28 19:57+0530\n"
+"POT-Creation-Date: 2026-06-29 15:34+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -303,46 +303,51 @@ msgstr ""
 
 #. Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
 #: addon\appModules\boa_enhancements\boa_gui.py:194
-msgid "Enable Bulk Slide &Organizer via NVDA+E, X"
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr ""
+
+#. Translators: Label for the PowerPoint Slide Layout Analyzer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:196
+msgid "Enable S&lide Layout Analyzer (Prefix + L)"
 msgstr ""
 
 #. Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
-#: addon\appModules\boa_enhancements\boa_gui.py:196
+#: addon\appModules\boa_enhancements\boa_gui.py:198
 msgid "Shape Movement Audio Mode:"
 msgstr ""
 
 #. Translators: Title of the group box containing PowerPoint specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:199
+#: addon\appModules\boa_enhancements\boa_gui.py:201
 msgid "PowerPoint Enhancements"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:203
+#: addon\appModules\boa_enhancements\boa_gui.py:205
 msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the list double-read fix in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:205
+#: addon\appModules\boa_enhancements\boa_gui.py:207
 msgid "Prevent &double-reading of list items during paragraph navigation"
 msgstr ""
 
 #. Translators: Label for the document analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:207
+#: addon\appModules\boa_enhancements\boa_gui.py:209
 msgid "Enable Document &Analyzer via NVDA+E, D"
 msgstr ""
 
 #. Translators: Label for the format auditor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:209
+#: addon\appModules\boa_enhancements\boa_gui.py:211
 msgid "Enable Format &Auditor via NVDA+E, F"
 msgstr ""
 
 #. Translators: Label for reading word notes inline setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:211
+#: addon\appModules\boa_enhancements\boa_gui.py:213
 msgid "Footnotes and Endnotes reading &mode:"
 msgstr ""
 
 #. Translators: Title of the group box containing Word specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:214
+#: addon\appModules\boa_enhancements\boa_gui.py:216
 msgid "Word Enhancements"
 msgstr ""
 
@@ -1553,7 +1558,10 @@ msgid "Loading slides, please wait..."
 msgstr ""
 
 #. Translators: Error message when trying to organize slides but no presentation is active.
+#. Translators: Error hooking PowerPoint COM
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:187
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:34
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:94
 msgid "Failed to hook PowerPoint."
 msgstr ""
 
@@ -1588,6 +1596,272 @@ msgstr ""
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\bulk_slide_organizer.py:316
 #, python-brace-format
 msgid "Scheduled: {slide} to position {pos}"
+msgstr ""
+
+#. Translators: Error when no presentation is active
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:43
+msgid "No active presentation detected."
+msgstr ""
+
+#. Translators: Announcement when starting document analysis
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:47
+msgid "Analyzing document layout in background..."
+msgstr ""
+
+#. Translators: Error during analysis
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:58
+msgid "Error starting document analysis."
+msgstr ""
+
+#. Translators: Fallback title for slides missing a Title placeholder
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:103
+msgid "Untitled Slide"
+msgstr ""
+
+#. Translators: Dialog title for Document Analyzer
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:201
+#, python-brace-format
+msgid "Document Analysis: {name}"
+msgstr ""
+
+#. Overview
+#. Translators: Header for Document Overview
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:207
+msgid "Overview"
+msgstr ""
+
+#. Translators: Total slides in the document
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:209
+#, python-brace-format
+msgid "Total Slides: {n}"
+msgstr ""
+
+#. Translators: Hidden slides in the document
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:212
+#, python-brace-format
+msgid "Hidden Slides: {n}"
+msgstr ""
+
+#. Virtual Table of Contents
+#. Translators: Header for Table of Contents
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:217
+msgid "Table of Contents"
+msgstr ""
+
+#. Translators: TOC entry
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:220
+#, python-brace-format
+msgid "Slide {num}: {title}"
+msgstr ""
+
+#. Accessibility Health
+#. Translators: Header for Accessibility Health
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:225
+msgid "Accessibility Health"
+msgstr ""
+
+#. Translators: Header for Reading Order Mismatch
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:231
+msgid "Reading Order Mismatch (Z-Order vs Visual)"
+msgstr ""
+
+#. Translators: Indicates a slide has reading order issues
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:234
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:251
+#, python-brace-format
+msgid "Slide {num}"
+msgstr ""
+
+#. Translators: Header for Missing Alt Text
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:240
+msgid "Missing Alt-Text"
+msgstr ""
+
+#. Translators: Missing alt text on a specific slide
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:243
+#, python-brace-format
+msgid "Slide {num}: {count} images missing alt-text"
+msgstr ""
+
+#. Translators: Header for Off-Canvas Elements
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:249
+msgid "Off-Canvas Elements"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:255
+msgid "No major accessibility issues detected."
+msgstr ""
+
+#. Density & Complexity
+#. Translators: Header for Density & Complexity
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:259
+msgid "Density & Complexity"
+msgstr ""
+
+#. Translators: Header for dense slides
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:263
+msgid "High Text Density (Wall of Text)"
+msgstr ""
+
+#. Translators: Dense slide word count
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:266
+#, python-brace-format
+msgid "Slide {num}: {words} words"
+msgstr ""
+
+#. Translators: Section header for Complex Objects
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:269
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:346
+msgid "Complex Objects"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:270
+#, python-brace-format
+msgid "Tables: {n}"
+msgstr ""
+
+#. Translators: Number of shape groups
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:271
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:358
+#, python-brace-format
+msgid "Grouped Objects: {n}"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:272
+#, python-brace-format
+msgid "Media: {n}"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:273
+#, python-brace-format
+msgid "Charts: {n}"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\document_analyzer.py:274
+#, python-brace-format
+msgid "Embedded Documents: {n}"
+msgstr ""
+
+#. Translators: Error when no slide is active
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:102
+msgid "No active slide detected."
+msgstr ""
+
+#. Translators: Announcement when starting slide analysis
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:106
+msgid "Analyzing slide layout..."
+msgstr ""
+
+#. Translators: Error during analysis
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:117
+msgid "Error analyzing slide layout."
+msgstr ""
+
+#. Translators: Dialog title for Slide Layout Analyzer
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:285
+#, python-brace-format
+msgid "Slide {num} Layout Analysis"
+msgstr ""
+
+#. Translators: Section header for structural metrics
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:291
+msgid "Structure & Density"
+msgstr ""
+
+#. Translators: Reports total placeholders vs custom shapes
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:293
+#, python-brace-format
+msgid "Placeholders vs Custom Shapes: {p} / {c}"
+msgstr ""
+
+#. Translators: Reports total word count on the slide
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:295
+#, python-brace-format
+msgid "Total Word Count: {w}"
+msgstr ""
+
+#. Translators: Warning if the slide is a wall of text
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:303
+msgid "Warning: High text density (Wall of Text)"
+msgstr ""
+
+#. Translators: Warning if no title placeholder is found
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:308
+msgid "Warning: Missing standard Title Placeholder"
+msgstr ""
+
+#. Translators: Section header for Accessibility traps
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:312
+msgid "Accessibility Warnings"
+msgstr ""
+
+#. Translators: Header for Off-Canvas Shapes
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:320
+msgid "Off-Canvas Shapes"
+msgstr ""
+
+#. Translators: Label for reading order mismatch warning
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:329
+msgid "Reading Order Mismatch"
+msgstr ""
+
+#. Translators: Warns about reading order mismatch for a specific shape
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:331
+#, python-brace-format
+msgid "Shape '{s}' is visually at the top but logically at the bottom."
+msgstr ""
+
+#. Translators: Warns about missing alt text
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:337
+#, python-brace-format
+msgid "Missing Alt-Text: {n} images"
+msgstr ""
+
+#. Translators: Status when no accessibility warnings are found
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:342
+msgid "No major spatial accessibility warnings detected."
+msgstr ""
+
+#. Translators: Header for Groups, Charts, and Media
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:354
+msgid "Complex Objects & Media"
+msgstr ""
+
+#. Translators: Number of media items
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:362
+#, python-brace-format
+msgid "Media (Audio/Video): {n}"
+msgstr ""
+
+#. Translators: Number of charts
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:366
+#, python-brace-format
+msgid "Charts/Graphs: {n}"
+msgstr ""
+
+#. Translators: Number of embedded objects
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:370
+#, python-brace-format
+msgid "Embedded Documents (Excel/PDF): {n}"
+msgstr ""
+
+#. Translators: Header for Tables
+#. Tables
+#. Translators: Heading for Tables list
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:377
+#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:462
+msgid "Tables"
+msgstr ""
+
+#. Translators: Table dimensions
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:381
+#, python-brace-format
+msgid "Table '{name}': {c} columns by {r} rows"
+msgstr ""
+
+#. Translators: Status when no complex objects exist
+#: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:387
+msgid "No complex tables, groups, or media."
 msgstr ""
 
 #. Announce the color cleanly to the user.
@@ -2084,12 +2358,6 @@ msgstr ""
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:450
 #, python-brace-format
 msgid "Reading direction: {dir}"
-msgstr ""
-
-#. Tables
-#. Translators: Heading for Tables list
-#: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:462
-msgid "Tables"
 msgstr ""
 
 #. Translators: No tables found message

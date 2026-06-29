@@ -47,6 +47,8 @@ DEFAULT_CONFIG = {
 		"rgb_edit": True,
 		"safe_rich_edit": True,
 		"bulk_slide_organizer": True,
+		"slide_layout_analyzer": True,
+		"document_analyzer": True,
 		"canvas_audio_mode": "default"
 	},
 	"word": {
