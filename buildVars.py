@@ -15,16 +15,15 @@ addon_info = {
     # Add-on summary, usually the user visible name of the addon.
     "addon_summary": "BOA: Better Office Accessibility",
     # Add-on description
-    "addon_description": _("""A powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. 
-    
-    Key Features:
+    "addon_description": _("""BOA is a powerful suite of accessibility enhancements for Microsoft Office, outcome of AI assisted development; designed to vastly improve the screen reader experience for NVDA users. The Entire code base has been generated using Anti Gravity 2.0. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
+Key Features:
     - Cell Monitor: Save and continuously track dynamic Excel cells.
     - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, protected states, and data blocks.
     - Bulk Sheet Organizer & Quick Mover: Instantly move or reorder multiple sheets using accessible dialogs.
     - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.
     
     Please refer to the add-on help documentation for a complete list of features and shortcuts."""),
-    "addon_version": "2.0.0",
+    "addon_version": "2.0.1",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
@@ -36,11 +35,16 @@ addon_info = {
     # Minimum NVDA version supported
     "addon_minimumNVDAVersion": "2026.1.0",
     # Last NVDA version supported/tested
-    "addon_lastTestedNVDAVersion": "2026.1.1",
+    "addon_lastTestedNVDAVersion": "2026.2.0",
     # True if the addon requires an update to the manifest format.
     "addon_updateChannel": None,
     # Changelog URL or None
-    "addon_changelog": _("""### Version 2.0.0
+    "addon_changelog": _("""### Version 2.0.1
+#### UX/UI Enhancements
+* **Tabbed Settings Dialog: [inspired by Vision Assistant Pro]** Reorganized the BOA Settings Panel into accessible tabs (&Excel, &Word, and &PowerPoint) using `wx.Notebook`, vastly improving screen reader navigation and eliminating long scrolling lists.
+* **NVDA 2026.2 Compatibility:** Tested and ensured compatibility for NVDA 2026.2.
+
+### Version 2.0.0
 #### New Features
 * **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags "Wall of Text" slides, and maps complex objects like SmartArt and Data Tables.
 * **PowerPoint: Slide Layout Analyzer (Experimental) (`NVDA+E`, then `L`):** Instantly scans your currently active slide to understand its spatial layout and accessibility constraints, ensuring a completely smooth and responsive screen reader experience. means, here you will get details about current slide similar to Excel's sheet lay out analyzer.

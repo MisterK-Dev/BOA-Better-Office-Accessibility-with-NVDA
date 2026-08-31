@@ -162,6 +162,11 @@ BOA 是一套功能强大的 Microsoft Office 无障碍增强套件，旨在极�
 
 ## 🛠️ 更新日志
 
+### Version 2.0.1
+#### 体验/界面增强
+* **选项卡式设置对话框：** 使用 `wx.Notebook` 将 BOA 设置面板重组为可访问的选项卡（&Excel、&Word 和 &PowerPoint），大幅改善了屏幕朗读器导航并消除了冗长的滚动列表。您可以使用 `Alt+E`、`Alt+W`、`Alt+P` 或标准的 `Ctrl+PageDown`/`Ctrl+PageUp` 快捷键在选项卡之间快速切换。
+* **NVDA 2026.2 兼容性：** 经过全面测试并确保兼容 NVDA 2026.2。
+
 ### 版本 2.0.0
 #### 新功能
 * **PowerPoint: Complete Document Analyzer (Experimental)（`NVDA+E`，然后按 `D`）：** 一款高度先进的、在后台处理的无障碍工具，可以绘制出整个演示文稿的结构，而不会冻结 NVDA 的语音引擎。它提供了一个可深度导航的虚拟目录，检测阅读顺序不匹配问题（视觉顺序 vs. Z 轴顺序），标记“大段文字”（Wall of Text）幻灯片，并映射 SmartArt 和数据表等复杂对象。

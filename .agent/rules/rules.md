@@ -52,6 +52,9 @@ Before outputting any finalized code blocks, scripts, or diff artifacts in the w
 
 ## 8. GUI Architecture & Navigation Rules
 - **Explicit Accelerator Keys**: Every control inside a WxPython or NVDA Settings panel must have a unique, explicit accelerator key assigned via the ampersand symbol (`&`). Never rely on Windows' default first-letter navigation. When attempting to assign shortcuts to Group Boxes (`wx.StaticBox`), always apply the `&` to the **first child control** within the group, as Windows natively ignores accelerators on StaticBox titles inside complex embedded dialogs.
+- **Tabbed Settings Architecture**: Settings panels containing multiple application hooks (e.g., Excel, Word, PowerPoint) must be organized using `wx.Notebook` rather than monolithic vertical lists to prevent navigation fatigue.
+- **Strict Control Parenting**: In tabbed interfaces, all child controls (`wx.CheckBox`, `wx.Choice`, `wx.StaticText`, `wx.BoxSizer`, etc.) must strictly use their respective tab page (`wx.Panel`) as their parent (`parent=tabPanel`), never the outer `SettingsPanel` (`self`). Parenting controls to the outer dialog causes them to bleed and float across inactive tabs.
+- **Tab Accelerators**: Notebook tab labels must include explicit accelerator keys (e.g., `_("&Excel")`, `_("&Word")`, `_("&PowerPoint")`).
 
 ## 9. Excel COM Object Safety
 - **Anti-Freeze Bailouts**: Never evaluate, loop over, or request properties from millions of Excel cells simultaneously across the COM bridge. COM marshaling between Excel and NVDA is extremely slow. Always implement a strict safety bailout threshold (e.g., `if count > 2000: break`) when linearly scanning Excel structures to prevent catastrophic NVDA freezes.

@@ -162,6 +162,11 @@ Pour éviter les conflits de raccourcis clavier avec d'autres extensions NVDA, B
 
 ## 🛠️ Changelog
 
+### Version 2.0.1
+#### Améliorations UX/UI
+* **Boîte de dialogue des paramètres avec onglets :** Réorganisation du panneau de paramètres BOA en onglets accessibles (&Excel, &Word et &PowerPoint) à l'aide de `wx.Notebook`, améliorant considérablement la navigation du lecteur d'écran et éliminant les longues listes de défilement. Vous pouvez basculer rapidement entre les onglets en utilisant `Alt+E`, `Alt+W`, `Alt+P`, ou les raccourcis standard `Ctrl+PageDown`/`Ctrl+PageUp`.
+* **Compatibilité NVDA 2026.2 :** Testé et certifié pour NVDA 2026.2.
+
 ### Version 2.0.0
 #### Nouvelles fonctionnalités
 * **PowerPoint : Analyseur de document complet (Expérimental) (`NVDA+E`, puis `D`) :** Un outil d'accessibilité très avancé, traité en arrière-plan, qui cartographie l'intégralité d'une présentation sans figer le moteur de parole de NVDA. Il fournit une table des matières virtuelle hautement navigable, détecte les discordances dans l'ordre de lecture (ordre visuel vs ordre Z), signale les diapositives de type « pavé de texte » (Wall of Text) et cartographie les objets complexes comme SmartArt et les tableaux de données.

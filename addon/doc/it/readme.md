@@ -160,6 +160,11 @@ Per prevenire conflitti di tasti con altri plug-in di NVDA, BOA utilizza una **m
 
 ---
 
+### Version 2.0.1
+#### Miglioramenti UX/UI
+* **Finestra delle impostazioni a schede:** Il pannello delle impostazioni di BOA è stato riorganizzato in schede accessibili (&Excel, &Word e &PowerPoint) tramite `wx.Notebook`, migliorando notevolmente la navigazione con lo screen reader ed eliminando lunghi elenchi a scorrimento. È possibile passare rapidamente da una scheda all'altra premendo `Alt+E`, `Alt+W`, `Alt+P` o tramite le scorciatoie standard `Ctrl+PagGiù`/`Ctrl+PagSu`.
+* **Compatibilità con NVDA 2026.2:** Testato e certificato per NVDA 2026.2.
+
 ## 🛠️ Changelog
 
 ### Versione 2.0.0

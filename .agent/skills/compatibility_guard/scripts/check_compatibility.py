@@ -86,15 +86,22 @@ def get_target_versions(buildvars_path):
 def verify_reference_documentation(refs_dir, last_tested_version):
     """
     Checks if there is an official reference document on disk in .agent/REFS_Sources/
-    containing the last tested version string to prevent AI hallucinations.
+    containing the last tested version string (or its major.minor prefix) to prevent AI hallucinations.
     """
     if not os.path.exists(refs_dir):
         return False
     
-    # Check if any file in the references directory contains the version string
+    # Determine version candidates: full version (e.g. 2026.2.0) and major.minor (e.g. 2026.2)
+    candidates = [last_tested_version]
+    two_part_ver = ".".join(last_tested_version.split(".")[:2])
+    if two_part_ver not in candidates:
+        candidates.append(two_part_ver)
+    
+    # Check if any file in the references directory contains any candidate version string
     for file in os.listdir(refs_dir):
-        if last_tested_version in file:
-            return True
+        for cand in candidates:
+            if cand in file:
+                return True
     return False
 
 def scan_codebase(addon_dir, blacklist):

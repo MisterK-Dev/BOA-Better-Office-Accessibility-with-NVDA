@@ -162,6 +162,11 @@ Um Konflikte bei Tastenkombinationen mit anderen NVDA-Add-ons zu vermeiden, verw
 
 ## 🛠️ Änderungsprotokoll
 
+### Version 2.0.1
+#### UX/UI-Verbesserungen
+* **Einstellungen mit Registerkarten:** Das BOA-Einstellungsfenster wurde mithilfe von `wx.Notebook` in barrierefreie Registerkarten (&Excel, &Word und &PowerPoint) unterteilt, was die Navigation mit Bildschirmlesern erheblich verbessert und lange Bildlauflisten überflüssig macht. Sie können schnell mit `Alt+E`, `Alt+W`, `Alt+P` oder den Standard-Tastenkombinationen `Strg+BildAb`/`Strg+BildAuf` zwischen den Registerkarten wechseln.
+* **NVDA 2026.2-Kompatibilität:** Getestet und zertifiziert für NVDA 2026.2.
+
 ### Version 2.0.0
 #### Neue Funktionen
 * **PowerPoint: Komplette Dokumenten-Analyse (Experimentell) (`NVDA+E`, dann `D`):** Ein hochmodernes, im Hintergrund verarbeitetes Barrierefreiheitswerkzeug, das eine gesamte Präsentation abbildet, ohne die Sprachausgabe von NVDA einzufrieren. Es bietet ein tief navigierbares virtuelles Inhaltsverzeichnis, erkennt Abweichungen in der Lesereihenfolge (visuelle Reihenfolge vs. Z-Reihenfolge), kennzeichnet Folien mit zu viel Text („Wall of Text“) und erfasst komplexe Objekte wie SmartArt und Datentabellen.

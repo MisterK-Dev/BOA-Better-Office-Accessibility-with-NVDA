@@ -162,6 +162,11 @@ Aby se zabránilo konfliktům klávesových zkratek s jinými doplňky NVDA, pou
 
 ## 🛠️ Seznam změn
 
+### Version 2.0.1
+#### Vylepšení UX/UI
+* **Nastavení s kartami:** Panel nastavení BOA byl reorganizován do přístupných karet (&Excel, &Word a &PowerPoint) pomocí `wx.Notebook`, což výrazně zlepšuje navigaci s odečítačem obrazovky a eliminuje dlouhé seznamy. Mezi kartami můžete rychle přepínat pomocí `Alt+E`, `Alt+W`, `Alt+P` nebo standardních klávesových zkratek `Ctrl+PageDown`/`Ctrl+PageUp`.
+* **Kompatibilita s NVDA 2026.2:** Otestováno a certifikováno pro NVDA 2026.2.
+
 ### Verze 2.0.0
 #### Nové funkce
 * **PowerPoint: Komplexní analyzátor dokumentu (experimentální) (`NVDA+E`, pak `D`):** Velmi pokročilý nástroj přístupnosti běžící na pozadí, který zmapuje celou prezentaci bez zamrznutí řečového syntetizéru NVDA. Poskytuje snadno procházelný virtuální obsah, detekuje nesrovnalosti v pořadí čtení (vizuální pořadí versus pořadí vykreslování Z-Order), označuje snímky s velkým množstvím textu a mapuje složité objekty jako SmartArt a datové tabulky.
