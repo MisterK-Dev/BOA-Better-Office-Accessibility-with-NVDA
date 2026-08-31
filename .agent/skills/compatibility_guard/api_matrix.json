@@ -22,5 +22,71 @@
     "version": "2026.1",
     "alternative": "buildVersion.version_minor",
     "citation": "https://www.nvaccess.org/files/nvda/releases/2026.1/nvda_2026.1_changes.html"
+  },
+  "speechDictHandler.SpeechDictEntry": {
+    "status": "moved",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.SpeechDictEntry",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.SpeechDict": {
+    "status": "moved",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.SpeechDict",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.dictionaries": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "None (deprecated without replacement)",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.dictTypes": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "None (deprecated without replacement)",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_ANYWHERE": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.ANYWHERE",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_REGEXP": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.REGEXP",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_WORD": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.WORD",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_PART_WORD": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.PART_OF_WORD",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_START_WORD": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.START_OF_WORD",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_END_WORD": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.END_OF_WORD",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
+  },
+  "speechDictHandler.ENTRY_TYPE_WILDCARD": {
+    "status": "deprecated",
+    "version": "2026.2",
+    "alternative": "speechDictHandler.types.EntryType.WILDCARDS",
+    "citation": "https://www.nvaccess.org/files/nvda/releases/2026.2/nvda_2026.2_changes.html"
   }
 }

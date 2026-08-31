@@ -161,6 +161,11 @@ Para evitar conflitos de teclas de atalho com outros complementos do NVDA, o BOA
 
 ## 🛠️ Histórico de Alterações
 
+### Version 2.0.1
+#### Melhorias de UX/UI
+* **Diálogo de configurações em abas:** Reorganização do painel de configurações do BOA em abas acessíveis (&Excel, &Word e &PowerPoint) usando `wx.Notebook`, melhorando consideravelmente a navegação do leitor de tela e eliminando longas listas de rolagem. Você pode alternar rapidamente entre as abas usando `Alt+E`, `Alt+W`, `Alt+P` ou os atalhos padrão `Ctrl+PageDown`/`Ctrl+PageUp`.
+* **Compatibilidade com o NVDA 2026.2:** Testado e certificado para o NVDA 2026.2.
+
 ### Versão 2.0.0
 #### Novos Recursos
 * **PowerPoint: Analisador Completo de Documento (Experimental) (`NVDA+E`, depois `D`):** Uma ferramenta de acessibilidade altamente avançada, processada em segundo plano, que mapeia uma apresentação inteira sem travar o sintetizador de voz do NVDA. Ela fornece um Índice Virtual profundamente navegável, detecta Incompatibilidades de Ordem de Leitura (Ordem Visual vs. Ordem Z), sinaliza slides com "Muralha de Texto" (excesso de texto) e mapeia objetos complexos como SmartArt e Tabelas de Dados.

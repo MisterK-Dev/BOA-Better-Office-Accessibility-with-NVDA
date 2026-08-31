@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: 'BOA' '2.0.0'\n"
+"Project-Id-Version: 'BOA' '2.0.1'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-06-29 17:40+0530\n"
+"POT-Creation-Date: 2026-08-31 23:13+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -160,67 +160,67 @@ msgstr ""
 
 #. Translators: Options for the sheet layout announcement mode.
 #. Translators: Options for the engine used to detect the end of data.
-#: addon\appModules\boa_enhancements\boa_gui.py:66
-#: addon\appModules\boa_enhancements\boa_gui.py:88
+#: addon\appModules\boa_enhancements\boa_gui.py:73
+#: addon\appModules\boa_enhancements\boa_gui.py:92
 msgid "Off"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:66
+#: addon\appModules\boa_enhancements\boa_gui.py:73
 msgid "One-time Announcement"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:66
+#: addon\appModules\boa_enhancements\boa_gui.py:73
 msgid "Guided Announcement"
 msgstr ""
 
 #. Translators: Tooltip explaining the layout announcement mode setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:79
+#: addon\appModules\boa_enhancements\boa_gui.py:83
 msgid ""
 "Select layout announcement mode. 'Guided Announcement' requires you to press "
 "NVDA+E, L at least once per sheet to scan the layout."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:88
+#: addon\appModules\boa_enhancements\boa_gui.py:92
 msgid "Strict Memory Check (CountA)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:88
+#: addon\appModules\boa_enhancements\boa_gui.py:92
 msgid "Visible Data Only (Math Engine)"
 msgstr ""
 
 #. Translators: Tooltip explaining the end of data radar engine setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:99
+#: addon\appModules\boa_enhancements\boa_gui.py:102
 msgid "Select the engine used to detect the end of data in a row or column."
 msgstr ""
 
 #. Translators: Options for inline reading of Word notes
-#: addon\appModules\boa_enhancements\boa_gui.py:108
+#: addon\appModules\boa_enhancements\boa_gui.py:111
 msgid "Default NVDA Behavior (Reference Only)"
 msgstr ""
 
-#: addon\appModules\boa_enhancements\boa_gui.py:108
+#: addon\appModules\boa_enhancements\boa_gui.py:111
 msgid "Read Note Content Inline"
 msgstr ""
 
 #. Translators: Tooltip for inline reading of Word notes.
-#: addon\appModules\boa_enhancements\boa_gui.py:117
+#: addon\appModules\boa_enhancements\boa_gui.py:119
 msgid ""
 "Choose whether NVDA should automatically read the text of footnotes and "
 "endnotes inline with the document text."
 msgstr ""
 
 #. Translators: Automatically added by BOA compliance auditor
-#: addon\appModules\boa_enhancements\boa_gui.py:128
+#: addon\appModules\boa_enhancements\boa_gui.py:130
 msgid "Default NVDA Behavior"
 msgstr ""
 
 #. Translators: Automatically added by BOA compliance auditor
-#: addon\appModules\boa_enhancements\boa_gui.py:130
+#: addon\appModules\boa_enhancements\boa_gui.py:132
 msgid "Default Behavior + 3D Spatial Audio (Experimental)"
 msgstr ""
 
 #. Translators: Tooltip explaining the Audio Canvas mode setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:143
+#: addon\appModules\boa_enhancements\boa_gui.py:141
 msgid ""
 "Controls how NVDA announces shape movement in PowerPoint. Canvas modes "
 "translate raw math coordinates into human-readable locations like 'Top-Left "
@@ -228,146 +228,144 @@ msgid ""
 msgstr ""
 
 #. Translators: Label for the Bulk Sheet Organizer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:158
-msgid "&Excel: Enable Bulk Sheet Organizer and Quick Sheet Mover"
+#: addon\appModules\boa_enhancements\boa_gui.py:159
+msgid "Enable &Bulk Sheet Organizer and Quick Sheet Mover"
 msgstr ""
 
 #. Translators: Label for the accessible Sheet Rename setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:160
+#: addon\appModules\boa_enhancements\boa_gui.py:161
 msgid "Use accessible Sheet &Rename dialog instead of native edit field"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Excel setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:162
+#: addon\appModules\boa_enhancements\boa_gui.py:163
 msgid "Prevent NVDA &crashes in Excel text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the multi-cell selection tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:164
+#: addon\appModules\boa_enhancements\boa_gui.py:165
 msgid "Announce when a m&ulti-cell selection is unexpectedly lost"
 msgstr ""
 
 #. Translators: Label for the hidden row skip announcement setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:166
+#: addon\appModules\boa_enhancements\boa_gui.py:167
 msgid "Proactively announce when navigating past &hidden rows or columns"
 msgstr ""
 
 #. Translators: Label for the Sheet Layout Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:168
+#: addon\appModules\boa_enhancements\boa_gui.py:169
 msgid "Enable Sheet &Layout Analyzer via NVDA+E, L"
 msgstr ""
 
 #. Translators: Label for the auto-announce mode dropdown setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:170
+#: addon\appModules\boa_enhancements\boa_gui.py:171
 msgid "Sheet Layout Auto-Announce &Mode:"
 msgstr ""
 
 #. Translators: Label for the conditional formatting tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:172
+#: addon\appModules\boa_enhancements\boa_gui.py:173
 msgid "Conditional &Formatting and color"
 msgstr ""
 
 #. Translators: Label for the Cell Monitor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:174
+#: addon\appModules\boa_enhancements\boa_gui.py:175
 msgid "Enable Cell Moni&tor (slots 1-9 and continuous background monitoring)"
 msgstr ""
 
 #. Translators: Label for the End of Data Radar setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:176
+#: addon\appModules\boa_enhancements\boa_gui.py:177
 msgid ""
 "Announce when there is no more data in the direction you are &navigating"
 msgstr ""
 
 #. Translators: Label for the Formula Auditor features setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:178
+#: addon\appModules\boa_enhancements\boa_gui.py:179
 msgid "Enable Formula Auditor &features"
 msgstr ""
 
 #. Translators: Label for the merged cell tracking setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:180
-msgid "Explicitly announce m&erged cells"
+#: addon\appModules\boa_enhancements\boa_gui.py:181
+msgid "Explicitly announce mer&ged cells"
 msgstr ""
 
-#. Translators: Title of the group box containing Excel specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:183
-msgid "Excel Enhancements"
-msgstr ""
-
-#. Translators: Label for the PowerPoint color grid setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:188
-msgid ""
-"&PowerPoint: Read hidden Hex codes when navigating the Standard Color "
-"hexagon grid"
-msgstr ""
-
-#. Translators: Label for the PowerPoint hex color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:190
-msgid "Ensure the He&x Color edit field is properly labeled"
-msgstr ""
-
-#. Translators: Label for the PowerPoint RGB color edit field setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:192
-msgid "Ensure the R&GB Color edit fields are properly labeled"
-msgstr ""
-
-#. Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:194
-msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
-msgstr ""
-
-#. Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:196
-msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
-msgstr ""
-
-#. Translators: Label for the PowerPoint Slide Layout Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:198
-msgid "Enable S&lide Layout Analyzer (Prefix + L)"
-msgstr ""
-
-#. Translators: Label for the PowerPoint Document Analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:200
-msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
-msgstr ""
-
-#. Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
-#: addon\appModules\boa_enhancements\boa_gui.py:202
-msgid "Shape Movement Audio Mode:"
-msgstr ""
-
-#. Translators: Title of the group box containing PowerPoint specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:205
-msgid "PowerPoint Enhancements"
+#. Translators: Title of the Excel settings tab.
+#: addon\appModules\boa_enhancements\boa_gui.py:184
+msgid "&Excel"
 msgstr ""
 
 #. Translators: Label for the SafeRichEdit in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:209
-msgid "&Word: Prevent NVDA crashes in Word text fields (SafeRichEdit)"
+#: addon\appModules\boa_enhancements\boa_gui.py:189
+msgid "Prevent NVDA &crashes in Word text fields (SafeRichEdit)"
 msgstr ""
 
 #. Translators: Label for the list double-read fix in Word setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:211
+#: addon\appModules\boa_enhancements\boa_gui.py:191
 msgid "Prevent &double-reading of list items during paragraph navigation"
 msgstr ""
 
 #. Translators: Label for the document analyzer setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:213
+#: addon\appModules\boa_enhancements\boa_gui.py:193
 msgid "Enable Document &Analyzer via NVDA+E, D"
 msgstr ""
 
 #. Translators: Label for the format auditor setting checkbox.
-#: addon\appModules\boa_enhancements\boa_gui.py:215
+#: addon\appModules\boa_enhancements\boa_gui.py:195
 msgid "Enable Format &Auditor via NVDA+E, F"
 msgstr ""
 
 #. Translators: Label for reading word notes inline setting.
-#: addon\appModules\boa_enhancements\boa_gui.py:217
+#: addon\appModules\boa_enhancements\boa_gui.py:197
 msgid "Footnotes and Endnotes reading &mode:"
 msgstr ""
 
-#. Translators: Title of the group box containing Word specific settings.
-#: addon\appModules\boa_enhancements\boa_gui.py:220
-msgid "Word Enhancements"
+#. Translators: Title of the Word settings tab.
+#: addon\appModules\boa_enhancements\boa_gui.py:200
+msgid "&Word"
+msgstr ""
+
+#. Translators: Label for the PowerPoint color grid setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:205
+msgid "Read hidden &hex codes when navigating the Standard Color hexagon grid"
+msgstr ""
+
+#. Translators: Label for the PowerPoint hex color edit field setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:207
+msgid "Ensure the Hex Color edit &field is properly labeled"
+msgstr ""
+
+#. Translators: Label for the PowerPoint RGB color edit field setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:209
+msgid "Ensure the R&GB Color edit fields are properly labeled"
+msgstr ""
+
+#. Translators: Label for the SafeRichEdit in PowerPoint setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:211
+msgid "Prevent NVDA cr&ashes in PowerPoint text fields (SafeRichEdit)"
+msgstr ""
+
+#. Translators: Label for the PowerPoint Bulk Slide Organizer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:213
+msgid "Enable Bulk Slide Organi&zer dialog (Prefix + X)"
+msgstr ""
+
+#. Translators: Label for the PowerPoint Slide Layout Analyzer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:215
+msgid "Enable &Slide Layout Analyzer (Prefix + L)"
+msgstr ""
+
+#. Translators: Label for the PowerPoint Document Analyzer setting checkbox.
+#: addon\appModules\boa_enhancements\boa_gui.py:217
+msgid "Enable PowerPoint &Document Analyzer (Prefix + D)"
+msgstr ""
+
+#. Translators: Label for the PowerPoint Canvas Audio Mode setting dropdown.
+#: addon\appModules\boa_enhancements\boa_gui.py:219
+msgid "Shape Movement &Audio Mode:"
+msgstr ""
+
+#. Translators: Title of the PowerPoint settings tab.
+#: addon\appModules\boa_enhancements\boa_gui.py:222
+msgid "&PowerPoint"
 msgstr ""
 
 #. Translators: Dialog text prompting the user to enter a new sheet name.
@@ -2702,10 +2700,12 @@ msgstr ""
 #. Add-on description
 #: buildVars.py:18
 msgid ""
-"A powerful suite of accessibility enhancements for Microsoft Office, "
-"designed to vastly improve the screen reader experience for NVDA users. \n"
-"    \n"
-"    Key Features:\n"
+"BOA is a powerful suite of accessibility enhancements for Microsoft Office, "
+"outcome of AI assisted development; designed to vastly improve the screen "
+"reader experience for NVDA users. The Entire code base has been generated "
+"using Anti Gravity 2.0. It directly patches inaccessible UI components and "
+"introduces rapid navigation tools for Excel and PowerPoint.\n"
+"Key Features:\n"
 "    - Cell Monitor: Save and continuously track dynamic Excel cells.\n"
 "    - Sheet Layout Analyzer: Instantly scan worksheets for hidden tabs, "
 "protected states, and data blocks.\n"
@@ -2719,8 +2719,17 @@ msgid ""
 msgstr ""
 
 #. Changelog URL or None
-#: buildVars.py:43
+#: buildVars.py:42
 msgid ""
+"### Version 2.0.1\n"
+"#### UX/UI Enhancements\n"
+"* **Tabbed Settings Dialog: [inspired by Vision Assistant Pro]** Reorganized "
+"the BOA Settings Panel into accessible tabs (&Excel, &Word, and &PowerPoint) "
+"using `wx.Notebook`, vastly improving screen reader navigation and "
+"eliminating long scrolling lists.\n"
+"* **NVDA 2026.2 Compatibility:** Tested and ensured compatibility for NVDA "
+"2026.2.\n"
+"\n"
 "### Version 2.0.0\n"
 "#### New Features\n"
 "* **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then "

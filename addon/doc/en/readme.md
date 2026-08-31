@@ -1,10 +1,11 @@
 # BOA: Better Office Accessibility
 
-BOA is a powerful suite of accessibility enhancements for Microsoft Office, designed to vastly improve the screen reader experience for NVDA users. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
+BOA is a powerful suite of accessibility enhancements for Microsoft Office, outcome of AI assisted development; designed to vastly improve the screen reader experience for NVDA users. The Entire code base has been generated using Anti Gravity 2.0. It directly patches inaccessible UI components and introduces rapid navigation tools for Excel and PowerPoint.
 
 ---
 
 ## ⌨️ Hotkey Reference
+* Prefix refers to NVDA plus E, default, you can change it under input gestures.
 
 | Feature | Key Combination | Context / Notes |
 | :--- | :--- | :--- |
@@ -161,6 +162,10 @@ To prevent keystroke conflicts with other NVDA plugins, BOA uses a **Command Pre
 ---
 
 ## 🛠️ Changelog
+### Version 2.0.1
+#### UX/UI Enhancements
+* **Tabbed Settings Dialog: [inspired by Vision Assistant Pro]** Reorganized the BOA Settings Panel into accessible tabs (&Excel, &Word, and &PowerPoint) using `wx.Notebook`, vastly improving screen reader navigation and eliminating long scrolling lists.
+* **NVDA 2026.2 Compatibility:** Tested and ensured compatibility for NVDA 2026.2.
 
 ### Version 2.0.0
 #### New Features

@@ -11,3 +11,5 @@ addon/doc/en/readme.html
 # Scratch scripts
 test_*.py
 fix_boa_config.py
+scratch/
+

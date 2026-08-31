@@ -162,6 +162,11 @@ Diğer NVDA eklentileriyle tuş vuruşu çakışmalarını önlemek için BOA, b
 
 ## 🛠️ Değişiklik Günlüğü
 
+### Version 2.0.1
+#### Kullanıcı Deneyimi/Arayüz İyileştirmeleri
+* **Sekmeli Ayarlar İletişim Kutusu:** BOA Ayarlar Paneli, `wx.Notebook` kullanılarak erişilebilir sekmeler (&Excel, &Word ve &PowerPoint) halinde yeniden düzenlendi; bu sayede ekran okuyucu gezintisi büyük ölçüde kolaylaştı ve uzun kaydırma listeleri ortadan kalktı. `Alt+E`, `Alt+W`, `Alt+P` veya standart `Ctrl+PageDown`/`Ctrl+PageUp` kısayollarını kullanarak sekmeler arasında hızlıca geçiş yapabilirsiniz.
+* **NVDA 2026.2 Uyumluluğu:** NVDA 2026.2 için test edildi ve onaylandı.
+
 ### Sürüm 2.0.0
 #### Yeni Özellikler
 * **PowerPoint: Tam Belge Çözümleyici (Deneysel) (`NVDA+E`, ardından `D`):** NVDA'nın konuşma motorunu dondurmadan tüm bir sununun haritasını çıkaran son derece gelişmiş, arka planda işlenen bir erişilebilirlik aracıdır. Derinlemesine gezilebilir bir Sanal İçindekiler Tablosu sağlar, Okuma Sırası Uyuşmazlıklarını (Görsel Sıraya Karşı Z Sırası) saptar, "Metin Duvarı" slaytlarını işaretler ve SmartArt ile Veri Tabloları gibi karmaşık nesnelerin haritasını çıkarır.

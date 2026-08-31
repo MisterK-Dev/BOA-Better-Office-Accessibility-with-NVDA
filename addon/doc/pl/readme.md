@@ -162,6 +162,11 @@ Aby zapobiec konfliktom skrótów klawiszowych z innymi wtyczkami NVDA, BOA uży
 
 ## 🛠️ Dziennik zmian
 
+### Version 2.0.1
+#### Ulepszenia UX/UI
+* **Okno ustawień z kartami:** Przebudowano panel ustawień BOA na dostępne karty (&Excel, &Word i &PowerPoint) za pomocą `wx.Notebook`, co znacznie poprawia nawigację czytnikiem ekranu i eliminuje długie listy przewijania. Możesz szybko przełączać się między kartami za pomocą `Alt+E`, `Alt+W`, `Alt+P` lub standardowych skrótów `Ctrl+PageDown`/`Ctrl+PageUp`.
+* **Zgodność z NVDA 2026.2:** Przetestowano i certyfikowano pod kątem zgodności z NVDA 2026.2.
+
 ### Wersja 2.0.0
 #### Nowe funkcje
 * **PowerPoint: Kompletny analizator dokumentu (eksperymentalny) (`NVDA+E`, then `D`):** Wysoce zaawansowane, działające w tle narzędzie ułatwiające dostępność, które mapuje całą prezentację bez zamrażania silnika mowy NVDA. Zapewnia ono szczegółowy, w pełni nawigowalny wirtualny spis treści, wykrywa niezgodności kolejności czytania (kolejność wizualna kontra kolejność na osi Z), oznacza slajdy typu „ściana tekstu” oraz mapuje złożone obiekty, takie jak SmartArt i tabele danych.

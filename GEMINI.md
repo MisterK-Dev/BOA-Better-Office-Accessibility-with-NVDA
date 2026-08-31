@@ -13,7 +13,7 @@ BOA is a critical NVDA add-on designed to drastically improve the accessibility 
 ## Architectural Guidelines & Safeguards
 
 ### 1. Approved Tech Stack
-- **GUI:** Use `wxPython`.
+- **GUI:** Use `wxPython` (`wx.Notebook` tabbed interface for multi-application settings).
 - **Localization:** Use GNU `gettext` via `addonHandler.initTranslation()`.
 
 ### 2. Top 3 Anti-Patterns
