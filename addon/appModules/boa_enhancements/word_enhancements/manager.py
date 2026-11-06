@@ -19,7 +19,8 @@ This strictly adheres to `rules.mdc` modular isolation constraints.
 from appModules.boa_enhancements import boa_config  # noqa: E402
 from appModules.boa_enhancements.safe_rich_edit import SafeRichEdit  # noqa: E402
 from logHandler import log  # noqa: E402
-from appModules.boa_enhancements.word_enhancements.document_analyzer import WordDocumentAnalyzer  # noqa: E402
+from appModules.boa_enhancements.word_enhancements.document_analyzer import WordDocumentAnalyzer
+from appModules.boa_enhancements.word_enhancements.elements_organizer import WordElementsOrganizer  # noqa: E402
 
 def inject_word_safe_rich_edit(clsList):
 	"""
@@ -52,6 +53,10 @@ def handle_prefix_command(command_key, obj):
 		if boa_config.get_feature_state("word", "format_auditor"):
 			from appModules.boa_enhancements.word_enhancements.format_auditor import WordFormatAuditor
 			WordFormatAuditor.audit(obj)
+		return True
+	elif command_key == "e":
+		if boa_config.get_feature_state("word", "elements_organizer"):
+			WordElementsOrganizer.show(obj)
 		return True
 	return False
 

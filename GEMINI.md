@@ -38,6 +38,7 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 ├── .agent/
 │   ├── REFS_Sources/
 │   │   ├── NVDA 2026.1.1 Developer Guide.mhtml
+│   │   ├── NVDA 2026.2 Developer Guide.mhtml
 │   │   └── post-mortem.md
 │   ├── rules/
 │   │   └── rules.md
@@ -46,12 +47,16 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 │       │   ├── scripts/
 │       │   └── SKILL.md
 │       ├── build_fixer/
+│       │   ├── scripts/
+│       │   ├── SKILL.md
 │       │   ├── build_fixer.md
 │       │   └── fix_po_newlines.py
 │       ├── comment_analyzer/
+│       │   ├── SKILL.md
 │       │   └── comment_analyzer.md
 │       ├── compatibility_guard/
 │       │   ├── scripts/
+│       │   ├── SKILL.md
 │       │   ├── api_matrix.json
 │       │   └── compatibility_guard.md
 │       ├── compliance_auditor/
@@ -60,15 +65,25 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 │       │   └── SKILL.md
 │       ├── gesture_auditor/
 │       │   ├── scripts/
+│       │   ├── SKILL.md
 │       │   └── gesture_auditor.md
 │       ├── release_validation/
+│       │   ├── SKILL.md
 │       │   └── release_validation.md
 │       ├── security_auditor/
 │       │   ├── scripts/
 │       │   └── SKILL.md
 │       └── translation_pipeline/
 │           ├── scripts/
+│           ├── SKILL.md
 │           └── translation_pipeline.md
+├── .ruff_cache/
+│   ├── 0.15.18/
+│   │   ├── 17135564446031633965
+│   │   ├── 5218617137469280751
+│   │   └── 9685905489499562157
+│   ├── .gitignore
+│   └── CACHEDIR.TAG
 ├── addon/
 │   ├── appModules/
 │   │   ├── boa_enhancements/
@@ -76,6 +91,7 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 │   │   │   ├── powerpoint_enhancements/
 │   │   │   ├── word_enhancements/
 │   │   │   ├── __init__.py
+│   │   │   ├── async_engine.py
 │   │   │   ├── boa_config.py
 │   │   │   ├── boa_gui.py
 │   │   │   └── safe_rich_edit.py
@@ -235,6 +251,8 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 │   │       ├── LC_MESSAGES/
 │   │       └── manifest.ini
 │   └── manifest.ini
+├── scratch/
+│   └── BOA_Word_Test_Suite.docx
 ├── .gitignore
 ├── .sconsign.dblite
 ├── CHANGELOG.md
@@ -245,7 +263,6 @@ If you encounter a bug, face an architectural doubt, or are unsure of an NVDA AP
 ├── manifest-translated.ini.tpl
 ├── manifest.ini.tpl
 ├── sconstruct
-├── standards.txt
 └── style.css
 ```
 

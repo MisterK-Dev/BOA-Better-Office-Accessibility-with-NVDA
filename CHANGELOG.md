@@ -1,5 +1,13 @@
 # Changelog
 
+### Version 3.0.0
+#### New Features
+* **Word: Document Elements Organizer (`NVDA+E`, then `E`):** A comprehensive, non-blocking navigation and management organizer for Microsoft Word documents. Provides instant background scanning and review across 17 distinct element types (Comments, Revisions, Headings, Tables, Bookmarks, Hyperlinks, Footnotes, Endnotes, Fields, Form Fields, Content Controls, Drawing Shapes, Inline Shapes, Frames, Sections, Spelling Errors, and Grammatical Errors) with live text preview, in-place actions, and conflict-free keyboard shortcuts.
+* **Empty List Accessibility:** Accessible static placeholder row and speech announcements when 0 elements are discovered in a scope.
+* **Comment Threading & Replies:** Filtered child comment replies to eliminate clutter, added reply count indicators in the list, and introduced `Ctrl+Space` to announce the latest reply.
+* **Grammar Error Review:** Cleanly separated grammar preview from spelling lookups, added direct `&Review in Word...` action (`Alt+R`) to trigger Microsoft Editor suggestion cards.
+* **Infallible Offset Navigation:** Stored exact `[start_pos, end_pos]` offsets for all 17 element types with decoupled post-modal COM selection and anti-freeze guards.
+
 ### Version 2.0.0
 #### New Features
 * **PowerPoint: Complete Document Analyzer (Experimental) (`NVDA+E`, then `D`):** A highly advanced, background-processed accessibility tool that maps out an entire presentation without freezing NVDA's speech engine. It provides a deeply navigable Virtual Table of Contents, detects Reading Order Mismatches (Visual Order vs. Z-Order), flags "Wall of Text" slides, and maps complex objects like SmartArt and Data Tables.

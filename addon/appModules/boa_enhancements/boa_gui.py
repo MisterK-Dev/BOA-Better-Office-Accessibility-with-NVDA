@@ -194,7 +194,9 @@ class BOASettingsPanel(SettingsPanel):
 			# Translators: Label for the format auditor setting checkbox.
 			"format_auditor": _("Enable Format &Auditor via NVDA+E, F"),
 			# Translators: Label for reading word notes inline setting.
-			"read_word_notes_inline": _("Footnotes and Endnotes reading &mode:")
+			"read_word_notes_inline": _("Footnotes and Endnotes reading &mode:"),
+			# Translators: Label for the elements organizer setting checkbox.
+			"elements_organizer": _("Enable Document &Elements Organizer via NVDA+E, E")
 		}
 		# Translators: Title of the Word settings tab.
 		create_tab("word", _("&Word"), word_features)

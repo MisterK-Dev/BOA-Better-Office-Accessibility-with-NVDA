@@ -1,3 +1,8 @@
+---
+name: security_auditor
+description: Performs a read-only AST-based security audit of the BOA codebase, scanning for dangerous calls and NVDA-specific risks. Use during release validation or when asked to audit security.
+---
+
 # Agent Skill: Security Auditor
 
 **Trigger Phase:**

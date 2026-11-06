@@ -23,7 +23,7 @@ Key Features:
     - PowerPoint Color Pickers: Read hidden Hex and RGB codes inside standard color grids.
     
     Please refer to the add-on help documentation for a complete list of features and shortcuts."""),
-    "addon_version": "2.0.1",
+    "addon_version": "3.0.0",
     # Author(s)
     "addon_author": "MisterK with Anti Gravity2 <ravana.krn@gmail.com>",
     # URL for the add-on documentation support
@@ -39,7 +39,15 @@ Key Features:
     # True if the addon requires an update to the manifest format.
     "addon_updateChannel": None,
     # Changelog URL or None
-    "addon_changelog": _("""### Version 2.0.1
+    "addon_changelog": _("""### Version 3.0.0
+#### New Features
+* **Word: Document Elements Organizer (`NVDA+E`, then `E`):** A comprehensive, non-blocking navigation and management organizer for Microsoft Word documents. Provides instant background scanning and review across 17 distinct element types (Comments, Revisions, Headings, Tables, Bookmarks, Hyperlinks, Footnotes, Endnotes, Fields, Form Fields, Content Controls, Drawing Shapes, Inline Shapes, Frames, Sections, Spelling Errors, and Grammatical Errors) with live text preview, in-place actions, and conflict-free keyboard shortcuts.
+* **Empty List Accessibility:** Accessible static placeholder row and speech announcements when 0 elements are discovered in a scope.
+* **Comment Threading & Replies:** Filtered child comment replies to eliminate clutter, added reply count indicators in the list, and introduced `Ctrl+Space` to announce the latest reply.
+* **Grammar Error Review:** Cleanly separated grammar preview from spelling lookups, added direct `&Review in Word...` action (`Alt+R`) to trigger Microsoft Editor suggestion cards.
+* **Infallible Offset Navigation:** Stored exact `[start_pos, end_pos]` offsets for all 17 element types with decoupled post-modal COM selection and anti-freeze guards.
+
+### Version 2.0.1
 #### UX/UI Enhancements
 * **Tabbed Settings Dialog: [inspired by Vision Assistant Pro]** Reorganized the BOA Settings Panel into accessible tabs (&Excel, &Word, and &PowerPoint) using `wx.Notebook`, vastly improving screen reader navigation and eliminating long scrolling lists.
 * **NVDA 2026.2 Compatibility:** Tested and ensured compatibility for NVDA 2026.2.

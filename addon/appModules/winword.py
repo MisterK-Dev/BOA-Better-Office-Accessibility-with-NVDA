@@ -103,6 +103,16 @@ class AppModule(CoreWinwordAppModule):
 	# Translators: Description for the Format Auditor Input Gestures dialog.
 	script_formatAuditor.__doc__ = _("Audits the current Word document for visual formatting inconsistencies.")
 
+	def script_elementsOrganizer(self, gesture):
+		from appModules.boa_enhancements import boa_config
+		if boa_config.get_feature_state("word", "elements_organizer"):
+			obj = api.getFocusObject()
+			from appModules.boa_enhancements.word_enhancements.elements_organizer import WordElementsOrganizer
+			WordElementsOrganizer.show(obj)
+
+	# Translators: Description for Elements Organizer Input Gestures dialog.
+	script_elementsOrganizer.__doc__ = _("Searches and lists document elements (comments, revisions, footnotes, tables, headings) in Word.")
+
 	__gestures = {
 		"kb:NVDA+e": "triggerCommandPrefix"
 	}

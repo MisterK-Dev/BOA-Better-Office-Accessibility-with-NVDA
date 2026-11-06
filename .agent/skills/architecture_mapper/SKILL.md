@@ -1,3 +1,8 @@
+---
+name: architecture_mapper
+description: Autonomously updates the GEMINI.md onboarding document to keep the architecture map synchronized with the filesystem. Use when refactoring directories or when asked to update the architecture map.
+---
+
 # Agent Skill: Architecture Mapper
 
 **Trigger Phase:**
