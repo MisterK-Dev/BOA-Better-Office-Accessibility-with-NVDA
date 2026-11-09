@@ -2,11 +2,13 @@
 
 ### Version 3.0.0
 #### New Features
-* **Word: Document Elements Organizer (`NVDA+E`, then `E`):** A comprehensive, non-blocking navigation and management organizer for Microsoft Word documents. Provides instant background scanning and review across 17 distinct element types (Comments, Revisions, Headings, Tables, Bookmarks, Hyperlinks, Footnotes, Endnotes, Fields, Form Fields, Content Controls, Drawing Shapes, Inline Shapes, Frames, Sections, Spelling Errors, and Grammatical Errors) with live text preview, in-place actions, and conflict-free keyboard shortcuts.
+* **Word: Document Elements Organizer (NVDA+E, then E):** A comprehensive, non-blocking navigation and management organizer for Microsoft Word documents. Provides instant background scanning and review across 20 distinct element types (Comments, Revisions, Footnotes, Endnotes, Bookmarks, Headings, Tables, Hyperlinks, Fields, Form Fields, Content Controls, Drawing Shapes, Inline Shapes, Frames, Sections, Spelling Errors, Grammatical Errors, Math Equations, Citations & References, and Captions) with live text preview, in-place actions, and conflict-free keyboard shortcuts.
+* **STEM & Academic Package:** Integrated native support for Math Equations (doc.OMaths) with linear UnicodeMath preview, Citations & References (wdFieldCitation) cross-referenced against doc.Bibliography.Sources, and numbered Captions (wdFieldSequence) with adjacent object proximity audits.
+* **Interactive Action Engines:** Built-in Revision management (&Accept Alt+A, Re&ject Alt+J), in-place Comment text and author modification (Alt+M / Alt+U), and Footnote & Endnote safe text editing protected by the Safe Rich Content Guard.
+* **Deep Metadata Expansion:** Rich PageSetup details (margins in cm, orientation, paper size), Content Control 10-type taxonomy and checkbox state, Table uniformity checks (	bl.Uniform), Field dual preview, FormField status/help prompts, Heading Word style names, Bookmark StoryType, Frame dimensions in cm, and Hyperlink type/sub-address targets.
 * **Empty List Accessibility:** Accessible static placeholder row and speech announcements when 0 elements are discovered in a scope.
-* **Comment Threading & Replies:** Filtered child comment replies to eliminate clutter, added reply count indicators in the list, and introduced `Ctrl+Space` to announce the latest reply.
-* **Grammar Error Review:** Cleanly separated grammar preview from spelling lookups, added direct `&Review in Word...` action (`Alt+R`) to trigger Microsoft Editor suggestion cards.
-* **Infallible Offset Navigation:** Stored exact `[start_pos, end_pos]` offsets for all 17 element types with decoupled post-modal COM selection and anti-freeze guards.
+* **Comment Threading & Replies:** Filtered child comment replies to eliminate clutter, added reply count indicators in the list, and introduced Ctrl+Space to announce the latest reply.
+* **Infallible Offset Navigation:** Stored exact [start_pos, end_pos] offsets for all element types with decoupled post-modal COM selection and anti-freeze guards.
 
 ### Version 2.0.0
 #### New Features

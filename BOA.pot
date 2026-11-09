@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'BOA' '3.0.0'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@groups.io'\n"
-"POT-Creation-Date: 2026-11-06 20:58+0530\n"
+"POT-Creation-Date: 2026-11-08 18:14+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -881,6 +881,8 @@ msgstr ""
 
 #. Translators: String indicating no value or none.
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:44
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2365
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2367
 msgid "None"
 msgstr ""
 
@@ -1026,8 +1028,8 @@ msgstr ""
 #. Translators: Author fallback when comment author is blank
 #: addon\appModules\boa_enhancements\excel_enhancements\conditional_formatting.py:221
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:427
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:148
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1333
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:379
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2195
 msgid "Unknown"
 msgstr ""
 
@@ -1916,7 +1918,7 @@ msgstr ""
 #. Translators: Document element type in Elements Organizer
 #: addon\appModules\boa_enhancements\powerpoint_enhancements\slide_layout_analyzer.py:377
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:495
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:82
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:307
 msgid "Tables"
 msgstr ""
 
@@ -2277,7 +2279,7 @@ msgstr ""
 #. Translators: Heading for Sections list
 #. Translators: Document element type in Elements Organizer
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:389
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:98
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:323
 msgid "Sections"
 msgstr ""
 
@@ -2293,11 +2295,17 @@ msgid "Section {num}"
 msgstr ""
 
 #. Translators: Portrait Orientation
+#. Translators: Page orientation
+#. Translators: Fallback orientation
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:403
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:246
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1361
 msgid "Portrait"
 msgstr ""
 
+#. Translators: Page orientation
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:403
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:248
 msgid "Landscape"
 msgstr ""
 
@@ -2330,23 +2338,35 @@ msgid "Warning: Odd and even pages have different headers/footers."
 msgstr ""
 
 #. Translators: Automatically added by BOA compliance auditor
+#. Translators: Section break type
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:254
 msgid "Continuous"
 msgstr ""
 
+#. Translators: Section break type
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:256
 msgid "New Column"
 msgstr ""
 
+#. Translators: Section break type
+#. Translators: Fallback section start
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:258
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1373
 msgid "New Page"
 msgstr ""
 
+#. Translators: Section break type
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:260
 msgid "Even Page"
 msgstr ""
 
+#. Translators: Section break type
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:425
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:262
 msgid "Odd Page"
 msgstr ""
 
@@ -2414,7 +2434,9 @@ msgid "Text modification only in form fields: {status}"
 msgstr ""
 
 #. Translators: Automatically added by BOA compliance auditor
+#. Translators: Custom paper size
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:463
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:289
 msgid "Custom"
 msgstr ""
 
@@ -2502,8 +2524,10 @@ msgstr ""
 
 #. Translators: Automatically added by BOA compliance auditor
 #. Translators: Alternative text title of table
+#. Translators: Title of a graphic in preview pane
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:533
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1367
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2236
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2424
 #, python-brace-format
 msgid "Title: {t}"
 msgstr ""
@@ -2511,7 +2535,7 @@ msgstr ""
 #. Translators: Automatically added by BOA compliance auditor
 #. Translators: Alternative text description of table
 #: addon\appModules\boa_enhancements\word_enhancements\document_analyzer.py:537
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1370
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2239
 #, python-brace-format
 msgid "Description: {d}"
 msgstr ""
@@ -2545,341 +2569,775 @@ msgstr ""
 msgid "Word Document Analyzer"
 msgstr ""
 
-#. Translators: Word revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:28
-msgid "No Revision"
+#. Translators: Math equation display type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:27
+msgid "Inline"
 msgstr ""
 
-#. Translators: Word revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:30
-msgid "Insertion"
-msgstr ""
-
-#. Translators: Word revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:32
-msgid "Deletion"
-msgstr ""
-
-#. Translators: Word revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:34
-msgid "Property Changed"
-msgstr ""
-
-#. Translators: Word revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:36
-msgid "Paragraph Number Changed"
-msgstr ""
-
-#. Translators: Word revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:38
-msgid "Field Display Changed"
+#. Translators: Math equation display type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:29
+msgid "Display (Centered)"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:40
-msgid "Reconciled Conflict"
+msgid "No Revision"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:42
-msgid "Conflict"
+msgid "Insertion"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:44
-msgid "Style Changed"
+msgid "Deletion"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:46
-msgid "Replaced"
+msgid "Property Changed"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:48
-msgid "Paragraph Property Changed"
+msgid "Paragraph Number Changed"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:50
-msgid "Table Property Changed"
+msgid "Field Display Changed"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:52
-msgid "Section Property Changed"
+msgid "Reconciled Conflict"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:54
-msgid "Style Definition Changed"
+msgid "Conflict"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:56
-msgid "Moved From"
+msgid "Style Changed"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:58
-msgid "Moved To"
+msgid "Replaced"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:60
-msgid "Table Cell Inserted"
+msgid "Paragraph Property Changed"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:62
-msgid "Table Cell Deleted"
+msgid "Table Property Changed"
 msgstr ""
 
 #. Translators: Word revision type
 #: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:64
+msgid "Section Property Changed"
+msgstr ""
+
+#. Translators: Word revision type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:66
+msgid "Style Definition Changed"
+msgstr ""
+
+#. Translators: Word revision type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:68
+msgid "Moved From"
+msgstr ""
+
+#. Translators: Word revision type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:70
+msgid "Moved To"
+msgstr ""
+
+#. Translators: Word revision type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:72
+msgid "Table Cell Inserted"
+msgstr ""
+
+#. Translators: Word revision type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:74
+msgid "Table Cell Deleted"
+msgstr ""
+
+#. Translators: Word revision type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:76
 msgid "Table Cell Merged"
 msgstr ""
 
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:82
+msgid "AutoShape"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:84
+msgid "Callout"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:86
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:160
+msgid "Chart"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:88
+msgid "Comment"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:90
+msgid "Freeform"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:92
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:188
+msgid "Group"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:94
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:138
+msgid "Embedded OLE Object"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:96
+msgid "Form Control"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:98
+msgid "Line"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:100
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:140
+msgid "Linked OLE Object"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:102
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:144
+msgid "Linked Picture"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:104
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:146
+msgid "OLE Control Object"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:106
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:142
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:178
+msgid "Picture"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:108
+msgid "Placeholder"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:110
+msgid "Text Effect"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:112
+msgid "Media"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:114
+msgid "Text Box"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:116
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:156
+msgid "Script Anchor"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:118
+msgid "Table"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:120
+msgid "Canvas"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:122
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:162
+msgid "Diagram"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:124
+msgid "Ink"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:126
+msgid "Ink Comment"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:128
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:166
+msgid "SmartArt"
+msgstr ""
+
+#. Translators: Office shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:130
+msgid "Slicer"
+msgstr ""
+
+#. Translators: Office shape type
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:132
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:168
+msgid "Web Video"
+msgstr ""
+
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:148
+msgid "Horizontal Line"
+msgstr ""
+
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:150
+msgid "Picture with Horizontal Line"
+msgstr ""
+
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:152
+msgid "Linked Picture with Horizontal Line"
+msgstr ""
+
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:154
+msgid "Picture Bullet"
+msgstr ""
+
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:158
+msgid "OWS Anchor"
+msgstr ""
+
+#. Translators: Word inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:164
+msgid "Locked Canvas"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:174
+msgid "Rich Text"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:176
+msgid "Plain Text"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:180
+msgid "Combo Box"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:182
+msgid "Drop-Down List"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:184
+msgid "Building Block Gallery"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:186
+msgid "Date Picker"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:190
+msgid "Checkbox"
+msgstr ""
+
+#. Translators: Word content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:192
+msgid "Repeating Section"
+msgstr ""
+
+#. Translators: Word story type
+#. Translators: Check if bookmark is outside main text story
+#. Translators: Fallback story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:198
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:399
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:746
+msgid "Main Text"
+msgstr ""
+
+#. Translators: Word story type
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:70
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:200
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:299
+msgid "Footnotes"
+msgstr ""
+
+#. Translators: Word story type
+#. Translators: Document element type in Elements Organizer
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:202
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:301
+msgid "Endnotes"
+msgstr ""
+
+#. Translators: Word story type
+#. Translators: Document element type in Elements Organizer
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:204
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:295
 msgid "Comments"
 msgstr ""
 
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:206
+msgid "Text Frame"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:208
+msgid "Even Pages Header"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:210
+msgid "Primary Header"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:212
+msgid "Even Pages Footer"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:214
+msgid "Primary Footer"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:216
+msgid "First Page Header"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:218
+msgid "First Page Footer"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:220
+msgid "Footnote Separator"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:222
+msgid "Footnote Continuation Separator"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:224
+msgid "Footnote Continuation Notice"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:226
+msgid "Endnote Separator"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:228
+msgid "Endnote Continuation Separator"
+msgstr ""
+
+#. Translators: Word story type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:230
+msgid "Endnote Continuation Notice"
+msgstr ""
+
+#. Translators: Hyperlink type
+#. Translators: Fallback label for an unknown hyperlink type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:236
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:906
+msgid "Text Range"
+msgstr ""
+
+#. Translators: Hyperlink type
+#. Translators: Fallback label for an unknown shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:238
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1143
+msgid "Shape"
+msgstr ""
+
+#. Translators: Hyperlink type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:240
+msgid "Inline Shape"
+msgstr ""
+
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:72
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:297
 msgid "Revisions (Track Changes)"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:74
-msgid "Footnotes"
-msgstr ""
-
-#. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:76
-msgid "Endnotes"
-msgstr ""
-
-#. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:78
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:303
 msgid "Bookmarks"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:80
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:305
 msgid "Headings / Titles"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:84
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:309
 msgid "Hyperlinks"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:86
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:311
 msgid "Fields"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:88
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:313
 msgid "Form Fields"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:90
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:315
 msgid "Content Controls"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:92
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:317
 msgid "Drawing Shapes (Floating)"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:94
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:319
 msgid "Inline Shapes (Text Layer)"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:96
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:321
 msgid "Frames"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:100
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:325
 msgid "Spelling Errors"
 msgstr ""
 
 #. Translators: Document element type in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:102
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:327
 msgid "Grammatical Errors"
 msgstr ""
 
+#. Translators: Document element type in Elements Organizer
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:329
+msgid "Math Equations"
+msgstr ""
+
+#. Translators: Document element type in Elements Organizer
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:331
+msgid "Citations & References"
+msgstr ""
+
+#. Translators: Document element type in Elements Organizer
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:333
+msgid "Captions (Figures & Tables)"
+msgstr ""
+
 #. Translators: Search scope option in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:108
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:339
 msgid "Selection / Cursor Area"
 msgstr ""
 
 #. Translators: Search scope option in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:110
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:341
 msgid "Whole Document"
 msgstr ""
 
 #. Translators: Search scope option in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:112
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:343
 msgid "Current Page"
 msgstr ""
 
 #. Translators: Search scope option in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:114
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:345
 msgid "Cursor to End of Document"
 msgstr ""
 
 #. Translators: Search scope option in Elements Organizer
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:116
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:347
 msgid "Start of Document to Cursor"
 msgstr ""
 
 #. Translators: Comment metadata in list showing author and single reply count
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:151
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:382
 #, python-brace-format
 msgid "{author} (1 reply)"
 msgstr ""
 
 #. Translators: Comment metadata in list showing author and multiple reply count
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:154
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:385
 #, python-brace-format
 msgid "{author} ({count} replies)"
 msgstr ""
 
 #. Translators: Fallback label for an unknown revision type
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:349
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:611
 msgid "Revision"
 msgstr ""
 
 #. Translators: Table dimension format: rows by columns
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:566
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:861
 #, python-brace-format
 msgid "Table {idx} ({r}x{c}): {desc}"
 msgstr ""
 
+#. Translators: Fallback label for an unknown content control type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1073
+msgid "Content Control"
+msgstr ""
+
 #. Translators: Fallback title for an unnamed content control
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:723
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1083
 msgid "Unnamed Control"
 msgstr ""
 
+#. Translators: Checkbox checked prefix in elements list
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1089
+msgid "[Checked]"
+msgstr ""
+
+#. Translators: Checkbox unchecked prefix in elements list
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1092
+msgid "[Not Checked]"
+msgstr ""
+
+#. Translators: Prefix for text box element snippet
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1171
+#, python-brace-format
+msgid "[Text Box] {text}"
+msgstr ""
+
+#. Translators: Prefix for graphic missing alternative text
+#. Translators: Prefix for inline graphic missing alternative text
+#. Translators: Prefix for graphic missing alternative text
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1177
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1243
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2706
+#, python-brace-format
+msgid "[No Alt Text] {name}"
+msgstr ""
+
+#. Translators: Fallback label for an unknown inline shape type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1226
+msgid "Inline Graphic"
+msgstr ""
+
+#. Translators: Fallback paper size
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1367
+msgid "Standard"
+msgstr ""
+
+#. Translators: Fallback equation type name
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1523
+msgid "Equation"
+msgstr ""
+
+#. Translators: Prefix in list when a citation source is not found in bibliography
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1660
+msgid "[Unresolved Source]"
+msgstr ""
+
+#. Translators: Proximity audit indicating graphic above caption
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1751
+msgid "Image / Shape Present (Above caption)"
+msgstr ""
+
+#. Translators: Proximity audit indicating table above caption
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1754
+msgid "Table Present (Above caption)"
+msgstr ""
+
+#. Translators: Proximity audit indicating table below caption
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1764
+msgid "Table Present (Below caption)"
+msgstr ""
+
+#. Translators: Proximity audit indicating graphic below caption
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1767
+msgid "Image / Shape Present (Below caption)"
+msgstr ""
+
+#. Translators: Proximity audit when no table or image is directly adjacent
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1773
+msgid "None detected nearby (Floating shape or text-only caption)"
+msgstr ""
+
 #. Translators: Title of the Word Elements Organizer dialog
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:975
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1818
 msgid "Word Document Elements Organizer"
 msgstr ""
 
 #. Combo 1: Element Type
 #. Translators: Label for Element Type combo box
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:998
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1841
 msgid "&Element Type:"
 msgstr ""
 
 #. Combo 2: Scope
 #. Translators: Label for Scope combo box
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1008
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1851
 msgid "&Scope:"
 msgstr ""
 
 #. Translators: Column header for element index
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1022
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1865
 msgid "#"
 msgstr ""
 
 #. Translators: Column header for element text snippet
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1024
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1867
 msgid "Text / Snippet"
 msgstr ""
 
 #. Translators: Column header for author or reference metadata
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1026
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1869
 msgid "Author / Ref"
 msgstr ""
 
 #. Preview Text Control (assigned Alt+P to avoid hotkey clash with Delete Alt+D)
 #. Translators: Label for element preview text box
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1037
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1880
 msgid "Element &Preview:"
 msgstr ""
 
 #. Translators: Button to navigate Word focus to the selected element
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1047
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1890
 msgid "&Go To"
 msgstr ""
 
 #. Translators: Button to load more elements for capped scans
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1052
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1895
 msgid "&Load More"
 msgstr ""
 
 #. Translators: Button to open a hyperlink directly in the default web browser
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1058
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1901
 msgid "&Open Link"
 msgstr ""
 
 #. Translators: Button to rename a bookmark
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1064
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1907
 msgid "Re&name..."
 msgstr ""
 
 #. Translators: Button to apply a spelling suggestion
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1070
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1913
 msgid "&Apply..."
 msgstr ""
 
-#. Translators: Button to review grammatical error suggestions directly in Word
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1076
-msgid "&Review in Word..."
+#. Translators: Button to edit or add alternative text to a graphic or shape
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1919
+msgid "Edit Alt &Text..."
 msgstr ""
 
 #. Translators: Button to reply to a comment
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1082
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1925
 msgid "&Reply..."
 msgstr ""
 
+#. Translators: Button to modify the text content of a comment, footnote, or endnote
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1931
+msgid "&Modify Text..."
+msgstr ""
+
+#. Translators: Button to modify the author name of a comment
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1937
+msgid "Modify A&uthor..."
+msgstr ""
+
 #. Translators: Button to accept a tracked change revision
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1088
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1943
 msgid "&Accept"
 msgstr ""
 
 #. Translators: Button to reject a tracked change revision
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1094
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1949
 msgid "Re&ject"
 msgstr ""
 
 #. Translators: Button to delete the selected element
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1100
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1955
 msgid "&Delete"
 msgstr ""
 
 #. Translators: Button to copy all listed elements to clipboard
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1105
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1960
 msgid "&Copy All"
 msgstr ""
 
 #. Translators: Button to close dialog
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1112
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1967
 msgid "Close"
 msgstr ""
 
 #. Translators: Placeholder text displayed in list when zero elements are found
 #. Translators: Spoken announcement when spacebar is pressed on the placeholder row in an empty elements list
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1228
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1444
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2090
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2558
 msgid "No elements found"
 msgstr ""
 
 #. Translators: Announcement when zero elements are discovered
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1232
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2094
 msgid "No items found in selected scope."
 msgstr ""
 
 #. Translators: Announced when headings batch limit is reached and more paragraphs remain
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1245
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2107
 #, python-brace-format
 msgid ""
 "Found {count} headings in first {p} paragraphs. More paragraphs remain. "
@@ -2887,30 +3345,30 @@ msgid ""
 msgstr ""
 
 #. Translators: Announced when element scan batch limit is reached and more items remain
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1248
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2110
 #, python-brace-format
 msgid "Found {count} {elem_label}. Limit reached. Press Alt+L to load more."
 msgstr ""
 
 #. Translators: Announced when elements scan completes with items found
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1252
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2114
 #, python-brace-format
 msgid "Found {count} {elem_label} in {scope_label}."
 msgstr ""
 
 #. Translators: Announced when zero elements are found in selected scope
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1255
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2117
 #, python-brace-format
 msgid "No {elem_label} found in {scope_label}."
 msgstr ""
 
 #. Translators: Spoken announcement when loading more elements starts
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1270
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2132
 msgid "Loading more..."
 msgstr ""
 
 #. Translators: Announced when more elements were loaded and additional items still remain
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1301
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2163
 #, python-brace-format
 msgid ""
 "Loaded {new_n} more {elem_label}. Total {total_n} loaded. Press Alt+L to "
@@ -2918,31 +3376,31 @@ msgid ""
 msgstr ""
 
 #. Translators: Announced when more elements were loaded and end of document was reached
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1304
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2166
 #, python-brace-format
 msgid "Loaded {new_n} more {elem_label}. Total {total_n} loaded. End reached."
 msgstr ""
 
 #. Translators: Location header in element preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1329
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2191
 #, python-brace-format
 msgid "[Page {p}, Line {l}]"
 msgstr ""
 
 #. Translators: Comment details header
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1333
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2195
 #, python-brace-format
 msgid "Author: {a} | Date: {d}"
 msgstr ""
 
 #. Translators: Commented text excerpt
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1336
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2198
 #, python-brace-format
 msgid "Commented Text: \"{t}\""
 msgstr ""
 
 #. Translators: Replies section header
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1342
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2204
 #, python-brace-format
 msgid ""
 "\n"
@@ -2950,252 +3408,711 @@ msgid ""
 msgstr ""
 
 #. Translators: Summary header for revision element preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1348
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2210
 #, python-brace-format
 msgid "Type: {t} | Author: {a} | Date: {d}"
 msgstr ""
 
 #. Translators: Table dimensions summary in preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1358
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2221
 #, python-brace-format
 msgid "Dimensions: {r} rows x {c} columns"
 msgstr ""
 
+#. Translators: Indicates table has a uniform rectangular grid structure
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2224
+msgid "Grid Structure: Uniform (Clean rectangular grid)"
+msgstr ""
+
+#. Translators: Indicates table has merged or split cells
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2227
+msgid "Grid Structure: Irregular (Contains merged or split cells)"
+msgstr ""
+
 #. Translators: Indicates table row 1 repeats as a header
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1361
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2230
 msgid "Header Row: Present (Row 1 repeats across pages)"
 msgstr ""
 
 #. Translators: Indicates table has no repeated header row
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1364
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2233
 msgid "Header Row: None (Repeat header row not configured)"
 msgstr ""
 
+#. Translators: Hyperlink type in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2246
+#, python-brace-format
+msgid "Hyperlink Type: {t}"
+msgstr ""
+
 #. Translators: Label for hyperlink display text in preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1375
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2248
 #, python-brace-format
 msgid "Text: {t}"
 msgstr ""
 
 #. Translators: Label for hyperlink destination URL in preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1377
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2253
 #, python-brace-format
 msgid "Target URL: {u}"
 msgstr ""
 
+#. Translators: Label for internal bookmark or destination in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2256
+#, python-brace-format
+msgid "Internal Destination: {dest}"
+msgstr ""
+
 #. Translators: Label for bookmark name in preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1381
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2260
 #, python-brace-format
 msgid "Bookmark Name: {n}"
 msgstr ""
 
+#. Translators: Bookmark story location in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2264
+#, python-brace-format
+msgid "Location Story: {story}"
+msgstr ""
+
+#. Translators: Bookmark empty status
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2268
+msgid "Type: Empty Position Marker (No enclosed text)"
+msgstr ""
+
+#. Translators: Bookmark enclosing text status
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2271
+msgid "Type: Encloses Text"
+msgstr ""
+
+#. Translators: Bookmarked text content
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2274
+#, python-brace-format
+msgid ""
+"Bookmarked Text:\n"
+"{t}"
+msgstr ""
+
+#. Translators: Field type header in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2282
+#, python-brace-format
+msgid "Field Type: {t}"
+msgstr ""
+
+#. Translators: Rendered visual result of a field
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2285
+#, python-brace-format
+msgid ""
+"Visual Result:\n"
+"{res}"
+msgstr ""
+
+#. Translators: Formula or code underlying a field
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2287
+#, python-brace-format
+msgid ""
+"Field Code:\n"
+"{{{code}}}"
+msgstr ""
+
+#. Translators: Form field name in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2291
+#, python-brace-format
+msgid "Field Name: {name}"
+msgstr ""
+
+#. Translators: Status bar prompt configured for a form field
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2296
+#, python-brace-format
+msgid "Status Prompt: {text}"
+msgstr ""
+
+#. Translators: Help text prompt configured for a form field
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2299
+#, python-brace-format
+msgid "Help Text: {text}"
+msgstr ""
+
+#. Translators: Form field current value
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2302
+#, python-brace-format
+msgid "Current Value: {val}"
+msgstr ""
+
+#. Translators: Content control type in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2308
+#, python-brace-format
+msgid "Control Type: {t}"
+msgstr ""
+
+#. Translators: Content control title in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2311
+#, python-brace-format
+msgid "Title: {title}"
+msgstr ""
+
+#. Translators: Content control tag in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2314
+#, python-brace-format
+msgid "Tag: {tag}"
+msgstr ""
+
+#. Translators: Checkbox content control state in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2319
+msgid "State: Checked (Yes)"
+msgstr ""
+
+#. Translators: Checkbox content control state in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2322
+msgid "State: Not Checked (No)"
+msgstr ""
+
+#. Translators: Content control text contents in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2325
+#, python-brace-format
+msgid ""
+"Content:\n"
+"{text}"
+msgstr ""
+
+#. Translators: Heading level and Word style name in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2332
+#, python-brace-format
+msgid "Level: Heading {lvl} | Style: {style}"
+msgstr ""
+
+#. Translators: Heading level in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2335
+#, python-brace-format
+msgid "Level: Heading {lvl}"
+msgstr ""
+
+#. Translators: Frame dimensions in preview pane (centimeters)
+#. Translators: Graphic dimensions in preview pane (centimeters)
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2344
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2416
+#, python-brace-format
+msgid "Dimensions: {w} cm wide x {h} cm high"
+msgstr ""
+
+#. Translators: Frame text content in preview pane
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2347
+#, python-brace-format
+msgid ""
+"Frame Content:\n"
+"{text}"
+msgstr ""
+
+#. Translators: Section layout summary in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2361
+#, python-brace-format
+msgid "Orientation: {orient} | Paper Size: {paper} | Break: {start_t}"
+msgstr ""
+
+#. Translators: Margins summary in centimeters
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2363
+#, python-brace-format
+msgid ""
+"Margins: Top {top} cm, Bottom {bot} cm, Left {left} cm, Right {right} cm"
+msgstr ""
+
+#. Translators: Header presence in section
+#. Translators: Footer presence in section
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2365
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2367
+msgid "Present"
+msgstr ""
+
+#. Translators: Presence of headers and footers in section
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2369
+#, python-brace-format
+msgid "Headers: {h} | Footers: {f}"
+msgstr ""
+
 #. Translators: Label for spelling error text in preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1387
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2375
 #, python-brace-format
 msgid "Spelling Error: {word}"
 msgstr ""
 
 #. Translators: Label for spelling suggestions in preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1400
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2388
 #, python-brace-format
 msgid "Suggestions: {s}"
 msgstr ""
 
 #. Translators: Spoken when no spelling suggestions are found
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1403
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2391
 msgid "Suggestions: None found"
 msgstr ""
 
 #. Translators: Header for grammatical error preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1407
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2395
 msgid "Type: Grammatical / Style Error"
 msgstr ""
 
 #. Translators: Label for sentence in grammatical error preview
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1409
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2397
 #, python-brace-format
 msgid "Sentence: \"{text}\""
 msgstr ""
 
 #. Translators: Explanatory note in preview for how to review grammar suggestions
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1411
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2399
 msgid ""
 "Suggestions: Managed by Microsoft Editor.\n"
-"Press Alt+R or click 'Review in Word' to open suggestions directly in Word."
+"Press Enter or click 'Go To' to navigate to this error in Word, then press "
+"Alt+DownArrow or Shift+F10 to review suggestions."
+msgstr ""
+
+#. Translators: Fallback label for a graphic element
+#. Translators: Fallback name for a graphic without a title
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2403
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2687
+msgid "Graphic"
+msgstr ""
+
+#. Translators: Shape type in preview pane
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2413
+#, python-brace-format
+msgid "Type: {t}"
+msgstr ""
+
+#. Translators: Label for text box contents in preview pane
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2420
+#, python-brace-format
+msgid ""
+"Text Content:\n"
+"{text}"
+msgstr ""
+
+#. Translators: Alternative text description of a graphic in preview pane
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2427
+#, python-brace-format
+msgid ""
+"Alternative Text:\n"
+"{desc}"
+msgstr ""
+
+#. Translators: Status indicator when a graphic has no alternative text
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2430
+msgid "Alt Text Status: MISSING (Inaccessible to screen readers)"
+msgstr ""
+
+#. Translators: Guidance for editing missing alternative text
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2432
+msgid "Press Alt+T or click 'Edit Alt Text' to add a description."
+msgstr ""
+
+#. Translators: Math equation type header in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2440
+#, python-brace-format
+msgid "Equation Type: {t}"
+msgstr ""
+
+#. Translators: Header for visual rendered formula in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2443
+#, python-brace-format
+msgid ""
+"Visual Formula Rendering:\n"
+"{math}"
+msgstr ""
+
+#. Translators: Enclosing context header for equation preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2446
+#, python-brace-format
+msgid ""
+"Enclosing Context:\n"
+"\"{context}\""
+msgstr ""
+
+#. Translators: Header for visual rendered in-text citation in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2457
+#, python-brace-format
+msgid ""
+"Visual In-Text Citation:\n"
+"{res}"
+msgstr ""
+
+#. Translators: Citation tag / key header in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2459
+#, python-brace-format
+msgid "Citation Key: {key}"
+msgstr ""
+
+#. Translators: Indicates citation key was verified in master bibliography
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2463
+msgid "Source Status: Verified in Bibliography"
+msgstr ""
+
+#. Translators: Master bibliography source entry in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2476
+#, python-brace-format
+msgid ""
+"Bibliographic Reference:\n"
+"{ref}"
+msgstr ""
+
+#. Translators: Indicates citation key could not be found in bibliography
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2479
+msgid "Source Status: UNRESOLVED (Source missing from Bibliography)"
+msgstr ""
+
+#. Translators: Context sentence for citation in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2483
+#, python-brace-format
+msgid ""
+"Cited In Sentence:\n"
+"\"{sent}\""
+msgstr ""
+
+#. Translators: Raw citation field code in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2486
+#, python-brace-format
+msgid "Field Code: {{{code}}}"
+msgstr ""
+
+#. Translators: Header for rendered visual caption in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2497
+#, python-brace-format
+msgid ""
+"Visual Caption (As Rendered):\n"
+"{cap}"
+msgstr ""
+
+#. Translators: Category and sequence number for caption in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2499
+#, python-brace-format
+msgid "Category: {cat} | Number: {num}"
+msgstr ""
+
+#. Translators: Caption description text without label
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2502
+#, python-brace-format
+msgid "Description: {desc}"
+msgstr ""
+
+#. Translators: Proximity check audit in preview
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2505
+#, python-brace-format
+msgid "Associated Object: {obj}"
 msgstr ""
 
 #. Translators: Spoken announcement of latest comment reply
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1436
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2550
 #, python-brace-format
 msgid "Latest reply from {author}: {text}"
 msgstr ""
 
 #. Translators: Spoken announcement when Ctrl+Space is pressed on a comment with no replies
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1439
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2553
 msgid "No replies to this comment."
 msgstr ""
 
+#. Translators: Spoken when a hyperlink points to an internal bookmark or heading
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2588
+#, python-brace-format
+msgid ""
+"Internal document link to '{dest}'. Press Enter or click 'Go To' to jump to "
+"it in Word."
+msgstr ""
+
 #. Translators: Spoken when a hyperlink has no target address
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1471
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2592
 msgid "No target address for this hyperlink."
 msgstr ""
 
 #. Translators: Spoken when a hyperlink is opened in browser
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1476
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2597
 #, python-brace-format
 msgid "Opening link in browser: {url}"
 msgstr ""
 
 #. Translators: Spoken when opening a hyperlink fails
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1480
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2601
 #, python-brace-format
 msgid "Failed to open link: {err}"
 msgstr ""
 
 #. Translators: Prompt for renaming a bookmark
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1488
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2609
 #, python-brace-format
 msgid "Enter new name for bookmark '{old}':"
 msgstr ""
 
 #. Translators: Title of rename bookmark dialog
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1490
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2611
 msgid "Rename Bookmark"
 msgstr ""
 
 #. Translators: Error message for invalid Word bookmark name
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1499
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2620
 msgid ""
 "Invalid bookmark name. It must start with a letter and contain only letters, "
 "numbers, and underscores (no spaces)."
 msgstr ""
 
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1499
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2620
 msgid "Error"
 msgstr ""
 
 #. Translators: Spoken when a bookmark is successfully renamed
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1516
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2637
 #, python-brace-format
 msgid "Bookmark renamed to {name}"
 msgstr ""
 
 #. Translators: Error message when renaming a bookmark fails
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1520
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2641
 #, python-brace-format
 msgid "Failed to rename bookmark: {err}"
 msgstr ""
 
 #. Translators: Spoken when no suggestions are available to apply
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1547
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2651
 msgid "No suggestions available for this word."
 msgstr ""
 
 #. Translators: Dialog prompt to select a spelling replacement
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1550
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2654
 #, python-brace-format
 msgid "Select replacement for '{word}':"
 msgstr ""
 
 #. Translators: Dialog title for applying a spelling replacement
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1552
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2656
 msgid "Apply Correction"
 msgstr ""
 
 #. Translators: Spoken when spelling replacement is applied
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1570
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2674
 #, python-brace-format
 msgid "Replaced with {word}"
 msgstr ""
 
 #. Translators: Error message when replacing spelling fails
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1574
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2678
 #, python-brace-format
 msgid "Failed to apply correction: {err}"
 msgstr ""
 
+#. Translators: Prompt message to enter alternative text for a graphic
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2689
+#, python-brace-format
+msgid "Enter alternative text description for '{name}':"
+msgstr ""
+
+#. Translators: Title of the alternative text editor dialog
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2691
+msgid "Edit Alternative Text"
+msgstr ""
+
+#. Translators: Spoken announcement when alternative text is successfully updated
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2712
+msgid "Alternative text updated."
+msgstr ""
+
+#. Translators: Error message when updating alternative text fails
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2716
+#, python-brace-format
+msgid "Failed to update alternative text: {err}"
+msgstr ""
+
 #. Translators: Dialog title for comment reply
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1583
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2725
 msgid "Reply to Comment"
 msgstr ""
 
 #. Translators: Message prompt for comment reply text
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1585
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2727
 msgid "Enter reply text:"
 msgstr ""
 
 #. Translators: Success announcement
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1594
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2736
 msgid "Reply added."
 msgstr ""
 
 #. Translators: Error adding reply
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1599
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2741
 msgid "Failed to add reply."
 msgstr ""
 
-#. Translators: Success announcement
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1608
+#. Translators: Element type label for footnote
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2772
+msgid "footnote"
+msgstr ""
+
+#. Translators: Element type label for endnote
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2774
+msgid "endnote"
+msgstr ""
+
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2780
+#, python-brace-format
+msgid ""
+"This {note_type} contains non-text elements (such as embedded fields, math "
+"equations, or images). Editing it in plain text would remove those objects.\n"
+"\n"
+"To protect your document formatting, please use 'Go To' to edit this note "
+"directly in Microsoft Word."
+msgstr ""
+
+#. Translators: Title of warning dialog for rich note content
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2785
+msgid "Rich Content Warning"
+msgstr ""
+
+#. Translators: Prompt message for modifying footnote or endnote text
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2790
+#, python-brace-format
+msgid "Enter new text for {note_type}:"
+msgstr ""
+
+#. Translators: Title of footnote text modification dialog
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2792
+msgid "Modify Footnote"
+msgstr ""
+
+#. Translators: Title of endnote text modification dialog
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2794
+msgid "Modify Endnote"
+msgstr ""
+
+#. Translators: Success announcement when note text is modified
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2817
+#, python-brace-format
+msgid "{note_type} text updated."
+msgstr ""
+
+#. Translators: Error message when modifying note text fails
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2821
+#, python-brace-format
+msgid "Failed to update {note_type} text."
+msgstr ""
+
+#. Translators: Prompt message for modifying comment text
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2828
+msgid "Enter new text for comment:"
+msgstr ""
+
+#. Translators: Title of comment text modification dialog
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2830
+msgid "Modify Comment Text"
+msgstr ""
+
+#. Translators: Success announcement when comment text is modified
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2849
+msgid "Comment text updated."
+msgstr ""
+
+#. Translators: Error message when modifying comment text fails
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2853
+msgid "Failed to update comment text."
+msgstr ""
+
+#. Translators: Prompt message for modifying comment author name
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2863
+msgid "Enter new author name for comment:"
+msgstr ""
+
+#. Translators: Title of comment author modification dialog
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2865
+msgid "Modify Comment Author"
+msgstr ""
+
+#. Translators: Success announcement when comment author is modified
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2881
+#, python-brace-format
+msgid "Comment author updated to {name}"
+msgstr ""
+
+#. Translators: Error message when modifying comment author fails
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2885
+msgid "Failed to update comment author."
+msgstr ""
+
+#. Translators: Success announcement when a revision is accepted
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2894
 msgid "Revision accepted."
 msgstr ""
 
-#. Translators: Success announcement
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1619
+#. Translators: Error message when accepting revision fails
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2899
+msgid "Failed to accept revision."
+msgstr ""
+
+#. Translators: Success announcement when a revision is rejected
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2907
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2935
 msgid "Revision rejected."
 msgstr ""
 
-#. Translators: Confirmation prompt before deleting an element
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1628
-#, python-brace-format
-msgid "Are you sure you want to delete this {type}?"
+#. Translators: Error message when rejecting revision fails
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2912
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2940
+msgid "Failed to reject revision."
 msgstr ""
 
-#. Translators: Confirmation title
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1630
+#. Translators: Confirmation prompt before rejecting a tracked change revision
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2928
+#, python-brace-format
+msgid "Are you sure you want to reject '{name}' ({type})?"
+msgstr ""
+
+#. Translators: Title of confirmation dialog before rejecting a revision
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2930
+msgid "Confirm Rejection"
+msgstr ""
+
+#. Standard deletion for comments, bookmarks, footnotes, endnotes, tables, shapes, frames, hyperlinks, equations, citations, captions
+#. Translators: Confirmation prompt before deleting an element with its name and type
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2945
+#, python-brace-format
+msgid "Are you sure you want to delete '{name}' ({type})?"
+msgstr ""
+
+#. Translators: Title of confirmation dialog before deleting an element
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2947
 msgid "Confirm Deletion"
 msgstr ""
 
 #. Translators: Success announcement
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1635
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2958
 msgid "Item deleted."
 msgstr ""
 
 #. Translators: Error deleting item
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1640
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2963
 msgid "Failed to delete element."
 msgstr ""
 
 #. Translators: Success announcement when items copied to clipboard
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1657
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:2980
 #, python-brace-format
 msgid "Copied {n} items to clipboard."
 msgstr ""
 
-#. Translators: Spoken when opening Microsoft Editor suggestions
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1742
-msgid "Opening Microsoft Editor suggestions..."
-msgstr ""
-
 #. Translators: Spoken after jumping to a grammatical error in Word
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1751
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:3087
 msgid ""
 "Navigated to grammatical error. Press Alt+DownArrow or Shift+F10 to review "
 "suggestions."
 msgstr ""
 
 #. Translators: Error navigating to element
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1754
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1758
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:3090
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:3094
 msgid "Failed to jump to element."
 msgstr ""
 
 #. Translators: Error message when Word COM document is unavailable
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1770
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:3106
 msgid "Cannot access Word document."
 msgstr ""
 
 #. Translators: Error message launching dialog
-#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:1779
+#: addon\appModules\boa_enhancements\word_enhancements\elements_organizer.py:3115
 msgid "Failed to open Elements Organizer."
 msgstr ""
 

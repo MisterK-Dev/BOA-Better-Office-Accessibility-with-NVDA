@@ -12,7 +12,6 @@ import wx
 import core
 import gui
 from logHandler import log
-from keyboardHandler import KeyboardInputGesture
 from appModules.boa_enhancements.async_engine import AsyncCOMTask
 
 addonHandler.initTranslation()
@@ -21,6 +20,19 @@ addonHandler.initTranslation()
 WD_FIRST_CHAR_LINE = 10  # wdFirstCharacterLineNumber
 WD_ACTIVE_END_PAGE = 3   # wdActiveEndPageNumber
 WD_ACTIVE_END_ADJ_PAGE = 1 # wdActiveEndAdjustedPageNumber
+
+# Math Equation Types mapping
+WD_OMATH_TYPES = {
+	# Translators: Math equation display type
+	0: _("Inline"),
+	# Translators: Math equation display type
+	1: _("Display (Centered)"),
+}
+
+# Word Field Types
+WD_FIELD_CITATION = 96
+WD_FIELD_BIBLIOGRAPHY = 56
+WD_FIELD_SEQUENCE = 12
 
 # Revision Types mapping
 REVISION_TYPES = {
@@ -64,6 +76,219 @@ REVISION_TYPES = {
 	18: _("Table Cell Merged"),
 }
 
+# Office MsoShapeType mapping
+MSO_SHAPE_TYPES = {
+	# Translators: Office shape type
+	1: _("AutoShape"),
+	# Translators: Office shape type
+	2: _("Callout"),
+	# Translators: Office shape type
+	3: _("Chart"),
+	# Translators: Office shape type
+	4: _("Comment"),
+	# Translators: Office shape type
+	5: _("Freeform"),
+	# Translators: Office shape type
+	6: _("Group"),
+	# Translators: Office shape type
+	7: _("Embedded OLE Object"),
+	# Translators: Office shape type
+	8: _("Form Control"),
+	# Translators: Office shape type
+	9: _("Line"),
+	# Translators: Office shape type
+	10: _("Linked OLE Object"),
+	# Translators: Office shape type
+	11: _("Linked Picture"),
+	# Translators: Office shape type
+	12: _("OLE Control Object"),
+	# Translators: Office shape type
+	13: _("Picture"),
+	# Translators: Office shape type
+	14: _("Placeholder"),
+	# Translators: Office shape type
+	15: _("Text Effect"),
+	# Translators: Office shape type
+	16: _("Media"),
+	# Translators: Office shape type
+	17: _("Text Box"),
+	# Translators: Office shape type
+	18: _("Script Anchor"),
+	# Translators: Office shape type
+	19: _("Table"),
+	# Translators: Office shape type
+	20: _("Canvas"),
+	# Translators: Office shape type
+	21: _("Diagram"),
+	# Translators: Office shape type
+	22: _("Ink"),
+	# Translators: Office shape type
+	23: _("Ink Comment"),
+	# Translators: Office shape type
+	24: _("SmartArt"),
+	# Translators: Office shape type
+	25: _("Slicer"),
+	# Translators: Office shape type
+	26: _("Web Video"),
+}
+
+# Word WdInlineShapeType mapping
+WD_INLINE_SHAPE_TYPES = {
+	# Translators: Word inline shape type
+	1: _("Embedded OLE Object"),
+	# Translators: Word inline shape type
+	2: _("Linked OLE Object"),
+	# Translators: Word inline shape type
+	3: _("Picture"),
+	# Translators: Word inline shape type
+	4: _("Linked Picture"),
+	# Translators: Word inline shape type
+	5: _("OLE Control Object"),
+	# Translators: Word inline shape type
+	6: _("Horizontal Line"),
+	# Translators: Word inline shape type
+	7: _("Picture with Horizontal Line"),
+	# Translators: Word inline shape type
+	8: _("Linked Picture with Horizontal Line"),
+	# Translators: Word inline shape type
+	9: _("Picture Bullet"),
+	# Translators: Word inline shape type
+	10: _("Script Anchor"),
+	# Translators: Word inline shape type
+	11: _("OWS Anchor"),
+	# Translators: Word inline shape type
+	12: _("Chart"),
+	# Translators: Word inline shape type
+	13: _("Diagram"),
+	# Translators: Word inline shape type
+	14: _("Locked Canvas"),
+	# Translators: Word inline shape type
+	15: _("SmartArt"),
+	# Translators: Word inline shape type
+	16: _("Web Video"),
+}
+
+# Word Content Control Types mapping
+WD_CONTENT_CONTROL_TYPES = {
+	# Translators: Word content control type
+	0: _("Rich Text"),
+	# Translators: Word content control type
+	1: _("Plain Text"),
+	# Translators: Word content control type
+	2: _("Picture"),
+	# Translators: Word content control type
+	3: _("Combo Box"),
+	# Translators: Word content control type
+	4: _("Drop-Down List"),
+	# Translators: Word content control type
+	5: _("Building Block Gallery"),
+	# Translators: Word content control type
+	6: _("Date Picker"),
+	# Translators: Word content control type
+	7: _("Group"),
+	# Translators: Word content control type
+	8: _("Checkbox"),
+	# Translators: Word content control type
+	9: _("Repeating Section"),
+}
+
+# Word Story Types mapping
+WD_STORY_TYPES = {
+	# Translators: Word story type
+	1: _("Main Text"),
+	# Translators: Word story type
+	2: _("Footnotes"),
+	# Translators: Word story type
+	3: _("Endnotes"),
+	# Translators: Word story type
+	4: _("Comments"),
+	# Translators: Word story type
+	5: _("Text Frame"),
+	# Translators: Word story type
+	6: _("Even Pages Header"),
+	# Translators: Word story type
+	7: _("Primary Header"),
+	# Translators: Word story type
+	8: _("Even Pages Footer"),
+	# Translators: Word story type
+	9: _("Primary Footer"),
+	# Translators: Word story type
+	10: _("First Page Header"),
+	# Translators: Word story type
+	11: _("First Page Footer"),
+	# Translators: Word story type
+	12: _("Footnote Separator"),
+	# Translators: Word story type
+	13: _("Footnote Continuation Separator"),
+	# Translators: Word story type
+	14: _("Footnote Continuation Notice"),
+	# Translators: Word story type
+	15: _("Endnote Separator"),
+	# Translators: Word story type
+	16: _("Endnote Continuation Separator"),
+	# Translators: Word story type
+	17: _("Endnote Continuation Notice"),
+}
+
+# Office Hyperlink Types mapping
+MSO_HYPERLINK_TYPES = {
+	# Translators: Hyperlink type
+	0: _("Text Range"),
+	# Translators: Hyperlink type
+	1: _("Shape"),
+	# Translators: Hyperlink type
+	2: _("Inline Shape"),
+}
+
+# Word Page Orientation mapping
+WD_PAGE_ORIENTATIONS = {
+	# Translators: Page orientation
+	0: _("Portrait"),
+	# Translators: Page orientation
+	1: _("Landscape"),
+}
+
+# Word Section Break Start mapping
+WD_SECTION_STARTS = {
+	# Translators: Section break type
+	0: _("Continuous"),
+	# Translators: Section break type
+	1: _("New Column"),
+	# Translators: Section break type
+	2: _("New Page"),
+	# Translators: Section break type
+	3: _("Even Page"),
+	# Translators: Section break type
+	4: _("Odd Page"),
+}
+
+# Word Paper Size mapping
+WD_PAPER_SIZES = {
+	0: "10x14",
+	1: "11x17",
+	2: "Letter",
+	3: "Letter Small",
+	4: "Legal",
+	5: "Executive",
+	6: "A3",
+	7: "A4",
+	8: "A4 Small",
+	9: "A5",
+	10: "B4",
+	11: "B5",
+	12: "C Sheet",
+	13: "D Sheet",
+	14: "E Sheet",
+	18: "Folio",
+	19: "Ledger",
+	20: "Note",
+	21: "Quarto",
+	22: "Statement",
+	23: "Tabloid",
+	# Translators: Custom paper size
+	41: _("Custom"),
+}
+
 # Supported Element Types
 ELEMENT_TYPES = [
 	# Translators: Document element type in Elements Organizer
@@ -100,6 +325,12 @@ ELEMENT_TYPES = [
 	("spellingerror", _("Spelling Errors")),
 	# Translators: Document element type in Elements Organizer
 	("grammaticalerror", _("Grammatical Errors")),
+	# Translators: Document element type in Elements Organizer
+	("equation", _("Math Equations")),
+	# Translators: Document element type in Elements Organizer
+	("citation", _("Citations & References")),
+	# Translators: Document element type in Elements Organizer
+	("caption", _("Captions (Figures & Tables)")),
 ]
 
 # Supported Search Scopes
@@ -153,6 +384,37 @@ class WordElementItem:
 				# Translators: Comment metadata in list showing author and multiple reply count
 				return _("{author} ({count} replies)").format(author=author, count=reply_count)
 			return author
+		elif self.elem_type in ("drawingshape", "inlineshape"):
+			return self.extra.get("type_name", self.ref_id)
+		elif self.elem_type == "contentcontrol":
+			return self.extra.get("type_name", self.ref_id)
+		elif self.elem_type == "heading":
+			style_name = self.extra.get("style_name")
+			if style_name:
+				return f"{self.ref_id} ({style_name})"
+			return self.ref_id
+		elif self.elem_type == "bookmark":
+			story_name = self.extra.get("story_name")
+			# Translators: Check if bookmark is outside main text story
+			if story_name and story_name != _("Main Text"):
+				return f"{self.ref_id} ({story_name})"
+			return self.ref_id
+		elif self.elem_type == "section":
+			start_type = self.extra.get("start_type")
+			if start_type:
+				return start_type
+			return self.ref_id
+		elif self.elem_type == "hyperlink":
+			type_name = self.extra.get("type_name")
+			if type_name:
+				return type_name
+			return self.author or self.ref_id
+		elif self.elem_type == "equation":
+			return self.extra.get("type_name", self.ref_id)
+		elif self.elem_type == "citation":
+			return self.extra.get("tag", self.ref_id)
+		elif self.elem_type == "caption":
+			return self.extra.get("label", self.ref_id)
 		return self.author or self.ref_id
 
 	def get_page_line(self, doc):
@@ -470,6 +732,21 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					text_val = bm.Range.Text.strip() if bm.Range and bm.Range.Text else ""
 					snippet = f"{bm_name}: {text_val[:40]}" if text_val else bm_name
 
+					is_empty = False
+					try:
+						is_empty = bool(getattr(bm, "Empty", False))
+					except Exception:
+						pass
+
+					story_int = 1
+					story_name = ""
+					try:
+						story_int = int(getattr(bm, "StoryType", 1))
+						# Translators: Fallback story type
+						story_name = WD_STORY_TYPES.get(story_int, _("Main Text"))
+					except Exception:
+						pass
+
 					item = WordElementItem(
 						raw_obj=bm,
 						elem_type="bookmark",
@@ -477,7 +754,12 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=bm_end,
 						snippet=snippet,
 						ref_id=bm_name,
-						full_text=text_val
+						full_text=text_val,
+						extra={
+							"is_empty": is_empty,
+							"story_type_int": story_int,
+							"story_name": story_name,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -511,6 +793,13 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						if len(snippet) > 60:
 							snippet = snippet[:57] + "..."
 
+						style_name = ""
+						try:
+							if hasattr(p, "Style") and p.Style:
+								style_name = getattr(p.Style, "NameLocal", "") or ""
+						except Exception:
+							pass
+
 						item = WordElementItem(
 							raw_obj=p,
 							elem_type="heading",
@@ -519,7 +808,7 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 							snippet=snippet,
 							ref_id=f"H{level}",
 							full_text=h_text,
-							extra={"level": level}
+							extra={"level": level, "style_name": style_name}
 						)
 						results.append(item)
 				except Exception as e:
@@ -561,6 +850,12 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					except Exception:
 						pass
 
+					is_uniform = True
+					try:
+						is_uniform = bool(tbl.Uniform)
+					except Exception:
+						pass
+
 					desc = title_val if title_val else first_cell_txt[:35]
 					# Translators: Table dimension format: rows by columns
 					snippet = _("Table {idx} ({r}x{c}): {desc}").format(idx=i, r=rows_c, c=cols_c, desc=desc)
@@ -578,7 +873,8 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 							"cols": cols_c,
 							"heading_format": has_hf,
 							"title": title_val,
-							"descr": descr_val
+							"descr": descr_val,
+							"is_uniform": is_uniform,
 						}
 					)
 					results.append(item)
@@ -605,9 +901,20 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					if not is_range_in_scope(hl_start, hl_end, s_start, s_end):
 						continue
 
-					disp_txt = hl.TextToDisplay or ""
-					addr = getattr(hl, "Address", "") or getattr(hl, "SubAddress", "") or ""
-					snippet = f"{disp_txt} -> {addr}"
+					hl_type_int = int(getattr(hl, "Type", 0))
+					# Translators: Fallback label for an unknown hyperlink type
+					type_name = MSO_HYPERLINK_TYPES.get(hl_type_int, _("Text Range"))
+					disp_txt = getattr(hl, "TextToDisplay", "") or ""
+					addr = getattr(hl, "Address", "") or ""
+					sub_addr = getattr(hl, "SubAddress", "") or ""
+					full_target = addr
+					if addr and sub_addr:
+						full_target = f"{addr}#{sub_addr}"
+					elif sub_addr:
+						full_target = f"#{sub_addr}"
+
+					target_snippet = full_target or addr or sub_addr
+					snippet = f"{disp_txt} -> {target_snippet}" if (disp_txt and target_snippet) else (disp_txt or target_snippet or f"Hyperlink {i}")
 					if len(snippet) > 60:
 						snippet = snippet[:57] + "..."
 
@@ -617,9 +924,15 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						start_pos=hl_start,
 						end_pos=hl_end,
 						snippet=snippet,
-						ref_id=disp_txt,
-						full_text=addr,
-						extra={"address": addr, "display": disp_txt}
+						ref_id=disp_txt or f"Hyperlink {i}",
+						full_text=full_target,
+						extra={
+							"address": addr,
+							"sub_address": sub_addr,
+							"display": disp_txt,
+							"type_int": hl_type_int,
+							"type_name": type_name,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -647,7 +960,19 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 
 					f_type = str(getattr(f, "Type", ""))
 					f_code = f.Code.Text.strip() if f.Code and f.Code.Text else ""
-					snippet = f"{{{f_code[:40]}}}"
+					result_txt = ""
+					try:
+						if f.Result and f.Result.Text:
+							result_txt = f.Result.Text.strip()
+					except Exception:
+						pass
+
+					if result_txt:
+						snippet = f"{result_txt[:30]} {{{f_code[:25]}}}"
+					else:
+						snippet = f"{{{f_code[:40]}}}"
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
 
 					item = WordElementItem(
 						raw_obj=f,
@@ -656,7 +981,12 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=f_end,
 						snippet=snippet,
 						ref_id=f"Field {f_type}",
-						full_text=f_code
+						full_text=f_code,
+						extra={
+							"field_type": f_type,
+							"code_text": f_code,
+							"result_text": result_txt,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -684,7 +1014,20 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 
 					ff_name = ff.Name
 					ff_val = ff.Result if hasattr(ff, "Result") else ""
+					status_text = ""
+					help_text = ""
+					try:
+						status_text = getattr(ff, "StatusText", "") or ""
+					except Exception:
+						pass
+					try:
+						help_text = getattr(ff, "HelpText", "") or ""
+					except Exception:
+						pass
+
 					snippet = f"{ff_name}: '{ff_val}'" if ff_val else ff_name
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
 
 					item = WordElementItem(
 						raw_obj=ff,
@@ -693,7 +1036,13 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=ff_end,
 						snippet=snippet,
 						ref_id=ff_name,
-						full_text=ff_val
+						full_text=ff_val,
+						extra={
+							"name": ff_name,
+							"status_text": status_text,
+							"help_text": help_text,
+							"type": getattr(ff, "Type", 0),
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -719,10 +1068,34 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					if not is_range_in_scope(cc_start, cc_end, s_start, s_end):
 						continue
 
+					cc_type_int = int(getattr(cc, "Type", 0))
+					# Translators: Fallback label for an unknown content control type
+					type_name = WD_CONTENT_CONTROL_TYPES.get(cc_type_int, _("Content Control"))
+					is_checkbox = (cc_type_int == 8)  # wdContentControlCheckbox
+					is_checked = False
+					if is_checkbox:
+						try:
+							is_checked = bool(getattr(cc, "Checked", False))
+						except Exception:
+							pass
+
 					# Translators: Fallback title for an unnamed content control
 					title = cc.Title or cc.Tag or _("Unnamed Control")
 					txt = cc.Range.Text.strip() if cc.Range and cc.Range.Text else ""
-					snippet = f"{title}: {txt[:40]}" if txt else title
+
+					if is_checkbox:
+						if is_checked:
+							# Translators: Checkbox checked prefix in elements list
+							state_str = _("[Checked]")
+						else:
+							# Translators: Checkbox unchecked prefix in elements list
+							state_str = _("[Not Checked]")
+						snippet = f"{state_str} {title}"
+					else:
+						snippet = f"[{type_name}] {title}: {txt[:40]}" if txt else f"[{type_name}] {title}"
+
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
 
 					item = WordElementItem(
 						raw_obj=cc,
@@ -731,7 +1104,15 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=cc_end,
 						snippet=snippet,
 						ref_id=title,
-						full_text=txt
+						full_text=txt,
+						extra={
+							"type_int": cc_type_int,
+							"type_name": type_name,
+							"is_checkbox": is_checkbox,
+							"is_checked": is_checked,
+							"title": getattr(cc, "Title", "") or "",
+							"tag": getattr(cc, "Tag", "") or "",
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -757,9 +1138,43 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					if not is_range_in_scope(sh_start, sh_end, s_start, s_end):
 						continue
 
-					sh_name = sh.Name
+					sh_type_int = int(getattr(sh, "Type", 0))
+					# Translators: Fallback label for an unknown shape type
+					type_name = MSO_SHAPE_TYPES.get(sh_type_int, _("Shape"))
+					sh_name = sh.Name or f"Shape {i}"
 					title = getattr(sh, "Title", "") or ""
-					snippet = f"{sh_name} ({title})" if title else sh_name
+					alt_text = getattr(sh, "AlternativeText", "") or ""
+					has_alt = bool(alt_text.strip() or title.strip())
+
+					# Check for text box or text frame
+					is_textbox = False
+					box_text = ""
+					try:
+						if sh_type_int == 17 or getattr(sh, "HasTextFrame", False):
+							tf = getattr(sh, "TextFrame", None)
+							if tf and getattr(tf, "HasText", False):
+								box_text = tf.TextRange.Text.strip()
+								if box_text:
+									is_textbox = True
+					except Exception:
+						pass
+
+					# Dimensions in centimeters
+					width_pt = float(getattr(sh, "Width", 0.0) or 0.0)
+					height_pt = float(getattr(sh, "Height", 0.0) or 0.0)
+					width_cm = round(width_pt * 0.03528, 1)
+					height_cm = round(height_pt * 0.03528, 1)
+
+					if is_textbox and box_text:
+						clean_box = box_text.replace("\r", " ").replace("\n", " ")
+						# Translators: Prefix for text box element snippet
+						snippet = _("[Text Box] {text}").format(text=clean_box[:40])
+					elif has_alt:
+						desc = title or alt_text
+						snippet = f"{sh_name}: {desc[:40]}"
+					else:
+						# Translators: Prefix for graphic missing alternative text
+						snippet = _("[No Alt Text] {name}").format(name=sh_name)
 
 					item = WordElementItem(
 						raw_obj=sh,
@@ -768,7 +1183,19 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=sh_end,
 						snippet=snippet,
 						ref_id=sh_name,
-						full_text=getattr(sh, "AlternativeText", "") or snippet
+						full_text=alt_text or box_text or snippet,
+						extra={
+							"shape_index": i,
+							"type_int": sh_type_int,
+							"type_name": type_name,
+							"has_alt": has_alt,
+							"alt_text": alt_text,
+							"title": title,
+							"is_textbox": is_textbox,
+							"box_text": box_text,
+							"width_cm": width_cm,
+							"height_cm": height_cm,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -794,8 +1221,26 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					if not is_range_in_scope(ish_start, ish_end, s_start, s_end):
 						continue
 
+					ish_type_int = int(getattr(ish, "Type", 0))
+					# Translators: Fallback label for an unknown inline shape type
+					type_name = WD_INLINE_SHAPE_TYPES.get(ish_type_int, _("Inline Graphic"))
 					title = getattr(ish, "Title", "") or ""
-					snippet = f"InlineShape {i} ({title})" if title else f"InlineShape {i}"
+					alt_text = getattr(ish, "AlternativeText", "") or ""
+					has_alt = bool(alt_text.strip() or title.strip())
+					ish_name = title or f"Graphic {i}"
+
+					# Dimensions in centimeters
+					width_pt = float(getattr(ish, "Width", 0.0) or 0.0)
+					height_pt = float(getattr(ish, "Height", 0.0) or 0.0)
+					width_cm = round(width_pt * 0.03528, 1)
+					height_cm = round(height_pt * 0.03528, 1)
+
+					if has_alt:
+						desc = alt_text or title
+						snippet = f"{ish_name}: {desc[:40]}"
+					else:
+						# Translators: Prefix for inline graphic missing alternative text
+						snippet = _("[No Alt Text] {name}").format(name=ish_name)
 
 					item = WordElementItem(
 						raw_obj=ish,
@@ -804,7 +1249,18 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=ish_end,
 						snippet=snippet,
 						ref_id=f"IShape {i}",
-						full_text=getattr(ish, "AlternativeText", "") or snippet
+						full_text=alt_text or snippet,
+						extra={
+							"type_int": ish_type_int,
+							"type_name": type_name,
+							"has_alt": has_alt,
+							"alt_text": alt_text,
+							"title": title,
+							"is_textbox": False,
+							"box_text": "",
+							"width_cm": width_cm,
+							"height_cm": height_cm,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -830,8 +1286,23 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					if not is_range_in_scope(fr_start, fr_end, s_start, s_end):
 						continue
 
+					width_pt = 0.0
+					height_pt = 0.0
+					try:
+						width_pt = float(getattr(fr, "Width", 0.0) or 0.0)
+					except Exception:
+						pass
+					try:
+						height_pt = float(getattr(fr, "Height", 0.0) or 0.0)
+					except Exception:
+						pass
+					width_cm = round(width_pt * 0.03528, 1)
+					height_cm = round(height_pt * 0.03528, 1)
+
 					fr_text = fr.Range.Text.strip() if fr.Range and fr.Range.Text else ""
 					snippet = f"Frame {i}: {fr_text[:40]}" if fr_text else f"Frame {i}"
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
 
 					item = WordElementItem(
 						raw_obj=fr,
@@ -840,7 +1311,11 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=fr_end,
 						snippet=snippet,
 						ref_id=f"Frame {i}",
-						full_text=fr_text
+						full_text=fr_text,
+						extra={
+							"width_cm": width_cm,
+							"height_cm": height_cm,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -866,8 +1341,62 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					if not is_range_in_scope(sec_start, sec_end, s_start, s_end):
 						continue
 
+					ps = None
+					try:
+						ps = sec.PageSetup
+					except Exception:
+						pass
+
+					orientation_name = ""
+					paper_size_name = ""
+					start_type_name = ""
+					left_cm = right_cm = top_cm = bottom_cm = 0.0
+					has_headers = False
+					has_footers = False
+
+					if ps:
+						try:
+							orient_val = getattr(ps, "Orientation", 0)
+							# Translators: Fallback orientation
+							orientation_name = WD_PAGE_ORIENTATIONS.get(orient_val, _("Portrait"))
+						except Exception:
+							pass
+						try:
+							paper_val = getattr(ps, "PaperSize", 7)
+							# Translators: Fallback paper size
+							paper_size_name = WD_PAPER_SIZES.get(paper_val, _("Standard"))
+						except Exception:
+							pass
+						try:
+							start_val = getattr(ps, "SectionStart", 2)
+							# Translators: Fallback section start
+							start_type_name = WD_SECTION_STARTS.get(start_val, _("New Page"))
+						except Exception:
+							pass
+						try:
+							left_cm = round(float(getattr(ps, "LeftMargin", 0.0) or 0.0) * 0.03528, 1)
+							right_cm = round(float(getattr(ps, "RightMargin", 0.0) or 0.0) * 0.03528, 1)
+							top_cm = round(float(getattr(ps, "TopMargin", 0.0) or 0.0) * 0.03528, 1)
+							bottom_cm = round(float(getattr(ps, "BottomMargin", 0.0) or 0.0) * 0.03528, 1)
+						except Exception:
+							pass
+
+					try:
+						if sec.Headers and sec.Headers.Count > 0:
+							has_headers = True
+					except Exception:
+						pass
+
+					try:
+						if sec.Footers and sec.Footers.Count > 0:
+							has_footers = True
+					except Exception:
+						pass
+
 					sec_txt = sec.Range.Text.strip() if sec.Range and sec.Range.Text else ""
 					snippet = f"Section {i} (Starts: '{sec_txt[:30]}...')" if sec_txt else f"Section {i}"
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
 
 					item = WordElementItem(
 						raw_obj=sec,
@@ -876,7 +1405,19 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 						end_pos=sec_end,
 						snippet=snippet,
 						ref_id=f"Section {i}",
-						full_text=snippet
+						full_text=snippet,
+						extra={
+							"section_index": i,
+							"orientation": orientation_name,
+							"paper_size": paper_size_name,
+							"start_type": start_type_name,
+							"left_cm": left_cm,
+							"right_cm": right_cm,
+							"top_cm": top_cm,
+							"bottom_cm": bottom_cm,
+							"has_headers": has_headers,
+							"has_footers": has_footers,
+						}
 					)
 					results.append(item)
 				except Exception as e:
@@ -953,6 +1494,308 @@ def extract_elements_generator(doc, selection, elem_type, scope_key, start_offse
 					results.append(item)
 				except Exception as e:
 					log.debugWarning(f"BOA ElementsOrganizer grammaticalerror error at {i}: {e}")
+
+		# 18. MATH EQUATIONS
+		elif elem_type == "equation":
+			omaths = getattr(doc, "OMaths", None)
+			count = omaths.Count if omaths else 0
+			batch_size = 200
+			end_idx = min(start_offset + batch_size - 1, count)
+			has_more = (end_idx < count)
+			next_offset = (end_idx + 1) if has_more else None
+			scanned_count = end_idx
+
+			for i in range(start_offset, end_idx + 1):
+				if i % 5 == 0:
+					yield True
+				try:
+					om = omaths(i)
+					om_r = getattr(om, "Range", None)
+					if not om_r:
+						continue
+					om_start = om_r.Start
+					om_end = om_r.End
+					if not is_range_in_scope(om_start, om_end, s_start, s_end):
+						continue
+
+					om_type_val = int(getattr(om, "Type", 0))
+					# Translators: Fallback equation type name
+					type_name = WD_OMATH_TYPES.get(om_type_val, _("Equation"))
+
+					raw_math = om_r.Text.strip() if om_r.Text else ""
+					clean_math = raw_math.replace("\r", " ").replace("\n", " ").strip()
+
+					para_text = ""
+					try:
+						p_obj = om_r.Paragraphs(1)
+						if p_obj and p_obj.Range and p_obj.Range.Text:
+							para_text = p_obj.Range.Text.strip().replace("\r", " ").replace("\n", " ")
+					except Exception:
+						pass
+
+					snippet = f"[{type_name}] {clean_math}" if clean_math else f"[{type_name}] Equation {i}"
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
+
+					item = WordElementItem(
+						raw_obj=om,
+						elem_type="equation",
+						start_pos=om_start,
+						end_pos=om_end,
+						snippet=snippet,
+						ref_id=f"Equation {i}",
+						full_text=clean_math,
+						extra={
+							"type_val": om_type_val,
+							"type_name": type_name,
+							"math_text": clean_math,
+							"para_text": para_text,
+							"equation_index": i,
+						}
+					)
+					results.append(item)
+				except Exception as e:
+					log.debugWarning(f"BOA ElementsOrganizer equation error at {i}: {e}")
+
+		# 19. CITATIONS & REFERENCES
+		elif elem_type == "citation":
+			# Pre-cache bibliography sources for fast O(1) lookup
+			bib_sources = {}
+			try:
+				b_col = getattr(doc, "Bibliography", None)
+				if b_col:
+					s_col = getattr(b_col, "Sources", None)
+					if s_col:
+						for s_idx in range(1, s_col.Count + 1):
+							try:
+								s_obj = s_col(s_idx)
+								tag_key = getattr(s_obj, "Tag", "").strip()
+								if tag_key:
+									s_title = ""
+									s_year = ""
+									s_author = ""
+									try:
+										s_title = s_obj.Field("Title") or ""
+									except Exception:
+										pass
+									try:
+										s_year = s_obj.Field("Year") or ""
+									except Exception:
+										pass
+									try:
+										s_xml = getattr(s_obj, "XML", "")
+										m_last = re.search(r'<b:Last>(.*?)</b:Last>', s_xml)
+										m_first = re.search(r'<b:First>(.*?)</b:First>', s_xml)
+										if m_last and m_first:
+											s_author = f"{m_first.group(1)} {m_last.group(1)}"
+										elif m_last:
+											s_author = m_last.group(1)
+										else:
+											s_author = s_obj.Field("Author") or ""
+									except Exception:
+										pass
+									bib_sources[tag_key.lower()] = {
+										"tag": tag_key,
+										"title": s_title,
+										"year": s_year,
+										"author": s_author,
+									}
+							except Exception:
+								pass
+			except Exception as b_err:
+				log.debugWarning(f"BOA ElementsOrganizer bibliography scan error: {b_err}")
+
+			fields = doc.Fields
+			count = fields.Count
+			batch_size = 250
+			end_idx = min(start_offset + batch_size - 1, count)
+			has_more = (end_idx < count)
+			next_offset = (end_idx + 1) if has_more else None
+			scanned_count = end_idx
+
+			for i in range(start_offset, end_idx + 1):
+				if i % 5 == 0:
+					yield True
+				try:
+					f = fields(i)
+					f_type = getattr(f, "Type", 0)
+					code_txt = f.Code.Text.strip() if f.Code and f.Code.Text else ""
+
+					is_cit = (f_type == WD_FIELD_CITATION) or code_txt.upper().startswith("CITATION")
+					if not is_cit:
+						continue
+
+					f_start = f.Code.Start
+					f_end = f.Result.End if f.Result else f.Code.End
+					if not is_range_in_scope(f_start, f_end, s_start, s_end):
+						continue
+
+					# Parse citation key / tag
+					m = re.search(r'CITATION\s+([^\s\\]+)', code_txt, re.IGNORECASE)
+					cit_tag = m.group(1).strip('"') if m else "Citation"
+
+					# Visual in-text result (e.g. "(Knuth, 1984)" or "Error! Invalid source specified.")
+					res_txt = f.Result.Text.strip() if f.Result and f.Result.Text else ""
+					clean_res = res_txt.replace("\r", " ").replace("\n", " ").strip()
+
+					is_invalid = "invalid source" in clean_res.lower()
+					source_info = bib_sources.get(cit_tag.lower())
+
+					# Enclosing sentence / paragraph
+					sentence_txt = ""
+					try:
+						sent_col = f.Code.Sentences
+						if sent_col and sent_col.Count > 0:
+							sentence_txt = sent_col(1).Text.strip().replace("\r", " ").replace("\n", " ")
+					except Exception:
+						try:
+							para_col = f.Code.Paragraphs
+							if para_col and para_col.Count > 0:
+								sentence_txt = para_col(1).Range.Text.strip().replace("\r", " ").replace("\n", " ")
+						except Exception:
+							pass
+
+					if is_invalid or not source_info:
+						# Translators: Prefix in list when a citation source is not found in bibliography
+						status_str = _("[Unresolved Source]")
+						snippet = f"{status_str} {cit_tag}"
+					else:
+						snippet = f"{clean_res}: {sentence_txt[:35]}" if clean_res else cit_tag
+
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
+
+					item = WordElementItem(
+						raw_obj=f,
+						elem_type="citation",
+						start_pos=f_start,
+						end_pos=f_end,
+						snippet=snippet,
+						ref_id=cit_tag,
+						full_text=clean_res or cit_tag,
+						extra={
+							"tag": cit_tag,
+							"code_text": code_txt,
+							"result_text": clean_res,
+							"sentence_text": sentence_txt,
+							"is_resolved": (source_info is not None) and not is_invalid,
+							"author": source_info.get("author", "") if source_info else "",
+							"title": source_info.get("title", "") if source_info else "",
+							"year": source_info.get("year", "") if source_info else "",
+						}
+					)
+					results.append(item)
+				except Exception as e:
+					log.debugWarning(f"BOA ElementsOrganizer citation error at {i}: {e}")
+
+		# 20. CAPTIONS (FIGURES, TABLES, EQUATIONS)
+		elif elem_type == "caption":
+			fields = doc.Fields
+			count = fields.Count
+			batch_size = 250
+			end_idx = min(start_offset + batch_size - 1, count)
+			has_more = (end_idx < count)
+			next_offset = (end_idx + 1) if has_more else None
+			scanned_count = end_idx
+
+			for i in range(start_offset, end_idx + 1):
+				if i % 5 == 0:
+					yield True
+				try:
+					f = fields(i)
+					f_type = getattr(f, "Type", 0)
+					code_txt = f.Code.Text.strip() if f.Code and f.Code.Text else ""
+
+					is_seq = (f_type == WD_FIELD_SEQUENCE) or code_txt.upper().startswith("SEQ")
+					if not is_seq:
+						continue
+
+					f_start = f.Code.Start
+					f_end = f.Result.End if f.Result else f.Code.End
+					if not is_range_in_scope(f_start, f_end, s_start, s_end):
+						continue
+
+					# Parse SEQ label (e.g. Figure, Table, Equation)
+					m = re.search(r'SEQ\s+([^\s\\]+)', code_txt, re.IGNORECASE)
+					label = m.group(1).strip('"') if m else "Caption"
+
+					# Sequence number rendered result (e.g. "1", "2")
+					seq_num = f.Result.Text.strip() if f.Result and f.Result.Text else ""
+
+					# Full caption paragraph
+					full_caption = ""
+					p = None
+					try:
+						p = f.Code.Paragraphs(1)
+						if p and p.Range and p.Range.Text:
+							full_caption = p.Range.Text.strip().replace("\r", " ").replace("\n", " ")
+					except Exception:
+						pass
+
+					if not full_caption:
+						full_caption = f"{label} {seq_num}".strip()
+
+					# Extract description by stripping label & sequence number
+					desc = re.sub(r'^' + re.escape(label) + r'\s+' + re.escape(seq_num) + r'[:\.\-\s]*', '', full_caption, flags=re.IGNORECASE).strip()
+					if not desc:
+						desc = full_caption
+
+					# Proximity check for adjacent graphic or table
+					adjacent_type = ""
+					if p:
+						try:
+							prev_p = p.Previous()
+							if prev_p:
+								if getattr(prev_p.Range, "InlineShapes", None) and prev_p.Range.InlineShapes.Count > 0:
+									# Translators: Proximity audit indicating graphic above caption
+									adjacent_type = _("Image / Shape Present (Above caption)")
+								elif getattr(prev_p.Range, "Tables", None) and prev_p.Range.Tables.Count > 0:
+									# Translators: Proximity audit indicating table above caption
+									adjacent_type = _("Table Present (Above caption)")
+						except Exception:
+							pass
+
+						if not adjacent_type:
+							try:
+								next_p = p.Next()
+								if next_p:
+									if getattr(next_p.Range, "Tables", None) and next_p.Range.Tables.Count > 0:
+										# Translators: Proximity audit indicating table below caption
+										adjacent_type = _("Table Present (Below caption)")
+									elif getattr(next_p.Range, "InlineShapes", None) and next_p.Range.InlineShapes.Count > 0:
+										# Translators: Proximity audit indicating graphic below caption
+										adjacent_type = _("Image / Shape Present (Below caption)")
+							except Exception:
+								pass
+
+					if not adjacent_type:
+						# Translators: Proximity audit when no table or image is directly adjacent
+						adjacent_type = _("None detected nearby (Floating shape or text-only caption)")
+
+					snippet = full_caption
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
+
+					item = WordElementItem(
+						raw_obj=f,
+						elem_type="caption",
+						start_pos=f_start,
+						end_pos=f_end,
+						snippet=snippet,
+						ref_id=label,
+						full_text=full_caption,
+						extra={
+							"label": label,
+							"seq_num": seq_num,
+							"code_text": code_txt,
+							"full_caption": full_caption,
+							"description": desc,
+							"adjacent_type": adjacent_type,
+						}
+					)
+					results.append(item)
+				except Exception as e:
+					log.debugWarning(f"BOA ElementsOrganizer caption error at {i}: {e}")
 
 	except Exception as err:
 		log.error(f"BOA ElementsOrganizer generator error: {err}", exc_info=True)
@@ -1072,17 +1915,29 @@ class WordElementsOrganizerDialog(wx.Dialog):
 		self.btn_apply.Hide()
 		self.btn_sizer.Add(self.btn_apply, 0, wx.RIGHT, 5)
 
-		# Translators: Button to review grammatical error suggestions directly in Word
-		self.btn_review_grammar = wx.Button(self, label=_("&Review in Word..."))
-		self.btn_review_grammar.Bind(wx.EVT_BUTTON, self.on_review_grammar)
-		self.btn_review_grammar.Hide()
-		self.btn_sizer.Add(self.btn_review_grammar, 0, wx.RIGHT, 5)
+		# Translators: Button to edit or add alternative text to a graphic or shape
+		self.btn_edit_alt = wx.Button(self, label=_("Edit Alt &Text..."))
+		self.btn_edit_alt.Bind(wx.EVT_BUTTON, self.on_edit_alt_text)
+		self.btn_edit_alt.Hide()
+		self.btn_sizer.Add(self.btn_edit_alt, 0, wx.RIGHT, 5)
 
 		# Translators: Button to reply to a comment
 		self.btn_reply = wx.Button(self, label=_("&Reply..."))
 		self.btn_reply.Bind(wx.EVT_BUTTON, self.on_reply)
 		self.btn_reply.Hide()
 		self.btn_sizer.Add(self.btn_reply, 0, wx.RIGHT, 5)
+
+		# Translators: Button to modify the text content of a comment, footnote, or endnote
+		self.btn_modify_text = wx.Button(self, label=_("&Modify Text..."))
+		self.btn_modify_text.Bind(wx.EVT_BUTTON, self.on_modify_text)
+		self.btn_modify_text.Hide()
+		self.btn_sizer.Add(self.btn_modify_text, 0, wx.RIGHT, 5)
+
+		# Translators: Button to modify the author name of a comment
+		self.btn_modify_author = wx.Button(self, label=_("Modify A&uthor..."))
+		self.btn_modify_author.Bind(wx.EVT_BUTTON, self.on_modify_author)
+		self.btn_modify_author.Hide()
+		self.btn_sizer.Add(self.btn_modify_author, 0, wx.RIGHT, 5)
 
 		# Translators: Button to accept a tracked change revision
 		self.btn_accept = wx.Button(self, label=_("&Accept"))
@@ -1134,12 +1989,14 @@ class WordElementsOrganizerDialog(wx.Dialog):
 
 		# 1. Visibility (Show only buttons relevant to active element type)
 		self.btn_sizer.Show(self.btn_reply, elem_type == "comment")
+		self.btn_sizer.Show(self.btn_modify_text, elem_type in ("comment", "footnote", "endnote"))
+		self.btn_sizer.Show(self.btn_modify_author, elem_type == "comment")
 		self.btn_sizer.Show(self.btn_accept, elem_type == "revision")
 		self.btn_sizer.Show(self.btn_reject, elem_type == "revision")
 		self.btn_sizer.Show(self.btn_open_link, elem_type == "hyperlink")
 		self.btn_sizer.Show(self.btn_rename, elem_type == "bookmark")
 		self.btn_sizer.Show(self.btn_apply, elem_type == "spellingerror")
-		self.btn_sizer.Show(self.btn_review_grammar, elem_type == "grammaticalerror")
+		self.btn_sizer.Show(self.btn_edit_alt, elem_type in ("drawingshape", "inlineshape"))
 		self.btn_sizer.Show(self.btn_load_more, getattr(self, "batch_has_more", False))
 
 		# 2. Enablement (Enable only when an item is available and selected)
@@ -1147,16 +2004,19 @@ class WordElementsOrganizerDialog(wx.Dialog):
 		self.btn_copy_all.Enable(has_items)
 		can_delete = has_selection and elem_type in (
 			"comment", "revision", "footnote", "endnote", "bookmark",
-			"table", "hyperlink", "drawingshape", "inlineshape", "frame"
+			"table", "hyperlink", "drawingshape", "inlineshape", "frame",
+			"equation", "citation", "caption"
 		)
 		self.btn_delete.Enable(can_delete)
 		self.btn_reply.Enable(has_selection)
+		self.btn_modify_text.Enable(has_selection and elem_type in ("comment", "footnote", "endnote"))
+		self.btn_modify_author.Enable(has_selection and elem_type == "comment")
 		self.btn_accept.Enable(has_selection)
 		self.btn_reject.Enable(has_selection)
 		self.btn_open_link.Enable(has_selection)
 		self.btn_rename.Enable(has_selection)
 		self.btn_apply.Enable(has_selection and elem_type == "spellingerror")
-		self.btn_review_grammar.Enable(has_selection and elem_type == "grammaticalerror")
+		self.btn_edit_alt.Enable(has_selection and elem_type in ("drawingshape", "inlineshape"))
 
 		self.btn_sizer.Layout()
 		self.Layout()
@@ -1215,8 +2075,10 @@ class WordElementsOrganizerDialog(wx.Dialog):
 
 		if self.items:
 			target_idx = getattr(self, "_restore_index", 0)
-			if target_idx < 0 or target_idx >= len(self.items):
+			if target_idx < 0:
 				target_idx = 0
+			elif target_idx >= len(self.items):
+				target_idx = max(0, len(self.items) - 1)
 			# Automatically select and focus the target element so screen reader announces it upon tabbing
 			self.list_ctrl.SetItemState(target_idx, wx.LIST_STATE_SELECTED | wx.LIST_STATE_FOCUSED, wx.LIST_STATE_SELECTED | wx.LIST_STATE_FOCUSED)
 			self._display_item_preview(self.items[target_idx])
@@ -1354,8 +2216,15 @@ class WordElementsOrganizerDialog(wx.Dialog):
 			has_hf = item.extra.get("heading_format", False)
 			tbl_title = item.extra.get("title", "")
 			tbl_descr = item.extra.get("descr", "")
+			is_uniform = item.extra.get("is_uniform", True)
 			# Translators: Table dimensions summary in preview
 			txt_parts.append(_("Dimensions: {r} rows x {c} columns").format(r=rows_c, c=cols_c))
+			if is_uniform:
+				# Translators: Indicates table has a uniform rectangular grid structure
+				txt_parts.append(_("Grid Structure: Uniform (Clean rectangular grid)"))
+			else:
+				# Translators: Indicates table has merged or split cells
+				txt_parts.append(_("Grid Structure: Irregular (Contains merged or split cells)"))
 			if has_hf:
 				# Translators: Indicates table row 1 repeats as a header
 				txt_parts.append(_("Header Row: Present (Row 1 repeats across pages)"))
@@ -1371,16 +2240,135 @@ class WordElementsOrganizerDialog(wx.Dialog):
 			txt_parts.append(f"\n{item.full_text}")
 
 		elif item.elem_type == "hyperlink":
+			type_name = item.extra.get("type_name", "")
+			if type_name:
+				# Translators: Hyperlink type in preview
+				txt_parts.append(_("Hyperlink Type: {t}").format(t=type_name))
 			# Translators: Label for hyperlink display text in preview
 			txt_parts.append(_("Text: {t}").format(t=item.ref_id))
-			# Translators: Label for hyperlink destination URL in preview
-			txt_parts.append(_("Target URL: {u}").format(u=item.full_text))
+			addr = item.extra.get("address", "")
+			sub_addr = item.extra.get("sub_address", "")
+			if addr:
+				# Translators: Label for hyperlink destination URL in preview
+				txt_parts.append(_("Target URL: {u}").format(u=addr))
+			if sub_addr:
+				# Translators: Label for internal bookmark or destination in preview
+				txt_parts.append(_("Internal Destination: {dest}").format(dest=sub_addr))
 
 		elif item.elem_type == "bookmark":
 			# Translators: Label for bookmark name in preview
 			txt_parts.append(_("Bookmark Name: {n}").format(n=item.ref_id))
+			st_name = item.extra.get("story_name", "")
+			if st_name:
+				# Translators: Bookmark story location in preview
+				txt_parts.append(_("Location Story: {story}").format(story=st_name))
+			is_empty = item.extra.get("is_empty", False)
+			if is_empty:
+				# Translators: Bookmark empty status
+				txt_parts.append(_("Type: Empty Position Marker (No enclosed text)"))
+			else:
+				# Translators: Bookmark enclosing text status
+				txt_parts.append(_("Type: Encloses Text"))
 			if item.full_text:
-				txt_parts.append(item.full_text)
+				# Translators: Bookmarked text content
+				txt_parts.append(_("Bookmarked Text:\n{t}").format(t=item.full_text))
+
+		elif item.elem_type == "field":
+			f_type = item.extra.get("field_type", "")
+			res_txt = item.extra.get("result_text", "")
+			code_txt = item.extra.get("code_text", item.full_text)
+			if f_type:
+				# Translators: Field type header in preview
+				txt_parts.append(_("Field Type: {t}").format(t=f_type))
+			if res_txt:
+				# Translators: Rendered visual result of a field
+				txt_parts.append(_("Visual Result:\n{res}").format(res=res_txt))
+			# Translators: Formula or code underlying a field
+			txt_parts.append(_("Field Code:\n{{{code}}}").format(code=code_txt))
+
+		elif item.elem_type == "formfield":
+			# Translators: Form field name in preview
+			txt_parts.append(_("Field Name: {name}").format(name=item.ref_id))
+			st = item.extra.get("status_text", "")
+			ht = item.extra.get("help_text", "")
+			if st:
+				# Translators: Status bar prompt configured for a form field
+				txt_parts.append(_("Status Prompt: {text}").format(text=st))
+			if ht:
+				# Translators: Help text prompt configured for a form field
+				txt_parts.append(_("Help Text: {text}").format(text=ht))
+			if item.full_text:
+				# Translators: Form field current value
+				txt_parts.append(_("Current Value: {val}").format(val=item.full_text))
+
+		elif item.elem_type == "contentcontrol":
+			t_name = item.extra.get("type_name", "")
+			if t_name:
+				# Translators: Content control type in preview
+				txt_parts.append(_("Control Type: {t}").format(t=t_name))
+			if item.extra.get("title"):
+				# Translators: Content control title in preview
+				txt_parts.append(_("Title: {title}").format(title=item.extra["title"]))
+			if item.extra.get("tag"):
+				# Translators: Content control tag in preview
+				txt_parts.append(_("Tag: {tag}").format(tag=item.extra["tag"]))
+			if item.extra.get("is_checkbox"):
+				chk = item.extra.get("is_checked", False)
+				if chk:
+					# Translators: Checkbox content control state in preview
+					txt_parts.append(_("State: Checked (Yes)"))
+				else:
+					# Translators: Checkbox content control state in preview
+					txt_parts.append(_("State: Not Checked (No)"))
+			if item.full_text:
+				# Translators: Content control text contents in preview
+				txt_parts.append(_("Content:\n{text}").format(text=item.full_text))
+
+		elif item.elem_type == "heading":
+			lvl = item.extra.get("level", "?")
+			s_name = item.extra.get("style_name", "")
+			if s_name:
+				# Translators: Heading level and Word style name in preview
+				txt_parts.append(_("Level: Heading {lvl} | Style: {style}").format(lvl=lvl, style=s_name))
+			else:
+				# Translators: Heading level in preview
+				txt_parts.append(_("Level: Heading {lvl}").format(lvl=lvl))
+			if item.full_text:
+				txt_parts.append(f"\n{item.full_text}")
+
+		elif item.elem_type == "frame":
+			w_cm = item.extra.get("width_cm", 0.0)
+			h_cm = item.extra.get("height_cm", 0.0)
+			if w_cm > 0 and h_cm > 0:
+				# Translators: Frame dimensions in preview pane (centimeters)
+				txt_parts.append(_("Dimensions: {w} cm wide x {h} cm high").format(w=w_cm, h=h_cm))
+			if item.full_text:
+				# Translators: Frame text content in preview pane
+				txt_parts.append(_("Frame Content:\n{text}").format(text=item.full_text))
+
+		elif item.elem_type == "section":
+			orient = item.extra.get("orientation", "")
+			paper = item.extra.get("paper_size", "")
+			start_t = item.extra.get("start_type", "")
+			top_m = item.extra.get("top_cm", 0.0)
+			bot_m = item.extra.get("bottom_cm", 0.0)
+			left_m = item.extra.get("left_cm", 0.0)
+			right_m = item.extra.get("right_cm", 0.0)
+			has_h = item.extra.get("has_headers", False)
+			has_f = item.extra.get("has_footers", False)
+
+			# Translators: Section layout summary in preview
+			txt_parts.append(_("Orientation: {orient} | Paper Size: {paper} | Break: {start_t}").format(orient=orient, paper=paper, start_t=start_t))
+			# Translators: Margins summary in centimeters
+			txt_parts.append(_("Margins: Top {top} cm, Bottom {bot} cm, Left {left} cm, Right {right} cm").format(top=top_m, bot=bot_m, left=left_m, right=right_m))
+			# Translators: Header presence in section
+			h_str = _("Present") if has_h else _("None")
+			# Translators: Footer presence in section
+			f_str = _("Present") if has_f else _("None")
+			# Translators: Presence of headers and footers in section
+			txt_parts.append(_("Headers: {h} | Footers: {f}").format(h=h_str, f=f_str))
+			if item.full_text:
+				txt_parts.append(f"\n{item.full_text}")
 
 		elif item.elem_type == "spellingerror":
 			# Translators: Label for spelling error text in preview
@@ -1408,7 +2396,113 @@ class WordElementsOrganizerDialog(wx.Dialog):
 			# Translators: Label for sentence in grammatical error preview
 			txt_parts.append(_('Sentence: "{text}"').format(text=item.full_text))
 			# Translators: Explanatory note in preview for how to review grammar suggestions
-			txt_parts.append(_("Suggestions: Managed by Microsoft Editor.\nPress Alt+R or click 'Review in Word' to open suggestions directly in Word."))
+			txt_parts.append(_("Suggestions: Managed by Microsoft Editor.\nPress Enter or click 'Go To' to navigate to this error in Word, then press Alt+DownArrow or Shift+F10 to review suggestions."))
+
+		elif item.elem_type in ("drawingshape", "inlineshape"):
+			# Translators: Fallback label for a graphic element
+			type_name = item.extra.get("type_name", _("Graphic"))
+			width_cm = item.extra.get("width_cm", 0.0)
+			height_cm = item.extra.get("height_cm", 0.0)
+			has_alt = item.extra.get("has_alt", False)
+			alt_text = item.extra.get("alt_text", "")
+			title = item.extra.get("title", "")
+			is_textbox = item.extra.get("is_textbox", False)
+			box_text = item.extra.get("box_text", "")
+
+			# Translators: Shape type in preview pane
+			txt_parts.append(_("Type: {t}").format(t=type_name))
+			if width_cm > 0 and height_cm > 0:
+				# Translators: Graphic dimensions in preview pane (centimeters)
+				txt_parts.append(_("Dimensions: {w} cm wide x {h} cm high").format(w=width_cm, h=height_cm))
+
+			if is_textbox and box_text:
+				# Translators: Label for text box contents in preview pane
+				txt_parts.append(_("Text Content:\n{text}").format(text=box_text))
+			elif has_alt:
+				if title:
+					# Translators: Title of a graphic in preview pane
+					txt_parts.append(_("Title: {t}").format(t=title))
+				if alt_text:
+					# Translators: Alternative text description of a graphic in preview pane
+					txt_parts.append(_("Alternative Text:\n{desc}").format(desc=alt_text))
+			else:
+				# Translators: Status indicator when a graphic has no alternative text
+				txt_parts.append(_("Alt Text Status: MISSING (Inaccessible to screen readers)"))
+				# Translators: Guidance for editing missing alternative text
+				txt_parts.append(_("Press Alt+T or click 'Edit Alt Text' to add a description."))
+
+		elif item.elem_type == "equation":
+			t_name = item.extra.get("type_name", "")
+			math_txt = item.extra.get("math_text", item.full_text)
+			para_txt = item.extra.get("para_text", "")
+			if t_name:
+				# Translators: Math equation type header in preview
+				txt_parts.append(_("Equation Type: {t}").format(t=t_name))
+			if math_txt:
+				# Translators: Header for visual rendered formula in preview
+				txt_parts.append(_("Visual Formula Rendering:\n{math}").format(math=math_txt))
+			if para_txt:
+				# Translators: Enclosing context header for equation preview
+				txt_parts.append(_("Enclosing Context:\n\"{context}\"").format(context=para_txt))
+
+		elif item.elem_type == "citation":
+			cit_tag = item.extra.get("tag", item.ref_id)
+			res_txt = item.extra.get("result_text", "")
+			is_resolved = item.extra.get("is_resolved", False)
+			sent_txt = item.extra.get("sentence_text", "")
+			code_txt = item.extra.get("code_text", "")
+
+			if res_txt:
+				# Translators: Header for visual rendered in-text citation in preview
+				txt_parts.append(_("Visual In-Text Citation:\n{res}").format(res=res_txt))
+			# Translators: Citation tag / key header in preview
+			txt_parts.append(_("Citation Key: {key}").format(key=cit_tag))
+
+			if is_resolved:
+				# Translators: Indicates citation key was verified in master bibliography
+				txt_parts.append(_("Source Status: Verified in Bibliography"))
+				auth = item.extra.get("author", "")
+				title = item.extra.get("title", "")
+				yr = item.extra.get("year", "")
+				ref_parts = []
+				if auth:
+					ref_parts.append(auth)
+				if yr:
+					ref_parts.append(f"({yr})")
+				if title:
+					ref_parts.append(f'"{title}"')
+				if ref_parts:
+					# Translators: Master bibliography source entry in preview
+					txt_parts.append(_("Bibliographic Reference:\n{ref}").format(ref=" ".join(ref_parts)))
+			else:
+				# Translators: Indicates citation key could not be found in bibliography
+				txt_parts.append(_("Source Status: UNRESOLVED (Source missing from Bibliography)"))
+
+			if sent_txt:
+				# Translators: Context sentence for citation in preview
+				txt_parts.append(_("Cited In Sentence:\n\"{sent}\"").format(sent=sent_txt))
+			if code_txt:
+				# Translators: Raw citation field code in preview
+				txt_parts.append(_("Field Code: {{{code}}}").format(code=code_txt))
+
+		elif item.elem_type == "caption":
+			lbl = item.extra.get("label", "")
+			s_num = item.extra.get("seq_num", "")
+			full_cap = item.extra.get("full_caption", item.full_text)
+			descr = item.extra.get("description", "")
+			adj_obj = item.extra.get("adjacent_type", "")
+
+			if full_cap:
+				# Translators: Header for rendered visual caption in preview
+				txt_parts.append(_("Visual Caption (As Rendered):\n{cap}").format(cap=full_cap))
+			# Translators: Category and sequence number for caption in preview
+			txt_parts.append(_("Category: {cat} | Number: {num}").format(cat=lbl, num=s_num))
+			if descr and descr != full_cap:
+				# Translators: Caption description text without label
+				txt_parts.append(_("Description: {desc}").format(desc=descr))
+			if adj_obj:
+				# Translators: Proximity check audit in preview
+				txt_parts.append(_("Associated Object: {obj}").format(obj=adj_obj))
 
 		else:
 			if item.ref_id:
@@ -1425,6 +2519,26 @@ class WordElementsOrganizerDialog(wx.Dialog):
 		elif key == ord('O') and wx.GetKeyState(wx.WXK_CONTROL):
 			self.on_open_link(None)
 			return
+		elif key == ord('T') and wx.GetKeyState(wx.WXK_CONTROL):
+			item = self._get_selected_item()
+			if item and item.elem_type in ("drawingshape", "inlineshape"):
+				self.on_edit_alt_text(None)
+				return
+		elif key == ord('M') and wx.GetKeyState(wx.WXK_CONTROL):
+			item = self._get_selected_item()
+			if item and item.elem_type in ("comment", "footnote", "endnote"):
+				self.on_modify_text(None)
+				return
+		elif key == ord('U') and wx.GetKeyState(wx.WXK_CONTROL):
+			item = self._get_selected_item()
+			if item and item.elem_type == "comment":
+				self.on_modify_author(None)
+				return
+		elif key == wx.WXK_F2:
+			item = self._get_selected_item()
+			if item and item.elem_type == "bookmark":
+				self.on_rename_bookmark(None)
+				return
 		elif key == wx.WXK_SPACE:
 			item = self._get_selected_item()
 			if item:
@@ -1456,16 +2570,23 @@ class WordElementsOrganizerDialog(wx.Dialog):
 			"start_pos": item.start_pos,
 			"end_pos": item.end_pos,
 			"elem_type": item.elem_type,
-			"snippet": item.snippet
+			"snippet": item.snippet,
+			"ref_id": item.ref_id,
+			"shape_index": item.extra.get("shape_index") if item.extra else None,
+			"is_textbox": item.extra.get("is_textbox", False) if item.extra else False,
 		}
-		self._trigger_grammar_card = False
 		self.EndModal(wx.ID_OK)
 
 	def on_open_link(self, evt=None):
 		item = self._get_selected_item()
 		if not item or item.elem_type != "hyperlink":
 			return
-		addr = item.extra.get("address") or item.full_text
+		addr = item.extra.get("address", "") or item.full_text
+		sub_addr = item.extra.get("sub_address", "")
+		if not addr and sub_addr:
+			# Translators: Spoken when a hyperlink points to an internal bookmark or heading
+			ui.message(_("Internal document link to '{dest}'. Press Enter or click 'Go To' to jump to it in Word.").format(dest=sub_addr))
+			return
 		if not addr:
 			# Translators: Spoken when a hyperlink has no target address
 			ui.message(_("No target address for this hyperlink."))
@@ -1520,23 +2641,6 @@ class WordElementsOrganizerDialog(wx.Dialog):
 				ui.message(_("Failed to rename bookmark: {err}").format(err=str(err)))
 		dlg.Destroy()
 
-	def on_review_grammar(self, evt=None):
-		"""
-		Navigates Word focus directly to the grammatical error sentence and signals
-		the launcher to trigger Word's native Microsoft Editor suggestion card.
-		"""
-		item = self._get_selected_item()
-		if not item or item.elem_type != "grammaticalerror":
-			return
-		self._nav_target = {
-			"start_pos": item.start_pos,
-			"end_pos": item.end_pos,
-			"elem_type": item.elem_type,
-			"snippet": item.snippet
-		}
-		self._trigger_grammar_card = True
-		self.EndModal(wx.ID_OK)
-
 	def on_apply_spelling(self, evt=None):
 		item = self._get_selected_item()
 		if not item or item.elem_type != "spellingerror":
@@ -1574,6 +2678,44 @@ class WordElementsOrganizerDialog(wx.Dialog):
 					ui.message(_("Failed to apply correction: {err}").format(err=str(err)))
 		dlg.Destroy()
 
+	def on_edit_alt_text(self, evt=None):
+		item = self._get_selected_item()
+		if not item or item.elem_type not in ("drawingshape", "inlineshape"):
+			return
+		curr_alt = item.extra.get("alt_text", "")
+		# Translators: Fallback name for a graphic without a title
+		item_name = item.ref_id or _("Graphic")
+		# Translators: Prompt message to enter alternative text for a graphic
+		prompt_msg = _("Enter alternative text description for '{name}':").format(name=item_name)
+		# Translators: Title of the alternative text editor dialog
+		dlg_title = _("Edit Alternative Text")
+		dlg = wx.TextEntryDialog(self, prompt_msg, dlg_title, value=curr_alt, style=wx.OK | wx.CANCEL | wx.TE_MULTILINE)
+		if dlg.ShowModal() == wx.ID_OK:
+			new_alt = dlg.GetValue().strip()
+			try:
+				raw = item.raw_obj
+				if raw:
+					raw.AlternativeText = new_alt
+				item.extra["alt_text"] = new_alt
+				item.extra["has_alt"] = bool(new_alt)
+				item.full_text = new_alt or item.snippet
+				if new_alt:
+					item.snippet = f"{item_name}: {new_alt[:40]}"
+				else:
+					# Translators: Prefix for graphic missing alternative text
+					item.snippet = _("[No Alt Text] {name}").format(name=item_name)
+				idx = self.list_ctrl.GetFirstSelected()
+				if idx >= 0:
+					self.list_ctrl.SetItem(idx, 1, item.snippet)
+				self._display_item_preview(item)
+				# Translators: Spoken announcement when alternative text is successfully updated
+				ui.message(_("Alternative text updated."))
+			except Exception as err:
+				log.error(f"BOA ElementsOrganizer edit alt text error: {err}")
+				# Translators: Error message when updating alternative text fails
+				ui.message(_("Failed to update alternative text: {err}").format(err=str(err)))
+		dlg.Destroy()
+
 	def on_reply(self, evt):
 		item = self._get_selected_item()
 		if not item or item.elem_type != "comment":
@@ -1599,45 +2741,226 @@ class WordElementsOrganizerDialog(wx.Dialog):
 					ui.message(_("Failed to add reply."))
 		reply_dlg.Destroy()
 
-	def on_accept_revision(self, evt):
+	def on_modify_text(self, evt=None):
+		item = self._get_selected_item()
+		if not item or item.elem_type not in ("comment", "footnote", "endnote"):
+			return
+
+		# Safe Rich Content Guard for Footnotes and Endnotes
+		if item.elem_type in ("footnote", "endnote"):
+			note = item.raw_obj
+			note_range = getattr(note, "Range", None)
+			has_rich = False
+			if note_range:
+				try:
+					if getattr(note_range, "InlineShapes", None) and note_range.InlineShapes.Count > 0:
+						has_rich = True
+				except Exception:
+					pass
+				try:
+					if getattr(note_range, "Fields", None) and note_range.Fields.Count > 0:
+						has_rich = True
+				except Exception:
+					pass
+				try:
+					if hasattr(note_range, "OMaths") and note_range.OMaths.Count > 0:
+						has_rich = True
+				except Exception:
+					pass
+
+			# Translators: Element type label for footnote
+			fn_label = _("footnote")
+			# Translators: Element type label for endnote
+			en_label = _("endnote")
+			note_label = fn_label if item.elem_type == "footnote" else en_label
+
+			if has_rich:
+				# Translators: Warning dialog message when attempting to edit a note containing rich elements
+				warning_msg = _(
+					"This {note_type} contains non-text elements (such as embedded fields, math equations, or images). "
+					"Editing it in plain text would remove those objects.\n\n"
+					"To protect your document formatting, please use 'Go To' to edit this note directly in Microsoft Word."
+				).format(note_type=note_label)
+				# Translators: Title of warning dialog for rich note content
+				warning_title = _("Rich Content Warning")
+				gui.messageBox(warning_msg, warning_title, wx.OK | wx.ICON_WARNING, self)
+				return
+
+			# Translators: Prompt message for modifying footnote or endnote text
+			prompt_msg = _("Enter new text for {note_type}:").format(note_type=note_label)
+			# Translators: Title of footnote text modification dialog
+			fn_title = _("Modify Footnote")
+			# Translators: Title of endnote text modification dialog
+			en_title = _("Modify Endnote")
+			dlg_title = fn_title if item.elem_type == "footnote" else en_title
+
+			dlg = wx.TextEntryDialog(self, prompt_msg, dlg_title, value=item.full_text, style=wx.OK | wx.CANCEL | wx.TE_MULTILINE)
+			if dlg.ShowModal() == wx.ID_OK:
+				new_text = dlg.GetValue().strip()
+				if not new_text:
+					dlg.Destroy()
+					return
+				try:
+					note.Range.Text = new_text
+					item.full_text = new_text
+					ref_idx = item.ref_id.replace("#", "")
+					clean_snippet = new_text.replace("\r", " ").replace("\n", " ")
+					snippet = f"[{ref_idx}] {clean_snippet}"
+					if len(snippet) > 60:
+						snippet = snippet[:57] + "..."
+					item.snippet = snippet
+					idx = self.list_ctrl.GetFirstSelected()
+					if idx >= 0:
+						self.list_ctrl.SetItem(idx, 1, snippet)
+					self._display_item_preview(item)
+					# Translators: Success announcement when note text is modified
+					ui.message(_("{note_type} text updated.").format(note_type=note_label.capitalize()))
+				except Exception as e:
+					log.error(f"BOA ElementsOrganizer modify note error: {e}")
+					# Translators: Error message when modifying note text fails
+					ui.message(_("Failed to update {note_type} text.").format(note_type=note_label))
+			dlg.Destroy()
+			return
+
+		# Comment Text Modification
+		elif item.elem_type == "comment":
+			# Translators: Prompt message for modifying comment text
+			prompt_msg = _("Enter new text for comment:")
+			# Translators: Title of comment text modification dialog
+			dlg_title = _("Modify Comment Text")
+			dlg = wx.TextEntryDialog(self, prompt_msg, dlg_title, value=item.full_text, style=wx.OK | wx.CANCEL | wx.TE_MULTILINE)
+			if dlg.ShowModal() == wx.ID_OK:
+				new_text = dlg.GetValue().strip()
+				if not new_text:
+					dlg.Destroy()
+					return
+				try:
+					c = item.raw_obj
+					c.Range.Text = new_text
+					item.full_text = new_text
+					clean_txt = new_text.replace("\r", " ").replace("\n", " ")
+					snippet = clean_txt[:57] + "..." if len(clean_txt) > 60 else clean_txt
+					item.snippet = snippet
+					idx = self.list_ctrl.GetFirstSelected()
+					if idx >= 0:
+						self.list_ctrl.SetItem(idx, 1, snippet)
+					self._display_item_preview(item)
+					# Translators: Success announcement when comment text is modified
+					ui.message(_("Comment text updated."))
+				except Exception as e:
+					log.error(f"BOA ElementsOrganizer modify comment text error: {e}")
+					# Translators: Error message when modifying comment text fails
+					ui.message(_("Failed to update comment text."))
+			dlg.Destroy()
+
+	def on_modify_author(self, evt=None):
+		item = self._get_selected_item()
+		if not item or item.elem_type != "comment":
+			return
+
+		old_author = item.author
+		# Translators: Prompt message for modifying comment author name
+		prompt_msg = _("Enter new author name for comment:")
+		# Translators: Title of comment author modification dialog
+		dlg_title = _("Modify Comment Author")
+		dlg = wx.TextEntryDialog(self, prompt_msg, dlg_title, value=old_author)
+		if dlg.ShowModal() == wx.ID_OK:
+			new_author = dlg.GetValue().strip()
+			if not new_author or new_author == old_author:
+				dlg.Destroy()
+				return
+			try:
+				c = item.raw_obj
+				c.Author = new_author
+				item.author = new_author
+				idx = self.list_ctrl.GetFirstSelected()
+				if idx >= 0:
+					self.list_ctrl.SetItem(idx, 2, item.get_meta_display())
+				self._display_item_preview(item)
+				# Translators: Success announcement when comment author is modified
+				ui.message(_("Comment author updated to {name}").format(name=new_author))
+			except Exception as e:
+				log.error(f"BOA ElementsOrganizer modify comment author error: {e}")
+				# Translators: Error message when modifying comment author fails
+				ui.message(_("Failed to update comment author."))
+		dlg.Destroy()
+
+	def on_accept_revision(self, evt=None):
 		item = self._get_selected_item()
 		if item and item.elem_type == "revision":
 			try:
 				item.raw_obj.Accept()
-				# Translators: Success announcement
+				# Translators: Success announcement when a revision is accepted
 				ui.message(_("Revision accepted."))
-				self._start_scan()
+				self._start_scan(preserve_selection=True)
 			except Exception as e:
 				log.error(f"BOA ElementsOrganizer Accept Error: {e}")
+				# Translators: Error message when accepting revision fails
+				ui.message(_("Failed to accept revision."))
 
-	def on_reject_revision(self, evt):
+	def on_reject_revision(self, evt=None):
 		item = self._get_selected_item()
 		if item and item.elem_type == "revision":
 			try:
 				item.raw_obj.Reject()
-				# Translators: Success announcement
+				# Translators: Success announcement when a revision is rejected
 				ui.message(_("Revision rejected."))
-				self._start_scan()
+				self._start_scan(preserve_selection=True)
 			except Exception as e:
 				log.error(f"BOA ElementsOrganizer Reject Error: {e}")
+				# Translators: Error message when rejecting revision fails
+				ui.message(_("Failed to reject revision."))
 
-	def on_delete(self, evt):
+	def on_delete(self, evt=None):
 		item = self._get_selected_item()
-		if item:
-			# Translators: Confirmation prompt before deleting an element
-			msg = _("Are you sure you want to delete this {type}?").format(type=item.elem_type)
-			# Translators: Confirmation title
-			title = _("Confirm Deletion")
+		if not item:
+			return
+
+		elem_dict = dict(ELEMENT_TYPES)
+		type_label = elem_dict.get(item.elem_type, item.elem_type.capitalize())
+		item_name = item.ref_id or item.snippet
+		if len(item_name) > 40:
+			item_name = item_name[:37] + "..."
+
+		# Special handling for tracked revisions (Word COM does not have Revision.Delete, only Revision.Reject)
+		if item.elem_type == "revision":
+			# Translators: Confirmation prompt before rejecting a tracked change revision
+			msg = _("Are you sure you want to reject '{name}' ({type})?").format(name=item_name, type=type_label)
+			# Translators: Title of confirmation dialog before rejecting a revision
+			title = _("Confirm Rejection")
 			if wx.MessageBox(msg, title, wx.YES_NO | wx.ICON_QUESTION, self) == wx.YES:
 				try:
-					item.raw_obj.Delete()
-					# Translators: Success announcement
-					ui.message(_("Item deleted."))
-					self._start_scan()
+					item.raw_obj.Reject()
+					# Translators: Success announcement when a revision is rejected
+					ui.message(_("Revision rejected."))
+					self._start_scan(preserve_selection=True)
 				except Exception as e:
-					log.error(f"BOA ElementsOrganizer Delete Error: {e}")
-					# Translators: Error deleting item
-					ui.message(_("Failed to delete element."))
+					log.error(f"BOA ElementsOrganizer Reject Error: {e}")
+					# Translators: Error message when rejecting revision fails
+					ui.message(_("Failed to reject revision."))
+			return
+
+		# Standard deletion for comments, bookmarks, footnotes, endnotes, tables, shapes, frames, hyperlinks, equations, citations, captions
+		# Translators: Confirmation prompt before deleting an element with its name and type
+		msg = _("Are you sure you want to delete '{name}' ({type})?").format(name=item_name, type=type_label)
+		# Translators: Title of confirmation dialog before deleting an element
+		title = _("Confirm Deletion")
+		if wx.MessageBox(msg, title, wx.YES_NO | wx.ICON_QUESTION, self) == wx.YES:
+			try:
+				if item.elem_type == "equation":
+					if hasattr(item.raw_obj, "Remove"):
+						item.raw_obj.Remove()
+					else:
+						item.raw_obj.Range.Delete()
+				else:
+					item.raw_obj.Delete()
+				# Translators: Success announcement
+				ui.message(_("Item deleted."))
+				self._start_scan(preserve_selection=True)
+			except Exception as e:
+				log.error(f"BOA ElementsOrganizer Delete Error: {e}")
+				# Translators: Error deleting item
+				ui.message(_("Failed to delete element."))
 
 	def on_copy_all(self, evt):
 		if not self.items:
@@ -1697,13 +3020,11 @@ class WordElementsOrganizer:
 		gui.mainFrame.prePopup()
 		dlg = None
 		nav_target = None
-		trigger_card = False
 		try:
 			dlg = WordElementsOrganizerDialog(gui.mainFrame, doc, selection, app)
 			result = dlg.ShowModal()
 			if result == wx.ID_OK:
 				nav_target = getattr(dlg, "_nav_target", None)
-				trigger_card = getattr(dlg, "_trigger_grammar_card", False)
 		finally:
 			if dlg:
 				dlg.clean_up()
@@ -1720,33 +3041,48 @@ class WordElementsOrganizer:
 					except Exception as win_err:
 						log.debugWarning(f"BOA could not activate Word ActiveWindow: {win_err}")
 
-					# 2. Select target range
+					# 2. Select target range or text frame
+					is_textbox = nav_target.get("is_textbox", False)
+					shape_index = nav_target.get("shape_index", None)
+					if is_textbox and shape_index:
+						try:
+							sh = doc.Shapes(shape_index)
+							if sh and getattr(sh, "HasTextFrame", False):
+								tf = getattr(sh, "TextFrame", None)
+								if tf and getattr(tf, "HasText", False):
+									tf_range = tf.TextRange
+									tf_range.Collapse(1)  # wdCollapseStart
+									tf_range.Select()
+									return
+						except Exception as tb_err:
+							log.debugWarning(f"BOA could not navigate into text box: {tb_err}")
+
 					start_pos = nav_target.get("start_pos", 0)
 					end_pos = nav_target.get("end_pos", start_pos)
 					if end_pos < start_pos:
 						end_pos = start_pos
 
-					# For massive elements like entire sections (> 2000 chars),
-					# collapse to start_pos to avoid massive text selection freezes.
 					elem_type = nav_target.get("elem_type", "")
-					if elem_type == "section" or (end_pos - start_pos > 2000):
-						target_range = doc.Range(start_pos, start_pos)
-					else:
+					if elem_type == "formfield":
+						ref_id = nav_target.get("ref_id", "")
+						if ref_id and hasattr(doc, "FormFields"):
+							try:
+								doc.FormFields(ref_id).Select()
+								return
+							except Exception as ff_sel_err:
+								log.debugWarning(f"BOA FormField native Select failed, falling back to Range: {ff_sel_err}")
+
+					# Error elements require full block highlight for Word's correction engines (Editor / Spellcheck);
+					# all navigation & structural elements use collapsed caret placement for safety and clean speech.
+					if elem_type in ("spellingerror", "grammaticalerror"):
 						target_range = doc.Range(start_pos, end_pos)
+					else:
+						target_range = doc.Range(start_pos, start_pos)
 
 					if target_range:
 						target_range.Select()
 
-						if trigger_card:
-							# Translators: Spoken when opening Microsoft Editor suggestions
-							ui.message(_("Opening Microsoft Editor suggestions..."))
-							def _send_card_gesture():
-								try:
-									KeyboardInputGesture.fromName("alt+downArrow").send()
-								except Exception as err:
-									log.debugWarning(f"BOA failed to send alt+downArrow: {err}")
-							core.callLater(200, _send_card_gesture)
-						elif elem_type == "grammaticalerror":
+						if elem_type == "grammaticalerror":
 							# Translators: Spoken after jumping to a grammatical error in Word
 							ui.message(_("Navigated to grammatical error. Press Alt+DownArrow or Shift+F10 to review suggestions."))
 					else:
